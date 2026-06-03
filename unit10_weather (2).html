@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real English — الوحدة ١٠: الطقس والفصول</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-thumb{background:#c4a882;border-radius:3px}
+body{font-family:'Tajawal',sans-serif;background:#f7f3ed;min-height:100vh;direction:rtl}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes popIn{from{opacity:0;transform:scale(0.85)}to{opacity:1;transform:scale(1)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(5,150,105,0.4)}50%{box-shadow:0 0 0 8px rgba(5,150,105,0)}}
+.fade-up{animation:fadeUp 0.45s ease forwards}
+.nav-btn{transition:all 0.2s;border:none;cursor:pointer;font-family:'Tajawal',sans-serif;border-radius:30px;padding:7px 16px;font-size:0.82rem;font-weight:600}
+.nav-btn.active{background:#d4a017;color:#0c1e3c;font-weight:800}
+.nav-btn:not(.active){background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.85)}
+.section-content{display:none;max-width:880px;margin:0 auto;padding:36px 16px 80px}
+.section-content.active{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 4px 28px rgba(0,0,0,0.07);margin-bottom:24px;overflow:hidden}
+.card-header{background:#0c1e3c;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.card-header .icon{font-size:1.4rem}
+.card-header h3{font-size:1.05rem;font-weight:700}
+.card-header .sub{font-size:0.78rem;color:#93c5fd;margin-top:1px}
+.card-body{padding:24px}
+.vocab-grid{display:flex;flex-direction:column;gap:8px}
+.vocab-row{display:grid;grid-template-columns:1fr 1fr 1fr 42px;align-items:start;gap:5px 10px;padding:11px 16px;border-radius:12px;border:1px solid #e5eaf5;transition:all 0.18s}
+.vocab-ex{grid-column:1/-1;font-size:0.82rem;direction:ltr;padding:5px 8px 3px;border-top:1px dashed #e5eaf5;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.vocab-ex-en{font-family:'Lora',serif;color:#374151;font-style:italic}
+.vocab-ex-ar{font-family:'Tajawal',sans-serif;color:#9ca3af;direction:rtl;font-size:0.78rem}
+.vocab-row:hover{transform:translateX(-3px);box-shadow:0 2px 12px rgba(12,30,60,0.1)}
+.vocab-row.even{background:#f4f7ff}
+.vocab-row.odd{background:#fff}
+.vocab-header{background:#0c1e3c !important;border:none !important;transform:none !important;box-shadow:none !important}
+.v-en{font-family:'Lora',serif;font-weight:700;font-size:1rem;color:#0c1e3c;direction:ltr;text-align:left}
+.v-pron{font-size:0.88rem;color:#d4a017;font-weight:700;direction:rtl;text-align:right}
+.v-ar{font-size:0.97rem;font-weight:700;color:#374151;text-align:right}
+.vocab-header .v-en,.vocab-header .v-pron,.vocab-header .v-ar{color:white;font-family:'Tajawal',sans-serif;font-weight:700}
+.play-btn{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.18s;flex-shrink:0}
+.play-btn.idle{background:#e8f0fe;color:#1a56b0}
+.play-btn.idle:hover{background:#1a56b0;color:white;transform:scale(1.1)}
+.play-btn.playing{background:#059669;color:white;animation:pulse 1s infinite}
+.story-controls{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap;flex-direction:row-reverse}
+.story-main-btn{display:flex;align-items:center;gap:8px;border:none;border-radius:25px;padding:10px 22px;font-family:'Tajawal',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.2s;flex-direction:row-reverse}
+.speed-wrap{display:flex;align-items:center;gap:6px;flex-direction:row-reverse}
+.speed-wrap label{font-size:0.82rem;color:#6b7280;font-weight:600}
+.spd{padding:5px 11px;border-radius:20px;border:2px solid #d1d5db;background:white;font-family:'Tajawal',sans-serif;font-size:0.78rem;font-weight:700;cursor:pointer;color:#6b7280;transition:all 0.15s}
+.spd.active{border-color:#0c1e3c;background:#0c1e3c;color:white}
+.story-box{border-right:4px solid #d4a017;padding:16px 20px;background:#fffdf7;border-radius:0 12px 12px 0}
+.story-line{display:flex;flex-direction:column;gap:3px;padding:5px 6px;border-radius:6px;transition:background 0.2s;direction:ltr}
+.story-line-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.story-line.hl{background:#fef3c7;border-radius:8px}
+.story-line-text{font-family:'Lora',serif;font-size:1rem;line-height:1.9;flex:1;cursor:default}
+.story-line-text .clickword{cursor:pointer;border-bottom:1px dashed #d4a017;transition:all 0.15s;position:relative}
+.story-line-text .clickword:hover{color:#0c1e3c;background:#fef3c7;border-radius:3px}
+.word-tooltip{position:absolute;bottom:100%;right:50%;transform:translateX(50%);background:#0c1e3c;color:white;padding:4px 10px;border-radius:8px;font-size:0.78rem;white-space:nowrap;font-family:'Tajawal',sans-serif;z-index:99;animation:popIn 0.2s ease;pointer-events:none}
+.line-play{background:transparent;border:1px solid #e5e7eb;border-radius:6px;padding:3px 8px;color:#9ca3af;font-size:0.72rem;cursor:pointer;flex-shrink:0;font-family:'Tajawal',sans-serif;transition:all 0.15s;margin-top:4px}
+.line-play:hover{background:#f0f4ff;color:#1a56b0;border-color:#1a56b0}
+.grammar-rule-box{background:linear-gradient(135deg,#f0f7ff,#e8f4ff);border:2px solid #bfdbfe;border-radius:14px;padding:20px 22px;margin-bottom:16px}
+.grammar-rule-title{font-size:1rem;font-weight:800;color:#0c1e3c;margin-bottom:12px;text-align:right;display:flex;align-items:center;gap:8px;flex-direction:row-reverse}
+.grammar-pattern{background:white;border-radius:10px;padding:14px 18px;margin-bottom:10px;border-right:4px solid #1a56b0;direction:ltr}
+.grammar-pattern-ar{font-family:'Tajawal',sans-serif;font-size:0.88rem;color:#6b7280;direction:rtl;text-align:right;margin-top:6px}
+.grammar-eg{font-family:'Lora',serif;font-size:1rem;color:#0c1e3c;font-weight:600}
+.grammar-eg span{color:#d4a017;font-weight:800}
+.grammar-wrong{background:#fef2f2;border-radius:10px;padding:12px 16px;margin-bottom:8px;direction:ltr;border-right:4px solid #dc2626}
+.grammar-right{background:#f0fdf4;border-radius:10px;padding:12px 16px;direction:ltr;border-right:4px solid #059669}
+.writing-form{background:#fffdf7;border:2px dashed #d4a017;border-radius:14px;padding:22px;margin-bottom:16px}
+.writing-field{margin-bottom:16px}
+.writing-field-label{font-size:0.88rem;color:#6b7280;font-weight:600;margin-bottom:6px;text-align:right;display:flex;align-items:center;justify-content:flex-end;gap:6px}
+.writing-field-label span{font-family:'Lora',serif;color:#0c1e3c;font-weight:700;direction:ltr}
+.writing-input{width:100%;border:none;border-bottom:2px solid #d4a017;background:transparent;font-family:'Lora',serif;font-size:1rem;color:#0c1e3c;outline:none;padding:5px 4px;direction:ltr}
+.writing-input:focus{border-color:#0c1e3c}
+.writing-story-box{background:white;border:1px solid #e5eaf5;border-radius:12px;padding:18px 20px;min-height:80px;font-family:'Lora',serif;font-size:0.95rem;line-height:1.9;color:#374151;direction:ltr;margin-top:4px}
+.writing-story-placeholder{color:#9ca3af;font-style:italic;font-size:0.9rem;text-align:center;padding:12px 0}
+.listen-card{display:flex;align-items:center;gap:14px;background:#f0f7ff;border:1px solid #bfdbfe;border-radius:12px;padding:14px 18px;margin-bottom:10px;flex-direction:row-reverse}
+.listen-link{background:#1a56b0;color:white;border:none;border-radius:8px;padding:8px 16px;font-family:'Tajawal',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.2s;flex-shrink:0}
+.listen-link:hover{background:#0c1e3c}
+.speaking-q{background:#f8faff;border-right:4px solid #1a56b0;border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px}
+.speaking-q p{font-size:0.97rem;line-height:1.7;color:#1a1a2e;text-align:right;flex:1}
+.quiz-q{margin-bottom:20px}
+.quiz-q p{font-size:0.97rem;font-weight:700;color:#0c1e3c;margin-bottom:10px;text-align:right;direction:ltr;font-family:'Lora',serif}
+.quiz-opts{display:flex;flex-direction:column;gap:8px}
+.quiz-opt{display:flex;align-items:center;gap:10px;padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;transition:all 0.18s;flex-direction:row-reverse;text-align:right;background:white}
+.quiz-opt:hover{border-color:#1a56b0;background:#f0f7ff}
+.quiz-opt.correct{border-color:#059669;background:#ecfdf5;color:#059669}
+.quiz-opt.wrong{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.quiz-opt input{display:none}
+.btn{border:none;border-radius:30px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all 0.2s;padding:11px 28px;font-size:0.95rem}
+.btn:hover{opacity:0.88;transform:scale(0.98)}
+.btn-dark{background:#0c1e3c;color:white}
+.btn-gray{background:#e5e7eb;color:#374151}
+.btn-gold{background:#d4a017;color:#0c1e3c}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(90px);background:#0c1e3c;color:white;padding:12px 28px;border-radius:30px;font-size:0.95rem;font-weight:700;transition:transform 0.4s ease;z-index:999;pointer-events:none;white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0)}
+@media(max-width:580px){.vocab-row{grid-template-columns:1fr 1fr 38px}.v-pron{display:none}}
+</style>
+</head>
+<body>
+
+<div style="background:linear-gradient(135deg,#0c1e3c 0%,#1a3a6b 60%,#0f2d5a 100%);color:white;position:relative;overflow:hidden">
+  <div style="position:absolute;top:-60px;left:-60px;width:280px;height:280px;border-radius:50%;background:rgba(212,160,23,0.08);pointer-events:none"></div>
+  <div style="position:absolute;bottom:-60px;right:-30px;width:220px;height:220px;border-radius:50%;background:rgba(59,130,246,0.09);pointer-events:none"></div>
+  <div style="max-width:880px;margin:0 auto;padding:14px 20px 0;display:flex;justify-content:flex-end">
+    <a href="unit9_time.html" style="color:rgba(255,255,255,0.6);font-size:0.82rem;text-decoration:none">← الوحدة ٩</a>
+  </div>
+  <div style="display:flex;justify-content:center;gap:5px;padding:10px 16px 0;flex-wrap:wrap">
+    <button class="nav-btn active" onclick="show('vocab',this)">📚 المفردات</button>
+    <button class="nav-btn" onclick="show('story',this)">📖 القصة</button>
+    <button class="nav-btn" onclick="show('grammar',this)">✏️ القاعدة</button>
+    <button class="nav-btn" onclick="show('listen',this)">🎧 الاستماع</button>
+    <button class="nav-btn" onclick="show('writing',this)">✍️ الكتابة</button>
+    <button class="nav-btn" onclick="show('speaking',this)">💬 المحادثة</button>
+    <button class="nav-btn" onclick="show('realeng',this)">🗣️ Real English</button>
+    <button class="nav-btn" onclick="show('quiz',this)">✅ الاختبار</button>
+  </div>
+  <div style="max-width:880px;margin:0 auto;padding:32px 24px 44px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px">
+    <div>
+      <div style="font-size:0.78rem;letter-spacing:3px;color:#d4a017;font-weight:700;margin-bottom:8px">UNIT 10 — A1</div>
+      <h1 style="font-family:'Lora',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.2;margin-bottom:8px;direction:ltr">Weather & Seasons</h1>
+      <p style="font-size:1.1rem;color:rgba(255,255,255,0.75);margin-bottom:6px">الطقس والفصول</p>
+      <p style="font-size:0.88rem;color:rgba(255,255,255,0.55)">القاعدة: What is the weather like? — It is sunny and warm.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;text-align:center">
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:10px 18px">
+        <div style="font-family:'Lora',serif;font-size:1.4rem;font-weight:700;color:#d4a017">18</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.6)">كلمة جديدة</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:10px 18px">
+        <div style="font-family:'Lora',serif;font-size:1.4rem;font-weight:700;color:#d4a017">8</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.6)">أقسام</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="sec-vocab" class="section-content active fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">📚</span><div><h3>المفردات</h3><div class="sub">Vocabulary — اضغط 🔊 على أي كلمة لتسمع نطقها</div></div></div>
+    <div class="card-body">
+      <p style="text-align:right;color:#6b7280;font-size:0.9rem;margin-bottom:16px;line-height:1.7">💡 <strong>النطق بالعربي</strong> مكتوب بالأصفر — اقرأه مباشرة وستنطق الكلمة بشكل صحيح تقريباً. الصوت 🔊 يعطيك النطق الحقيقي من متحدث أصلي.</p>
+      <div class="vocab-grid">
+        <div class="vocab-row vocab-header"><span class="v-en">الكلمة</span><span class="v-pron">النطق</span><span class="v-ar">المعنى</span><span></span></div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center"><button class="btn btn-dark" onclick="show('story',null)">القصة ←</button></div>
+</div>
+
+<div id="sec-story" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">📖</span><div><h3>القصة</h3><div class="sub">اضغط على أي كلمة ملوّنة لترى معناها — اضغط 🌐 لترجمة الجملة</div></div></div>
+    <div class="card-body">
+      <div class="story-controls">
+        <button id="trAllBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:25px;padding:8px 16px;font-family:'Tajawal',sans-serif;font-size:0.82rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+        <button class="story-main-btn" id="storyBtn" onclick="toggleStory()" style="background:#1a56b0;color:white"><span id="sBtnIcon">▶</span><span id="sBtnTxt">استمع للقصة كاملة</span></button>
+        <div class="speed-wrap"><label>السرعة:</label><button class="spd active" onclick="setSpd(1,this)">عادي</button><button class="spd" onclick="setSpd(0.75,this)">بطيء</button></div>
+      </div>
+      <div class="story-box" id="storyBox"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn btn-dark" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">✏️</span><div><h3>القاعدة</h3><div class="sub">Grammar — تعلم القاعدة خطوة بخطوة</div></div></div>
+    <div class="card-body">
+
+      <div class="grammar-rule-box">
+        <div class="grammar-rule-title"><span style="background:#1a56b0;color:white;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:0.82rem;flex-shrink:0">١</span> كيف تسأل عن الطقس وتجيب؟</div>
+        <div style="background:#0c1e3c;border-radius:10px;padding:14px 18px;margin-bottom:12px;text-align:center">
+          <p style="font-family:'Lora',serif;font-size:1.1rem;color:#d4a017;font-weight:700;direction:ltr">What is the weather like? — It is + وصف الطقس</p>
+        </div>
+        <div class="grammar-pattern">
+          <div class="grammar-eg">What is the weather like? — It is <span>sunny and warm</span>.</div>
+          <div class="grammar-pattern-ar">كيف الطقس؟ — الجو مشمس ودافئ.</div>
+        </div>
+        <div class="grammar-pattern">
+          <div class="grammar-eg">It is <span>raining</span> outside today.</div>
+          <div class="grammar-pattern-ar">الجو ممطر في الخارج اليوم.</div>
+        </div>
+        <div class="grammar-pattern">
+          <div class="grammar-eg">It is very <span>cold and windy</span> in winter.</div>
+          <div class="grammar-pattern-ar">الجو بارد وعاصف جداً في الشتاء.</div>
+        </div>
+      </div>
+
+      <div class="grammar-rule-box">
+        <div class="grammar-rule-title"><span style="background:#1a56b0;color:white;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:0.82rem;flex-shrink:0">٢</span> الفصول الأربعة — متى تبدأ وما طقسها؟</div>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px">
+          <div style="background:white;border-radius:10px;padding:14px;border-top:4px solid #f59e0b;text-align:center">
+            <div style="font-size:2rem;margin-bottom:4px">🌸</div>
+            <div style="font-family:'Lora',serif;font-weight:700;color:#0c1e3c">Spring</div>
+            <div style="font-size:0.8rem;color:#6b7280;margin:4px 0">الربيع</div>
+            <div style="font-size:0.78rem;color:#9ca3af;font-family:'Lora',serif;direction:ltr">warm, flowers, rain</div>
+          </div>
+          <div style="background:white;border-radius:10px;padding:14px;border-top:4px solid #ef4444;text-align:center">
+            <div style="font-size:2rem;margin-bottom:4px">☀️</div>
+            <div style="font-family:'Lora',serif;font-weight:700;color:#0c1e3c">Summer</div>
+            <div style="font-size:0.8rem;color:#6b7280;margin:4px 0">الصيف</div>
+            <div style="font-size:0.78rem;color:#9ca3af;font-family:'Lora',serif;direction:ltr">hot, sunny, dry</div>
+          </div>
+          <div style="background:white;border-radius:10px;padding:14px;border-top:4px solid #f97316;text-align:center">
+            <div style="font-size:2rem;margin-bottom:4px">🍂</div>
+            <div style="font-family:'Lora',serif;font-weight:700;color:#0c1e3c">Autumn</div>
+            <div style="font-size:0.8rem;color:#6b7280;margin:4px 0">الخريف</div>
+            <div style="font-size:0.78rem;color:#9ca3af;font-family:'Lora',serif;direction:ltr">cool, windy, leaves fall</div>
+          </div>
+          <div style="background:white;border-radius:10px;padding:14px;border-top:4px solid #3b82f6;text-align:center">
+            <div style="font-size:2rem;margin-bottom:4px">❄️</div>
+            <div style="font-family:'Lora',serif;font-weight:700;color:#0c1e3c">Winter</div>
+            <div style="font-size:0.8rem;color:#6b7280;margin:4px 0">الشتاء</div>
+            <div style="font-size:0.78rem;color:#9ca3af;font-family:'Lora',serif;direction:ltr">cold, snow, dark</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:8px">
+        <p style="font-weight:800;color:#0c1e3c;font-size:0.95rem;margin-bottom:10px;text-align:right">⚠️ خطأ شائع — احذر!</p>
+        <div class="grammar-wrong">
+          <span style="color:#dc2626;font-weight:700">✗ &nbsp;</span>
+          <span style="font-family:'Lora',serif">The weather is <strong>sun</strong> today.</span>
+          <span style="font-family:'Tajawal',sans-serif;color:#dc2626;font-size:0.85rem;margin-right:8px">← خطأ — sun اسم وليس صفة</span>
+        </div>
+        <div class="grammar-right">
+          <span style="color:#059669;font-weight:700">✓ &nbsp;</span>
+          <span style="font-family:'Lora',serif">The weather is <strong>sunny</strong> today.</span>
+          <span style="font-family:'Tajawal',sans-serif;color:#059669;font-size:0.85rem;margin-right:8px">← sunny هي الصفة الصحيحة</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('story',null)">→ القصة</button>
+    <button class="btn btn-dark" onclick="show('listen',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listen" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">🎧</span><div><h3>الاستماع</h3><div class="sub">اضغط ▶ افتح لتشغيل المقطع مباشرة</div></div></div>
+    <div class="card-body">
+      <p style="text-align:right;color:#6b7280;font-size:0.88rem;margin-bottom:16px">استمع وحاول تتعرف على كلمات الطقس والفصول بالإنجليزي 🎯</p>
+      <div id="listenCards"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn btn-dark" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">✍️</span><div><h3>الكتابة</h3><div class="sub">Writing Practice — اكتب عن طقس بلدك الحقيقي</div></div></div>
+    <div class="card-body">
+      <p style="text-align:right;color:#374151;font-size:0.95rem;margin-bottom:6px;line-height:1.8">اتبع القالب أدناه واكتب جملك الخاصة عن الطقس في بلدك.</p>
+      <p style="text-align:right;color:#6b7280;font-size:0.88rem;margin-bottom:18px">استبدل الكلمات باللون الأصفر بمعلوماتك الحقيقية.</p>
+      <div class="writing-form">
+        <p style="text-align:right;font-size:0.88rem;color:#9ca3af;margin-bottom:16px">✏️ أكتب وأكمل الجمل — كل الخانات اختيارية</p>
+        <div class="writing-field">
+          <div class="writing-field-label"><span>I live in</span> :أنا أسكن في</div>
+          <input class="writing-input" id="wCity" placeholder="اسم مدينتك..." oninput="buildWeatherStory()">
+        </div>
+        <div class="writing-field">
+          <div class="writing-field-label"><span>Today the weather is</span> :طقس اليوم</div>
+          <input class="writing-input" id="wToday" placeholder="sunny / rainy / hot / cold..." oninput="buildWeatherStory()">
+        </div>
+        <div class="writing-field">
+          <div class="writing-field-label"><span>In summer, it is</span> :في الصيف الجو</div>
+          <input class="writing-input" id="wSummer" placeholder="very hot / sunny / dry..." oninput="buildWeatherStory()">
+        </div>
+        <div class="writing-field">
+          <div class="writing-field-label"><span>In winter, it is</span> :في الشتاء الجو</div>
+          <input class="writing-input" id="wWinter" placeholder="cold / rainy / windy..." oninput="buildWeatherStory()">
+        </div>
+        <div class="writing-field">
+          <div class="writing-field-label"><span>My favorite season is</span> :فصلي المفضل</div>
+          <input class="writing-input" id="wFavSeason" placeholder="spring / summer / autumn / winter" oninput="buildWeatherStory()">
+        </div>
+        <div class="writing-field" style="margin-bottom:0">
+          <div class="writing-field-label"><span>Because</span> :لأن</div>
+          <input class="writing-input" id="wBecause" placeholder="it is warm / I love rain..." oninput="buildWeatherStory()">
+        </div>
+      </div>
+      <div style="background:#0c1e3c;border-radius:12px;padding:14px 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px;flex-direction:row-reverse">
+        <span style="font-size:1.2rem">✨</span>
+        <p style="color:white;font-size:0.88rem;font-weight:600">قصتك ستظهر هنا تلقائياً وأنت تكتب!</p>
+      </div>
+      <div class="writing-story-box" id="weatherStoryOutput">
+        <div class="writing-story-placeholder">✨ ستظهر قصتك هنا...</div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('listen',null)">→ الاستماع</button>
+    <button class="btn btn-dark" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">💬</span><div><h3>المحادثة</h3><div class="sub">Speaking — اقرأ السؤال بصوت عالٍ ثم أجب</div></div></div>
+    <div class="card-body"><div id="speakingQs"></div></div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn btn-dark" onclick="show('realeng',null)">Real English ←</button>
+  </div>
+</div>
+
+<div id="sec-realeng" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">🗣️</span><div><h3>Real English</h3><div class="sub">كيف يتكلم الناس فعلاً عن الطقس</div></div></div>
+    <div class="card-body">
+
+      <!-- تعابير حقيقية -->
+      <div id="expressionsContainer" style="display:flex;flex-direction:column;gap:14px;margin-bottom:24px"></div>
+
+      <!-- Slang & Informal -->
+      <div class="card-header" style="border-radius:10px 10px 0 0;margin-top:8px">
+        <span class="icon">😎</span>
+        <div><h3>Slang & Informal</h3><div class="sub">كلام الشارع — كيف يوصف الناس الطقس فعلاً</div></div>
+      </div>
+      <div id="slangContainer" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;padding:16px;background:white;border-radius:0 0 10px 10px;margin-bottom:20px"></div>
+
+      <!-- Everyday words -->
+      <div class="card-header" style="border-radius:10px 10px 0 0">
+        <span class="icon">💬</span>
+        <div><h3>Everyday Words</h3><div class="sub">كلمات تُقال بشكل مختلف في الحياة اليومية</div></div>
+      </div>
+      <div id="everydayContainer" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;padding:16px;background:white;border-radius:0 0 10px 10px;margin-bottom:20px"></div>
+
+      <!-- هل تعلمت -->
+      <div class="card-header" style="border-radius:10px 10px 0 0">
+        <span class="icon">🌍</span>
+        <div><h3>هل تعلمت؟</h3><div class="sub">معلومات ثقافية عن الطقس بالإنجليزي</div></div>
+      </div>
+      <div id="didYouKnow" style="padding:16px;background:white;border-radius:0 0 10px 10px"></div>
+
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn btn-dark" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-quiz" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">✅</span><div><h3>اختبار الوحدة</h3><div class="sub">Unit Quiz — اختبر نفسك</div></div></div>
+    <div class="card-body">
+      <div id="quizContainer"></div>
+      <div style="display:flex;justify-content:center;gap:12px;margin-top:20px">
+        <button class="btn btn-dark" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn btn-gray" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizResult" style="display:none;text-align:center;padding:20px;margin-top:16px;background:#f0fdf4;border-radius:14px">
+        <div style="font-size:2.5rem;margin-bottom:8px" id="quizEmoji">🎉</div>
+        <div style="font-weight:800;font-size:1.1rem;color:#0c1e3c;margin-bottom:4px" id="quizScore"></div>
+        <div style="font-size:0.9rem;color:#6b7280" id="quizMsg"></div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:28px;background:white;border-radius:18px;box-shadow:0 4px 24px rgba(0,0,0,0.07)">
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:#0c1e3c;margin-bottom:6px">أحسنت! أكملت وحدة الطقس والفصول</div>
+    <p style="font-size:0.9rem;color:#6b7280;margin-bottom:16px">الوحدة الحادية عشرة: المهن — Jobs & Professions</p>
+    <button class="btn btn-gold" onclick="alert('قريباً! 🚀')">الوحدة الحادية عشرة ←</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var vocab = [
+  { en:"sunny",    pron:"صا-ني",     ar:"مشمس",           ex:"It is sunny today.",             exAr:"الجو مشمس اليوم." },
+  { en:"cloudy",   pron:"كلاو-دي",   ar:"غائم / ملبّد",   ex:"The sky is cloudy.",             exAr:"السماء غائمة." },
+  { en:"rainy",    pron:"ري-ني",     ar:"ممطر",            ex:"It is rainy outside.",           exAr:"الجو ممطر في الخارج." },
+  { en:"windy",    pron:"وين-دي",    ar:"عاصف",            ex:"It is very windy today.",        exAr:"الجو عاصف جداً اليوم." },
+  { en:"hot",      pron:"هوت",       ar:"حار",             ex:"Summer is very hot here.",       exAr:"الصيف حار جداً هنا." },
+  { en:"cold",     pron:"كولد",      ar:"بارد",            ex:"It is cold in winter.",          exAr:"الجو بارد في الشتاء." },
+  { en:"warm",     pron:"وورم",      ar:"دافئ",            ex:"Spring is warm and nice.",       exAr:"الربيع دافئ وجميل." },
+  { en:"cool",     pron:"كول",       ar:"لطيف / منعش",     ex:"The evening is cool.",           exAr:"المساء منعش." },
+  { en:"snow",     pron:"سنو",       ar:"الثلج",           ex:"I love snow in winter.",         exAr:"أحب الثلج في الشتاء." },
+  { en:"rain",     pron:"رين",       ar:"المطر",           ex:"The rain is heavy today.",       exAr:"المطر غزير اليوم." },
+  { en:"wind",     pron:"ويند",      ar:"الريح",           ex:"The wind is strong.",            exAr:"الريح قوية." },
+  { en:"sun",      pron:"صان",       ar:"الشمس",           ex:"The sun is very bright.",        exAr:"الشمس ساطعة جداً." },
+  { en:"spring",   pron:"سبرينج",    ar:"الربيع",          ex:"Flowers grow in spring.",        exAr:"الزهور تنمو في الربيع." },
+  { en:"summer",   pron:"صا-مر",     ar:"الصيف",           ex:"I swim in summer.",              exAr:"أسبح في الصيف." },
+  { en:"autumn",   pron:"أو-تم",     ar:"الخريف",          ex:"Leaves fall in autumn.",         exAr:"الأوراق تسقط في الخريف." },
+  { en:"winter",   pron:"وين-تر",    ar:"الشتاء",          ex:"It snows in winter.",            exAr:"تتساقط الثلوج في الشتاء." },
+  { en:"umbrella", pron:"أم-بري-لا", ar:"المظلة / الشمسية", ex:"Take your umbrella, it is raining!", exAr:"خذ مظلتك، الجو ممطر!" },
+  { en:"degree",   pron:"دي-غري",   ar:"الدرجة (حرارة)",  ex:"It is thirty degrees today.",    exAr:"درجة الحرارة ثلاثون اليوم." },
+];
+
+var storyData = [
+  { text:"Omar looks out of the window. The sky is dark and cloudy.",           ar:"عمر ينظر من النافذة. السماء داكنة وغائمة." },
+  { text:"He says: What is the weather like today?",                            ar:"يقول: كيف الطقس اليوم؟" },
+  { text:"His sister says: It is cold and windy. Take your coat!",             ar:"أخته تقول: الجو بارد وعاصف. خذ معطفك!" },
+  { text:"Omar also takes his umbrella because it looks very rainy.",          ar:"عمر يأخذ مظلته أيضاً لأن الجو يبدو ممطراً جداً." },
+  { text:"Outside, it starts to rain. The wind is very strong.",               ar:"في الخارج، يبدأ المطر. الريح قوية جداً." },
+  { text:"Omar says: I prefer summer. It is sunny and warm!",                  ar:"عمر يقول: أفضّل الصيف. الجو مشمس ودافئ!" },
+  { text:"His sister says: I love autumn. The weather is cool and beautiful.", ar:"أخته تقول: أحب الخريف. الجو منعش وجميل." },
+  { text:"Omar laughs: What about winter with snow?",                          ar:"عمر يضحك: وماذا عن الشتاء مع الثلج؟" },
+  { text:"His sister smiles: Snow is beautiful! But I hate the cold!",         ar:"أخته تبتسم: الثلج جميل! لكنني أكره البرد!" },
+];
+
+var vocabWords = vocab.map(function(v){ return v.en.toLowerCase(); });
+
+var listenData = [
+  { icon:"🌤️", name:"Weather Vocabulary in English — A1 Beginners",  desc:"تعلم كلمات الطقس بالإنجليزي بنطق واضح وبطيء لمستوى A1",  url:"https://www.youtube.com/watch?v=rD6FRDd9Hew", tag:"طقس" },
+  { icon:"🍂", name:"The Four Seasons in English — Learn A1",         desc:"الفصول الأربعة بالإنجليزي مع أوصاف كل فصل",               url:"https://www.youtube.com/watch?v=C_Sc5ZjdfFI", tag:"فصول" },
+  { icon:"💬", name:"Talking About the Weather — A1 Conversation",    desc:"محادثة A1 حقيقية عن الطقس كما يتكلم الناس فعلاً",          url:"https://www.youtube.com/watch?v=SpVeRQ7DoiA", tag:"A1" },
+  { icon:"🎵", name:"Weather Song — What is the Weather Like Today?", desc:"أغنية ممتعة لحفظ كلمات الطقس بالإنجليزي",                  url:"https://www.youtube.com/watch?v=sMg4vj6ugSs", tag:"أغنية" },
+];
+
+var speakingQs = [
+  { q:"What is the weather like today?",         hint:"It is ___ and ___.",                   ar:"كيف الطقس اليوم؟" },
+  { q:"What is your favorite season?",           hint:"My favorite season is ___ because ___.", ar:"ما فصلك المفضل؟" },
+  { q:"What do you do in summer?",               hint:"In summer I ___ and ___.",              ar:"ماذا تفعل في الصيف؟" },
+  { q:"What is the weather like in your city?",  hint:"In my city it is usually ___.",         ar:"كيف الطقس في مدينتك؟" },
+  { q:"Do you like rain or sun?",                hint:"I prefer ___ because ___.",             ar:"هل تفضل المطر أم الشمس؟" },
+];
+
+var quizData = [
+  { q:"What ___ the weather like? — It is sunny.",             opts:["are","is","am","be"],                      ans:1 },
+  { q:"ما معنى 'cloudy'؟",                                    opts:["مشمس","عاصف","ممطر","غائم"],                ans:3 },
+  { q:"It is ___ today. (الجو حار)",                          opts:["cold","hot","windy","rainy"],               ans:1 },
+  { q:"Leaves fall in ___.",                                   opts:["spring","summer","autumn","winter"],        ans:2 },
+  { q:"Take your umbrella! It is ___.",                        opts:["sunny","hot","raining","windy"],            ans:2 },
+  { q:"ما الصفة الصحيحة من كلمة sun؟",                       opts:["sun","sunly","sunny","sunning"],             ans:2 },
+  { q:"I love ___ because it snows.",                          opts:["spring","summer","autumn","winter"],        ans:3 },
+  { q:"It is thirty ___ today. (درجة الحرارة)",               opts:["degrees","weathers","winds","rains"],       ans:0 },
+];
+
+var expressions = [
+  { expr:"It is lovely out!",      pron:"إت إز لافلي أوت",    meaning:"الجو رائع في الخارج!",      formal:"The weather outside is very nice.",     example:"Come out! It is lovely out today!", note:"تعبير بريطاني شائع جداً عندما يكون الجو جميلاً" },
+  { expr:"It is freezing!",        pron:"إت إز فريزينج",       meaning:"البرد قارس جداً!",          formal:"It is extremely cold.",                 example:"Close the door! It is freezing outside!", note:"أقوى من cold — تعني البرد الشديد جداً" },
+  { expr:"What a scorcher!",       pron:"وات أ سكورشر",        meaning:"يا له من حر شديد!",         formal:"It is extremely hot today.",            example:"Stay inside. What a scorcher today!", note:"تعبير غير رسمي للحر الشديد جداً — شائع في أستراليا وبريطانيا" },
+];
+
+var slangWords = [
+  { word:"Boiling",   pron:"بويلينج",   instead:"very hot",     example:"It is absolutely boiling today!",     ar:"حر لدرجة الغليان!" },
+  { word:"Drizzling", pron:"دريزلينج",  instead:"light rain",   example:"It is just drizzling, no umbrella.",  ar:"مطر خفيف / رذاذ" },
+  { word:"Bitter",    pron:"بيتر",      instead:"very cold",    example:"It is bitter cold this morning.",     ar:"بارد مؤلم / قارس" },
+  { word:"Muggy",     pron:"ماغي",      instead:"hot and humid",example:"The weather is so muggy today!",      ar:"حار ورطب / لزج" },
+  { word:"Chilly",    pron:"تشيلي",     instead:"a bit cold",   example:"It is a bit chilly today, wear a jacket.", ar:"بارد بعض الشيء" },
+];
+
+var everydayWords = [
+  { word:"Under the weather", pron:"أندر ذا ويذر", instead:"feeling sick", example:"I feel under the weather today.", ar:"مريض / لست بخير" },
+  { word:"Every cloud has a silver lining", pron:"إفري كلاود...", instead:"there is hope", example:"Do not worry — every cloud has a silver lining.", ar:"في كل أزمة فرصة" },
+  { word:"Come rain or shine", pron:"كام رين أور شاين", instead:"no matter what", example:"I will be there, come rain or shine.", ar:"بغض النظر عن الظروف" },
+];
+
+var didYouKnowFacts = [
+  { flag:"🇬🇧", fact:'البريطانيون يتحدثون عن الطقس كثيراً! إنه الموضوع الأول في المحادثات اليومية — <strong>"Lovely weather, isn\'t it?"</strong> من أشهر الجمل البريطانية.' },
+  { flag:"🇺🇸🇬🇧", fact:'الأمريكان يقولون <strong>fall</strong> للخريف، أما البريطانيون يقولون <strong>autumn</strong> — كلاهما صحيح تماماً!' },
+  { flag:"🌡️",   fact:'في الإنجليزية درجة الحرارة تقرأ هكذا: <strong>30°C = thirty degrees Celsius</strong>، وفي أمريكا يستخدمون <strong>Fahrenheit</strong> — 86°F = 30°C.' },
+];
+
+var spdRate = 1;
+var storyRef = { on: false, spd: 1 };
+
+function speak(text, rate, onEnd) {
+  if (!window.speechSynthesis) return null;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US'; u.rate = rate || spdRate;
+  if (onEnd) u.onend = onEnd;
+  window.speechSynthesis.speak(u);
+  return u;
+}
+
+function setSpd(r, btn) {
+  spdRate = r; storyRef.spd = r;
+  document.querySelectorAll('.spd').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  if (storyRef.on) { stopStory(); setTimeout(startStory, 80); }
+}
+
+function buildVocab() {
+  var grid = document.querySelector('.vocab-grid');
+  vocab.forEach(function(v, i) {
+    var row = document.createElement('div');
+    row.className = 'vocab-row ' + (i % 2 === 0 ? 'even' : 'odd');
+    var exHtml = v.ex ? '<div class="vocab-ex"><span class="vocab-ex-en">💬 ' + v.ex + '</span><span class="vocab-ex-ar">' + (v.exAr || '') + '</span></div>' : '';
+    row.innerHTML =
+      '<span class="v-en">' + v.en + '</span>' +
+      '<span class="v-pron">' + v.pron + '</span>' +
+      '<span class="v-ar">' + v.ar + '</span>' +
+      '<button class="play-btn idle" id="vb' + i + '" onclick="playWord(\'' + v.en.replace(/'/g, "\\'") + '\',' + i + ')">🔊</button>' +
+      exHtml;
+    grid.appendChild(row);
+  });
+}
+
+function playWord(word, idx) {
+  document.querySelectorAll('.play-btn').forEach(function(b){ b.className = 'play-btn idle'; b.textContent = '🔊'; });
+  var btn = document.getElementById('vb' + idx);
+  if (btn) { btn.className = 'play-btn playing'; btn.textContent = '⏸'; }
+  var u = speak(word, spdRate);
+  if (u) u.onend = function(){ if (btn) { btn.className = 'play-btn idle'; btn.textContent = '🔊'; } };
+}
+
+function buildStory() {
+  var box = document.getElementById('storyBox');
+  storyData.forEach(function(line, i) {
+    var div = document.createElement('div');
+    div.className = 'story-line';
+    div.id = 'sl' + i;
+    var html = line.text;
+    vocabWords.forEach(function(w, wi) {
+      var regex = new RegExp('\\b(' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')\\b', 'gi');
+      html = html.replace(regex, function(match) {
+        return '<span class="clickword" onclick="showWordTip(this,\'' + vocab[wi].pron + '\',\'' + vocab[wi].ar + '\',\'' + vocab[wi].en + '\')">' + match + '</span>';
+      });
+    });
+    div.innerHTML =
+      '<div class="story-line-row">' +
+        '<span class="story-line-text" dir="ltr">' + html + '</span>' +
+        '<div style="display:flex;gap:4px;flex-shrink:0">' +
+          '<button class="line-play" onclick="playLine(' + i + ')">🔊</button>' +
+          '<button class="line-play" style="color:#d4a017;border-color:#fde68a" onclick="toggleTr(' + i + ')">🌐</button>' +
+        '</div>' +
+      '</div>' +
+      '<div id="tr' + i + '" style="display:none;font-size:0.85rem;color:#6b7280;direction:rtl;text-align:right;padding:4px 10px 2px;border-right:3px solid #fde68a">' + line.ar + '</div>';
+    box.appendChild(div);
+  });
+}
+
+var tipEl = null;
+function showWordTip(el, pron, ar, en) {
+  if (tipEl) tipEl.remove();
+  var tip = document.createElement('div');
+  tip.className = 'word-tooltip';
+  tip.innerHTML = en + ' &nbsp;|&nbsp; ' + pron + ' &nbsp;|&nbsp; ' + ar;
+  el.style.position = 'relative';
+  el.appendChild(tip);
+  tipEl = tip;
+  speak(en, spdRate);
+  setTimeout(function(){ if (tipEl) { tipEl.remove(); tipEl = null; } }, 2800);
+}
+
+function playLine(i) {
+  stopStory(); hlLine(i);
+  var u = speak(storyData[i].text, spdRate);
+  if (u) u.onend = function(){ hlLine(-1); };
+}
+
+function hlLine(i) {
+  document.querySelectorAll('.story-line').forEach(function(l){ l.classList.remove('hl'); });
+  if (i >= 0) { var el = document.getElementById('sl' + i); if (el) el.classList.add('hl'); }
+}
+
+function startStory() {
+  storyRef.on = true;
+  document.getElementById('storyBtn').style.background = '#059669';
+  document.getElementById('sBtnIcon').textContent = '⏹';
+  document.getElementById('sBtnTxt').textContent = 'إيقاف القصة';
+  playSeq(0);
+}
+
+function stopStory() {
+  storyRef.on = false;
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
+  hlLine(-1);
+  var btn = document.getElementById('storyBtn');
+  if (btn) { btn.style.background = '#1a56b0'; document.getElementById('sBtnIcon').textContent = '▶'; document.getElementById('sBtnTxt').textContent = 'استمع للقصة كاملة'; }
+}
+
+function playSeq(i) {
+  if (!storyRef.on || i >= storyData.length) { stopStory(); return; }
+  hlLine(i);
+  var u = new SpeechSynthesisUtterance(storyData[i].text);
+  u.lang = 'en-US'; u.rate = storyRef.spd;
+  u.onend = function(){ if (storyRef.on) setTimeout(function(){ playSeq(i + 1); }, 380); };
+  if (window.speechSynthesis) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(u); }
+}
+
+function toggleStory() { storyRef.on ? stopStory() : startStory(); }
+
+function toggleTr(i) {
+  var el = document.getElementById('tr' + i);
+  if (el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+var _trAll = false;
+function toggleAllTr() {
+  _trAll = !_trAll;
+  for (var i = 0; i < storyData.length; i++) {
+    var el = document.getElementById('tr' + i);
+    if (el) el.style.display = _trAll ? 'block' : 'none';
+  }
+  var btn = document.getElementById('trAllBtn');
+  if (btn) btn.textContent = _trAll ? '🙈 أخفِ' : '🌐 الترجمة';
+}
+
+function buildWeatherStory() {
+  var city    = document.getElementById('wCity').value.trim();
+  var today   = document.getElementById('wToday').value.trim();
+  var summer  = document.getElementById('wSummer').value.trim();
+  var winter  = document.getElementById('wWinter').value.trim();
+  var favS    = document.getElementById('wFavSeason').value.trim();
+  var because = document.getElementById('wBecause').value.trim();
+
+  if (!city && !today && !summer && !winter && !favS && !because) {
+    document.getElementById('weatherStoryOutput').innerHTML = '<div class="writing-story-placeholder">✨ ستظهر قصتك هنا...</div>';
+    return;
+  }
+  var hi = function(val, fallback) {
+    return val
+      ? '<span style="color:#d4a017;font-weight:700">' + val + '</span>'
+      : '<span style="color:#bfdbfe;font-style:italic">' + fallback + '</span>';
+  };
+  var parts = [];
+  if (city)   parts.push('I live in ' + hi(city,'___') + '.');
+  if (today)  parts.push('Today the weather is ' + hi(today,'___') + '.');
+  if (summer) parts.push('In summer, it is ' + hi(summer,'___') + '.');
+  if (winter) parts.push('In winter, it is ' + hi(winter,'___') + '.');
+  if (favS)   parts.push('My favorite season is ' + hi(favS,'___') + (because ? ' because ' + hi(because,'___') + '.' : '.'));
+  else if (because) parts.push('I love it because ' + hi(because,'___') + '.');
+
+  document.getElementById('weatherStoryOutput').innerHTML =
+    '<p style="direction:ltr;line-height:2;font-size:0.97rem">' + parts.join(' ') + '</p>' +
+    '<p style="font-size:0.78rem;color:#9ca3af;margin-top:12px;text-align:right">linguapath.com</p>';
+}
+
+function buildListening() {
+  var cont = document.getElementById('listenCards');
+  listenData.forEach(function(r) {
+    cont.innerHTML +=
+      '<div class="listen-card">' +
+        '<span style="font-size:1.8rem;flex-shrink:0">' + r.icon + '</span>' +
+        '<div style="flex:1;text-align:right">' +
+          '<div style="font-weight:700;font-size:0.97rem;color:#0c1e3c;margin-bottom:3px">' + r.name + '</div>' +
+          '<div style="font-size:0.82rem;color:#6b7280">' + r.desc + '</div>' +
+        '</div>' +
+        '<span style="background:#e0f2fe;color:#0369a1;font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:20px;flex-shrink:0">' + r.tag + '</span>' +
+        '<a class="listen-link" href="' + r.url + '" target="_blank">▶ افتح</a>' +
+      '</div>';
+  });
+}
+
+function buildSpeaking() {
+  var cont = document.getElementById('speakingQs');
+  speakingQs.forEach(function(q) {
+    cont.innerHTML +=
+      '<div class="speaking-q">' +
+        '<div style="flex:1;text-align:right">' +
+          '<p dir="ltr">' + q.q + '</p>' +
+          '<p style="font-size:0.82rem;color:#9ca3af;margin-top:4px">' + q.ar + '</p>' +
+          '<p style="font-size:0.82rem;color:#d4a017;font-family:\'Lora\',serif;margin-top:6px;direction:ltr">💡 ' + q.hint + '</p>' +
+        '</div>' +
+        '<button class="play-btn idle" onclick="speak(\'' + q.q.replace(/'/g, "\\'") + '\',spdRate)">🔊</button>' +
+      '</div>';
+  });
+}
+
+function buildRealEnglish() {
+  // Expressions
+  var exCont = document.getElementById('expressionsContainer');
+  expressions.forEach(function(e) {
+    exCont.innerHTML +=
+      '<div style="background:#faf5ff;border:1px solid #e9d5ff;border-radius:12px;padding:16px 18px">' +
+        '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-direction:row-reverse">' +
+          '<div style="display:flex;align-items:center;gap:10px;flex-direction:row-reverse">' +
+            '<span style="font-family:\'Lora\',serif;font-size:1.1rem;font-weight:700;color:#7c3aed;direction:ltr">' + e.expr + '</span>' +
+            '<span style="color:#d4a017;font-weight:700;font-size:0.85rem">' + e.pron + '</span>' +
+          '</div>' +
+          '<button class="play-btn idle" style="flex-shrink:0" onclick="speak(\'' + e.expr.replace(/'/g, "\\'") + '\',spdRate)">🔊</button>' +
+        '</div>' +
+        '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">' +
+          '<div style="background:white;border-radius:8px;padding:8px 12px;text-align:right"><div style="font-size:0.72rem;color:#9ca3af;margin-bottom:2px">المعنى</div><div style="font-weight:700;color:#374151;font-size:0.92rem">' + e.meaning + '</div></div>' +
+          '<div style="background:white;border-radius:8px;padding:8px 12px;direction:ltr"><div style="font-size:0.72rem;color:#9ca3af;margin-bottom:2px">الرسمي</div><div style="font-weight:600;color:#6b7280;font-size:0.88rem;font-family:\'Lora\',serif">' + e.formal + '</div></div>' +
+        '</div>' +
+        '<div style="background:white;border-radius:8px;padding:8px 12px;direction:ltr;margin-bottom:6px"><span style="font-size:0.72rem;color:#9ca3af">مثال: </span><span style="font-family:\'Lora\',serif;font-size:0.92rem;color:#0c1e3c;font-style:italic">' + e.example + '</span></div>' +
+        '<div style="font-size:0.82rem;color:#7c3aed;text-align:right">💡 ' + e.note + '</div>' +
+      '</div>';
+  });
+
+  // Slang
+  var slCont = document.getElementById('slangContainer');
+  slangWords.forEach(function(s) {
+    slCont.innerHTML +=
+      '<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px 16px">' +
+        '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">' +
+          '<button class="play-btn idle" style="width:30px;height:30px;font-size:0.85rem" onclick="speak(\'' + s.word.replace(/'/g, "\\'") + '\',spdRate)">🔊</button>' +
+          '<div style="text-align:right"><span style="font-family:\'Lora\',serif;font-size:1.1rem;font-weight:700;color:#ea580c">' + s.word + '</span><span style="color:#d4a017;font-size:0.82rem;font-weight:700;margin-right:6px">' + s.pron + '</span></div>' +
+        '</div>' +
+        '<div style="font-size:0.88rem;color:#374151;text-align:right;margin-bottom:4px"><strong>' + s.ar + '</strong></div>' +
+        '<div style="font-size:0.82rem;color:#6b7280;text-align:right;margin-bottom:6px">بدل: <span style="font-family:\'Lora\',serif">' + s.instead + '</span></div>' +
+        '<div style="background:white;border-radius:6px;padding:6px 10px;font-family:\'Lora\',serif;font-size:0.85rem;color:#0c1e3c;direction:ltr;font-style:italic">' + s.example + '</div>' +
+      '</div>';
+  });
+
+  // Everyday words
+  var evCont = document.getElementById('everydayContainer');
+  everydayWords.forEach(function(s) {
+    evCont.innerHTML +=
+      '<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px 16px">' +
+        '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">' +
+          '<button class="play-btn idle" style="width:30px;height:30px;font-size:0.85rem" onclick="speak(\'' + s.word.replace(/'/g, "\\'") + '\',spdRate)">🔊</button>' +
+          '<div style="text-align:right"><span style="font-family:\'Lora\',serif;font-size:0.95rem;font-weight:700;color:#059669">' + s.word + '</span></div>' +
+        '</div>' +
+        '<div style="font-size:0.88rem;color:#374151;text-align:right;margin-bottom:4px"><strong>' + s.ar + '</strong></div>' +
+        '<div style="font-size:0.82rem;color:#6b7280;text-align:right;margin-bottom:6px">بدل: <span style="font-family:\'Lora\',serif">' + s.instead + '</span></div>' +
+        '<div style="background:white;border-radius:6px;padding:6px 10px;font-family:\'Lora\',serif;font-size:0.85rem;color:#0c1e3c;direction:ltr;font-style:italic">' + s.example + '</div>' +
+      '</div>';
+  });
+
+  // Did you know
+  var dyCont = document.getElementById('didYouKnow');
+  didYouKnowFacts.forEach(function(f) {
+    dyCont.innerHTML +=
+      '<div style="display:flex;align-items:flex-start;gap:12px;background:linear-gradient(135deg,#fef9f0,#fef3c7);border:1px solid #e9d5a0;border-radius:12px;padding:14px 18px;margin-bottom:10px;flex-direction:row-reverse">' +
+        '<span style="font-size:1.4rem;flex-shrink:0">' + f.flag + '</span>' +
+        '<p style="font-size:0.92rem;line-height:1.8;color:#374151;text-align:right">' + f.fact + '</p>' +
+      '</div>';
+  });
+}
+
+var quizAnswers = new Array(quizData.length).fill(null);
+function buildQuiz() {
+  var cont = document.getElementById('quizContainer');
+  quizData.forEach(function(q, qi) {
+    var optsHtml = '';
+    q.opts.forEach(function(opt, oi) {
+      optsHtml += '<div class="quiz-opt" id="qo' + qi + '-' + oi + '" onclick="selectOpt(' + qi + ',' + oi + ')"><span style="font-family:\'Lora\',serif;font-size:0.95rem">' + opt + '</span><input type="radio" name="q' + qi + '"></div>';
+    });
+    cont.innerHTML += '<div class="quiz-q"><p dir="ltr">' + q.q + '</p><div class="quiz-opts">' + optsHtml + '</div></div>';
+  });
+}
+
+function selectOpt(qi, oi) {
+  quizAnswers[qi] = oi;
+  for (var i = 0; i < quizData[qi].opts.length; i++) {
+    var el = document.getElementById('qo' + qi + '-' + i);
+    if (el) { el.classList.remove('correct','wrong'); el.style.borderColor = ''; el.style.background = ''; }
+  }
+  var sel = document.getElementById('qo' + qi + '-' + oi);
+  if (sel) sel.style.borderColor = '#0c1e3c';
+}
+
+function checkQuiz() {
+  var score = 0;
+  quizData.forEach(function(q, qi) {
+    for (var i = 0; i < q.opts.length; i++) {
+      var el = document.getElementById('qo' + qi + '-' + i);
+      if (!el) continue;
+      el.classList.remove('correct','wrong');
+      if (i === q.ans) el.classList.add('correct');
+      else if (quizAnswers[qi] === i) el.classList.add('wrong');
+    }
+    if (quizAnswers[qi] === q.ans) score++;
+  });
+  var res = document.getElementById('quizResult');
+  var pct = Math.round(score / quizData.length * 100);
+  res.style.display = 'block';
+  document.getElementById('quizEmoji').textContent = pct===100?'🏆':pct>=75?'🎉':pct>=50?'💪':'📚';
+  document.getElementById('quizScore').textContent = score + ' من ' + quizData.length + ' إجابة صحيحة (' + pct + '%)';
+  document.getElementById('quizMsg').textContent = pct===100?'ممتاز! أنت جاهز للوحدة الحادية عشرة!':pct>=75?'أحسنت! راجع الإجابات الخاطئة ثم انتقل.':pct>=50?'جيد! راجع المفردات والقاعدة مرة ثانية.':'راجع الوحدة كاملة ثم أعد الاختبار.';
+  res.style.background = pct >= 75 ? '#f0fdf4' : '#fef9f0';
+  res.scrollIntoView({ behavior:'smooth', block:'center' });
+}
+
+function resetQuiz() {
+  quizAnswers = new Array(quizData.length).fill(null);
+  document.querySelectorAll('.quiz-opt').forEach(function(el){ el.classList.remove('correct','wrong'); el.style.borderColor=''; el.style.background=''; });
+  document.getElementById('quizResult').style.display = 'none';
+}
+
+function show(id, clickedBtn) {
+  document.querySelectorAll('.section-content').forEach(function(s){ s.classList.remove('active','fade-up'); });
+  var target = document.getElementById('sec-' + id);
+  target.classList.add('active');
+  setTimeout(function(){ target.classList.add('fade-up'); }, 10);
+  window.scrollTo({ top:0, behavior:'smooth' });
+  document.querySelectorAll('.nav-btn').forEach(function(b){ b.classList.remove('active'); });
+  if (clickedBtn) { clickedBtn.classList.add('active'); return; }
+  var map = { vocab:0, story:1, grammar:2, listen:3, writing:4, speaking:5, realeng:6, quiz:7 };
+  var btns = document.querySelectorAll('.nav-btn');
+  if (btns[map[id]]) btns[map[id]].classList.add('active');
+}
+
+buildVocab(); buildStory(); buildListening(); buildSpeaking(); buildRealEnglish(); buildQuiz();
+</script>
+</body>
+</html>
