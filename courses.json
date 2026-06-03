@@ -1,0 +1,157 @@
+{
+  "english": {
+    "label": "English",
+    "flag": "🇬🇧",
+    "levels": {
+      "a1": {
+        "label": "A1 — Beginner المبتدئ",
+        "badge": "A1",
+        "badgeClass": "badge-a1-bg",
+        "numClass": "num-a1",
+        "pill": "live",
+        "pillText": "١٨ وحدة · جاهزة الآن ✅",
+        "units": [
+          { "num": "١",  "icon": "👨‍👩‍👧‍👦", "name": "Family — العائلة",         "file": "unit1_family.html" },
+          { "num": "٢",  "icon": "👋",       "name": "Greetings — التحيات",      "file": "unit2_greetings.html" },
+          { "num": "٣",  "icon": "🔢",       "name": "Numbers — الأرقام",        "file": "unit3_numbers.html" },
+          { "num": "٤",  "icon": "🎨",       "name": "Colours — الألوان",        "file": "unit4_colors.html" },
+          { "num": "٥",  "icon": "🏠",       "name": "Home — البيت",             "file": "unit5_home.html" },
+          { "num": "٦",  "icon": "🍽️",      "name": "Food — الطعام",            "file": "unit6_food.html" },
+          { "num": "٧",  "icon": "🫀",       "name": "Body — الجسم",             "file": "unit7_body.html" },
+          { "num": "٨",  "icon": "👗",       "name": "Clothes — الملابس",        "file": "unit8_clothes.html" },
+          { "num": "٩",  "icon": "🕐",       "name": "Time — الوقت",             "file": "unit9_time.html" },
+          { "num": "١٠", "icon": "🌤️",      "name": "Weather — الطقس",          "file": "unit10_weather.html" },
+          { "num": "١١", "icon": "💼",       "name": "Jobs — المهن",             "file": "unit11_jobs.html" },
+          { "num": "١٢", "icon": "🛍️",      "name": "Shopping — التسوق",        "file": "unit12_shopping.html" },
+          { "num": "١٣", "icon": "🚌",       "name": "Transport — المواصلات",    "file": "unit13_transport.html" },
+          { "num": "١٤", "icon": "🏙️",      "name": "City — المدينة",           "file": "unit14_city.html" },
+          { "num": "١٥", "icon": "😊",       "name": "Feelings — المشاعر",       "file": "unit15_feelings.html" },
+          { "num": "١٦", "icon": "🎨",       "name": "Hobbies — الهوايات",       "file": "unit16_hobbies.html" },
+          { "num": "١٧", "icon": "✈️",       "name": "Travel — السفر",           "file": "unit17_travel.html" },
+          { "num": "١٨", "icon": "🏆",       "name": "Review + شهادة A1",        "file": "unit18_review.html", "star": true }
+        ]
+      },
+      "a2": {
+        "label": "A2 — Elementary ما قبل المتوسط",
+        "badge": "A2",
+        "badgeClass": "badge-a2-bg",
+        "numClass": "num-a2",
+        "pill": "building",
+        "pillText": "١٠ وحدات ✅ · ١١—١٨ قريباً",
+        "units": [
+          { "num": "١",  "icon": "⏰",  "name": "Daily Routine — الروتين",          "file": "unit1_a2_routine.html" },
+          { "num": "٢",  "icon": "🍽️", "name": "Food & Restaurants — المطاعم",     "file": "unit2_a2_restaurant.html" },
+          { "num": "٣",  "icon": "🛒",  "name": "Shopping & Comparing — التسوق",    "file": "unit3_a2_shopping.html" },
+          { "num": "٤",  "icon": "🏥",  "name": "Health & Doctor — الصحة",          "file": "unit4_a2_health.html" },
+          { "num": "٥",  "icon": "📅",  "name": "Past Simple — الماضي المنتظم",     "file": "unit5_a2_past_simple.html" },
+          { "num": "٦",  "icon": "⚡",  "name": "Irregular Verbs — الأفعال الشاذة", "file": "unit6_a2_irregular.html" },
+          { "num": "٧",  "icon": "🚀",  "name": "The Future — المستقبل",            "file": "unit7_a2_future.html" },
+          { "num": "٨",  "icon": "🏠",  "name": "Home & Furniture — البيت",         "file": "unit8_a2_home.html" },
+          { "num": "٩",  "icon": "👥",  "name": "People & Relationships — الناس",   "file": "unit9_a2_people.html" },
+          { "num": "١٠", "icon": "🌦️", "name": "Weather & Climate — الطقس",        "file": "unit10_a2_weather.html" },
+          { "num": "١١—١٨", "icon": "🔒", "name": "المزيد قريباً...", "locked": true }
+        ]
+      },
+      "b1": {
+        "label": "B1 — Intermediate المتوسط",
+        "badge": "B1",
+        "badgeClass": "badge-b1-bg",
+        "numClass": "num-locked",
+        "pill": "soon",
+        "pillText": "قريباً 🔒",
+        "units": [
+          { "num": "—", "icon": "🔒", "name": "أكمل A2 أولاً", "locked": true }
+        ]
+      },
+      "b2": {
+        "label": "B2 — Upper Intermediate فوق المتوسط",
+        "badge": "B2",
+        "badgeClass": "badge-b2-bg",
+        "numClass": "num-locked",
+        "pill": "soon",
+        "pillText": "قريباً 🔒",
+        "units": [
+          { "num": "—", "icon": "🔒", "name": "أكمل B1 أولاً", "locked": true }
+        ]
+      },
+      "c1": {
+        "label": "C1 — Advanced المتقدم",
+        "badge": "C1",
+        "badgeClass": "badge-c1-bg",
+        "numClass": "num-locked",
+        "pill": "soon",
+        "pillText": "قريباً 🔒",
+        "units": [
+          { "num": "—", "icon": "🔒", "name": "أكمل B2 أولاً", "locked": true }
+        ]
+      }
+    }
+  },
+  "deutsch": {
+    "label": "Deutsch",
+    "flag": "🇩🇪",
+    "levels": {
+      "a1": {
+        "label": "A1 — Beginner المبتدئ",
+        "badge": "A1",
+        "badgeClass": "badge-a1-bg",
+        "numClass": "num-a1",
+        "pill": "building",
+        "pillText": "١٣+ وحدة · قيد البناء 🆕",
+        "units": [
+          { "num": "١", "icon": "👋", "name": "Begrüßungen — التحيات", "file": "de_unit1_greetings.html" },
+          { "num": "٢—١٨", "icon": "🔒", "name": "المزيد قريباً...", "locked": true }
+        ]
+      },
+      "a2": {
+        "label": "A2 — Elementary ما قبل المتوسط",
+        "badge": "A2",
+        "badgeClass": "badge-a2-bg",
+        "numClass": "num-locked",
+        "pill": "soon",
+        "pillText": "قريباً 🔒",
+        "units": [
+          { "num": "—", "icon": "🔒", "name": "أكمل A1 أولاً", "locked": true }
+        ]
+      },
+      "b1": {
+        "label": "B1 — Intermediate المتوسط",
+        "badge": "B1",
+        "badgeClass": "badge-b1-bg",
+        "numClass": "num-locked",
+        "pill": "soon",
+        "pillText": "قريباً 🔒",
+        "units": [
+          { "num": "—", "icon": "🔒", "name": "أكمل A2 أولاً", "locked": true }
+        ]
+      }
+    }
+  },
+  "francais": {
+    "label": "Français",
+    "flag": "🇫🇷",
+    "levels": {
+      "a1": { "label": "A1 — Beginner المبتدئ", "badge": "A1", "badgeClass": "badge-a1-bg", "numClass": "num-locked", "pill": "soon", "pillText": "قريباً 🔒", "units": [{ "num": "—", "icon": "🔒", "name": "قريباً...", "locked": true }] },
+      "a2": { "label": "A2 — Elementary ما قبل المتوسط", "badge": "A2", "badgeClass": "badge-a2-bg", "numClass": "num-locked", "pill": "soon", "pillText": "قريباً 🔒", "units": [{ "num": "—", "icon": "🔒", "name": "قريباً...", "locked": true }] },
+      "b1": { "label": "B1 — Intermediate المتوسط", "badge": "B1", "badgeClass": "badge-b1-bg", "numClass": "num-locked", "pill": "soon", "pillText": "قريباً 🔒", "units": [{ "num": "—", "icon": "🔒", "name": "قريباً...", "locked": true }] }
+    }
+  },
+  "turkce": {
+    "label": "Türkçe",
+    "flag": "🇹🇷",
+    "levels": {
+      "a1": { "label": "A1 — Beginner المبتدئ", "badge": "A1", "badgeClass": "badge-a1-bg", "numClass": "num-locked", "pill": "soon", "pillText": "قريباً 🔒", "units": [{ "num": "—", "icon": "🔒", "name": "قريباً...", "locked": true }] },
+      "a2": { "label": "A2 — Elementary ما قبل المتوسط", "badge": "A2", "badgeClass": "badge-a2-bg", "numClass": "num-locked", "pill": "soon", "pillText": "قريباً 🔒", "units": [{ "num": "—", "icon": "🔒", "name": "قريباً...", "locked": true }] },
+      "b1": { "label": "B1 — Intermediate المتوسط", "badge": "B1", "badgeClass": "badge-b1-bg", "numClass": "num-locked", "pill": "soon", "pillText": "قريباً 🔒", "units": [{ "num": "—", "icon": "🔒", "name": "قريباً...", "locked": true }] }
+    }
+  },
+  "japanese": {
+    "label": "日本語",
+    "flag": "🇯🇵",
+    "levels": {
+      "n5": { "label": "N5 — Beginner المبتدئ", "badge": "N5", "badgeClass": "badge-a1-bg", "numClass": "num-locked", "pill": "soon", "pillText": "قريباً 🔒", "units": [{ "num": "—", "icon": "🔒", "name": "قريباً...", "locked": true }] },
+      "n4": { "label": "N4 — Elementary ما قبل المتوسط", "badge": "N4", "badgeClass": "badge-a2-bg", "numClass": "num-locked", "pill": "soon", "pillText": "قريباً 🔒", "units": [{ "num": "—", "icon": "🔒", "name": "قريباً...", "locked": true }] },
+      "n3": { "label": "N3 — Intermediate المتوسط", "badge": "N3", "badgeClass": "badge-b1-bg", "numClass": "num-locked", "pill": "soon", "pillText": "قريباً 🔒", "units": [{ "num": "—", "icon": "🔒", "name": "قريباً...", "locked": true }] }
+    }
+  }
+}
