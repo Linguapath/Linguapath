@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real English A2 — الوحدة ٤: الصحة والطبيب</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:#c4a882;border-radius:3px}
+body{font-family:'Tajawal',sans-serif;background:#f7f3ed;min-height:100vh;direction:rtl}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes popIn{from{opacity:0;transform:scale(0.85)}to{opacity:1;transform:scale(1)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(5,150,105,0.4)}50%{box-shadow:0 0 0 8px rgba(5,150,105,0)}}
+.fade-up{animation:fadeUp 0.45s ease forwards}
+.nav-btn{transition:all 0.2s;border:none;cursor:pointer;font-family:'Tajawal',sans-serif;border-radius:30px;padding:7px 16px;font-size:0.82rem;font-weight:600}
+.nav-btn.active{background:#d4a017;color:#0c1e3c;font-weight:800}
+.nav-btn:not(.active){background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.85)}
+.section-content{display:none;max-width:880px;margin:0 auto;padding:36px 16px 80px}
+.section-content.active{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 4px 28px rgba(0,0,0,0.07);margin-bottom:24px;overflow:hidden}
+.card-header{background:#0c1e3c;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.card-header .icon{font-size:1.4rem}
+.card-header h3{font-size:1.05rem;font-weight:700}
+.card-header .sub{font-size:0.78rem;color:#93c5fd;margin-top:1px}
+.card-body{padding:24px}
+.vocab-grid{display:flex;flex-direction:column;gap:8px}
+.vocab-row{display:grid;grid-template-columns:1fr 1fr 1fr 42px;align-items:start;gap:5px 10px;padding:11px 16px;border-radius:12px;border:1px solid #e5eaf5;transition:all 0.18s}
+.vocab-ex{grid-column:1/-1;font-size:0.82rem;direction:ltr;padding:5px 8px 3px;border-top:1px dashed #e5eaf5;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.vocab-ex-en{font-family:'Lora',serif;color:#374151;font-style:italic}
+.vocab-ex-ar{font-family:'Tajawal',sans-serif;color:#9ca3af;direction:rtl;font-size:0.78rem}
+.vocab-row:hover{transform:translateX(-3px);box-shadow:0 2px 12px rgba(12,30,60,0.1)}
+.vocab-row.even{background:#f4f7ff}.vocab-row.odd{background:#fff}
+.vocab-header{background:#0c1e3c !important;border:none !important;transform:none !important;box-shadow:none !important}
+.v-en{font-family:'Lora',serif;font-weight:700;font-size:1rem;color:#0c1e3c;direction:ltr;text-align:left}
+.v-pron{font-size:0.88rem;color:#d4a017;font-weight:700;direction:rtl;text-align:right}
+.v-ar{font-size:0.97rem;font-weight:700;color:#374151;text-align:right}
+.vocab-header .v-en,.vocab-header .v-pron,.vocab-header .v-ar{color:white;font-family:'Tajawal',sans-serif;font-weight:700}
+.play-btn{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.18s;flex-shrink:0}
+.play-btn.idle{background:#e8f0fe;color:#1a56b0}
+.play-btn.idle:hover{background:#1a56b0;color:white;transform:scale(1.1)}
+.play-btn.playing{background:#059669;color:white;animation:pulse 1s infinite}
+.story-controls{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap;flex-direction:row-reverse}
+.story-main-btn{display:flex;align-items:center;gap:8px;border:none;border-radius:25px;padding:10px 22px;font-family:'Tajawal',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.2s;flex-direction:row-reverse}
+.speed-wrap{display:flex;align-items:center;gap:6px;flex-direction:row-reverse}
+.speed-wrap label{font-size:0.82rem;color:#6b7280;font-weight:600}
+.spd{padding:5px 11px;border-radius:20px;border:2px solid #d1d5db;background:white;font-family:'Tajawal',sans-serif;font-size:0.78rem;font-weight:700;cursor:pointer;color:#6b7280;transition:all 0.15s}
+.spd.active{border-color:#0c1e3c;background:#0c1e3c;color:white}
+.story-box{border-right:4px solid #d4a017;padding:16px 20px;background:#fffdf7;border-radius:0 12px 12px 0}
+.story-line{display:flex;flex-direction:column;gap:3px;padding:5px 6px;border-radius:6px;transition:background 0.2s;direction:ltr}
+.story-line-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.story-line.hl{background:#fef3c7;border-radius:8px}
+.story-line-text{font-family:'Lora',serif;font-size:1rem;line-height:1.9;flex:1}
+.story-line-text .clickword{cursor:pointer;border-bottom:1px dashed #d4a017;transition:all 0.15s;position:relative}
+.story-line-text .clickword:hover{color:#0c1e3c;background:#fef3c7;border-radius:3px}
+.word-tooltip{position:absolute;bottom:100%;right:50%;transform:translateX(50%);background:#0c1e3c;color:white;padding:4px 10px;border-radius:8px;font-size:0.78rem;white-space:nowrap;font-family:'Tajawal',sans-serif;z-index:99;animation:popIn 0.2s ease;pointer-events:none}
+.line-play{background:transparent;border:1px solid #e5e7eb;border-radius:6px;padding:3px 8px;color:#9ca3af;font-size:0.72rem;cursor:pointer;flex-shrink:0;font-family:'Tajawal',sans-serif;transition:all 0.15s;margin-top:4px}
+.line-play:hover{background:#f0f4ff;color:#1a56b0;border-color:#1a56b0}
+.grammar-rule-box{background:linear-gradient(135deg,#f0f7ff,#e8f4ff);border:2px solid #bfdbfe;border-radius:14px;padding:20px 22px;margin-bottom:16px}
+.grammar-rule-title{font-size:1rem;font-weight:800;color:#0c1e3c;margin-bottom:12px;text-align:right;display:flex;align-items:center;gap:8px;flex-direction:row-reverse}
+.grammar-pattern{background:white;border-radius:10px;padding:14px 18px;margin-bottom:10px;border-right:4px solid #1a56b0;direction:ltr}
+.grammar-pattern-ar{font-family:'Tajawal',sans-serif;font-size:0.88rem;color:#6b7280;direction:rtl;text-align:right;margin-top:6px}
+.grammar-eg{font-family:'Lora',serif;font-size:1rem;color:#0c1e3c;font-weight:600}
+.grammar-eg span{color:#d4a017;font-weight:800}
+.grammar-wrong{background:#fef2f2;border-radius:10px;padding:12px 16px;margin-bottom:8px;direction:ltr;border-right:4px solid #dc2626}
+.grammar-right{background:#f0fdf4;border-radius:10px;padding:12px 16px;direction:ltr;border-right:4px solid #059669}
+.writing-form{background:#fffdf7;border:2px dashed #d4a017;border-radius:14px;padding:22px;margin-bottom:16px}
+.writing-field{margin-bottom:16px}
+.writing-field-label{font-size:0.88rem;color:#6b7280;font-weight:600;margin-bottom:6px;text-align:right;display:flex;align-items:center;justify-content:flex-end;gap:6px}
+.writing-field-label span{font-family:'Lora',serif;color:#0c1e3c;font-weight:700;direction:ltr}
+.writing-input{width:100%;border:none;border-bottom:2px solid #d4a017;background:transparent;font-family:'Lora',serif;font-size:1rem;color:#0c1e3c;outline:none;padding:5px 4px;direction:ltr}
+.writing-input:focus{border-color:#0c1e3c}
+.writing-story-box{background:white;border:1px solid #e5eaf5;border-radius:12px;padding:18px 20px;min-height:80px;font-family:'Lora',serif;font-size:0.95rem;line-height:1.9;color:#374151;direction:ltr}
+.writing-story-placeholder{color:#9ca3af;font-style:italic;font-size:0.9rem;text-align:center;padding:12px 0}
+.listen-card{display:flex;align-items:center;gap:14px;background:#f0f7ff;border:1px solid #bfdbfe;border-radius:12px;padding:14px 18px;margin-bottom:10px;flex-direction:row-reverse}
+.listen-link{background:#1a56b0;color:white;border:none;border-radius:8px;padding:8px 16px;font-family:'Tajawal',sans-serif;font-size:0.85rem;font-weight:700;text-decoration:none;display:inline-block;transition:background 0.2s;flex-shrink:0}
+.listen-link:hover{background:#0c1e3c}
+.speaking-q{background:#f8faff;border-right:4px solid #059669;border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px}
+.speaking-q p{font-size:0.97rem;line-height:1.7;color:#1a1a2e;text-align:right;flex:1}
+.quiz-q{margin-bottom:20px}
+.quiz-q p{font-size:0.97rem;font-weight:700;color:#0c1e3c;margin-bottom:10px;direction:ltr;font-family:'Lora',serif}
+.quiz-opts{display:flex;flex-direction:column;gap:8px}
+.quiz-opt{display:flex;align-items:center;gap:10px;padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;transition:all 0.18s;flex-direction:row-reverse;text-align:right;background:white}
+.quiz-opt:hover{border-color:#1a56b0;background:#f0f7ff}
+.quiz-opt.correct{border-color:#059669;background:#ecfdf5;color:#059669}
+.quiz-opt.wrong{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.quiz-opt input{display:none}
+.btn{border:none;border-radius:30px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all 0.2s;padding:11px 28px;font-size:0.95rem}
+.btn:hover{opacity:0.88;transform:scale(0.98)}
+.btn-dark{background:#0c1e3c;color:white}
+.btn-gray{background:#e5e7eb;color:#374151}
+.a2-badge{display:inline-block;background:linear-gradient(135deg,#059669,#065f46);color:white;font-size:0.72rem;font-weight:800;padding:3px 10px;border-radius:20px;letter-spacing:1px;margin-bottom:6px}
+@media(max-width:580px){.vocab-row{grid-template-columns:1fr 1fr 38px}.v-pron{display:none}}
+</style>
+</head>
+<body>
+
+<div style="background:linear-gradient(135deg,#065f46 0%,#059669 60%,#047857 100%);color:white;position:relative;overflow:hidden">
+  <div style="position:absolute;top:-60px;left:-60px;width:280px;height:280px;border-radius:50%;background:rgba(212,160,23,0.08);pointer-events:none"></div>
+  <div style="position:absolute;bottom:-60px;right:-30px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.06);pointer-events:none"></div>
+  <div style="max-width:880px;margin:0 auto;padding:14px 20px 0;display:flex;justify-content:flex-end">
+    <a href="unit3_a2_shopping.html" style="color:rgba(255,255,255,0.6);font-size:0.82rem;text-decoration:none">← الوحدة ٣</a>
+  </div>
+  <div style="display:flex;justify-content:center;gap:5px;padding:10px 16px 0;flex-wrap:wrap">
+    <button class="nav-btn active" onclick="show('vocab',this)">📚 المفردات</button>
+    <button class="nav-btn" onclick="show('story',this)">📖 القصة</button>
+    <button class="nav-btn" onclick="show('grammar',this)">✏️ القاعدة</button>
+    <button class="nav-btn" onclick="show('listen',this)">🎧 الاستماع</button>
+    <button class="nav-btn" onclick="show('writing',this)">✍️ الكتابة</button>
+    <button class="nav-btn" onclick="show('speaking',this)">💬 المحادثة</button>
+    <button class="nav-btn" onclick="show('realeng',this)">🗣️ Real English</button>
+    <button class="nav-btn" onclick="show('quiz',this)">✅ الاختبار</button>
+  </div>
+  <div style="max-width:880px;margin:0 auto;padding:32px 24px 44px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px">
+    <div>
+      <div class="a2-badge">A2 — ELEMENTARY</div>
+      <div style="font-size:0.78rem;letter-spacing:3px;color:rgba(255,255,255,0.6);font-weight:700;margin-bottom:8px">UNIT 4</div>
+      <h1 style="font-family:'Lora',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.2;margin-bottom:8px;direction:ltr">Health & Doctor</h1>
+      <p style="font-size:1.1rem;color:rgba(255,255,255,0.75);margin-bottom:6px">الصحة والطبيب</p>
+      <p style="font-size:0.88rem;color:rgba(255,255,255,0.55)">القاعدة: Should / Shouldn't — You should rest. / You shouldn't eat that.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;text-align:center">
+      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:10px 18px">
+        <div style="font-family:'Lora',serif;font-size:1.4rem;font-weight:700;color:#d4a017">20</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.6)">كلمة جديدة</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:10px 18px">
+        <div style="font-family:'Lora',serif;font-size:1.4rem;font-weight:700;color:#d4a017">8</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.6)">أقسام</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="sec-vocab" class="section-content active fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">📚</span><div><h3>المفردات</h3><div class="sub">Vocabulary — اضغط 🔊 لتسمع النطق</div></div></div>
+    <div class="card-body">
+      <p style="text-align:right;color:#6b7280;font-size:0.9rem;margin-bottom:16px;line-height:1.7">💡 <strong>النطق بالعربي</strong> بالأصفر — اقرأه مباشرة للنطق الصحيح.</p>
+      <div class="vocab-grid">
+        <div class="vocab-row vocab-header"><span class="v-en">الكلمة</span><span class="v-pron">النطق</span><span class="v-ar">المعنى</span><span></span></div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center"><button class="btn btn-dark" onclick="show('story',null)">القصة ←</button></div>
+</div>
+
+<div id="sec-story" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">📖</span><div><h3>القصة</h3><div class="sub">اضغط على الكلمات الملوّنة — 🌐 للترجمة</div></div></div>
+    <div class="card-body">
+      <div class="story-controls">
+        <button id="trAllBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:25px;padding:8px 16px;font-family:'Tajawal',sans-serif;font-size:0.82rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+        <button class="story-main-btn" id="storyBtn" onclick="toggleStory()" style="background:#059669;color:white"><span id="sBtnIcon">▶</span><span id="sBtnTxt">استمع للقصة كاملة</span></button>
+        <div class="speed-wrap"><label>السرعة:</label><button class="spd active" onclick="setSpd(1,this)">عادي</button><button class="spd" onclick="setSpd(0.75,this)">بطيء</button></div>
+      </div>
+      <div class="story-box" id="storyBox"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn btn-dark" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">✏️</span><div><h3>القاعدة</h3><div class="sub">Should / Shouldn't — النصيحة والتوصية</div></div></div>
+    <div class="card-body">
+
+      <div class="grammar-rule-box">
+        <div class="grammar-rule-title"><span style="background:#059669;color:white;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:0.82rem;flex-shrink:0">١</span> Should — كيف نعطي نصيحة؟</div>
+        <div style="background:#0c1e3c;border-radius:10px;padding:14px 18px;margin-bottom:12px;text-align:center">
+          <p style="font-family:'Lora',serif;font-size:1.1rem;color:#d4a017;font-weight:700;direction:ltr">You should + فعل ← نصيحة إيجابية</p>
+          <p style="font-family:'Lora',serif;font-size:1.1rem;color:#f87171;font-weight:700;direction:ltr;margin-top:6px">You shouldn't + فعل ← نصيحة سلبية</p>
+        </div>
+        <div class="grammar-pattern">
+          <div class="grammar-eg">You <span>should</span> drink more water every day.</div>
+          <div class="grammar-pattern-ar">يجب أن تشرب ماءً أكثر كل يوم. ← نصيحة إيجابية</div>
+        </div>
+        <div class="grammar-pattern">
+          <div class="grammar-eg">You <span>shouldn't</span> eat too much sugar.</div>
+          <div class="grammar-pattern-ar">لا يجب أن تأكل سكراً كثيراً. ← نصيحة سلبية</div>
+        </div>
+        <div class="grammar-pattern">
+          <div class="grammar-eg"><span>Should</span> I see a doctor? — Yes, you should.</div>
+          <div class="grammar-pattern-ar">هل يجب أن أرى طبيباً؟ — نعم، يجب عليك.</div>
+        </div>
+      </div>
+
+      <div class="grammar-rule-box">
+        <div class="grammar-rule-title"><span style="background:#059669;color:white;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:0.82rem;flex-shrink:0">٢</span> Should vs Must — ما الفرق؟</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div style="background:white;border-radius:10px;padding:14px;border-top:4px solid #d4a017;text-align:center">
+            <div style="font-family:'Lora',serif;font-size:1.1rem;font-weight:800;color:#d4a017">should</div>
+            <div style="font-size:0.8rem;color:#6b7280;margin:6px 0">نصيحة — رأي</div>
+            <div style="font-family:'Lora',serif;font-size:0.85rem;color:#374151;direction:ltr;font-style:italic">You should exercise more.</div>
+            <div style="font-size:0.75rem;color:#9ca3af;margin-top:4px">من الأفضل أن تفعل</div>
+          </div>
+          <div style="background:white;border-radius:10px;padding:14px;border-top:4px solid #dc2626;text-align:center">
+            <div style="font-family:'Lora',serif;font-size:1.1rem;font-weight:800;color:#dc2626">must</div>
+            <div style="font-size:0.8rem;color:#6b7280;margin:6px 0">إلزام — ضرورة</div>
+            <div style="font-family:'Lora',serif;font-size:0.85rem;color:#374151;direction:ltr;font-style:italic">You must take this medicine.</div>
+            <div style="font-size:0.75rem;color:#9ca3af;margin-top:4px">لازم تفعل — لا خيار</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:8px">
+        <p style="font-weight:800;color:#0c1e3c;font-size:0.95rem;margin-bottom:10px;text-align:right">⚠️ خطأ شائع — احذر!</p>
+        <div class="grammar-wrong">
+          <span style="color:#dc2626;font-weight:700">✗ &nbsp;</span>
+          <span style="font-family:'Lora',serif">You should <strong>to rest</strong> more.</span>
+          <span style="font-family:'Tajawal',sans-serif;color:#dc2626;font-size:0.85rem;margin-right:8px">← لا to بعد should</span>
+        </div>
+        <div class="grammar-right">
+          <span style="color:#059669;font-weight:700">✓ &nbsp;</span>
+          <span style="font-family:'Lora',serif">You should <strong>rest</strong> more.</span>
+          <span style="font-family:'Tajawal',sans-serif;color:#059669;font-size:0.85rem;margin-right:8px">← should + فعل مباشرة بدون to</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('story',null)">→ القصة</button>
+    <button class="btn btn-dark" onclick="show('listen',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listen" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">🎧</span><div><h3>الاستماع</h3><div class="sub">اضغط ▶ افتح لتشغيل المقطع مباشرة</div></div></div>
+    <div class="card-body">
+      <p style="text-align:right;color:#6b7280;font-size:0.88rem;margin-bottom:16px">استمع وحاول تتعرف على كلمات الصحة والطبيب بالإنجليزي 🎯</p>
+      <div id="listenCards"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn btn-dark" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">✍️</span><div><h3>الكتابة</h3><div class="sub">Writing Practice — اكتب عن صحتك وعاداتك الصحية</div></div></div>
+    <div class="card-body">
+      <p style="text-align:right;color:#374151;font-size:0.95rem;margin-bottom:6px;line-height:1.8">اتبع القالب أدناه واكتب عن صحتك وعاداتك اليومية.</p>
+      <p style="text-align:right;color:#6b7280;font-size:0.88rem;margin-bottom:18px">استبدل الكلمات باللون الأصفر بمعلوماتك الحقيقية.</p>
+      <div class="writing-form">
+        <p style="text-align:right;font-size:0.88rem;color:#9ca3af;margin-bottom:16px">✏️ أكتب واكمل الجمل — كل الخانات اختيارية</p>
+        <div class="writing-field">
+          <div class="writing-field-label"><span>To stay healthy I</span> :للبقاء بصحة جيدة أنا</div>
+          <input class="writing-input" id="wHealthy" placeholder="exercise / eat well / sleep early..." oninput="buildHealthStory()">
+        </div>
+        <div class="writing-field">
+          <div class="writing-field-label"><span>I should</span> :يجب علي</div>
+          <input class="writing-input" id="wShould" placeholder="drink more water / sleep earlier..." oninput="buildHealthStory()">
+        </div>
+        <div class="writing-field">
+          <div class="writing-field-label"><span>I shouldn't</span> :لا يجب علي</div>
+          <input class="writing-input" id="wShouldnt" placeholder="eat too much sugar / stay up late..." oninput="buildHealthStory()">
+        </div>
+        <div class="writing-field">
+          <div class="writing-field-label"><span>The last time I visited a doctor was</span> :آخر مرة زرت طبيباً</div>
+          <input class="writing-input" id="wDoctor" placeholder="last month / a year ago..." oninput="buildHealthStory()">
+        </div>
+        <div class="writing-field" style="margin-bottom:0">
+          <div class="writing-field-label"><span>My advice for good health is</span> :نصيحتي للصحة الجيدة</div>
+          <input class="writing-input" id="wAdvice" placeholder="sleep well / eat vegetables / exercise..." oninput="buildHealthStory()">
+        </div>
+      </div>
+      <div style="background:#065f46;border-radius:12px;padding:14px 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px;flex-direction:row-reverse">
+        <span style="font-size:1.2rem">✨</span>
+        <p style="color:white;font-size:0.88rem;font-weight:600">قصتك ستظهر هنا تلقائياً وأنت تكتب!</p>
+      </div>
+      <div class="writing-story-box" id="healthStoryOutput">
+        <div class="writing-story-placeholder">✨ ستظهر قصتك هنا...</div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('listen',null)">→ الاستماع</button>
+    <button class="btn btn-dark" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">💬</span><div><h3>المحادثة</h3><div class="sub">Speaking — اقرأ السؤال بصوت عالٍ ثم أجب</div></div></div>
+    <div class="card-body"><div id="speakingQs"></div></div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn btn-dark" onclick="show('realeng',null)">Real English ←</button>
+  </div>
+</div>
+
+<div id="sec-realeng" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">🗣️</span><div><h3>Real English</h3><div class="sub">كيف يتكلم الناس فعلاً عن الصحة والأطباء</div></div></div>
+    <div class="card-body">
+      <div id="expressionsContainer" style="display:flex;flex-direction:column;gap:14px;margin-bottom:24px"></div>
+      <div class="card-header" style="border-radius:10px 10px 0 0;margin-top:8px">
+        <span class="icon">😎</span><div><h3>Slang & Informal</h3><div class="sub">كلام الشارع عن الصحة</div></div>
+      </div>
+      <div id="slangContainer" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;padding:16px;background:white;border-radius:0 0 10px 10px;margin-bottom:20px"></div>
+      <div class="card-header" style="border-radius:10px 10px 0 0">
+        <span class="icon">💬</span><div><h3>Everyday Words</h3><div class="sub">تعابير يومية عن الصحة</div></div>
+      </div>
+      <div id="everydayContainer" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;padding:16px;background:white;border-radius:0 0 10px 10px;margin-bottom:20px"></div>
+      <div class="card-header" style="border-radius:10px 10px 0 0">
+        <span class="icon">🌍</span><div><h3>هل تعلمت؟</h3><div class="sub">معلومات ثقافية عن الصحة بالإنجليزي</div></div>
+      </div>
+      <div id="didYouKnow" style="padding:16px;background:white;border-radius:0 0 10px 10px"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn btn-dark" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-quiz" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">✅</span><div><h3>اختبار الوحدة</h3><div class="sub">Unit Quiz — اختبر نفسك</div></div></div>
+    <div class="card-body">
+      <div id="quizContainer"></div>
+      <div style="display:flex;justify-content:center;gap:12px;margin-top:20px">
+        <button class="btn btn-dark" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn btn-gray" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizResult" style="display:none;text-align:center;padding:20px;margin-top:16px;background:#f0fdf4;border-radius:14px">
+        <div style="font-size:2.5rem;margin-bottom:8px" id="quizEmoji">🎉</div>
+        <div style="font-weight:800;font-size:1.1rem;color:#0c1e3c;margin-bottom:4px" id="quizScore"></div>
+        <div style="font-size:0.9rem;color:#6b7280" id="quizMsg"></div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:28px;background:white;border-radius:18px;box-shadow:0 4px 24px rgba(0,0,0,0.07)">
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:#0c1e3c;margin-bottom:6px">أحسنت! أكملت وحدة الصحة والطبيب</div>
+    <p style="font-size:0.9rem;color:#6b7280;margin-bottom:16px">الوحدة الخامسة: الماضي البسيط — Past Simple</p>
+    <button class="btn" style="background:#059669;color:white" onclick="alert('قريباً! 🚀')">الوحدة الخامسة ←</button>
+  </div>
+</div>
+
+<script>
+var vocab = [
+  { en:"symptom",     pron:"سيمبتم",    ar:"العَرَض / علامة المرض", ex:"What are your symptoms?",           exAr:"ما هي أعراضك؟" },
+  { en:"appointment", pron:"أبوينتمنت", ar:"الموعد الطبي",          ex:"I need to make an appointment.",    exAr:"أحتاج لحجز موعد." },
+  { en:"prescription",pron:"بريس-كريبشن",ar:"الوصفة الطبية",        ex:"The doctor gave me a prescription.", exAr:"الطبيب أعطاني وصفة طبية." },
+  { en:"medicine",    pron:"ميدسن",     ar:"الدواء",                ex:"Take this medicine twice a day.",    exAr:"خذ هذا الدواء مرتين يومياً." },
+  { en:"surgery",     pron:"سيرجري",    ar:"العملية الجراحية",       ex:"He had surgery last month.",         exAr:"أجرى عملية الشهر الماضي." },
+  { en:"injection",   pron:"إن-جيكشن",  ar:"الحقنة",                ex:"The nurse gave me an injection.",    exAr:"الممرضة أعطتني حقنة." },
+  { en:"bleed",       pron:"بليد",      ar:"ينزف / النزيف",          ex:"The cut is bleeding badly.",         exAr:"الجرح ينزف بشدة." },
+  { en:"swollen",     pron:"سوولن",     ar:"منتفخ / متورم",          ex:"My ankle is swollen.",               exAr:"كاحلي منتفخ." },
+  { en:"dizzy",       pron:"ديزي",      ar:"دوخة / يشعر بالدوار",   ex:"I feel dizzy when I stand up.",      exAr:"أشعر بالدوار عند الوقوف." },
+  { en:"nausea",      pron:"نوشا",      ar:"الغثيان",               ex:"I have nausea after eating.",        exAr:"عندي غثيان بعد الأكل." },
+  { en:"allergy",     pron:"ألرجي",     ar:"الحساسية",              ex:"I have a dust allergy.",             exAr:"عندي حساسية من الغبار." },
+  { en:"blood pressure",pron:"بلاد بريشر",ar:"ضغط الدم",            ex:"My blood pressure is high.",         exAr:"ضغط دمي مرتفع." },
+  { en:"diet",        pron:"داييت",     ar:"النظام الغذائي",         ex:"The doctor put me on a diet.",       exAr:"الطبيب وضعني على نظام غذائي." },
+  { en:"exercise",    pron:"إكسرسايز",  ar:"الرياضة / التمرين",      ex:"You should exercise three times a week.", exAr:"يجب عليك ممارسة الرياضة ثلاث مرات أسبوعياً." },
+  { en:"emergency",   pron:"إيمر-جنسي", ar:"الطوارئ",               ex:"Call an ambulance! It is an emergency!", exAr:"اتصل بالإسعاف! هذه حالة طوارئ!" },
+  { en:"recovery",    pron:"ري-كافري",  ar:"التعافي / الشفاء",       ex:"His recovery was very fast.",        exAr:"تعافيه كان سريعاً جداً." },
+  { en:"painkiller",  pron:"بين-كيلر",  ar:"مسكّن الألم",            ex:"Take a painkiller for the headache.", exAr:"خذ مسكّن ألم للصداع." },
+  { en:"checkup",     pron:"تشيك-أب",   ar:"الفحص الدوري",           ex:"I have a checkup every year.",       exAr:"عندي فحص دوري كل سنة." },
+  { en:"wound",       pron:"وُند",      ar:"الجرح",                 ex:"Clean the wound carefully.",         exAr:"نظّف الجرح بعناية." },
+  { en:"stress",      pron:"ستريس",     ar:"التوتر / الضغط النفسي",  ex:"Stress is bad for your health.",     exAr:"التوتر ضار بصحتك." },
+];
+
+var storyData = [
+  { text:"Mohamed wakes up feeling terrible. He has a headache and feels dizzy.",    ar:"محمد يستيقظ وهو يشعر بحالة سيئة. عنده صداع ويشعر بالدوار." },
+  { text:"His wife says: You look awful! You should see a doctor today.",            ar:"زوجته تقول: تبدو مريضاً جداً! يجب عليك رؤية الطبيب اليوم." },
+  { text:"Mohamed calls the clinic and makes an appointment for ten o'clock.",       ar:"محمد يتصل بالعيادة ويحجز موعداً للساعة العاشرة." },
+  { text:"At the clinic, the doctor asks: What are your symptoms?",                  ar:"في العيادة، الطبيب يسأل: ما هي أعراضك؟" },
+  { text:"Mohamed says: I have nausea, a headache and my throat is swollen.",        ar:"محمد يقول: عندي غثيان وصداع وحلقي منتفخ." },
+  { text:"The doctor checks his blood pressure and says: It is a bit high.",         ar:"الطبيب يفحص ضغط دمه ويقول: إنه مرتفع قليلاً." },
+  { text:"He gives Mohamed a prescription. You should take this medicine twice daily.", ar:"يعطي محمد وصفة طبية. يجب عليك أخذ هذا الدواء مرتين يومياً." },
+  { text:"The doctor also says: You shouldn't work this week. You need complete rest.", ar:"الطبيب أيضاً يقول: لا يجب عليك العمل هذا الأسبوع. تحتاج راحة تامة." },
+  { text:"Mohamed thanks the doctor. He goes home and starts his recovery.",          ar:"محمد يشكر الطبيب. يذهب للبيت ويبدأ تعافيه." },
+];
+
+var vocabWords = ['symptom','appointment','prescription','medicine','surgery','injection','bleed','swollen','dizzy','nausea','allergy','diet','exercise','emergency','recovery','painkiller','checkup','wound','stress'];
+
+var listenData = [
+  { icon:"🏥", name:"At the Doctor — English A2 Conversation",         desc:"محادثة حقيقية A2 عند الطبيب بالإنجليزي",                  url:"https://www.youtube.com/watch?v=G7DJacWF2Eg", tag:"محادثة" },
+  { icon:"💊", name:"Health Vocabulary — Should & Shouldn't A2",       desc:"تعلم should وshouldnt مع مفردات الصحة لمستوى A2",          url:"https://www.youtube.com/watch?v=44SL8i8h0dg", tag:"A2" },
+  { icon:"🩺", name:"Medical English — Health Problems & Advice A2",   desc:"كيف تصف مشاكلك الصحية وتعطي نصائح بالإنجليزي",           url:"https://www.youtube.com/watch?v=Qn9QKZrNbeo", tag:"صحة" },
+];
+
+var speakingQs = [
+  { q:"What should you do to stay healthy?",        hint:"You should ___ and ___.",              ar:"ماذا يجب عليك لتبقى بصحة جيدة؟" },
+  { q:"What shouldn't you do if you have a cold?",  hint:"You shouldn't ___ or ___.",            ar:"ماذا لا يجب عليك فعله عند الإصابة بالزكام؟" },
+  { q:"How often do you visit the doctor?",         hint:"I visit the doctor ___ a year.",       ar:"كم مرة تزور الطبيب؟" },
+  { q:"What do you do when you have a headache?",   hint:"When I have a headache I ___ and ___.", ar:"ماذا تفعل عندما يكون عندك صداع؟" },
+  { q:"What is the best advice for reducing stress?",hint:"To reduce stress you should ___.",    ar:"ما أفضل نصيحة لتقليل التوتر؟" },
+];
+
+var quizData = [
+  { q:"You ___ drink more water. It is good for you.",           opts:["shouldn't","should","must not","don't"],        ans:1 },
+  { q:"You ___ eat too much junk food.",                         opts:["should","must","shouldn't","would"],            ans:2 },
+  { q:"ما معنى 'symptom'؟",                                     opts:["الدواء","الوصفة","عرَض المرض","الحقنة"],        ans:2 },
+  { q:"Should I see a doctor? — Yes, you ___.",                  opts:["must","do","should","would"],                   ans:2 },
+  { q:"You should ___ more exercise.",                           opts:["to do","doing","do","did"],                     ans:2 },
+  { q:"ما معنى 'painkiller'؟",                                  opts:["مضاد حيوي","فيتامين","مسكّن ألم","حقنة"],       ans:2 },
+  { q:"The doctor ___ him a prescription.",                      opts:["gave","give","gives","giving"],                 ans:0 },
+  { q:"ما الفرق بين should وmust؟",                             opts:["لا فرق","should إلزام، must نصيحة","should نصيحة، must إلزام","كلاهما نصيحة"], ans:2 },
+];
+
+var expressions = [
+  { expr:"An apple a day keeps the doctor away.", pron:"أن أبل أ دي كيبس ذا دوكتر أوي", meaning:"الأكل الصحي يبعدك عن الطبيب", formal:"Eating healthily prevents illness.", example:"Eat more fruit! An apple a day keeps the doctor away.", note:"مثل إنجليزي شهير جداً — يعني الغذاء الصحي يحميك من الأمراض" },
+  { expr:"I am not feeling myself.",   pron:"آي أم نوت فيلينج مايسيلف",  meaning:"لست بخير / لست على طبيعتي",   formal:"I am not feeling well today.",          example:"Sorry I am quiet today. I am not feeling myself.", note:"أكثر طبيعية من قول I am sick مباشرة" },
+  { expr:"It is just a minor thing.", pron:"إت إز جاست أ مينر ثينج",   meaning:"إنه شيء بسيط / لا يستحق القلق", formal:"It is not serious or important.",       example:"Do not worry about my cough. It is just a minor thing.", note:"تقولها لتطمئن الآخرين عند الإصابة بمرض بسيط" },
+];
+
+var slangWords = [
+  { word:"Under the weather", pron:"أندر ذا ويذر", instead:"feeling sick",    example:"I am a bit under the weather today.", ar:"لست بخير / مريض بعض الشيء" },
+  { word:"Burn out",          pron:"بيرن أوت",     instead:"exhausted",        example:"I am completely burned out this month.", ar:"منهك تماماً من الإجهاد" },
+  { word:"Catch a bug",       pron:"كاتش أ باغ",   instead:"get sick",         example:"I think I caught a bug at work.",     ar:"يصاب بمرض / يلتقط فيروساً" },
+  { word:"On the mend",       pron:"أون ذا ميند",  instead:"recovering",       example:"Good news — he is on the mend now!",  ar:"في طريق التعافي والشفاء" },
+];
+
+var everydayWords = [
+  { word:"Take it easy",       pron:"تيك إت إيزي",   instead:"rest and relax",      example:"Doctor said take it easy for a week.",   ar:"خذ راحتك / لا تجهد نفسك" },
+  { word:"Push through",       pron:"بوش ثرو",       instead:"continue despite pain",example:"I pushed through despite the headache.", ar:"يكمل رغم الألم أو التعب" },
+  { word:"Get back on your feet",pron:"غيت باك أون يور فيت",instead:"recover fully", example:"It took a month to get back on my feet.", ar:"يتعافى تماماً ويعود لطبيعته" },
+];
+
+var didYouKnowFacts = [
+  { flag:"🇬🇧",  fact:'في بريطانيا نظام الصحة العامة يسمى <strong>NHS (National Health Service)</strong> — الزيارة للطبيب العام مجانية تماماً! لكن تحتاج حجز موعد مسبق وتقول <strong>"I would like to book an appointment"</strong>.' },
+  { flag:"💊",   fact:'Should بدون to دائماً! الخطأ الأكثر شيوعاً هو قول <strong>"should to rest"</strong> — الصحيح <strong>"should rest"</strong> بدون to — نفس الحال مع must وcan وwould.' },
+  { flag:"🩺",   fact:'عند وصف الألم للطبيب تستخدم: <strong>sharp pain</strong> (ألم حاد)، <strong>dull pain</strong> (ألم خفيف)، <strong>throbbing pain</strong> (ألم نابض) — هذه المصطلحات مهمة جداً!' },
+];
+
+var spdRate = 1;
+var storyRef = { on: false, spd: 1 };
+
+function speak(text, rate, onEnd) {
+  if (!window.speechSynthesis) return null;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US'; u.rate = rate || spdRate;
+  if (onEnd) u.onend = onEnd;
+  window.speechSynthesis.speak(u);
+  return u;
+}
+function setSpd(r, btn) {
+  spdRate = r; storyRef.spd = r;
+  document.querySelectorAll('.spd').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  if (storyRef.on) { stopStory(); setTimeout(startStory, 80); }
+}
+function buildVocab() {
+  var grid = document.querySelector('.vocab-grid');
+  vocab.forEach(function(v, i) {
+    var row = document.createElement('div');
+    row.className = 'vocab-row ' + (i % 2 === 0 ? 'even' : 'odd');
+    var exHtml = v.ex ? '<div class="vocab-ex"><span class="vocab-ex-en">💬 ' + v.ex + '</span><span class="vocab-ex-ar">' + (v.exAr || '') + '</span></div>' : '';
+    row.innerHTML =
+      '<span class="v-en">' + v.en + '</span>' +
+      '<span class="v-pron">' + v.pron + '</span>' +
+      '<span class="v-ar">' + v.ar + '</span>' +
+      '<button class="play-btn idle" id="vb' + i + '" onclick="playWord(\'' + v.en.replace(/'/g,"\\'") + '\',' + i + ')">🔊</button>' +
+      exHtml;
+    grid.appendChild(row);
+  });
+}
+function playWord(word, idx) {
+  document.querySelectorAll('.play-btn').forEach(function(b){ b.className='play-btn idle'; b.textContent='🔊'; });
+  var btn = document.getElementById('vb' + idx);
+  if (btn) { btn.className='play-btn playing'; btn.textContent='⏸'; }
+  var u = speak(word, spdRate);
+  if (u) u.onend = function(){ if (btn) { btn.className='play-btn idle'; btn.textContent='🔊'; } };
+}
+function buildStory() {
+  var box = document.getElementById('storyBox');
+  storyData.forEach(function(line, i) {
+    var div = document.createElement('div');
+    div.className = 'story-line'; div.id = 'sl' + i;
+    var html = line.text;
+    vocabWords.forEach(function(w) {
+      var regex = new RegExp('\\b(' + w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')\\b','gi');
+      html = html.replace(regex, function(match){
+        var found = vocab.filter(function(v){ return v.en.toLowerCase() === w.toLowerCase(); })[0];
+        if (!found) return match;
+        return '<span class="clickword" onclick="showWordTip(this,\'' + found.pron + '\',\'' + found.ar + '\',\'' + found.en + '\')">' + match + '</span>';
+      });
+    });
+    div.innerHTML =
+      '<div class="story-line-row">' +
+        '<span class="story-line-text" dir="ltr">' + html + '</span>' +
+        '<div style="display:flex;gap:4px;flex-shrink:0">' +
+          '<button class="line-play" onclick="playLine(' + i + ')">🔊</button>' +
+          '<button class="line-play" style="color:#d4a017;border-color:#fde68a" onclick="toggleTr(' + i + ')">🌐</button>' +
+        '</div>' +
+      '</div>' +
+      '<div id="tr' + i + '" style="display:none;font-size:0.85rem;color:#6b7280;direction:rtl;text-align:right;padding:4px 10px 2px;border-right:3px solid #fde68a">' + line.ar + '</div>';
+    box.appendChild(div);
+  });
+}
+var tipEl = null;
+function showWordTip(el, pron, ar, en) {
+  if (tipEl) tipEl.remove();
+  var tip = document.createElement('div'); tip.className = 'word-tooltip';
+  tip.innerHTML = en + ' &nbsp;|&nbsp; ' + pron + ' &nbsp;|&nbsp; ' + ar;
+  el.style.position = 'relative'; el.appendChild(tip); tipEl = tip;
+  speak(en, spdRate);
+  setTimeout(function(){ if (tipEl) { tipEl.remove(); tipEl = null; } }, 2800);
+}
+function playLine(i) {
+  stopStory(); hlLine(i);
+  var u = speak(storyData[i].text, spdRate);
+  if (u) u.onend = function(){ hlLine(-1); };
+}
+function hlLine(i) {
+  document.querySelectorAll('.story-line').forEach(function(l){ l.classList.remove('hl'); });
+  if (i >= 0) { var el = document.getElementById('sl' + i); if (el) el.classList.add('hl'); }
+}
+function startStory() {
+  storyRef.on = true;
+  document.getElementById('storyBtn').style.background = '#047857';
+  document.getElementById('sBtnIcon').textContent = '⏹';
+  document.getElementById('sBtnTxt').textContent = 'إيقاف القصة';
+  playSeq(0);
+}
+function stopStory() {
+  storyRef.on = false;
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
+  hlLine(-1);
+  var btn = document.getElementById('storyBtn');
+  if (btn) { btn.style.background='#059669'; document.getElementById('sBtnIcon').textContent='▶'; document.getElementById('sBtnTxt').textContent='استمع للقصة كاملة'; }
+}
+function playSeq(i) {
+  if (!storyRef.on || i >= storyData.length) { stopStory(); return; }
+  hlLine(i);
+  var u = new SpeechSynthesisUtterance(storyData[i].text);
+  u.lang='en-US'; u.rate=storyRef.spd;
+  u.onend = function(){ if (storyRef.on) setTimeout(function(){ playSeq(i+1); }, 380); };
+  if (window.speechSynthesis) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(u); }
+}
+function toggleStory() { storyRef.on ? stopStory() : startStory(); }
+function toggleTr(i) {
+  var el = document.getElementById('tr' + i);
+  if (el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+var _trAll = false;
+function toggleAllTr() {
+  _trAll = !_trAll;
+  for (var i = 0; i < storyData.length; i++) {
+    var el = document.getElementById('tr' + i);
+    if (el) el.style.display = _trAll ? 'block' : 'none';
+  }
+  var btn = document.getElementById('trAllBtn');
+  if (btn) btn.textContent = _trAll ? '🙈 أخفِ' : '🌐 الترجمة';
+}
+function buildHealthStory() {
+  var healthy  = document.getElementById('wHealthy').value.trim();
+  var should   = document.getElementById('wShould').value.trim();
+  var shouldnt = document.getElementById('wShouldnt').value.trim();
+  var doctor   = document.getElementById('wDoctor').value.trim();
+  var advice   = document.getElementById('wAdvice').value.trim();
+  if (!healthy && !should && !shouldnt && !doctor && !advice) {
+    document.getElementById('healthStoryOutput').innerHTML = '<div class="writing-story-placeholder">✨ ستظهر قصتك هنا...</div>';
+    return;
+  }
+  var hi = function(val){ return '<span style="color:#d4a017;font-weight:700">' + val + '</span>'; };
+  var parts = [];
+  if (healthy)  parts.push('To stay healthy I ' + hi(healthy) + '.');
+  if (should)   parts.push('I know I should ' + hi(should) + '.');
+  if (shouldnt) parts.push('I also know I shouldn\'t ' + hi(shouldnt) + '.');
+  if (doctor)   parts.push('The last time I visited a doctor was ' + hi(doctor) + '.');
+  if (advice)   parts.push('My advice for good health is: ' + hi(advice) + '.');
+  document.getElementById('healthStoryOutput').innerHTML =
+    '<p style="direction:ltr;line-height:2;font-size:0.97rem">' + parts.join(' ') + '</p>' +
+    '<p style="font-size:0.78rem;color:#9ca3af;margin-top:12px;text-align:right">linguapath.com</p>';
+}
+function buildListening() {
+  var cont = document.getElementById('listenCards');
+  listenData.forEach(function(r) {
+    cont.innerHTML +=
+      '<div class="listen-card">' +
+        '<span style="font-size:1.8rem;flex-shrink:0">' + r.icon + '</span>' +
+        '<div style="flex:1;text-align:right">' +
+          '<div style="font-weight:700;font-size:0.97rem;color:#0c1e3c;margin-bottom:3px">' + r.name + '</div>' +
+          '<div style="font-size:0.82rem;color:#6b7280">' + r.desc + '</div>' +
+        '</div>' +
+        '<span style="background:#d1fae5;color:#059669;font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:20px;flex-shrink:0">' + r.tag + '</span>' +
+        '<a class="listen-link" href="' + r.url + '" target="_blank" style="background:#059669">▶ افتح</a>' +
+      '</div>';
+  });
+}
+function buildSpeaking() {
+  var cont = document.getElementById('speakingQs');
+  speakingQs.forEach(function(q) {
+    cont.innerHTML +=
+      '<div class="speaking-q">' +
+        '<div style="flex:1;text-align:right">' +
+          '<p dir="ltr">' + q.q + '</p>' +
+          '<p style="font-size:0.82rem;color:#9ca3af;margin-top:4px">' + q.ar + '</p>' +
+          '<p style="font-size:0.82rem;color:#d4a017;font-family:\'Lora\',serif;margin-top:6px;direction:ltr">💡 ' + q.hint + '</p>' +
+        '</div>' +
+        '<button class="play-btn idle" onclick="speak(\'' + q.q.replace(/'/g,"\\'") + '\',spdRate)">🔊</button>' +
+      '</div>';
+  });
+}
+function buildRealEnglish() {
+  var exCont = document.getElementById('expressionsContainer');
+  expressions.forEach(function(e) {
+    exCont.innerHTML +=
+      '<div style="background:#faf5ff;border:1px solid #e9d5ff;border-radius:12px;padding:16px 18px">' +
+        '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-direction:row-reverse">' +
+          '<div style="display:flex;align-items:center;gap:10px;flex-direction:row-reverse">' +
+            '<span style="font-family:\'Lora\',serif;font-size:1.1rem;font-weight:700;color:#7c3aed;direction:ltr">' + e.expr + '</span>' +
+            '<span style="color:#d4a017;font-weight:700;font-size:0.85rem">' + e.pron + '</span>' +
+          '</div>' +
+          '<button class="play-btn idle" style="flex-shrink:0" onclick="speak(\'' + e.expr.replace(/'/g,"\\'") + '\',spdRate)">🔊</button>' +
+        '</div>' +
+        '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">' +
+          '<div style="background:white;border-radius:8px;padding:8px 12px;text-align:right"><div style="font-size:0.72rem;color:#9ca3af;margin-bottom:2px">المعنى</div><div style="font-weight:700;color:#374151;font-size:0.92rem">' + e.meaning + '</div></div>' +
+          '<div style="background:white;border-radius:8px;padding:8px 12px;direction:ltr"><div style="font-size:0.72rem;color:#9ca3af;margin-bottom:2px">الرسمي</div><div style="font-weight:600;color:#6b7280;font-size:0.88rem;font-family:\'Lora\',serif">' + e.formal + '</div></div>' +
+        '</div>' +
+        '<div style="background:white;border-radius:8px;padding:8px 12px;direction:ltr;margin-bottom:6px"><span style="font-size:0.72rem;color:#9ca3af">مثال: </span><span style="font-family:\'Lora\',serif;font-size:0.92rem;color:#0c1e3c;font-style:italic">' + e.example + '</span></div>' +
+        '<div style="font-size:0.82rem;color:#7c3aed;text-align:right">💡 ' + e.note + '</div>' +
+      '</div>';
+  });
+  var slCont = document.getElementById('slangContainer');
+  slangWords.forEach(function(s) {
+    slCont.innerHTML +=
+      '<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px 16px">' +
+        '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">' +
+          '<button class="play-btn idle" style="width:30px;height:30px;font-size:0.85rem" onclick="speak(\'' + s.word.replace(/'/g,"\\'") + '\',spdRate)">🔊</button>' +
+          '<div style="text-align:right"><span style="font-family:\'Lora\',serif;font-size:1.1rem;font-weight:700;color:#ea580c">' + s.word + '</span><span style="color:#d4a017;font-size:0.82rem;font-weight:700;margin-right:6px">' + s.pron + '</span></div>' +
+        '</div>' +
+        '<div style="font-size:0.88rem;color:#374151;text-align:right;margin-bottom:4px"><strong>' + s.ar + '</strong></div>' +
+        '<div style="font-size:0.82rem;color:#6b7280;text-align:right;margin-bottom:6px">بدل: <span style="font-family:\'Lora\',serif">' + s.instead + '</span></div>' +
+        '<div style="background:white;border-radius:6px;padding:6px 10px;font-family:\'Lora\',serif;font-size:0.85rem;color:#0c1e3c;direction:ltr;font-style:italic">' + s.example + '</div>' +
+      '</div>';
+  });
+  var evCont = document.getElementById('everydayContainer');
+  everydayWords.forEach(function(s) {
+    evCont.innerHTML +=
+      '<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px 16px">' +
+        '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">' +
+          '<button class="play-btn idle" style="width:30px;height:30px;font-size:0.85rem" onclick="speak(\'' + s.word.replace(/'/g,"\\'") + '\',spdRate)">🔊</button>' +
+          '<div style="text-align:right"><span style="font-family:\'Lora\',serif;font-size:0.95rem;font-weight:700;color:#059669">' + s.word + '</span></div>' +
+        '</div>' +
+        '<div style="font-size:0.88rem;color:#374151;text-align:right;margin-bottom:4px"><strong>' + s.ar + '</strong></div>' +
+        '<div style="font-size:0.82rem;color:#6b7280;text-align:right;margin-bottom:6px">بدل: <span style="font-family:\'Lora\',serif">' + s.instead + '</span></div>' +
+        '<div style="background:white;border-radius:6px;padding:6px 10px;font-family:\'Lora\',serif;font-size:0.85rem;color:#0c1e3c;direction:ltr;font-style:italic">' + s.example + '</div>' +
+      '</div>';
+  });
+  var dyCont = document.getElementById('didYouKnow');
+  didYouKnowFacts.forEach(function(f) {
+    dyCont.innerHTML +=
+      '<div style="display:flex;align-items:flex-start;gap:12px;background:linear-gradient(135deg,#fef9f0,#fef3c7);border:1px solid #e9d5a0;border-radius:12px;padding:14px 18px;margin-bottom:10px;flex-direction:row-reverse">' +
+        '<span style="font-size:1.4rem;flex-shrink:0">' + f.flag + '</span>' +
+        '<p style="font-size:0.92rem;line-height:1.8;color:#374151;text-align:right">' + f.fact + '</p>' +
+      '</div>';
+  });
+}
+var quizAnswers = new Array(quizData.length).fill(null);
+function buildQuiz() {
+  var cont = document.getElementById('quizContainer');
+  quizData.forEach(function(q, qi) {
+    var optsHtml = '';
+    q.opts.forEach(function(opt, oi) {
+      optsHtml += '<div class="quiz-opt" id="qo' + qi + '-' + oi + '" onclick="selectOpt(' + qi + ',' + oi + ')"><span style="font-family:\'Lora\',serif;font-size:0.95rem">' + opt + '</span><input type="radio" name="q' + qi + '"></div>';
+    });
+    cont.innerHTML += '<div class="quiz-q"><p dir="ltr">' + q.q + '</p><div class="quiz-opts">' + optsHtml + '</div></div>';
+  });
+}
+function selectOpt(qi, oi) {
+  quizAnswers[qi] = oi;
+  for (var i = 0; i < quizData[qi].opts.length; i++) {
+    var el = document.getElementById('qo' + qi + '-' + i);
+    if (el) { el.classList.remove('correct','wrong'); el.style.borderColor=''; el.style.background=''; }
+  }
+  var sel = document.getElementById('qo' + qi + '-' + oi);
+  if (sel) sel.style.borderColor = '#0c1e3c';
+}
+function checkQuiz() {
+  var score = 0;
+  quizData.forEach(function(q, qi) {
+    for (var i = 0; i < q.opts.length; i++) {
+      var el = document.getElementById('qo' + qi + '-' + i);
+      if (!el) continue;
+      el.classList.remove('correct','wrong');
+      if (i === q.ans) el.classList.add('correct');
+      else if (quizAnswers[qi] === i) el.classList.add('wrong');
+    }
+    if (quizAnswers[qi] === q.ans) score++;
+  });
+  var res = document.getElementById('quizResult');
+  var pct = Math.round(score / quizData.length * 100);
+  res.style.display = 'block';
+  document.getElementById('quizEmoji').textContent = pct===100?'🏆':pct>=75?'🎉':pct>=50?'💪':'📚';
+  document.getElementById('quizScore').textContent = score + ' من ' + quizData.length + ' إجابة صحيحة (' + pct + '%)';
+  document.getElementById('quizMsg').textContent = pct===100?'ممتاز! جاهز للوحدة الخامسة!':pct>=75?'أحسنت!':pct>=50?'جيد! راجع القاعدة.':'راجع الوحدة كاملة.';
+  res.style.background = pct >= 75 ? '#f0fdf4' : '#fef9f0';
+  res.scrollIntoView({ behavior:'smooth', block:'center' });
+}
+function resetQuiz() {
+  quizAnswers = new Array(quizData.length).fill(null);
+  document.querySelectorAll('.quiz-opt').forEach(function(el){ el.classList.remove('correct','wrong'); el.style.borderColor=''; el.style.background=''; });
+  document.getElementById('quizResult').style.display = 'none';
+}
+function show(id, clickedBtn) {
+  document.querySelectorAll('.section-content').forEach(function(s){ s.classList.remove('active','fade-up'); });
+  var target = document.getElementById('sec-' + id);
+  target.classList.add('active');
+  setTimeout(function(){ target.classList.add('fade-up'); }, 10);
+  window.scrollTo({ top:0, behavior:'smooth' });
+  document.querySelectorAll('.nav-btn').forEach(function(b){ b.classList.remove('active'); });
+  if (clickedBtn) { clickedBtn.classList.add('active'); return; }
+  var map = { vocab:0, story:1, grammar:2, listen:3, writing:4, speaking:5, realeng:6, quiz:7 };
+  var btns = document.querySelectorAll('.nav-btn');
+  if (btns[map[id]]) btns[map[id]].classList.add('active');
+}
+buildVocab(); buildStory(); buildListening(); buildSpeaking(); buildRealEnglish(); buildQuiz();
+</script>
+</body>
+</html>
