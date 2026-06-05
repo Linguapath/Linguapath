@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real English A2 — الوحدة ١٧: الأحلام والطموحات</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:#c4a882;border-radius:3px}
+body{font-family:'Tajawal',sans-serif;background:#f7f3ed;min-height:100vh;direction:rtl}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes popIn{from{opacity:0;transform:scale(0.85)}to{opacity:1;transform:scale(1)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(5,150,105,0.4)}50%{box-shadow:0 0 0 8px rgba(5,150,105,0)}}
+.fade-up{animation:fadeUp 0.45s ease forwards}
+.nav-btn{transition:all 0.2s;border:none;cursor:pointer;font-family:'Tajawal',sans-serif;border-radius:30px;padding:7px 16px;font-size:0.82rem;font-weight:600}
+.nav-btn.active{background:#d4a017;color:#0c1e3c;font-weight:800}
+.nav-btn:not(.active){background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.85)}
+.section-content{display:none;max-width:880px;margin:0 auto;padding:36px 16px 80px}
+.section-content.active{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 4px 28px rgba(0,0,0,0.07);margin-bottom:24px;overflow:hidden}
+.card-header{background:#0c1e3c;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.card-header .icon{font-size:1.4rem}
+.card-header h3{font-size:1.05rem;font-weight:700}
+.card-header .sub{font-size:0.78rem;color:#93c5fd;margin-top:1px}
+.card-body{padding:24px}
+.vocab-grid{display:flex;flex-direction:column;gap:8px}
+.vocab-row{display:grid;grid-template-columns:1fr 1fr 1fr 42px;align-items:start;gap:5px 10px;padding:11px 16px;border-radius:12px;border:1px solid #e5eaf5;transition:all 0.18s}
+.vocab-ex{grid-column:1/-1;font-size:0.82rem;direction:ltr;padding:5px 8px 3px;border-top:1px dashed #e5eaf5;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.vocab-ex-en{font-family:'Lora',serif;color:#374151;font-style:italic}
+.vocab-ex-ar{font-family:'Tajawal',sans-serif;color:#9ca3af;direction:rtl;font-size:0.78rem}
+.vocab-row:hover{transform:translateX(-3px);box-shadow:0 2px 12px rgba(12,30,60,0.1)}
+.vocab-row.even{background:#f4f7ff}.vocab-row.odd{background:#fff}
+.vocab-header{background:#0c1e3c !important;border:none !important;transform:none !important;box-shadow:none !important}
+.v-en{font-family:'Lora',serif;font-weight:700;font-size:1rem;color:#0c1e3c;direction:ltr;text-align:left}
+.v-pron{font-size:0.88rem;color:#d4a017;font-weight:700;direction:rtl;text-align:right}
+.v-ar{font-size:0.97rem;font-weight:700;color:#374151;text-align:right}
+.vocab-header .v-en,.vocab-header .v-pron,.vocab-header .v-ar{color:white;font-family:'Tajawal',sans-serif;font-weight:700}
+.play-btn{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.18s;flex-shrink:0}
+.play-btn.idle{background:#e8f0fe;color:#1a56b0}
+.play-btn.idle:hover{background:#1a56b0;color:white;transform:scale(1.1)}
+.play-btn.playing{background:#059669;color:white;animation:pulse 1s infinite}
+.story-controls{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap;flex-direction:row-reverse}
+.story-main-btn{display:flex;align-items:center;gap:8px;border:none;border-radius:25px;padding:10px 22px;font-family:'Tajawal',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.2s;flex-direction:row-reverse}
+.speed-wrap{display:flex;align-items:center;gap:6px;flex-direction:row-reverse}
+.speed-wrap label{font-size:0.82rem;color:#6b7280;font-weight:600}
+.spd{padding:5px 11px;border-radius:20px;border:2px solid #d1d5db;background:white;font-family:'Tajawal',sans-serif;font-size:0.78rem;font-weight:700;cursor:pointer;color:#6b7280;transition:all 0.15s}
+.spd.active{border-color:#0c1e3c;background:#0c1e3c;color:white}
+.story-box{border-right:4px solid #d4a017;padding:16px 20px;background:#fffdf7;border-radius:0 12px 12px 0}
+.story-line{display:flex;flex-direction:column;gap:3px;padding:5px 6px;border-radius:6px;transition:background 0.2s;direction:ltr}
+.story-line-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.story-line.hl{background:#fef3c7;border-radius:8px}
+.story-line-text{font-family:'Lora',serif;font-size:1rem;line-height:1.9;flex:1}
+.story-line-text .clickword{cursor:pointer;border-bottom:1px dashed #d4a017;transition:all 0.15s;position:relative}
+.story-line-text .clickword:hover{color:#0c1e3c;background:#fef3c7;border-radius:3px}
+.word-tooltip{position:absolute;bottom:100%;right:50%;transform:translateX(50%);background:#0c1e3c;color:white;padding:4px 10px;border-radius:8px;font-size:0.78rem;white-space:nowrap;font-family:'Tajawal',sans-serif;z-index:99;animation:popIn 0.2s ease;pointer-events:none}
+.line-play{background:transparent;border:1px solid #e5e7eb;border-radius:6px;padding:3px 8px;color:#9ca3af;font-size:0.72rem;cursor:pointer;flex-shrink:0;font-family:'Tajawal',sans-serif;transition:all 0.15s;margin-top:4px}
+.line-play:hover{background:#f0f4ff;color:#1a56b0;border-color:#1a56b0}
+.grammar-rule-box{background:linear-gradient(135deg,#f0f7ff,#e8f4ff);border:2px solid #bfdbfe;border-radius:14px;padding:20px 22px;margin-bottom:16px}
+.grammar-rule-title{font-size:1rem;font-weight:800;color:#0c1e3c;margin-bottom:12px;text-align:right;display:flex;align-items:center;gap:8px;flex-direction:row-reverse}
+.grammar-pattern{background:white;border-radius:10px;padding:14px 18px;margin-bottom:10px;border-right:4px solid #1a56b0;direction:ltr}
+.grammar-eg{font-family:'Lora',serif;font-size:1rem;color:#0c1e3c;font-weight:600}
+.grammar-eg span{color:#d4a017;font-weight:800}
+.grammar-pattern-ar{font-family:'Tajawal',sans-serif;font-size:0.88rem;color:#6b7280;direction:rtl;text-align:right;margin-top:6px}
+.grammar-wrong{background:#fef2f2;border-radius:10px;padding:12px 16px;margin-bottom:8px;direction:ltr;border-right:4px solid #dc2626}
+.grammar-right{background:#f0fdf4;border-radius:10px;padding:12px 16px;direction:ltr;border-right:4px solid #059669}
+.writing-form{background:#fffdf7;border:2px dashed #d4a017;border-radius:14px;padding:22px;margin-bottom:16px}
+.writing-field{margin-bottom:16px}
+.writing-field-label{font-size:0.88rem;color:#6b7280;font-weight:600;margin-bottom:6px;text-align:right;display:flex;align-items:center;justify-content:flex-end;gap:6px}
+.writing-field-label span{font-family:'Lora',serif;color:#0c1e3c;font-weight:700;direction:ltr}
+.writing-input{width:100%;border:none;border-bottom:2px solid #d4a017;background:transparent;font-family:'Lora',serif;font-size:1rem;color:#0c1e3c;outline:none;padding:5px 4px;direction:ltr}
+.writing-input:focus{border-color:#0c1e3c}
+.writing-story-box{background:white;border:1px solid #e5eaf5;border-radius:12px;padding:18px 20px;min-height:80px;font-family:'Lora',serif;font-size:0.95rem;line-height:1.9;color:#374151;direction:ltr}
+.writing-story-placeholder{color:#9ca3af;font-style:italic;font-size:0.9rem;text-align:center;padding:12px 0}
+.listen-card{display:flex;align-items:center;gap:14px;background:#f0f7ff;border:1px solid #bfdbfe;border-radius:12px;padding:14px 18px;margin-bottom:10px;flex-direction:row-reverse}
+.listen-link{background:#059669;color:white;border:none;border-radius:8px;padding:8px 16px;font-family:'Tajawal',sans-serif;font-size:0.85rem;font-weight:700;text-decoration:none;display:inline-block;transition:background 0.2s;flex-shrink:0}
+.listen-link:hover{background:#047857}
+.speaking-q{background:#f8faff;border-right:4px solid #059669;border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px}
+.quiz-q{margin-bottom:20px}
+.quiz-q p{font-size:0.97rem;font-weight:700;color:#0c1e3c;margin-bottom:10px;direction:ltr;font-family:'Lora',serif}
+.quiz-opts{display:flex;flex-direction:column;gap:8px}
+.quiz-opt{display:flex;align-items:center;gap:10px;padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;transition:all 0.18s;flex-direction:row-reverse;text-align:right;background:white}
+.quiz-opt:hover{border-color:#1a56b0;background:#f0f7ff}
+.quiz-opt.correct{border-color:#059669;background:#ecfdf5;color:#059669}
+.quiz-opt.wrong{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.quiz-opt input{display:none}
+.btn{border:none;border-radius:30px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all 0.2s;padding:11px 28px;font-size:0.95rem}
+.btn:hover{opacity:0.88;transform:scale(0.98)}
+.btn-dark{background:#0c1e3c;color:white}
+.btn-gray{background:#e5e7eb;color:#374151}
+.a2-badge{display:inline-block;background:linear-gradient(135deg,#059669,#065f46);color:white;font-size:0.72rem;font-weight:800;padding:3px 10px;border-radius:20px;letter-spacing:1px;margin-bottom:6px}
+.amb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.amb-card{background:white;border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:all 0.15s}
+.amb-card:hover{transform:translateY(-3px);box-shadow:0 4px 16px rgba(0,0,0,0.1)}
+.amb-card.want{border-top:4px solid #059669}
+.amb-card.would{border-top:4px solid #1a56b0}
+.amb-card.hope{border-top:4px solid #d4a017}
+@media(max-width:580px){.vocab-row{grid-template-columns:1fr 1fr 38px}.v-pron{display:none}.amb-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div style="background:linear-gradient(135deg,#065f46 0%,#059669 60%,#047857 100%);color:white;position:relative;overflow:hidden">
+  <div style="position:absolute;top:-60px;left:-60px;width:280px;height:280px;border-radius:50%;background:rgba(212,160,23,0.08);pointer-events:none"></div>
+  <div style="position:absolute;bottom:-60px;right:-30px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.06);pointer-events:none"></div>
+  <div style="max-width:880px;margin:0 auto;padding:14px 20px 0;display:flex;justify-content:flex-end">
+    <a href="unit16_a2_news.html" style="color:rgba(255,255,255,0.6);font-size:0.82rem;text-decoration:none">← الوحدة ١٦</a>
+  </div>
+  <div style="display:flex;justify-content:center;gap:5px;padding:10px 16px 0;flex-wrap:wrap">
+    <button class="nav-btn active" onclick="show('vocab',this)">📚 المفردات</button>
+    <button class="nav-btn" onclick="show('story',this)">📖 القصة</button>
+    <button class="nav-btn" onclick="show('grammar',this)">✏️ القاعدة</button>
+    <button class="nav-btn" onclick="show('listen',this)">🎧 الاستماع</button>
+    <button class="nav-btn" onclick="show('writing',this)">✍️ الكتابة</button>
+    <button class="nav-btn" onclick="show('speaking',this)">💬 المحادثة</button>
+    <button class="nav-btn" onclick="show('realeng',this)">🗣️ Real English</button>
+    <button class="nav-btn" onclick="show('quiz',this)">✅ الاختبار</button>
+  </div>
+  <div style="max-width:880px;margin:0 auto;padding:32px 24px 44px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px">
+    <div>
+      <div class="a2-badge">A2 — ELEMENTARY</div>
+      <div style="font-size:0.78rem;letter-spacing:3px;color:rgba(255,255,255,0.6);font-weight:700;margin-bottom:8px">UNIT 17</div>
+      <h1 style="font-family:'Lora',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.2;margin-bottom:8px;direction:ltr">Dreams and Ambitions</h1>
+      <p style="font-size:1.1rem;color:rgba(255,255,255,0.75);margin-bottom:6px">الأحلام والطموحات</p>
+      <p style="font-size:0.88rem;color:rgba(255,255,255,0.55)">القاعدة: want to / would like to / hope to / dream of</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;text-align:center">
+      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:10px 18px">
+        <div style="font-family:'Lora',serif;font-size:1.4rem;font-weight:700;color:#d4a017">20</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.6)">كلمة جديدة</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:10px 18px">
+        <div style="font-family:'Lora',serif;font-size:1.4rem;font-weight:700;color:#d4a017">8</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.6)">أقسام</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="sec-vocab" class="section-content active fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">📚</span><div><h3>المفردات</h3><div class="sub">Vocabulary — اضغط 🔊 لتسمع النطق</div></div></div>
+    <div class="card-body">
+      <div class="vocab-grid">
+        <div class="vocab-row vocab-header"><span class="v-en">الكلمة</span><span class="v-pron">النطق</span><span class="v-ar">المعنى</span><span></span></div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center"><button class="btn btn-dark" onclick="show('story',null)">القصة ←</button></div>
+</div>
+
+<div id="sec-story" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">📖</span><div><h3>القصة</h3><div class="sub">اضغط على الكلمات الملوّنة — 🌐 للترجمة</div></div></div>
+    <div class="card-body">
+      <div class="story-controls">
+        <button id="trAllBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:25px;padding:8px 16px;font-family:'Tajawal',sans-serif;font-size:0.82rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+        <button class="story-main-btn" id="storyBtn" onclick="toggleStory()" style="background:#059669;color:white"><span id="sBtnIcon">▶</span><span id="sBtnTxt">استمع للقصة كاملة</span></button>
+        <div class="speed-wrap"><label>السرعة:</label><button class="spd active" onclick="setSpd(1,this)">عادي</button><button class="spd" onclick="setSpd(0.75,this)">بطيء</button></div>
+      </div>
+      <div class="story-box" id="storyBox"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn btn-dark" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">✏️</span><div><h3>القاعدة</h3><div class="sub">Want to / Would like to / Hope to — من الأكثر مباشرة للأكثر رقياً</div></div></div>
+    <div class="card-body">
+      <div class="grammar-rule-box">
+        <div class="grammar-rule-title"><span style="background:#059669;color:white;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:0.82rem;flex-shrink:0">١</span> ثلاث طرق للتعبير عن الرغبة — اضغط لتسمع</div>
+        <div class="amb-grid">
+          <div class="amb-card want" onclick="speak('I want to become a doctor',spdRate)">
+            <div style="font-family:'Lora',serif;font-weight:800;color:#059669;font-size:0.95rem">want to</div>
+            <div style="font-size:0.72rem;color:#6b7280;margin:4px 0">مباشر / يومي</div>
+            <div style="font-family:'Lora',serif;font-size:0.8rem;direction:ltr;color:#374151;font-style:italic">I want to travel.</div>
+          </div>
+          <div class="amb-card would" onclick="speak('I would like to become a doctor',spdRate)">
+            <div style="font-family:'Lora',serif;font-weight:800;color:#1a56b0;font-size:0.95rem">would like to</div>
+            <div style="font-size:0.72rem;color:#6b7280;margin:4px 0">راقٍ / مهذب</div>
+            <div style="font-family:'Lora',serif;font-size:0.8rem;direction:ltr;color:#374151;font-style:italic">I would like to travel.</div>
+          </div>
+          <div class="amb-card hope" onclick="speak('I hope to become a doctor',spdRate)">
+            <div style="font-family:'Lora',serif;font-weight:800;color:#d4a017;font-size:0.95rem">hope to</div>
+            <div style="font-size:0.72rem;color:#6b7280;margin:4px 0">أمل / أقل تأكيداً</div>
+            <div style="font-family:'Lora',serif;font-size:0.8rem;direction:ltr;color:#374151;font-style:italic">I hope to travel.</div>
+          </div>
+        </div>
+      </div>
+      <div class="grammar-rule-box">
+        <div class="grammar-rule-title"><span style="background:#059669;color:white;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:0.82rem;flex-shrink:0">٢</span> Dream of + verb+ing — للأحلام الكبيرة</div>
+        <div class="grammar-pattern">
+          <div class="grammar-eg">I <span>dream of</span> starting my own business one day.</div>
+          <div class="grammar-pattern-ar">أحلم ببدء مشروعي الخاص يوماً ما. ← dream of + فعل + ing</div>
+        </div>
+        <div class="grammar-pattern">
+          <div class="grammar-eg">She <span>dreams of</span> becoming a famous scientist.</div>
+          <div class="grammar-pattern-ar">هي تحلم بأن تصبح عالمة مشهورة. ← للأحلام الكبيرة والبعيدة</div>
+        </div>
+        <div style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:10px;padding:12px 16px;margin-top:8px;direction:ltr">
+          <span style="font-family:'Tajawal',sans-serif;color:#b45309;font-weight:700;font-size:0.88rem">💡 الفرق: </span>
+          <span style="font-family:'Lora',serif;font-size:0.9rem;color:#374151">want to = أريد (عام) / would like to = أودّ (راقٍ) / hope to = آمل (غير مؤكد) / dream of = أحلم (بعيد وكبير)</span>
+        </div>
+      </div>
+      <div style="margin-top:8px">
+        <p style="font-weight:800;color:#0c1e3c;font-size:0.95rem;margin-bottom:10px;text-align:right">⚠️ خطأ شائع — احذر!</p>
+        <div class="grammar-wrong">
+          <span style="color:#dc2626;font-weight:700">✗ &nbsp;</span>
+          <span style="font-family:'Lora',serif">I dream of <strong>to become</strong> a doctor.</span>
+          <span style="font-family:'Tajawal',sans-serif;color:#dc2626;font-size:0.85rem;margin-right:8px">← dream of + ing وليس to</span>
+        </div>
+        <div class="grammar-right">
+          <span style="color:#059669;font-weight:700">✓ &nbsp;</span>
+          <span style="font-family:'Lora',serif">I dream of <strong>becoming</strong> a doctor.</span>
+          <span style="font-family:'Tajawal',sans-serif;color:#059669;font-size:0.85rem;margin-right:8px">← dream of + verb+ing دائماً</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('story',null)">→ القصة</button>
+    <button class="btn btn-dark" onclick="show('listen',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listen" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">🎧</span><div><h3>الاستماع</h3><div class="sub">اضغط ▶ افتح لتشغيل المقطع مباشرة</div></div></div>
+    <div class="card-body">
+      <p style="text-align:right;color:#6b7280;font-size:0.88rem;margin-bottom:16px">استمع وحاول تتعرف على want to وwould like to وhope to 🎯</p>
+      <div id="listenCards"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn btn-dark" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">✍️</span><div><h3>الكتابة</h3><div class="sub">Writing Practice — اكتب عن أحلامك وطموحاتك</div></div></div>
+    <div class="card-body">
+      <div class="writing-form">
+        <div class="writing-field">
+          <div class="writing-field-label"><span>I want to</span> :أريد أن</div>
+          <input class="writing-input" id="wWant" placeholder="improve my English / get a promotion..." oninput="buildDreamStory()">
+        </div>
+        <div class="writing-field">
+          <div class="writing-field-label"><span>I would like to</span> :أودّ أن</div>
+          <input class="writing-input" id="wWould" placeholder="visit new countries / learn a new skill..." oninput="buildDreamStory()">
+        </div>
+        <div class="writing-field">
+          <div class="writing-field-label"><span>I hope to</span> :آمل أن</div>
+          <input class="writing-input" id="wHope" placeholder="achieve my goals / make my family proud..." oninput="buildDreamStory()">
+        </div>
+        <div class="writing-field">
+          <div class="writing-field-label"><span>I dream of</span> :أحلم بـ</div>
+          <input class="writing-input" id="wDream" placeholder="starting my own business / writing a book..." oninput="buildDreamStory()">
+        </div>
+        <div class="writing-field" style="margin-bottom:0">
+          <div class="writing-field-label"><span>To achieve my dreams I need to</span> :لتحقيق أحلامي أحتاج أن</div>
+          <input class="writing-input" id="wNeed" placeholder="work hard / be consistent / keep learning..." oninput="buildDreamStory()">
+        </div>
+      </div>
+      <div style="background:#065f46;border-radius:12px;padding:14px 18px;margin-bottom:12px;display:flex;align-items:center;gap:8px;flex-direction:row-reverse">
+        <span style="font-size:1.2rem">✨</span>
+        <p style="color:white;font-size:0.88rem;font-weight:600">أحلامك ستظهر هنا تلقائياً!</p>
+      </div>
+      <div class="writing-story-box" id="dreamStoryOutput">
+        <div class="writing-story-placeholder">✨ ستظهر أحلامك هنا...</div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('listen',null)">→ الاستماع</button>
+    <button class="btn btn-dark" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">💬</span><div><h3>المحادثة</h3><div class="sub">Speaking — تكلم عن أحلامك</div></div></div>
+    <div class="card-body"><div id="speakingQs"></div></div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn btn-dark" onclick="show('realeng',null)">Real English ←</button>
+  </div>
+</div>
+
+<div id="sec-realeng" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">🗣️</span><div><h3>Real English</h3><div class="sub">كيف يتكلم الناس عن أحلامهم فعلاً</div></div></div>
+    <div class="card-body">
+      <div id="expressionsContainer" style="display:flex;flex-direction:column;gap:14px;margin-bottom:24px"></div>
+      <div class="card-header" style="border-radius:10px 10px 0 0;margin-top:8px">
+        <span class="icon">😎</span><div><h3>Slang & Informal</h3></div>
+      </div>
+      <div id="slangContainer" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;padding:16px;background:white;border-radius:0 0 10px 10px;margin-bottom:20px"></div>
+      <div class="card-header" style="border-radius:10px 10px 0 0">
+        <span class="icon">💬</span><div><h3>Everyday Words</h3></div>
+      </div>
+      <div id="everydayContainer" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;padding:16px;background:white;border-radius:0 0 10px 10px;margin-bottom:20px"></div>
+      <div class="card-header" style="border-radius:10px 10px 0 0">
+        <span class="icon">🌍</span><div><h3>هل تعلمت؟</h3></div>
+      </div>
+      <div id="didYouKnow" style="padding:16px;background:white;border-radius:0 0 10px 10px"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn btn-dark" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-quiz" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">✅</span><div><h3>اختبار الوحدة</h3><div class="sub">Unit Quiz — اختبر نفسك</div></div></div>
+    <div class="card-body">
+      <div id="quizContainer"></div>
+      <div style="display:flex;justify-content:center;gap:12px;margin-top:20px">
+        <button class="btn btn-dark" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn btn-gray" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizResult" style="display:none;text-align:center;padding:20px;margin-top:16px;background:#f0fdf4;border-radius:14px">
+        <div style="font-size:2.5rem;margin-bottom:8px" id="quizEmoji">🎉</div>
+        <div style="font-weight:800;font-size:1.1rem;color:#0c1e3c;margin-bottom:4px" id="quizScore"></div>
+        <div style="font-size:0.9rem;color:#6b7280" id="quizMsg"></div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:28px;background:linear-gradient(135deg,#065f46,#059669);border-radius:18px;box-shadow:0 4px 24px rgba(0,0,0,0.15)">
+    <div style="font-size:3rem;margin-bottom:10px">🏆</div>
+    <div style="font-weight:900;font-size:1.3rem;color:white;margin-bottom:8px">أكملت ١٧ وحدة A2!</div>
+    <p style="font-size:0.95rem;color:rgba(255,255,255,0.8);margin-bottom:20px">وحدة أخيرة واحدة تبقّت — المراجعة الشاملة وشهادة A2!</p>
+    <button class="btn" style="background:#d4a017;color:#0c1e3c;font-size:1rem;padding:14px 32px" onclick="location.href='unit18_a2_review.html'">المراجعة الشاملة + الشهادة ←</button>
+  </div>
+</div>
+
+<script>
+var vocab = [
+  { en:"ambition",     pron:"أمبيشن",    ar:"الطموح",              ex:"Her ambition is to become a doctor.",       exAr:"طموحها هو أن تصبح طبيبة." },
+  { en:"passion",      pron:"باشن",      ar:"الشغف / الهوى",       ex:"She has a passion for helping others.",    exAr:"عندها شغف بمساعدة الآخرين." },
+  { en:"vision",       pron:"فيجن",      ar:"الرؤية / التصور",     ex:"He has a clear vision for his future.",    exAr:"عنده رؤية واضحة لمستقبله." },
+  { en:"pursue",       pron:"بيرسيو",    ar:"يسعى نحو / يتابع",   ex:"She wants to pursue a career in art.",     exAr:"هي تريد السعي نحو مهنة في الفن." },
+  { en:"overcome",     pron:"أوفر-كام",  ar:"يتغلب على",           ex:"I hope to overcome my fear of failure.",   exAr:"آمل أن أتغلب على خوفي من الفشل." },
+  { en:"milestone",    pron:"مايل-ستون", ar:"المحطة / الإنجاز المهم", ex:"Getting my degree was a big milestone.", exAr:"الحصول على شهادتي كانت محطة مهمة." },
+  { en:"potential",    pron:"بوتينشل",   ar:"الإمكانات / الكامنة", ex:"I believe in my potential to succeed.",   exAr:"أؤمن بإمكاناتي على النجاح." },
+  { en:"inspire",      pron:"إن-سباير",  ar:"يُلهم",               ex:"She hopes to inspire young women.",        exAr:"هي تأمل أن تُلهم النساء الشابات." },
+  { en:"sacrifice",    pron:"ساكريفايس", ar:"التضحية / يضحّي",    ex:"Success requires hard work and sacrifice.", exAr:"النجاح يتطلب العمل الجاد والتضحية." },
+  { en:"persistence",  pron:"بيرسيستنس", ar:"المثابرة / الإصرار",  ex:"Persistence is the key to reaching goals.", exAr:"المثابرة هي مفتاح الوصول للأهداف." },
+  { en:"entrepreneur", pron:"أونتريبرينيور", ar:"رائد الأعمال",    ex:"She dreams of becoming an entrepreneur.",  exAr:"هي تحلم بأن تصبح رائدة أعمال." },
+  { en:"fulfil",       pron:"فول-فيل",   ar:"يُحقق / ينجز (حلم)", ex:"I want to fulfil my dream of writing.",    exAr:"أريد تحقيق حلمي في الكتابة." },
+  { en:"obstacle",     pron:"أوبستاكل",  ar:"العقبة / الحاجز",    ex:"Every obstacle makes you stronger.",        exAr:"كل عقبة تجعلك أقوى." },
+  { en:"motivate",     pron:"موتيفيت",   ar:"يُحفّز / يشجّع",     ex:"What motivates you to keep going?",        exAr:"ما الذي يحفزك على الاستمرار؟" },
+  { en:"commit",       pron:"كوميت",     ar:"يلتزم / يتعهد",      ex:"You have to commit to your goals.",        exAr:"يجب أن تلتزم بأهدافك." },
+  { en:"mentor",       pron:"مينتور",    ar:"المرشد / الموجّه",    ex:"I would like to find a good mentor.",      exAr:"أودّ أن أجد مرشداً جيداً." },
+  { en:"network",      pron:"نيت-ويرك",  ar:"شبكة العلاقات / يبني علاقات", ex:"She hopes to network with professionals.", exAr:"هي تأمل أن تبني علاقات مع المحترفين." },
+  { en:"breakthrough", pron:"بريك-ثرو",  ar:"الاختراق / الإنجاز الكبير", ex:"Her first book was a real breakthrough.", exAr:"كتابها الأول كان إنجازاً حقيقياً." },
+  { en:"legacy",       pron:"ليغيسي",    ar:"الإرث / ما تتركه خلفك", ex:"I dream of leaving a positive legacy.",  exAr:"أحلم بترك إرث إيجابي." },
+  { en:"determination",pron:"ديترمينيشن",ar:"العزم / الإصرار",    ex:"With determination anything is possible.", exAr:"بالعزم كل شيء ممكن." },
+];
+
+var storyData = [
+  { text:"Nadia is twenty-two and full of ambition. She has a clear vision for her future.", ar:"ناديا عمرها اثنان وعشرون وهي مليئة بالطموح. عندها رؤية واضحة لمستقبلها." },
+  { text:"She wants to become an entrepreneur and start her own technology company.",        ar:"تريد أن تصبح رائدة أعمال وتبدأ شركة تقنية خاصة بها." },
+  { text:"She says: I would like to inspire other young women to pursue their dreams.",      ar:"تقول: أودّ أن أُلهم النساء الشابات الأخريات لمتابعة أحلامهن." },
+  { text:"But the road is not easy. There are many obstacles she has to overcome.",         ar:"لكن الطريق ليس سهلاً. هناك عقبات كثيرة يجب أن تتغلب عليها." },
+  { text:"Her mentor told her: You have so much potential. Commit to your vision!",         ar:"مرشدها أخبرها: عندك إمكانات هائلة. التزمي برؤيتك!" },
+  { text:"Nadia hopes to reach her first milestone — launching her app — before she is twenty-five.", ar:"ناديا تأمل أن تصل لأول محطة مهمة — إطلاق تطبيقها — قبل أن تبلغ الخامسة والعشرين." },
+  { text:"She knows success requires sacrifice and persistence. But she never gives up.",    ar:"تعرف أن النجاح يتطلب التضحية والمثابرة. لكنها لا تستسلم أبداً." },
+  { text:"She dreams of building a network of motivated young entrepreneurs across the region.", ar:"تحلم ببناء شبكة من رواد الأعمال الشباب المحفوزين في المنطقة." },
+  { text:"Nadia smiles: With enough determination, I will fulfil every dream I have ever had!", ar:"ناديا تبتسم: بعزم كافٍ سأحقق كل حلم رأيته يوماً ما!" },
+];
+
+var vocabWords = ["ambition","passion","vision","pursue","overcome","milestone","potential","inspire","sacrifice","persistence","entrepreneur","fulfil","obstacle","motivate","commit","mentor","network","breakthrough","legacy","determination"];
+
+var listenData = [
+  { icon:"🌟", name:"Want to Would like to Hope to — A2 English",      desc:"شرح want to وwould like to وhope to لمستوى A2",           url:"https://www.youtube.com/watch?v=JaVVa9111Ow", tag:"A2" },
+  { icon:"💫", name:"Dreams and Ambitions Vocabulary — A2 English",     desc:"كلمات الأحلام والطموحات بالإنجليزي لمستوى A2",             url:"https://www.youtube.com/watch?v=2vlk7lbsDQc", tag:"مفردات" },
+  { icon:"💬", name:"Talking About Your Dreams — A2 Conversation",      desc:"محادثة حقيقية عن الأحلام والطموحات بالإنجليزي A2",         url:"https://www.youtube.com/watch?v=mNDsupdM0mI", tag:"محادثة" },
+  { icon:"🎵", name:"Dreams and Ambitions English Song — A2",           desc:"أغنية ممتعة لحفظ كلمات الأحلام والطموحات",                url:"https://www.youtube.com/watch?v=uVkFrqugXFQ", tag:"أغنية" },
+];
+
+var speakingQs = [
+  { q:"What do you want to achieve in the next five years?",      hint:"In the next five years I want to ___ and ___.",       ar:"ما الذي تريد تحقيقه في الخمس سنوات القادمة؟" },
+  { q:"What would you like to do if money was not a problem?",    hint:"If money was not a problem I would like to ___.",      ar:"ماذا تودّ أن تفعل لو لم يكن المال مشكلة؟" },
+  { q:"What do you dream of achieving one day?",                  hint:"I dream of becoming ___ / I dream of starting ___.",   ar:"بماذا تحلم تحقيقه يوماً ما؟" },
+  { q:"Who inspires you and why?",                                hint:"___ inspires me because they ___.",                    ar:"من يُلهمك ولماذا؟" },
+  { q:"What obstacles do you hope to overcome in your life?",     hint:"I hope to overcome ___ by ___ and ___.",               ar:"ما العقبات التي تأمل التغلب عليها في حياتك؟" },
+];
+
+var quizData = [
+  { q:"I ___ to become a successful writer one day.",              opts:["dream of","want","hope","would like"],                ans:2 },
+  { q:"ما معنى 'persistence'؟",                                   opts:["الطموح","الشغف","المثابرة","الرؤية"],                 ans:2 },
+  { q:"She dreams of ___ her own company.",                        opts:["to start","start","starting","started"],              ans:2 },
+  { q:"I ___ like to meet my professional mentor this year.",      opts:["want","would","hope","dream"],                        ans:1 },
+  { q:"ما معنى 'overcome'؟",                                      opts:["يلتزم","يُلهم","يضحّي","يتغلب على"],                 ans:3 },
+  { q:"With enough ___, anything is possible.",                    opts:["obstacle","determination","sacrifice","legacy"],       ans:1 },
+  { q:"ما الفرق بين want to وdream of؟",                          opts:["لا فرق","want to عام، dream of للأحلام الكبيرة البعيدة","dream of أضعف من want to","كلاهما للمستقبل القريب"], ans:1 },
+  { q:"She hopes ___ inspire young women in her community.",       opts:["to","of","for","at"],                                 ans:0 },
+];
+
+var expressions = [
+  { expr:"Reach for the stars!", pron:"ريتش فور ذا ستارز", meaning:"اطمح للأعلى! لا تحدّ من طموحك!", formal:"Aim for the highest possible goals.",    example:"You have so much talent. Reach for the stars!", note:"تعبير تشجيعي — يعني لا تضع سقفاً لأحلامك واطمح للأعلى دائماً" },
+  { expr:"Follow your heart.",   pron:"فولو يور هارت",     meaning:"اتّبع قلبك / اختر ما تحبه",       formal:"Do what you are most passionate about.",  example:"Don't choose a career for money. Follow your heart.", note:"نصيحة شائعة — اختر المسار الذي تشعر بشغف حقيقي تجاهه" },
+  { expr:"Nothing worth having comes easy.", pron:"ناثينج ويرث هافينج كامز إيزي", meaning:"لا شيء ثميناً يأتي بسهولة", formal:"Valuable things require hard work.", example:"Keep working hard. Nothing worth having comes easy.", note:"مقولة تحفيزية تعني أن الأشياء الحقيقية القيّمة تحتاج جهداً وتضحية" },
+];
+
+var slangWords = [
+  { word:"Go for it!",    pron:"غو فور إت",   instead:"try hard to achieve it",  example:"You have the skills. Just go for it!",       ar:"افعلها / اسعَ نحوها بجد" },
+  { word:"Dream big",     pron:"دريم بيغ",    instead:"have very high ambitions", example:"Always dream big — never limit yourself.",    ar:"احلم بكبر / لا تضع حدوداً لطموحك" },
+  { word:"Make it",       pron:"ميك إت",      instead:"become successful",        example:"She worked hard and finally made it!",        ar:"ينجح / يحقق النجاح المنشود" },
+  { word:"Hustle",        pron:"هاسل",        instead:"work very hard",           example:"You have to hustle every single day.",        ar:"يكدح ويعمل بجد شديد بدون توقف" },
+];
+
+var everydayWords = [
+  { word:"Set your sights on",pron:"سيت يور سايتس أون", instead:"aim for a specific goal", example:"She has set her sights on Cambridge.",      ar:"يضع هدفاً محدداً ويركز عليه" },
+  { word:"Work towards",      pron:"ويرك توووردز",      instead:"make efforts to achieve", example:"I am working towards my first milestone.",   ar:"يعمل في اتجاه هدف معين" },
+  { word:"Take the plunge",   pron:"تيك ذا بلانج",     instead:"take a big brave step",   example:"She took the plunge and quit her job.",      ar:"يتخذ الخطوة الجريئة ويقفز نحو الهدف" },
+];
+
+var didYouKnowFacts = [
+  { flag:"🌟", fact:'<strong>want to</strong> يومي مباشر — <strong>would like to</strong> أكثر رقياً ولطفاً — <strong>hope to</strong> يحمل معنى الأمل وعدم اليقين — <strong>dream of + ing</strong> للأحلام الكبيرة البعيدة. استخدمي would like to في المقابلات والمواقف الرسمية!' },
+  { flag:"💡", fact:'بعد <strong>dream of</strong> يأتي فعل + ing دائماً: dream of <strong>becoming</strong> / dream of <strong>starting</strong> / dream of <strong>travelling</strong>. لكن بعد <strong>want / hope / would like</strong> يأتي to + فعل أصلي: want <strong>to become</strong>.' },
+  { flag:"🏆", fact:'أشهر مقولة عن الطموح بالإنجليزي: <strong>"Shoot for the moon. Even if you miss, you will land among the stars."</strong> — اطمح للقمر، حتى لو فاتك سيكون مصيرك بين النجوم!' },
+];
+
+var spdRate = 1;
+var storyRef = { on:false, spd:1 };
+function speak(text, rate, onEnd) {
+  if (!window.speechSynthesis) return null;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = "en-US"; u.rate = rate || spdRate;
+  if (onEnd) u.onend = onEnd;
+  window.speechSynthesis.speak(u);
+  return u;
+}
+function setSpd(r, btn) {
+  spdRate = r; storyRef.spd = r;
+  document.querySelectorAll(".spd").forEach(function(b){ b.classList.remove("active"); });
+  btn.classList.add("active");
+  if (storyRef.on) { stopStory(); setTimeout(startStory, 80); }
+}
+function buildVocab() {
+  var grid = document.querySelector(".vocab-grid");
+  vocab.forEach(function(v, i) {
+    var row = document.createElement("div");
+    row.className = "vocab-row " + (i % 2 === 0 ? "even" : "odd");
+    var exHtml = v.ex ? "<div class=\"vocab-ex\"><span class=\"vocab-ex-en\">💬 " + v.ex + "</span><span class=\"vocab-ex-ar\">" + (v.exAr||"") + "</span></div>" : "";
+    row.innerHTML = "<span class=\"v-en\">" + v.en + "</span><span class=\"v-pron\">" + v.pron + "</span><span class=\"v-ar\">" + v.ar + "</span><button class=\"play-btn idle\" id=\"vb" + i + "\" onclick=\"playWord('" + v.en.replace(/'/g,"\\'") + "'," + i + ")\">🔊</button>" + exHtml;
+    grid.appendChild(row);
+  });
+}
+function playWord(word, idx) {
+  document.querySelectorAll(".play-btn").forEach(function(b){ b.className="play-btn idle"; b.textContent="🔊"; });
+  var btn = document.getElementById("vb" + idx);
+  if (btn) { btn.className="play-btn playing"; btn.textContent="⏸"; }
+  var u = speak(word, spdRate);
+  if (u) u.onend = function(){ if (btn) { btn.className="play-btn idle"; btn.textContent="🔊"; } };
+}
+function buildStory() {
+  var box = document.getElementById("storyBox");
+  storyData.forEach(function(line, i) {
+    var div = document.createElement("div");
+    div.className = "story-line"; div.id = "sl" + i;
+    var html = line.text;
+    vocabWords.forEach(function(w) {
+      var found = vocab.filter(function(v){ return v.en.toLowerCase() === w; })[0];
+      if (!found) return;
+      var regex = new RegExp("\\b(" + w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&") + ")\\b","gi");
+      html = html.replace(regex, function(match){ return "<span class=\"clickword\" onclick=\"showWordTip(this,'" + found.pron + "','" + found.ar + "','" + found.en + "')\">" + match + "</span>"; });
+    });
+    div.innerHTML = "<div class=\"story-line-row\"><span class=\"story-line-text\" dir=\"ltr\">" + html + "</span><div style=\"display:flex;gap:4px;flex-shrink:0\"><button class=\"line-play\" onclick=\"playLine(" + i + ")\">🔊</button><button class=\"line-play\" style=\"color:#d4a017;border-color:#fde68a\" onclick=\"toggleTr(" + i + ")\">🌐</button></div></div><div id=\"tr" + i + "\" style=\"display:none;font-size:0.85rem;color:#6b7280;direction:rtl;text-align:right;padding:4px 10px 2px;border-right:3px solid #fde68a\">" + line.ar + "</div>";
+    box.appendChild(div);
+  });
+}
+var tipEl = null;
+function showWordTip(el, pron, ar, en) {
+  if (tipEl) tipEl.remove();
+  var tip = document.createElement("div"); tip.className = "word-tooltip";
+  tip.innerHTML = en + " &nbsp;|&nbsp; " + pron + " &nbsp;|&nbsp; " + ar;
+  el.style.position = "relative"; el.appendChild(tip); tipEl = tip;
+  speak(en, spdRate);
+  setTimeout(function(){ if (tipEl) { tipEl.remove(); tipEl = null; } }, 2800);
+}
+function playLine(i) { stopStory(); hlLine(i); var u = speak(storyData[i].text, spdRate); if (u) u.onend = function(){ hlLine(-1); }; }
+function hlLine(i) { document.querySelectorAll(".story-line").forEach(function(l){ l.classList.remove("hl"); }); if (i >= 0) { var el = document.getElementById("sl" + i); if (el) el.classList.add("hl"); } }
+function startStory() { storyRef.on = true; document.getElementById("storyBtn").style.background = "#047857"; document.getElementById("sBtnIcon").textContent = "⏹"; document.getElementById("sBtnTxt").textContent = "إيقاف القصة"; playSeq(0); }
+function stopStory() { storyRef.on = false; if (window.speechSynthesis) window.speechSynthesis.cancel(); hlLine(-1); var btn = document.getElementById("storyBtn"); if (btn) { btn.style.background="#059669"; document.getElementById("sBtnIcon").textContent="▶"; document.getElementById("sBtnTxt").textContent="استمع للقصة كاملة"; } }
+function playSeq(i) { if (!storyRef.on || i >= storyData.length) { stopStory(); return; } hlLine(i); var u = new SpeechSynthesisUtterance(storyData[i].text); u.lang="en-US"; u.rate=storyRef.spd; u.onend = function(){ if (storyRef.on) setTimeout(function(){ playSeq(i+1); }, 380); }; if (window.speechSynthesis) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(u); } }
+function toggleStory() { storyRef.on ? stopStory() : startStory(); }
+function toggleTr(i) { var el = document.getElementById("tr" + i); if (el) el.style.display = el.style.display === "none" ? "block" : "none"; }
+var _trAll = false;
+function toggleAllTr() { _trAll = !_trAll; for (var i = 0; i < storyData.length; i++) { var el = document.getElementById("tr" + i); if (el) el.style.display = _trAll ? "block" : "none"; } var btn = document.getElementById("trAllBtn"); if (btn) btn.textContent = _trAll ? "🙈 أخفِ" : "🌐 الترجمة"; }
+function buildDreamStory() {
+  var want  = document.getElementById("wWant").value.trim();
+  var would = document.getElementById("wWould").value.trim();
+  var hope  = document.getElementById("wHope").value.trim();
+  var dream = document.getElementById("wDream").value.trim();
+  var need  = document.getElementById("wNeed").value.trim();
+  if (!want && !would && !hope && !dream && !need) { document.getElementById("dreamStoryOutput").innerHTML = "<div class=\"writing-story-placeholder\">✨ ستظهر أحلامك هنا...</div>"; return; }
+  var hi = function(v){ return "<span style=\"color:#d4a017;font-weight:700\">" + v + "</span>"; };
+  var parts = [];
+  if (want)  parts.push("I want to " + hi(want) + ".");
+  if (would) parts.push("I would like to " + hi(would) + ".");
+  if (hope)  parts.push("I hope to " + hi(hope) + ".");
+  if (dream) parts.push("Most of all, I dream of " + hi(dream) + ".");
+  if (need)  parts.push("To achieve my dreams I need to " + hi(need) + ".");
+  document.getElementById("dreamStoryOutput").innerHTML = "<p style=\"direction:ltr;line-height:2;font-size:0.97rem\">" + parts.join(" ") + "</p><p style=\"font-size:0.78rem;color:#9ca3af;margin-top:12px;text-align:right\">linguapath.com</p>";
+}
+function buildListening() {
+  var cont = document.getElementById("listenCards");
+  listenData.forEach(function(r) { cont.innerHTML += "<div class=\"listen-card\"><span style=\"font-size:1.8rem;flex-shrink:0\">" + r.icon + "</span><div style=\"flex:1;text-align:right\"><div style=\"font-weight:700;font-size:0.97rem;color:#0c1e3c;margin-bottom:3px\">" + r.name + "</div><div style=\"font-size:0.82rem;color:#6b7280\">" + r.desc + "</div></div><span style=\"background:#d1fae5;color:#059669;font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:20px;flex-shrink:0\">" + r.tag + "</span><a class=\"listen-link\" href=\"" + r.url + "\" target=\"_blank\">▶ افتح</a></div>"; });
+}
+function buildSpeaking() {
+  var cont = document.getElementById("speakingQs");
+  speakingQs.forEach(function(q) { cont.innerHTML += "<div class=\"speaking-q\"><div style=\"flex:1;text-align:right\"><p dir=\"ltr\">" + q.q + "</p><p style=\"font-size:0.82rem;color:#9ca3af;margin-top:4px\">" + q.ar + "</p><p style=\"font-size:0.82rem;color:#d4a017;font-family:'Lora',serif;margin-top:6px;direction:ltr\">💡 " + q.hint + "</p></div><button class=\"play-btn idle\" onclick=\"speak('" + q.q.replace(/'/g,"\\'") + "',spdRate)\">🔊</button></div>"; });
+}
+function buildRealEnglish() {
+  var exCont = document.getElementById("expressionsContainer");
+  expressions.forEach(function(e) { exCont.innerHTML += "<div style=\"background:#faf5ff;border:1px solid #e9d5ff;border-radius:12px;padding:16px 18px\"><div style=\"display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-direction:row-reverse\"><div style=\"display:flex;align-items:center;gap:10px;flex-direction:row-reverse\"><span style=\"font-family:'Lora',serif;font-size:1rem;font-weight:700;color:#7c3aed;direction:ltr\">" + e.expr + "</span><span style=\"color:#d4a017;font-weight:700;font-size:0.8rem\">" + e.pron + "</span></div><button class=\"play-btn idle\" style=\"flex-shrink:0\" onclick=\"speak('" + e.expr.replace(/'/g,"\\'") + "',spdRate)\">🔊</button></div><div style=\"display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px\"><div style=\"background:white;border-radius:8px;padding:8px 12px;text-align:right\"><div style=\"font-size:0.72rem;color:#9ca3af;margin-bottom:2px\">المعنى</div><div style=\"font-weight:700;color:#374151;font-size:0.9rem\">" + e.meaning + "</div></div><div style=\"background:white;border-radius:8px;padding:8px 12px;direction:ltr\"><div style=\"font-size:0.72rem;color:#9ca3af;margin-bottom:2px\">الرسمي</div><div style=\"font-weight:600;color:#6b7280;font-size:0.85rem;font-family:'Lora',serif\">" + e.formal + "</div></div></div><div style=\"background:white;border-radius:8px;padding:8px 12px;direction:ltr;margin-bottom:6px\"><span style=\"font-size:0.72rem;color:#9ca3af\">مثال: </span><span style=\"font-family:'Lora',serif;font-size:0.9rem;color:#0c1e3c;font-style:italic\">" + e.example + "</span></div><div style=\"font-size:0.82rem;color:#7c3aed;text-align:right\">💡 " + e.note + "</div></div>"; });
+  var slCont = document.getElementById("slangContainer");
+  slangWords.forEach(function(s) { slCont.innerHTML += "<div style=\"background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px 16px\"><div style=\"display:flex;align-items:center;justify-content:space-between;margin-bottom:8px\"><button class=\"play-btn idle\" style=\"width:30px;height:30px;font-size:0.85rem\" onclick=\"speak('" + s.word.replace(/'/g,"\\'") + "',spdRate)\">🔊</button><div style=\"text-align:right\"><span style=\"font-family:'Lora',serif;font-size:1rem;font-weight:700;color:#ea580c\">" + s.word + "</span><span style=\"color:#d4a017;font-size:0.8rem;font-weight:700;margin-right:6px\">" + s.pron + "</span></div></div><div style=\"font-size:0.88rem;color:#374151;text-align:right;margin-bottom:4px\"><strong>" + s.ar + "</strong></div><div style=\"font-size:0.82rem;color:#6b7280;text-align:right;margin-bottom:6px\">بدل: <span style=\"font-family:'Lora',serif\">" + s.instead + "</span></div><div style=\"background:white;border-radius:6px;padding:6px 10px;font-family:'Lora',serif;font-size:0.85rem;color:#0c1e3c;direction:ltr;font-style:italic\">" + s.example + "</div></div>"; });
+  var evCont = document.getElementById("everydayContainer");
+  everydayWords.forEach(function(s) { evCont.innerHTML += "<div style=\"background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px 16px\"><div style=\"display:flex;align-items:center;justify-content:space-between;margin-bottom:8px\"><button class=\"play-btn idle\" style=\"width:30px;height:30px;font-size:0.85rem\" onclick=\"speak('" + s.word.replace(/'/g,"\\'") + "',spdRate)\">🔊</button><div style=\"text-align:right\"><span style=\"font-family:'Lora',serif;font-size:0.92rem;font-weight:700;color:#059669\">" + s.word + "</span></div></div><div style=\"font-size:0.88rem;color:#374151;text-align:right;margin-bottom:4px\"><strong>" + s.ar + "</strong></div><div style=\"font-size:0.82rem;color:#6b7280;text-align:right;margin-bottom:6px\">بدل: <span style=\"font-family:'Lora',serif\">" + s.instead + "</span></div><div style=\"background:white;border-radius:6px;padding:6px 10px;font-family:'Lora',serif;font-size:0.85rem;color:#0c1e3c;direction:ltr;font-style:italic\">" + s.example + "</div></div>"; });
+  var dyCont = document.getElementById("didYouKnow");
+  didYouKnowFacts.forEach(function(f) { dyCont.innerHTML += "<div style=\"display:flex;align-items:flex-start;gap:12px;background:linear-gradient(135deg,#fef9f0,#fef3c7);border:1px solid #e9d5a0;border-radius:12px;padding:14px 18px;margin-bottom:10px;flex-direction:row-reverse\"><span style=\"font-size:1.4rem;flex-shrink:0\">" + f.flag + "</span><p style=\"font-size:0.92rem;line-height:1.8;color:#374151;text-align:right\">" + f.fact + "</p></div>"; });
+}
+var quizAnswers = new Array(quizData.length).fill(null);
+function buildQuiz() {
+  var cont = document.getElementById("quizContainer");
+  quizData.forEach(function(q, qi) {
+    var optsHtml = "";
+    q.opts.forEach(function(opt, oi) { optsHtml += "<div class=\"quiz-opt\" id=\"qo" + qi + "-" + oi + "\" onclick=\"selectOpt(" + qi + "," + oi + ")\"><span style=\"font-family:'Lora',serif;font-size:0.95rem\">" + opt + "</span><input type=\"radio\" name=\"q" + qi + "\"></div>"; });
+    cont.innerHTML += "<div class=\"quiz-q\"><p dir=\"ltr\">" + q.q + "</p><div class=\"quiz-opts\">" + optsHtml + "</div></div>";
+  });
+}
+function selectOpt(qi, oi) {
+  quizAnswers[qi] = oi;
+  for (var i = 0; i < quizData[qi].opts.length; i++) { var el = document.getElementById("qo" + qi + "-" + i); if (el) { el.classList.remove("correct","wrong"); el.style.borderColor=""; el.style.background=""; } }
+  var sel = document.getElementById("qo" + qi + "-" + oi); if (sel) sel.style.borderColor = "#0c1e3c";
+}
+function checkQuiz() {
+  var score = 0;
+  quizData.forEach(function(q, qi) {
+    for (var i = 0; i < q.opts.length; i++) { var el = document.getElementById("qo" + qi + "-" + i); if (!el) continue; el.classList.remove("correct","wrong"); if (i === q.ans) el.classList.add("correct"); else if (quizAnswers[qi] === i) el.classList.add("wrong"); }
+    if (quizAnswers[qi] === q.ans) score++;
+  });
+  var res = document.getElementById("quizResult");
+  var pct = Math.round(score / quizData.length * 100);
+  res.style.display = "block";
+  document.getElementById("quizEmoji").textContent = pct===100?"🏆":pct>=75?"🎉":pct>=50?"💪":"📚";
+  document.getElementById("quizScore").textContent = score + " من " + quizData.length + " إجابة صحيحة (" + pct + "%)";
+  document.getElementById("quizMsg").textContent = pct===100?"مبروك! جاهزة لآخر وحدة — المراجعة والشهادة!":pct>=75?"أحسنت!":pct>=50?"جيد! راجع want to وdream of.":"راجع الوحدة كاملة.";
+  res.style.background = pct >= 75 ? "#f0fdf4" : "#fef9f0";
+  res.scrollIntoView({ behavior:"smooth", block:"center" });
+}
+function resetQuiz() {
+  quizAnswers = new Array(quizData.length).fill(null);
+  document.querySelectorAll(".quiz-opt").forEach(function(el){ el.classList.remove("correct","wrong"); el.style.borderColor=""; el.style.background=""; });
+  document.getElementById("quizResult").style.display = "none";
+}
+function show(id, clickedBtn) {
+  document.querySelectorAll(".section-content").forEach(function(s){ s.classList.remove("active","fade-up"); });
+  var target = document.getElementById("sec-" + id);
+  target.classList.add("active");
+  setTimeout(function(){ target.classList.add("fade-up"); }, 10);
+  window.scrollTo({ top:0, behavior:"smooth" });
+  document.querySelectorAll(".nav-btn").forEach(function(b){ b.classList.remove("active"); });
+  if (clickedBtn) { clickedBtn.classList.add("active"); return; }
+  var map = { vocab:0, story:1, grammar:2, listen:3, writing:4, speaking:5, realeng:6, quiz:7 };
+  var btns = document.querySelectorAll(".nav-btn");
+  if (btns[map[id]]) btns[map[id]].classList.add("active");
+}
+buildVocab(); buildStory(); buildListening(); buildSpeaking(); buildRealEnglish(); buildQuiz();
+</script>
+</body>
+</html>

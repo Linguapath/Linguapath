@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real English A2 — الوحدة ١٨: المراجعة الشاملة + شهادة A2</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:#c4a882;border-radius:3px}
+body{font-family:'Tajawal',sans-serif;background:#f7f3ed;min-height:100vh;direction:rtl}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes popIn{from{opacity:0;transform:scale(0.85)}to{opacity:1;transform:scale(1)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(212,160,23,0.4)}50%{box-shadow:0 0 0 12px rgba(212,160,23,0)}}
+@keyframes shine{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.fade-up{animation:fadeUp 0.45s ease forwards}
+.nav-btn{transition:all 0.2s;border:none;cursor:pointer;font-family:'Tajawal',sans-serif;border-radius:30px;padding:7px 16px;font-size:0.82rem;font-weight:600}
+.nav-btn.active{background:#d4a017;color:#0c1e3c;font-weight:800}
+.nav-btn:not(.active){background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.85)}
+.section-content{display:none;max-width:880px;margin:0 auto;padding:36px 16px 80px}
+.section-content.active{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 4px 28px rgba(0,0,0,0.07);margin-bottom:24px;overflow:hidden}
+.card-header{background:#0c1e3c;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.card-header .icon{font-size:1.4rem}
+.card-header h3{font-size:1.05rem;font-weight:700}
+.card-header .sub{font-size:0.78rem;color:#93c5fd;margin-top:1px}
+.card-body{padding:24px}
+.review-unit{background:white;border-radius:14px;border:1px solid #e5eaf5;padding:18px 20px;margin-bottom:12px;transition:all 0.2s}
+.review-unit:hover{box-shadow:0 4px 16px rgba(0,0,0,0.08);transform:translateX(-3px)}
+.ru-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-direction:row-reverse}
+.ru-num{background:#065f46;color:white;border-radius:8px;padding:4px 12px;font-size:0.78rem;font-weight:800;font-family:'Lora',serif}
+.ru-title{font-weight:800;font-size:0.97rem;color:#0c1e3c;text-align:right}
+.ru-grammar{font-family:'Lora',serif;font-size:0.85rem;color:#1a56b0;direction:ltr;margin-bottom:6px}
+.ru-example{font-family:'Lora',serif;font-size:0.88rem;color:#374151;direction:ltr;font-style:italic;padding:8px 12px;background:#f8faff;border-radius:8px;border-right:3px solid #d4a017}
+.quiz-q{margin-bottom:20px}
+.quiz-q p{font-size:0.97rem;font-weight:700;color:#0c1e3c;margin-bottom:10px;direction:ltr;font-family:'Lora',serif}
+.quiz-opts{display:flex;flex-direction:column;gap:8px}
+.quiz-opt{display:flex;align-items:center;gap:10px;padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;transition:all 0.18s;flex-direction:row-reverse;text-align:right;background:white}
+.quiz-opt:hover{border-color:#1a56b0;background:#f0f7ff}
+.quiz-opt.correct{border-color:#059669;background:#ecfdf5;color:#059669}
+.quiz-opt.wrong{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.quiz-opt input{display:none}
+.btn{border:none;border-radius:30px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all 0.2s;padding:11px 28px;font-size:0.95rem}
+.btn:hover{opacity:0.88;transform:scale(0.98)}
+.btn-dark{background:#0c1e3c;color:white}
+.btn-gray{background:#e5e7eb;color:#374151}
+.btn-gold{background:linear-gradient(135deg,#d4a017,#f0c040);color:#0c1e3c;font-weight:900}
+.a2-badge{display:inline-block;background:linear-gradient(135deg,#059669,#065f46);color:white;font-size:0.72rem;font-weight:800;padding:3px 10px;border-radius:20px;letter-spacing:1px;margin-bottom:6px}
+.certificate{background:white;border-radius:24px;box-shadow:0 8px 48px rgba(0,0,0,0.15);overflow:hidden;margin:0 auto;max-width:680px;position:relative}
+.cert-border{position:absolute;inset:10px;border:3px solid #d4a017;border-radius:18px;pointer-events:none;opacity:0.4}
+.cert-header{background:linear-gradient(135deg,#0c1e3c,#1a3a6b);padding:32px 40px 24px;text-align:center}
+.cert-body{padding:32px 40px}
+.cert-field{border-bottom:2px solid #d4a017;margin:12px 0 20px;padding-bottom:8px;text-align:center;font-family:'Lora',serif;font-size:1.2rem;color:#0c1e3c;min-height:36px}
+.cert-seal{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#d4a017,#f0c040);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 16px;animation:float 3s ease-in-out infinite;box-shadow:0 4px 20px rgba(212,160,23,0.4)}
+@media(max-width:580px){.cert-header,.cert-body{padding:20px}}
+</style>
+</head>
+<body>
+<div style="background:linear-gradient(135deg,#0c1e3c 0%,#1a3a6b 50%,#065f46 100%);color:white;position:relative;overflow:hidden">
+  <div style="position:absolute;top:-60px;left:-60px;width:280px;height:280px;border-radius:50%;background:rgba(212,160,23,0.08);pointer-events:none"></div>
+  <div style="position:absolute;bottom:-60px;right:-30px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.04);pointer-events:none"></div>
+  <div style="max-width:880px;margin:0 auto;padding:14px 20px 0;display:flex;justify-content:flex-end">
+    <a href="unit17_a2_ambitions.html" style="color:rgba(255,255,255,0.6);font-size:0.82rem;text-decoration:none">← الوحدة ١٧</a>
+  </div>
+  <div style="display:flex;justify-content:center;gap:5px;padding:10px 16px 0;flex-wrap:wrap">
+    <button class="nav-btn active" onclick="show('review',this)">📋 المراجعة</button>
+    <button class="nav-btn" onclick="show('grammar',this)">✏️ القواعد</button>
+    <button class="nav-btn" onclick="show('finalquiz',this)">🏆 الاختبار النهائي</button>
+    <button class="nav-btn" onclick="show('certificate',this)">🎓 الشهادة</button>
+  </div>
+  <div style="max-width:880px;margin:0 auto;padding:32px 24px 44px;text-align:center">
+    <div class="a2-badge">A2 — ELEMENTARY</div>
+    <div style="font-size:0.78rem;letter-spacing:3px;color:rgba(255,255,255,0.6);font-weight:700;margin-bottom:8px">UNIT 18 — FINAL</div>
+    <h1 style="font-family:'Lora',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.2;margin-bottom:8px">A2 Complete Review</h1>
+    <p style="font-size:1.1rem;color:rgba(255,255,255,0.75);margin-bottom:6px">المراجعة الشاملة + شهادة A2</p>
+    <div style="display:flex;justify-content:center;gap:12px;margin-top:16px;flex-wrap:wrap">
+      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:10px 18px;text-align:center">
+        <div style="font-family:'Lora',serif;font-size:1.4rem;font-weight:700;color:#d4a017">17</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.6)">وحدة أكملتها</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:10px 18px;text-align:center">
+        <div style="font-family:'Lora',serif;font-size:1.4rem;font-weight:700;color:#d4a017">340+</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.6)">كلمة تعلمتها</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:10px 18px;text-align:center">
+        <div style="font-family:'Lora',serif;font-size:1.4rem;font-weight:700;color:#d4a017">17</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.6)">قاعدة نحوية</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEW -->
+<div id="sec-review" class="section-content active fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">📋</span><div><h3>مراجعة الوحدات</h3><div class="sub">كل وحدة بقاعدتها ومثالها — اضغط للمراجعة السريعة</div></div></div>
+    <div class="card-body" id="reviewList"></div>
+  </div>
+  <div style="display:flex;justify-content:center">
+    <button class="btn btn-dark" onclick="show('grammar',null)">القواعد الشاملة ←</button>
+  </div>
+</div>
+
+<!-- GRAMMAR SUMMARY -->
+<div id="sec-grammar" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">✏️</span><div><h3>ملخص القواعد</h3><div class="sub">كل القواعد A2 في مكان واحد</div></div></div>
+    <div class="card-body">
+      <div id="grammarSummary"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('review',null)">→ المراجعة</button>
+    <button class="btn btn-dark" onclick="show('finalquiz',null)">الاختبار النهائي ←</button>
+  </div>
+</div>
+
+<!-- FINAL QUIZ -->
+<div id="sec-finalquiz" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header"><span class="icon">🏆</span><div><h3>الاختبار النهائي</h3><div class="sub">٢٠ سؤال من كل وحدات A2 — احصلي على ٧٥٪ للشهادة!</div></div></div>
+    <div class="card-body">
+      <div id="finalQuizContainer"></div>
+      <div style="display:flex;justify-content:center;gap:12px;margin-top:24px">
+        <button class="btn btn-gold" onclick="checkFinalQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn btn-gray" onclick="resetFinalQuiz()">↺ إعادة</button>
+      </div>
+      <div id="finalQuizResult" style="display:none;text-align:center;padding:28px;margin-top:20px;border-radius:18px">
+        <div style="font-size:3rem;margin-bottom:12px" id="fqEmoji">🎉</div>
+        <div style="font-weight:900;font-size:1.3rem;color:#0c1e3c;margin-bottom:8px" id="fqScore"></div>
+        <div style="font-size:0.95rem;color:#6b7280;margin-bottom:16px" id="fqMsg"></div>
+        <button class="btn btn-gold" id="fqCertBtn" style="display:none" onclick="show('certificate',null)">🎓 احصلي على شهادتك!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CERTIFICATE -->
+<div id="sec-certificate" class="section-content fade-up">
+  <div style="text-align:center;margin-bottom:24px">
+    <h2 style="font-family:'Lora',serif;color:#0c1e3c;font-size:1.4rem">🎓 أدخلي اسمك واطبعي شهادتك!</h2>
+    <p style="color:#6b7280;font-size:0.9rem;margin-top:6px">هذه شهادتك على إتمام مستوى A2 بنجاح</p>
+  </div>
+  <div style="display:flex;justify-content:center;margin-bottom:24px;gap:12px;flex-wrap:wrap">
+    <input id="certName" type="text" placeholder="اكتبي اسمك هنا..." style="border:2px solid #d4a017;border-radius:12px;padding:12px 20px;font-family:'Tajawal',sans-serif;font-size:1rem;color:#0c1e3c;outline:none;direction:rtl;min-width:260px" oninput="updateCertName()">
+    <button class="btn btn-gold" onclick="window.print()">🖨️ طباعة الشهادة</button>
+  </div>
+
+  <div class="certificate" id="certificate">
+    <div class="cert-border"></div>
+    <div class="cert-header">
+      <div style="font-size:0.8rem;letter-spacing:3px;color:rgba(255,255,255,0.5);margin-bottom:8px">LINGUAPATH.COM</div>
+      <div style="font-family:'Lora',serif;font-size:1.6rem;font-weight:700;color:white;margin-bottom:4px">Certificate of Completion</div>
+      <div style="font-size:0.9rem;color:rgba(255,255,255,0.6)">شهادة إتمام</div>
+    </div>
+    <div class="cert-body" style="text-align:center">
+      <div class="cert-seal">🏆</div>
+      <p style="font-size:0.88rem;color:#9ca3af;margin-bottom:6px">هذه الشهادة تُقدَّم إلى</p>
+      <div class="cert-field" id="certNameDisplay">اسمك هنا</div>
+      <p style="font-size:0.95rem;color:#374151;line-height:1.8;margin-bottom:16px">
+        لإتمامه بنجاح مستوى<br>
+        <span style="font-family:'Lora',serif;font-size:1.3rem;font-weight:700;color:#0c1e3c">Real English A2 — Elementary</span><br>
+        على منصة LinguaPath
+      </p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0;direction:ltr">
+        <div style="background:#f8faff;border-radius:10px;padding:10px">
+          <div style="font-family:'Lora',serif;font-weight:700;color:#059669;font-size:1.1rem">17</div>
+          <div style="font-size:0.72rem;color:#9ca3af">Units Completed</div>
+        </div>
+        <div style="background:#f8faff;border-radius:10px;padding:10px">
+          <div style="font-family:'Lora',serif;font-weight:700;color:#059669;font-size:1.1rem">340+</div>
+          <div style="font-size:0.72rem;color:#9ca3af">Words Learned</div>
+        </div>
+        <div style="background:#f8faff;border-radius:10px;padding:10px">
+          <div style="font-family:'Lora',serif;font-weight:700;color:#059669;font-size:1.1rem">A2</div>
+          <div style="font-size:0.72rem;color:#9ca3af">CEFR Level</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid #e5eaf5;margin-top:16px;padding-top:16px;display:flex;justify-content:space-between;align-items:center;flex-direction:row-reverse">
+        <div style="text-align:right">
+          <div style="font-family:'Lora',serif;font-weight:700;font-size:0.9rem;color:#0c1e3c">LinguaPath</div>
+          <div style="font-size:0.72rem;color:#9ca3af">linguapath.github.io</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-size:0.72rem;color:#9ca3af" id="certDate"></div>
+          <div style="font-size:0.72rem;color:#d4a017;font-weight:700">✓ Verified Completion</div>
+        </div>
+        <div style="text-align:left">
+          <div style="font-family:'Lora',serif;font-size:1.5rem;color:#d4a017">★★★</div>
+          <div style="font-size:0.72rem;color:#9ca3af">Elementary Level</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:28px;padding:28px;background:linear-gradient(135deg,#065f46,#059669);border-radius:18px">
+    <div style="font-size:2rem;margin-bottom:10px">🚀</div>
+    <div style="font-weight:900;font-size:1.15rem;color:white;margin-bottom:8px">جاهز للمستوى التالي؟</div>
+    <p style="color:rgba(255,255,255,0.8);font-size:0.9rem;margin-bottom:16px">B1 — Intermediate قادم قريباً على LinguaPath!</p>
+    <a href="index.html" style="background:#d4a017;color:#0c1e3c;border:none;border-radius:30px;font-family:'Tajawal',sans-serif;font-weight:900;padding:12px 28px;font-size:0.95rem;text-decoration:none;display:inline-block">← العودة للصفحة الرئيسية</a>
+  </div>
+</div>
+
+<script>
+var units = [
+  { num:"١",  icon:"⏰",  name:"Daily Routine",          grammar:"Present Simple",                  example:"I wake up at seven every morning.",          file:"unit1_a2_routine.html" },
+  { num:"٢",  icon:"🍽️", name:"Food and Restaurants",   grammar:"Would you like / I'll have",       example:"Would you like to order now?",               file:"unit2_a2_restaurant.html" },
+  { num:"٣",  icon:"🛒",  name:"Shopping and Comparing", grammar:"Comparatives and Superlatives",    example:"This is cheaper than that one.",             file:"unit3_a2_shopping.html" },
+  { num:"٤",  icon:"🏥",  name:"Health and Doctor",      grammar:"Should / Shouldn't",               example:"You should drink more water.",               file:"unit4_a2_health.html" },
+  { num:"٥",  icon:"📅",  name:"Past Simple Regular",    grammar:"Past Simple — ed verbs",           example:"She walked to school yesterday.",            file:"unit5_a2_past_simple.html" },
+  { num:"٦",  icon:"⚡",  name:"Irregular Verbs",        grammar:"go-went / eat-ate / see-saw",      example:"We went to the market and bought food.",    file:"unit6_a2_irregular.html" },
+  { num:"٧",  icon:"🚀",  name:"The Future",             grammar:"Going to / Will",                  example:"I am going to travel next month.",           file:"unit7_a2_future.html" },
+  { num:"٨",  icon:"🏠",  name:"Home and Furniture",     grammar:"There was / There were",           example:"There was a big sofa in the living room.",   file:"unit8_a2_home.html" },
+  { num:"٩",  icon:"👥",  name:"People and Relationships",grammar:"is tall / has dark hair / looks like", example:"He is tall and has short curly hair.",   file:"unit9_a2_people.html" },
+  { num:"١٠", icon:"🌦️", name:"Weather and Climate",    grammar:"Used to / Didn't use to",          example:"It used to snow every winter here.",         file:"unit10_a2_weather.html" },
+  { num:"١١", icon:"🎓",  name:"Education and School",   grammar:"Have to / Don't have to",          example:"You have to attend all lectures.",           file:"unit11_a2_education.html" },
+  { num:"١٢", icon:"💻",  name:"Technology",             grammar:"Can / Can't / Could",              example:"Could you help me download this app?",       file:"unit12_a2_technology.html" },
+  { num:"١٣", icon:"💪",  name:"Health and Fitness",     grammar:"Too / Too much / Enough",          example:"He eats too much junk food.",                file:"unit13_a2_fitness.html" },
+  { num:"١٤", icon:"✈️",  name:"Travel Experiences",     grammar:"Present Perfect — Have you ever?", example:"Have you ever been to Europe?",              file:"unit14_a2_travel.html" },
+  { num:"١٥", icon:"💬",  name:"Feelings and Opinions",  grammar:"I think / I believe / In my opinion", example:"In my opinion, reading is crucial.",      file:"unit15_a2_opinions.html" },
+  { num:"١٦", icon:"📰",  name:"News and Events",        grammar:"Past Continuous — was/were +ing",  example:"I was working when the news broke.",         file:"unit16_a2_news.html" },
+  { num:"١٧", icon:"🌟",  name:"Dreams and Ambitions",   grammar:"Want to / Would like to / Hope to / Dream of", example:"I dream of starting my own business.", file:"unit17_a2_ambitions.html" },
+];
+
+var grammarSummaryData = [
+  { title:"Present Simple", rule:"I work / She works / Do you work?", ar:"للروتين والحقائق الثابتة — he/she/it تأخذ s" },
+  { title:"Comparatives", rule:"bigger / more expensive / the best", ar:"المقارنة بين شيئين — er للقصار / more للطوال" },
+  { title:"Should / Shouldn't", rule:"You should sleep early.", ar:"نصيحة — ليس إلزاماً" },
+  { title:"Past Simple", rule:"walked / went / ate / saw", ar:"حدث وانتهى — ed للمنتظمة / حفظ للشاذة" },
+  { title:"Going to / Will", rule:"I am going to travel. / I will help you.", ar:"going to = خطة مسبقة / will = قرار لحظي أو وعد" },
+  { title:"There was / There were", rule:"There was a sofa. / There were chairs.", ar:"was للمفرد / were للجمع — في الماضي" },
+  { title:"Used to", rule:"It used to snow. / I didn't use to like it.", ar:"عادة انتهت — didn't use to بدون d" },
+  { title:"Have to / Don't have to", rule:"You have to attend. / You don't have to wear a tie.", ar:"have to = إلزامي / don't have to = اختياري" },
+  { title:"Can / Can't / Could", rule:"She can use the app. / Could you help me?", ar:"can لا تأخذ s / could للطلب المهذب والماضي" },
+  { title:"Too / Enough", rule:"too tired / too much sugar / fit enough", ar:"too قبل الصفة = مشكلة / enough بعد الصفة = كافي" },
+  { title:"Present Perfect", rule:"Have you ever been? / I have never tried.", ar:"have/has + past participle — للتجارب بدون وقت محدد" },
+  { title:"Past Continuous", rule:"I was working when it happened.", ar:"was/were + ing = خلفية مستمرة + when + ماضي بسيط = حدث مفاجئ" },
+  { title:"Want to / Would like to / Hope to", rule:"I want to travel. / I dream of becoming a doctor.", ar:"dream of + ing / want/hope/would like + to + فعل" },
+];
+
+var finalQuizData = [
+  { q:"She ___ to the market yesterday and bought vegetables.", opts:["go","goes","went","gone"],                           ans:2 },
+  { q:"ما معنى 'compulsory'؟",                                opts:["اختياري","إلزامي","سهل","صعب"],                      ans:1 },
+  { q:"I ___ going to start a new course next month.",         opts:["am","is","are","be"],                                ans:0 },
+  { q:"There ___ three bedrooms in the old house.",            opts:["was","is","were","are"],                             ans:2 },
+  { q:"Have you ever ___ sushi?",                             opts:["eat","ate","eaten","eating"],                        ans:2 },
+  { q:"ما معنى 'persistence'؟",                               opts:["الشغف","الطموح","المثابرة","الرؤية"],                ans:2 },
+  { q:"She ___ working when the earthquake struck.",           opts:["is","was","were","has"],                             ans:1 },
+  { q:"You ___ wear a uniform — it is optional.",              opts:["have to","must","don't have to","should"],           ans:2 },
+  { q:"It ___ snow here every winter when I was young.",       opts:["used to","use to","uses to","was used to"],          ans:0 },
+  { q:"ما معنى 'eyewitness'؟",                                opts:["الصحفي","المحقق","شاهد العيان","الضحية"],            ans:2 },
+  { q:"I eat ___ sugar. It is bad for my health.",             opts:["enough","too much","too many","very"],               ans:1 },
+  { q:"___ you ever been to Japan?",                          opts:["Did","Do","Have","Are"],                             ans:2 },
+  { q:"She ___ like to visit Italy one day.",                  opts:["want","would","hope","dream"],                       ans:1 },
+  { q:"ما معنى 'breakthrough'؟",                              opts:["العقبة","الإرث","المثابرة","الإنجاز الكبير"],        ans:3 },
+  { q:"I can't connect to the wifi — wrong ___.",              opts:["screen","password","storage","backup"],              ans:1 },
+  { q:"In my ___, social media has both benefits and risks.",  opts:["believe","thought","opinion","think"],               ans:2 },
+  { q:"The weather ___ much cooler twenty years ago.",         opts:["used to be","use to be","was used to","uses to be"], ans:0 },
+  { q:"She dreams of ___ her own company.",                    opts:["to start","start","starting","started"],             ans:2 },
+  { q:"ما معنى 'scholarship'؟",                               opts:["الشهادة","المنحة الدراسية","المنهج","التخرج"],       ans:1 },
+  { q:"___ you help me with this please? (طلب مهذب)",         opts:["Can","Should","Could","Will"],                       ans:2 },
+];
+
+function buildReviewList() {
+  var cont = document.getElementById("reviewList");
+  units.forEach(function(u) {
+    cont.innerHTML +=
+      "<div class=\"review-unit\">" +
+        "<div class=\"ru-header\">" +
+          "<a href=\"" + u.file + "\" style=\"background:#e8f0fe;color:#1a56b0;border:none;border-radius:8px;padding:5px 12px;font-family:'Tajawal',sans-serif;font-size:0.78rem;font-weight:700;text-decoration:none;cursor:pointer\">→ راجع</a>" +
+          "<div>" +
+            "<div style=\"display:flex;align-items:center;gap:8px;justify-content:flex-end;margin-bottom:4px\">" +
+              "<span class=\"ru-title\">" + u.icon + " " + u.name + "</span>" +
+              "<span class=\"ru-num\">الوحدة " + u.num + "</span>" +
+            "</div>" +
+            "<div class=\"ru-grammar\" style=\"text-align:right\">" + u.grammar + "</div>" +
+          "</div>" +
+        "</div>" +
+        "<div class=\"ru-example\">" + u.example + "</div>" +
+      "</div>";
+  });
+}
+
+function buildGrammarSummary() {
+  var cont = document.getElementById("grammarSummary");
+  grammarSummaryData.forEach(function(g, i) {
+    cont.innerHTML +=
+      "<div style=\"background:" + (i%2===0?"#f4f7ff":"#fff") + ";border-radius:12px;padding:14px 18px;margin-bottom:10px;border-right:4px solid #059669\">" +
+        "<div style=\"display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-direction:row-reverse\">" +
+          "<div style=\"font-weight:800;font-size:0.95rem;color:#0c1e3c\">" + g.title + "</div>" +
+          "<div style=\"background:#059669;color:white;border-radius:20px;padding:2px 10px;font-size:0.72rem;font-weight:700\">" + (i+1) + "</div>" +
+        "</div>" +
+        "<div style=\"font-family:'Lora',serif;font-size:0.9rem;color:#1a56b0;direction:ltr;margin-bottom:6px\">" + g.rule + "</div>" +
+        "<div style=\"font-size:0.82rem;color:#6b7280;text-align:right\">" + g.ar + "</div>" +
+      "</div>";
+  });
+}
+
+var fqAnswers = new Array(finalQuizData.length).fill(null);
+function buildFinalQuiz() {
+  var cont = document.getElementById("finalQuizContainer");
+  finalQuizData.forEach(function(q, qi) {
+    var optsHtml = "";
+    q.opts.forEach(function(opt, oi) {
+      optsHtml += "<div class=\"quiz-opt\" id=\"fqo" + qi + "-" + oi + "\" onclick=\"selectFQ(" + qi + "," + oi + ")\"><span style=\"font-family:'Lora',serif;font-size:0.95rem\">" + opt + "</span><input type=\"radio\" name=\"fq" + qi + "\"></div>";
+    });
+    cont.innerHTML += "<div class=\"quiz-q\"><p dir=\"ltr\"><span style=\"background:#065f46;color:white;border-radius:6px;padding:2px 8px;font-size:0.78rem;margin-left:8px\">" + (qi+1) + "</span>" + q.q + "</p><div class=\"quiz-opts\">" + optsHtml + "</div></div>";
+  });
+}
+function selectFQ(qi, oi) {
+  fqAnswers[qi] = oi;
+  for (var i = 0; i < finalQuizData[qi].opts.length; i++) {
+    var el = document.getElementById("fqo" + qi + "-" + i);
+    if (el) { el.classList.remove("correct","wrong"); el.style.borderColor=""; el.style.background=""; }
+  }
+  var sel = document.getElementById("fqo" + qi + "-" + oi);
+  if (sel) sel.style.borderColor = "#0c1e3c";
+}
+function checkFinalQuiz() {
+  var score = 0;
+  finalQuizData.forEach(function(q, qi) {
+    for (var i = 0; i < q.opts.length; i++) {
+      var el = document.getElementById("fqo" + qi + "-" + i);
+      if (!el) continue;
+      el.classList.remove("correct","wrong");
+      if (i === q.ans) el.classList.add("correct");
+      else if (fqAnswers[qi] === i) el.classList.add("wrong");
+    }
+    if (fqAnswers[qi] === q.ans) score++;
+  });
+  var pct = Math.round(score / finalQuizData.length * 100);
+  var res = document.getElementById("finalQuizResult");
+  res.style.display = "block";
+  res.style.background = pct >= 75 ? "linear-gradient(135deg,#f0fdf4,#dcfce7)" : "#fef9f0";
+  document.getElementById("fqEmoji").textContent = pct===100?"🏆":pct>=75?"🎉":pct>=50?"💪":"📚";
+  document.getElementById("fqScore").textContent = score + " من " + finalQuizData.length + " إجابة صحيحة — " + pct + "%";
+  var msg = pct===100?"مبروك! أداء مثالي! أنتِ جاهزة لـ B1 تماماً! 🌟":pct>=75?"أحسنتِ! استحققتِ شهادة A2 بجدارة! 🎓":pct>=50?"جيد! راجعي الوحدات الضعيفة وأعيدي الاختبار.":"راجعي الوحدات كاملة ثم أعيدي الاختبار.";
+  document.getElementById("fqMsg").textContent = msg;
+  var certBtn = document.getElementById("fqCertBtn");
+  if (pct >= 75) certBtn.style.display = "inline-block";
+  res.scrollIntoView({ behavior:"smooth", block:"center" });
+}
+function resetFinalQuiz() {
+  fqAnswers = new Array(finalQuizData.length).fill(null);
+  document.querySelectorAll(".quiz-opt").forEach(function(el){ el.classList.remove("correct","wrong"); el.style.borderColor=""; el.style.background=""; });
+  document.getElementById("finalQuizResult").style.display = "none";
+  document.getElementById("fqCertBtn").style.display = "none";
+}
+function updateCertName() {
+  var name = document.getElementById("certName").value.trim();
+  document.getElementById("certNameDisplay").textContent = name || "اسمك هنا";
+}
+function show(id, clickedBtn) {
+  document.querySelectorAll(".section-content").forEach(function(s){ s.classList.remove("active","fade-up"); });
+  var target = document.getElementById("sec-" + id);
+  target.classList.add("active");
+  setTimeout(function(){ target.classList.add("fade-up"); }, 10);
+  window.scrollTo({ top:0, behavior:"smooth" });
+  document.querySelectorAll(".nav-btn").forEach(function(b){ b.classList.remove("active"); });
+  if (clickedBtn) { clickedBtn.classList.add("active"); return; }
+  var map = { review:0, grammar:1, finalquiz:2, certificate:3 };
+  var btns = document.querySelectorAll(".nav-btn");
+  if (btns[map[id]]) btns[map[id]].classList.add("active");
+}
+var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+var d = new Date();
+document.getElementById("certDate").textContent = d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear();
+buildReviewList();
+buildGrammarSummary();
+buildFinalQuiz();
+</script>
+</body>
+</html>
