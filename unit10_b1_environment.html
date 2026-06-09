@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath B1 — Unit 10: Environment</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Tajawal',sans-serif;background:#f0f4fa;direction:rtl;min-height:100vh}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#1e3a8a;border-radius:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(30,58,138,.35)}50%{box-shadow:0 0 0 8px rgba(30,58,138,0)}}
+.nav-bar{background:linear-gradient(135deg,#0a1628,#1e3a8a);padding:10px 12px;display:flex;justify-content:center;gap:4px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.nb{border:none;border-radius:22px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s}
+.nb.on{background:#f0a000;color:#0a1628}
+.nb:not(.on){background:rgba(255,255,255,.1);color:rgba(255,255,255,.85)}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#1e3a8a 55%,#1d4ed8 100%);color:white;padding:32px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(240,160,0,.06)}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04)}
+.b1tag{display:inline-block;background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-size:.72rem;font-weight:900;padding:4px 14px;border-radius:20px;letter-spacing:1.5px;margin-bottom:10px}
+.sec{display:none;max-width:900px;margin:0 auto;padding:32px 16px 80px;animation:fadeUp .4s ease}
+.sec.on{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 3px 20px rgba(0,0,0,.06);margin-bottom:22px;overflow:hidden}
+.ch{background:#0a1628;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.ch h3{font-size:1rem;font-weight:700}
+.ch .sub{font-size:.75rem;color:#93c5fd;margin-top:1px}
+.cb{padding:22px}
+.vocab-card{background:white;border-radius:16px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 14px rgba(10,22,40,.08);border:1px solid #e5ebf8;transition:transform .2s,box-shadow .2s}
+.vocab-card:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(10,22,40,.13)}
+.vhead{background:linear-gradient(135deg,#0a1628,#1e3a8a);display:flex;flex-direction:row-reverse;align-items:center;padding:14px 18px;gap:14px}
+
+
+.vinfo{flex:1;text-align:right}
+.vword{font-family:'Lora',serif;font-size:1.18rem;font-weight:700;color:white;direction:ltr;text-align:left}
+.vpron{font-size:.78rem;font-weight:700;color:#fde68a;margin-top:3px;direction:ltr;text-align:left}
+.var{font-size:.93rem;font-weight:700;color:rgba(255,255,255,.9);margin-top:3px}
+.vspk{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.25);background:transparent;color:white;font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:all .18s;display:flex;align-items:center;justify-content:center}
+.vspk:hover{background:rgba(255,255,255,.2);transform:scale(1.08)}
+.vspk.playing{background:#f0a000;border-color:#f0a000;animation:pulse 1s infinite}
+.vbody{padding:14px 16px 16px}
+.vgrid2{margin-bottom:10px}
+.vrow-pair{display:flex;gap:8px;margin-bottom:8px}
+.vrow-pair .vcell{flex:1;min-width:0}
+.vcell{border-radius:10px;padding:10px 13px;cursor:pointer;transition:all .15s;user-select:none;direction:ltr}
+.vcell:hover{filter:brightness(.96)}
+.vcell:active{transform:scale(.98)}
+.c-syn{background:#f0fdf4;border:1px solid #bbf7d0}
+.c-ant{background:#fff7ed;border:1px solid #fed7aa}
+.c-col{background:#eff6ff;border:1px solid #bfdbfe}
+.c-prep{background:#faf5ff;border:1px solid #ddd6fe}
+.vlbl{font-size:.65rem;font-weight:900;letter-spacing:.7px;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:5px;direction:ltr;justify-content:flex-start}
+.c-syn .vlbl{color:#15803d}.c-ant .vlbl{color:#ea580c}
+.c-col .vlbl{color:#2563eb}.c-prep .vlbl{color:#7c3aed}
+.vlbl::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.c-syn .vlbl::before{background:#15803d}.c-ant .vlbl::before{background:#ea580c}
+.c-col .vlbl::before{background:#2563eb}.c-prep .vlbl::before{background:#7c3aed}
+.vval{font-family:'Lora',serif;font-size:.82rem;color:#374151;direction:ltr;line-height:1.6}
+.vtr{font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px;padding-top:5px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif}
+.vcell.show-tr .vtr{display:block}
+.vex{font-family:'Lora',serif;font-size:.87rem;color:#374151;direction:ltr;font-style:italic;padding:10px 14px;background:#f8faff;border-radius:10px;border-right:3px solid #f0a000;cursor:pointer;user-select:none}
+.vex-tr{font-size:.8rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding-top:6px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif;font-style:normal}
+.vex.show-ex-tr .vex-tr{display:block}
+.sline{font-family:'Lora',serif;font-size:.97rem;line-height:2;padding:5px 8px;border-radius:6px;direction:ltr;transition:background .2s}
+.sline.hl{background:#fef3c7}
+.lline{font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#cbd5e1;padding:3px 6px;border-radius:5px;direction:ltr;transition:background .2s}
+.lline.hl{background:rgba(240,160,0,.18);color:#fde68a}
+.sctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-direction:row-reverse;margin-bottom:16px}
+.pbtn{background:#1e3a8a;color:white;border:none;border-radius:24px;padding:9px 20px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s}
+.pbtn:hover{background:#1d4ed8}
+.spdbtn{padding:5px 12px;border-radius:18px;border:2px solid #cbd5e1;background:white;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;color:#64748b;transition:all .15s}
+.spdbtn.on{border-color:#1e3a8a;background:#1e3a8a;color:white}
+.rtext{font-family:'Lora',serif;font-size:.95rem;line-height:2;color:#374151;direction:ltr;padding:20px;background:#f8faff;border-radius:14px;border:1px solid #e5eaf5;margin-bottom:18px}
+.rtext p{margin-bottom:14px}
+.gbox{background:linear-gradient(135deg,#eff6ff,#e0effe);border:2px solid #bfdbfe;border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.gpat{background:white;border-radius:10px;padding:12px 16px;margin-bottom:10px;border-right:4px solid #2563eb;direction:ltr}
+.geg{font-family:'Lora',serif;font-size:.97rem;color:#0a1628;font-weight:600}
+.geg em{color:#f0a000;font-style:normal;font-weight:800}
+.gar{font-family:'Tajawal',sans-serif;font-size:.85rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px}
+.qopt{padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;font-family:'Lora',serif;font-size:.9rem;direction:ltr;background:white;transition:all .15s;margin-bottom:7px;text-align:left}
+.qopt:hover{border-color:#1e3a8a;background:#eff6ff}
+.qopt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.qopt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.copt{padding:9px 14px;border:2px solid #e5e7eb;border-radius:9px;cursor:pointer;font-family:'Lora',serif;font-size:.87rem;direction:ltr;background:white;transition:all .15s;margin-bottom:6px}
+.copt:hover{border-color:#1e3a8a;background:#eff6ff}
+.copt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.copt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.wq-block{margin-bottom:18px}
+.wq-model{font-family:'Lora',serif;font-size:.8rem;color:#374151;font-style:italic;direction:ltr;padding:10px 14px;background:#f0f9ff;border-radius:8px;border-right:3px solid #bfdbfe;line-height:1.7;display:none;margin-bottom:8px}
+.wq-model.show{display:block}
+.wq-model-btn{background:#dbeafe;border:none;border-radius:20px;padding:4px 14px;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer;margin-bottom:8px;transition:all .15s}
+.wq-model-btn:hover{background:#1e3a8a;color:white}
+.wq-en{font-family:'Lora',serif;font-size:.93rem;font-weight:700;color:#0a1628;direction:ltr;margin-bottom:3px}
+.wq-ar{font-size:.78rem;color:#9ca3af;direction:rtl;text-align:right;margin-bottom:8px;font-family:'Tajawal',sans-serif}
+.winput{width:100%;border:none;border-bottom:2px solid #f0a000;background:transparent;font-family:'Lora',serif;font-size:.95rem;color:#0a1628;outline:none;padding:5px 3px;direction:ltr;margin-bottom:14px}
+.winput:focus{border-color:#1e3a8a}
+.btn{border:none;border-radius:28px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all .18s;padding:10px 24px;font-size:.9rem}
+.btn:hover{opacity:.88;transform:scale(.98)}
+.bd{background:#1e3a8a;color:white}
+.bg{background:#e5e7eb;color:#374151}
+.bgold{background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-weight:900}
+.navrow{display:flex;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.spksmall{width:32px;height:32px;border-radius:50%;border:none;background:#dbeafe;color:#1e3a8a;font-size:.85rem;cursor:pointer;flex-shrink:0;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.spksmall:hover{background:#1e3a8a;color:white}
+.expr-card{background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:16px;margin-bottom:12px}
+.slang-card{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px}
+.ev-card{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px}
+@media(max-width:580px){.vgrid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <button class="nb on"  onclick="show('vocab',this)">📚 المفردات</button>
+  <button class="nb" onclick="show('story',this)">📖 القصة</button>
+  <button class="nb" onclick="show('reading',this)">📰 القراءة</button>
+  <button class="nb" onclick="show('grammar',this)">✏️ القاعدة</button>
+  <button class="nb" onclick="show('listening',this)">🎧 الاستماع</button>
+  <button class="nb" onclick="show('writing',this)">✍️ الكتابة</button>
+  <button class="nb" onclick="show('speaking',this)">💬 المحادثة</button>
+  <button class="nb" onclick="show('realeng',this)">🗣️ Real English</button>
+  <button class="nb" onclick="show('quiz',this)">✅ الاختبار</button>
+</div>
+<div class="hero">
+  <div class="b1tag">B1 — INTERMEDIATE</div>
+  <div style="font-size:.75rem;letter-spacing:3px;color:rgba(255,255,255,.45);font-weight:700;margin-bottom:8px">UNIT 10</div>
+  <h1 style="font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;margin-bottom:6px"> Culture and Society</h1>
+  <p style="font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:4px">البيئة والمناخ</p>
+  <p style="font-size:.82rem;color:rgba(255,255,255,.4)">القاعدة: Causative Have/Get — have something done</p>
+  <div style="display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap">
+    <a href="unit9_b1_food.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">← الوحدة ٩</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="unit11_b1_travel.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">الوحدة ١١ ←</a>
+  </div>
+</div>
+
+<div id="sec-vocab" class="sec on">
+  <div style="text-align:right;color:#64748b;font-size:.88rem;max-width:900px;margin:0 auto 16px;padding:0 16px">💡 اضغط 🔊 للكلمة الرئيسية — اضغط على أي خلية لتسمع نطقها وتظهر ترجمتها</div>
+  <div id="vocabList" style="max-width:900px;margin:0 auto;padding:0 16px"></div>
+  <div class="navrow"><button class="btn bd" onclick="show('story',null)">القصة ←</button></div>
+</div>
+
+<div id="sec-story" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📖</span><div><h3>القصة القصيرة</h3><div class="sub">Yasmin تحكي عن البيئة والمناخ — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button id="trBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:22px;padding:7px 16px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+        <button class="pbtn" id="storyBtn" onclick="toggleStory()"><span id="sIcon">▶</span><span id="sTxt">استمع للقصة</span></button>
+        <button class="spdbtn on" onclick="setSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setSpd(0.75,this)">بطيء</button>
+      </div>
+      <div id="storyBox" style="border-right:4px solid #f0a000;padding:16px 20px;background:#fffdf7;border-radius:0 14px 14px 0"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn bd" onclick="show('reading',null)">القراءة ←</button>
+  </div>
+</div>
+
+<div id="sec-reading" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📰</span><div><h3>القراءة المعمّقة</h3><div class="sub">نص 350 كلمة + 5 أسئلة فهم</div></div></div>
+    <div class="cb">
+      <div class="rtext" id="readingText"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الفهم</p>
+      <div id="compList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkComp()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetComp()">↺ إعادة</button>
+      </div>
+      <div id="compRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('story',null)">→ القصة</button>
+    <button class="btn bd" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✏️</span><div><h3>القاعدة</h3><div class="sub">Causative Have/Get — الفعل السببي</div></div></div>
+    <div class="cb" id="grammarBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('reading',null)">→ القراءة</button>
+    <button class="btn bd" onclick="show('listening',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listening" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🎧</span><div><h3>الاستماع المضمّن</h3><div class="sub">مونولوج Marcus — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button class="pbtn" id="listenBtn" onclick="toggleListen()"><span id="lIcon">▶</span><span id="lTxt">شغّل المونولوج</span></button>
+        <button class="spdbtn on" onclick="setLSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setLSpd(0.75,this)">بطيء</button>
+      </div>
+      <div class="lscript" id="listenScript" style="background:#0f172a;border-radius:14px;padding:18px 20px;margin-bottom:16px"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الاستماع</p>
+      <div id="listenQList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkListen()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetListen()">↺ إعادة</button>
+      </div>
+      <div id="listenRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn bd" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✍️</span><div><h3>الكتابة</h3><div class="sub">اكتب عن البيئة والمناخ</div></div></div>
+    <div class="cb">
+      <div style="background:#fffdf7;border:2px dashed #f0a000;border-radius:14px;padding:20px;margin-bottom:14px">
+        <div class="wq-block">
+          <div class="wq-en">What environmental problem concerns you most and why?</div>
+          <div class="wq-ar">ما المشكلة البيئية التي تقلقك أكثر ولماذا؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">Model: The environmental problem that concerns me most is climate change, which has been caused largely by decades of industrial emissions. I find it particularly alarming because its effects are already being felt globally.</div>
+          <input class="winput" id="w1" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">What changes have you had made in your home to reduce your carbon footprint?</div>
+          <div class="wq-ar">ما التغييرات التي أجريتها في منزلك لتقليل بصمتك الكربونية؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">Model: I have had solar panels installed on our roof and I have had old appliances replaced with energy-efficient ones. I also get my car serviced regularly to reduce emissions.</div>
+          <input class="winput" id="w2" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Do you think individuals or governments are more responsible for fixing environmental problems?</div>
+          <div class="wq-ar">هل تعتقد أن الأفراد أم الحكومات أكثر مسؤولية عن حل المشاكل البيئية؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">Model: In my opinion, governments bear greater responsibility because they have the power to get legislation passed and have policies enforced on a national scale. Individuals alone cannot solve systemic problems.</div>
+          <input class="winput" id="w3" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Describe one simple change anyone could make to help the environment.</div>
+          <div class="wq-ar">صف تغييراً بسيطاً يمكن لأي شخص القيام به لمساعدة البيئة.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">Model: One of the most effective changes is getting a reusable water bottle made rather than buying plastic ones. This single habit can prevent hundreds of plastic bottles from ending up in landfill each year.</div>
+          <input class="winput" id="w4" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block" style="margin-bottom:0">
+          <div class="wq-en">What would you like to see done about deforestation in the next ten years?</div>
+          <div class="wq-ar">ما الذي تودّ رؤيته يتم بشأن إزالة الغابات خلال العشر سنوات القادمة؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">Model: I would like to see international agreements signed and reforestation programmes funded on a massive scale. I also want corporations held accountable and have their supply chains audited for environmental damage.</div>
+          <input class="winput" id="w5" placeholder="Write your answer here..." oninput="buildW()" style="margin-bottom:0">
+        </div></div>
+      <div id="wOut" style="background:white;border:1px solid #e5eaf5;border-radius:12px;padding:16px;min-height:70px;font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#374151;direction:ltr">
+        <span style="color:#9ca3af;font-style:italic">✨ ستظهر فقرتك هنا...</span>
+      </div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('listening',null)">→ الاستماع</button>
+    <button class="btn bd" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">💬</span><div><h3>المحادثة</h3><div class="sub">Speaking Challenge</div></div></div>
+    <div class="cb" id="speakBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn bd" onclick="show('realeng',null)">Real English ←</button>
+  </div>
+</div>
+
+<div id="sec-realeng" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🗣️</span><div><h3>Real English</h3><div class="sub">اضغط على الجملة لتسمعها وتظهر ترجمتها</div></div></div>
+    <div class="cb" id="realBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn bd" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-quiz" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✅</span><div><h3>اختبار الوحدة</h3><div class="sub">10 أسئلة — مفردات + قواعد + collocations</div></div></div>
+    <div class="cb">
+      <div id="quizList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:18px">
+        <button class="btn bgold" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn bg" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizRes" style="display:none;text-align:center;padding:22px;margin-top:16px;background:#f0fdf4;border-radius:14px">
+        <div id="qEmoji" style="font-size:2.5rem;margin-bottom:8px"></div>
+        <div id="qScore" style="font-weight:800;font-size:1.1rem;color:#0a1628;margin-bottom:4px"></div>
+        <div id="qMsg" style="font-size:.88rem;color:#64748b"></div>
+      </div>
+    </div>
+  </div>
+  <div style="background:linear-gradient(135deg,#0a1628,#1e3a8a);border-radius:18px;padding:28px;text-align:center;margin-top:8px;max-width:900px;margin-left:auto;margin-right:auto">
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:white;margin-bottom:6px">أحسنت! أكملت وحدة البيئة والمناخ</div>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:16px">الوحدة الحادية عشرة: Travel and Tourism</p>
+    <button class="btn bgold" onclick="location.href='unit11_b1_travel.html'">الوحدة الحادية عشرة ←</button>
+  </div>
+</div>
+
+<script>
+var V=[
+  {w:"carbon footprint",p:"كاربن فوت-برينت",a:"البصمة الكربونية",syn:"carbon emissions, environmental impact",ant:"carbon neutrality, zero emissions",col:"reduce carbon footprint / measure carbon footprint / carbon footprint of (activity)",prep:"footprint of (individual) / footprint from (travel)",ex:"I have had my home insulated to significantly reduce my carbon footprint.",ar_syn:"انبعاثات الكربون، الأثر البيئي",ar_ant:"حياد كربوني، انبعاثات صفرية",ar_col:"يقلل البصمة الكربونية / يقيسها",ar_prep:"بصمة الفرد / من السفر",ar_ex:"قمت بعزل منزلي لتقليل بصمتي الكربونية بشكل ملحوظ."},
+  {w:"renewable energy",p:"رينيوبل إنيرجي",a:"الطاقة المتجددة",syn:"clean energy, sustainable power",ant:"fossil fuels, non-renewable energy",col:"invest in renewable energy / switch to renewable energy / renewable energy source",prep:"renewable energy from (sun) / renewable energy for (homes)",ex:"The government has had thousands of wind turbines installed across the country.",ar_syn:"طاقة نظيفة، طاقة مستدامة",ar_ant:"وقود أحفوري، طاقة غير متجددة",ar_col:"يستثمر في الطاقة المتجددة / يتحول إليها",ar_prep:"طاقة متجددة من الشمس / للمنازل",ar_ex:"الحكومة أمرت بتركيب آلاف توربينات الرياح في جميع أنحاء البلاد."},
+  {w:"deforestation",p:"ديفوريستيشن",a:"إزالة الغابات",syn:"forest clearance, woodland destruction",ant:"reforestation, afforestation",col:"illegal deforestation / combat deforestation / deforestation rate",prep:"deforestation in (Amazon) / deforestation due to (farming)",ex:"The rate of deforestation has had devastating consequences for global biodiversity.",ar_syn:"إزالة الأشجار، تدمير الغابات",ar_ant:"إعادة التشجير، التحريج",ar_col:"إزالة غير قانونية / يكافح إزالة الغابات",ar_prep:"إزالة في الأمازون / بسبب الزراعة",ar_ex:"معدل إزالة الغابات خلّف عواقب وخيمة على التنوع البيولوجي العالمي."},
+  {w:"biodiversity",p:"بايو-دايفيرستي",a:"التنوع البيولوجي",syn:"species variety, ecological richness",ant:"monoculture, species loss",col:"protect biodiversity / biodiversity loss / rich in biodiversity",prep:"biodiversity of (ecosystem) / biodiversity in (region)",ex:"Scientists have had habitats protected to preserve biodiversity in the region.",ar_syn:"تنوع الأنواع، ثراء بيئي",ar_ant:"أحادية الزراعة، فقدان الأنواع",ar_col:"يحمي التنوع البيولوجي / فقدان التنوع",ar_prep:"تنوع النظام البيئي / في المنطقة",ar_ex:"العلماء عملوا على حماية الموائل للحفاظ على التنوع البيولوجي في المنطقة."},
+  {w:"greenhouse gas",p:"غرين-هاوس غاز",a:"غاز الاحتباس الحراري",syn:"CO2, emission, pollutant",ant:"clean air, oxygen",col:"reduce greenhouse gases / greenhouse gas emissions / trap greenhouse gases",prep:"greenhouse gas from (industry) / in (atmosphere)",ex:"We need to have greenhouse gas emissions reduced by fifty percent within a decade.",ar_syn:"ثاني أكسيد الكربون، انبعاث، ملوث",ar_ant:"هواء نظيف، أكسجين",ar_col:"يقلل غازات الاحتباس / انبعاثات غازات",ar_prep:"غاز من الصناعة / في الغلاف الجوي",ar_ex:"نحتاج إلى خفض انبعاثات غازات الاحتباس الحراري بنسبة خمسين بالمئة خلال عقد."},
+  {w:"sustainability",p:"سستيينابيلتي",a:"الاستدامة",syn:"long-term viability, eco-balance",ant:"unsustainability, resource depletion",col:"environmental sustainability / promote sustainability / sustainability goals",prep:"sustainability of (resource) / sustainability in (business)",ex:"The company has had its supply chain redesigned with sustainability in mind.",ar_syn:"جدوى طويلة الأمد، توازن بيئي",ar_ant:"عدم الاستدامة، استنزاف الموارد",ar_col:"استدامة بيئية / يعزز الاستدامة",ar_prep:"استدامة الموارد / في الأعمال",ar_ex:"الشركة أعادت تصميم سلسلة التوريد مع مراعاة الاستدامة."},
+  {w:"ecosystem",p:"إيكو-سيستم",a:"النظام البيئي",syn:"habitat, biosphere, natural environment",ant:"artificial environment, sterile zone",col:"fragile ecosystem / protect ecosystem / ecosystem collapse",prep:"ecosystem of (forest) / ecosystem in (ocean)",ex:"The coral reef ecosystem has been severely damaged by rising water temperatures.",ar_syn:"موئل، غلاف حيوي، بيئة طبيعية",ar_ant:"بيئة اصطناعية، منطقة معقمة",ar_col:"نظام بيئي هش / يحمي النظام البيئي",ar_prep:"نظام بيئي للغابة / في المحيط",ar_ex:"نظام الشعاب المرجانية البيئي تضرر بشدة بسبب ارتفاع درجات حرارة المياه."},
+  {w:"fossil fuel",p:"فوسل فيول",a:"الوقود الأحفوري",syn:"oil, coal, gas, non-renewable fuel",ant:"renewable energy, clean fuel",col:"burn fossil fuels / phase out fossil fuels / fossil fuel dependency",prep:"fossil fuel from (ground) / dependency on fossil fuels",ex:"Industries have been told to get their fossil fuel dependency eliminated within twenty years.",ar_syn:"نفط، فحم، غاز، وقود غير متجدد",ar_ant:"طاقة متجددة، وقود نظيف",ar_col:"يحرق وقوداً أحفورياً / يتخلص منه تدريجياً",ar_prep:"وقود أحفوري من الأرض / اعتماد على",ar_ex:"أُخبرت الصناعات بالتخلص من اعتمادها على الوقود الأحفوري خلال عشرين عاماً."},
+  {w:"pollution",p:"بوليوشن",a:"التلوث",syn:"contamination, toxicity, waste",ant:"purification, clean environment",col:"air pollution / water pollution / reduce pollution",prep:"pollution of (river) / pollution from (factory)",ex:"The river has had its pollution levels tested regularly by environmental agencies.",ar_syn:"تلوث، سمية، نفايات",ar_ant:"تنقية، بيئة نظيفة",ar_col:"تلوث هواء / تلوث مياه / يقلل التلوث",ar_prep:"تلوث النهر / من المصنع",ar_ex:"النهر تم اختبار مستويات تلوثه بانتظام من قبل الوكالات البيئية."},
+  {w:"carbon neutral",p:"كاربن نيوترل",a:"محايد الكربون",syn:"net zero, emission-free",ant:"carbon-heavy, polluting",col:"become carbon neutral / carbon neutral by (year) / carbon neutral company",prep:"neutral in (emissions) / neutral by (target date)",ex:"The city aims to get its transport network made carbon neutral by 2035.",ar_syn:"صفري الانبعاثات، خالٍ من الانبعاثات",ar_ant:"عالي الكربون، ملوّث",ar_col:"يصبح محايد الكربون / شركة محايدة",ar_prep:"محايد في الانبعاثات / بحلول التاريخ المستهدف",ar_ex:"تهدف المدينة إلى جعل شبكة نقلها محايدة كربونياً بحلول عام 2035."},
+  {w:"habitat",p:"هابيتات",a:"الموئل / البيئة الطبيعية",syn:"natural environment, territory, home range",ant:"urban area, artificial zone",col:"destroy habitat / protect habitat / loss of habitat",prep:"habitat of (species) / habitat in (forest)",ex:"The organisation has had wetland habitats restored across three counties.",ar_syn:"بيئة طبيعية، إقليم",ar_ant:"منطقة حضرية، منطقة اصطناعية",ar_col:"يدمر الموئل / يحمي الموئل / فقدان الموئل",ar_prep:"موئل النوع / في الغابة",ar_ex:"المنظمة أعادت تأهيل مواطن الأراضي الرطبة في ثلاث مقاطعات."},
+  {w:"climate change",p:"كلايمت تشينج",a:"تغيّر المناخ",syn:"global warming, climate crisis",ant:"climate stability",col:"combat climate change / effects of climate change / climate change agreement",prep:"change in (climate) / change due to (emissions)",ex:"World leaders have had climate change agreements signed but implementation remains slow.",ar_syn:"الاحترار العالمي، أزمة المناخ",ar_ant:"استقرار المناخ",ar_col:"يكافح تغيّر المناخ / آثاره / اتفاقية المناخ",ar_prep:"تغيّر في المناخ / بسبب الانبعاثات",ar_ex:"القادة العالميون وقّعوا اتفاقيات تغيّر المناخ لكن التطبيق لا يزال بطيئاً."},
+  {w:"reforestation",p:"ريفوريستيشن",a:"إعادة التشجير",syn:"replanting, afforestation, tree restoration",ant:"deforestation, forest clearance",col:"reforestation programme / large-scale reforestation / fund reforestation",prep:"reforestation of (land) / reforestation in (country)",ex:"Volunteers have had millions of trees planted through the national reforestation initiative.",ar_syn:"إعادة الزراعة، تشجير",ar_ant:"إزالة الغابات، قطع الأشجار",ar_col:"برنامج إعادة التشجير / على نطاق واسع",ar_prep:"إعادة تشجير الأراضي / في البلد",ar_ex:"المتطوعون زرعوا ملايين الأشجار من خلال مبادرة إعادة التشجير الوطنية."},
+  {w:"emissions",p:"إميشنز",a:"الانبعاثات",syn:"discharge, exhaust, release",ant:"absorption, capture",col:"cut emissions / emissions target / zero emissions",prep:"emissions from (vehicle) / emissions of (CO2)",ex:"The factory has had its emissions monitored and reduced by forty percent.",ar_syn:"إفراز، عادم، إطلاق",ar_ant:"امتصاص، التقاط",ar_col:"يخفض الانبعاثات / هدف الانبعاثات / انبعاثات صفرية",ar_prep:"انبعاثات من السيارة / من ثاني أكسيد الكربون",ar_ex:"المصنع تم مراقبة انبعاثاته وخفضها بنسبة أربعين بالمئة."},
+  {w:"endangered",p:"إنديينجرد",a:"مهدَّد بالانقراض",syn:"at risk, threatened, vulnerable",ant:"thriving, abundant, safe",col:"endangered species / critically endangered / protect endangered animals",prep:"endangered due to (hunting) / endangered in (region)",ex:"Conservation teams have had endangered species relocated to protected reserves.",ar_syn:"في خطر، مهدَّد، هشّ",ar_ant:"مزدهر، وفير، آمن",ar_col:"أنواع مهدَّدة / مهدَّد بشدة / يحمي الحيوانات",ar_prep:"مهدَّد بسبب الصيد / في المنطقة",ar_ex:"فرق الحفظ أعادت توطين الأنواع المهدَّدة في محميات محمية."},
+  {w:"landfill",p:"لاند-فيل",a:"مدفن النفايات",syn:"rubbish dump, waste site",ant:"recycling centre, composting",col:"end up in landfill / landfill site / reduce landfill waste",prep:"landfill in (area) / landfill due to (waste)",ex:"Millions of tonnes of plastic are sent to landfill every year despite recycling efforts.",ar_syn:"مكب النفايات، موقع النفايات",ar_ant:"مركز التدوير، السماد",ar_col:"ينتهي في مدفن النفايات / موقع مدفن",ar_prep:"مدفن في المنطقة / بسبب النفايات",ar_ex:"ملايين الأطنان من البلاستيك تُرسل إلى مدافن النفايات كل عام رغم جهود التدوير."},
+  {w:"drought",p:"دراوت",a:"الجفاف",syn:"water shortage, aridity, dry spell",ant:"flood, rainfall, abundance",col:"severe drought / drought conditions / drought-resistant crop",prep:"drought in (region) / drought due to (climate change)",ex:"Farmers have had irrigation systems installed to cope with increasingly severe droughts.",ar_syn:"شحّ الماء، جفاف، فترة جفاف",ar_ant:"فيضان، هطول مطري، وفرة",ar_col:"جفاف شديد / ظروف الجفاف / محصول مقاوم للجفاف",ar_prep:"جفاف في المنطقة / بسبب تغيّر المناخ",ar_ex:"المزارعون ركّبوا أنظمة الري للتعامل مع حالات الجفاف الشديدة المتزايدة."},
+  {w:"carbon offset",p:"كاربن أوف-سيت",a:"تعويض الكربون",syn:"carbon credit, emission compensation",ant:"carbon debt, uncompensated emission",col:"buy carbon offsets / carbon offset programme / voluntary carbon offset",prep:"offset of (emissions) / offset through (planting)",ex:"Airlines allow passengers to have their flight emissions offset by funding tree planting.",ar_syn:"ائتمان كربوني، تعويض انبعاثات",ar_ant:"دَين كربوني، انبعاث غير معوَّض",ar_col:"يشتري تعويض كربوني / برنامج تعويض",ar_prep:"تعويض الانبعاثات / من خلال الزراعة",ar_ex:"شركات الطيران تتيح للركاب تعويض انبعاثات رحلاتهم عبر تمويل زراعة الأشجار."},
+  {w:"glacial melt",p:"غليشل ميلت",a:"ذوبان الجليد",syn:"ice melt, glacier retreat",ant:"glacial growth, freezing",col:"accelerated glacial melt / glacial melt rate / caused by glacial melt",prep:"melt of (glacier) / melt due to (warming)",ex:"Scientists have had glacial melt rates measured and the results are alarming.",ar_syn:"ذوبان الجليد، تراجع النهر الجليدي",ar_ant:"نمو الجليد، تجمّد",ar_col:"ذوبان جليدي متسارع / معدل الذوبان",ar_prep:"ذوبان الجليد / بسبب الاحترار",ar_ex:"العلماء قاسوا معدلات ذوبان الجليد والنتائج مثيرة للقلق."},
+  {w:"net zero",p:"نيت زيرو",a:"الانبعاثات الصفرية",syn:"carbon neutral, zero emissions",ant:"carbon positive, net emitter",col:"achieve net zero / net zero target / net zero pledge",prep:"net zero by (year) / net zero for (economy)",ex:"The country has pledged to get its economy made net zero by 2050.",ar_syn:"محايد كربونياً، انبعاثات صفرية",ar_ant:"إيجابي الكربون، مصدر صافٍ",ar_col:"يحقق الصفري / هدف صفري / تعهد صفري",ar_prep:"صفري بحلول سنة / للاقتصاد",ar_ex:"البلد تعهّد بجعل اقتصاده صفري الانبعاثات بحلول عام 2050."},
+  {w:"microplastics",p:"مايكرو-بلاستيكس",a:"المواد البلاستيكية الدقيقة",syn:"plastic particles, plastic pollution",ant:"biodegradable material",col:"microplastics in (ocean) / ingestion of microplastics / remove microplastics",prep:"microplastics in (water) / microplastics from (breakdown)",ex:"Researchers have had ocean samples tested and found microplastics in every single one.",ar_syn:"جسيمات بلاستيكية، تلوث بلاستيكي",ar_ant:"مادة قابلة للتحلل",ar_col:"بلاستيك دقيق في المحيط / ابتلاع الجسيمات",ar_prep:"بلاستيك دقيق في الماء / من التفتت",ar_ex:"الباحثون اختبروا عينات المحيط ووجدوا بلاستيكاً دقيقاً في كل واحدة."},
+  {w:"conservation",p:"كونسيرفيشن",a:"الحفاظ على البيئة / الصون",syn:"preservation, protection, safeguarding",ant:"destruction, exploitation, neglect",col:"wildlife conservation / conservation effort / conservation area",prep:"conservation of (species) / conservation in (area)",ex:"The fund has had over two hundred conservation projects launched worldwide.",ar_syn:"حماية، صون، حفظ",ar_ant:"تدمير، استغلال، إهمال",ar_col:"صون الحياة البرية / جهود الصون / منطقة محمية",ar_prep:"صون الأنواع / في المنطقة",ar_ex:"الصندوق أطلق أكثر من مئتي مشروع لصون البيئة في جميع أنحاء العالم."},
+  {w:"soil erosion",p:"سويل إيروجن",a:"تآكل التربة",syn:"land degradation, topsoil loss",ant:"soil restoration, land preservation",col:"prevent soil erosion / severe soil erosion / soil erosion rate",prep:"erosion of (land) / erosion due to (farming)",ex:"Farmers have had hedgerows planted to prevent further soil erosion on their land.",ar_syn:"تدهور الأراضي، فقدان التربة السطحية",ar_ant:"استعادة التربة، حفظ الأراضي",ar_col:"يمنع تآكل التربة / شديد / معدل التآكل",ar_prep:"تآكل الأرض / بسبب الزراعة",ar_ex:"المزارعون زرعوا الأسيجة لمنع مزيد من تآكل التربة على أراضيهم."},
+  {w:"tipping point",p:"تيبينج بوينت",a:"نقطة اللاعودة / نقطة التحوّل",syn:"critical threshold, point of no return",ant:"stable state, recoverable situation",col:"reach a tipping point / climate tipping point / beyond the tipping point",prep:"tipping point for (ecosystem) / tipping point in (climate)",ex:"Scientists warn that some ecosystems are approaching a tipping point from which recovery is impossible.",ar_syn:"عتبة حرجة، نقطة اللاعودة",ar_ant:"حالة مستقرة، وضع قابل للتعافي",ar_col:"يصل نقطة التحوّل / نقطة مناخية",ar_prep:"نقطة تحوّل للنظام البيئي / في المناخ",ar_ex:"العلماء يحذرون من أن بعض النظم البيئية تقترب من نقطة تحوّل يستحيل التعافي منها."},
+  {w:"carbon capture",p:"كاربن كابتشر",a:"احتجاز الكربون",syn:"CO2 removal, carbon sequestration",ant:"carbon release, emission",col:"carbon capture technology / invest in carbon capture / direct carbon capture",prep:"capture of (CO2) / capture from (atmosphere)",ex:"Governments have had carbon capture facilities built as part of net zero strategies.",ar_syn:"إزالة ثاني أكسيد الكربون، تخزين الكربون",ar_ant:"إطلاق الكربون، انبعاث",ar_col:"تقنية احتجاز الكربون / يستثمر في الاحتجاز",ar_prep:"احتجاز ثاني أكسيد الكربون / من الغلاف الجوي",ar_ex:"الحكومات بنت منشآت احتجاز الكربون كجزء من استراتيجيات الانبعاثات الصفرية."},
+  {w:"ocean acidification",p:"أوشن أسيدفيكيشن",a:"تحمّض المحيطات",syn:"ocean chemistry change, pH drop",ant:"ocean alkalinity, stable pH",col:"ocean acidification due to / effects of ocean acidification / measure acidification",prep:"acidification of (ocean) / acidification in (marine environment)",ex:"Marine biologists have had coral samples analysed to measure the effects of acidification.",ar_syn:"تغيّر كيمياء المحيط، انخفاض الرقم الهيدروجيني",ar_ant:"قلوية المحيط، استقرار الحموضة",ar_col:"تحمّض المحيطات بسبب / آثار تحمّض المحيطات",ar_prep:"تحمّض المحيط / في البيئة البحرية",ar_ex:"علماء الأحياء البحرية حلّلوا عينات الشعاب المرجانية لقياس آثار التحمّض."},
+  {w:"overfishing",p:"أوفر-فيشينج",a:"الصيد الجائر",syn:"excessive fishing, fish stock depletion",ant:"sustainable fishing, fish farming",col:"combat overfishing / overfishing ban / overfishing crisis",prep:"overfishing in (ocean) / overfishing of (species)",ex:"Fishing quotas have been introduced to get overfishing brought under control.",ar_syn:"صيد مفرط، استنزاف مخزون السمك",ar_ant:"صيد مستدام، تربية الأسماك",ar_col:"يكافح الصيد الجائر / حظر الصيد / أزمة الصيد الجائر",ar_prep:"صيد جائر في المحيط / للأنواع",ar_ex:"تم تقديم حصص الصيد لإيقاف الصيد الجائر تحت السيطرة."},
+  {w:"biodegradable",p:"بايو-ديغريدبل",a:"قابل للتحلل البيولوجي",syn:"compostable, natural decomposition",ant:"non-biodegradable, persistent plastic",col:"biodegradable packaging / fully biodegradable / biodegradable material",prep:"biodegradable in (environment) / biodegradable within (weeks)",ex:"Companies have had their packaging replaced with fully biodegradable alternatives.",ar_syn:"قابل للسماد، تحلل طبيعي",ar_ant:"غير قابل للتحلل، بلاستيك دائم",ar_col:"تغليف قابل للتحلل / قابل للتحلل بالكامل",ar_prep:"قابل للتحلل في البيئة / خلال أسابيع",ar_ex:"الشركات استبدلت تغليفها ببدائل قابلة للتحلل بالكامل."},
+  {w:"rewilding",p:"ري-وايلدينج",a:"إعادة التوحّش / استعادة البرية",syn:"ecological restoration, habitat recovery",ant:"urbanisation, land development",col:"rewilding project / large-scale rewilding / rewilding initiative",prep:"rewilding of (land) / rewilding in (region)",ex:"Conservationists have had wolves reintroduced as part of a rewilding programme.",ar_syn:"استعادة بيئية، تعافٍ الموئل",ar_ant:"تحضّر، تطوير الأراضي",ar_col:"مشروع استعادة البرية / على نطاق واسع",ar_prep:"استعادة برية للأراضي / في المنطقة",ar_ex:"المحافظون أعادوا إدخال الذئاب كجزء من برنامج استعادة البرية."},
+  {w:"heatwave",p:"هيت-ويف",a:"موجة الحر",syn:"extreme heat, scorching conditions",ant:"cold snap, freeze",col:"severe heatwave / heatwave warning / record heatwave",prep:"heatwave in (country) / heatwave due to (climate change)",ex:"Emergency services have had cooling centres established during the record heatwave.",ar_syn:"حر شديد، ظروف لافحة",ar_ant:"برد مفاجئ، تجمّد",ar_col:"موجة حر شديدة / تحذير من موجة حر",ar_prep:"موجة حر في البلد / بسبب تغيّر المناخ",ar_ex:"خدمات الطوارئ أنشأت مراكز تبريد خلال موجة الحر القياسية."},
+];
+
+var story=[
+  {t:"Marcus is an environmental scientist who has spent fifteen years studying the effects of climate change.",ar:"ماركوس عالم بيئي أمضى خمسة عشر عاماً يدرس آثار تغيّر المناخ."},
+  {t:"He has had dozens of research papers published and has had his work presented at international summits.",ar:"نشر عشرات الأوراق البحثية وقدّم عمله في مؤتمرات دولية."},
+  {t:"Marcus believes the crisis is urgent. We have had decades of warnings ignored, he says.",ar:"ماركوس يؤمن بأن الأزمة عاجلة. يقول: لقد تجاهلنا عقوداً من التحذيرات."},
+  {t:"In his hometown, he has had solar panels fitted to his house and an electric vehicle installed in his garage.",ar:"في مدينته قام بتركيب ألواح شمسية في منزله وتركيب سيارة كهربائية في مرآبه."},
+  {t:"He also campaigns for local reforestation. Last year, volunteers had over ten thousand trees planted.",ar:"كما يُنظّم حملات لإعادة التشجير المحلي. العام الماضي زرع المتطوعون أكثر من عشرة آلاف شجرة."},
+  {t:"The hardest part, he says, is convincing people that individual action matters alongside systemic change.",ar:"أصعب جزء، يقول، هو إقناع الناس بأن الفعل الفردي يهم إلى جانب التغيير المنهجي."},
+  {t:"If we reach a climate tipping point, he warns, no amount of carbon capture will save us.",ar:"إذا وصلنا إلى نقطة التحوّل المناخية، يحذّر، فلن تنقذنا أي كمية من احتجاز الكربون."},
+  {t:"But Marcus remains hopeful. Every species saved, every forest replanted — it all matters, he says.",ar:"لكن ماركوس يبقى متفائلاً. كل نوع يُنقذ، كل غابة تُعاد زراعتها — كلها مهمة، يقول."},
+];
+
+var reading=[
+  "The environmental crisis of the twenty-first century is unlike any challenge humanity has previously faced. Unlike wars or economic recessions, which have clear endpoints and recoverable consequences, climate change and biodiversity loss involve tipping points — thresholds beyond which natural systems may be unable to recover. Scientists have had decades of data analysed, and the conclusion is consistent: the window for effective action is narrowing rapidly.",
+  "Greenhouse gas emissions, driven primarily by the burning of fossil fuels, have had global temperatures raised by approximately 1.1 degrees Celsius since pre-industrial times. While this number may seem small, even half a degree of additional warming dramatically increases the frequency of extreme weather events — heatwaves, droughts, flooding, and glacial melt — that affect billions of people.",
+  "Biodiversity loss presents an equally serious challenge. Deforestation, overfishing, habitat destruction, and pollution have had species extinction rates pushed to a level approximately one thousand times higher than natural background rates. Scientists estimate that we may be in the early stages of the sixth mass extinction event in Earth's history — a crisis that has largely been caused by human activity over just the past two centuries.",
+  "The concept of the circular economy — in which products are designed to be reused, repaired, and recycled rather than discarded — represents one of the most promising frameworks for reducing environmental damage. Companies that have had their supply chains redesigned along circular principles consistently reduce both their carbon footprint and their operating costs.",
+  "Ultimately, addressing the environmental crisis requires action at every level: individuals making sustainable choices, businesses getting their operations transformed, and governments having ambitious legislation passed. The good news is that renewable energy technologies have had their costs reduced dramatically, making clean energy economically competitive with fossil fuels for the first time in history.",
+];
+
+var compQs=[
+  {q:"What makes the environmental crisis different from previous challenges?",opts:["It is less serious","It involves tipping points beyond which recovery may be impossible","It is easily solved","It only affects rich countries"],ans:1},
+  {q:"By how much have global temperatures risen since pre-industrial times?",opts:["0.5 degrees","1.1 degrees","2 degrees","3 degrees"],ans:1},
+  {q:"How much higher are current species extinction rates compared to natural rates?",opts:["Ten times","One hundred times","Five hundred times","One thousand times"],ans:3},
+  {q:"What is the circular economy?",opts:["An economy based on fossil fuels","A system where products are reused repaired and recycled","A type of carbon offset","A renewable energy policy"],ans:1},
+  {q:"What has happened to renewable energy costs?",opts:["They have increased","They have stayed the same","They have been reduced dramatically","They are still too high"],ans:2},
+];
+
+var listenLines=[
+  "My name is Marcus, and I am an environmental scientist who has worked on climate research for fifteen years.",
+  "I want to explain the causative structure we use when talking about environmental action — have something done.",
+  "Governments have had laws passed. Cities have had carbon targets set. Companies have had audits conducted.",
+  "This structure shows that someone arranged for something to happen — they did not do it personally.",
+  "For example: The city has had solar panels installed on all public buildings.",
+  "This means the city arranged the installation — they did not install the panels themselves.",
+  "Another example: We need to have greenhouse gas emissions reduced by fifty percent by 2030.",
+  "We are calling for this to be arranged and done — it is a demand for organised action.",
+  "In my own life, I have had solar panels fitted, an electric car leased, and my diet made plant-based.",
+  "I also campaign for rewilding. Last year, we had over ten thousand trees planted in our region.",
+  "The science is clear. We have had decades of warnings issued. The tipping point is approaching.",
+  "If we allow deforestation to continue, we will have the Amazon converted to savanna within decades.",
+  "But there is hope. Renewable energy has had its costs reduced by ninety percent in ten years.",
+  "Communities that have had reforestation programmes implemented show measurable biodiversity recovery.",
+  "My message: get involved, get your carbon footprint calculated, and then have real changes made.",
+];
+
+var listenQs=[
+  {q:"What does the causative structure 'have something done' mean?",opts:["You did it yourself","Someone else helped","You arranged for something to happen","You refused to act"],ans:2},
+  {q:"What example does Marcus give for the causative structure?",opts:["He planted trees himself","The city had solar panels installed on public buildings","He drove an electric car","The government wrote a law"],ans:1},
+  {q:"What has Marcus had done in his personal life?",opts:["Nothing yet","Solar panels fitted, electric car leased, diet made plant-based","Only recycling","Just tree planting"],ans:1},
+  {q:"What does Marcus say about renewable energy costs?",opts:["They are still too high","They have been reduced by ninety percent in ten years","They have doubled","They have not changed"],ans:1},
+  {q:"What is Marcus's final message?",opts:["Give up — it is too late","Get involved, calculate your footprint, and make changes","Wait for governments to act","Move to the countryside"],ans:1},
+];
+
+var speakQs=[
+  {q:"What environmental changes have you had made in your life? Use the causative.",hint:"I have had solar panels installed... I have had my diet changed to... I have had my car replaced with... I get my energy bills checked...",ar:"ما التغييرات البيئية التي أجريتها في حياتك؟ استخدم الفعل السببي.",badge:"🎯 استخدم have/get + past participle في كل جملة"},
+  {q:"What changes would you like to have made in your city for the environment?",hint:"I would like to have public transport expanded... I want to have plastic bags banned... Cycling lanes should be had... The city needs to get...",ar:"ما التغييرات التي تريد إجراؤها في مدينتك للبيئة؟",badge:"🎯 استخدم would like to have / want to have"},
+  {q:"Describe what governments have had done and what more needs to be done.",hint:"Governments have had climate agreements signed... They have had renewable targets set... However more needs to be had... Laws should be had passed...",ar:"صف ما فعلته الحكومات وما يجب فعله أكثر.",badge:"🎯 استخدم have had / need to be had"},
+  {q:"Talk about a time something went wrong with the environment in your area.",hint:"In my area, we had serious flooding caused by... The river had been polluted by... Trees were had cut down... Eventually we had measures implemented...",ar:"تحدّث عن وقت حدثت فيه مشكلة بيئية في منطقتك.",badge:"🎯 استخدم Past Perfect + causative"},
+  {q:"Do you think electric vehicles are the solution to transport emissions?",hint:"Electric vehicles have had their prices reduced... Charging infrastructure needs to be had... Batteries need to get recycled... Some argue that...",ar:"هل تعتقد أن السيارات الكهربائية هي الحل لانبعاثات النقل؟",badge:"🎯 استخدم causative لوصف الحلول والتحديات"},
+  {q:"What would you say to someone who thinks climate change is not real?",hint:"The science has had decades of testing... Temperatures have had increases measured... We have had the evidence confirmed by... You cannot ignore what has been had...",ar:"ماذا ستقول لشخص يعتقد أن تغيّر المناخ غير حقيقي؟",badge:"🎯 استخدم causative كأدلة علمية"},
+  {q:"Describe how the ocean is being damaged and what can be done.",hint:"The oceans have had temperatures raised by... Microplastics have been had found in... Overfishing needs to be had controlled... We need to get...",ar:"صف كيف يتضرر المحيط وما يمكن فعله.",badge:"🎯 استخدم Passive Causative"},
+  {q:"What is rewilding? Do you think it is effective?",hint:"Rewilding involves having natural habitats restored... Animals have been had reintroduced... The land gets left to recover... Evidence has been had collected showing...",ar:"ما إعادة التوحّش؟ هل تعتقد أنها فعّالة؟",badge:"🎯 استخدم having + past participle"},
+  {q:"How can schools help the next generation understand environmental issues?",hint:"Schools should have environmental education embedded... Students can get recycling programmes started... Teachers could have field trips organised... Curricula need to be had updated...",ar:"كيف يمكن للمدارس مساعدة الجيل القادم في فهم القضايا البيئية؟",badge:"🎯 استخدم could have / should have"},
+  {q:"If you were environment minister for one day, what three things would you have done?",hint:"First, I would have a complete fossil fuel ban legislated... Second, I would get reforestation funded on a massive scale... Third, I would have microplastic laws passed immediately...",ar:"لو كنت وزيراً للبيئة ليوم واحد ما الثلاثة أشياء التي ستُنجزها؟",badge:"🎯 تحدّث 90 ثانية — استخدم would have في كل نقطة!"},
+];
+
+var realExpr=[
+  {e:"The canary in the coal mine",p:"ذا كناري إن ذا كول ماين",m:"مؤشر مبكر على خطر قادم",f:"An early warning of danger or problems ahead.",x:"Coral reef bleaching is the canary in the coal mine for ocean health.",xar:"ابيضاض الشعاب المرجانية هو المؤشر المبكر على صحة المحيط.",n:"مصطلح قديم — كانوا يضعون عصفوراً في المناجم لاكتشاف الغازات السامة"},
+  {e:"Think globally act locally",p:"ثينك غلوبالي أكت لوكالي",m:"فكّر على المستوى العالمي وتصرف على المستوى المحلي",f:"Consider global environmental impact but act in your own community.",x:"Think globally act locally — start by reducing waste in your own neighbourhood.",xar:"فكّر عالمياً وتصرف محلياً — ابدأ بتقليل النفايات في حيّك.",n:"شعار بيئي مشهور من السبعينيات"},
+  {e:"Leave no trace",p:"ليف نو تريس",m:"لا تترك أثراً في الطبيعة",f:"Have no environmental impact on the places you visit.",x:"Hikers are taught to leave no trace — carry out everything you carry in.",xar:"يُعلَّم المشاة ألا يتركوا أثراً — احمل معك كل ما جلبته.",n:"مبدأ التخييم المسؤول — لا تُلوّث ولا تُتلف ما حولك"},
+];
+var realSlang=[
+  {w:"Eco-warrior",p:"إيكو-وورير",i:"passionate environmental activist",x:"She became an eco-warrior after watching a documentary about plastic pollution.",xar:"أصبحت ناشطة بيئية شرسة بعد مشاهدة وثائقي عن تلوث البلاستيك.",a:"ناشط بيئي متحمّس ومقاتل من أجل البيئة"},
+  {w:"Greenwashing",p:"غرين-واشينج",i:"pretending to be eco-friendly for marketing",x:"That company is greenwashing — they claim to be sustainable but nothing has changed.",xar:"تلك الشركة تزيّف صورتها الخضراء — تدّعي الاستدامة لكن لا شيء تغيّر.",a:"تضليل المستهلكين بادعاءات بيئية كاذبة"},
+  {w:"Carbon guilt",p:"كاربن غيلت",i:"feeling guilty about your environmental impact",x:"He gets carbon guilt every time he boards a long-haul flight.",xar:"يشعر بذنب كربوني في كل مرة يركب رحلة طويلة.",a:"الشعور بالذنب بسبب أثرك البيئي"},
+  {w:"Single-use",p:"سينغل-يوز",i:"designed to be used once then discarded",x:"Single-use plastics have been banned in many countries.",xar:"البلاستيك ذو الاستخدام الواحد محظور في كثير من الدول.",a:"مصمم للاستخدام مرة واحدة فقط ثم رميه"},
+];
+var realEvery=[
+  {w:"Go green",p:"غو غرين",i:"adopt environmentally friendly habits",x:"The company decided to go green and had all its packaging made recyclable.",xar:"قررت الشركة أن تتبنى النهج الأخضر وجعلت جميع تغليفها قابلاً لإعادة التدوير.",a:"يتبنى عادات وخيارات صديقة للبيئة"},
+  {w:"Carbon neutral",p:"كاربن نيوترل",i:"producing no net carbon emissions",x:"We aim to be carbon neutral by 2030 by getting our offices powered by renewables.",xar:"نهدف إلى تحييد كربوننا بحلول 2030 بجعل مكاتبنا تعمل بالطاقة المتجددة.",a:"لا ينتج انبعاثات كربونية صافية"},
+  {w:"Reduce reuse recycle",p:"ريديوس ريوز ريسايكل",i:"the three Rs of environmental responsibility",x:"Reduce reuse recycle — it sounds simple but most people only do the last one.",xar:"قلّل أعِد استخدم أعِد تدوير — يبدو بسيطاً لكن معظم الناس يفعلون الأخيرة فقط.",a:"المبادئ الثلاثة للمسؤولية البيئية"},
+];
+
+var quizQs=[
+  {q:"The government has had thousands of solar panels ___.",opts:["install","installing","installed","to install"],ans:2},
+  {q:"ما معنى deforestation؟",opts:["إعادة التشجير","تحمّض المحيطات","إزالة الغابات","التنوع البيولوجي"],ans:2},
+  {q:"We need to get our carbon emissions ___ by fifty percent.",opts:["reduce","reducing","reduced","to reduce"],ans:2},
+  {q:"ما معنى tipping point؟",opts:["نقطة البداية","نقطة اللاعودة / التحوّل","التلوث","موجة الحر"],ans:1},
+  {q:"She had her old car ___ with an electric vehicle.",opts:["replace","replacing","replaced","to replace"],ans:2},
+  {q:"ما الـ collocation الصحيح مع emissions؟",opts:["make emissions","do emissions","cut emissions","take emissions"],ans:2},
+  {q:"ما معنى rewilding؟",opts:["الصيد الجائر","إزالة الغابات","استعادة البرية الطبيعية","تحمّض المحيطات"],ans:2},
+  {q:"The city got all its buildings ___ with smart energy meters.",opts:["equip","equipping","equipped","to equip"],ans:2},
+  {q:"ما معنى biodegradable؟",opts:["غير قابل للتحلل","قابل للتحلل البيولوجي","احتجاز الكربون","الانبعاثات الصفرية"],ans:1},
+  {q:"ما معنى greenwashing؟",opts:["الطاقة الخضراء","التشجير","تضليل المستهلكين بادعاءات بيئية كاذبة","الصيد المستدام"],ans:2},
+];
+var spd=1,lspd=1,storyOn=false,listenOn=false;
+var compA=new Array(compQs.length).fill(null);
+var listenA=new Array(listenQs.length).fill(null);
+var quizA=new Array(quizQs.length).fill(null);
+
+function say(text,rate,cb){
+  if(!window.speechSynthesis)return null;
+  window.speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US";u.rate=rate||spd;u.pitch=0.88;
+  if(cb)u.onend=cb;
+  window.speechSynthesis.speak(u);return u;
+}
+
+function buildVocab(){
+  var c=document.getElementById("vocabList");
+  V.forEach(function(v,i){
+    var d=document.createElement("div");d.className="vocab-card";
+    // Build using single-quote innerHTML (Gold Standard from unit2)
+    d.innerHTML=
+            '<div class="vhead">'+
+        '<div style="display:flex;align-items:center;gap:10px;width:100%">'+
+          '<button class="vspk" id="vs'+i+'">🔊</button>'+
+          '<div class="var" style="flex:1;text-align:right">'+v.a+'</div>'+
+          '<div class="vpron" style="direction:ltr;white-space:nowrap">'+v.p+'</div>'+
+          '<div style="display:flex;align-items:center;gap:6px">'+
+            '<div class="vword">'+v.w+'</div>'+
+            '<span style="background:rgba(255,255,255,.18);color:rgba(255,255,255,.85);font-size:.68rem;font-weight:800;padding:2px 7px;border-radius:10px">'+(i+1)+'</span>'+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="vbody">'+
+        '<div class="vgrid2">'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-ant" data-i="'+i+'" data-c="1"><div class="vlbl">Antonym</div><div class="vval">'+v.ant+'</div><div class="vtr">'+v.ar_ant+'</div></div>'+
+            '<div class="vcell c-syn" data-i="'+i+'" data-c="0"><div class="vlbl">Synonym</div><div class="vval">'+v.syn+'</div><div class="vtr">'+v.ar_syn+'</div></div>'+
+          '</div>'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-prep" data-i="'+i+'" data-c="3"><div class="vlbl">Preposition</div><div class="vval">'+v.prep+'</div><div class="vtr">'+v.ar_prep+'</div></div>'+
+            '<div class="vcell c-col" data-i="'+i+'" data-c="2"><div class="vlbl">Collocation</div><div class="vval">'+v.col+'</div><div class="vtr">'+v.ar_col+'</div></div>'+
+          '</div>'+
+        '</div>'+
+        '<div class="vex" id="vex'+i+'">'+v.ex+'<div class="vex-tr">'+v.ar_ex+'</div></div>'+
+      '</div>';
+    d.querySelector('.vspk').addEventListener('click',(function(ii){return function(){
+      document.querySelectorAll('.vspk').forEach(function(b){b.classList.remove('playing');});
+      var btn=document.getElementById('vs'+ii);if(btn)btn.classList.add('playing');
+      var u=say(V[ii].w,spd);if(u)u.onend=function(){if(btn)btn.classList.remove('playing');};
+    };})(i));
+    d.querySelectorAll('.vcell').forEach(function(cell){
+      cell.addEventListener('click',function(){
+        var ii=parseInt(this.getAttribute('data-i'));
+        var cc=parseInt(this.getAttribute('data-c'));
+        say([V[ii].syn,V[ii].ant,V[ii].col,V[ii].prep][cc],0.9);
+        this.classList.toggle('show-tr');
+      });
+    });
+    var vex=d.querySelector('.vex');if(vex)vex.addEventListener('click',function(){this.classList.toggle('show-ex-tr');});
+    c.appendChild(d);
+  });
+}
+function checkComp(){var s=0;compQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("co"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(compA[qi]===i)el.classList.add("no");}if(compA[qi]===q.ans)s++;});var r=document.getElementById("compRes");r.style.display="block";var pct=Math.round(s/compQs.length*100);r.textContent=s+" من "+compQs.length+" إجابة صحيحة ("+pct+"%) "+(pct===100?"🏆":pct>=60?"🎉":"📚 راجع النص");}
+function resetComp(){compA=new Array(compQs.length).fill(null);document.querySelectorAll(".copt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("compRes").style.display="none";}
+
+
+function buildStory(){
+  var b=document.getElementById("storyBox");
+  if(!b)return;
+  b.innerHTML="";
+  story.forEach(function(s,i){
+    var d=document.createElement("div");d.className="sline";d.id="sl"+i;
+    var txt=document.createTextNode(s.t);d.appendChild(txt);
+    var btn=document.createElement("button");
+    btn.style.cssText="background:transparent;border:1px solid #e5e7eb;border-radius:5px;padding:1px 7px;color:#9ca3af;font-size:.7rem;cursor:pointer;font-family:Tajawal,sans-serif;margin-right:6px";
+    btn.textContent="🌐";
+    btn.addEventListener("click",(function(ii){return function(){toggleTr(ii);};})(i));
+    d.appendChild(btn);
+    var tr=document.createElement("div");tr.id="tr"+i;
+    tr.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;font-family:Tajawal,sans-serif;border-right:3px solid #fde68a;padding-right:8px";
+    tr.textContent=s.ar;d.appendChild(tr);b.appendChild(d);
+  });
+}
+var _trAll=false;
+function toggleAllTr(){_trAll=!_trAll;for(var i=0;i<story.length;i++){var e=document.getElementById("tr"+i);if(e)e.style.display=_trAll?"block":"none";}var btn=document.getElementById("trBtn");if(btn)btn.textContent=_trAll?"🙈 أخفِ":"🌐 الترجمة";}
+function toggleTr(i){var e=document.getElementById("tr"+i);if(e)e.style.display=e.style.display==="none"?"block":"none";}
+function setSpd(r,btn){spd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function storySeq(i){if(!storyOn||i>=story.length){stopStory();return;}document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("sl"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(story[i].t);u.lang="en-US";u.rate=spd;u.onend=function(){if(storyOn)setTimeout(function(){storySeq(i+1);},320);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startStory(){storyOn=true;var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="⏹";btn.querySelector("#sTxt").textContent="إيقاف القصة";}storySeq(0);}
+function stopStory(){storyOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="▶";btn.querySelector("#sTxt").textContent="استمع للقصة";}}
+function toggleStory(){storyOn?stopStory():startStory();}
+
+function buildReading(){
+  var t=document.getElementById("readingText");
+  if(!t)return;
+  t.innerHTML="";
+  reading.forEach(function(p){var d=document.createElement("p");d.textContent=p;t.appendChild(d);});
+  var c=document.getElementById("compList");
+  if(!c)return;
+  c.innerHTML="";
+  compQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";
+    p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="co"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){
+        compA[qi]=oi;
+        for(var k=0;k<q.opts.length;k++){var el=document.getElementById("co"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}
+        this.style.borderColor="#0a1628";
+      });
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+
+function buildGrammar(){
+  var c=document.getElementById("grammarBox");
+  var box1=document.createElement("div");box1.className="gbox";
+  var t1=document.createElement("div");t1.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";
+  t1.textContent="١ — التكوين: have/get + object + past participle";box1.appendChild(t1);
+  var tbl=document.createElement("div");tbl.style.cssText="background:#0a1628;border-radius:10px;padding:14px 18px;margin-bottom:14px;direction:ltr";
+  var rows=[
+    ["Structure","Meaning","Example"],
+    ["have + obj + past participle","arranged by someone else","I had solar panels installed."],
+    ["get + obj + past participle","arranged / caused to happen","I got my car repaired."],
+    ["have had + obj + past participle","completed arrangement (perfect)","She has had the report printed."],
+    ["will have + obj + past participle","future arrangement","We will have the data analysed."],
+  ];
+  var table=document.createElement("table");table.style.cssText="width:100%;border-collapse:collapse;font-size:.82rem";
+  rows.forEach(function(row,ri){var tr=document.createElement("tr");if(ri>0)tr.style.borderTop="1px solid rgba(255,255,255,.1)";row.forEach(function(cell,ci){var td=document.createElement(ri===0?"th":"td");td.textContent=cell;td.style.cssText="padding:6px 8px;text-align:left;color:"+(ri===0?"#fde68a":ci===0?"#f0c040":ci===1?"#93c5fd":"rgba(255,255,255,.8)");tr.appendChild(td);});table.appendChild(tr);});
+  tbl.appendChild(table);box1.appendChild(tbl);
+  var note=document.createElement("div");note.style.cssText="background:#fffdf7;border-right:3px solid #f0a000;padding:10px 14px;border-radius:8px;font-size:.85rem;color:#64748b;direction:rtl;margin-top:10px";note.textContent="المعنى الأساسي: لم تفعل الشيء بنفسك — طلبت من شخص آخر أو رتّبت لكي يُفعل.";
+  box1.appendChild(note);c.appendChild(box1);
+  var box2=document.createElement("div");box2.className="gbox";
+  var t2=document.createElement("div");t2.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";t2.textContent="٢ — أمثلة بيئية";box2.appendChild(t2);
+  var examples=[
+    ["have installed","The city has had thousands of solar panels installed on public buildings.","المدينة رتّبت تركيب آلاف الألواح الشمسية على المباني العامة."],
+    ["get reduced","We need to get carbon emissions reduced by 2030.","نحتاج ترتيب خفض انبعاثات الكربون بحلول 2030."],
+    ["have planted","Volunteers had a million trees planted last year.","المتطوعون رتّبوا زراعة مليون شجرة العام الماضي."],
+    ["get tested","Scientists get water samples tested for microplastics regularly.","العلماء يرتّبون اختبار عينات المياه للبلاستيك الدقيق بانتظام."],
+  ];
+  examples.forEach(function(ex){var pat=document.createElement("div");pat.className="gpat";var d1=document.createElement("div");d1.style.cssText="font-size:.82rem;color:#f0a000;font-weight:700;direction:ltr;margin-bottom:2px";d1.textContent=ex[0];var d2=document.createElement("div");d2.style.cssText="font-size:.9rem;color:#0a1628;font-weight:600;direction:ltr;margin-bottom:4px";d2.textContent=ex[1];var d3=document.createElement("div");d3.style.cssText="font-size:.82rem;color:#64748b;direction:rtl;text-align:right";d3.textContent=ex[2];pat.appendChild(d1);pat.appendChild(d2);pat.appendChild(d3);box2.appendChild(pat);});
+  c.appendChild(box2);
+  var wrong=document.createElement("div");wrong.style.cssText="background:#fef2f2;border-radius:10px;padding:13px 16px;margin-bottom:8px;border-right:4px solid #dc2626;direction:ltr";
+  wrong.innerHTML='<span style="color:#dc2626;font-weight:700">✗ </span>I had installed solar panels on my roof. <span style="font-size:.8rem;color:#dc2626">← هذا Past Perfect — أنت فعلتها بنفسك</span>';
+  var right=document.createElement("div");right.style.cssText="background:#f0fdf4;border-radius:10px;padding:13px 16px;border-right:4px solid #059669;direction:ltr";
+  right.innerHTML='<span style="color:#059669;font-weight:700">✓ </span>I had solar panels <strong>installed</strong> on my roof. <span style="font-size:.8rem;color:#059669">← Causative: شخص آخر ركّبها لك ✅</span>';
+  c.appendChild(wrong);c.appendChild(right);
+}
+function buildListening(){
+  var s=document.getElementById("listenScript");
+  listenLines.forEach(function(line,i){var d=document.createElement("div");d.className="lline";d.id="ll"+i;d.textContent=line;s.appendChild(d);});
+  var c=document.getElementById("listenQList");
+  listenQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="lq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){listenA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("lq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function setLSpd(r,btn){lspd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function listenSeq(i){if(!listenOn||i>=listenLines.length){stopListen();return;}document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("ll"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(listenLines[i]);u.lang="en-US";u.rate=lspd;u.pitch=0.88;u.onend=function(){if(listenOn)setTimeout(function(){listenSeq(i+1);},380);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startListen(){listenOn=true;document.getElementById("lIcon").textContent="⏹";document.getElementById("lTxt").textContent="إيقاف المونولوج";listenSeq(0);}
+function stopListen(){listenOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});document.getElementById("lIcon").textContent="▶";document.getElementById("lTxt").textContent="شغّل المونولوج";}
+function toggleListen(){listenOn?stopListen():startListen();}
+function checkListen(){var s=0;listenQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("lq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(listenA[qi]===i)el.classList.add("no");}if(listenA[qi]===q.ans)s++;});var r=document.getElementById("listenRes");r.style.display="block";var pct=Math.round(s/listenQs.length*100);r.textContent=s+" من "+listenQs.length+" إجابة صحيحة ("+pct+"%) "+(pct>=80?"✅ ممتاز!":pct>=60?"👍 جيد!":"📚 راجع");}
+function resetListen(){listenA=new Array(listenQs.length).fill(null);document.querySelectorAll(".copt[id^='lq']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("listenRes").style.display="none";}
+
+function buildW(){
+  var ids=["w1","w2","w3","w4","w5"];var any=false;
+  for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value.trim())any=true;}
+  if(!any){document.getElementById("wOut").innerHTML="<span style='color:#9ca3af;font-style:italic'>✨ ستظهر فقرتك هنا...</span>";return;}
+  var parts=[];
+  for(var j=0;j<ids.length;j++){var el=document.getElementById(ids[j]);var v=el?el.value.trim():"";if(v)parts.push("<span style='color:#f0a000;font-weight:700'>"+v+"</span>.");}
+  document.getElementById("wOut").innerHTML="<p style='direction:ltr;line-height:2'>"+parts.join(" ")+"</p>";
+}
+
+function buildSpeaking(){
+  var c=document.getElementById("speakBox");
+  speakQs.forEach(function(q){
+    var d=document.createElement("div");d.style.cssText="background:#f8faff;border-right:4px solid #1e3a8a;border-radius:0 12px 12px 0;padding:16px 18px;margin-bottom:14px";
+    var p1=document.createElement("p");p1.style.cssText="font-size:.97rem;color:#0a1628;font-weight:700;direction:ltr;margin-bottom:5px";p1.textContent=q.q;
+    var p2=document.createElement("p");p2.style.cssText="font-size:.82rem;color:#9ca3af;margin-bottom:6px";p2.textContent=q.ar;
+    var p3=document.createElement("p");p3.style.cssText="font-size:.82rem;color:#f0a000;direction:ltr;margin-bottom:8px";p3.textContent="💡 "+q.hint;
+    var badge=document.createElement("span");badge.style.cssText="background:#dbeafe;color:#1e3a8a;padding:4px 12px;border-radius:20px;font-size:.76rem;font-weight:700";badge.textContent=q.badge;
+    d.appendChild(p1);d.appendChild(p2);d.appendChild(p3);d.appendChild(badge);
+    var btn=document.createElement("button");btn.className="spksmall";btn.textContent="🔊";btn.style.marginTop="10px";
+    btn.addEventListener("click",(function(qq){return function(){say(qq,spd);};})(q.q));
+    d.appendChild(btn);c.appendChild(d);
+  });
+}
+
+function makeExRow(text,arabic,spkText){
+  var div=document.createElement("div");
+  div.style.cssText="cursor:pointer;user-select:none;padding:8px 12px;background:white;border-radius:8px;direction:ltr;font-size:.86rem;color:#374151;font-style:italic;margin-top:6px";
+  var span=document.createElement("span");span.textContent=text;
+  var tr=document.createElement("div");
+  tr.style.cssText="font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;padding-top:4px;border-top:1px dashed #e5e7eb;display:none;font-family:Tajawal,sans-serif;font-style:normal";
+  tr.textContent=arabic;
+  div.appendChild(span);div.appendChild(tr);
+  div.addEventListener("click",(function(t,s){return function(){t.style.display=t.style.display==="none"?"block":"none";say(s,spd);};})(tr,spkText));
+  return div;
+}
+
+function buildReal(){
+  var c=document.getElementById("realBox");
+  var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h1.textContent="🔥 Expressions — اضغط على الجملة لتسمعها وترجمتها";c.appendChild(h1);
+  realExpr.forEach(function(e){
+    var d=document.createElement("div");d.className="expr-card";
+    // Visible 🔊 for main expression
+    var header=document.createElement("div");header.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;direction:ltr";
+    var headerLeft=document.createElement("div");headerLeft.style.cssText="display:flex;align-items:center;gap:8px";
+    var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";
+    spkBtn.addEventListener("click",(function(ee){return function(){say(ee,spd);};})(e.e));
+    var titleSpan=document.createElement("span");titleSpan.style.cssText="font-weight:700;color:#4c1d95;font-size:.97rem";titleSpan.textContent=e.e;
+    headerLeft.appendChild(spkBtn);headerLeft.appendChild(titleSpan);
+    var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.78rem;font-weight:700;font-family:Tajawal,sans-serif";pronSpan.textContent=e.p;
+    header.appendChild(headerLeft);header.appendChild(pronSpan);
+    d.appendChild(header);
+    var grid=document.createElement("div");grid.style.cssText="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px";
+    var g1=document.createElement("div");g1.style.cssText="background:white;border-radius:8px;padding:8px 12px;text-align:right";g1.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>المعنى</div><div style='font-weight:700;color:#374151;font-size:.88rem'>"+e.m+"</div>";
+    var g2=document.createElement("div");g2.style.cssText="background:white;border-radius:8px;padding:8px 12px;direction:ltr";g2.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>Formal</div><div style='font-size:.85rem;color:#64748b'>"+e.f+"</div>";
+    grid.appendChild(g1);grid.appendChild(g2);d.appendChild(grid);
+    d.appendChild(makeExRow(e.x,e.xar,e.x));
+    var note=document.createElement("div");note.style.cssText="font-size:.8rem;color:#7c3aed;text-align:right;margin-top:8px";note.textContent="💡 "+e.n;
+    d.appendChild(note);c.appendChild(d);
+  });
+  var h2=document.createElement("p");h2.style.cssText="font-weight:800;color:#0a1628;margin:20px 0 14px;text-align:right";h2.textContent="😎 Slang";c.appendChild(h2);
+  var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:20px";
+  realSlang.forEach(function(s){
+    var d=document.createElement("div");d.className="slang-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";
+    var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkS=document.createElement("button");spkS.className="spksmall";spkS.textContent="🔊";spkS.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkS.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var sWord=document.createElement("span");sWord.style.cssText="font-weight:700;color:#ea580c;font-size:.9rem";sWord.textContent=s.w;
+    titleLeft.appendChild(spkS);titleLeft.appendChild(sWord);
+    var pp=document.createElement("span");pp.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pp.textContent=s.p;
+    titleRow.appendChild(titleLeft);titleRow.appendChild(pp);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    sg.appendChild(d);
+  });
+  c.appendChild(sg);
+  var h3=document.createElement("p");h3.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h3.textContent="💬 Everyday Phrases";c.appendChild(h3);
+  var ev=document.createElement("div");ev.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";
+  realEvery.forEach(function(s){
+    var d=document.createElement("div");d.className="ev-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;direction:ltr";
+    var titleLeft2=document.createElement("div");titleLeft2.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkE=document.createElement("button");spkE.className="spksmall";spkE.textContent="🔊";spkE.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkE.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var titleTxt=document.createElement("span");titleTxt.style.cssText="font-weight:700;color:#15803d;font-size:.9rem";titleTxt.textContent=s.w;
+    titleLeft2.appendChild(spkE);titleLeft2.appendChild(titleTxt);
+    var evPron=document.createElement("span");evPron.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";evPron.textContent=s.p;
+    titleRow.appendChild(titleLeft2);titleRow.appendChild(evPron);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    ev.appendChild(d);
+  });
+  c.appendChild(ev);
+}
+
+function buildQuiz(){
+  var c=document.getElementById("quizList");
+  quizQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="18px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:10px;direction:ltr;font-size:.93rem";
+    p.innerHTML="<span style='background:#0a1628;color:white;border-radius:5px;padding:1px 8px;font-size:.76rem;margin-left:8px'>"+(qi+1)+"</span>"+q.q;
+    d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="qopt";b.id="qq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){quizA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("qq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function checkQuiz(){var s=0;quizQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("qq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(quizA[qi]===i)el.classList.add("no");}if(quizA[qi]===q.ans)s++;});var pct=Math.round(s/quizQs.length*100);var r=document.getElementById("quizRes");r.style.display="block";document.getElementById("qEmoji").textContent=pct===100?"🏆":pct>=70?"🎉":pct>=50?"💪":"📚";document.getElementById("qScore").textContent=s+" من "+quizQs.length+" إجابة صحيحة ("+pct+"%)";document.getElementById("qMsg").textContent=pct===100?"مثالي!":pct>=70?"أحسنت!":pct>=50?"راجع Conditionals Type 2.":"راجع الوحدة.";r.style.background=pct>=70?"#f0fdf4":"#fef9f0";r.scrollIntoView({behavior:"smooth",block:"center"});}
+function resetQuiz(){quizA=new Array(quizQs.length).fill(null);document.querySelectorAll(".qopt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("quizRes").style.display="none";}
+
+function show(id,btn){document.querySelectorAll(".sec").forEach(function(s){s.classList.remove("on");});document.getElementById("sec-"+id).classList.add("on");window.scrollTo({top:0,behavior:"smooth"});document.querySelectorAll(".nb").forEach(function(b){b.classList.remove("on");});if(btn){btn.classList.add("on");return;}var map={vocab:0,story:1,reading:2,grammar:3,listening:4,writing:5,speaking:6,realeng:7,quiz:8};var btns=document.querySelectorAll(".nb");if(btns[map[id]])btns[map[id]].classList.add("on");}
+
+buildVocab();buildStory();buildReading();buildGrammar();buildListening();buildSpeaking();buildReal();buildQuiz();
+</script>
+</body>
+</html>
