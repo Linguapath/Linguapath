@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath B1 — Unit 11: Travel and Tourism</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Tajawal',sans-serif;background:#f0f4fa;direction:rtl;min-height:100vh}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#1e3a8a;border-radius:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(30,58,138,.35)}50%{box-shadow:0 0 0 8px rgba(30,58,138,0)}}
+.nav-bar{background:linear-gradient(135deg,#0a1628,#1e3a8a);padding:10px 12px;display:flex;justify-content:center;gap:4px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.nb{border:none;border-radius:22px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s}
+.nb.on{background:#f0a000;color:#0a1628}
+.nb:not(.on){background:rgba(255,255,255,.1);color:rgba(255,255,255,.85)}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#1e3a8a 55%,#1d4ed8 100%);color:white;padding:32px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(240,160,0,.06)}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04)}
+.b1tag{display:inline-block;background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-size:.72rem;font-weight:900;padding:4px 14px;border-radius:20px;letter-spacing:1.5px;margin-bottom:10px}
+.sec{display:none;max-width:900px;margin:0 auto;padding:32px 16px 80px;animation:fadeUp .4s ease}
+.sec.on{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 3px 20px rgba(0,0,0,.06);margin-bottom:22px;overflow:hidden}
+.ch{background:#0a1628;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.ch h3{font-size:1rem;font-weight:700}
+.ch .sub{font-size:.75rem;color:#93c5fd;margin-top:1px}
+.cb{padding:22px}
+.vocab-card{background:white;border-radius:16px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 14px rgba(10,22,40,.08);border:1px solid #e5ebf8;transition:transform .2s,box-shadow .2s}
+.vocab-card:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(10,22,40,.13)}
+.vhead{background:linear-gradient(135deg,#0a1628,#1e3a8a);display:flex;flex-direction:row-reverse;align-items:center;padding:14px 18px;gap:14px}
+.vimg{width:80px;height:80px;border-radius:12px;object-fit:cover;flex-shrink:0;border:2px solid rgba(255,255,255,.15)}
+.vimg-fallback{width:80px;height:80px;border-radius:12px;flex-shrink:0;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:2rem;border:2px solid rgba(255,255,255,.12)}
+.vinfo{flex:1;text-align:right}
+.vword{font-family:'Lora',serif;font-size:1.18rem;font-weight:700;color:white;direction:ltr;text-align:left}
+.vpron{font-size:.78rem;font-weight:700;color:#fde68a;margin-top:3px;direction:ltr;text-align:left}
+.var{font-size:.93rem;font-weight:700;color:rgba(255,255,255,.9);margin-top:3px}
+.vspk{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.25);background:transparent;color:white;font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:all .18s;display:flex;align-items:center;justify-content:center}
+.vspk:hover{background:rgba(255,255,255,.2);transform:scale(1.08)}
+.vspk.playing{background:#f0a000;border-color:#f0a000;animation:pulse 1s infinite}
+.vbody{padding:14px 16px 16px}
+.vgrid2{margin-bottom:10px}
+.vrow-pair{display:flex;gap:8px;margin-bottom:8px}
+.vrow-pair .vcell{flex:1;min-width:0}
+.vcell{border-radius:10px;padding:10px 13px;cursor:pointer;transition:all .15s;user-select:none;direction:ltr}
+.vcell:hover{filter:brightness(.96)}
+.vcell:active{transform:scale(.98)}
+.c-syn{background:#f0fdf4;border:1px solid #bbf7d0}
+.c-ant{background:#fff7ed;border:1px solid #fed7aa}
+.c-col{background:#eff6ff;border:1px solid #bfdbfe}
+.c-prep{background:#faf5ff;border:1px solid #ddd6fe}
+.vlbl{font-size:.65rem;font-weight:900;letter-spacing:.7px;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:5px;direction:ltr;justify-content:flex-start}
+.c-syn .vlbl{color:#15803d}.c-ant .vlbl{color:#ea580c}
+.c-col .vlbl{color:#2563eb}.c-prep .vlbl{color:#7c3aed}
+.vlbl::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.c-syn .vlbl::before{background:#15803d}.c-ant .vlbl::before{background:#ea580c}
+.c-col .vlbl::before{background:#2563eb}.c-prep .vlbl::before{background:#7c3aed}
+.vval{font-family:'Lora',serif;font-size:.82rem;color:#374151;direction:ltr;line-height:1.6}
+.vtr{font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px;padding-top:5px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif}
+.vcell.show-tr .vtr{display:block}
+.vex{font-family:'Lora',serif;font-size:.87rem;color:#374151;direction:ltr;font-style:italic;padding:10px 14px;background:#f8faff;border-radius:10px;border-right:3px solid #f0a000;cursor:pointer;user-select:none}
+.vex-tr{font-size:.8rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding-top:6px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif;font-style:normal}
+.vex.show-ex-tr .vex-tr{display:block}
+.sline{font-family:'Lora',serif;font-size:.97rem;line-height:2;padding:5px 8px;border-radius:6px;direction:ltr;transition:background .2s}
+.sline.hl{background:#fef3c7}
+.lline{font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#cbd5e1;padding:3px 6px;border-radius:5px;direction:ltr;transition:background .2s}
+.lline.hl{background:rgba(240,160,0,.18);color:#fde68a}
+.sctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-direction:row-reverse;margin-bottom:16px}
+.pbtn{background:#1e3a8a;color:white;border:none;border-radius:24px;padding:9px 20px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s}
+.pbtn:hover{background:#1d4ed8}
+.spdbtn{padding:5px 12px;border-radius:18px;border:2px solid #cbd5e1;background:white;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;color:#64748b;transition:all .15s}
+.spdbtn.on{border-color:#1e3a8a;background:#1e3a8a;color:white}
+.rtext{font-family:'Lora',serif;font-size:.95rem;line-height:2;color:#374151;direction:ltr;padding:20px;background:#f8faff;border-radius:14px;border:1px solid #e5eaf5;margin-bottom:18px}
+.rtext p{margin-bottom:14px}
+.gbox{background:linear-gradient(135deg,#eff6ff,#e0effe);border:2px solid #bfdbfe;border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.gpat{background:white;border-radius:10px;padding:12px 16px;margin-bottom:10px;border-right:4px solid #2563eb;direction:ltr}
+.geg{font-family:'Lora',serif;font-size:.97rem;color:#0a1628;font-weight:600}
+.geg em{color:#f0a000;font-style:normal;font-weight:800}
+.gar{font-family:'Tajawal',sans-serif;font-size:.85rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px}
+.qopt{padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;font-family:'Lora',serif;font-size:.9rem;direction:ltr;background:white;transition:all .15s;margin-bottom:7px;text-align:left}
+.qopt:hover{border-color:#1e3a8a;background:#eff6ff}
+.qopt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.qopt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.copt{padding:9px 14px;border:2px solid #e5e7eb;border-radius:9px;cursor:pointer;font-family:'Lora',serif;font-size:.87rem;direction:ltr;background:white;transition:all .15s;margin-bottom:6px}
+.copt:hover{border-color:#1e3a8a;background:#eff6ff}
+.copt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.copt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.wq-block{margin-bottom:18px}
+.wq-model{font-family:'Lora',serif;font-size:.8rem;color:#374151;font-style:italic;direction:ltr;padding:10px 14px;background:#f0f9ff;border-radius:8px;border-right:3px solid #bfdbfe;line-height:1.7;display:none;margin-bottom:8px}
+.wq-model.show{display:block}
+.wq-model-btn{background:#dbeafe;border:none;border-radius:20px;padding:4px 14px;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer;margin-bottom:8px;transition:all .15s}
+.wq-model-btn:hover{background:#1e3a8a;color:white}
+.wq-en{font-family:'Lora',serif;font-size:.93rem;font-weight:700;color:#0a1628;direction:ltr;margin-bottom:3px}
+.wq-ar{font-size:.78rem;color:#9ca3af;direction:rtl;text-align:right;margin-bottom:8px;font-family:'Tajawal',sans-serif}
+.winput{width:100%;border:none;border-bottom:2px solid #f0a000;background:transparent;font-family:'Lora',serif;font-size:.95rem;color:#0a1628;outline:none;padding:5px 3px;direction:ltr;margin-bottom:14px}
+.winput:focus{border-color:#1e3a8a}
+.btn{border:none;border-radius:28px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all .18s;padding:10px 24px;font-size:.9rem}
+.btn:hover{opacity:.88;transform:scale(.98)}
+.bd{background:#1e3a8a;color:white}
+.bg{background:#e5e7eb;color:#374151}
+.bgold{background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-weight:900}
+.navrow{display:flex;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.spksmall{width:32px;height:32px;border-radius:50%;border:none;background:#dbeafe;color:#1e3a8a;font-size:.85rem;cursor:pointer;flex-shrink:0;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.spksmall:hover{background:#1e3a8a;color:white}
+.expr-card{background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:16px;margin-bottom:12px}
+.slang-card{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px}
+.ev-card{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px}
+@media(max-width:580px){.vgrid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <button class="nb on"  onclick="show('vocab',this)">📚 المفردات</button>
+  <button class="nb" onclick="show('story',this)">📖 القصة</button>
+  <button class="nb" onclick="show('reading',this)">📰 القراءة</button>
+  <button class="nb" onclick="show('grammar',this)">✏️ القاعدة</button>
+  <button class="nb" onclick="show('listening',this)">🎧 الاستماع</button>
+  <button class="nb" onclick="show('writing',this)">✍️ الكتابة</button>
+  <button class="nb" onclick="show('speaking',this)">💬 المحادثة</button>
+  <button class="nb" onclick="show('realeng',this)">🗣️ Real English</button>
+  <button class="nb" onclick="show('quiz',this)">✅ الاختبار</button>
+</div>
+<div class="hero">
+  <div class="b1tag">B1 — INTERMEDIATE</div>
+  <div style="font-size:.75rem;letter-spacing:3px;color:rgba(255,255,255,.45);font-weight:700;margin-bottom:8px">UNIT 11</div>
+  <h1 style="font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;margin-bottom:6px"> Culture and Society</h1>
+  <p style="font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:4px">السفر والسياحة</p>
+  <p style="font-size:.82rem;color:rgba(255,255,255,.4)">القاعدة: Gerunds vs Infinitives — travelling / to travel</p>
+  <div style="display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap">
+    <a href="unit10_b1_environment.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">← الوحدة ١٠</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="unit12_b1_culture2.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">الوحدة ١٢ ←</a>
+  </div>
+</div>
+
+<div id="sec-vocab" class="sec on">
+  <div style="text-align:right;color:#64748b;font-size:.88rem;max-width:900px;margin:0 auto 16px;padding:0 16px">💡 اضغط 🔊 للكلمة الرئيسية — اضغط على أي خلية لتسمع نطقها وتظهر ترجمتها</div>
+  <div id="vocabList" style="max-width:900px;margin:0 auto;padding:0 16px"></div>
+  <div class="navrow"><button class="btn bd" onclick="show('story',null)">القصة ←</button></div>
+</div>
+
+<div id="sec-story" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📖</span><div><h3>القصة القصيرة</h3><div class="sub">Yasmin تحكي عن السفر والسياحة — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button id="trBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:22px;padding:7px 16px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+        <button class="pbtn" id="storyBtn" onclick="toggleStory()"><span id="sIcon">▶</span><span id="sTxt">استمع للقصة</span></button>
+        <button class="spdbtn on" onclick="setSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setSpd(0.75,this)">بطيء</button>
+      </div>
+      <div id="storyBox" style="border-right:4px solid #f0a000;padding:16px 20px;background:#fffdf7;border-radius:0 14px 14px 0"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn bd" onclick="show('reading',null)">القراءة ←</button>
+  </div>
+</div>
+
+<div id="sec-reading" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📰</span><div><h3>القراءة المعمّقة</h3><div class="sub">نص 350 كلمة + 5 أسئلة فهم</div></div></div>
+    <div class="cb">
+      <div class="rtext" id="readingText"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الفهم</p>
+      <div id="compList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkComp()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetComp()">↺ إعادة</button>
+      </div>
+      <div id="compRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('story',null)">→ القصة</button>
+    <button class="btn bd" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✏️</span><div><h3>القاعدة</h3><div class="sub">Gerunds vs Infinitives — الفرق والاستخدام</div></div></div>
+    <div class="cb" id="grammarBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('reading',null)">→ القراءة</button>
+    <button class="btn bd" onclick="show('listening',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listening" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🎧</span><div><h3>الاستماع المضمّن</h3><div class="sub">مونولوج Amara — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button class="pbtn" id="listenBtn" onclick="toggleListen()"><span id="lIcon">▶</span><span id="lTxt">شغّل المونولوج</span></button>
+        <button class="spdbtn on" onclick="setLSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setLSpd(0.75,this)">بطيء</button>
+      </div>
+      <div class="lscript" id="listenScript" style="background:#0f172a;border-radius:14px;padding:18px 20px;margin-bottom:16px"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الاستماع</p>
+      <div id="listenQList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkListen()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetListen()">↺ إعادة</button>
+      </div>
+      <div id="listenRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn bd" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✍️</span><div><h3>الكتابة</h3><div class="sub">اكتب عن السفر والسياحة</div></div></div>
+    <div class="cb">
+      <div style="background:#fffdf7;border:2px dashed #f0a000;border-radius:14px;padding:20px;margin-bottom:14px">
+        <div class="wq-block">
+          <div class="wq-en">Describe the most memorable trip you have ever taken.</div>
+          <div class="wq-ar">صف أكثر رحلة لا تُنسى قمت بها.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">The most memorable trip I have ever taken was backpacking through Southeast Asia. I remember arriving in Bangkok and being completely overwhelmed by the noise and colour. Exploring the temples, trying street food, and meeting travellers from around the world completely changed my perspective.</div>
+          <input class="winput" id="w1" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">What do you enjoy most about travelling? Use gerunds.</div>
+          <div class="wq-ar">ما الذي تستمتع به أكثر في السفر؟ استخدم Gerunds.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">I absolutely love exploring local markets and trying unfamiliar food. I also enjoy talking to local people and learning about their daily lives. Seeing historical sites always moves me deeply, and I find that travelling alone forces you to become more self-reliant.</div>
+          <input class="winput" id="w2" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">What are the advantages and disadvantages of tourism for local communities?</div>
+          <div class="wq-ar">ما مزايا وعيوب السياحة للمجتمعات المحلية؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">Tourism brings significant economic benefits — it tends to create jobs and stimulate local businesses. However, it also risks damaging cultural heritage, increasing pollution, and pricing local residents out of their own neighbourhoods. Sustainable tourism aims to balance these competing interests.</div>
+          <input class="winput" id="w3" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Describe a place you have always wanted to visit and explain why.</div>
+          <div class="wq-ar">صف مكاناً طالما أردت زيارته واشرح السبب.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">I have always dreamed of visiting Kyoto in Japan. I want to experience walking through ancient temples at dawn, watching the cherry blossoms fall, and learning about a culture that manages to combine deep tradition with modern innovation. I hope to go next spring.</div>
+          <input class="winput" id="w4" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block" style="margin-bottom:0">
+          <div class="wq-en">How has travel changed you as a person?</div>
+          <div class="wq-ar">كيف غيّرك السفر كشخص؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">Travelling has made me significantly more open-minded and adaptable. Being immersed in unfamiliar cultures taught me to stop assuming my own way of doing things is the only correct way. I also became much better at navigating uncertainty, which has helped me enormously in my professional life.</div>
+          <input class="winput" id="w5" placeholder="Write your answer here..." oninput="buildW()" style="margin-bottom:0">
+        </div></div>
+      <div id="wOut" style="background:white;border:1px solid #e5eaf5;border-radius:12px;padding:16px;min-height:70px;font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#374151;direction:ltr">
+        <span style="color:#9ca3af;font-style:italic">✨ ستظهر فقرتك هنا...</span>
+      </div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('listening',null)">→ الاستماع</button>
+    <button class="btn bd" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">💬</span><div><h3>المحادثة</h3><div class="sub">Speaking Challenge</div></div></div>
+    <div class="cb" id="speakBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn bd" onclick="show('realeng',null)">Real English ←</button>
+  </div>
+</div>
+
+<div id="sec-realeng" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🗣️</span><div><h3>Real English</h3><div class="sub">اضغط على الجملة لتسمعها وتظهر ترجمتها</div></div></div>
+    <div class="cb" id="realBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn bd" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-quiz" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✅</span><div><h3>اختبار الوحدة</h3><div class="sub">10 أسئلة — مفردات + قواعد + collocations</div></div></div>
+    <div class="cb">
+      <div id="quizList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:18px">
+        <button class="btn bgold" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn bg" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizRes" style="display:none;text-align:center;padding:22px;margin-top:16px;background:#f0fdf4;border-radius:14px">
+        <div id="qEmoji" style="font-size:2.5rem;margin-bottom:8px"></div>
+        <div id="qScore" style="font-weight:800;font-size:1.1rem;color:#0a1628;margin-bottom:4px"></div>
+        <div id="qMsg" style="font-size:.88rem;color:#64748b"></div>
+      </div>
+    </div>
+  </div>
+  <div style="background:linear-gradient(135deg,#0a1628,#1e3a8a);border-radius:18px;padding:28px;text-align:center;margin-top:8px;max-width:900px;margin-left:auto;margin-right:auto">
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:white;margin-bottom:6px">أحسنت! أكملت وحدة السفر والسياحة</div>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:16px">الوحدة الثانية عشرة: Culture and Traditions</p>
+    <button class="btn bgold" onclick="location.href='unit12_b1_culture2.html'">الوحدة الثانية عشرة ←</button>
+  </div>
+</div>
+
+<script>
+var V=[
+  {w:"itinerary",p:"إتينراري",a:"خط سير الرحلة / البرنامج",img:"https://picsum.photos/seed/1001/200/100",syn:"travel plan, schedule, route",ant:"spontaneous trip, no plan",col:"plan an itinerary / detailed itinerary / follow the itinerary",prep:"itinerary for (trip) / itinerary of (days)",ex:"I enjoy planning every detail of my itinerary before travelling anywhere new.",ar_syn:"خطة سفر، جدول، مسار",ar_ant:"رحلة عفوية، بدون خطة",ar_col:"يخطط خط سير / تفصيلي / يتبع الجدول",ar_prep:"خط سير للرحلة / من الأيام",ar_ex:"أستمتع بتخطيط كل تفاصيل خط سيري قبل السفر إلى أي مكان جديد."},
+  {w:"accommodation",p:"أكومودييشن",a:"الإقامة / السكن",img:"https://picsum.photos/seed/1002/200/100",syn:"lodging, housing, shelter",ant:"homelessness, no shelter",col:"book accommodation / budget accommodation / luxury accommodation",prep:"accommodation in (city) / accommodation for (nights)",ex:"Finding affordable accommodation in tourist cities is becoming increasingly difficult.",ar_syn:"مسكن، مأوى، إيواء",ar_ant:"تشرد، بدون مأوى",ar_col:"يحجز إقامة / ميزانية محدودة / فاخرة",ar_prep:"إقامة في المدينة / لعدد الليالي",ar_ex:"إيجاد إقامة بأسعار معقولة في المدن السياحية يزداد صعوبةً."},
+  {w:"backpacking",p:"باك-باكينج",a:"السفر بحقيبة الظهر",img:"https://picsum.photos/seed/1003/200/100",syn:"budget travel, adventure travel",ant:"luxury travel, package holiday",col:"go backpacking / backpacking trip / backpacking route",prep:"backpacking through (country) / backpacking in (region)",ex:"I spent three months backpacking through Southeast Asia on a minimal budget.",ar_syn:"سفر اقتصادي، سفر مغامرة",ar_ant:"سفر فاخر، عطلة منظّمة",ar_col:"يسافر بالحقيبة / رحلة / مسار",ar_prep:"سافر عبر البلد / في المنطقة",ar_ex:"قضيت ثلاثة أشهر أسافر بالحقيبة عبر جنوب شرق آسيا بميزانية ضيقة."},
+  {w:"destination",p:"ديستنيشن",a:"الوجهة / المقصد",img:"https://picsum.photos/seed/1004/200/100",syn:"location, place, spot",ant:"origin, departure point",col:"tourist destination / dream destination / reach a destination",prep:"destination of (tourists) / destination for (travellers)",ex:"Deciding on a travel destination requires balancing cost, safety, and personal interest.",ar_syn:"موقع، مكان، بقعة",ar_ant:"نقطة الانطلاق، مصدر",ar_col:"وجهة سياحية / وجهة الأحلام / يصل الوجهة",ar_prep:"وجهة السياح / للمسافرين",ar_ex:"تحديد وجهة السفر يتطلب الموازنة بين التكلفة والأمان والاهتمام الشخصي."},
+  {w:"jet lag",p:"جيت لاغ",a:"اضطراب الرحلات الجوية / فارق التوقيت",img:"https://picsum.photos/seed/1005/200/100",syn:"time zone fatigue, travel exhaustion",ant:"well-rested, adjusted",col:"suffer from jet lag / overcome jet lag / jet lag symptoms",prep:"jet lag from (long flight) / jet lag after (travel)",ex:"I always struggle to avoid feeling exhausted from jet lag after long-haul flights.",ar_syn:"إرهاق فارق التوقيت، تعب السفر",ar_ant:"مرتاح، متأقلم",ar_col:"يعاني من فارق التوقيت / يتغلب عليه",ar_prep:"فارق توقيت من رحلة طويلة / بعد السفر",ar_ex:"أتعب دائماً من فارق التوقيت بعد الرحلات الطويلة."},
+  {w:"visa",p:"فيزا",a:"تأشيرة الدخول",img:"https://picsum.photos/seed/1006/200/100",syn:"entry permit, travel document",ant:"visa rejection, entry ban",col:"apply for a visa / tourist visa / visa on arrival",prep:"visa for (country) / visa to (enter)",ex:"Getting a visa for some countries requires submitting extensive documentation.",ar_syn:"تصريح دخول، وثيقة سفر",ar_ant:"رفض التأشيرة، حظر الدخول",ar_col:"يتقدم للتأشيرة / سياحية / عند الوصول",ar_prep:"تأشيرة لبلد / لدخول",ar_ex:"الحصول على تأشيرة لبعض الدول يتطلب تقديم وثائق مكثّفة."},
+  {w:"heritage site",p:"هيريتيج سايت",a:"الموقع التراثي",img:"https://picsum.photos/seed/1007/200/100",syn:"historical site, UNESCO site, monument",ant:"modern development, new construction",col:"visit a heritage site / UNESCO heritage site / protect heritage sites",prep:"heritage site in (country) / heritage site of (civilisation)",ex:"Visiting heritage sites helps travellers understand the depth of human history.",ar_syn:"موقع تاريخي، موقع يونسكو، نصب",ar_ant:"تطوير حديث، بناء جديد",ar_col:"يزور موقعاً تراثياً / موقع يونسكو / يحمي المواقع",ar_prep:"موقع تراثي في البلد / لحضارة",ar_ex:"زيارة المواقع التراثية تساعد المسافرين على فهم عمق التاريخ البشري."},
+  {w:"sustainable tourism",p:"سستيينبل تيوريزم",a:"السياحة المستدامة",img:"https://picsum.photos/seed/1008/200/100",syn:"eco-tourism, responsible travel",ant:"mass tourism, overtourism",col:"promote sustainable tourism / sustainable tourism practice / sustainable tourist",prep:"sustainable tourism in (destination) / for (environment)",ex:"Choosing to support local businesses is a key part of practising sustainable tourism.",ar_syn:"سياحة بيئية، سفر مسؤول",ar_ant:"سياحة جماعية، سياحة مفرطة",ar_col:"يعزز السياحة المستدامة / ممارسة مستدامة",ar_prep:"سياحة مستدامة في الوجهة / للبيئة",ar_ex:"اختيار دعم الأعمال المحلية جزء أساسي من ممارسة السياحة المستدامة."},
+  {w:"layover",p:"ليه-أوفر",a:"التوقف المرحلي / الترانزيت",img:"https://picsum.photos/seed/1009/200/100",syn:"stopover, transit, connection",ant:"direct flight, non-stop",col:"long layover / layover in (city) / overnight layover",prep:"layover in (airport) / layover of (hours)",ex:"I decided to explore Istanbul during my twelve-hour layover rather than staying in the airport.",ar_syn:"توقف، عبور، رحلة متصلة",ar_ant:"رحلة مباشرة، بدون توقف",ar_col:"توقف طويل / في المدينة / طوال الليل",ar_prep:"توقف في المطار / لساعات",ar_ex:"قررت استكشاف إسطنبول خلال توقفي الاثني عشر ساعة بدلاً من البقاء في المطار."},
+  {w:"overtourism",p:"أوفر-تيوريزم",a:"الإفراط في السياحة",img:"https://picsum.photos/seed/1010/200/100",syn:"mass tourism, tourist overload",ant:"sustainable tourism, controlled visitor numbers",col:"combat overtourism / overtourism crisis / affected by overtourism",prep:"overtourism in (city) / overtourism due to (popularity)",ex:"Cities like Venice are struggling to manage the serious problem of overtourism.",ar_syn:"سياحة جماعية، تكدس سياحي",ar_ant:"سياحة مستدامة، تحكم في أعداد الزوار",ar_col:"يكافح الإفراط / أزمة سياحية / يتأثر بالتكدس",ar_prep:"إفراط في المدينة / بسبب الشعبية",ar_ex:"مدن مثل البندقية تكافح لإدارة مشكلة الإفراط في السياحة."},
+  {w:"currency exchange",p:"كيرنسي إكستشينج",a:"صرف العملات",img:"https://picsum.photos/seed/1011/200/100",syn:"money exchange, forex",ant:"fixed currency, no exchange",col:"currency exchange rate / exchange currency / unfavourable exchange rate",prep:"exchange of (currency) / exchange at (rate)",ex:"I prefer exchanging currency at the bank rather than at airport exchange booths.",ar_syn:"صرف النقود، تبادل العملات",ar_ant:"عملة ثابتة، بدون صرف",ar_col:"سعر صرف العملات / يصرف عملة / سعر غير مناسب",ar_prep:"صرف العملة / بالسعر",ar_ex:"أفضّل صرف العملات في البنك بدلاً من بوثات الصرف في المطار."},
+  {w:"nomadic",p:"نومادك",a:"رحّال / متجوّل",img:"https://picsum.photos/seed/1012/200/100",syn:"wandering, travelling, roaming",ant:"settled, stationary, rooted",col:"nomadic lifestyle / digital nomad / nomadic culture",prep:"nomadic in (nature) / nomadic for (years)",ex:"Living a nomadic lifestyle means embracing uncertainty and constantly adapting.",ar_syn:"متجوّل، مسافر، جوّال",ar_ant:"مستقر، ثابت، راسخ",ar_col:"نمط حياة رحّال / رحّال رقمي / ثقافة رحّالة",ar_prep:"رحّال في الطبيعة / لسنوات",ar_ex:"العيش بأسلوب حياة رحّال يعني قبول الغموض والتكيّف باستمرار."},
+  {w:"immersion",p:"إميرشن",a:"الانغماس (في الثقافة / اللغة)",img:"https://picsum.photos/seed/1013/200/100",syn:"absorption, integration, deep involvement",ant:"superficial engagement, tourist bubble",col:"cultural immersion / language immersion / full immersion",prep:"immersion in (culture) / immersion through (travel)",ex:"Full immersion in a foreign culture is the fastest way to learn a language.",ar_syn:"استيعاب، اندماج، تعمّق",ar_ant:"تعامل سطحي، فقاعة سياحية",ar_col:"انغماس ثقافي / لغوي / كامل",ar_prep:"انغماس في الثقافة / من خلال السفر",ar_ex:"الانغماس الكامل في ثقافة أجنبية هو أسرع طريقة لتعلّم لغة."},
+  {w:"expedition",p:"إكسبيديشن",a:"الرحلة الاستكشافية",img:"https://picsum.photos/seed/1014/200/100",syn:"exploration, adventure, journey",ant:"routine commute, daily travel",col:"lead an expedition / join an expedition / scientific expedition",prep:"expedition to (place) / expedition of (explorers)",ex:"I have always dreamed of joining an expedition to explore the Amazon rainforest.",ar_syn:"استكشاف، مغامرة، رحلة",ar_ant:"تنقل روتيني، سفر يومي",ar_col:"يقود رحلة / ينضم / علمية",ar_prep:"رحلة إلى مكان / للمستكشفين",ar_ex:"طالما حلمت بالانضمام إلى رحلة استكشافية لاستكشاف غابات الأمازون."},
+  {w:"package holiday",p:"باكيج هوليدي",a:"العطلة المنظّمة (كل شيء شامل)",img:"https://picsum.photos/seed/1015/200/100",syn:"all-inclusive trip, organised tour",ant:"independent travel, backpacking",col:"book a package holiday / cheap package holiday / all-inclusive package",prep:"package holiday to (country) / package for (family)",ex:"Many families prefer booking a package holiday to avoid the stress of planning.",ar_syn:"رحلة شاملة، جولة منظّمة",ar_ant:"سفر مستقل، سفر بالحقيبة",ar_col:"يحجز عطلة منظّمة / رخيصة / كل شيء شامل",ar_prep:"عطلة منظّمة إلى بلد / للعائلة",ar_ex:"كثير من العائلات يفضلون حجز عطلة منظّمة لتجنّب ضغط التخطيط."},
+  {w:"culture shock",p:"كالتشر شوك",a:"الصدمة الثقافية",img:"https://picsum.photos/seed/1016/200/100",syn:"cultural disorientation, adjustment difficulty",ant:"cultural familiarity, smooth integration",col:"experience culture shock / overcome culture shock / mild culture shock",prep:"shock in (country) / shock due to (difference)",ex:"Experiencing culture shock is a normal part of adapting to living abroad.",ar_syn:"تنافر ثقافي، صعوبة التأقلم",ar_ant:"ألفة ثقافية، اندماج سلس",ar_col:"يختبر صدمة ثقافية / يتغلب عليها / خفيفة",ar_prep:"صدمة في البلد / بسبب الاختلاف",ar_ex:"تجربة الصدمة الثقافية جزء طبيعي من التكيّف مع الحياة في الخارج."},
+  {w:"departure",p:"دبارتشر",a:"المغادرة / الإقلاع",img:"https://picsum.photos/seed/1017/200/100",syn:"leaving, setting off, take-off",ant:"arrival, landing, return",col:"departure time / departure lounge / delayed departure",prep:"departure from (city) / departure at (time)",ex:"The departure was delayed by two hours due to adverse weather conditions.",ar_syn:"مغادرة، انطلاق، إقلاع",ar_ant:"وصول، هبوط، عودة",ar_col:"وقت المغادرة / صالة المغادرة / تأخر المغادرة",ar_prep:"مغادرة من المدينة / في الوقت",ar_ex:"تأخّر المغادرة ساعتين بسبب الأحوال الجوية السيئة."},
+  {w:"transit",p:"ترانزيت",a:"العبور / الترانزيت",img:"https://picsum.photos/seed/1018/200/100",syn:"stopover, connection, layover",ant:"direct route, non-stop",col:"in transit / transit visa / transit lounge",prep:"transit through (country) / transit at (airport)",ex:"Passengers in transit are not required to pass through customs.",ar_syn:"توقف، اتصال، عبور",ar_ant:"طريق مباشر، بدون توقف",ar_col:"في العبور / تأشيرة عبور / صالة العبور",ar_prep:"عبور من خلال البلد / في المطار",ar_ex:"الركاب في العبور غير مطلوب منهم المرور بالجمارك."},
+  {w:"souvenir",p:"سوفنير",a:"الهدية التذكارية",img:"https://picsum.photos/seed/1019/200/100",syn:"memento, keepsake, gift",ant:"forgotten experience",col:"buy a souvenir / souvenir shop / local souvenir",prep:"souvenir from (country) / souvenir of (trip)",ex:"I prefer buying locally made souvenirs that support artisan communities.",ar_syn:"تذكار، هدية، ذكرى مادية",ar_ant:"تجربة منسية",ar_col:"يشتري تذكاراً / محل تذكارات / محلي الصنع",ar_prep:"تذكار من البلد / للرحلة",ar_ex:"أفضّل شراء التذكارات المصنوعة محلياً لدعم مجتمعات الحرفيين."},
+  {w:"cruise",p:"كروز",a:"رحلة الإبحار / الكروز",img:"https://picsum.photos/seed/1020/200/100",syn:"sea voyage, boat trip",ant:"land travel, road trip",col:"go on a cruise / luxury cruise / cruise ship",prep:"cruise through (waters) / cruise to (destination)",ex:"Going on a cruise allows travellers to visit multiple destinations without repacking.",ar_syn:"رحلة بحرية، نزهة قارب",ar_ant:"سفر بري، رحلة طريق",ar_col:"يذهب في كروز / فاخر / سفينة كروز",ar_prep:"كروز عبر المياه / إلى الوجهة",ar_ex:"الإبحار في كروز يتيح للمسافرين زيارة وجهات متعددة دون إعادة الحزم."},
+  {w:"wanderlust",p:"واندر-لاست",a:"شغف السفر / الشوق للتجوّل",img:"https://picsum.photos/seed/1021/200/100",syn:"travel desire, urge to explore",ant:"homesickness, reluctance to travel",col:"feel wanderlust / satisfy wanderlust / overcome with wanderlust",prep:"wanderlust for (adventure) / wanderlust in (soul)",ex:"I have always felt a deep wanderlust that makes it impossible to stay in one place.",ar_syn:"رغبة في السفر، شوق للاستكشاف",ar_ant:"الحنين للوطن، عدم الرغبة في السفر",ar_col:"يشعر بشغف السفر / يُشبع شغفه",ar_prep:"شغف للمغامرة / في الروح",ar_ex:"دائماً أشعر بشغف عميق للسفر يجعلني غير قادرة على البقاء في مكان واحد."},
+  {w:"hitchhiking",p:"هيتش-هايكينج",a:"ركوب السيارات المجانية / التوقف للسيارات",img:"https://picsum.photos/seed/1022/200/100",syn:"thumbing a lift, free riding",ant:"private transport, organised travel",col:"go hitchhiking / hitchhiking route / hitchhike across",prep:"hitchhiking through (country) / hitchhiking to (place)",ex:"Hitchhiking across New Zealand remains one of the safest ways to travel on a budget.",ar_syn:"ركوب مجاني، رفع الإبهام",ar_ant:"نقل خاص، سفر منظّم",ar_col:"يسافر بالتوقف / مسار / عبر البلد",ar_prep:"توقف للسيارات عبر البلد / إلى مكان",ar_ex:"السفر بالتوقف للسيارات عبر نيوزيلندا لا يزال من أأمن طرق السفر بميزانية محدودة."},
+  {w:"excursion",p:"إكسكيرجن",a:"الرحلة القصيرة / الجولة",img:"https://picsum.photos/seed/1023/200/100",syn:"day trip, outing, short journey",ant:"long journey, expedition",col:"go on an excursion / guided excursion / day excursion",prep:"excursion to (place) / excursion from (base)",ex:"We booked a guided excursion to the ancient ruins on the second day of our holiday.",ar_syn:"رحلة يوم، نزهة، جولة قصيرة",ar_ant:"رحلة طويلة، استكشاف",ar_col:"يذهب في جولة / موجَّهة / جولة يومية",ar_prep:"جولة إلى مكان / من القاعدة",ar_ex:"حجزنا جولة موجَّهة إلى الأطلال القديمة في اليوم الثاني من عطلتنا."},
+  {w:"customs",p:"كاستمز",a:"الجمارك",img:"https://picsum.photos/seed/1024/200/100",syn:"border control, immigration check",ant:"open border, visa-free zone",col:"pass through customs / customs declaration / customs officer",prep:"customs at (border) / customs of (country)",ex:"Passing through customs with undeclared goods can result in serious penalties.",ar_syn:"مراقبة الحدود، فحص الهجرة",ar_ant:"حدود مفتوحة، منطقة بدون تأشيرة",ar_col:"يمر بالجمارك / إقرار جمركي / ضابط جمارك",ar_prep:"جمارك عند الحدود / للبلد",ar_ex:"المرور بالجمارك مع بضائع غير مُصرَّح بها قد يؤدي إلى عقوبات صارمة."},
+  {w:"pilgrimage",p:"بيلغريمج",a:"الحج / الرحلة الدينية",img:"https://picsum.photos/seed/1025/200/100",syn:"sacred journey, religious travel",ant:"leisure travel, secular trip",col:"make a pilgrimage / annual pilgrimage / pilgrim route",prep:"pilgrimage to (site) / pilgrimage of (faith)",ex:"Making a pilgrimage to a sacred site is a deeply meaningful experience for millions.",ar_syn:"رحلة مقدسة، سفر ديني",ar_ant:"سفر ترفيهي، رحلة علمانية",ar_col:"يؤدي الحج / سنوي / طريق الحجاج",ar_prep:"حج إلى موقع / من الإيمان",ar_ex:"أداء الحج إلى موقع مقدس تجربة بالغة الأهمية لملايين الناس."},
+  {w:"jet-setting",p:"جيت-سيتينج",a:"كثير السفر / مترفِّه في السفر",img:"https://picsum.photos/seed/1026/200/100",syn:"globe-trotting, frequent flying",ant:"staying home, non-traveller",col:"jet-setting lifestyle / jet-setter / jet-setting around the world",prep:"jet-setting to (countries) / jet-setting around (globe)",ex:"Living a jet-setting lifestyle sounds glamorous but it is exhausting in practice.",ar_syn:"التجوال حول العالم، السفر المتكرر",ar_ant:"البقاء في البيت، غير مسافر",ar_col:"أسلوب حياة مسافر / مسافر متكرر",ar_prep:"يسافر إلى بلدان / حول العالم",ar_ex:"العيش بأسلوب حياة مسافر يبدو رائعاً لكنه مرهق في الواقع."},
+  {w:"off the beaten track",p:"أوف ذا بيتن تراك",a:"خارج المسالك المطروقة / بعيد عن السياحة",img:"https://picsum.photos/seed/1027/200/100",syn:"remote, unexplored, undiscovered",ant:"tourist hotspot, popular destination",col:"go off the beaten track / off-the-beaten-track destination",prep:"off the beaten track in (region) / away from (crowds)",ex:"I always prefer travelling off the beaten track to avoid crowded tourist areas.",ar_syn:"نائي، غير مكتشف، بعيد",ar_ant:"وجهة سياحية مزدحمة، شعبية",ar_col:"يسافر خارج المسالك / وجهة نائية",ar_prep:"بعيد عن المسالك في المنطقة / عن الحشود",ar_ex:"دائماً أفضّل السفر خارج المسالك المطروقة لتجنّب المناطق السياحية المزدحمة."},
+  {w:"gap year",p:"غاب يير",a:"سنة الاستراحة",img:"https://picsum.photos/seed/1028/200/100",syn:"sabbatical, year out, break year",ant:"continuous study, no break",col:"take a gap year / gap year travel / gap year programme",prep:"gap year before (university) / gap year in (country)",ex:"Taking a gap year to travel teaches young people skills that no classroom can provide.",ar_syn:"إجازة دراسية، سنة خارج المنهج",ar_ant:"دراسة متواصلة، بدون استراحة",ar_col:"يأخذ سنة استراحة / سفر / برنامج",ar_prep:"سنة استراحة قبل الجامعة / في البلد",ar_ex:"أخذ سنة استراحة للسفر يُعلّم الشباب مهارات لا يمكن لأي فصل دراسي تقديمها."},
+  {w:"local cuisine",p:"لوكل كيوزين",a:"المطبخ المحلي",img:"https://picsum.photos/seed/1029/200/100",syn:"regional food, native dishes",ant:"fast food, international chain",col:"try local cuisine / authentic local cuisine / local cuisine of (country)",prep:"cuisine of (region) / cuisine in (country)",ex:"Trying local cuisine is one of the best ways to experience a country's culture.",ar_syn:"طعام إقليمي، أطباق محلية",ar_ant:"وجبات سريعة، سلسلة دولية",ar_col:"يجرّب المطبخ المحلي / أصيل / لبلد",ar_prep:"مطبخ المنطقة / في البلد",ar_ex:"تجربة المطبخ المحلي من أفضل الطرق لتجربة ثقافة البلد."},
+  {w:"travel insurance",p:"ترافل إنشورنس",a:"تأمين السفر",img:"https://picsum.photos/seed/1030/200/100",syn:"travel protection, trip insurance",ant:"uninsured travel",col:"buy travel insurance / travel insurance policy / claim on travel insurance",prep:"insurance for (trip) / insurance against (cancellation)",ex:"Travelling without insurance means risking significant financial loss if things go wrong.",ar_syn:"حماية السفر، تأمين الرحلة",ar_ant:"سفر غير مؤمَّن",ar_col:"يشتري تأمين سفر / بوليصة / يطالب بالتعويض",ar_prep:"تأمين للرحلة / ضد الإلغاء",ar_ex:"السفر بدون تأمين يعني المخاطرة بخسارة مالية كبيرة إذا حدث خطأ."},
+];
+
+var story=[
+  {t:"Amara has been travelling since she was eighteen. She took a gap year after school and never really stopped.",ar:"أمارا تسافر منذ كانت في الثامنة عشرة. أخذت سنة استراحة بعد المدرسة ولم تتوقف حقاً."},
+  {t:"She loves exploring off the beaten track — avoiding the tourist hotspots that overtourism has damaged.",ar:"تحب استكشاف الأماكن البعيدة عن المسالك المطروقة — تتجنب النقاط السياحية التي أضرّ بها الإفراط السياحي."},
+  {t:"Trying local cuisine is, she says, the single best way to understand a culture from the inside.",ar:"تجربة المطبخ المحلي هي، تقول، أفضل طريقة لفهم ثقافة من الداخل."},
+  {t:"Last year, Amara spent six months backpacking through South America without a fixed itinerary.",ar:"العام الماضي، أمارا قضت ستة أشهر تسافر بالحقيبة عبر أمريكا الجنوبية بدون خط سير محدد."},
+  {t:"She experienced real cultural immersion — staying with local families rather than booking accommodation online.",ar:"عاشت انغماساً ثقافياً حقيقياً — أقامت مع عائلات محلية بدلاً من حجز إقامة عبر الإنترنت."},
+  {t:"Travelling changed everything about how she sees the world, she says.",ar:"السفر غيّر كل شيء في كيفية نظرتها للعالم، تقول."},
+  {t:"She now runs a blog encouraging people to travel responsibly and choose sustainable tourism over mass tourism.",ar:"هي الآن تدير مدوّنة تشجّع الناس على السفر بمسؤولية واختيار السياحة المستدامة على السياحة الجماعية."},
+  {t:"Her advice: Stop planning and start experiencing. Travelling means accepting uncertainty — and loving it.",ar:"نصيحتها: توقّف عن التخطيط وابدأ التجربة. السفر يعني قبول الغموض — ومحبته."},
+];
+
+var reading=[
+  "Travel has always been one of humanity's most powerful tools for personal development and cross-cultural understanding. Yet the ways in which people travel — and the reasons they do so — have shifted dramatically over the past century. What was once the privilege of the wealthy has become, at least in parts of the world, an accessible experience for many.",
+  "The rise of budget airlines and online booking platforms has made travelling to foreign destinations genuinely affordable for a generation that grew up with the internet. Backpacking — once associated with young adventurers carrying heavy rucksacks across Europe — has evolved into a global phenomenon, with travellers seeking cultural immersion, local cuisine, and off-the-beaten-track experiences rather than the comfort of package holidays.",
+  "However, this democratisation of travel has come with significant costs. Overtourism — the saturation of popular destinations with visitors — has caused serious damage to heritage sites, local communities, and natural environments. Cities like Barcelona and Dubrovnik have had their entire neighbourhoods transformed into tourist zones, pricing local residents out and fundamentally altering the cultures that visitors came to experience.",
+  "Sustainable tourism attempts to address these contradictions. By choosing locally owned accommodation, supporting local artisans, minimising waste, and travelling in ways that reduce carbon footprints, travellers can ensure that their presence enriches rather than depletes the destinations they visit. The concept of slow travel — spending longer in fewer places, developing genuine connections with local communities — has gained significant traction among thoughtful travellers.",
+  "The psychological benefits of travel are well documented. Cultural immersion challenges assumptions, builds resilience, and develops empathy. Studies consistently show that people who travel regularly report higher levels of creativity, open-mindedness, and satisfaction with life. The experience of navigating unfamiliar environments, communicating across language barriers, and adapting to unexpected circumstances develops skills that no classroom education can fully replicate.",
+];
+
+var compQs=[
+  {q:"What has made travel affordable for many people today?",opts:["Longer holidays","Budget airlines and online booking platforms","Government subsidies","Shorter distances"],ans:1},
+  {q:"How has backpacking evolved according to the text?",opts:["It has disappeared","It has become more expensive","It now focuses on immersion and local experiences","It is only for young people"],ans:2},
+  {q:"What problem has overtourism caused in cities like Barcelona?",opts:["More jobs for locals","Local residents priced out and cultures altered","Better infrastructure","More heritage sites"],ans:1},
+  {q:"What is slow travel?",opts:["Travelling by train only","Spending longer in fewer places with genuine connections","Only visiting heritage sites","Avoiding technology"],ans:1},
+  {q:"What do studies show about people who travel regularly?",opts:["They become more stressed","They report higher creativity, open-mindedness and life satisfaction","They struggle to settle down","They spend too much money"],ans:1},
+];
+
+var listenLines=[
+  "My name is Amara, and I have been travelling since I was eighteen years old.",
+  "I want to talk about gerunds and infinitives — two forms we use constantly when talking about travel.",
+  "We use gerunds after verbs like enjoy, love, miss, and avoid.",
+  "For example: I enjoy exploring local markets. I love trying new food. I miss travelling freely.",
+  "We also use gerunds after prepositions: I am excited about visiting Japan. I am tired of waiting.",
+  "Infinitives come after verbs like want, decide, hope, plan, and choose.",
+  "For example: I want to explore Southeast Asia. I decided to travel solo. I hope to visit every continent.",
+  "Some verbs change meaning depending on whether you use a gerund or infinitive.",
+  "I remember travelling to Morocco for the first time — that is a memory.",
+  "I remembered to book the flight — that means I did not forget to do it.",
+  "I stopped eating fast food — I no longer do it. I stopped to eat — I paused in order to eat.",
+  "Try swimming in the sea — attempt something new. Try to swim to the island — make an effort.",
+  "Travelling has taught me more than any classroom. Meeting new people and learning about cultures is priceless.",
+  "I plan to keep exploring off the beaten track for as long as I can.",
+  "My advice: start by loving where you are, and then let travelling expand your world.",
+];
+
+var listenQs=[
+  {q:"Which verbs are followed by gerunds according to Amara?",opts:["want, decide, hope","enjoy, love, miss, avoid","plan, choose, need","must, should, will"],ans:1},
+  {q:"What does remember + gerund mean?",opts:["You did not forget to do something","You have a memory of doing something","You plan to do something","You regret doing something"],ans:1},
+  {q:"What does stop + infinitive mean?",opts:["You no longer do something","You paused in order to do something","You tried something new","You regret stopping"],ans:1},
+  {q:"What does Amara say travelling has taught her more than?",opts:["Languages","Any classroom","Travel books","Online courses"],ans:1},
+  {q:"What is Amara's advice?",opts:["Plan everything carefully","Only travel with others","Start by loving where you are then let travel expand your world","Avoid tourist destinations"],ans:2},
+];
+
+var speakQs=[
+  {q:"What do you enjoy doing when you travel? Use gerunds.",hint:"I enjoy exploring... I love trying... I cannot imagine travelling without... I avoid staying in...",ar:"ما الذي تستمتع بفعله عند السفر؟ استخدم Gerunds.",badge:"🎯 استخدم enjoy / love / avoid / miss + gerund"},
+  {q:"What do you plan to do on your next trip? Use infinitives.",hint:"I plan to visit... I want to explore... I hope to try... I have decided to travel...",ar:"ما الذي تخطط لفعله في رحلتك القادمة؟ استخدم Infinitives.",badge:"🎯 استخدم plan / want / hope / decide + infinitive"},
+  {q:"Describe the difference between backpacking and a package holiday.",hint:"Backpacking involves travelling... whereas a package holiday means having everything... I prefer... because travelling independently allows you to...",ar:"صف الفرق بين السفر بالحقيبة والعطلة المنظّمة.",badge:"🎯 استخدم whereas / in contrast + gerunds"},
+  {q:"Have you ever experienced culture shock? Describe it.",hint:"I remember feeling completely overwhelmed by... I stopped trying to compare and started accepting... Experiencing unfamiliar customs means learning to...",ar:"هل سبق أن عشت صدمة ثقافية؟ صفها.",badge:"🎯 استخدم remember / stop / try + gerund أو infinitive"},
+  {q:"What are the advantages of travelling alone versus with others?",hint:"Travelling alone means having complete freedom to... I enjoy making my own decisions about... However travelling with others involves sharing... and avoids feeling...",ar:"ما مزايا السفر منفرداً مقابل السفر مع الآخرين؟",badge:"🎯 استخدم gerunds بعد means / involves / enjoys"},
+  {q:"Describe a trip that changed the way you see the world.",hint:"I remember arriving in... and not knowing what to expect... I stopped assuming that my culture was the only... I tried living like a local by...",ar:"صف رحلة غيّرت نظرتك للعالم.",badge:"🎯 استخدم remember + gerund للذكريات"},
+  {q:"What is sustainable tourism? Why does it matter?",hint:"Sustainable tourism involves choosing... It means avoiding overtourism by... Travellers who care about sustainability try to... rather than simply booking the cheapest...",ar:"ما السياحة المستدامة؟ لماذا تهم؟",badge:"🎯 استخدم involves / means / try to"},
+  {q:"If you could live in any country for one year, which would you choose and why?",hint:"I would choose to live in... I imagine enjoying... I would love learning to speak... I hope to experience... I avoid overthinking and would just go.",ar:"لو أمكنك العيش في أي بلد لسنة أيه ستختار ولماذا؟",badge:"🎯 استخدم would + infinitive و imagine + gerund"},
+  {q:"What is the most important thing to remember when travelling to a new culture?",hint:"The most important thing to remember is to avoid judging... I think trying to learn even a few words means showing... Travellers should stop expecting things to be the same as at home...",ar:"ما أهم شيء يجب تذكّره عند السفر إلى ثقافة جديدة؟",badge:"🎯 استخدم remember / try / stop + gerund أو infinitive"},
+  {q:"What would you miss most about your home country if you moved abroad permanently?",hint:"I would miss eating... I would stop being able to... I remember loving... I cannot imagine living without... I would try to keep...",ar:"ما الذي ستفتقده أكثر من بلدك لو انتقلت للخارج بشكل دائم؟",badge:"🎯 تحدّث 90 ثانية — استخدم would miss + gerund!"},
+];
+
+var realExpr=[
+  {e:"The world is your oyster",p:"ذا ويرلد إز يور أويستر",m:"العالم أمامك — الفرص لا حدود لها",f:"You have endless opportunities available to you.",x:"After graduating, the world is your oyster — travel and discover what you love.",xar:"بعد التخرج العالم أمامك — سافر واكتشف ما تحب.",n:"من مسرحية شكسبير — المحار يحتوي اللؤلؤة كما العالم يحتوي الفرص"},
+  {e:"Go off the beaten track",p:"غو أوف ذا بيتن تراك",m:"اذهب لأماكن غير مطروقة سياحياً",f:"Travel to remote or unexplored destinations.",x:"Instead of Paris again, why not go off the beaten track and try Albania?",xar:"بدلاً من باريس مجدداً، لماذا لا تذهب لأماكن غير مطروقة وتجرّب ألبانيا؟",n:"المسلك المطروق = الطريق الذي يسلكه الجميع — الابتعاد عنه يعني الأماكن النادرة"},
+  {e:"Travel broadens the mind",p:"ترافل برودنز ذا مايند",m:"السفر يوسّع الأفق ويفتح العقل",f:"Exposure to new cultures expands your perspective.",x:"Travel broadens the mind — every trip teaches you something a book cannot.",xar:"السفر يوسّع الأفق — كل رحلة تُعلّمك شيئاً لا يستطيع كتاب تعليمه.",n:"مقولة إنجليزية مشهورة — كلّما سافرت كلّما اتسعت رؤيتك للعالم"},
+];
+var realSlang=[
+  {w:"Globetrotter",p:"غلوب-تروتر",i:"someone who travels all over the world",x:"She is a real globetrotter — a different country every month.",xar:"هي جوّالة حقيقية — بلد مختلف كل شهر.",a:"شخص يتجوّل في كل أنحاء العالم"},
+  {w:"Tourist trap",p:"تيوريست تراب",i:"overpriced place targeting tourists",x:"Avoid eating near the Eiffel Tower — it is a complete tourist trap.",xar:"تجنّب الأكل بالقرب من برج إيفل — إنه فخ سياحي كامل.",a:"مكان يستهدف السياح بأسعار مبالغ فيها"},
+  {w:"Bucket list",p:"باكيت ليست",i:"list of experiences before you die",x:"Visiting Machu Picchu has been on my bucket list for years.",xar:"زيارة ماتشو بيتشو كانت على قائمة أمنياتي لسنوات.",a:"قائمة التجارب والأماكن التي تريد زيارتها قبل الوفاة"},
+  {w:"Jet-setter",p:"جيت-سيتر",i:"wealthy frequent traveller",x:"She lives like a jet-setter — always somewhere new.",xar:"هي تعيش كمسافرة متكررة — دائماً في مكان جديد.",a:"شخص ثري يسافر باستمرار إلى أماكن فاخرة"},
+];
+var realEvery=[
+  {w:"Bon voyage",p:"بون فوياج",i:"have a good trip (French phrase in English)",x:"Bon voyage! Send us photos from Japan.",xar:"رحلة سعيدة! أرسلوا لنا صوراً من اليابان.",a:"تمنية بالسفر الجيد — مقتبسة من الفرنسية"},
+  {w:"Hit the road",p:"هيت ذا رود",i:"start a journey or trip",x:"We hit the road at six in the morning to avoid traffic.",xar:"انطلقنا في الساعة السادسة صباحاً لتجنّب الازدحام.",a:"يبدأ الرحلة أو ينطلق"},
+  {w:"Live out of a suitcase",p:"ليف أوت أوف أ سوتكيس",i:"travel so much you rarely unpack",x:"As a travel journalist, I basically live out of a suitcase.",xar:"كصحفي سفر، أنا في الأساس أعيش من حقيبتي.",a:"يسافر كثيراً لدرجة أنه نادراً ما يفرغ حقيبته"},
+];
+
+var quizQs=[
+  {q:"I enjoy ___ to new places and trying local food.",opts:["travel","to travel","travelling","travelled"],ans:2},
+  {q:"ما معنى overtourism؟",opts:["السياحة المستدامة","الإفراط في السياحة","رحلة الإبحار","تأمين السفر"],ans:1},
+  {q:"She decided ___ alone through South America.",opts:["travelling","travel","to travel","travelled"],ans:2},
+  {q:"ما معنى itinerary؟",opts:["الجمارك","الهدية التذكارية","خط سير الرحلة","الإقامة"],ans:2},
+  {q:"I remember ___ that city for the first time — it was magical.",opts:["to visit","visiting","visited","visit"],ans:1},
+  {q:"ما الـ collocation الصحيح مع accommodation؟",opts:["do accommodation","make accommodation","book accommodation","take accommodation"],ans:2},
+  {q:"ما معنى immersion في السفر؟",opts:["الجمارك","الانغماس الكامل في الثقافة","الهدية التذكارية","خط السير"],ans:1},
+  {q:"He stopped ___ fast food after his trip to Japan changed his diet.",opts:["to eat","eat","eating","eaten"],ans:2},
+  {q:"ما معنى gap year؟",opts:["رحلة قصيرة","توقف مرحلي","سنة الاستراحة قبل الجامعة","التأشيرة"],ans:2},
+  {q:"ما معنى wanderlust؟",opts:["الصدمة الثقافية","شغف السفر والشوق للتجوّل","رحلة الحج","فارق التوقيت"],ans:1},
+];
+var spd=1,lspd=1,storyOn=false,listenOn=false;
+var compA=new Array(compQs.length).fill(null);
+var listenA=new Array(listenQs.length).fill(null);
+var quizA=new Array(quizQs.length).fill(null);
+
+function say(text,rate,cb){
+  if(!window.speechSynthesis)return null;
+  window.speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US";u.rate=rate||spd;u.pitch=1.08;
+  if(cb)u.onend=cb;
+  window.speechSynthesis.speak(u);return u;
+}
+
+function buildVocab(){
+  var emo=["🌍","🏛","🤝","👤","🚫","🕯","🌐","🌿","⚖","🍽","📏","🌏","⚠","🕊","✊","💬","♀","✈","💡","🤲","✊","🏳","🤜","🌺","🎓","👑","🔗","🌐","🏙","🧩"];
+  var c=document.getElementById("vocabList");
+  V.forEach(function(v,i){
+    var d=document.createElement("div");d.className="vocab-card";
+    // Build using single-quote innerHTML (Gold Standard from unit2)
+    d.innerHTML=
+      '<div class="vhead">'+
+        '<img class="vimg" id="vi'+i+'" src="'+v.img+'" alt="'+v.w+'" loading="lazy">'+
+        '<div class="vinfo">'+
+          '<div style="display:flex;align-items:center;gap:6px;direction:ltr">'+
+            '<span style="background:rgba(255,255,255,.18);color:rgba(255,255,255,.85);font-size:.68rem;font-weight:800;padding:2px 7px;border-radius:10px">'+(i+1)+'</span>'+
+            '<div class="vword">'+v.w+'</div>'+
+          '</div>'+
+          '<div class="vpron">'+v.p+'</div>'+
+          '<div class="var">'+v.a+'</div>'+
+        '</div>'+
+        '<button class="vspk" id="vs'+i+'">🔊</button>'+
+      '</div>'+
+      '<div class="vbody">'+
+        '<div class="vgrid2">'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-ant" data-i="'+i+'" data-c="1"><div class="vlbl">Antonym</div><div class="vval">'+v.ant+'</div><div class="vtr">'+v.ar_ant+'</div></div>'+
+            '<div class="vcell c-syn" data-i="'+i+'" data-c="0"><div class="vlbl">Synonym</div><div class="vval">'+v.syn+'</div><div class="vtr">'+v.ar_syn+'</div></div>'+
+          '</div>'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-prep" data-i="'+i+'" data-c="3"><div class="vlbl">Preposition</div><div class="vval">'+v.prep+'</div><div class="vtr">'+v.ar_prep+'</div></div>'+
+            '<div class="vcell c-col" data-i="'+i+'" data-c="2"><div class="vlbl">Collocation</div><div class="vval">'+v.col+'</div><div class="vtr">'+v.ar_col+'</div></div>'+
+          '</div>'+
+        '</div>'+
+        '<div class="vex" id="vex'+i+'">'+v.ex+'<div class="vex-tr">'+v.ar_ex+'</div></div>'+
+      '</div>';
+    var img=d.querySelector(".vimg");
+    if(img){img.onerror=(function(ii){return function(){
+      var fb=document.createElement("div");fb.className="vimg-fallback";fb.textContent=emo[ii];
+      this.parentNode.replaceChild(fb,this);
+    };})(i);}
+    d.querySelector(".vspk").addEventListener("click",(function(ii){return function(){
+      document.querySelectorAll(".vspk").forEach(function(b){b.classList.remove("playing");});
+      var btn=document.getElementById("vs"+ii);if(btn)btn.classList.add("playing");
+      var u=say(V[ii].w,spd);if(u)u.onend=function(){if(btn)btn.classList.remove("playing");};
+    };})(i));
+    d.querySelectorAll(".vcell").forEach(function(cell){
+      cell.addEventListener("click",function(){
+        var ii=parseInt(this.getAttribute("data-i"));
+        var cc=parseInt(this.getAttribute("data-c"));
+        say([V[ii].syn,V[ii].ant,V[ii].col,V[ii].prep][cc],0.9);
+        this.classList.toggle("show-tr");
+      });
+    });
+    var vex=d.querySelector(".vex");
+    vex.addEventListener("click",function(){this.classList.toggle("show-ex-tr");});
+    c.appendChild(d);
+  });
+}
+
+function buildStory(){
+  var b=document.getElementById("storyBox");
+  story.forEach(function(s,i){
+    var d=document.createElement("div");d.className="sline";d.id="sl"+i;
+    var txt=document.createTextNode(s.t);d.appendChild(txt);
+    var btn=document.createElement("button");
+    btn.style.cssText="background:transparent;border:1px solid #e5e7eb;border-radius:5px;padding:1px 7px;color:#9ca3af;font-size:.7rem;cursor:pointer;font-family:Tajawal,sans-serif;margin-right:6px";
+    btn.textContent="🌐";
+    btn.addEventListener("click",(function(ii){return function(){toggleTr(ii);};})(i));
+    d.appendChild(btn);
+    var tr=document.createElement("div");tr.id="tr"+i;
+    tr.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;font-family:Tajawal,sans-serif;border-right:3px solid #fde68a;padding-right:8px";
+    tr.textContent=s.ar;d.appendChild(tr);b.appendChild(d);
+  });
+}
+var _trAll=false;
+function toggleAllTr(){_trAll=!_trAll;for(var i=0;i<story.length;i++){var e=document.getElementById("tr"+i);if(e)e.style.display=_trAll?"block":"none";}document.getElementById("trBtn").textContent=_trAll?"🙈 أخفِ":"🌐 الترجمة";}
+function toggleTr(i){var e=document.getElementById("tr"+i);if(e)e.style.display=e.style.display==="none"?"block":"none";}
+function setSpd(r,btn){spd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function storySeq(i){if(!storyOn||i>=story.length){stopStory();return;}document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("sl"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(story[i].t);u.lang="en-US";u.rate=spd;u.pitch=1.08;u.onend=function(){if(storyOn)setTimeout(function(){storySeq(i+1);},320);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startStory(){storyOn=true;document.getElementById("sIcon").textContent="⏹";document.getElementById("sTxt").textContent="إيقاف القصة";storySeq(0);}
+function stopStory(){storyOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});document.getElementById("sIcon").textContent="▶";document.getElementById("sTxt").textContent="استمع للقصة";}
+function toggleStory(){storyOn?stopStory():startStory();}
+
+function buildReading(){
+  var t=document.getElementById("readingText");
+  reading.forEach(function(p){var d=document.createElement("p");d.textContent=p;t.appendChild(d);});
+  var c=document.getElementById("compList");
+  compQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";
+    p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="co"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){
+        compA[qi]=oi;
+        for(var k=0;k<q.opts.length;k++){var el=document.getElementById("co"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}
+        this.style.borderColor="#0a1628";
+      });
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function checkComp(){var s=0;compQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("co"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(compA[qi]===i)el.classList.add("no");}if(compA[qi]===q.ans)s++;});var r=document.getElementById("compRes");r.style.display="block";var pct=Math.round(s/compQs.length*100);r.textContent=s+" من "+compQs.length+" إجابة صحيحة ("+pct+"%) "+(pct===100?"🏆":pct>=60?"🎉":"📚 راجع النص");}
+function resetComp(){compA=new Array(compQs.length).fill(null);document.querySelectorAll(".copt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("compRes").style.display="none";}
+
+function buildGrammar(){
+  var c=document.getElementById("grammarBox");
+  var box1=document.createElement("div");box1.className="gbox";
+  var t1=document.createElement("div");t1.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";
+  t1.textContent="١ — Gerund (فعل+ing) أم Infinitive (to+فعل)؟";box1.appendChild(t1);
+  var tbl=document.createElement("div");tbl.style.cssText="background:#0a1628;border-radius:10px;padding:14px 18px;margin-bottom:14px;direction:ltr";
+  var rows=[
+    ["+ Gerund (verb+ing)","+ Infinitive (to+verb)"],
+    ["enjoy, love, hate, miss","want, hope, plan, decide"],
+    ["avoid, consider, suggest","agree, refuse, offer, manage"],
+    ["finish, stop*, remember*","stop*, remember*, try*"],
+    ["After prepositions","After adjectives: happy, able"],
+  ];
+  var table=document.createElement("table");table.style.cssText="width:100%;border-collapse:collapse;font-size:.82rem";
+  rows.forEach(function(row,ri){var tr=document.createElement("tr");if(ri>0)tr.style.borderTop="1px solid rgba(255,255,255,.1)";row.forEach(function(cell,ci){var td=document.createElement(ri===0?"th":"td");td.textContent=cell;td.style.cssText="padding:6px 8px;text-align:left;color:"+(ri===0?"#fde68a":ci===0?"#93c5fd":"#f0c040");tr.appendChild(td);});table.appendChild(tr);});
+  tbl.appendChild(table);box1.appendChild(tbl);c.appendChild(box1);
+  var box2=document.createElement("div");box2.className="gbox";
+  var t2=document.createElement("div");t2.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";t2.textContent="٢ — الأفعال التي يتغيّر معناها (*)";box2.appendChild(t2);
+  var changes=[
+    ["stop + gerund","I stopped travelling. (لم أعد أسافر)"],
+    ["stop + infinitive","I stopped to travel. (توقفت بهدف السفر)"],
+    ["remember + gerund","I remember visiting Paris. (أتذكر تلك الزيارة)"],
+    ["remember + infinitive","I remembered to book. (لم أنسَ الحجز)"],
+    ["try + gerund","Try staying in a hostel. (جرّب هذه التجربة)"],
+    ["try + infinitive","Try to stay calm. (حاول ذلك)"],
+  ];
+  changes.forEach(function(ex){var pat=document.createElement("div");pat.className="gpat";var d1=document.createElement("div");d1.style.cssText="font-size:.82rem;color:#f0a000;font-weight:700;direction:ltr;margin-bottom:2px";d1.textContent=ex[0];var d2=document.createElement("div");d2.style.cssText="font-size:.9rem;color:#0a1628;font-weight:600;direction:ltr;margin-bottom:4px";d2.textContent=ex[1];pat.appendChild(d1);pat.appendChild(d2);box2.appendChild(pat);});
+  c.appendChild(box2);
+  var wrong=document.createElement("div");wrong.style.cssText="background:#fef2f2;border-radius:10px;padding:13px 16px;margin-bottom:8px;border-right:4px solid #dc2626;direction:ltr";
+  wrong.innerHTML='<span style="color:#dc2626;font-weight:700">✗ </span>I enjoy to travel to new places. <span style="font-size:.8rem;color:#dc2626">← enjoy دائماً + gerund</span>';
+  var right=document.createElement("div");right.style.cssText="background:#f0fdf4;border-radius:10px;padding:13px 16px;border-right:4px solid #059669;direction:ltr";
+  right.innerHTML='<span style="color:#059669;font-weight:700">✓ </span>I enjoy <strong>travelling</strong> to new places. <span style="font-size:.8rem;color:#059669">← enjoy + verb+ing ✅</span>';
+  c.appendChild(wrong);c.appendChild(right);
+}
+function buildListening(){
+  var s=document.getElementById("listenScript");
+  listenLines.forEach(function(line,i){var d=document.createElement("div");d.className="lline";d.id="ll"+i;d.textContent=line;s.appendChild(d);});
+  var c=document.getElementById("listenQList");
+  listenQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="lq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){listenA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("lq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function setLSpd(r,btn){lspd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function listenSeq(i){if(!listenOn||i>=listenLines.length){stopListen();return;}document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("ll"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(listenLines[i]);u.lang="en-US";u.rate=lspd;u.pitch=1.08;u.onend=function(){if(listenOn)setTimeout(function(){listenSeq(i+1);},380);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startListen(){listenOn=true;document.getElementById("lIcon").textContent="⏹";document.getElementById("lTxt").textContent="إيقاف المونولوج";listenSeq(0);}
+function stopListen(){listenOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});document.getElementById("lIcon").textContent="▶";document.getElementById("lTxt").textContent="شغّل المونولوج";}
+function toggleListen(){listenOn?stopListen():startListen();}
+function checkListen(){var s=0;listenQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("lq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(listenA[qi]===i)el.classList.add("no");}if(listenA[qi]===q.ans)s++;});var r=document.getElementById("listenRes");r.style.display="block";var pct=Math.round(s/listenQs.length*100);r.textContent=s+" من "+listenQs.length+" إجابة صحيحة ("+pct+"%) "+(pct>=80?"✅ ممتاز!":pct>=60?"👍 جيد!":"📚 راجع");}
+function resetListen(){listenA=new Array(listenQs.length).fill(null);document.querySelectorAll(".copt[id^='lq']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("listenRes").style.display="none";}
+
+function buildW(){
+  var ids=["w1","w2","w3","w4","w5"];var any=false;
+  for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value.trim())any=true;}
+  if(!any){document.getElementById("wOut").innerHTML="<span style='color:#9ca3af;font-style:italic'>✨ ستظهر فقرتك هنا...</span>";return;}
+  var parts=[];
+  for(var j=0;j<ids.length;j++){var el=document.getElementById(ids[j]);var v=el?el.value.trim():"";if(v)parts.push("<span style='color:#f0a000;font-weight:700'>"+v+"</span>.");}
+  document.getElementById("wOut").innerHTML="<p style='direction:ltr;line-height:2'>"+parts.join(" ")+"</p>";
+}
+
+function buildSpeaking(){
+  var c=document.getElementById("speakBox");
+  speakQs.forEach(function(q){
+    var d=document.createElement("div");d.style.cssText="background:#f8faff;border-right:4px solid #1e3a8a;border-radius:0 12px 12px 0;padding:16px 18px;margin-bottom:14px";
+    var p1=document.createElement("p");p1.style.cssText="font-size:.97rem;color:#0a1628;font-weight:700;direction:ltr;margin-bottom:5px";p1.textContent=q.q;
+    var p2=document.createElement("p");p2.style.cssText="font-size:.82rem;color:#9ca3af;margin-bottom:6px";p2.textContent=q.ar;
+    var p3=document.createElement("p");p3.style.cssText="font-size:.82rem;color:#f0a000;direction:ltr;margin-bottom:8px";p3.textContent="💡 "+q.hint;
+    var badge=document.createElement("span");badge.style.cssText="background:#dbeafe;color:#1e3a8a;padding:4px 12px;border-radius:20px;font-size:.76rem;font-weight:700";badge.textContent=q.badge;
+    d.appendChild(p1);d.appendChild(p2);d.appendChild(p3);d.appendChild(badge);
+    var btn=document.createElement("button");btn.className="spksmall";btn.textContent="🔊";btn.style.marginTop="10px";
+    btn.addEventListener("click",(function(qq){return function(){say(qq,spd);};})(q.q));
+    d.appendChild(btn);c.appendChild(d);
+  });
+}
+
+function makeExRow(text,arabic,spkText){
+  var div=document.createElement("div");
+  div.style.cssText="cursor:pointer;user-select:none;padding:8px 12px;background:white;border-radius:8px;direction:ltr;font-size:.86rem;color:#374151;font-style:italic;margin-top:6px";
+  var span=document.createElement("span");span.textContent=text;
+  var tr=document.createElement("div");
+  tr.style.cssText="font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;padding-top:4px;border-top:1px dashed #e5e7eb;display:none;font-family:Tajawal,sans-serif;font-style:normal";
+  tr.textContent=arabic;
+  div.appendChild(span);div.appendChild(tr);
+  div.addEventListener("click",(function(t,s){return function(){t.style.display=t.style.display==="none"?"block":"none";say(s,spd);};})(tr,spkText));
+  return div;
+}
+
+function buildReal(){
+  var c=document.getElementById("realBox");
+  var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h1.textContent="🔥 Expressions — اضغط على الجملة لتسمعها وترجمتها";c.appendChild(h1);
+  realExpr.forEach(function(e){
+    var d=document.createElement("div");d.className="expr-card";
+    // Visible 🔊 for main expression
+    var header=document.createElement("div");header.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;direction:ltr";
+    var headerLeft=document.createElement("div");headerLeft.style.cssText="display:flex;align-items:center;gap:8px";
+    var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";
+    spkBtn.addEventListener("click",(function(ee){return function(){say(ee,spd);};})(e.e));
+    var titleSpan=document.createElement("span");titleSpan.style.cssText="font-weight:700;color:#4c1d95;font-size:.97rem";titleSpan.textContent=e.e;
+    headerLeft.appendChild(spkBtn);headerLeft.appendChild(titleSpan);
+    var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.78rem;font-weight:700;font-family:Tajawal,sans-serif";pronSpan.textContent=e.p;
+    header.appendChild(headerLeft);header.appendChild(pronSpan);
+    d.appendChild(header);
+    var grid=document.createElement("div");grid.style.cssText="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px";
+    var g1=document.createElement("div");g1.style.cssText="background:white;border-radius:8px;padding:8px 12px;text-align:right";g1.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>المعنى</div><div style='font-weight:700;color:#374151;font-size:.88rem'>"+e.m+"</div>";
+    var g2=document.createElement("div");g2.style.cssText="background:white;border-radius:8px;padding:8px 12px;direction:ltr";g2.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>Formal</div><div style='font-size:.85rem;color:#64748b'>"+e.f+"</div>";
+    grid.appendChild(g1);grid.appendChild(g2);d.appendChild(grid);
+    d.appendChild(makeExRow(e.x,e.xar,e.x));
+    var note=document.createElement("div");note.style.cssText="font-size:.8rem;color:#7c3aed;text-align:right;margin-top:8px";note.textContent="💡 "+e.n;
+    d.appendChild(note);c.appendChild(d);
+  });
+  var h2=document.createElement("p");h2.style.cssText="font-weight:800;color:#0a1628;margin:20px 0 14px;text-align:right";h2.textContent="😎 Slang";c.appendChild(h2);
+  var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:20px";
+  realSlang.forEach(function(s){
+    var d=document.createElement("div");d.className="slang-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";
+    var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkS=document.createElement("button");spkS.className="spksmall";spkS.textContent="🔊";spkS.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkS.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var sWord=document.createElement("span");sWord.style.cssText="font-weight:700;color:#ea580c;font-size:.9rem";sWord.textContent=s.w;
+    titleLeft.appendChild(spkS);titleLeft.appendChild(sWord);
+    var pp=document.createElement("span");pp.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pp.textContent=s.p;
+    titleRow.appendChild(titleLeft);titleRow.appendChild(pp);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    sg.appendChild(d);
+  });
+  c.appendChild(sg);
+  var h3=document.createElement("p");h3.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h3.textContent="💬 Everyday Phrases";c.appendChild(h3);
+  var ev=document.createElement("div");ev.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";
+  realEvery.forEach(function(s){
+    var d=document.createElement("div");d.className="ev-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;direction:ltr";
+    var titleLeft2=document.createElement("div");titleLeft2.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkE=document.createElement("button");spkE.className="spksmall";spkE.textContent="🔊";spkE.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkE.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var titleTxt=document.createElement("span");titleTxt.style.cssText="font-weight:700;color:#15803d;font-size:.9rem";titleTxt.textContent=s.w;
+    titleLeft2.appendChild(spkE);titleLeft2.appendChild(titleTxt);
+    var evPron=document.createElement("span");evPron.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";evPron.textContent=s.p;
+    titleRow.appendChild(titleLeft2);titleRow.appendChild(evPron);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    ev.appendChild(d);
+  });
+  c.appendChild(ev);
+}
+
+function buildQuiz(){
+  var c=document.getElementById("quizList");
+  quizQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="18px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:10px;direction:ltr;font-size:.93rem";
+    p.innerHTML="<span style='background:#0a1628;color:white;border-radius:5px;padding:1px 8px;font-size:.76rem;margin-left:8px'>"+(qi+1)+"</span>"+q.q;
+    d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="qopt";b.id="qq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){quizA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("qq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function checkQuiz(){var s=0;quizQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("qq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(quizA[qi]===i)el.classList.add("no");}if(quizA[qi]===q.ans)s++;});var pct=Math.round(s/quizQs.length*100);var r=document.getElementById("quizRes");r.style.display="block";document.getElementById("qEmoji").textContent=pct===100?"🏆":pct>=70?"🎉":pct>=50?"💪":"📚";document.getElementById("qScore").textContent=s+" من "+quizQs.length+" إجابة صحيحة ("+pct+"%)";document.getElementById("qMsg").textContent=pct===100?"مثالي!":pct>=70?"أحسنت!":pct>=50?"راجع Conditionals Type 2.":"راجع الوحدة.";r.style.background=pct>=70?"#f0fdf4":"#fef9f0";r.scrollIntoView({behavior:"smooth",block:"center"});}
+function resetQuiz(){quizA=new Array(quizQs.length).fill(null);document.querySelectorAll(".qopt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("quizRes").style.display="none";}
+
+function show(id,btn){document.querySelectorAll(".sec").forEach(function(s){s.classList.remove("on");});document.getElementById("sec-"+id).classList.add("on");window.scrollTo({top:0,behavior:"smooth"});document.querySelectorAll(".nb").forEach(function(b){b.classList.remove("on");});if(btn){btn.classList.add("on");return;}var map={vocab:0,story:1,reading:2,grammar:3,listening:4,writing:5,speaking:6,realeng:7,quiz:8};var btns=document.querySelectorAll(".nb");if(btns[map[id]])btns[map[id]].classList.add("on");}
+
+buildVocab();buildStory();buildReading();buildGrammar();buildListening();buildSpeaking();buildReal();buildQuiz();
+</script>
+</body>
+</html>

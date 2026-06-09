@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath B1 — Unit 12: Science and Discovery</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Tajawal',sans-serif;background:#f0f4fa;direction:rtl;min-height:100vh}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#1e3a8a;border-radius:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(30,58,138,.35)}50%{box-shadow:0 0 0 8px rgba(30,58,138,0)}}
+.nav-bar{background:linear-gradient(135deg,#0a1628,#1e3a8a);padding:10px 12px;display:flex;justify-content:center;gap:4px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.nb{border:none;border-radius:22px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s}
+.nb.on{background:#f0a000;color:#0a1628}
+.nb:not(.on){background:rgba(255,255,255,.1);color:rgba(255,255,255,.85)}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#1e3a8a 55%,#1d4ed8 100%);color:white;padding:32px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(240,160,0,.06)}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04)}
+.b1tag{display:inline-block;background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-size:.72rem;font-weight:900;padding:4px 14px;border-radius:20px;letter-spacing:1.5px;margin-bottom:10px}
+.sec{display:none;max-width:900px;margin:0 auto;padding:32px 16px 80px;animation:fadeUp .4s ease}
+.sec.on{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 3px 20px rgba(0,0,0,.06);margin-bottom:22px;overflow:hidden}
+.ch{background:#0a1628;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.ch h3{font-size:1rem;font-weight:700}
+.ch .sub{font-size:.75rem;color:#93c5fd;margin-top:1px}
+.cb{padding:22px}
+.vocab-card{background:white;border-radius:16px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 14px rgba(10,22,40,.08);border:1px solid #e5ebf8;transition:transform .2s,box-shadow .2s}
+.vocab-card:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(10,22,40,.13)}
+.vhead{background:linear-gradient(135deg,#0a1628,#1e3a8a);display:flex;flex-direction:row-reverse;align-items:center;padding:14px 18px;gap:14px}
+.vimg{width:80px;height:80px;border-radius:12px;object-fit:cover;flex-shrink:0;border:2px solid rgba(255,255,255,.15)}
+.vimg-fallback{width:80px;height:80px;border-radius:12px;flex-shrink:0;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:2rem;border:2px solid rgba(255,255,255,.12)}
+.vinfo{flex:1;text-align:right}
+.vword{font-family:'Lora',serif;font-size:1.18rem;font-weight:700;color:white;direction:ltr;text-align:left}
+.vpron{font-size:.78rem;font-weight:700;color:#fde68a;margin-top:3px;direction:ltr;text-align:left}
+.var{font-size:.93rem;font-weight:700;color:rgba(255,255,255,.9);margin-top:3px}
+.vspk{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.25);background:transparent;color:white;font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:all .18s;display:flex;align-items:center;justify-content:center}
+.vspk:hover{background:rgba(255,255,255,.2);transform:scale(1.08)}
+.vspk.playing{background:#f0a000;border-color:#f0a000;animation:pulse 1s infinite}
+.vbody{padding:14px 16px 16px}
+.vgrid2{margin-bottom:10px}
+.vrow-pair{display:flex;gap:8px;margin-bottom:8px}
+.vrow-pair .vcell{flex:1;min-width:0}
+.vcell{border-radius:10px;padding:10px 13px;cursor:pointer;transition:all .15s;user-select:none;direction:ltr}
+.vcell:hover{filter:brightness(.96)}
+.vcell:active{transform:scale(.98)}
+.c-syn{background:#f0fdf4;border:1px solid #bbf7d0}
+.c-ant{background:#fff7ed;border:1px solid #fed7aa}
+.c-col{background:#eff6ff;border:1px solid #bfdbfe}
+.c-prep{background:#faf5ff;border:1px solid #ddd6fe}
+.vlbl{font-size:.65rem;font-weight:900;letter-spacing:.7px;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:5px;direction:ltr;justify-content:flex-start}
+.c-syn .vlbl{color:#15803d}.c-ant .vlbl{color:#ea580c}
+.c-col .vlbl{color:#2563eb}.c-prep .vlbl{color:#7c3aed}
+.vlbl::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.c-syn .vlbl::before{background:#15803d}.c-ant .vlbl::before{background:#ea580c}
+.c-col .vlbl::before{background:#2563eb}.c-prep .vlbl::before{background:#7c3aed}
+.vval{font-family:'Lora',serif;font-size:.82rem;color:#374151;direction:ltr;line-height:1.6}
+.vtr{font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px;padding-top:5px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif}
+.vcell.show-tr .vtr{display:block}
+.vex{font-family:'Lora',serif;font-size:.87rem;color:#374151;direction:ltr;font-style:italic;padding:10px 14px;background:#f8faff;border-radius:10px;border-right:3px solid #f0a000;cursor:pointer;user-select:none}
+.vex-tr{font-size:.8rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding-top:6px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif;font-style:normal}
+.vex.show-ex-tr .vex-tr{display:block}
+.sline{font-family:'Lora',serif;font-size:.97rem;line-height:2;padding:5px 8px;border-radius:6px;direction:ltr;transition:background .2s}
+.sline.hl{background:#fef3c7}
+.lline{font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#cbd5e1;padding:3px 6px;border-radius:5px;direction:ltr;transition:background .2s}
+.lline.hl{background:rgba(240,160,0,.18);color:#fde68a}
+.sctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-direction:row-reverse;margin-bottom:16px}
+.pbtn{background:#1e3a8a;color:white;border:none;border-radius:24px;padding:9px 20px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s}
+.pbtn:hover{background:#1d4ed8}
+.spdbtn{padding:5px 12px;border-radius:18px;border:2px solid #cbd5e1;background:white;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;color:#64748b;transition:all .15s}
+.spdbtn.on{border-color:#1e3a8a;background:#1e3a8a;color:white}
+.rtext{font-family:'Lora',serif;font-size:.95rem;line-height:2;color:#374151;direction:ltr;padding:20px;background:#f8faff;border-radius:14px;border:1px solid #e5eaf5;margin-bottom:18px}
+.rtext p{margin-bottom:14px}
+.gbox{background:linear-gradient(135deg,#eff6ff,#e0effe);border:2px solid #bfdbfe;border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.gpat{background:white;border-radius:10px;padding:12px 16px;margin-bottom:10px;border-right:4px solid #2563eb;direction:ltr}
+.geg{font-family:'Lora',serif;font-size:.97rem;color:#0a1628;font-weight:600}
+.geg em{color:#f0a000;font-style:normal;font-weight:800}
+.gar{font-family:'Tajawal',sans-serif;font-size:.85rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px}
+.qopt{padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;font-family:'Lora',serif;font-size:.9rem;direction:ltr;background:white;transition:all .15s;margin-bottom:7px;text-align:left}
+.qopt:hover{border-color:#1e3a8a;background:#eff6ff}
+.qopt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.qopt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.copt{padding:9px 14px;border:2px solid #e5e7eb;border-radius:9px;cursor:pointer;font-family:'Lora',serif;font-size:.87rem;direction:ltr;background:white;transition:all .15s;margin-bottom:6px}
+.copt:hover{border-color:#1e3a8a;background:#eff6ff}
+.copt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.copt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.wq-block{margin-bottom:18px}
+.wq-model{font-family:'Lora',serif;font-size:.8rem;color:#374151;font-style:italic;direction:ltr;padding:10px 14px;background:#f0f9ff;border-radius:8px;border-right:3px solid #bfdbfe;line-height:1.7;display:none;margin-bottom:8px}
+.wq-model.show{display:block}
+.wq-model-btn{background:#dbeafe;border:none;border-radius:20px;padding:4px 14px;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer;margin-bottom:8px;transition:all .15s}
+.wq-model-btn:hover{background:#1e3a8a;color:white}
+.wq-en{font-family:'Lora',serif;font-size:.93rem;font-weight:700;color:#0a1628;direction:ltr;margin-bottom:3px}
+.wq-ar{font-size:.78rem;color:#9ca3af;direction:rtl;text-align:right;margin-bottom:8px;font-family:'Tajawal',sans-serif}
+.winput{width:100%;border:none;border-bottom:2px solid #f0a000;background:transparent;font-family:'Lora',serif;font-size:.95rem;color:#0a1628;outline:none;padding:5px 3px;direction:ltr;margin-bottom:14px}
+.winput:focus{border-color:#1e3a8a}
+.btn{border:none;border-radius:28px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all .18s;padding:10px 24px;font-size:.9rem}
+.btn:hover{opacity:.88;transform:scale(.98)}
+.bd{background:#1e3a8a;color:white}
+.bg{background:#e5e7eb;color:#374151}
+.bgold{background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-weight:900}
+.navrow{display:flex;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.spksmall{width:32px;height:32px;border-radius:50%;border:none;background:#dbeafe;color:#1e3a8a;font-size:.85rem;cursor:pointer;flex-shrink:0;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.spksmall:hover{background:#1e3a8a;color:white}
+.expr-card{background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:16px;margin-bottom:12px}
+.slang-card{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px}
+.ev-card{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px}
+@media(max-width:580px){.vgrid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <button class="nb on"  onclick="show('vocab',this)">📚 المفردات</button>
+  <button class="nb" onclick="show('story',this)">📖 القصة</button>
+  <button class="nb" onclick="show('reading',this)">📰 القراءة</button>
+  <button class="nb" onclick="show('grammar',this)">✏️ القاعدة</button>
+  <button class="nb" onclick="show('listening',this)">🎧 الاستماع</button>
+  <button class="nb" onclick="show('writing',this)">✍️ الكتابة</button>
+  <button class="nb" onclick="show('speaking',this)">💬 المحادثة</button>
+  <button class="nb" onclick="show('realeng',this)">🗣️ Real English</button>
+  <button class="nb" onclick="show('quiz',this)">✅ الاختبار</button>
+</div>
+<div class="hero">
+  <div class="b1tag">B1 — INTERMEDIATE</div>
+  <div style="font-size:.75rem;letter-spacing:3px;color:rgba(255,255,255,.45);font-weight:700;margin-bottom:8px">UNIT 12</div>
+  <h1 style="font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;margin-bottom:6px"> Culture and Society</h1>
+  <p style="font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:4px">العلوم والاكتشاف</p>
+  <p style="font-size:.82rem;color:rgba(255,255,255,.4)">القاعدة: Mixed Conditionals — If I had studied, I would be...</p>
+  <div style="display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap">
+    <a href="unit11_b1_travel.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">← الوحدة ١١</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="unit13_b1_globalissues.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">الوحدة ١٣ ←</a>
+  </div>
+</div>
+
+<div id="sec-vocab" class="sec on">
+  <div style="text-align:right;color:#64748b;font-size:.88rem;max-width:900px;margin:0 auto 16px;padding:0 16px">💡 اضغط 🔊 للكلمة الرئيسية — اضغط على أي خلية لتسمع نطقها وتظهر ترجمتها</div>
+  <div id="vocabList" style="max-width:900px;margin:0 auto;padding:0 16px"></div>
+  <div class="navrow"><button class="btn bd" onclick="show('story',null)">القصة ←</button></div>
+</div>
+
+<div id="sec-story" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📖</span><div><h3>القصة القصيرة</h3><div class="sub">Yasmin تحكي عن العلوم والاكتشاف — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button id="trBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:22px;padding:7px 16px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+        <button class="pbtn" id="storyBtn" onclick="toggleStory()"><span id="sIcon">▶</span><span id="sTxt">استمع للقصة</span></button>
+        <button class="spdbtn on" onclick="setSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setSpd(0.75,this)">بطيء</button>
+      </div>
+      <div id="storyBox" style="border-right:4px solid #f0a000;padding:16px 20px;background:#fffdf7;border-radius:0 14px 14px 0"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn bd" onclick="show('reading',null)">القراءة ←</button>
+  </div>
+</div>
+
+<div id="sec-reading" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📰</span><div><h3>القراءة المعمّقة</h3><div class="sub">نص 350 كلمة + 5 أسئلة فهم</div></div></div>
+    <div class="cb">
+      <div class="rtext" id="readingText"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الفهم</p>
+      <div id="compList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkComp()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetComp()">↺ إعادة</button>
+      </div>
+      <div id="compRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('story',null)">→ القصة</button>
+    <button class="btn bd" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✏️</span><div><h3>القاعدة</h3><div class="sub">Mixed Conditionals — الشرط المختلط</div></div></div>
+    <div class="cb" id="grammarBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('reading',null)">→ القراءة</button>
+    <button class="btn bd" onclick="show('listening',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listening" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🎧</span><div><h3>الاستماع المضمّن</h3><div class="sub">مونولوج Kai — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button class="pbtn" id="listenBtn" onclick="toggleListen()"><span id="lIcon">▶</span><span id="lTxt">شغّل المونولوج</span></button>
+        <button class="spdbtn on" onclick="setLSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setLSpd(0.75,this)">بطيء</button>
+      </div>
+      <div class="lscript" id="listenScript" style="background:#0f172a;border-radius:14px;padding:18px 20px;margin-bottom:16px"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الاستماع</p>
+      <div id="listenQList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkListen()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetListen()">↺ إعادة</button>
+      </div>
+      <div id="listenRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn bd" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✍️</span><div><h3>الكتابة</h3><div class="sub">اكتب عن العلوم والاكتشاف</div></div></div>
+    <div class="cb">
+      <div style="background:#fffdf7;border:2px dashed #f0a000;border-radius:14px;padding:20px;margin-bottom:14px">
+        <div class="wq-block">
+          <div class="wq-en">If you had studied science at university, what field would you be working in now?</div>
+          <div class="wq-ar">لو كنت درست العلوم في الجامعة في أي مجال كنت ستعمل الآن؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">If I had studied science at university, I would probably be working in neuroscience now. The brain has always fascinated me, and if I had pursued that path, I might be contributing to research on memory and learning.</div>
+          <input class="winput" id="w1" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">What scientific discovery do you think has most changed human life?</div>
+          <div class="wq-ar">ما الاكتشاف العلمي الذي تعتقد أنه غيّر الحياة البشرية أكثر؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">I believe the discovery of antibiotics has most transformed human life. If Fleming had not discovered penicillin in 1928, millions of people who survived infections would have died. Modern surgery would be impossible without this foundation.</div>
+          <input class="winput" id="w2" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Do you think science has solved more problems than it has created? Why?</div>
+          <div class="wq-ar">هل تعتقد أن العلوم حلّت مشاكل أكثر مما خلقت؟ لماذا؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">On balance, I think science has solved more problems than it has created. If scientists had not developed vaccines, billions would have suffered preventable deaths. However, if nuclear technology had been managed more responsibly, we would not be living with the threat of weapons of mass destruction today.</div>
+          <input class="winput" id="w3" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Describe a scientific topic you find fascinating and explain why.</div>
+          <div class="wq-ar">صف موضوعاً علمياً تجده رائعاً واشرح لماذا.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">I find quantum physics absolutely fascinating. The idea that particles can exist in multiple states simultaneously challenges everything we think we know about reality. If scientists fully understood quantum mechanics, we would probably have computers millions of times more powerful than today.</div>
+          <input class="winput" id="w4" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block" style="margin-bottom:0">
+          <div class="wq-en">If humanity had prioritised space exploration differently, where might we be today?</div>
+          <div class="wq-ar">لو كانت البشرية أولّت استكشاف الفضاء بشكل مختلف أين كنا سنكون اليوم؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">If humanity had invested more consistently in space exploration, we might have established a permanent base on the Moon by now. If we had developed better propulsion technology earlier, Mars missions would be routine rather than experimental today.</div>
+          <input class="winput" id="w5" placeholder="Write your answer here..." oninput="buildW()" style="margin-bottom:0">
+        </div></div>
+      <div id="wOut" style="background:white;border:1px solid #e5eaf5;border-radius:12px;padding:16px;min-height:70px;font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#374151;direction:ltr">
+        <span style="color:#9ca3af;font-style:italic">✨ ستظهر فقرتك هنا...</span>
+      </div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('listening',null)">→ الاستماع</button>
+    <button class="btn bd" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">💬</span><div><h3>المحادثة</h3><div class="sub">Speaking Challenge</div></div></div>
+    <div class="cb" id="speakBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn bd" onclick="show('realeng',null)">Real English ←</button>
+  </div>
+</div>
+
+<div id="sec-realeng" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🗣️</span><div><h3>Real English</h3><div class="sub">اضغط على الجملة لتسمعها وتظهر ترجمتها</div></div></div>
+    <div class="cb" id="realBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn bd" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-quiz" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✅</span><div><h3>اختبار الوحدة</h3><div class="sub">10 أسئلة — مفردات + قواعد + collocations</div></div></div>
+    <div class="cb">
+      <div id="quizList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:18px">
+        <button class="btn bgold" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn bg" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizRes" style="display:none;text-align:center;padding:22px;margin-top:16px;background:#f0fdf4;border-radius:14px">
+        <div id="qEmoji" style="font-size:2.5rem;margin-bottom:8px"></div>
+        <div id="qScore" style="font-weight:800;font-size:1.1rem;color:#0a1628;margin-bottom:4px"></div>
+        <div id="qMsg" style="font-size:.88rem;color:#64748b"></div>
+      </div>
+    </div>
+  </div>
+  <div style="background:linear-gradient(135deg,#0a1628,#1e3a8a);border-radius:18px;padding:28px;text-align:center;margin-top:8px;max-width:900px;margin-left:auto;margin-right:auto">
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:white;margin-bottom:6px">أحسنت! أكملت وحدة العلوم والاكتشاف</div>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:16px">الوحدة الثالثة عشرة: Global Issues</p>
+    <button class="btn bgold" onclick="location.href='unit13_b1_globalissues.html'">الوحدة الثالثة عشرة ←</button>
+  </div>
+</div>
+
+<script>
+var V=[
+  {w:"hypothesis",p:"هايبوثيسس",a:"الفرضية",img:"https://picsum.photos/seed/1101/200/100",syn:"theory, assumption, proposition",ant:"proven fact, certainty",col:"form a hypothesis / test a hypothesis / prove a hypothesis",prep:"hypothesis about (phenomenon) / hypothesis of (scientist)",ex:"If the hypothesis had been tested earlier, the discovery would have come decades sooner.",ar_syn:"نظرية، افتراض، اقتراح",ar_ant:"حقيقة مثبتة، يقين",ar_col:"يُشكّل فرضية / يختبرها / يُثبتها",ar_prep:"فرضية حول ظاهرة / للعالم",ar_ex:"لو كانت الفرضية اختُبرت مبكراً لجاء الاكتشاف بعقود أسبق."},
+  {w:"empirical",p:"إمبيريكل",a:"تجريبي / قائم على الملاحظة",img:"https://picsum.photos/seed/1102/200/100",syn:"evidence-based, observational, experimental",ant:"theoretical, speculative, anecdotal",col:"empirical evidence / empirical research / empirical data",prep:"empirical in (method) / empirical evidence for (claim)",ex:"Without empirical evidence, no scientific claim can be considered valid.",ar_syn:"قائم على الأدلة، ملاحظاتي، تجريبي",ar_ant:"نظري، افتراضي، غير موثّق",ar_col:"دليل تجريبي / بحث تجريبي / بيانات تجريبية",ar_prep:"تجريبي في المنهج / دليل على الادعاء",ar_ex:"بدون دليل تجريبي لا يمكن اعتبار أي ادعاء علمي صحيحاً."},
+  {w:"genome",p:"جينوم",a:"الجينوم / المادة الوراثية الكاملة",img:"https://picsum.photos/seed/1103/200/100",syn:"genetic code, DNA sequence",ant:"none (scientific term)",col:"human genome / sequence a genome / genome mapping",prep:"genome of (species) / genome in (cell)",ex:"If the human genome had not been mapped, personalised medicine would not exist today.",ar_syn:"الشفرة الجينية، تسلسل الحمض النووي",ar_ant:"لا يوجد مقابل مباشر",ar_col:"الجينوم البشري / يرسم الجينوم / خرائط الجينوم",ar_prep:"جينوم النوع / في الخلية",ar_ex:"لو لم يُرسم الجينوم البشري لما وُجد الطب الشخصي اليوم."},
+  {w:"quantum",p:"كوانتم",a:"الكَم / الكمّي",img:"https://picsum.photos/seed/1104/200/100",syn:"subatomic, particle-based",ant:"classical, macroscopic",col:"quantum physics / quantum computing / quantum mechanics",prep:"quantum in (physics) / quantum of (energy)",ex:"If quantum computing had been developed faster, encryption as we know it would already be obsolete.",ar_syn:"دون ذري، قائم على الجسيمات",ar_ant:"كلاسيكي، ماكروسكوبي",ar_col:"فيزياء الكم / حوسبة كمومية / ميكانيكا الكم",ar_prep:"كمّي في الفيزياء / كَم من الطاقة",ar_ex:"لو تطوّرت الحوسبة الكمومية بشكل أسرع لأصبح التشفير الحالي متقادماً."},
+  {w:"organism",p:"أورغانيزم",a:"الكائن الحي",img:"https://picsum.photos/seed/1105/200/100",syn:"living being, creature, life form",ant:"inanimate object, non-living matter",col:"living organism / micro-organism / single-celled organism",prep:"organism in (ecosystem) / organism of (species)",ex:"If micro-organisms had not been discovered, medicine would still be in the dark ages.",ar_syn:"كائن حيّ، مخلوق، شكل حياة",ar_ant:"جسم غير حيّ، مادة غير حية",ar_col:"كائن حيّ / ميكروبي / أحادي الخلية",ar_prep:"كائن في النظام البيئي / للنوع",ar_ex:"لو لم تُكتشف الميكروبات لكان الطب لا يزال في العصور المظلمة."},
+  {w:"breakthrough",p:"بريك-ثرو",a:"الاختراق / الاكتشاف الكبير",img:"https://picsum.photos/seed/1106/200/100",syn:"major discovery, revolution, leap forward",ant:"setback, failure, stagnation",col:"scientific breakthrough / major breakthrough / achieve a breakthrough",prep:"breakthrough in (research) / breakthrough for (humanity)",ex:"If this breakthrough had come sooner, thousands of lives could have been saved.",ar_syn:"اكتشاف كبير، ثورة، قفزة للأمام",ar_ant:"نكسة، فشل، ركود",ar_col:"اختراق علمي / كبير / يحقق اختراقاً",ar_prep:"اختراق في البحث / للبشرية",ar_ex:"لو جاء هذا الاختراق مبكراً لأمكن إنقاذ آلاف الأرواح."},
+  {w:"replicate",p:"ريبليكيت",a:"يُكرّر / يستنسخ",img:"https://picsum.photos/seed/1107/200/100",syn:"reproduce, copy, duplicate",ant:"original, unique experiment",col:"replicate results / replicate an experiment / fail to replicate",prep:"replicate in (lab) / replication of (study)",ex:"If the results could not be replicated, the original findings would be considered invalid.",ar_syn:"يستنسخ، ينسخ، يكرر",ar_ant:"أصلي، تجربة فريدة",ar_col:"يُكرّر النتائج / التجربة / يفشل في التكرار",ar_prep:"يُكرّر في المختبر / استنساخ الدراسة",ar_ex:"لو لم تتمكن النتائج من التكرار لاعتُبرت النتائج الأصلية غير صالحة."},
+  {w:"evolution",p:"إيفوليوشن",a:"التطوّر",img:"https://picsum.photos/seed/1108/200/100",syn:"development, adaptation, natural selection",ant:"creationism, stagnation, devolution",col:"theory of evolution / natural evolution / evolution of species",prep:"evolution of (species) / evolution through (time)",ex:"If Darwin had not developed his theory of evolution, biology would look completely different today.",ar_syn:"تطوّر، تكيّف، الانتقاء الطبيعي",ar_ant:"الخلقية، ركود، تراجع",ar_col:"نظرية التطوّر / طبيعي / تطوّر الأنواع",ar_prep:"تطوّر الأنواع / عبر الزمن",ar_ex:"لو لم يطوّر داروين نظرية التطوّر لكانت علم الأحياء تبدو مختلفة تماماً اليوم."},
+  {w:"variable",p:"فيريبل",a:"المتغيّر",img:"https://picsum.photos/seed/1109/200/100",syn:"factor, element, parameter",ant:"constant, fixed value",col:"control variable / independent variable / dependent variable",prep:"variable in (experiment) / variable of (study)",ex:"If the researchers had controlled every variable, the results would have been more reliable.",ar_syn:"عامل، عنصر، معامل",ar_ant:"ثابت، قيمة محددة",ar_col:"متغيّر ضابط / مستقل / تابع",ar_prep:"متغيّر في التجربة / للدراسة",ar_ex:"لو سيطر الباحثون على كل متغيّر لكانت النتائج أكثر موثوقية."},
+  {w:"catalyst",p:"كاتاليست",a:"المحفّز / الحفّاز",img:"https://picsum.photos/seed/1110/200/100",syn:"trigger, accelerator, driving force",ant:"inhibitor, blocker, suppressant",col:"act as a catalyst / chemical catalyst / catalyst for change",prep:"catalyst for (reaction) / catalyst in (process)",ex:"The discovery of DNA acted as a catalyst for decades of revolutionary biology research.",ar_syn:"محرّك، مسرّع، قوة دافعة",ar_ant:"مثبّط، حاجب",ar_col:"يعمل كمحفّز / كيميائي / للتغيير",ar_prep:"محفّز للتفاعل / في العملية",ar_ex:"اكتشاف الحمض النووي كان محفّزاً لعقود من أبحاث الأحياء الثورية."},
+  {w:"stem cell",p:"ستيم سيل",a:"الخلية الجذعية",img:"https://picsum.photos/seed/1111/200/100",syn:"undifferentiated cell, master cell",ant:"specialised cell, differentiated cell",col:"stem cell research / stem cell therapy / harvest stem cells",prep:"stem cells in (body) / stem cells for (treatment)",ex:"If stem cell therapy had been approved earlier, millions of patients would have benefited.",ar_syn:"خلية غير متمايزة، خلية رئيسية",ar_ant:"خلية متخصصة، خلية متمايزة",ar_col:"بحث الخلايا الجذعية / علاج / يستخرج خلايا",ar_prep:"خلايا جذعية في الجسم / للعلاج",ar_ex:"لو اعتُمد علاج الخلايا الجذعية مبكراً لاستفاد ملايين المرضى."},
+  {w:"particle",p:"بارتيكل",a:"الجسيم",img:"https://picsum.photos/seed/1112/200/100",syn:"subatomic unit, atom, molecule",ant:"wave (in wave-particle duality)",col:"subatomic particle / particle accelerator / charged particle",prep:"particle in (atom) / particle of (matter)",ex:"If the Higgs boson particle had not been found, theoretical physics would have collapsed.",ar_syn:"وحدة دون ذرية، ذرة، جزيء",ar_ant:"موجة (في ازدواجية الجسيم-الموجة)",ar_col:"جسيم دون ذري / مسرّع الجسيمات / مشحون",ar_prep:"جسيم في الذرة / من المادة",ar_ex:"لو لم يُوجد جسيم هيغز بوزون لانهار الفيزياء النظرية."},
+  {w:"antibiotics",p:"أنتي-بايوتيكس",a:"المضادات الحيوية",img:"https://picsum.photos/seed/1113/200/100",syn:"antimicrobials, bacteria killers",ant:"probiotics, bacteria promoters",col:"prescribe antibiotics / antibiotic resistance / course of antibiotics",prep:"antibiotics for (infection) / resistant to antibiotics",ex:"If antibiotics had never been discovered, simple infections would still be fatal today.",ar_syn:"مضادات جرثومية، قاتلات البكتيريا",ar_ant:"بروبيوتيك، معزّزات البكتيريا",ar_col:"يصف مضادات حيوية / مقاومة للمضادات",ar_prep:"مضادات للعدوى / مقاوم للمضادات",ar_ex:"لو لم تُكتشف المضادات الحيوية لكانت العدوى البسيطة لا تزال قاتلة اليوم."},
+  {w:"telescope",p:"تيليسكوب",a:"التلسكوب / المقراب",img:"https://picsum.photos/seed/1114/200/100",syn:"optical instrument, space viewer",ant:"naked eye observation",col:"space telescope / powerful telescope / observe through telescope",prep:"telescope in (orbit) / telescope for (astronomy)",ex:"If Hubble had not been launched, our understanding of the universe would be far more limited.",ar_syn:"أداة بصرية، مشاهد الفضاء",ar_ant:"المشاهدة بالعين المجردة",ar_col:"تلسكوب فضائي / قوي / يرصد من خلاله",ar_prep:"تلسكوب في المدار / لعلم الفلك",ar_ex:"لو لم تُطلق تلسكوب هابل لكان فهمنا للكون أكثر محدودية بكثير."},
+  {w:"neuroscience",p:"نيورو-ساينس",a:"علم الأعصاب",img:"https://picsum.photos/seed/1115/200/100",syn:"brain science, cognitive science",ant:"none (scientific discipline)",col:"advances in neuroscience / neuroscience research / applied neuroscience",prep:"neuroscience of (memory) / in (brain function)",ex:"If neuroscience had advanced faster, treatments for depression would be more effective today.",ar_syn:"علم الدماغ، العلوم المعرفية",ar_ant:"لا يوجد مقابل مباشر",ar_col:"تقدم في علم الأعصاب / بحث / تطبيقي",ar_prep:"علم الأعصاب للذاكرة / في وظيفة الدماغ",ar_ex:"لو تقدّم علم الأعصاب بشكل أسرع لكانت علاجات الاكتئاب أكثر فاعلية اليوم."},
+  {w:"fossil",p:"فوسيل",a:"الحفرية / الأحفور",img:"https://picsum.photos/seed/1116/200/100",syn:"prehistoric remains, ancient specimen",ant:"living organism, recent specimen",col:"fossil record / fossil evidence / discover a fossil",prep:"fossil of (species) / fossil in (rock)",ex:"If more complete fossils had been found, the gaps in evolutionary theory would be smaller.",ar_syn:"بقايا ما قبل التاريخ، عيّنة قديمة",ar_ant:"كائن حيّ، عيّنة حديثة",ar_col:"السجل الأحفوري / دليل أحفوري / يكتشف حفرية",ar_prep:"حفرية للنوع / في الصخر",ar_ex:"لو عُثر على حفريات أكثر اكتمالاً لكانت الثغرات في نظرية التطوّر أصغر."},
+  {w:"vaccine",p:"فاكسين",a:"اللقاح",img:"https://picsum.photos/seed/1117/200/100",syn:"immunisation, inoculation",ant:"disease exposure, no immunity",col:"develop a vaccine / vaccine trial / administer a vaccine",prep:"vaccine for (disease) / vaccine against (virus)",ex:"If vaccines had not been developed for polio, millions of children would still be paralysed.",ar_syn:"تحصين، تطعيم",ar_ant:"التعرض للمرض، بدون مناعة",ar_col:"يطوّر لقاحاً / تجربة لقاح / يعطي لقاحاً",ar_prep:"لقاح لمرض / ضد فيروس",ar_ex:"لو لم تُطوَّر اللقاحات لشلل الأطفال لكان ملايين الأطفال لا يزالون مشلولين."},
+  {w:"radiation",p:"ريدييشن",a:"الإشعاع",img:"https://picsum.photos/seed/1118/200/100",syn:"electromagnetic waves, nuclear energy",ant:"shielding, absorption",col:"nuclear radiation / radiation therapy / expose to radiation",prep:"radiation from (source) / radiation in (environment)",ex:"If Marie Curie had known the dangers of radiation, she might have lived much longer.",ar_syn:"موجات كهرومغناطيسية، طاقة نووية",ar_ant:"درع واقٍ، امتصاص",ar_col:"إشعاع نووي / علاج إشعاعي / يتعرض للإشعاع",ar_prep:"إشعاع من مصدر / في البيئة",ar_ex:"لو كانت ماري كوري تعرف مخاطر الإشعاع لربما عاشت أطول بكثير."},
+  {w:"peer review",p:"بير ريفيو",a:"المراجعة العلمية من الأقران",img:"https://picsum.photos/seed/1119/200/100",syn:"scientific review, expert evaluation",ant:"unreviewed, unpublished",col:"peer review process / pass peer review / peer-reviewed journal",prep:"peer review of (paper) / review by (experts)",ex:"If research had not undergone peer review, far more false claims would have been published.",ar_syn:"مراجعة علمية، تقييم الخبراء",ar_ant:"غير مراجَع، غير منشور",ar_col:"عملية المراجعة / يجتاز المراجعة / مجلة محكّمة",ar_prep:"مراجعة الورقة / من قبل الخبراء",ar_ex:"لو لم يخضع البحث لمراجعة الأقران لنُشر المزيد من الادعاءات الكاذبة."},
+  {w:"gene editing",p:"جين إيدتينج",a:"تحرير الجينات",img:"https://picsum.photos/seed/1120/200/100",syn:"genetic modification, CRISPR",ant:"unmodified genome, natural genetics",col:"gene editing technology / CRISPR gene editing / ethics of gene editing",prep:"gene editing in (medicine) / editing of (DNA)",ex:"If gene editing technology had existed earlier, inherited diseases might already be curable.",ar_syn:"التعديل الجيني، كريسبر",ar_ant:"جينوم غير معدَّل، وراثة طبيعية",ar_col:"تقنية تحرير الجينات / كريسبر / أخلاقيات التحرير",ar_prep:"تحرير الجينات في الطب / للحمض النووي",ar_ex:"لو كانت تقنية تحرير الجينات موجودة مبكراً لأمكن علاج الأمراض الوراثية."},
+  {w:"nanotechnology",p:"نانو-تيكنولوجي",a:"تقنية النانو",img:"https://picsum.photos/seed/1121/200/100",syn:"molecular engineering, nano-science",ant:"macro-scale technology",col:"nanotechnology application / medical nanotechnology / nanotechnology research",prep:"nanotechnology in (medicine) / at the nano scale",ex:"If nanotechnology had been applied in medicine sooner, drug delivery would be far more precise.",ar_syn:"هندسة جزيئية، علم النانو",ar_ant:"تقنية على المقياس الكبير",ar_col:"تطبيق تقنية النانو / طبي / بحث",ar_prep:"تقنية النانو في الطب / على المقياس النانوي",ar_ex:"لو طُبّقت تقنية النانو في الطب مبكراً لكان توصيل الدواء أكثر دقة."},
+  {w:"data analysis",p:"ديتا أناليسس",a:"تحليل البيانات",img:"https://picsum.photos/seed/1122/200/100",syn:"data processing, statistical analysis",ant:"raw data, unanalysed information",col:"conduct data analysis / data analysis tools / advanced data analysis",prep:"analysis of (data) / analysis in (research)",ex:"If better data analysis tools had been available in the 1900s, many patterns would have been spotted sooner.",ar_syn:"معالجة البيانات، تحليل إحصائي",ar_ant:"بيانات خام، معلومات غير محللة",ar_col:"يُجري تحليل بيانات / أدوات التحليل / متقدم",ar_prep:"تحليل البيانات / في البحث",ar_ex:"لو كانت أدوات تحليل البيانات متاحة في 1900 لاكتُشفت أنماط كثيرة مبكراً."},
+  {w:"climate model",p:"كلايمت مودل",a:"نموذج المناخ",img:"https://picsum.photos/seed/1123/200/100",syn:"climate simulation, atmospheric model",ant:"direct observation only",col:"run a climate model / accurate climate model / climate modelling",prep:"model of (climate) / model for (prediction)",ex:"If climate models had been more accurate in the 1970s, governments would have acted much earlier.",ar_syn:"محاكاة مناخية، نموذج جوي",ar_ant:"ملاحظة مباشرة فقط",ar_col:"يشغّل نموذجاً / دقيق / نمذجة المناخ",ar_prep:"نموذج المناخ / للتنبؤ",ar_ex:"لو كانت نماذج المناخ أكثر دقة في السبعينيات لتصرفت الحكومات مبكراً."},
+  {w:"ethics in science",p:"إيثيكس إن ساينس",a:"أخلاقيات العلوم",img:"https://picsum.photos/seed/1124/200/100",syn:"scientific responsibility, moral guidelines",ant:"unethical research, reckless science",col:"ethics in research / scientific ethics / violate ethics",prep:"ethics of (experiment) / ethics in (research)",ex:"If stricter ethics had been applied in early pharmaceutical trials, patients would not have been harmed.",ar_syn:"مسؤولية علمية، مبادئ أخلاقية",ar_ant:"بحث غير أخلاقي، علم متهور",ar_col:"أخلاقيات البحث / علمية / ينتهك الأخلاقيات",ar_prep:"أخلاقيات التجربة / في البحث",ar_ex:"لو طُبّقت أخلاقيات أكثر صرامة في التجارب الدوائية لما أُضرّ بالمرضى."},
+  {w:"space exploration",p:"سبيس إكسبلوريشن",a:"استكشاف الفضاء",img:"https://picsum.photos/seed/1125/200/100",syn:"space travel, cosmic exploration",ant:"earth-bound, terrestrial",col:"space exploration mission / invest in space exploration / space exploration programme",prep:"exploration of (Mars) / exploration by (agency)",ex:"If funding for space exploration had not been cut, humans might already be on Mars.",ar_syn:"سفر فضائي، استكشاف كوني",ar_ant:"مقيّد بالأرض، أرضي",ar_col:"مهمة استكشاف الفضاء / يستثمر / برنامج",ar_prep:"استكشاف المريخ / من قِبل وكالة",ar_ex:"لو لم يُخفَّض تمويل استكشاف الفضاء لربما كان البشر على المريخ بالفعل."},
+  {w:"renewable",p:"رينيوبل",a:"متجدد / قابل للتجديد",img:"https://picsum.photos/seed/1126/200/100",syn:"sustainable, replenishable, inexhaustible",ant:"non-renewable, finite, exhaustible",col:"renewable resource / renewable technology / switch to renewable",prep:"renewable in (nature) / renewable for (energy)",ex:"If renewable energy research had been prioritised in the 1970s, climate change would be less severe.",ar_syn:"مستدام، قابل للتجدد، غير ناضب",ar_ant:"غير متجدد، محدود، ناضب",ar_col:"مورد متجدد / تقنية متجددة / يتحول للتجدد",ar_prep:"متجدد في الطبيعة / للطاقة",ar_ex:"لو أُولي بحث الطاقة المتجددة الأولوية في السبعينيات لكان تغيّر المناخ أقل حدة."},
+  {w:"clinical trial",p:"كلينيكل ترايل",a:"التجربة السريرية",img:"https://picsum.photos/seed/1127/200/100",syn:"medical trial, drug study",ant:"untested treatment",col:"run a clinical trial / clinical trial results / phase three trial",prep:"trial of (drug) / trial in (patients)",ex:"If clinical trials had been conducted more quickly, the vaccine would have been available sooner.",ar_syn:"تجربة طبية، دراسة دواء",ar_ant:"علاج غير مختبَر",ar_col:"يُجري تجربة سريرية / نتائج / المرحلة الثالثة",ar_prep:"تجربة الدواء / في المرضى",ar_ex:"لو أُجريت التجارب السريرية بشكل أسرع لكان اللقاح متاحاً مبكراً."},
+  {w:"artificial intelligence",p:"أرتفيشل إنتيليجنس",a:"الذكاء الاصطناعي",img:"https://picsum.photos/seed/1128/200/100",syn:"machine learning, AI, neural network",ant:"human intelligence, natural cognition",col:"develop AI / AI research / apply AI in (field)",prep:"AI in (medicine) / AI for (research)",ex:"If AI had not been developed, processing the amount of data modern science requires would be impossible.",ar_syn:"تعلم آلي، ذكاء اصطناعي، شبكة عصبية",ar_ant:"ذكاء بشري، إدراك طبيعي",ar_col:"يطوّر الذكاء الاصطناعي / بحث / يطبّق",ar_prep:"ذكاء اصطناعي في الطب / للبحث",ar_ex:"لو لم يُطوَّر الذكاء الاصطناعي لاستحال معالجة كمية البيانات التي تتطلبها العلوم الحديثة."},
+  {w:"observation",p:"أوبزيرفيشن",a:"الملاحظة العلمية",img:"https://picsum.photos/seed/1129/200/100",syn:"watching, monitoring, study",ant:"assumption, speculation",col:"close observation / scientific observation / observation period",prep:"observation of (phenomenon) / observation in (field)",ex:"If careful observation had not been made, Newton might never have developed his theory of gravity.",ar_syn:"مشاهدة، مراقبة، دراسة",ar_ant:"افتراض، تخمين",ar_col:"ملاحظة دقيقة / علمية / فترة ملاحظة",ar_prep:"ملاحظة ظاهرة / في الميدان",ar_ex:"لو لم تُجرَ ملاحظة دقيقة لربما لم يطوّر نيوتن نظرية الجاذبية."},
+  {w:"isotope",p:"آيسوتوب",a:"النظير المشع / الأيزوتوب",img:"https://picsum.photos/seed/1130/200/100",syn:"radioactive variant, nuclear form",ant:"stable element",col:"radioactive isotope / carbon isotope / isotope dating",prep:"isotope of (element) / isotope in (geology)",ex:"If carbon isotope dating had not been developed, archaeology would lack its most powerful tool.",ar_syn:"متغيّر مشع، شكل نووي",ar_ant:"عنصر مستقر",ar_col:"نظير مشع / كربوني / تأريخ بالنظير",ar_prep:"نظير العنصر / في الجيولوجيا",ar_ex:"لو لم يُطوَّر التأريخ بنظير الكربون لافتقرت الأثريات إلى أقوى أدواتها."},
+];
+
+var story=[
+  {t:"Kai is a research scientist who has spent his career studying neuroscience and artificial intelligence.",ar:"كاي عالم بحث أمضى مسيرته في دراسة علم الأعصاب والذكاء الاصطناعي."},
+  {t:"He often wonders: if I had chosen a different path, would I be working on space exploration instead?",ar:"كثيراً ما يتساءل: لو اخترت مساراً مختلفاً هل كنت أعمل في استكشاف الفضاء عوضاً عن ذلك؟"},
+  {t:"But he has no regrets. If the human genome had not been mapped, none of his current research would be possible.",ar:"لكنه لا يندم. لو لم يُرسم الجينوم البشري لما كان أيٌّ من بحثه الحالي ممكناً."},
+  {t:"Kai believes that the most important breakthrough of his lifetime has been gene editing technology.",ar:"كاي يؤمن بأن الاختراق الأهم في حياته كان تقنية تحرير الجينات."},
+  {t:"If CRISPR had existed fifty years ago, he says, inherited diseases would already be history.",ar:"لو كانت كريسبر موجودة منذ خمسين عاماً، يقول، لكانت الأمراض الوراثية أصبحت تاريخاً."},
+  {t:"He also worries about ethics in science — research that bypasses peer review, and AI development that moves faster than regulation.",ar:"هو أيضاً قلق من أخلاقيات العلوم — البحث الذي يتجاوز المراجعة، والذكاء الاصطناعي الذي يتطور أسرع من التنظيم."},
+  {t:"If scientists had been more careful in the past, many disasters caused by unchecked research would never have happened.",ar:"لو كان العلماء أكثر حذراً في الماضي لما حدثت كثير من الكوارث الناجمة عن البحث غير الخاضع للرقابة."},
+  {t:"But Kai remains passionate: science, done well, is the most powerful force for human good that has ever existed.",ar:"لكن كاي يبقى متحمساً: العلم، حين يُمارَس بشكل جيد، هو أقوى قوة من أجل الخير الإنساني عرفها التاريخ."},
+];
+
+var reading=[
+  "Scientific discovery is one of the defining characteristics of human civilisation. From the development of the wheel to the mapping of the human genome, each breakthrough builds on centuries of accumulated knowledge — a process that philosopher Isaac Newton captured perfectly when he wrote that he had stood on the shoulders of giants. Modern science is fundamentally collaborative and cumulative in ways that make individual genius less significant than the systems that support it.",
+  "The scientific method — hypothesis, experiment, observation, and peer review — exists precisely to protect against the human tendency toward bias and wishful thinking. If researchers had not developed rigorous standards for empirical evidence, science would be indistinguishable from opinion. The requirement that results be replicable by independent researchers is perhaps the most important safeguard in the entire enterprise.",
+  "The twentieth century produced scientific breakthroughs at a pace that previous generations could not have imagined. The discovery of antibiotics, the development of vaccines, the splitting of the atom, the creation of the internet, and the sequencing of the human genome all occurred within a single human lifespan. If these discoveries had been spread across several centuries, their cumulative impact would have been far less dramatic.",
+  "Gene editing technology — particularly CRISPR — represents one of the most ethically complex scientific advances in history. The ability to modify the human genome raises profound questions about identity, inequality, and what it means to be human. If gene editing were used without strict ethical oversight, the consequences could include designer babies, genetic inequality, and irreversible changes to the human species.",
+  "Artificial intelligence is now playing an increasingly central role in scientific research itself. AI systems can analyse datasets that would take human researchers centuries to process, identify patterns invisible to the human eye, and generate hypotheses that humans might never consider. If AI development continues at its current pace, the boundary between human and machine intelligence in science may become difficult to distinguish within the next generation.",
+];
+
+var compQs=[
+  {q:"What does Newton's quote about standing on the shoulders of giants mean?",opts:["Scientists work alone","Each breakthrough builds on previous knowledge","Newton was very tall","Science is competitive"],ans:1},
+  {q:"Why is replicability important in science?",opts:["It saves money","It is the most important safeguard against false claims","It speeds up research","It helps peer review"],ans:1},
+  {q:"What does the text say about the twentieth century?",opts:["Very little was discovered","Breakthroughs happened at an unprecedented pace","Science slowed down","Only physics advanced"],ans:1},
+  {q:"What risk does the text identify with gene editing?",opts:["It is too expensive","Designer babies, genetic inequality, irreversible changes","It does not work","It requires too much data"],ans:1},
+  {q:"What role is AI playing in science according to the text?",opts:["Replacing all human scientists","Causing problems","Analysing data, finding patterns, generating hypotheses","Only helping with administration"],ans:2},
+];
+
+var listenLines=[
+  "My name is Kai, and I am a research scientist specialising in neuroscience and artificial intelligence.",
+  "Today I want to explain mixed conditionals — we use them when past and present are connected differently.",
+  "A mixed conditional combines a past condition with a present result — or a present condition with a past result.",
+  "Type one: If plus past perfect, would plus infinitive present result.",
+  "Example: If I had studied medicine, I would be a doctor now. I did not study it — so I am not.",
+  "If antibiotics had never been discovered, millions of people would still be dying from simple infections today.",
+  "Notice: the condition is in the past, but the result is in the present — that is the mixed conditional.",
+  "Type two: If plus past simple, would have plus past participle — present condition with past result.",
+  "Example: If I were braver, I would have applied for the NASA programme years ago.",
+  "I am not brave enough now — so I did not apply in the past. Present state, past consequence.",
+  "Mixed conditionals let us connect who we are now with what happened in the past.",
+  "If science had not advanced so rapidly in the twentieth century, the world would look completely different today.",
+  "If researchers were not so passionate about their work, many breakthroughs would never have happened.",
+  "Science is built on imagination and rigour. You need both — one without the other is insufficient.",
+  "My advice: ask better questions. The quality of your hypothesis determines the quality of your discovery.",
+];
+
+var listenQs=[
+  {q:"What does a mixed conditional combine?",opts:["Two past conditions","Two present conditions","Past condition with present result or vice versa","Future conditions"],ans:2},
+  {q:"What does this sentence mean: If I had studied medicine I would be a doctor now?",opts:["I studied medicine and became a doctor","I did not study medicine so I am not a doctor","I plan to study medicine","I am considering medicine"],ans:1},
+  {q:"What is Type 2 mixed conditional?",opts:["Past condition past result","Present condition with past result","Future condition present result","Past condition future result"],ans:1},
+  {q:"What does Kai say science is built on?",opts:["Money and technology","Imagination and rigour","Data and computers","Luck and hard work"],ans:1},
+  {q:"What is Kai's final advice?",opts:["Study harder","Get better equipment","Ask better questions — hypothesis quality determines discovery","Work with AI"],ans:2},
+];
+
+var speakQs=[
+  {q:"If you had studied a different subject at school, how would your life be different now?",hint:"If I had studied engineering, I would be working on... My life would be completely different because... I would probably have...",ar:"لو درست مادة مختلفة في المدرسة كيف ستكون حياتك مختلفة الآن؟",badge:"🎯 If + past perfect → would be (mixed conditional)"},
+  {q:"If scientists were less ethical today, what scientific disasters might have happened in the past?",hint:"If researchers were less careful now, they would have caused... If ethics did not exist, dangerous experiments would have been conducted...",ar:"لو كان العلماء أقل أخلاقاً اليوم ما الكوارث العلمية التي كانت ستحدث في الماضي؟",badge:"🎯 If + past simple → would have (mixed conditional type 2)"},
+  {q:"Talk about a scientific discovery that changed the world. Use mixed conditionals.",hint:"If penicillin had not been discovered, millions would still be dying from... If Darwin had not been so observant, we would not understand...",ar:"تحدّث عن اكتشاف علمي غيّر العالم. استخدم Mixed Conditionals.",badge:"🎯 استخدم If + past perfect → would + infinitive"},
+  {q:"If AI were not developing so rapidly, how would science look today?",hint:"If AI were slower, researchers would have taken centuries to... Medical breakthroughs that happened last year would not have occurred... Data analysis would still be...",ar:"لو لم يتطور الذكاء الاصطناعي بهذه السرعة كيف ستبدو العلوم اليوم؟",badge:"🎯 If + past simple → would have + past participle"},
+  {q:"Do you think science has made the world safer or more dangerous? Use mixed conditionals as evidence.",hint:"If nuclear technology had not been developed, we would not have... If vaccines had not existed, far more people would be suffering today... However if genetic research...",ar:"هل تعتقد أن العلوم جعلت العالم أكثر أماناً أم خطورة؟",badge:"🎯 استخدم mixed conditionals كأدلة من التاريخ"},
+  {q:"If you were a scientist, what would you dedicate your career to?",hint:"If I were a scientist, I would focus on... If I had the resources, I would have already started research on... My work would probably contribute to...",ar:"لو كنت عالماً ما الذي ستكرّس مسيرتك المهنية له؟",badge:"🎯 استخدم If I were + would / If I had had + would have"},
+  {q:"Explain the scientific method in your own words.",hint:"First, a scientist forms a hypothesis about... Then they design an experiment to test... If the results can be replicated, the hypothesis becomes... If not...",ar:"اشرح المنهج العلمي بكلماتك الخاصة.",badge:"🎯 استخدم conditionals لوصف كل خطوة"},
+  {q:"If stem cell therapy had been approved worldwide twenty years ago, how different would medicine be?",hint:"If stem cell treatment had been available in 2005, doctors would now be able to... Patients who suffer from... would have recovered... The pharmaceutical industry would look...",ar:"لو اعتُمد علاج الخلايا الجذعية عالمياً منذ عشرين عاماً كيف سيكون الطب مختلفاً؟",badge:"🎯 If + past perfect → would + be/look/have"},
+  {q:"What are the ethical limits of science? Where should scientists stop?",hint:"If scientists had no ethical limits, experiments that... would have been conducted. I believe that if research crosses into... then it should be stopped. The mixed conditional helps us see...",ar:"ما الحدود الأخلاقية للعلوم؟ أين يجب أن يتوقف العلماء؟",badge:"🎯 استخدم mixed conditionals لمناقشة العواقب"},
+  {q:"If you could travel back in time and give one piece of advice to a historical scientist, what would you say?",hint:"If I could go back to Newton's time, I would tell him... If Einstein had known what we know today, he would have... I would warn Marie Curie that if she continued...",ar:"لو أمكنك السفر للماضي ما النصيحة التي ستعطيها لعالم تاريخي؟",badge:"🎯 تحدّث 90 ثانية — استخدم Mixed Conditionals طوال الوقت!"},
+];
+
+var realExpr=[
+  {e:"Stand on the shoulders of giants",p:"ستاند أون ذا شولدرز أوف جاينتس",m:"تستفيد من المعرفة السابقة للتقدم",f:"Build on the work of previous thinkers.",x:"Every scientist stands on the shoulders of giants — no discovery happens in isolation.",xar:"كل عالم يقف على أكتاف العمالقة — لا اكتشاف يحدث في عزلة.",n:"مقولة نيوتن الشهيرة — معناها أن كل تقدم مبنيٌّ على ما جاء قبله"},
+  {e:"A eureka moment",p:"أ يوريكا مومنت",m:"لحظة الاكتشاف المفاجئ",f:"A sudden moment of discovery or insight.",x:"After months of failure, she finally had her eureka moment in the lab.",xar:"بعد أشهر من الفشل، حظيت أخيراً بلحظة اكتشافها في المختبر.",n:"من أرخميدس الذي صرخ يوريكا عند اكتشافه مبدأ طفو الأجسام في الحمام"},
+  {e:"Correlation does not imply causation",p:"كوريليشن داز نوت إمبلاي كوزيشن",m:"الارتباط لا يعني السببية",f:"Just because two things are related does not mean one causes the other.",x:"Ice cream sales and crime rates both rise in summer — but correlation does not imply causation.",xar:"مبيعات الآيس كريم ومعدلات الجريمة كلاهما يرتفع في الصيف — لكن الارتباط لا يعني السببية.",n:"مبدأ علمي محوري — من أكثر المقولات استخداماً في الإحصاء والعلوم"},
+];
+var realSlang=[
+  {w:"Lab rat",p:"لاب رات",i:"person used repeatedly in experiments (or someone who loves lab work)",x:"After ten years as a lab rat, she finally got her own research grant.",xar:"بعد عشر سنوات كفأر مختبر حصلت أخيراً على منحة بحثية خاصة بها.",a:"شخص يعمل في المختبر دائماً أو يُستخدم في التجارب"},
+  {w:"Junk science",p:"جانك ساينس",i:"poor quality or fraudulent science",x:"That diet supplement is backed by junk science — there are no peer-reviewed studies.",xar:"ذلك المكمّل الغذائي مدعوم بعلوم رديئة — لا توجد دراسات محكّمة.",a:"علوم رديئة الجودة أو احتيالية بدون دليل تجريبي حقيقي"},
+  {w:"Rocket science",p:"روكيت ساينس",i:"something extremely complicated (often used ironically)",x:"Using this app is not exactly rocket science — anyone can do it.",xar:"استخدام هذا التطبيق ليس علم الصواريخ بالتأكيد — أي شخص يستطيع ذلك.",a:"شيء بالغ التعقيد — يُستخدم ساخراً عندما يكون الشيء بسيطاً"},
+  {w:"Think outside the box",p:"ثينك أوتسايد ذا بوكس",i:"think creatively beyond standard solutions",x:"The best scientists always think outside the box to find unexpected solutions.",xar:"أفضل العلماء يفكرون دائماً خارج الصندوق لإيجاد حلول غير متوقعة.",a:"يفكّر بشكل إبداعي خارج الحلول المعتادة"},
+];
+var realEvery=[
+  {w:"Back to the drawing board",p:"باك تو ذا درووينج بورد",i:"start again after a failure",x:"The experiment failed completely — it is back to the drawing board.",xar:"التجربة فشلت كلياً — نعود إلى نقطة البداية.",a:"يعود للبداية بعد الفشل ليبدأ من جديد"},
+  {w:"Trial and error",p:"ترايل أند إرور",i:"learning through attempting and failing",x:"Most scientific discoveries come through trial and error rather than pure insight.",xar:"معظم الاكتشافات العلمية تأتي عبر المحاولة والخطأ لا الإلهام المحض.",a:"التعلم عبر المحاولة والفشل والتكرار"},
+  {w:"Cutting edge",p:"كاتينج إيدج",i:"the most advanced and modern",x:"This laboratory is working on cutting-edge gene editing research.",xar:"هذا المختبر يعمل على أبحاث تحرير الجينات في أحدث حدود التطور.",a:"الأكثر تطوراً وحداثة في أي مجال"},
+];
+
+var quizQs=[
+  {q:"If I ___ medicine, I would be a doctor now.",opts:["studied","had studied","study","would study"],ans:1},
+  {q:"ما معنى hypothesis؟",opts:["النتيجة","الدليل","الفرضية العلمية","التجربة"],ans:2},
+  {q:"If researchers ___ more careful now, those disasters would never have happened.",opts:["were","had been","are","would be"],ans:0},
+  {q:"ما معنى peer review؟",opts:["تجربة سريرية","تحليل البيانات","مراجعة الأقران العلمية","استنساخ النتائج"],ans:2},
+  {q:"If vaccines ___ developed, millions would still be dying today.",opts:["were not","had not been","are not","will not be"],ans:1},
+  {q:"ما الـ collocation الصحيح مع breakthrough؟",opts:["make a breakthrough","do a breakthrough","achieve a breakthrough","take a breakthrough"],ans:2},
+  {q:"ما معنى empirical evidence؟",opts:["دليل نظري","دليل افتراضي","دليل تجريبي قائم على الملاحظة","دليل رقمي"],ans:2},
+  {q:"If I ___ braver, I would have applied for that programme years ago.",opts:["had been","were","am","would be"],ans:1},
+  {q:"ما معنى gene editing؟",opts:["تحليل البيانات","المراجعة العلمية","تحرير الجينات","نموذج المناخ"],ans:2},
+  {q:"ما معنى replication في العلوم؟",opts:["الفرضية","تكرار النتائج للتحقق منها","التجربة السريرية","المتغيّر"],ans:1},
+];
+var spd=1,lspd=1,storyOn=false,listenOn=false;
+var compA=new Array(compQs.length).fill(null);
+var listenA=new Array(listenQs.length).fill(null);
+var quizA=new Array(quizQs.length).fill(null);
+
+function say(text,rate,cb){
+  if(!window.speechSynthesis)return null;
+  window.speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US";u.rate=rate||spd;u.pitch=0.92;
+  if(cb)u.onend=cb;
+  window.speechSynthesis.speak(u);return u;
+}
+
+function buildVocab(){
+  var emo=["🌍","🏛","🤝","👤","🚫","🕯","🌐","🌿","⚖","🍽","📏","🌏","⚠","🕊","✊","💬","♀","✈","💡","🤲","✊","🏳","🤜","🌺","🎓","👑","🔗","🌐","🏙","🧩"];
+  var c=document.getElementById("vocabList");
+  V.forEach(function(v,i){
+    var d=document.createElement("div");d.className="vocab-card";
+    // Build using single-quote innerHTML (Gold Standard from unit2)
+    d.innerHTML=
+      '<div class="vhead">'+
+        '<img class="vimg" id="vi'+i+'" src="'+v.img+'" alt="'+v.w+'" loading="lazy">'+
+        '<div class="vinfo">'+
+          '<div style="display:flex;align-items:center;gap:6px;direction:ltr">'+
+            '<span style="background:rgba(255,255,255,.18);color:rgba(255,255,255,.85);font-size:.68rem;font-weight:800;padding:2px 7px;border-radius:10px">'+(i+1)+'</span>'+
+            '<div class="vword">'+v.w+'</div>'+
+          '</div>'+
+          '<div class="vpron">'+v.p+'</div>'+
+          '<div class="var">'+v.a+'</div>'+
+        '</div>'+
+        '<button class="vspk" id="vs'+i+'">🔊</button>'+
+      '</div>'+
+      '<div class="vbody">'+
+        '<div class="vgrid2">'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-ant" data-i="'+i+'" data-c="1"><div class="vlbl">Antonym</div><div class="vval">'+v.ant+'</div><div class="vtr">'+v.ar_ant+'</div></div>'+
+            '<div class="vcell c-syn" data-i="'+i+'" data-c="0"><div class="vlbl">Synonym</div><div class="vval">'+v.syn+'</div><div class="vtr">'+v.ar_syn+'</div></div>'+
+          '</div>'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-prep" data-i="'+i+'" data-c="3"><div class="vlbl">Preposition</div><div class="vval">'+v.prep+'</div><div class="vtr">'+v.ar_prep+'</div></div>'+
+            '<div class="vcell c-col" data-i="'+i+'" data-c="2"><div class="vlbl">Collocation</div><div class="vval">'+v.col+'</div><div class="vtr">'+v.ar_col+'</div></div>'+
+          '</div>'+
+        '</div>'+
+        '<div class="vex" id="vex'+i+'">'+v.ex+'<div class="vex-tr">'+v.ar_ex+'</div></div>'+
+      '</div>';
+    var img=d.querySelector(".vimg");
+    if(img){img.onerror=(function(ii){return function(){
+      var fb=document.createElement("div");fb.className="vimg-fallback";fb.textContent=emo[ii];
+      this.parentNode.replaceChild(fb,this);
+    };})(i);}
+    d.querySelector(".vspk").addEventListener("click",(function(ii){return function(){
+      document.querySelectorAll(".vspk").forEach(function(b){b.classList.remove("playing");});
+      var btn=document.getElementById("vs"+ii);if(btn)btn.classList.add("playing");
+      var u=say(V[ii].w,spd);if(u)u.onend=function(){if(btn)btn.classList.remove("playing");};
+    };})(i));
+    d.querySelectorAll(".vcell").forEach(function(cell){
+      cell.addEventListener("click",function(){
+        var ii=parseInt(this.getAttribute("data-i"));
+        var cc=parseInt(this.getAttribute("data-c"));
+        say([V[ii].syn,V[ii].ant,V[ii].col,V[ii].prep][cc],0.9);
+        this.classList.toggle("show-tr");
+      });
+    });
+    var vex=d.querySelector(".vex");
+    vex.addEventListener("click",function(){this.classList.toggle("show-ex-tr");});
+    c.appendChild(d);
+  });
+}
+
+function buildStory(){
+  var b=document.getElementById("storyBox");
+  story.forEach(function(s,i){
+    var d=document.createElement("div");d.className="sline";d.id="sl"+i;
+    var txt=document.createTextNode(s.t);d.appendChild(txt);
+    var btn=document.createElement("button");
+    btn.style.cssText="background:transparent;border:1px solid #e5e7eb;border-radius:5px;padding:1px 7px;color:#9ca3af;font-size:.7rem;cursor:pointer;font-family:Tajawal,sans-serif;margin-right:6px";
+    btn.textContent="🌐";
+    btn.addEventListener("click",(function(ii){return function(){toggleTr(ii);};})(i));
+    d.appendChild(btn);
+    var tr=document.createElement("div");tr.id="tr"+i;
+    tr.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;font-family:Tajawal,sans-serif;border-right:3px solid #fde68a;padding-right:8px";
+    tr.textContent=s.ar;d.appendChild(tr);b.appendChild(d);
+  });
+}
+var _trAll=false;
+function toggleAllTr(){_trAll=!_trAll;for(var i=0;i<story.length;i++){var e=document.getElementById("tr"+i);if(e)e.style.display=_trAll?"block":"none";}document.getElementById("trBtn").textContent=_trAll?"🙈 أخفِ":"🌐 الترجمة";}
+function toggleTr(i){var e=document.getElementById("tr"+i);if(e)e.style.display=e.style.display==="none"?"block":"none";}
+function setSpd(r,btn){spd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function storySeq(i){if(!storyOn||i>=story.length){stopStory();return;}document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("sl"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(story[i].t);u.lang="en-US";u.rate=spd;u.pitch=0.92;u.onend=function(){if(storyOn)setTimeout(function(){storySeq(i+1);},320);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startStory(){storyOn=true;document.getElementById("sIcon").textContent="⏹";document.getElementById("sTxt").textContent="إيقاف القصة";storySeq(0);}
+function stopStory(){storyOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});document.getElementById("sIcon").textContent="▶";document.getElementById("sTxt").textContent="استمع للقصة";}
+function toggleStory(){storyOn?stopStory():startStory();}
+
+function buildReading(){
+  var t=document.getElementById("readingText");
+  reading.forEach(function(p){var d=document.createElement("p");d.textContent=p;t.appendChild(d);});
+  var c=document.getElementById("compList");
+  compQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";
+    p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="co"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){
+        compA[qi]=oi;
+        for(var k=0;k<q.opts.length;k++){var el=document.getElementById("co"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}
+        this.style.borderColor="#0a1628";
+      });
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function checkComp(){var s=0;compQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("co"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(compA[qi]===i)el.classList.add("no");}if(compA[qi]===q.ans)s++;});var r=document.getElementById("compRes");r.style.display="block";var pct=Math.round(s/compQs.length*100);r.textContent=s+" من "+compQs.length+" إجابة صحيحة ("+pct+"%) "+(pct===100?"🏆":pct>=60?"🎉":"📚 راجع النص");}
+function resetComp(){compA=new Array(compQs.length).fill(null);document.querySelectorAll(".copt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("compRes").style.display="none";}
+
+function buildGrammar(){
+  var c=document.getElementById("grammarBox");
+  var box1=document.createElement("div");box1.className="gbox";
+  var t1=document.createElement("div");t1.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";
+  t1.textContent="١ — Mixed Conditionals: نوعان";box1.appendChild(t1);
+  var tbl=document.createElement("div");tbl.style.cssText="background:#0a1628;border-radius:10px;padding:14px 18px;margin-bottom:14px;direction:ltr";
+  var rows=[
+    ["Type","If clause","Main clause","Meaning"],
+    ["Type 1","If + past perfect","would + infinitive","Past condition → Present result"],
+    ["Type 2","If + past simple","would have + past participle","Present state → Past result"],
+  ];
+  var table=document.createElement("table");table.style.cssText="width:100%;border-collapse:collapse;font-size:.82rem";
+  rows.forEach(function(row,ri){var tr=document.createElement("tr");if(ri>0)tr.style.borderTop="1px solid rgba(255,255,255,.1)";row.forEach(function(cell,ci){var td=document.createElement(ri===0?"th":"td");td.textContent=cell;td.style.cssText="padding:6px 8px;text-align:left;color:"+(ri===0?"#fde68a":ci===0?"#93c5fd":ci===1?"#f0c040":ci===2?"#86efac":"rgba(255,255,255,.75)");tr.appendChild(td);});table.appendChild(tr);});
+  tbl.appendChild(table);box1.appendChild(tbl);c.appendChild(box1);
+  var box2=document.createElement("div");box2.className="gbox";
+  var t2=document.createElement("div");t2.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";t2.textContent="٢ — أمثلة علمية";box2.appendChild(t2);
+  var examples=[
+    ["Type 1 — ماضٍ → حاضر:","If Fleming had not discovered penicillin, millions would still be dying today.","لو لم يكتشف فليمينج البنسلين لكان ملايين لا يزالون يموتون اليوم."],
+    ["Type 1 — ماضٍ → حاضر:","If I had studied physics, I would be working at CERN now.","لو درست الفيزياء لكنت أعمل في سيرن الآن."],
+    ["Type 2 — حاضر → ماضٍ:","If scientists were not so dedicated, those discoveries would never have happened.","لو لم يكن العلماء مخلصين لما حدثت تلك الاكتشافات."],
+    ["Type 2 — حاضر → ماضٍ:","If I were braver, I would have applied for NASA years ago.","لو كنت أكثر شجاعة لكنت تقدمت لناسا منذ سنوات."],
+  ];
+  examples.forEach(function(ex){var pat=document.createElement("div");pat.className="gpat";var d1=document.createElement("div");d1.style.cssText="font-size:.78rem;color:#f0a000;font-weight:700;direction:ltr;margin-bottom:2px";d1.textContent=ex[0];var d2=document.createElement("div");d2.style.cssText="font-size:.88rem;color:#0a1628;font-weight:600;direction:ltr;margin-bottom:4px";d2.textContent=ex[1];var d3=document.createElement("div");d3.style.cssText="font-size:.8rem;color:#64748b;direction:rtl;text-align:right";d3.textContent=ex[2];pat.appendChild(d1);pat.appendChild(d2);pat.appendChild(d3);box2.appendChild(pat);});
+  c.appendChild(box2);
+  var wrong=document.createElement("div");wrong.style.cssText="background:#fef2f2;border-radius:10px;padding:13px 16px;margin-bottom:8px;border-right:4px solid #dc2626;direction:ltr";
+  wrong.innerHTML='<span style="color:#dc2626;font-weight:700">✗ </span>If I studied harder, I would be a scientist now. <span style="font-size:.8rem;color:#dc2626">← هذا Type 2 عادي — مش mixed</span>';
+  var right=document.createElement("div");right.style.cssText="background:#f0fdf4;border-radius:10px;padding:13px 16px;border-right:4px solid #059669;direction:ltr";
+  right.innerHTML='<span style="color:#059669;font-weight:700">✓ </span>If I <strong>had studied</strong> harder, I <strong>would be</strong> a scientist now. <span style="font-size:.8rem;color:#059669">← past perfect + would be = Mixed ✅</span>';
+  c.appendChild(wrong);c.appendChild(right);
+}
+function buildListening(){
+  var s=document.getElementById("listenScript");
+  listenLines.forEach(function(line,i){var d=document.createElement("div");d.className="lline";d.id="ll"+i;d.textContent=line;s.appendChild(d);});
+  var c=document.getElementById("listenQList");
+  listenQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="lq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){listenA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("lq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function setLSpd(r,btn){lspd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function listenSeq(i){if(!listenOn||i>=listenLines.length){stopListen();return;}document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("ll"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(listenLines[i]);u.lang="en-US";u.rate=lspd;u.pitch=0.92;u.onend=function(){if(listenOn)setTimeout(function(){listenSeq(i+1);},380);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startListen(){listenOn=true;document.getElementById("lIcon").textContent="⏹";document.getElementById("lTxt").textContent="إيقاف المونولوج";listenSeq(0);}
+function stopListen(){listenOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});document.getElementById("lIcon").textContent="▶";document.getElementById("lTxt").textContent="شغّل المونولوج";}
+function toggleListen(){listenOn?stopListen():startListen();}
+function checkListen(){var s=0;listenQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("lq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(listenA[qi]===i)el.classList.add("no");}if(listenA[qi]===q.ans)s++;});var r=document.getElementById("listenRes");r.style.display="block";var pct=Math.round(s/listenQs.length*100);r.textContent=s+" من "+listenQs.length+" إجابة صحيحة ("+pct+"%) "+(pct>=80?"✅ ممتاز!":pct>=60?"👍 جيد!":"📚 راجع");}
+function resetListen(){listenA=new Array(listenQs.length).fill(null);document.querySelectorAll(".copt[id^='lq']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("listenRes").style.display="none";}
+
+function buildW(){
+  var ids=["w1","w2","w3","w4","w5"];var any=false;
+  for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value.trim())any=true;}
+  if(!any){document.getElementById("wOut").innerHTML="<span style='color:#9ca3af;font-style:italic'>✨ ستظهر فقرتك هنا...</span>";return;}
+  var parts=[];
+  for(var j=0;j<ids.length;j++){var el=document.getElementById(ids[j]);var v=el?el.value.trim():"";if(v)parts.push("<span style='color:#f0a000;font-weight:700'>"+v+"</span>.");}
+  document.getElementById("wOut").innerHTML="<p style='direction:ltr;line-height:2'>"+parts.join(" ")+"</p>";
+}
+
+function buildSpeaking(){
+  var c=document.getElementById("speakBox");
+  speakQs.forEach(function(q){
+    var d=document.createElement("div");d.style.cssText="background:#f8faff;border-right:4px solid #1e3a8a;border-radius:0 12px 12px 0;padding:16px 18px;margin-bottom:14px";
+    var p1=document.createElement("p");p1.style.cssText="font-size:.97rem;color:#0a1628;font-weight:700;direction:ltr;margin-bottom:5px";p1.textContent=q.q;
+    var p2=document.createElement("p");p2.style.cssText="font-size:.82rem;color:#9ca3af;margin-bottom:6px";p2.textContent=q.ar;
+    var p3=document.createElement("p");p3.style.cssText="font-size:.82rem;color:#f0a000;direction:ltr;margin-bottom:8px";p3.textContent="💡 "+q.hint;
+    var badge=document.createElement("span");badge.style.cssText="background:#dbeafe;color:#1e3a8a;padding:4px 12px;border-radius:20px;font-size:.76rem;font-weight:700";badge.textContent=q.badge;
+    d.appendChild(p1);d.appendChild(p2);d.appendChild(p3);d.appendChild(badge);
+    var btn=document.createElement("button");btn.className="spksmall";btn.textContent="🔊";btn.style.marginTop="10px";
+    btn.addEventListener("click",(function(qq){return function(){say(qq,spd);};})(q.q));
+    d.appendChild(btn);c.appendChild(d);
+  });
+}
+
+function makeExRow(text,arabic,spkText){
+  var div=document.createElement("div");
+  div.style.cssText="cursor:pointer;user-select:none;padding:8px 12px;background:white;border-radius:8px;direction:ltr;font-size:.86rem;color:#374151;font-style:italic;margin-top:6px";
+  var span=document.createElement("span");span.textContent=text;
+  var tr=document.createElement("div");
+  tr.style.cssText="font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;padding-top:4px;border-top:1px dashed #e5e7eb;display:none;font-family:Tajawal,sans-serif;font-style:normal";
+  tr.textContent=arabic;
+  div.appendChild(span);div.appendChild(tr);
+  div.addEventListener("click",(function(t,s){return function(){t.style.display=t.style.display==="none"?"block":"none";say(s,spd);};})(tr,spkText));
+  return div;
+}
+
+function buildReal(){
+  var c=document.getElementById("realBox");
+  var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h1.textContent="🔥 Expressions — اضغط على الجملة لتسمعها وترجمتها";c.appendChild(h1);
+  realExpr.forEach(function(e){
+    var d=document.createElement("div");d.className="expr-card";
+    // Visible 🔊 for main expression
+    var header=document.createElement("div");header.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;direction:ltr";
+    var headerLeft=document.createElement("div");headerLeft.style.cssText="display:flex;align-items:center;gap:8px";
+    var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";
+    spkBtn.addEventListener("click",(function(ee){return function(){say(ee,spd);};})(e.e));
+    var titleSpan=document.createElement("span");titleSpan.style.cssText="font-weight:700;color:#4c1d95;font-size:.97rem";titleSpan.textContent=e.e;
+    headerLeft.appendChild(spkBtn);headerLeft.appendChild(titleSpan);
+    var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.78rem;font-weight:700;font-family:Tajawal,sans-serif";pronSpan.textContent=e.p;
+    header.appendChild(headerLeft);header.appendChild(pronSpan);
+    d.appendChild(header);
+    var grid=document.createElement("div");grid.style.cssText="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px";
+    var g1=document.createElement("div");g1.style.cssText="background:white;border-radius:8px;padding:8px 12px;text-align:right";g1.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>المعنى</div><div style='font-weight:700;color:#374151;font-size:.88rem'>"+e.m+"</div>";
+    var g2=document.createElement("div");g2.style.cssText="background:white;border-radius:8px;padding:8px 12px;direction:ltr";g2.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>Formal</div><div style='font-size:.85rem;color:#64748b'>"+e.f+"</div>";
+    grid.appendChild(g1);grid.appendChild(g2);d.appendChild(grid);
+    d.appendChild(makeExRow(e.x,e.xar,e.x));
+    var note=document.createElement("div");note.style.cssText="font-size:.8rem;color:#7c3aed;text-align:right;margin-top:8px";note.textContent="💡 "+e.n;
+    d.appendChild(note);c.appendChild(d);
+  });
+  var h2=document.createElement("p");h2.style.cssText="font-weight:800;color:#0a1628;margin:20px 0 14px;text-align:right";h2.textContent="😎 Slang";c.appendChild(h2);
+  var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:20px";
+  realSlang.forEach(function(s){
+    var d=document.createElement("div");d.className="slang-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";
+    var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkS=document.createElement("button");spkS.className="spksmall";spkS.textContent="🔊";spkS.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkS.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var sWord=document.createElement("span");sWord.style.cssText="font-weight:700;color:#ea580c;font-size:.9rem";sWord.textContent=s.w;
+    titleLeft.appendChild(spkS);titleLeft.appendChild(sWord);
+    var pp=document.createElement("span");pp.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pp.textContent=s.p;
+    titleRow.appendChild(titleLeft);titleRow.appendChild(pp);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    sg.appendChild(d);
+  });
+  c.appendChild(sg);
+  var h3=document.createElement("p");h3.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h3.textContent="💬 Everyday Phrases";c.appendChild(h3);
+  var ev=document.createElement("div");ev.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";
+  realEvery.forEach(function(s){
+    var d=document.createElement("div");d.className="ev-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;direction:ltr";
+    var titleLeft2=document.createElement("div");titleLeft2.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkE=document.createElement("button");spkE.className="spksmall";spkE.textContent="🔊";spkE.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkE.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var titleTxt=document.createElement("span");titleTxt.style.cssText="font-weight:700;color:#15803d;font-size:.9rem";titleTxt.textContent=s.w;
+    titleLeft2.appendChild(spkE);titleLeft2.appendChild(titleTxt);
+    var evPron=document.createElement("span");evPron.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";evPron.textContent=s.p;
+    titleRow.appendChild(titleLeft2);titleRow.appendChild(evPron);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    ev.appendChild(d);
+  });
+  c.appendChild(ev);
+}
+
+function buildQuiz(){
+  var c=document.getElementById("quizList");
+  quizQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="18px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:10px;direction:ltr;font-size:.93rem";
+    p.innerHTML="<span style='background:#0a1628;color:white;border-radius:5px;padding:1px 8px;font-size:.76rem;margin-left:8px'>"+(qi+1)+"</span>"+q.q;
+    d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="qopt";b.id="qq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){quizA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("qq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function checkQuiz(){var s=0;quizQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("qq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(quizA[qi]===i)el.classList.add("no");}if(quizA[qi]===q.ans)s++;});var pct=Math.round(s/quizQs.length*100);var r=document.getElementById("quizRes");r.style.display="block";document.getElementById("qEmoji").textContent=pct===100?"🏆":pct>=70?"🎉":pct>=50?"💪":"📚";document.getElementById("qScore").textContent=s+" من "+quizQs.length+" إجابة صحيحة ("+pct+"%)";document.getElementById("qMsg").textContent=pct===100?"مثالي!":pct>=70?"أحسنت!":pct>=50?"راجع Conditionals Type 2.":"راجع الوحدة.";r.style.background=pct>=70?"#f0fdf4":"#fef9f0";r.scrollIntoView({behavior:"smooth",block:"center"});}
+function resetQuiz(){quizA=new Array(quizQs.length).fill(null);document.querySelectorAll(".qopt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("quizRes").style.display="none";}
+
+function show(id,btn){document.querySelectorAll(".sec").forEach(function(s){s.classList.remove("on");});document.getElementById("sec-"+id).classList.add("on");window.scrollTo({top:0,behavior:"smooth"});document.querySelectorAll(".nb").forEach(function(b){b.classList.remove("on");});if(btn){btn.classList.add("on");return;}var map={vocab:0,story:1,reading:2,grammar:3,listening:4,writing:5,speaking:6,realeng:7,quiz:8};var btns=document.querySelectorAll(".nb");if(btns[map[id]])btns[map[id]].classList.add("on");}
+
+buildVocab();buildStory();buildReading();buildGrammar();buildListening();buildSpeaking();buildReal();buildQuiz();
+</script>
+</body>
+</html>

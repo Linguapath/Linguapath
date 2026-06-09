@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath B1 — Unit 3: Health and Medicine</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Tajawal',sans-serif;background:#f0f4fa;direction:rtl;min-height:100vh}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#1e3a8a;border-radius:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(30,58,138,.35)}50%{box-shadow:0 0 0 8px rgba(30,58,138,0)}}
+.nav-bar{background:linear-gradient(135deg,#0a1628,#1e3a8a);padding:10px 12px;display:flex;justify-content:center;gap:4px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.nb{border:none;border-radius:22px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s}
+.nb.on{background:#f0a000;color:#0a1628}
+.nb:not(.on){background:rgba(255,255,255,.1);color:rgba(255,255,255,.85)}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#1e3a8a 55%,#1d4ed8 100%);color:white;padding:32px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(240,160,0,.06)}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04)}
+.b1tag{display:inline-block;background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-size:.72rem;font-weight:900;padding:4px 14px;border-radius:20px;letter-spacing:1.5px;margin-bottom:10px}
+.sec{display:none;max-width:900px;margin:0 auto;padding:32px 16px 80px;animation:fadeUp .4s ease}
+.sec.on{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 3px 20px rgba(0,0,0,.06);margin-bottom:22px;overflow:hidden}
+.ch{background:#0a1628;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.ch h3{font-size:1rem;font-weight:700}
+.ch .sub{font-size:.75rem;color:#93c5fd;margin-top:1px}
+.cb{padding:22px}
+.vocab-card{background:white;border-radius:16px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 14px rgba(10,22,40,.08);border:1px solid #e5ebf8;transition:transform .2s,box-shadow .2s}
+.vocab-card:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(10,22,40,.13)}
+.vhead{background:linear-gradient(135deg,#0a1628,#1e3a8a);display:flex;flex-direction:row-reverse;align-items:center;padding:14px 18px;gap:14px}
+.vimg{width:80px;height:80px;border-radius:12px;object-fit:cover;flex-shrink:0;border:2px solid rgba(255,255,255,.15)}
+.vimg-fallback{width:80px;height:80px;border-radius:12px;flex-shrink:0;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:2rem;border:2px solid rgba(255,255,255,.12)}
+.vinfo{flex:1;text-align:right}
+.vword{font-family:'Lora',serif;font-size:1.18rem;font-weight:700;color:white;direction:ltr;text-align:left}
+.vpron{font-size:.78rem;font-weight:700;color:#fde68a;margin-top:3px;direction:ltr;text-align:left}
+.var{font-size:.93rem;font-weight:700;color:rgba(255,255,255,.9);margin-top:3px}
+.vspk{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.25);background:transparent;color:white;font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:all .18s;display:flex;align-items:center;justify-content:center}
+.vspk:hover{background:rgba(255,255,255,.2);transform:scale(1.08)}
+.vspk.playing{background:#f0a000;border-color:#f0a000;animation:pulse 1s infinite}
+.vbody{padding:14px 16px 16px}
+.vgrid2{margin-bottom:10px}
+.vrow-pair{display:flex;gap:8px;margin-bottom:8px}
+.vrow-pair .vcell{flex:1;min-width:0}
+.vcell{border-radius:10px;padding:10px 13px;cursor:pointer;transition:all .15s;user-select:none;direction:ltr}
+.vcell:hover{filter:brightness(.96)}
+.vcell:active{transform:scale(.98)}
+.c-syn{background:#f0fdf4;border:1px solid #bbf7d0}
+.c-ant{background:#fff7ed;border:1px solid #fed7aa}
+.c-col{background:#eff6ff;border:1px solid #bfdbfe}
+.c-prep{background:#faf5ff;border:1px solid #ddd6fe}
+.vlbl{font-size:.65rem;font-weight:900;letter-spacing:.7px;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:5px;direction:ltr;justify-content:flex-start}
+.c-syn .vlbl{color:#15803d}.c-ant .vlbl{color:#ea580c}
+.c-col .vlbl{color:#2563eb}.c-prep .vlbl{color:#7c3aed}
+.vlbl::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.c-syn .vlbl::before{background:#15803d}.c-ant .vlbl::before{background:#ea580c}
+.c-col .vlbl::before{background:#2563eb}.c-prep .vlbl::before{background:#7c3aed}
+.vval{font-family:'Lora',serif;font-size:.82rem;color:#374151;direction:ltr;line-height:1.6}
+.vtr{font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px;padding-top:5px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif}
+.vcell.show-tr .vtr{display:block}
+.vex{font-family:'Lora',serif;font-size:.87rem;color:#374151;direction:ltr;font-style:italic;padding:10px 14px;background:#f8faff;border-radius:10px;border-right:3px solid #f0a000;cursor:pointer;user-select:none}
+.vex-tr{font-size:.8rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding-top:6px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif;font-style:normal}
+.vex.show-ex-tr .vex-tr{display:block}
+.sline{font-family:'Lora',serif;font-size:.97rem;line-height:2;padding:5px 8px;border-radius:6px;direction:ltr;transition:background .2s}
+.sline.hl{background:#fef3c7}
+.lline{font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#cbd5e1;padding:3px 6px;border-radius:5px;direction:ltr;transition:background .2s}
+.lline.hl{background:rgba(240,160,0,.18);color:#fde68a}
+.sctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-direction:row-reverse;margin-bottom:16px}
+.pbtn{background:#1e3a8a;color:white;border:none;border-radius:24px;padding:9px 20px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s}
+.pbtn:hover{background:#1d4ed8}
+.spdbtn{padding:5px 12px;border-radius:18px;border:2px solid #cbd5e1;background:white;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;color:#64748b;transition:all .15s}
+.spdbtn.on{border-color:#1e3a8a;background:#1e3a8a;color:white}
+.rtext{font-family:'Lora',serif;font-size:.95rem;line-height:2;color:#374151;direction:ltr;padding:20px;background:#f8faff;border-radius:14px;border:1px solid #e5eaf5;margin-bottom:18px}
+.rtext p{margin-bottom:14px}
+.gbox{background:linear-gradient(135deg,#eff6ff,#e0effe);border:2px solid #bfdbfe;border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.gpat{background:white;border-radius:10px;padding:12px 16px;margin-bottom:10px;border-right:4px solid #2563eb;direction:ltr}
+.geg{font-family:'Lora',serif;font-size:.97rem;color:#0a1628;font-weight:600}
+.geg em{color:#f0a000;font-style:normal;font-weight:800}
+.gar{font-family:'Tajawal',sans-serif;font-size:.85rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px}
+.qopt{padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;font-family:'Lora',serif;font-size:.9rem;direction:ltr;background:white;transition:all .15s;margin-bottom:7px;text-align:left}
+.qopt:hover{border-color:#1e3a8a;background:#eff6ff}
+.qopt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.qopt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.copt{padding:9px 14px;border:2px solid #e5e7eb;border-radius:9px;cursor:pointer;font-family:'Lora',serif;font-size:.87rem;direction:ltr;background:white;transition:all .15s;margin-bottom:6px}
+.copt:hover{border-color:#1e3a8a;background:#eff6ff}
+.copt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.copt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.wq-block{margin-bottom:18px}
+.wq-model{font-family:'Lora',serif;font-size:.8rem;color:#374151;font-style:italic;direction:ltr;padding:10px 14px;background:#f0f9ff;border-radius:8px;border-right:3px solid #bfdbfe;line-height:1.7;display:none;margin-bottom:8px}
+.wq-model.show{display:block}
+.wq-model-btn{background:#dbeafe;border:none;border-radius:20px;padding:4px 14px;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer;margin-bottom:8px;transition:all .15s}
+.wq-model-btn:hover{background:#1e3a8a;color:white}
+.wq-en{font-family:'Lora',serif;font-size:.93rem;font-weight:700;color:#0a1628;direction:ltr;margin-bottom:3px}
+.wq-ar{font-size:.78rem;color:#9ca3af;direction:rtl;text-align:right;margin-bottom:8px;font-family:'Tajawal',sans-serif}
+.winput{width:100%;border:none;border-bottom:2px solid #f0a000;background:transparent;font-family:'Lora',serif;font-size:.95rem;color:#0a1628;outline:none;padding:5px 3px;direction:ltr;margin-bottom:14px}
+.winput:focus{border-color:#1e3a8a}
+.btn{border:none;border-radius:28px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all .18s;padding:10px 24px;font-size:.9rem}
+.btn:hover{opacity:.88;transform:scale(.98)}
+.bd{background:#1e3a8a;color:white}
+.bg{background:#e5e7eb;color:#374151}
+.bgold{background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-weight:900}
+.navrow{display:flex;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.spksmall{width:32px;height:32px;border-radius:50%;border:none;background:#dbeafe;color:#1e3a8a;font-size:.85rem;cursor:pointer;flex-shrink:0;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.spksmall:hover{background:#1e3a8a;color:white}
+.expr-card{background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:16px;margin-bottom:12px}
+.slang-card{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px}
+.ev-card{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px}
+@media(max-width:580px){.vgrid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <button class="nb on"  onclick="show('vocab',this)">📚 المفردات</button>
+  <button class="nb" onclick="show('story',this)">📖 القصة</button>
+  <button class="nb" onclick="show('reading',this)">📰 القراءة</button>
+  <button class="nb" onclick="show('grammar',this)">✏️ القاعدة</button>
+  <button class="nb" onclick="show('listening',this)">🎧 الاستماع</button>
+  <button class="nb" onclick="show('writing',this)">✍️ الكتابة</button>
+  <button class="nb" onclick="show('speaking',this)">💬 المحادثة</button>
+  <button class="nb" onclick="show('realeng',this)">🗣️ Real English</button>
+  <button class="nb" onclick="show('quiz',this)">✅ الاختبار</button>
+</div>
+<div class="hero">
+  <div class="b1tag">B1 — INTERMEDIATE</div>
+  <div style="font-size:.75rem;letter-spacing:3px;color:rgba(255,255,255,.45);font-weight:700;margin-bottom:8px">UNIT 3</div>
+  <h1 style="font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;margin-bottom:6px">Health and Medicine</h1>
+  <p style="font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:4px">الصحة والطب</p>
+  <p style="font-size:.82rem;color:rgba(255,255,255,.4)">القاعدة: Modal Verbs for Deduction — must be / can't be / might be / could be</p>
+  <div style="display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap">
+    <a href="unit2_b1_routines.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">← الوحدة ٢</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="unit4_b1_tech.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">الوحدة ٤ ←</a>
+  </div>
+</div>
+
+<div id="sec-vocab" class="sec on">
+  <div style="text-align:right;color:#64748b;font-size:.88rem;max-width:900px;margin:0 auto 16px;padding:0 16px">💡 اضغط 🔊 للكلمة الرئيسية — اضغط على أي خلية لتسمع نطقها وتظهر ترجمتها</div>
+  <div id="vocabList" style="max-width:900px;margin:0 auto;padding:0 16px"></div>
+  <div class="navrow"><button class="btn bd" onclick="show('story',null)">القصة ←</button></div>
+</div>
+
+<div id="sec-story" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📖</span><div><h3>القصة القصيرة</h3><div class="sub">Omar يحكي عن تجربته مع الطب — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button id="trBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:22px;padding:7px 16px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+        <button class="pbtn" id="storyBtn" onclick="toggleStory()"><span id="sIcon">▶</span><span id="sTxt">استمع للقصة</span></button>
+        <button class="spdbtn on" onclick="setSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setSpd(0.75,this)">بطيء</button>
+      </div>
+      <div id="storyBox" style="border-right:4px solid #f0a000;padding:16px 20px;background:#fffdf7;border-radius:0 14px 14px 0"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn bd" onclick="show('reading',null)">القراءة ←</button>
+  </div>
+</div>
+
+<div id="sec-reading" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📰</span><div><h3>القراءة المعمّقة</h3><div class="sub">نص 350 كلمة + 6 أسئلة فهم</div></div></div>
+    <div class="cb">
+      <div class="rtext" id="readingText"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الفهم</p>
+      <div id="compList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkComp()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetComp()">↺ إعادة</button>
+      </div>
+      <div id="compRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('story',null)">→ القصة</button>
+    <button class="btn bd" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✏️</span><div><h3>القاعدة</h3><div class="sub">Modal Verbs for Deduction — الاستنتاج</div></div></div>
+    <div class="cb" id="grammarBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('reading',null)">→ القراءة</button>
+    <button class="btn bd" onclick="show('listening',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listening" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🎧</span><div><h3>الاستماع المضمّن</h3><div class="sub">مونولوج Omar — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button class="pbtn" id="listenBtn" onclick="toggleListen()"><span id="lIcon">▶</span><span id="lTxt">شغّل المونولوج</span></button>
+        <button class="spdbtn on" onclick="setLSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setLSpd(0.75,this)">بطيء</button>
+      </div>
+      <div class="lscript" id="listenScript" style="background:#0f172a;border-radius:14px;padding:18px 20px;margin-bottom:16px"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الاستماع</p>
+      <div id="listenQList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkListen()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetListen()">↺ إعادة</button>
+      </div>
+      <div id="listenRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn bd" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✍️</span><div><h3>الكتابة</h3><div class="sub">اكتب عن تجربة صحية</div></div></div>
+    <div class="cb">
+      <div style="background:#fffdf7;border:2px dashed #f0a000;border-radius:14px;padding:20px;margin-bottom:14px">
+                        <div class="wq-block">
+          <div class="wq-en">Describe the symptoms or health issue.</div>
+          <div class="wq-ar">صف الأعراض أو المشكلة الصحية.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">He must be suffering from severe fatigue and chronic headaches, which could indicate a number of underlying conditions. He can't be getting enough sleep — his energy levels have dropped dramatically over the past month.</div>
+          <input class="winput" id="wS" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">What is the diagnosis or medical opinion?</div>
+          <div class="wq-ar">ما التشخيص أو الرأي الطبي؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">It might be a chronic condition that requires long-term management. The symptoms could be related to stress, though the doctor should rule out anaemia or thyroid issues before reaching any conclusions.</div>
+          <input class="winput" id="wD" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">What is the treatment plan?</div>
+          <div class="wq-ar">ما خطة العلاج؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">The doctor prescribed medication and advised the patient to reduce stress, improve sleep hygiene, and follow a more balanced diet. Regular follow-up appointments must be scheduled to monitor progress.</div>
+          <input class="winput" id="wT" placeholder="Write your answer here..." oninput="buildW()" style="margin-bottom:0">
+        </div>
+        </div>
+      </div>
+      <div id="wOut" style="background:white;border:1px solid #e5eaf5;border-radius:12px;padding:16px;min-height:70px;font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#374151;direction:ltr">
+        <span style="color:#9ca3af;font-style:italic">✨ ستظهر فقرتك هنا...</span>
+      </div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('listening',null)">→ الاستماع</button>
+    <button class="btn bd" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">💬</span><div><h3>المحادثة</h3><div class="sub">Speaking Challenge</div></div></div>
+    <div class="cb" id="speakBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn bd" onclick="show('realeng',null)">Real English ←</button>
+  </div>
+</div>
+
+<div id="sec-realeng" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🗣️</span><div><h3>Real English</h3><div class="sub">Expressions + Slang + Everyday Phrases</div></div></div>
+    <div class="cb" id="realBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn bd" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-quiz" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✅</span><div><h3>اختبار الوحدة</h3><div class="sub">10 أسئلة — مفردات + قواعد + collocations</div></div></div>
+    <div class="cb">
+      <div id="quizList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:18px">
+        <button class="btn bgold" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn bg" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizRes" style="display:none;text-align:center;padding:22px;margin-top:16px;background:#f0fdf4;border-radius:14px">
+        <div id="qEmoji" style="font-size:2.5rem;margin-bottom:8px"></div>
+        <div id="qScore" style="font-weight:800;font-size:1.1rem;color:#0a1628;margin-bottom:4px"></div>
+        <div id="qMsg" style="font-size:.88rem;color:#64748b"></div>
+      </div>
+    </div>
+  </div>
+  <div style="background:linear-gradient(135deg,#0a1628,#1e3a8a);border-radius:18px;padding:28px;text-align:center;margin-top:8px;max-width:900px;margin-left:auto;margin-right:auto">
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:white;margin-bottom:6px">أحسنت! أكملت وحدة الصحة والطب</div>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:16px">الوحدة الرابعة: Technology and AI</p>
+    <button class="btn bgold" onclick="location.href='unit4_b1_tech.html'">الوحدة الرابعة ←</button>
+  </div>
+</div>
+
+<script>
+var V = [
+  {w:"diagnosis",   p:"داي-أغ-نوسيس",a:"التشخيص",             img:"https://picsum.photos/seed/201/200/100",
+   syn:"identification, assessment",ant:"misdiagnosis, oversight",
+   col:"make a diagnosis / accurate diagnosis / diagnosis of",prep:"diagnosis of (diabetes) / diagnosis by (doctor)",
+   ex:"The doctor must be confident in his diagnosis — the tests are conclusive.",
+   ar_syn:"تحديد، تقييم",ar_ant:"تشخيص خاطئ، إغفال",ar_col:"يُجري تشخيصاً / تشخيص دقيق",ar_prep:"تشخيص (مرض) / تشخيص بواسطة (طبيب)",ar_ex:"الطبيب يجب أن يكون واثقاً من تشخيصه — الاختبارات حاسمة."},
+  {w:"symptom",     p:"سيمبتم",       a:"العرَض / العلامة",    img:"https://picsum.photos/seed/202/200/100",
+   syn:"sign, indicator",          ant:"none (medical term)",
+   col:"show symptoms / common symptom / symptom of",     prep:"symptom of (flu) / symptom in (patients)",
+   ex:"He might be developing flu — his symptoms appeared overnight.",
+   ar_syn:"علامة، مؤشر",ar_ant:"لا يوجد مقابل مباشر",ar_col:"تظهر الأعراض / عرَض شائع",ar_prep:"عرَض (الإنفلونزا) / عرَض في (المرضى)",ar_ex:"قد يكون يصاب بالإنفلونزا — ظهرت أعراضه بين ليلة وضحاها."},
+  {w:"chronic",     p:"كرونيك",       a:"مزمن",                img:"https://picsum.photos/seed/203/200/100",
+   syn:"persistent, long-term",    ant:"acute, temporary",
+   col:"chronic pain / chronic illness / chronic condition", prep:"chronic for (years)",
+   ex:"She must be exhausted — she has been dealing with chronic pain for months.",
+   ar_syn:"مستمر، طويل الأمد",ar_ant:"حاد، مؤقت",ar_col:"ألم مزمن / مرض مزمن / حالة مزمنة",ar_prep:"مزمن لـ (سنوات)",ar_ex:"يجب أن تكون منهكة — تتعامل مع ألم مزمن منذ أشهر."},
+  {w:"prescribe",   p:"بريسكرايب",    a:"يصف الدواء",          img:"https://picsum.photos/seed/204/200/100",
+   syn:"recommend, order",         ant:"withhold, deny",
+   col:"prescribe medication / prescribe treatment / prescribe antibiotics",prep:"prescribe for (condition) / prescribe to (patient)",
+   ex:"The doctor might prescribe antibiotics if the infection does not clear.",
+   ar_syn:"يوصي، يأمر",ar_ant:"يمنع، يرفض",ar_col:"يصف دواءً / علاجاً / مضاداً حيوياً",ar_prep:"يصف لـ (حالة) / يصف لـ (مريض)",ar_ex:"الطبيب قد يصف مضادات حيوية إذا لم تختفِ العدوى."},
+  {w:"inflammation",p:"إنفلاميشن",    a:"الالتهاب",            img:"https://picsum.photos/seed/205/200/100",
+   syn:"swelling, irritation",     ant:"healing, recovery",
+   col:"reduce inflammation / cause inflammation / chronic inflammation",prep:"inflammation of (the joint) / inflammation in (the body)",
+   ex:"It could be inflammation — the area is red and swollen.",
+   ar_syn:"انتفاخ، تهيّج",ar_ant:"شفاء، تعافٍ",ar_col:"يقلل الالتهاب / يسبب التهاباً",ar_prep:"التهاب (المفصل) / التهاب في (الجسم)",ar_ex:"قد يكون التهاباً — المنطقة حمراء ومتورمة."},
+  {w:"immune",      p:"إميون",        a:"المناعة / مقاوم",     img:"https://picsum.photos/seed/206/200/100",
+   syn:"resistant, protected",     ant:"vulnerable, susceptible",
+   col:"immune system / boost immunity / immune response",  prep:"immune to (disease) / immune from (infection)",
+   ex:"She must be immune to this virus — she never gets ill when others do.",
+   ar_syn:"مقاوم، محمي",ar_ant:"ضعيف، قابل للإصابة",ar_col:"جهاز المناعة / يعزز المناعة",ar_prep:"مناعة ضد (مرض)",ar_ex:"يجب أن تكون محصّنة ضد هذا الفيروس — لا تمرض أبداً."},
+  {w:"contagious",  p:"كون-تيجس",     a:"معدٍ",                img:"https://picsum.photos/seed/207/200/100",
+   syn:"infectious, transmissible",ant:"non-contagious, safe",
+   col:"highly contagious / contagious disease / contagious period", prep:"contagious to (others)",
+   ex:"It must be contagious — three people in the office got ill this week.",
+   ar_syn:"مُعدٍ، قابل للانتقال",ar_ant:"غير معدٍ، آمن",ar_col:"شديد العدوى / مرض معدٍ",ar_prep:"معدٍ لـ (الآخرين)",ar_ex:"يجب أن يكون معدياً — ثلاثة أشخاص في المكتب مرضوا هذا الأسبوع."},
+  {w:"dosage",      p:"دوسيج",        a:"الجرعة",              img:"https://picsum.photos/seed/208/200/100",
+   syn:"dose, amount",             ant:"overdose (excessive)",
+   col:"correct dosage / daily dosage / exceed the dosage",  prep:"dosage of (medication) / dosage for (age)",
+   ex:"He might be taking the wrong dosage — he is not improving.",
+   ar_syn:"جرعة، كمية",ar_ant:"جرعة زائدة",ar_col:"الجرعة الصحيحة / الجرعة اليومية",ar_prep:"جرعة (دواء) / جرعة لـ (عمر)",ar_ex:"قد يأخذ الجرعة الخاطئة — لا يتحسن."},
+  {w:"prevention",  p:"بريفينشن",     a:"الوقاية",             img:"https://picsum.photos/seed/209/200/100",
+   syn:"precaution, protection",   ant:"neglect, exposure",
+   col:"disease prevention / prevention strategy / prevention is better than cure",prep:"prevention of (illness) / prevention through (vaccination)",
+   ex:"Prevention must be the priority — treating disease is far more costly.",
+   ar_syn:"احتياط، حماية",ar_ant:"إهمال، تعرّض",ar_col:"الوقاية من المرض / استراتيجية الوقاية",ar_prep:"الوقاية من (مرض) / وقاية عبر (لقاح)",ar_ex:"يجب أن تكون الوقاية هي الأولوية — علاج المرض أكثر تكلفة بكثير."},
+  {w:"allergy",     p:"أليرجي",       a:"الحساسية",            img:"https://picsum.photos/seed/210/200/100",
+   syn:"sensitivity, reaction",    ant:"tolerance, immunity",
+   col:"severe allergy / allergy to (nuts) / allergic reaction",prep:"allergy to (peanuts) / allergy in (children)",
+   ex:"She could be having an allergic reaction — her skin is covered in hives.",
+   ar_syn:"حساسية، تفاعل",ar_ant:"تحمّل، مناعة",ar_col:"حساسية شديدة / حساسية لـ (المكسرات)",ar_prep:"حساسية من (الفول السوداني)",ar_ex:"قد تعاني من تفاعل تحسسي — جلدها مغطى بطفح جلدي."},
+  {w:"treatment",   p:"تريتمنت",      a:"العلاج",              img:"https://picsum.photos/seed/211/200/100",
+   syn:"therapy, cure",            ant:"neglect, deterioration",
+   col:"undergo treatment / effective treatment / treatment plan",prep:"treatment for (cancer) / treatment of (condition)",
+   ex:"He must be responding to treatment — his condition has improved.",
+   ar_syn:"علاج، شفاء",ar_ant:"إهمال، تدهور",ar_col:"يخضع للعلاج / علاج فعال / خطة علاجية",ar_prep:"علاج (السرطان) / علاج (حالة)",ar_ex:"يجب أن يستجيب للعلاج — تحسّنت حالته."},
+  {w:"palliative",  p:"باليتف",       a:"تلطيفي / مسكّن",      img:"https://picsum.photos/seed/212/200/100",
+   syn:"relieving, comforting",    ant:"curative, aggressive",
+   col:"palliative care / palliative treatment / palliative approach",prep:"palliative for (pain)",
+   ex:"The doctors might recommend palliative care to improve quality of life.",
+   ar_syn:"مريح، مسكّن",ar_ant:"علاجي، مكثّف",ar_col:"رعاية تلطيفية / علاج تلطيفي",ar_prep:"مسكّن لـ (الألم)",ar_ex:"قد يوصي الأطباء بالرعاية التلطيفية لتحسين جودة الحياة."},
+  {w:"prognosis",   p:"بروغ-نوسيس",  a:"التنبؤ بالمرض / التوقعات الطبية",img:"https://picsum.photos/seed/213/200/100",
+   syn:"outlook, forecast",        ant:"uncertainty, unknown",
+   col:"good prognosis / poor prognosis / give a prognosis",  prep:"prognosis for (recovery)",
+   ex:"The prognosis could be excellent if treatment starts immediately.",
+   ar_syn:"توقعات، منظور",ar_ant:"غموض، مجهول",ar_col:"توقعات جيدة / توقعات سيئة",ar_prep:"توقعات (التعافي)",ar_ex:"قد تكون التوقعات ممتازة إذا بدأ العلاج فوراً."},
+  {w:"sedentary",   p:"سيدنتاري",     a:"خامل / قليل الحركة",  img:"https://picsum.photos/seed/214/200/100",
+   syn:"inactive, stationary",     ant:"active, mobile",
+   col:"sedentary lifestyle / sedentary job / sedentary behaviour",prep:"sedentary for (hours)",
+   ex:"He must be leading a sedentary lifestyle — he rarely leaves his desk.",
+   ar_syn:"غير نشط، ثابت",ar_ant:"نشط، متحرك",ar_col:"نمط حياة خامل / عمل جلوسي",ar_prep:"خامل لـ (ساعات)",ar_ex:"يجب أن يعيش نمط حياة خاملاً — نادراً ما يغادر مكتبه."},
+  {w:"malnourished",p:"مال-نيوريشت",  a:"يعاني من سوء التغذية",img:"https://picsum.photos/seed/215/200/100",
+   syn:"underfed, undernourished",  ant:"well-nourished, healthy",
+   col:"severely malnourished / malnourished children / become malnourished",prep:"malnourished due to (poverty)",
+   ex:"The child might be malnourished — he lacks essential vitamins.",
+   ar_syn:"يُقصر في تغذيته",ar_ant:"متغذٍّ جيداً، صحيح",ar_col:"يعاني سوء تغذية شديداً",ar_prep:"سوء تغذية بسبب (الفقر)",ar_ex:"قد يعاني الطفل من سوء التغذية — ينقصه الفيتامينات الأساسية."},
+  {w:"resilient",   p:"ريزيليينت",    a:"متعافٍ / قادر على الصمود",img:"https://picsum.photos/seed/216/200/100",
+   syn:"tough, adaptable",         ant:"fragile, vulnerable",
+   col:"resilient immune system / mentally resilient / be resilient",prep:"resilient to (illness) / resilient in (recovery)",
+   ex:"She must be incredibly resilient — she recovered from surgery in record time.",
+   ar_syn:"صلب، قادر على التكيف",ar_ant:"هشّ، ضعيف",ar_col:"جهاز مناعة قوي / قوي نفسياً",ar_prep:"قوي في مواجهة (المرض)",ar_ex:"يجب أن تكون صلبة بشكل لا يصدق — تعافت من الجراحة في وقت قياسي."},
+  {w:"epidemic",    p:"إبي-ديميك",    a:"وباء محلي",           img:"https://picsum.photos/seed/217/200/100",
+   syn:"outbreak, spread",         ant:"containment, eradication",
+   col:"flu epidemic / epidemic of / declare an epidemic",   prep:"epidemic of (flu) / epidemic in (region)",
+   ex:"It could be an epidemic — cases are doubling every week.",
+   ar_syn:"تفشٍّ، انتشار",ar_ant:"احتواء، استئصال",ar_col:"وباء الإنفلونزا / وباء / يُعلن وباءً",ar_prep:"وباء (الإنفلونزا) / وباء في (منطقة)",ar_ex:"قد يكون وباءً — الحالات تتضاعف كل أسبوع."},
+  {w:"rehabilitation",p:"ريهابلتيشن",a:"إعادة التأهيل",        img:"https://picsum.photos/seed/218/200/100",
+   syn:"recovery, restoration",    ant:"deterioration, decline",
+   col:"undergo rehabilitation / rehabilitation programme / physical rehabilitation",prep:"rehabilitation after (surgery) / rehabilitation for (injury)",
+   ex:"He must be making progress — his rehabilitation programme is intensive.",
+   ar_syn:"تعافٍ، استعادة",ar_ant:"تدهور، انحدار",ar_col:"يخضع لإعادة تأهيل / برنامج تأهيل",ar_prep:"تأهيل بعد (جراحة)",ar_ex:"يجب أن يُحرز تقدماً — برنامج إعادة تأهيله مكثّف."},
+  {w:"cardiovascular",p:"كارديو-فاسكيولر",a:"القلب والأوعية الدموية",img:"https://picsum.photos/seed/219/200/100",
+   syn:"cardiac, circulatory",     ant:"none (medical term)",
+   col:"cardiovascular disease / cardiovascular health / cardiovascular exercise",prep:"cardiovascular risk / cardiovascular in (patients)",
+   ex:"He might be at risk — cardiovascular disease runs in his family.",
+   ar_syn:"قلبي، دوري",ar_ant:"لا يوجد مقابل مباشر",ar_col:"أمراض قلبية وعائية / صحة القلب",ar_prep:"خطر قلبي وعائي",ar_ex:"قد يكون في خطر — أمراض القلب والأوعية متوارثة في عائلته."},
+  {w:"deteriorate",  p:"ديتيريوريت",  a:"يتدهور / يسوء",       img:"https://picsum.photos/seed/220/200/100",
+   syn:"worsen, decline",          ant:"improve, recover",
+   col:"condition deteriorates / health deteriorates / deteriorate rapidly",prep:"deteriorate due to (neglect)",
+   ex:"His condition must be deteriorating — he looks much worse than last week.",
+   ar_syn:"يسوء، يتراجع",ar_ant:"يتحسن، يتعافى",ar_col:"تتدهور الحالة / تتدهور الصحة",ar_prep:"يتدهور بسبب (الإهمال)",ar_ex:"يجب أن تكون حالته تتدهور — يبدو أسوأ بكثير من الأسبوع الماضي."},
+  {w:"obesity",     p:"أوبيستي",      a:"السمنة",              img:"https://picsum.photos/seed/221/200/100",
+   syn:"overweight, excess weight", ant:"underweight, lean",
+   col:"childhood obesity / obesity epidemic / combat obesity",prep:"obesity in (adults) / obesity due to (diet)",
+   ex:"It could be obesity-related — his blood pressure and cholesterol are both high.",
+   ar_syn:"زيادة الوزن",ar_ant:"نقص الوزن، نحيف",ar_col:"سمنة الأطفال / وباء السمنة",ar_prep:"سمنة في (البالغين)",ar_ex:"قد يكون مرتبطاً بالسمنة — ضغط دمه وكوليسترول كلاهما مرتفع."},
+  {w:"hereditary",  p:"هيريدتاري",    a:"وراثي",               img:"https://picsum.photos/seed/222/200/100",
+   syn:"genetic, inherited",       ant:"acquired, environmental",
+   col:"hereditary condition / hereditary disease / hereditary factor",prep:"hereditary in (families)",
+   ex:"The condition might be hereditary — her mother had the same issue.",
+   ar_syn:"وراثي، موروث",ar_ant:"مكتسب، بيئي",ar_col:"حالة وراثية / مرض وراثي",ar_prep:"وراثي في (العائلات)",ar_ex:"قد تكون الحالة وراثية — والدتها كان لديها نفس المشكلة."},
+  {w:"inflammation", p:"إنفلاميشن",   a:"الالتهاب",            img:"https://picsum.photos/seed/223/200/100",
+   syn:"swelling, redness",        ant:"recovery, healing",
+   col:"reduce inflammation / anti-inflammatory / inflammation marker",prep:"inflammation of (tissue)",
+   ex:"The test results must show inflammation — his joints are extremely painful.",
+   ar_syn:"انتفاخ، احمرار",ar_ant:"شفاء، تعافٍ",ar_col:"يقلل الالتهاب / مضاد للالتهاب",ar_prep:"التهاب (النسيج)",ar_ex:"يجب أن تظهر نتائج الاختبار التهاباً — مفاصله مؤلمة جداً."},
+  {w:"immune",      p:"إميون",        a:"مناعة",               img:"https://picsum.photos/seed/224/200/100",
+   syn:"protected, resistant",     ant:"susceptible, exposed",
+   col:"boost immune system / weakened immune / immune deficiency",prep:"immune to (virus)",
+   ex:"Her immune system could be weakened — she catches every illness going.",
+   ar_syn:"محمي، مقاوم",ar_ant:"عرضة، مكشوف",ar_col:"يعزز جهاز المناعة / مناعة ضعيفة",ar_prep:"مناعة ضد (فيروس)",ar_ex:"قد يكون جهازها المناعي ضعيفاً — تصاب بكل مرض يمر."},
+  {w:"wellbeing",   p:"ويل-بيينج",    a:"الرفاهية / العافية",  img:"https://picsum.photos/seed/225/200/100",
+   syn:"health, welfare",          ant:"illness, distress",
+   col:"mental wellbeing / emotional wellbeing / sense of wellbeing",prep:"wellbeing of (patients) / wellbeing at (work)",
+   ex:"His overall wellbeing must be affected by the stress of his workload.",
+   ar_syn:"صحة، رعاية",ar_ant:"مرض، ضائقة",ar_col:"رفاهية نفسية / رفاهية عاطفية",ar_prep:"رفاهية (المرضى)",ar_ex:"يجب أن تتأثر رفاهيته الإجمالية بضغط عبء عمله."},
+  {w:"sedative",    p:"سيداتف",       a:"المهدئ / المسكّن",    img:"https://picsum.photos/seed/226/200/100",
+   syn:"tranquilliser, relaxant",   ant:"stimulant, energiser",
+   col:"mild sedative / take a sedative / sedative effect",   prep:"sedative for (anxiety)",
+   ex:"The doctor might prescribe a mild sedative to help him sleep.",
+   ar_syn:"مهدئ، مرخٍ",ar_ant:"منبّه، محفّز",ar_col:"مهدئ خفيف / يأخذ مهدئاً",ar_prep:"مهدئ لـ (القلق)",ar_ex:"قد يصف الطبيب مهدئاً خفيفاً لمساعدته على النوم."},
+  {w:"vital",       p:"فايتل",        a:"حيوي / أساسي",        img:"https://picsum.photos/seed/227/200/100",
+   syn:"essential, critical",      ant:"unnecessary, trivial",
+   col:"vital signs / vital organ / vital role / vital information",prep:"vital for (survival) / vital to (health)",
+   ex:"His vital signs must be stable — the nurses seem calm.",
+   ar_syn:"أساسي، حاسم",ar_ant:"غير ضروري، تافه",ar_col:"علامات حيوية / عضو حيوي",ar_prep:"حيوي لـ (البقاء)",ar_ex:"يجب أن تكون علاماته الحيوية مستقرة — الممرضات تبدو هادئة."},
+  {w:"contraindication",p:"كونترا-إنديكيشن",a:"موانع الاستخدام",img:"https://picsum.photos/seed/228/200/100",
+   syn:"restriction, warning",     ant:"indication, recommendation",
+   col:"drug contraindication / list of contraindications",   prep:"contraindication for (medication)",
+   ex:"There could be a contraindication — she is already taking blood thinners.",
+   ar_syn:"قيد، تحذير",ar_ant:"توصية، تطبيق",ar_col:"موانع الدواء / قائمة الموانع",ar_prep:"موانع لـ (دواء)",ar_ex:"قد يكون هناك موانع — هي تأخذ مميعات الدم بالفعل."},
+  {w:"prognosis",   p:"بروغ-نوسيس",  a:"التوقع الطبي",        img:"https://picsum.photos/seed/229/200/100",
+   syn:"outlook, prediction",      ant:"uncertainty",
+   col:"positive prognosis / uncertain prognosis",            prep:"prognosis for (patient)",
+   ex:"The prognosis must be improving — she has responded well to medication.",
+   ar_syn:"توقع، تنبؤ",ar_ant:"غموض",ar_col:"توقع إيجابي / توقع غير مؤكد",ar_prep:"توقع لـ (المريض)",ar_ex:"يجب أن تتحسن التوقعات — استجابت جيداً للدواء."},
+  {w:"antibiotics", p:"آنتي-بايوتيكس",a:"المضادات الحيوية",   img:"https://picsum.photos/seed/230/200/100",
+   syn:"antimicrobials",           ant:"viruses (unaffected by)",
+   col:"prescribe antibiotics / complete a course / antibiotic resistance",prep:"antibiotics for (infection)",
+   ex:"It must be bacterial — the doctor prescribed a full course of antibiotics.",
+   ar_syn:"مضادات ميكروبية",ar_ant:"الفيروسات (لا تتأثر بها)",ar_col:"يصف مضادات / يكمل الجرعة",ar_prep:"مضادات لـ (عدوى)",ar_ex:"يجب أن يكون بكتيرياً — وصف الطبيب دورة كاملة من المضادات الحيوية."},
+];
+
+var story = [
+  {t:"Omar has been feeling unwell for two weeks, but he kept dismissing his symptoms as stress.",ar:"عمر يشعر بعدم الارتياح منذ أسبوعين، لكنه ظل يتجاهل أعراضه بذريعة الإجهاد."},
+  {t:"His colleague noticed: You must be exhausted — you look pale and you have been coughing all day.",ar:"زميله لاحظ: يجب أن تكون منهكاً — تبدو شاحباً وتسعل طوال اليوم."},
+  {t:"Omar replied: It might be allergies — I have been sneezing every morning this week.",ar:"عمر أجاب: قد تكون حساسية — كنت أعطس كل صباح هذا الأسبوع."},
+  {t:"His colleague shook her head: It can't be just allergies — you have a fever as well.",ar:"زميلته هزّت رأسها: لا يمكن أن تكون مجرد حساسية — عندك حمى أيضاً."},
+  {t:"At the clinic, the doctor examined him carefully and ordered tests immediately.",ar:"في العيادة، الطبيب فحصه بعناية وأمر بإجراء اختبارات فوراً."},
+  {t:"She explained: Your immune system could be weakened. The inflammation markers are high.",ar:"هي شرحت: جهازك المناعي قد يكون ضعيفاً. مؤشرات الالتهاب مرتفعة."},
+  {t:"The doctor prescribed antibiotics and advised Omar to monitor his vital signs daily.",ar:"الطبيبة وصفت مضادات حيوية ونصحت عمر بمراقبة علاماته الحيوية يومياً."},
+  {t:"Omar smiled with relief: I should have come sooner. Prevention must be better than cure after all.",ar:"عمر ابتسم بارتياح: كان يجب أن آتي مبكراً. الوقاية يجب أن تكون أفضل من العلاج في النهاية."},
+];
+
+var reading = [
+  "Modern medicine has transformed the way we understand and treat illness. Where once a diagnosis could take weeks, advances in medical technology now allow doctors to identify conditions within hours. Yet despite these advances, prevention remains the most powerful tool in maintaining public health.",
+  "Chronic diseases — conditions that persist for months or years — represent the greatest challenge to healthcare systems worldwide. Cardiovascular disease, type 2 diabetes, and obesity-related conditions account for the majority of premature deaths globally. Most of these conditions are not hereditary but are heavily influenced by lifestyle choices such as diet, exercise, and stress management.",
+  "The immune system plays a central role in determining how individuals respond to illness. People with weakened immune systems are far more susceptible to contagious diseases and take longer to recover. Factors such as poor sleep, sedentary behaviour, and malnutrition can all compromise immunity, making the body less resilient against infection.",
+  "When treatment is necessary, doctors must consider not only the diagnosis but also potential contraindications — reasons why a particular treatment might be harmful for a specific patient. A medication that works well for one person might cause serious complications for another. This is why personalised medicine, which tailors treatment to the individual, is seen as the future of healthcare.",
+  "For patients with serious or terminal conditions, palliative care focuses on improving quality of life rather than curing the disease. The prognosis may be uncertain, but skilled palliative care can reduce suffering significantly and allow patients to live with greater dignity and comfort.",
+  "Rehabilitation is another critical component of modern healthcare. Whether recovering from surgery, a stroke, or a serious illness, patients who undergo structured rehabilitation programmes consistently show better long-term outcomes. The message is clear: wellbeing depends not just on treating illness but on supporting the whole person through recovery.",
+];
+
+var compQs = [
+  {q:"What represents the greatest challenge to healthcare systems worldwide?",opts:["Infectious diseases","Chronic diseases","Surgical complications","Mental health"],ans:1},
+  {q:"According to the text, what most influences chronic conditions?",opts:["Genetics","Age","Lifestyle choices","Medications"],ans:2},
+  {q:"What can weaken the immune system?",opts:["Exercise","Vitamins","Poor sleep and sedentary behaviour","Fresh air"],ans:2},
+  {q:"What are contraindications?",opts:["Drug recommendations","Reasons why a treatment might be harmful","Types of diagnosis","Rehabilitation steps"],ans:1},
+  {q:"What does palliative care focus on?",opts:["Curing disease","Improving quality of life","Diagnosing conditions","Rehabilitation"],ans:1},
+  {q:"What do rehabilitation programmes consistently show?",opts:["Faster diagnosis","Lower costs","Better long-term outcomes","Fewer symptoms"],ans:2},
+];
+
+var listenLines = [
+  "My name is Omar, and I want to talk about something that happened to me recently.",
+  "For two weeks I had been ignoring my symptoms — I told myself it must be stress.",
+  "But my colleague said: You can't be fine — you look terrible and your cough is getting worse.",
+  "She was right. It turned out I might have developed a respiratory infection.",
+  "The doctor examined me and said: Your immune system could be weakened — your inflammation markers are elevated.",
+  "She prescribed a course of antibiotics and told me to monitor my vital signs.",
+  "She also said: It might be a hereditary susceptibility — your family history matters.",
+  "Within a week I was recovering. The prognosis was good — the treatment was working.",
+  "The experience taught me: you must never ignore symptoms. Your wellbeing depends on acting early.",
+  "Prevention must always come first. But when you do get ill, see a doctor immediately.",
+];
+
+var listenQs = [
+  {q:"How long had Omar been ignoring his symptoms?",opts:["One week","Two weeks","Three days","A month"],ans:1},
+  {q:"What did his colleague say could not be true?",opts:["That he was stressed","That he was fine","That he had allergies","That he needed rest"],ans:1},
+  {q:"What did the doctor say about his immune system?",opts:["It was too strong","It could be weakened","It was perfect","It had no issues"],ans:1},
+  {q:"What did the doctor prescribe?",opts:["A sedative","Vitamins","A course of antibiotics","Palliative care"],ans:2},
+  {q:"What lesson did Omar learn?",opts:["Ignore minor symptoms","Prevention first and see a doctor immediately when ill","Avoid doctors","Only see a doctor when very ill"],ans:1},
+];
+
+var speakQs = [
+  {q:"Describe a time you or someone you know was ill. Use modal verbs for deduction.",hint:"He must have been very ill because... It could be... The doctor said it might be...",ar:"صف مرة مرضت أنت أو أحد تعرفه. استخدم modal verbs.",badge:"🎯 استخدم must / might / could / can't"},
+  {q:"What do you think causes most chronic illnesses today?",hint:"In my opinion it must be... Sedentary lifestyles could be... Poor diet might be...",ar:"ما الذي تعتقد أنه يسبب معظم الأمراض المزمنة؟",badge:"🎯 استخدم modal verbs للاستنتاج"},
+  {q:"How important is prevention compared to treatment? Give examples.",hint:"Prevention must be more important because... Treatment might be necessary when... However it could be argued that...",ar:"ما أهمية الوقاية مقارنة بالعلاج؟",badge:"🎯 تحدّث 60 ثانية كاملة!"},
+  {q:"What lifestyle changes could improve public health the most?",hint:"I think sedentary behaviour must be reduced... People could improve their diet by... Exercise might be the most important factor...",ar:"ما تغييرات نمط الحياة التي يمكنها تحسين الصحة العامة؟",badge:"🎯 استخدم must / could / might"},
+];
+
+var realData = {
+  expr:[
+    {e:"An apple a day keeps the doctor away.",p:"أن آبل أ دي كيبس ذا دوكتر أوي",m:"الوقاية خير من العلاج",f:"Regular healthy habits prevent illness.",x:"Eat well, exercise, sleep — an apple a day keeps the doctor away!",n:"مثل إنجليزي قديم — أكل التفاحة اليومية رمز للعادات الصحية"},
+    {e:"Under the weather.",p:"أندر ذا ويذر",m:"يشعر بتعب خفيف / مريض قليلاً",f:"Feeling slightly unwell.",x:"I will not come in today — I am feeling a bit under the weather.",n:"تعبير يومي شائع جداً — يعني مريض بشكل طفيف"},
+    {e:"On the mend.",p:"أون ذا ميند",m:"في طريقه للتعافي",f:"Recovering and improving.",x:"Good news — he is finally on the mend after his surgery.",n:"mend = يُصلح — يعني الجسم يُصلح نفسه ويتعافى"},
+  ],
+  slang:[
+    {w:"Hypochondriac",p:"هايبو-كوندرياك",i:"person who always thinks they are ill",x:"He is such a hypochondriac — he googles every symptom!",a:"شخص يعتقد دائماً أنه مريض"},
+    {w:"Knocked out",p:"نوكت أوت",i:"extremely ill or exhausted",x:"The flu completely knocked me out for a week.",a:"مريض أو منهك تماماً"},
+    {w:"Pop a pill",p:"بوب أ بيل",i:"take a tablet quickly",x:"Just pop a pill — it will help with the headache.",a:"يأخذ حبة دواء بسرعة"},
+    {w:"Run-down",p:"ران-داون",i:"tired and in poor health",x:"I have been feeling very run-down lately.",a:"منهك وفي حالة صحية سيئة"},
+  ],
+  every:[
+    {w:"Get a check-up",p:"غيت أ تشيك-أب",i:"have a routine medical examination",x:"You should get a check-up — it has been two years.",a:"يجري فحصاً طبياً دورياً"},
+    {w:"Fight off",p:"فايت أوف",i:"resist or recover from illness",x:"Drink plenty of fluids to fight off the infection.",a:"يقاوم أو يتغلب على المرض"},
+    {w:"Wear off",p:"وير أوف",i:"gradually stop working (medication)",x:"The painkiller will wear off after four hours.",a:"يتوقف مفعول الدواء تدريجياً"},
+  ],
+};
+
+var quizQs = [
+  {q:"He looks terrible — he ___ be seriously ill.",opts:["can't","must","might not","should"],ans:1},
+  {q:"ما معنى 'contagious'؟",opts:["مزمن","معدٍ","وقائي","وراثي"],ans:1},
+  {q:"It ___ be an allergy — she has no history of them.",opts:["must","could","can't","might"],ans:2},
+  {q:"ما معنى 'prognosis'؟",opts:["التشخيص","الجرعة","التوقع الطبي","الأعراض"],ans:2},
+  {q:"The condition ___ be hereditary — her whole family has it.",opts:["can't","must","might not","could not"],ans:1},
+  {q:"ما الـ collocation الصحيح مع 'treatment'؟",opts:["do a treatment","make treatment","undergo treatment","take treatment"],ans:2},
+  {q:"She ___ be immune — she has never caught this virus despite exposure.",opts:["might","could","must","should"],ans:2},
+  {q:"ما معنى 'sedentary'؟",opts:["نشيط","وراثي","خامل قليل الحركة","مُعدٍ"],ans:2},
+  {q:"It ___ be serious — his vital signs are perfectly normal.",opts:["must","could","might","can't"],ans:3},
+  {q:"ما معنى 'rehabilitation'؟",opts:["التشخيص","الوقاية","إعادة التأهيل","الالتهاب"],ans:2},
+];
+
+var spd=1,lspd=1,storyOn=false,listenOn=false;
+var compA=new Array(compQs.length).fill(null);
+var listenA=new Array(listenQs.length).fill(null);
+var quizA=new Array(quizQs.length).fill(null);
+
+function say(text,rate,cb){if(!window.speechSynthesis)return null;window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=rate||spd;if(cb)u.onend=cb;window.speechSynthesis.speak(u);return u;}
+
+function buildVocab(){
+  var emo=["🔬","🤧","💊","📋","🔥","🛡️","😷","💉","🛡️","🌿","💊","🏥","📊","🪑","🥗","💪","🦠","🏃","❤️","📉","⚖️","🧬","🔴","🧬","😊","💤","⭐","⚠️","📈","💊"];
+  var c=document.getElementById("vocabList");
+  V.forEach(function(v,i){
+    var d=document.createElement("div");d.className="vocab-card";
+    d.innerHTML=
+      '<div class="vhead">'+
+        '<img class="vimg" id="vi'+i+'" src="'+v.img+'" alt="'+v.w+'" loading="lazy">'+
+        '<div class="vinfo">'+
+          '<div class="vword">'+v.w+'</div>'+
+          '<div class="vpron">'+v.p+'</div>'+
+          '<div class="var">'+v.a+'</div>'+
+        '</div>'+
+        '<button class="vspk" id="vs'+i+'">🔊</button>'+
+      '</div>'+
+      '<div class="vbody">'+
+        '<div class="vgrid2">'+
+          '<div class="vcell c-syn" data-i="'+i+'" data-c="0"><div class="vlbl">Synonym</div><div class="vval">'+v.syn+'</div><div class="vtr">'+v.ar_syn+'</div></div>'+
+          '<div class="vcell c-ant" data-i="'+i+'" data-c="1"><div class="vlbl">Antonym</div><div class="vval">'+v.ant+'</div><div class="vtr">'+v.ar_ant+'</div></div>'+
+          '<div class="vcell c-col" data-i="'+i+'" data-c="2"><div class="vlbl">Collocation</div><div class="vval">'+v.col+'</div><div class="vtr">'+v.ar_col+'</div></div>'+
+          '<div class="vcell c-prep" data-i="'+i+'" data-c="3"><div class="vlbl">Preposition</div><div class="vval">'+v.prep+'</div><div class="vtr">'+v.ar_prep+'</div></div>'+
+        '</div>'+
+        '<div class="vex" onclick="this.classList.toggle(\'show-ex-tr\')">'+v.ex+'<div class="vex-tr">'+v.ar_ex+'</div></div>'+
+      '</div>';
+    var img=d.querySelector(".vimg");
+    if(img){img.onerror=(function(ii){return function(){var fb=document.createElement("div");fb.className="vimg-fallback";fb.textContent=emo[ii];this.parentNode.replaceChild(fb,this);};})(i);}
+    d.querySelector(".vspk").addEventListener("click",(function(ii){return function(){document.querySelectorAll(".vspk").forEach(function(b){b.classList.remove("playing");});var btn=document.getElementById("vs"+ii);if(btn)btn.classList.add("playing");var u=say(V[ii].w,spd);if(u)u.onend=function(){if(btn)btn.classList.remove("playing");};};})(i));
+    d.querySelectorAll(".vcell").forEach(function(cell){cell.addEventListener("click",function(){var ii=parseInt(this.getAttribute("data-i"));var cc=parseInt(this.getAttribute("data-c"));var texts=[V[ii].syn,V[ii].ant,V[ii].col,V[ii].prep];say(texts[cc],0.9);this.classList.toggle("show-tr");});});
+    c.appendChild(d);
+  });
+}
+
+function buildStory(){var b=document.getElementById("storyBox");story.forEach(function(s,i){var d=document.createElement("div");d.className="sline";d.id="sl"+i;d.innerHTML=s.t+' <button style="background:transparent;border:1px solid #e5e7eb;border-radius:5px;padding:1px 7px;color:#9ca3af;font-size:.7rem;cursor:pointer;font-family:Tajawal,sans-serif" onclick="toggleTr('+i+')">🌐</button><div id="tr'+i+'" style="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;font-family:Tajawal,sans-serif;border-right:3px solid #fde68a;padding-right:8px">'+s.ar+'</div>';b.appendChild(d);});}
+var _trAll=false;
+function toggleAllTr(){_trAll=!_trAll;for(var i=0;i<story.length;i++){var e=document.getElementById("tr"+i);if(e)e.style.display=_trAll?"block":"none";}document.getElementById("trBtn").textContent=_trAll?"🙈 أخفِ":"🌐 الترجمة";}
+function toggleTr(i){var e=document.getElementById("tr"+i);if(e)e.style.display=e.style.display==="none"?"block":"none";}
+function setSpd(r,btn){spd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function storySeq(i){if(!storyOn||i>=story.length){stopStory();return;}document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("sl"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(story[i].t);u.lang="en-US";u.rate=spd;u.onend=function(){if(storyOn)setTimeout(function(){storySeq(i+1);},320);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startStory(){storyOn=true;document.getElementById("sIcon").textContent="⏹";document.getElementById("sTxt").textContent="إيقاف القصة";storySeq(0);}
+function stopStory(){storyOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});document.getElementById("sIcon").textContent="▶";document.getElementById("sTxt").textContent="استمع للقصة";}
+function toggleStory(){storyOn?stopStory():startStory();}
+
+function buildReading(){var t=document.getElementById("readingText");reading.forEach(function(p){var d=document.createElement("p");d.textContent=p;t.appendChild(d);});var c=document.getElementById("compList");compQs.forEach(function(q,qi){var d=document.createElement("div");d.style.marginBottom="14px";var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-family:'Lora',serif;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);q.opts.forEach(function(opt,oi){var b=document.createElement("div");b.className="copt";b.id="co"+qi+"-"+oi;b.textContent=opt;b.addEventListener("click",function(){compA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("co"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});d.appendChild(b);});c.appendChild(d);});}
+function checkComp(){var s=0;compQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("co"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(compA[qi]===i)el.classList.add("no");}if(compA[qi]===q.ans)s++;});var r=document.getElementById("compRes");r.style.display="block";var pct=Math.round(s/compQs.length*100);r.textContent=s+" من "+compQs.length+" إجابة صحيحة ("+pct+"%) "+(pct===100?"🏆":pct>=67?"🎉":"📚 راجع النص");}
+function resetComp(){compA=new Array(compQs.length).fill(null);document.querySelectorAll(".copt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("compRes").style.display="none";}
+
+function buildGrammar(){var c=document.getElementById("grammarBox");c.innerHTML='<div class="gbox"><div style="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right;display:flex;align-items:center;gap:8px;flex-direction:row-reverse"><span style="background:#1e3a8a;color:white;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:.8rem">١</span> Modal Verbs للاستنتاج — من الأكثر يقيناً للأقل</div><div style="background:#0a1628;border-radius:10px;padding:14px 18px;margin-bottom:14px"><div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:center;gap:12px;flex-direction:row-reverse"><div style="flex:1;background:#059669;border-radius:8px;padding:8px 12px;direction:ltr;font-family:\'Lora\',serif;font-size:.9rem;color:white"><strong>must be</strong> — He must be ill.</div><span style="color:#fde68a;font-size:.8rem;flex-shrink:0">يقين 90%+</span></div><div style="display:flex;align-items:center;gap:12px;flex-direction:row-reverse"><div style="flex:1;background:#2563eb;border-radius:8px;padding:8px 12px;direction:ltr;font-family:\'Lora\',serif;font-size:.9rem;color:white"><strong>could be / might be</strong> — It might be flu.</div><span style="color:#fde68a;font-size:.8rem;flex-shrink:0">احتمال 50%</span></div><div style="display:flex;align-items:center;gap:12px;flex-direction:row-reverse"><div style="flex:1;background:#dc2626;border-radius:8px;padding:8px 12px;direction:ltr;font-family:\'Lora\',serif;font-size:.9rem;color:white"><strong>can\'t be</strong> — It can\'t be serious.</div><span style="color:#fde68a;font-size:.8rem;flex-shrink:0">استبعاد 90%+</span></div></div></div></div><div class="gbox"><div style="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right;display:flex;align-items:center;gap:8px;flex-direction:row-reverse"><span style="background:#1e3a8a;color:white;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:.8rem">٢</span> أمثلة في سياق الطب</div><div class="gpat"><div class="geg">He <em>must be</em> in pain — he has been gripping his side all morning.</div><div class="gar">يجب أن يكون يتألم — كان يمسك جانبه طوال الصباح. ← دليل قوي</div></div><div class="gpat"><div class="geg">It <em>might be</em> an allergy — she started sneezing after lunch.</div><div class="gar">قد تكون حساسية — بدأت تعطس بعد الغداء. ← احتمال</div></div><div class="gpat"><div class="geg">It <em>can\'t be</em> contagious — nobody else has caught it.</div><div class="gar">لا يمكن أن يكون معدياً — لم يصب أحد آخر. ← استبعاد منطقي</div></div></div><div style="background:#fef2f2;border-radius:10px;padding:13px 16px;margin-bottom:8px;border-right:4px solid #dc2626;direction:ltr"><span style="color:#dc2626;font-weight:700">✗ </span><span style="font-family:\'Lora\',serif">He <u>must be having</u> a fever yesterday.</span><span style="font-family:\'Tajawal\',sans-serif;color:#dc2626;font-size:.83rem;margin-right:8px"> ← must be للحاضر فقط، للماضي: must have been</span></div><div style="background:#f0fdf4;border-radius:10px;padding:13px 16px;border-right:4px solid #059669;direction:ltr"><span style="color:#059669;font-weight:700">✓ </span><span style="font-family:\'Lora\',serif">He <em>must have been</em> feverish yesterday.</span><span style="font-family:\'Tajawal\',sans-serif;color:#059669;font-size:.83rem;margin-right:8px"> ← must have been للاستنتاج في الماضي</span></div>';}
+
+function buildListening(){var s=document.getElementById("listenScript");listenLines.forEach(function(line,i){var d=document.createElement("div");d.className="lline";d.id="ll"+i;d.textContent=line;s.appendChild(d);});var c=document.getElementById("listenQList");listenQs.forEach(function(q,qi){var d=document.createElement("div");d.style.marginBottom="14px";var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-family:'Lora',serif;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);q.opts.forEach(function(opt,oi){var b=document.createElement("div");b.className="copt";b.id="lq"+qi+"-"+oi;b.textContent=opt;b.addEventListener("click",function(){listenA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("lq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});d.appendChild(b);});c.appendChild(d);});}
+function setLSpd(r,btn){lspd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function listenSeq(i){if(!listenOn||i>=listenLines.length){stopListen();return;}document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("ll"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(listenLines[i]);u.lang="en-US";u.rate=lspd;u.onend=function(){if(listenOn)setTimeout(function(){listenSeq(i+1);},380);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startListen(){listenOn=true;document.getElementById("lIcon").textContent="⏹";document.getElementById("lTxt").textContent="إيقاف المونولوج";listenSeq(0);}
+function stopListen(){listenOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});document.getElementById("lIcon").textContent="▶";document.getElementById("lTxt").textContent="شغّل المونولوج";}
+function toggleListen(){listenOn?stopListen():startListen();}
+function checkListen(){var s=0;listenQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("lq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(listenA[qi]===i)el.classList.add("no");}if(listenA[qi]===q.ans)s++;});var r=document.getElementById("listenRes");r.style.display="block";var pct=Math.round(s/listenQs.length*100);r.textContent=s+" من "+listenQs.length+" إجابة صحيحة ("+pct+"%) "+(pct>=80?"✅ ممتاز!":pct>=60?"👍 جيد!":"📚 راجع مرة ثانية");}
+function resetListen(){listenA=new Array(listenQs.length).fill(null);document.querySelectorAll(".copt[id^='lq']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("listenRes").style.display="none";}
+
+function buildW(){var s=document.getElementById("wS").value.trim();var d=document.getElementById("wD").value.trim();var t=document.getElementById("wT").value.trim();if(!s&&!d&&!t){document.getElementById("wOut").innerHTML='<span style="color:#9ca3af;font-style:italic">✨ ستظهر فقرتك هنا...</span>';return;}var hi=function(v){return '<span style="color:#f0a000;font-weight:700">'+v+'</span>';};var parts=[];if(s)parts.push(hi(s)+".");if(d)parts.push(hi(d)+".");if(t)parts.push(hi(t)+".");document.getElementById("wOut").innerHTML='<p style="direction:ltr;line-height:2">'+parts.join(" ")+'</p>';}
+
+function buildSpeaking(){var c=document.getElementById("speakBox");speakQs.forEach(function(q){var d=document.createElement("div");d.style.cssText="background:#f8faff;border-right:4px solid #1e3a8a;border-radius:0 12px 12px 0;padding:16px 18px;margin-bottom:14px";d.innerHTML='<p style="font-family:\'Lora\',serif;font-size:.97rem;color:#0a1628;font-weight:700;direction:ltr;margin-bottom:5px">'+q.q+'</p><p style="font-size:.82rem;color:#9ca3af;margin-bottom:6px">'+q.ar+'</p><p style="font-size:.82rem;color:#f0a000;font-family:\'Lora\',serif;direction:ltr;margin-bottom:8px">💡 '+q.hint+'</p><span style="background:#dbeafe;color:#1e3a8a;padding:4px 12px;border-radius:20px;font-size:.76rem;font-weight:700">'+q.badge+'</span>';var btn=document.createElement("button");btn.className="spksmall";btn.textContent="🔊";btn.style.marginTop="10px";btn.addEventListener("click",function(){say(q.q,spd);});d.appendChild(btn);c.appendChild(d);});}
+
+function buildReal(){var c=document.getElementById("realBox");c.innerHTML='<p style="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right">🔥 Expressions</p>';realData.expr.forEach(function(e){var d=document.createElement("div");d.className="expr-card";d.innerHTML='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-direction:row-reverse"><div style="display:flex;align-items:center;gap:8px;flex-direction:row-reverse"><span style="font-family:\'Lora\',serif;font-weight:700;color:#4c1d95;font-size:.97rem;direction:ltr">'+e.e+'</span><span style="color:#f0a000;font-size:.78rem;font-weight:700">'+e.p+'</span></div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px"><div style="background:white;border-radius:8px;padding:8px 12px;text-align:right"><div style="font-size:.68rem;color:#9ca3af;margin-bottom:2px">المعنى</div><div style="font-weight:700;color:#374151;font-size:.88rem">'+e.m+'</div></div><div style="background:white;border-radius:8px;padding:8px 12px;direction:ltr"><div style="font-size:.68rem;color:#9ca3af;margin-bottom:2px">Formal</div><div style="font-size:.85rem;font-family:\'Lora\',serif;color:#64748b">'+e.f+'</div></div></div><div style="background:white;border-radius:8px;padding:8px 12px;direction:ltr;margin-bottom:6px;font-family:\'Lora\',serif;font-size:.86rem;color:#374151;font-style:italic">'+e.x+'</div><div style="font-size:.8rem;color:#7c3aed;text-align:right">💡 '+e.n+'</div>';var btn=document.createElement("button");btn.className="spksmall";btn.textContent="🔊";btn.style.marginTop="8px";btn.addEventListener("click",function(){say(e.e,spd);});d.appendChild(btn);c.appendChild(d);});var sg='<p style="font-weight:800;color:#0a1628;margin:20px 0 14px;text-align:right">😎 Slang</p><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:20px">';realData.slang.forEach(function(s){sg+='<div class="slang-card"><div style="font-family:\'Lora\',serif;font-weight:700;color:#ea580c;margin-bottom:4px">'+s.w+' <span style="color:#f0a000;font-size:.76rem">'+s.p+'</span></div><div style="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px">'+s.a+'</div><div style="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px">Instead of: <span style="font-family:\'Lora\',serif">'+s.i+'</span></div><div style="background:white;border-radius:6px;padding:6px 10px;font-family:\'Lora\',serif;font-size:.82rem;direction:ltr;font-style:italic;color:#374151">'+s.x+'</div></div>';});sg+='</div>';c.innerHTML+=sg;var ev='<p style="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right">💬 Everyday Phrases</p><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px">';realData.every.forEach(function(s){ev+='<div class="ev-card"><div style="font-family:\'Lora\',serif;font-weight:700;color:#15803d;font-size:.9rem;margin-bottom:6px">'+s.w+'</div><div style="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px">'+s.a+'</div><div style="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px">Instead of: <span style="font-family:\'Lora\',serif">'+s.i+'</span></div><div style="background:white;border-radius:6px;padding:6px 10px;font-family:\'Lora\',serif;font-size:.82rem;direction:ltr;font-style:italic;color:#374151">'+s.x+'</div></div>';});ev+='</div>';c.innerHTML+=ev;}
+
+function buildQuiz(){var c=document.getElementById("quizList");quizQs.forEach(function(q,qi){var d=document.createElement("div");d.style.marginBottom="18px";var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:10px;direction:ltr;font-family:'Lora',serif;font-size:.93rem";p.innerHTML='<span style="background:#0a1628;color:white;border-radius:5px;padding:1px 8px;font-size:.76rem;margin-left:8px">'+(qi+1)+'</span>'+q.q;d.appendChild(p);q.opts.forEach(function(opt,oi){var b=document.createElement("div");b.className="qopt";b.id="qq"+qi+"-"+oi;b.textContent=opt;b.addEventListener("click",function(){quizA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("qq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});d.appendChild(b);});c.appendChild(d);});}
+function checkQuiz(){var s=0;quizQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("qq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(quizA[qi]===i)el.classList.add("no");}if(quizA[qi]===q.ans)s++;});var pct=Math.round(s/quizQs.length*100);var r=document.getElementById("quizRes");r.style.display="block";document.getElementById("qEmoji").textContent=pct===100?"🏆":pct>=70?"🎉":pct>=50?"💪":"📚";document.getElementById("qScore").textContent=s+" من "+quizQs.length+" إجابة صحيحة ("+pct+"%)";document.getElementById("qMsg").textContent=pct===100?"مثالي! جاهز للوحدة الرابعة!":pct>=70?"أحسنت!":pct>=50?"راجع modal verbs.":"راجع الوحدة كاملة.";r.style.background=pct>=70?"#f0fdf4":"#fef9f0";r.scrollIntoView({behavior:"smooth",block:"center"});}
+function resetQuiz(){quizA=new Array(quizQs.length).fill(null);document.querySelectorAll(".qopt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("quizRes").style.display="none";}
+
+function show(id,btn){document.querySelectorAll(".sec").forEach(function(s){s.classList.remove("on");});document.getElementById("sec-"+id).classList.add("on");window.scrollTo({top:0,behavior:"smooth"});document.querySelectorAll(".nb").forEach(function(b){b.classList.remove("on");});if(btn){btn.classList.add("on");return;}var map={vocab:0,story:1,reading:2,grammar:3,listening:4,writing:5,speaking:6,realeng:7,quiz:8};var btns=document.querySelectorAll(".nb");if(btns[map[id]])btns[map[id]].classList.add("on");}
+
+buildVocab();buildStory();buildReading();buildGrammar();buildListening();buildSpeaking();buildReal();buildQuiz();
+</script>
+</body>
+</html>

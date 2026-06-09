@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath B1 — Unit 9: Food and Nutrition</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Tajawal',sans-serif;background:#f0f4fa;direction:rtl;min-height:100vh}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#1e3a8a;border-radius:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(30,58,138,.35)}50%{box-shadow:0 0 0 8px rgba(30,58,138,0)}}
+.nav-bar{background:linear-gradient(135deg,#0a1628,#1e3a8a);padding:10px 12px;display:flex;justify-content:center;gap:4px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.nb{border:none;border-radius:22px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s}
+.nb.on{background:#f0a000;color:#0a1628}
+.nb:not(.on){background:rgba(255,255,255,.1);color:rgba(255,255,255,.85)}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#1e3a8a 55%,#1d4ed8 100%);color:white;padding:32px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(240,160,0,.06)}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04)}
+.b1tag{display:inline-block;background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-size:.72rem;font-weight:900;padding:4px 14px;border-radius:20px;letter-spacing:1.5px;margin-bottom:10px}
+.sec{display:none;max-width:900px;margin:0 auto;padding:32px 16px 80px;animation:fadeUp .4s ease}
+.sec.on{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 3px 20px rgba(0,0,0,.06);margin-bottom:22px;overflow:hidden}
+.ch{background:#0a1628;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.ch h3{font-size:1rem;font-weight:700}
+.ch .sub{font-size:.75rem;color:#93c5fd;margin-top:1px}
+.cb{padding:22px}
+.vocab-card{background:white;border-radius:16px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 14px rgba(10,22,40,.08);border:1px solid #e5ebf8;transition:transform .2s,box-shadow .2s}
+.vocab-card:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(10,22,40,.13)}
+.vhead{background:linear-gradient(135deg,#0a1628,#1e3a8a);display:flex;flex-direction:row-reverse;align-items:center;padding:14px 18px;gap:14px}
+.vimg{width:80px;height:80px;border-radius:12px;object-fit:cover;flex-shrink:0;border:2px solid rgba(255,255,255,.15)}
+.vimg-fallback{width:80px;height:80px;border-radius:12px;flex-shrink:0;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:2rem;border:2px solid rgba(255,255,255,.12)}
+.vinfo{flex:1;text-align:right}
+.vword{font-family:'Lora',serif;font-size:1.18rem;font-weight:700;color:white;direction:ltr;text-align:left}
+.vpron{font-size:.78rem;font-weight:700;color:#fde68a;margin-top:3px;direction:ltr;text-align:left}
+.var{font-size:.93rem;font-weight:700;color:rgba(255,255,255,.9);margin-top:3px}
+.vspk{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.25);background:transparent;color:white;font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:all .18s;display:flex;align-items:center;justify-content:center}
+.vspk:hover{background:rgba(255,255,255,.2);transform:scale(1.08)}
+.vspk.playing{background:#f0a000;border-color:#f0a000;animation:pulse 1s infinite}
+.vbody{padding:14px 16px 16px}
+.vgrid2{margin-bottom:10px}
+.vrow-pair{display:flex;gap:8px;margin-bottom:8px}
+.vrow-pair .vcell{flex:1;min-width:0}
+.vcell{border-radius:10px;padding:10px 13px;cursor:pointer;transition:all .15s;user-select:none;direction:ltr}
+.vcell:hover{filter:brightness(.96)}
+.vcell:active{transform:scale(.98)}
+.c-syn{background:#f0fdf4;border:1px solid #bbf7d0}
+.c-ant{background:#fff7ed;border:1px solid #fed7aa}
+.c-col{background:#eff6ff;border:1px solid #bfdbfe}
+.c-prep{background:#faf5ff;border:1px solid #ddd6fe}
+.vlbl{font-size:.65rem;font-weight:900;letter-spacing:.7px;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:5px;direction:ltr;justify-content:flex-start}
+.c-syn .vlbl{color:#15803d}.c-ant .vlbl{color:#ea580c}
+.c-col .vlbl{color:#2563eb}.c-prep .vlbl{color:#7c3aed}
+.vlbl::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.c-syn .vlbl::before{background:#15803d}.c-ant .vlbl::before{background:#ea580c}
+.c-col .vlbl::before{background:#2563eb}.c-prep .vlbl::before{background:#7c3aed}
+.vval{font-family:'Lora',serif;font-size:.82rem;color:#374151;direction:ltr;line-height:1.6}
+.vtr{font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px;padding-top:5px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif}
+.vcell.show-tr .vtr{display:block}
+.vex{font-family:'Lora',serif;font-size:.87rem;color:#374151;direction:ltr;font-style:italic;padding:10px 14px;background:#f8faff;border-radius:10px;border-right:3px solid #f0a000;cursor:pointer;user-select:none}
+.vex-tr{font-size:.8rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding-top:6px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif;font-style:normal}
+.vex.show-ex-tr .vex-tr{display:block}
+.sline{font-family:'Lora',serif;font-size:.97rem;line-height:2;padding:5px 8px;border-radius:6px;direction:ltr;transition:background .2s}
+.sline.hl{background:#fef3c7}
+.lline{font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#cbd5e1;padding:3px 6px;border-radius:5px;direction:ltr;transition:background .2s}
+.lline.hl{background:rgba(240,160,0,.18);color:#fde68a}
+.sctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-direction:row-reverse;margin-bottom:16px}
+.pbtn{background:#1e3a8a;color:white;border:none;border-radius:24px;padding:9px 20px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s}
+.pbtn:hover{background:#1d4ed8}
+.spdbtn{padding:5px 12px;border-radius:18px;border:2px solid #cbd5e1;background:white;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;color:#64748b;transition:all .15s}
+.spdbtn.on{border-color:#1e3a8a;background:#1e3a8a;color:white}
+.rtext{font-family:'Lora',serif;font-size:.95rem;line-height:2;color:#374151;direction:ltr;padding:20px;background:#f8faff;border-radius:14px;border:1px solid #e5eaf5;margin-bottom:18px}
+.rtext p{margin-bottom:14px}
+.gbox{background:linear-gradient(135deg,#eff6ff,#e0effe);border:2px solid #bfdbfe;border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.gpat{background:white;border-radius:10px;padding:12px 16px;margin-bottom:10px;border-right:4px solid #2563eb;direction:ltr}
+.geg{font-family:'Lora',serif;font-size:.97rem;color:#0a1628;font-weight:600}
+.geg em{color:#f0a000;font-style:normal;font-weight:800}
+.gar{font-family:'Tajawal',sans-serif;font-size:.85rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px}
+.qopt{padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;font-family:'Lora',serif;font-size:.9rem;direction:ltr;background:white;transition:all .15s;margin-bottom:7px;text-align:left}
+.qopt:hover{border-color:#1e3a8a;background:#eff6ff}
+.qopt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.qopt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.copt{padding:9px 14px;border:2px solid #e5e7eb;border-radius:9px;cursor:pointer;font-family:'Lora',serif;font-size:.87rem;direction:ltr;background:white;transition:all .15s;margin-bottom:6px}
+.copt:hover{border-color:#1e3a8a;background:#eff6ff}
+.copt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.copt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.wq-block{margin-bottom:18px}
+.wq-model{font-family:'Lora',serif;font-size:.8rem;color:#374151;font-style:italic;direction:ltr;padding:10px 14px;background:#f0f9ff;border-radius:8px;border-right:3px solid #bfdbfe;line-height:1.7;display:none;margin-bottom:8px}
+.wq-model.show{display:block}
+.wq-model-btn{background:#dbeafe;border:none;border-radius:20px;padding:4px 14px;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer;margin-bottom:8px;transition:all .15s}
+.wq-model-btn:hover{background:#1e3a8a;color:white}
+.wq-en{font-family:'Lora',serif;font-size:.93rem;font-weight:700;color:#0a1628;direction:ltr;margin-bottom:3px}
+.wq-ar{font-size:.78rem;color:#9ca3af;direction:rtl;text-align:right;margin-bottom:8px;font-family:'Tajawal',sans-serif}
+.winput{width:100%;border:none;border-bottom:2px solid #f0a000;background:transparent;font-family:'Lora',serif;font-size:.95rem;color:#0a1628;outline:none;padding:5px 3px;direction:ltr;margin-bottom:14px}
+.winput:focus{border-color:#1e3a8a}
+.btn{border:none;border-radius:28px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all .18s;padding:10px 24px;font-size:.9rem}
+.btn:hover{opacity:.88;transform:scale(.98)}
+.bd{background:#1e3a8a;color:white}
+.bg{background:#e5e7eb;color:#374151}
+.bgold{background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-weight:900}
+.navrow{display:flex;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.spksmall{width:32px;height:32px;border-radius:50%;border:none;background:#dbeafe;color:#1e3a8a;font-size:.85rem;cursor:pointer;flex-shrink:0;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.spksmall:hover{background:#1e3a8a;color:white}
+.expr-card{background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:16px;margin-bottom:12px}
+.slang-card{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px}
+.ev-card{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px}
+@media(max-width:580px){.vgrid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <button class="nb on"  onclick="show('vocab',this)">📚 المفردات</button>
+  <button class="nb" onclick="show('story',this)">📖 القصة</button>
+  <button class="nb" onclick="show('reading',this)">📰 القراءة</button>
+  <button class="nb" onclick="show('grammar',this)">✏️ القاعدة</button>
+  <button class="nb" onclick="show('listening',this)">🎧 الاستماع</button>
+  <button class="nb" onclick="show('writing',this)">✍️ الكتابة</button>
+  <button class="nb" onclick="show('speaking',this)">💬 المحادثة</button>
+  <button class="nb" onclick="show('realeng',this)">🗣️ Real English</button>
+  <button class="nb" onclick="show('quiz',this)">✅ الاختبار</button>
+</div>
+<div class="hero">
+  <div class="b1tag">B1 — INTERMEDIATE</div>
+  <div style="font-size:.75rem;letter-spacing:3px;color:rgba(255,255,255,.45);font-weight:700;margin-bottom:8px">UNIT 9</div>
+  <h1 style="font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;margin-bottom:6px"> Culture and Society</h1>
+  <p style="font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:4px">الغذاء والتغذية</p>
+  <p style="font-size:.82rem;color:rgba(255,255,255,.4)">القاعدة: Quantifiers Advanced — much / many / a great deal of</p>
+  <div style="display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap">
+    <a href="unit8_b1_business.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">← الوحدة ٨</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="unit10_b1_environment.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">الوحدة ١٠ ←</a>
+  </div>
+</div>
+
+<div id="sec-vocab" class="sec on">
+  <div style="text-align:right;color:#64748b;font-size:.88rem;max-width:900px;margin:0 auto 16px;padding:0 16px">💡 اضغط 🔊 للكلمة الرئيسية — اضغط على أي خلية لتسمع نطقها وتظهر ترجمتها</div>
+  <div id="vocabList" style="max-width:900px;margin:0 auto;padding:0 16px"></div>
+  <div class="navrow"><button class="btn bd" onclick="show('story',null)">القصة ←</button></div>
+</div>
+
+<div id="sec-story" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📖</span><div><h3>القصة القصيرة</h3><div class="sub">Yasmin تحكي عن الغذاء والتغذية — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button id="trBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:22px;padding:7px 16px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+        <button class="pbtn" id="storyBtn" onclick="toggleStory()"><span id="sIcon">▶</span><span id="sTxt">استمع للقصة</span></button>
+        <button class="spdbtn on" onclick="setSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setSpd(0.75,this)">بطيء</button>
+      </div>
+      <div id="storyBox" style="border-right:4px solid #f0a000;padding:16px 20px;background:#fffdf7;border-radius:0 14px 14px 0"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn bd" onclick="show('reading',null)">القراءة ←</button>
+  </div>
+</div>
+
+<div id="sec-reading" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📰</span><div><h3>القراءة المعمّقة</h3><div class="sub">نص 350 كلمة + 5 أسئلة فهم</div></div></div>
+    <div class="cb">
+      <div class="rtext" id="readingText"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الفهم</p>
+      <div id="compList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkComp()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetComp()">↺ إعادة</button>
+      </div>
+      <div id="compRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('story',null)">→ القصة</button>
+    <button class="btn bd" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✏️</span><div><h3>القاعدة</h3><div class="sub">Quantifiers Advanced — كميات متقدمة</div></div></div>
+    <div class="cb" id="grammarBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('reading',null)">→ القراءة</button>
+    <button class="btn bd" onclick="show('listening',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listening" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🎧</span><div><h3>الاستماع المضمّن</h3><div class="sub">مونولوج Sofia — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button class="pbtn" id="listenBtn" onclick="toggleListen()"><span id="lIcon">▶</span><span id="lTxt">شغّل المونولوج</span></button>
+        <button class="spdbtn on" onclick="setLSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setLSpd(0.75,this)">بطيء</button>
+      </div>
+      <div class="lscript" id="listenScript" style="background:#0f172a;border-radius:14px;padding:18px 20px;margin-bottom:16px"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الاستماع</p>
+      <div id="listenQList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkListen()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetListen()">↺ إعادة</button>
+      </div>
+      <div id="listenRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn bd" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✍️</span><div><h3>الكتابة</h3><div class="sub">اكتب عن عاداتك الغذائية وتغذيتك</div></div></div>
+    <div class="cb">
+      <div style="background:#fffdf7;border:2px dashed #f0a000;border-radius:14px;padding:20px;margin-bottom:14px">
+                <div class="wq-block">
+          <div class="wq-en">Describe your typical daily diet. What do you eat and drink?</div>
+          <div class="wq-ar">صف نظامك الغذائي اليومي المعتاد.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">I consume a great deal of vegetables and wholegrains and very little processed food. A considerable amount of my diet consists of plant-based protein, and I drink far more water than most people I know.</div>
+          <input class="winput" id="w1" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">What changes would you make to eat more healthily?</div>
+          <div class="wq-ar">ما التغييرات التي ستُجريها لتأكل بشكل أكثر صحة؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">I would reduce the amount of saturated fat in my diet and eat far more fermented foods to support my gut microbiome. I would also consume much less sugar, which research links to inflammation and energy crashes.</div>
+          <input class="winput" id="w2" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Do you think people in your country have a healthy diet?</div>
+          <div class="wq-ar">هل الناس في بلدك يتبعون نظاماً غذائياً صحياً؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">A considerable number of people rely heavily on processed food, while very few consume the recommended amount of dietary fibre. However, a growing number of younger people are switching to more plant-based options.</div>
+          <input class="winput" id="w3" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Describe a traditional dish from your culture and its nutritional value.</div>
+          <div class="wq-ar">صف طبقاً تقليدياً من ثقافتك وقيمته الغذائية.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">This dish contains a significant amount of legumes, which provide a great deal of plant-based protein and fibre. Very little saturated fat is used in its preparation, making it one of the most nutritionally balanced meals in our cuisine.</div>
+          <input class="winput" id="w4" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">What is the relationship between diet and mental health in your opinion?</div>
+          <div class="wq-ar">ما العلاقة بين النظام الغذائي والصحة النفسية؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">A great deal of research suggests that eating a diet rich in omega-3s, fibre, and fermented foods positively affects mood and cognitive function. The gut-brain axis means that what we eat directly influences how we feel and think.</div>
+          <input class="winput" id="w5" placeholder="Write your answer here..." oninput="buildW()" style="margin-bottom:0">
+        </div>
+        </div></div>
+      <div id="wOut" style="background:white;border:1px solid #e5eaf5;border-radius:12px;padding:16px;min-height:70px;font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#374151;direction:ltr">
+        <span style="color:#9ca3af;font-style:italic">✨ ستظهر فقرتك هنا...</span>
+      </div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('listening',null)">→ الاستماع</button>
+    <button class="btn bd" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">💬</span><div><h3>المحادثة</h3><div class="sub">Speaking Challenge</div></div></div>
+    <div class="cb" id="speakBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn bd" onclick="show('realeng',null)">Real English ←</button>
+  </div>
+</div>
+
+<div id="sec-realeng" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🗣️</span><div><h3>Real English</h3><div class="sub">اضغط على الجملة لتسمعها وتظهر ترجمتها</div></div></div>
+    <div class="cb" id="realBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn bd" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-quiz" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✅</span><div><h3>اختبار الوحدة</h3><div class="sub">10 أسئلة — مفردات + قواعد + collocations</div></div></div>
+    <div class="cb">
+      <div id="quizList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:18px">
+        <button class="btn bgold" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn bg" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizRes" style="display:none;text-align:center;padding:22px;margin-top:16px;background:#f0fdf4;border-radius:14px">
+        <div id="qEmoji" style="font-size:2.5rem;margin-bottom:8px"></div>
+        <div id="qScore" style="font-weight:800;font-size:1.1rem;color:#0a1628;margin-bottom:4px"></div>
+        <div id="qMsg" style="font-size:.88rem;color:#64748b"></div>
+      </div>
+    </div>
+  </div>
+  <div style="background:linear-gradient(135deg,#0a1628,#1e3a8a);border-radius:18px;padding:28px;text-align:center;margin-top:8px;max-width:900px;margin-left:auto;margin-right:auto">
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:white;margin-bottom:6px">أحسنت! أكملت وحدة الغذاء والتغذية</div>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:16px">الوحدة العاشرة: Environment</p>
+    <button class="btn bgold" onclick="location.href='unit10_b1_environment.html'">الوحدة العاشرة ←</button>
+  </div>
+</div>
+
+<script>
+var V=[
+  {w:"nutrient",p:"نيوتريينت",a:"المغذّي / العنصر الغذائي",img:"https://picsum.photos/seed/801/200/100",syn:"nourishment, mineral, vitamin",ant:"toxin, pollutant",col:"essential nutrient / nutrient-rich / absorb nutrients",prep:"nutrient in (food) / nutrient for (body)",ex:"Leafy greens contain a great deal of nutrients that support brain function.",ar_syn:"تغذية، معدن، فيتامين",ar_ant:"سُم، ملوث",ar_col:"مغذٍّ أساسي / غني بالمغذيات / يمتص المغذيات",ar_prep:"مغذٍّ في الطعام / للجسم",ar_ex:"الخضراوات ورقية تحتوي على قدر كبير من المغذيات التي تدعم وظائف الدماغ."},
+  {w:"calorie",p:"كالوري",a:"السعرة الحرارية",img:"https://picsum.photos/seed/802/200/100",syn:"energy unit, kilocalorie",ant:"none (scientific term)",col:"calorie intake / calorie deficit / burn calories",prep:"calories in (food) / calories per (serving)",ex:"There is a considerable amount of calories in processed foods compared to whole foods.",ar_syn:"وحدة طاقة، كيلو سعرة",ar_ant:"لا يوجد مقابل",ar_col:"مدخول السعرات / عجز السعرات / يحرق سعرات",ar_prep:"سعرات في الطعام / لكل حصة",ar_ex:"توجد كمية كبيرة من السعرات الحرارية في الأطعمة المصنّعة مقارنة بالأطعمة الكاملة."},
+  {w:"metabolism",p:"ميتابوليزم",a:"الأيض / التمثيل الغذائي",img:"https://picsum.photos/seed/803/200/100",syn:"metabolic rate, energy processing",ant:"metabolic slowdown",col:"boost metabolism / fast metabolism / slow metabolism",prep:"metabolism of (nutrients) / metabolism in (body)",ex:"Very few people have a fast enough metabolism to eat whatever they want.",ar_syn:"معدل الأيض، معالجة الطاقة",ar_ant:"تباطؤ الأيض",ar_col:"يُعزز الأيض / أيض سريع / بطيء",ar_prep:"أيض المغذيات / في الجسم",ar_ex:"عدد قليل جداً من الناس لديهم أيض سريع يكفي لأكل ما يريدون."},
+  {w:"deficiency",p:"ديفيشنسي",a:"النقص / القصور الغذائي",img:"https://picsum.photos/seed/804/200/100",syn:"shortage, lack, insufficiency",ant:"excess, abundance, surplus",col:"vitamin deficiency / iron deficiency / nutritional deficiency",prep:"deficiency in (vitamin D) / deficiency of (iron)",ex:"A great number of people suffer from vitamin D deficiency due to limited sun exposure.",ar_syn:"نقص، قلة، عدم كفاية",ar_ant:"فائض، وفرة",ar_col:"نقص فيتامين / نقص حديد / نقص غذائي",ar_prep:"نقص في فيتامين د / من الحديد",ar_ex:"عدد كبير من الناس يعانون من نقص فيتامين د بسبب محدودية التعرض للشمس."},
+  {w:"fibre",p:"فايبر",a:"الألياف الغذائية",img:"https://picsum.photos/seed/805/200/100",syn:"roughage, dietary fibre",ant:"processed food, refined food",col:"dietary fibre / high in fibre / fibre-rich diet",prep:"fibre in (vegetables) / fibre for (digestion)",ex:"Eating a considerable amount of fibre daily reduces the risk of heart disease.",ar_syn:"ألياف غذائية خشنة",ar_ant:"طعام مصنّع، مكرّر",ar_col:"ألياف غذائية / عالٍ بالألياف / نظام غذائي غني بالألياف",ar_prep:"ألياف في الخضراوات / للهضم",ar_ex:"تناول كمية كبيرة من الألياف يومياً يقلل خطر أمراض القلب."},
+  {w:"hydration",p:"هايدريشن",a:"الترطيب",img:"https://picsum.photos/seed/806/200/100",syn:"fluid intake, water balance",ant:"dehydration, fluid loss",col:"proper hydration / hydration level / stay hydrated",prep:"hydration for (athletes) / hydration during (exercise)",ex:"There is a great deal of evidence linking poor hydration to reduced cognitive performance.",ar_syn:"مدخول السوائل، توازن الماء",ar_ant:"جفاف، فقدان السوائل",ar_col:"ترطيب مناسب / مستوى الترطيب / يبقى رطباً",ar_prep:"ترطيب للرياضيين / أثناء التمرين",ar_ex:"هناك قدر كبير من الأدلة يربط ضعف الترطيب بتراجع الأداء المعرفي."},
+  {w:"processed",p:"بروسيسد",a:"مصنَّع / معالج",img:"https://picsum.photos/seed/807/200/100",syn:"refined, manufactured, packaged",ant:"natural, whole, unprocessed",col:"processed food / heavily processed / processed sugar",prep:"processed in (factory) / processed for (preservation)",ex:"Far too many children consume excessive amounts of processed food each day.",ar_syn:"مكرَّر، مصنوع، معلّب",ar_ant:"طبيعي، كامل، غير معالج",ar_col:"طعام مصنّع / مصنّع بشدة / سكر مصنّع",ar_prep:"مصنّع في مصنع / للحفظ",ar_ex:"عدد كبير جداً من الأطفال يستهلكون كميات مفرطة من الأطعمة المصنّعة يومياً."},
+  {w:"antioxidant",p:"أنتي-أوكسيدنت",a:"مضاد الأكسدة",img:"https://picsum.photos/seed/808/200/100",syn:"free radical fighter, protective compound",ant:"oxidant, damaging compound",col:"rich in antioxidants / antioxidant properties / natural antioxidant",prep:"antioxidant in (berries) / antioxidant for (cells)",ex:"Berries contain a significant amount of antioxidants that protect against cell damage.",ar_syn:"مقاوم الجذور الحرة، مركّب واقٍ",ar_ant:"مؤكسِد، مركّب ضار",ar_col:"غني بمضادات الأكسدة / خصائص مضادة للأكسدة",ar_prep:"مضاد أكسدة في التوت / للخلايا",ar_ex:"التوت يحتوي على كمية كبيرة من مضادات الأكسدة التي تحمي من تلف الخلايا."},
+  {w:"saturated fat",p:"ساتشريتد فات",a:"الدهون المشبعة",img:"https://picsum.photos/seed/809/200/100",syn:"animal fat, solid fat",ant:"unsaturated fat, healthy fat",col:"high in saturated fat / saturated fat content / reduce saturated fat",prep:"saturated fat in (meat) / saturated fat of (product)",ex:"A large amount of saturated fat in the diet is linked to cardiovascular disease.",ar_syn:"دهون حيوانية، دهون صلبة",ar_ant:"دهون غير مشبعة، دهون صحية",ar_col:"عالٍ بالدهون المشبعة / محتوى الدهون المشبعة",ar_prep:"دهون مشبعة في اللحم / للمنتج",ar_ex:"كمية كبيرة من الدهون المشبعة في النظام الغذائي مرتبطة بأمراض القلب والأوعية."},
+  {w:"obesity",p:"أوبيستي",a:"السمنة",img:"https://picsum.photos/seed/810/200/100",syn:"overweight, excess body fat",ant:"underweight, lean",col:"childhood obesity / obesity epidemic / combat obesity",prep:"obesity in (population) / obesity due to (diet)",ex:"There are a great number of factors contributing to the global obesity crisis.",ar_syn:"زيادة الوزن، دهون زائدة",ar_ant:"نقص الوزن، نحيف",ar_col:"سمنة الأطفال / وباء السمنة / يكافح السمنة",ar_prep:"سمنة في السكان / بسبب النظام الغذائي",ar_ex:"هناك عدد كبير من العوامل التي تساهم في أزمة السمنة العالمية."},
+  {w:"portion",p:"بورشن",a:"الحصة الغذائية",img:"https://picsum.photos/seed/811/200/100",syn:"serving, helping, amount",ant:"whole meal, unlimited",col:"portion size / control portions / recommended portion",prep:"portion of (food) / portion per (serving)",ex:"Many people eat much larger portions than the recommended daily amount.",ar_syn:"حصة، كمية تقديم",ar_ant:"وجبة كاملة، غير محدود",ar_col:"حجم الحصة / يتحكم في الحصص / حصة موصى بها",ar_prep:"حصة من الطعام / لكل تقديم",ar_ex:"كثير من الناس يأكلون حصصاً أكبر بكثير من الكمية اليومية الموصى بها."},
+  {w:"intolerance",p:"إنتولرنس",a:"عدم التحمل الغذائي",img:"https://picsum.photos/seed/812/200/100",syn:"sensitivity, adverse reaction",ant:"tolerance, no reaction",col:"lactose intolerance / gluten intolerance / food intolerance",prep:"intolerance to (dairy) / intolerance of (gluten)",ex:"A considerable number of adults develop lactose intolerance as they age.",ar_syn:"حساسية، تفاعل سلبي",ar_ant:"تحمّل، لا تفاعل",ar_col:"عدم تحمل اللاكتوز / الغلوتين / الطعام",ar_prep:"عدم تحمل الألبان / الغلوتين",ar_ex:"عدد كبير من البالغين يطورون عدم تحمل اللاكتوز مع تقدمهم في السن."},
+  {w:"plant-based",p:"بلانت-بيسد",a:"نباتي / قائم على النبات",img:"https://picsum.photos/seed/813/200/100",syn:"vegan, vegetarian, meat-free",ant:"meat-based, omnivorous",col:"plant-based diet / plant-based protein / switch to plant-based",prep:"plant-based in (origin) / plant-based for (health)",ex:"A growing number of people are switching to a plant-based diet for health reasons.",ar_syn:"نباتي، خالٍ من اللحوم",ar_ant:"قائم على اللحوم، آكل كل شيء",ar_col:"نظام غذائي نباتي / بروتين نباتي / التحول للنباتي",ar_prep:"نباتي في الأصل / للصحة",ar_ex:"عدد متزايد من الناس يتحولون إلى نظام غذائي نباتي لأسباب صحية."},
+  {w:"supplement",p:"سابلمنت",a:"المكمّل الغذائي",img:"https://picsum.photos/seed/814/200/100",syn:"vitamin pill, nutritional addition",ant:"whole food, natural source",col:"dietary supplement / take supplements / vitamin supplement",prep:"supplement for (deficiency) / supplement to (diet)",ex:"Much of the scientific community advises getting nutrients from food rather than supplements.",ar_syn:"حبة فيتامين، إضافة غذائية",ar_ant:"طعام كامل، مصدر طبيعي",ar_col:"مكمّل غذائي / يأخذ مكملات / مكمّل فيتامين",ar_prep:"مكمّل لنقص / إضافة للنظام الغذائي",ar_ex:"كثير من المجتمع العلمي ينصح بالحصول على المغذيات من الطعام بدلاً من المكملات."},
+  {w:"glycaemic",p:"غلايسيميك",a:"الجلايسيمي / نسبة السكر",img:"https://picsum.photos/seed/815/200/100",syn:"blood sugar related, glucose index",ant:"none (medical term)",col:"glycaemic index / low glycaemic / glycaemic load",prep:"glycaemic index of (food) / glycaemic for (diabetics)",ex:"There is a vast amount of research showing the benefits of low-glycaemic diets.",ar_syn:"متعلق بسكر الدم، مؤشر الجلوكوز",ar_ant:"لا يوجد مقابل مباشر",ar_col:"مؤشر جلايسيمي / منخفض المؤشر / حمل جلايسيمي",ar_prep:"مؤشر جلايسيمي للطعام / لمرضى السكري",ar_ex:"هناك كمية هائلة من البحوث تُظهر فوائد الأنظمة الغذائية منخفضة المؤشر الجلايسيمي."},
+  {w:"probiotic",p:"بروبايوتيك",a:"البروبيوتيك / البكتيريا النافعة",img:"https://picsum.photos/seed/816/200/100",syn:"beneficial bacteria, gut flora",ant:"antibiotic (kills bacteria)",col:"probiotic bacteria / probiotic food / take probiotics",prep:"probiotic in (yoghurt) / probiotic for (gut health)",ex:"There is a significant amount of evidence that probiotics improve digestive health.",ar_syn:"بكتيريا مفيدة، فلورا الأمعاء",ar_ant:"المضاد الحيوي (يقتل البكتيريا)",ar_col:"بكتيريا بروبيوتيك / طعام بروبيوتيك / يأخذ بروبيوتيك",ar_prep:"بروبيوتيك في الزبادي / لصحة الأمعاء",ar_ex:"هناك قدر كبير من الأدلة على أن البروبيوتيك يحسّن الصحة الهضمية."},
+  {w:"malnutrition",p:"مال-نيوتريشن",a:"سوء التغذية",img:"https://picsum.photos/seed/817/200/100",syn:"undernourishment, nutritional deprivation",ant:"well-nourished, healthy diet",col:"suffer from malnutrition / childhood malnutrition / malnutrition crisis",prep:"malnutrition in (country) / malnutrition due to (poverty)",ex:"A shocking number of children suffer from malnutrition despite global food abundance.",ar_syn:"نقص التغذية، حرمان غذائي",ar_ant:"تغذية جيدة، نظام صحي",ar_col:"يعاني من سوء التغذية / سوء تغذية الأطفال / أزمة غذائية",ar_prep:"سوء تغذية في بلد / بسبب الفقر",ar_ex:"عدد صادم من الأطفال يعانون من سوء التغذية رغم وفرة الغذاء عالمياً."},
+  {w:"organic",p:"أورغانيك",a:"عضوي / طبيعي",img:"https://picsum.photos/seed/818/200/100",syn:"natural, pesticide-free, chemical-free",ant:"conventional, non-organic",col:"organic food / organic farming / certified organic",prep:"organic in (origin) / organic for (health)",ex:"A great deal of money is spent annually on organic produce despite limited evidence of benefit.",ar_syn:"طبيعي، خالٍ من المبيدات",ar_ant:"تقليدي، غير عضوي",ar_col:"طعام عضوي / زراعة عضوية / معتمد عضوي",ar_prep:"عضوي في الأصل / للصحة",ar_ex:"يُنفق قدر كبير من المال سنوياً على المنتجات العضوية رغم محدودية الأدلة على فوائدها."},
+  {w:"carbohydrate",p:"كاربوهايدريت",a:"الكربوهيدرات",img:"https://picsum.photos/seed/819/200/100",syn:"carbs, starch, sugar",ant:"protein, fat",col:"complex carbohydrate / reduce carbohydrates / carbohydrate-rich",prep:"carbohydrates in (pasta) / carbohydrates for (energy)",ex:"Athletes require a considerable amount of carbohydrates to fuel endurance training.",ar_syn:"كربوهيدرات، نشا، سكر",ar_ant:"بروتين، دهون",ar_col:"كربوهيدرات معقدة / يقلل الكربوهيدرات / غني بالكربوهيدرات",ar_prep:"كربوهيدرات في المعكرونة / للطاقة",ar_ex:"يحتاج الرياضيون إلى كمية كبيرة من الكربوهيدرات لتغذية تدريبات التحمل."},
+  {w:"protein",p:"بروتين",a:"البروتين",img:"https://picsum.photos/seed/820/200/100",syn:"amino acids, muscle builder",ant:"empty calories, refined carbs",col:"protein intake / plant protein / protein-rich diet",prep:"protein in (meat) / protein for (muscle)",ex:"Most nutritionists agree that a sufficient amount of protein is vital for muscle repair.",ar_syn:"أحماض أمينية، بانٍ للعضلات",ar_ant:"سعرات فارغة، كربوهيدرات مكرّرة",ar_col:"مدخول البروتين / بروتين نباتي / نظام غني بالبروتين",ar_prep:"بروتين في اللحم / للعضلات",ar_ex:"معظم أخصائيي التغذية يتفقون على أن كمية كافية من البروتين حيوية لإصلاح العضلات."},
+  {w:"gut microbiome",p:"غات مايكروبايوم",a:"ميكروبيوم الأمعاء",img:"https://picsum.photos/seed/821/200/100",syn:"gut bacteria, intestinal flora",ant:"sterile gut, dysbiosis",col:"healthy gut microbiome / support gut microbiome / gut microbiome diversity",prep:"microbiome in (gut) / microbiome of (individual)",ex:"There is a vast amount of emerging research linking the gut microbiome to mental health.",ar_syn:"بكتيريا الأمعاء، فلورا الأمعاء",ar_ant:"أمعاء معقمة، خلل ميكروبي",ar_col:"ميكروبيوم أمعاء صحي / يدعمه / تنوع الميكروبيوم",ar_prep:"ميكروبيوم في الأمعاء / للفرد",ar_ex:"هناك قدر هائل من الأبحاث الناشئة تربط ميكروبيوم الأمعاء بالصحة النفسية."},
+  {w:"inflammation",p:"إنفلاميشن",a:"الالتهاب",img:"https://picsum.photos/seed/822/200/100",syn:"swelling, immune response",ant:"healing, recovery",col:"chronic inflammation / reduce inflammation / anti-inflammatory diet",prep:"inflammation in (body) / inflammation due to (diet)",ex:"Much of the research on diet suggests that sugar triggers inflammation in the body.",ar_syn:"انتفاخ، استجابة مناعية",ar_ant:"شفاء، تعافٍ",ar_col:"التهاب مزمن / يقلل الالتهاب / نظام مضاد للالتهاب",ar_prep:"التهاب في الجسم / بسبب النظام الغذائي",ar_ex:"كثير من الأبحاث الغذائية تشير إلى أن السكر يُثير الالتهاب في الجسم."},
+  {w:"intermittent fasting",p:"إنتيرميتنت فاستينج",a:"الصيام المتقطع",img:"https://picsum.photos/seed/823/200/100",syn:"time-restricted eating, periodic fasting",ant:"continuous eating, no fasting",col:"practice intermittent fasting / intermittent fasting protocol / benefits of intermittent fasting",prep:"fasting for (hours) / intermittent fasting during (window)",ex:"A considerable number of studies support the metabolic benefits of intermittent fasting.",ar_syn:"الأكل المقيّد بالوقت، الصيام الدوري",ar_ant:"أكل مستمر، لا صيام",ar_col:"يمارس الصيام المتقطع / بروتوكول الصيام",ar_prep:"صيام لعدد ساعات / أثناء نافذة معينة",ar_ex:"عدد كبير من الدراسات تدعم الفوائد الأيضية للصيام المتقطع."},
+  {w:"cholesterol",p:"كوليسترول",a:"الكوليسترول",img:"https://picsum.photos/seed/824/200/100",syn:"blood lipid, fatty substance",ant:"none (medical term)",col:"high cholesterol / lower cholesterol / cholesterol level",prep:"cholesterol in (blood) / cholesterol from (diet)",ex:"Eating too much saturated fat raises the amount of cholesterol in the bloodstream.",ar_syn:"دهون الدم، مادة دهنية",ar_ant:"لا يوجد مقابل مباشر",ar_col:"كوليسترول مرتفع / يخفض الكوليسترول / مستوى الكوليسترول",ar_prep:"كوليسترول في الدم / من النظام الغذائي",ar_ex:"تناول كميات كبيرة من الدهون المشبعة يرفع كمية الكوليسترول في مجرى الدم."},
+  {w:"micronutrient",p:"مايكرو-نيوتريينت",a:"المغذي الدقيق",img:"https://picsum.photos/seed/825/200/100",syn:"vitamin, mineral, trace element",ant:"macronutrient",col:"micronutrient deficiency / micronutrient-rich / essential micronutrient",prep:"micronutrient in (food) / micronutrient for (health)",ex:"A varied diet provides the wide range of micronutrients the body needs daily.",ar_syn:"فيتامين، معدن، عنصر نادر",ar_ant:"المغذي الكبير",ar_col:"نقص مغذيات دقيقة / غني بالمغذيات الدقيقة",ar_prep:"مغذيات دقيقة في الطعام / للصحة",ar_ex:"النظام الغذائي المتنوع يوفر مجموعة واسعة من المغذيات الدقيقة التي يحتاجها الجسم يومياً."},
+  {w:"fermented",p:"فيرمنتد",a:"مخمَّر",img:"https://picsum.photos/seed/826/200/100",syn:"cultured, fermented, probiotic-rich",ant:"fresh, unfermented",col:"fermented food / fermented drink / traditionally fermented",prep:"fermented in (process) / fermented for (gut)",ex:"A small amount of fermented food daily can significantly improve gut health.",ar_syn:"مزروع، غني بالبروبيوتيك",ar_ant:"طازج، غير مخمّر",ar_col:"طعام مخمّر / مشروب مخمّر / مخمّر تقليدياً",ar_prep:"مخمّر في العملية / للأمعاء",ar_ex:"كمية صغيرة من الأطعمة المخمّرة يومياً يمكن أن تُحسّن صحة الأمعاء بشكل ملحوظ."},
+  {w:"sustainable diet",p:"سستيينبل دايت",a:"النظام الغذائي المستدام",img:"https://picsum.photos/seed/827/200/100",syn:"eco-friendly diet, green eating",ant:"unsustainable, environmentally harmful",col:"adopt a sustainable diet / sustainable food system / sustainable eating habits",prep:"sustainable diet for (planet) / sustainability of (food choice)",ex:"A large number of environmentalists advocate for sustainable diets to reduce carbon emissions.",ar_syn:"نظام غذائي صديق للبيئة، أكل أخضر",ar_ant:"غير مستدام، ضار بالبيئة",ar_col:"يتبنى نظاماً مستداماً / نظام غذائي مستدام",ar_prep:"نظام مستدام للكوكب / استدامة الخيارات الغذائية",ar_ex:"عدد كبير من المهتمين بالبيئة يدعو إلى أنظمة غذائية مستدامة لتقليل انبعاثات الكربون."},
+  {w:"insulin",p:"إنسيولين",a:"الأنسولين",img:"https://picsum.photos/seed/828/200/100",syn:"blood sugar hormone, glucose regulator",ant:"glucagon (opposing hormone)",col:"insulin resistance / insulin levels / insulin spike",prep:"insulin in (bloodstream) / insulin for (diabetics)",ex:"Eating a great deal of sugar causes repeated insulin spikes which damage the body over time.",ar_syn:"هرمون سكر الدم، منظم الجلوكوز",ar_ant:"الغلوكاغون (هرمون معاكس)",ar_col:"مقاومة الأنسولين / مستويات الأنسولين / ارتفاع مفاجئ للأنسولين",ar_prep:"أنسولين في الدم / لمرضى السكري",ar_ex:"تناول كميات كبيرة من السكر يسبب ارتفاعات متكررة للأنسولين تضر الجسم مع الوقت."},
+  {w:"wholegrain",p:"هول-غرين",a:"الحبوب الكاملة",img:"https://picsum.photos/seed/829/200/100",syn:"whole wheat, unrefined grain",ant:"refined grain, white flour",col:"wholegrain bread / wholegrain diet / switch to wholegrain",prep:"wholegrain in (bread) / wholegrain for (fibre)",ex:"Swapping refined carbs for wholegrain alternatives makes a significant difference to health.",ar_syn:"قمح كامل، حبوب غير مكرّرة",ar_ant:"حبوب مكرّرة، دقيق أبيض",ar_col:"خبز الحبوب الكاملة / نظام غذائي بحبوب كاملة",ar_prep:"حبوب كاملة في الخبز / للألياف",ar_ex:"استبدال الكربوهيدرات المكرّرة بالحبوب الكاملة يُحدث فرقاً كبيراً في الصحة."},
+  {w:"mindful eating",p:"مايندفول إيتينج",a:"الأكل الواعي",img:"https://picsum.photos/seed/830/200/100",syn:"conscious eating, slow eating",ant:"distracted eating, binge eating",col:"practise mindful eating / mindful eating approach / benefits of mindful eating",prep:"mindful eating during (meals) / mindful eating for (weight)",ex:"A growing amount of research supports mindful eating as a tool for healthy weight management.",ar_syn:"أكل واعٍ، أكل بتأمل",ar_ant:"أكل مشتت، أكل شره",ar_col:"يمارس الأكل الواعي / نهج الأكل الواعي",ar_prep:"أكل واعٍ أثناء الوجبات / للوزن",ar_ex:"كمية متزايدة من الأبحاث تدعم الأكل الواعي كأداة لإدارة الوزن الصحي."},
+];
+
+var story=[
+  {t:"Sofia grew up in a family where food was medicine. Her grandmother cooked everything from scratch.",ar:"صوفيا نشأت في عائلة كان فيها الطعام دواءً. جدتها كانت تطهو كل شيء من الصفر."},
+  {t:"But when Sofia moved to the city for university, her diet changed dramatically.",ar:"لكن عندما انتقلت صوفيا للمدينة للجامعة تغيّر نظامها الغذائي بشكل كبير."},
+  {t:"She consumed a great deal of processed food and very little fresh produce.",ar:"كانت تستهلك كميات كبيرة من الأطعمة المصنّعة وكميات قليلة جداً من المنتجات الطازجة."},
+  {t:"After a year, she developed an iron deficiency and her energy levels dropped significantly.",ar:"بعد عام طوّرت نقصاً في الحديد وانخفضت مستويات طاقتها بشكل ملحوظ."},
+  {t:"A nutritionist told her: Much of what you eat has very few nutrients and far too many calories.",ar:"أخبرتها أخصائية التغذية: الكثير مما تأكلينه يحتوي على مغذيات قليلة جداً وسعرات حرارية كثيرة جداً."},
+  {t:"Sofia switched to a plant-based diet rich in fibre, antioxidants, and fermented foods.",ar:"صوفيا تحوّلت إلى نظام غذائي نباتي غني بالألياف ومضادات الأكسدة والأطعمة المخمّرة."},
+  {t:"Within three months, her energy returned, her gut microbiome improved, and her inflammation markers dropped.",ar:"في غضون ثلاثة أشهر عادت طاقتها وتحسّن ميكروبيوم أمعائها وانخفضت مؤشرات الالتهاب لديها."},
+  {t:"She now believes: you are not just what you eat — you are how much, how often, and how mindfully you eat.",ar:"هي الآن تؤمن: أنت لست فقط ما تأكله — بل كم تأكل وكم مرة وبأي قدر من الوعي."},
+];
+
+var reading=[
+  "The relationship between diet and health is one of the most extensively studied areas in modern science. A great deal of evidence now confirms that what we eat directly affects not only our physical health but also our mental wellbeing, energy levels, and even the composition of our gut microbiome — the community of billions of bacteria that live in the digestive system.",
+  "Processed foods, which now account for a considerable amount of the average person's caloric intake in developed countries, are associated with a wide range of chronic diseases. Much of the research on ultraprocessed foods links their consumption to increased rates of obesity, type 2 diabetes, cardiovascular disease, and certain cancers. The combination of excessive saturated fat, refined carbohydrates, and added sugar creates a nutritional profile that the human body was not designed to handle.",
+  "In contrast, a diet rich in whole foods — including plenty of vegetables, wholegrains, plant protein, and fermented foods — provides the diverse range of nutrients and fibre that the gut microbiome requires to function optimally. A great number of studies have shown that people who consume a Mediterranean-style diet have significantly lower rates of cardiovascular disease, cognitive decline, and inflammatory conditions.",
+  "Nutritional deficiencies remain a global problem. Despite living in an era of food abundance, a significant number of people — particularly in urban environments — suffer from deficiencies in vitamin D, iron, and omega-3 fatty acids. These deficiencies, which are often caused not by a lack of food but by a lack of dietary variety, can have serious consequences for immune function, bone health, and mental performance.",
+  "The emerging field of nutritional psychiatry has produced a great deal of exciting research showing that diet directly influences brain chemistry. The gut-brain axis — the communication network between the gut microbiome and the central nervous system — means that what we eat affects how we think and feel. Diets high in sugar and saturated fat are linked to higher rates of depression and anxiety, while diets rich in omega-3s, fibre, and fermented foods are associated with better mental health outcomes.",
+];
+
+var compQs=[
+  {q:"What does a great deal of evidence confirm about diet?",opts:["Only physical health is affected","Diet affects physical health, mental wellbeing, energy, and gut microbiome","Diet has no effect on mental health","Only calories matter"],ans:1},
+  {q:"What does much of the research link ultraprocessed food to?",opts:["Better energy levels","Weight loss","Chronic diseases including obesity and diabetes","Improved gut health"],ans:2},
+  {q:"What does a Mediterranean-style diet show in studies?",opts:["Higher rates of disease","No significant difference","Lower rates of cardiovascular disease and cognitive decline","Higher cholesterol"],ans:2},
+  {q:"What causes nutritional deficiencies according to the text?",opts:["Lack of food","Lack of dietary variety rather than lack of food","Too much exercise","Poor water quality"],ans:1},
+  {q:"What does the gut-brain axis mean?",opts:["The gut controls the brain completely","What we eat affects how we think and feel","Exercise improves gut health","Sugar is always harmful"],ans:1},
+];
+
+var listenLines=[
+  "My name is Sofia, and I want to talk about how food changed my health completely.",
+  "I grew up eating home-cooked meals with a great deal of variety — vegetables, grains, fermented foods.",
+  "When I moved to the city, I stopped cooking. I ate a considerable amount of processed food every day.",
+  "After a year, I developed an iron deficiency. I had very little energy and much worse concentration.",
+  "A nutritionist told me: much of what you are eating has far too many empty calories and very few nutrients.",
+  "She said I needed to consume a greater amount of fibre, plant protein, and antioxidants.",
+  "I switched to a plant-based diet and started eating fermented foods like yoghurt and kimchi daily.",
+  "A significant number of studies show that fermented foods support the gut microbiome.",
+  "Within three months, a great deal had changed. My energy returned, my mood improved.",
+  "I also learned about the glycaemic index. Eating too much high-glycaemic food causes insulin spikes.",
+  "I replaced white bread with wholegrain alternatives and reduced the amount of saturated fat I consumed.",
+  "I now practise mindful eating — I eat slowly, without screens, and pay attention to how full I feel.",
+  "A considerable amount of people overeat simply because they are distracted while eating.",
+  "The gut-brain axis is real. What you eat affects how much focus, energy, and happiness you experience.",
+  "My advice: eat a wide variety of whole foods, consume very little processed food, and drink plenty of water.",
+];
+
+var listenQs=[
+  {q:"What kind of diet did Sofia grow up with?",opts:["Mostly processed food","Home-cooked varied meals","Only plant-based food","Fast food daily"],ans:1},
+  {q:"What deficiency did Sofia develop at university?",opts:["Vitamin D","Calcium","Iron","Omega-3"],ans:2},
+  {q:"What foods did Sofia add to improve her gut microbiome?",opts:["More meat and dairy","Processed snacks","Fermented foods like yoghurt and kimchi","Supplements only"],ans:2},
+  {q:"What does eating high-glycaemic food cause?",opts:["Better energy","Lower cholesterol","Insulin spikes","Improved focus"],ans:2},
+  {q:"What is Sofia's main advice?",opts:["Avoid all fats","Take supplements daily","Eat a wide variety of whole foods and little processed food","Only eat plant-based"],ans:2},
+];
+
+var speakQs=[
+  {q:"Describe your typical diet using quantifiers. How much of each food group do you eat?",hint:"I eat a great deal of... I consume very little... A considerable amount of my diet consists of... I eat far too much...",ar:"صف نظامك الغذائي المعتاد باستخدام Quantifiers.",badge:"🎯 استخدم a great deal / very little / a considerable amount"},
+  {q:"Do you think people in your country eat healthily? Use quantifiers to support your view.",hint:"A large number of people in my country eat... Much of the diet consists of... Very few people consume enough... A considerable amount of...",ar:"هل الناس في بلدك يأكلون بشكل صحي؟ استخدم Quantifiers.",badge:"🎯 استخدم a large number / much of / very few"},
+  {q:"What would you change about your diet if you had unlimited time and money?",hint:"I would consume a great deal more... I would eat far less... Much of my diet would consist of... I would spend a considerable amount on...",ar:"ما الذي ستغيّره في نظامك الغذائي لو كان لديك وقت ومال غير محدود؟",badge:"🎯 استخدم would + quantifiers"},
+  {q:"Explain the difference between a healthy diet and an unhealthy one.",hint:"A healthy diet includes a great deal of... whereas an unhealthy one contains too much... Very little processed food should be consumed... A considerable number of nutrients...",ar:"اشرح الفرق بين النظام الغذائي الصحي وغير الصحي.",badge:"🎯 استخدم whereas / in contrast"},
+  {q:"How does diet affect mental health? What does the research say?",hint:"A great deal of research shows that... Much of the evidence links... A considerable amount of people who eat... Very few studies have found...",ar:"كيف يؤثر النظام الغذائي على الصحة النفسية؟ ماذا تقول الأبحاث؟",badge:"🎯 استخدم a great deal of research / much of the evidence"},
+  {q:"Describe a traditional food from your culture. What are its nutritional benefits?",hint:"This dish contains a considerable amount of... It provides a great deal of... Very little fat is used... A significant number of nutrients...",ar:"صف طعاماً تقليدياً من ثقافتك. ما فوائده الغذائية؟",badge:"🎯 استخدم Quantifiers لوصف المحتوى الغذائي"},
+  {q:"What are the arguments for and against a plant-based diet?",hint:"A growing number of people argue that... Much of the evidence suggests... However a considerable amount of research also shows... Very few complete proteins are found in...",ar:"ما الحجج المؤيدة والمعارضة للنظام الغذائي النباتي؟",badge:"🎯 ناقش كلا الجانبين بـ Quantifiers"},
+  {q:"How much water should people drink daily? Does it really matter?",hint:"A great deal of research suggests drinking... Much of the population consumes far too little... A considerable amount of fatigue is caused by... Very few people drink enough...",ar:"كم يجب أن يشرب الناس ماءً يومياً؟ هل يهم حقاً؟",badge:"🎯 استخدم a great deal / too little / enough"},
+  {q:"What is the relationship between food, culture, and identity?",hint:"A great deal of cultural identity is expressed through food... Much of what we eat reflects... A considerable number of traditions involve... Very few aspects of culture are as personal as...",ar:"ما العلاقة بين الطعام والثقافة والهوية؟",badge:"🎯 تحدّث 60 ثانية!"},
+  {q:"If you could design a perfect school lunch programme, what would it include?",hint:"A considerable amount of the budget would go toward... Much of the menu would feature... Very little processed food would be served... A great number of students would benefit from...",ar:"لو صممت برنامج غداء مدرسي مثالياً ماذا سيتضمن؟",badge:"🎯 تحدّث 90 ثانية — استخدم Quantifiers في كل نقطة!"},
+];
+
+var realExpr=[
+  {e:"You are what you eat",p:"يو آر وات يو إيت",m:"صحتك تعكس ما تأكله",f:"Your health reflects your dietary choices.",x:"You are what you eat — change your diet and you will change your energy completely.",xar:"أنت ما تأكله — غيّر نظامك الغذائي وستغيّر طاقتك بالكامل.",n:"مقولة مشهورة تعني أن الطعام يشكّل صحتك وحالتك"},
+  {e:"An apple a day keeps the doctor away",p:"أن آبل أ دي كيبس ذا دوكتر أوي",m:"الأكل الصحي يمنع المرض",f:"Regular healthy habits prevent illness.",x:"An apple a day keeps the doctor away — but only if your whole diet is balanced.",xar:"تفاحة كل يوم تُبعد الطبيب — لكن فقط إذا كان نظامك الغذائي بأكمله متوازناً.",n:"مثل قديم — التفاحة رمز للعادات الصحية اليومية"},
+  {e:"Comfort food",p:"كامفرت فود",m:"طعام الراحة النفسية",f:"Food eaten for emotional comfort rather than nutrition.",x:"After a stressful day, most people reach for comfort food rather than salad.",xar:"بعد يوم مرهق يلجأ معظم الناس لطعام الراحة بدلاً من السلطة.",n:"طعام يأكله الناس ليشعروا بالراحة النفسية — ليس بالضرورة صحياً"},
+];
+var realSlang=[
+  {w:"Junk food",p:"جانك فود",i:"unhealthy processed snack food",x:"He lives on junk food and wonders why he has no energy.",xar:"هو يعيش على الطعام المهمل ويتساءل لماذا ليس لديه طاقة.",a:"الأطعمة غير الصحية المصنّعة"},
+  {w:"Cheat day",p:"تشيت دي",i:"planned day off from healthy eating",x:"Saturday is my cheat day — I eat whatever I want.",xar:"السبت هو يوم الغش — آكل ما أريد.",a:"يوم مخصص للأكل بحرية بعيداً عن النظام الغذائي"},
+  {w:"Food coma",p:"فود كوما",i:"sleepy feeling after a large meal",x:"After that huge lunch I fell into a complete food coma.",xar:"بعد ذلك الغداء الضخم وقعت في غيبوبة طعام كاملة.",a:"الشعور بالنعاس والخمول بعد وجبة كبيرة"},
+  {w:"Hangry",p:"هانغري",i:"angry because you are hungry",x:"Do not talk to me before breakfast — I get seriously hangry.",xar:"لا تكلمني قبل الإفطار — أصبح غاضباً جداً من الجوع.",a:"مزيج من hungry و angry — غاضب بسبب الجوع"},
+];
+var realEvery=[
+  {w:"Eat clean",p:"إيت كلين",i:"eat only natural unprocessed food",x:"I have been eating clean for three months and I feel incredible.",xar:"كنت آكل بنظافة لثلاثة أشهر وأشعر بشكل لا يصدق.",a:"يأكل طبيعياً بدون أطعمة مصنّعة"},
+  {w:"Watch what you eat",p:"واتش وات يو إيت",i:"be careful and conscious about food choices",x:"You need to watch what you eat if you want to manage your cholesterol.",xar:"تحتاج أن تراقب ما تأكله إذا أردت إدارة مستوى الكوليسترول.",a:"يراقب ويتحكم في اختياراته الغذائية"},
+  {w:"Fuel your body",p:"فيول يور بودي",i:"eat to give your body energy",x:"Think of food as fuel for your body, not entertainment.",xar:"فكّر في الطعام كوقود لجسمك وليس كترفيه.",a:"يغذّي جسمه بالطعام المناسب كالوقود"},
+];
+
+var quizQs=[
+  {q:"There is a great ___ of evidence linking diet to mental health.",opts:["number","deal","amount","many"],ans:1},
+  {q:"ما معنى deficiency؟",opts:["الفائض","النقص الغذائي","الكوليسترول","الأيض"],ans:1},
+  {q:"___ people suffer from vitamin D deficiency despite living in sunny climates.",opts:["Much of","A great deal of","A large number of","A considerable amount of"],ans:2},
+  {q:"ما معنى gut microbiome؟",opts:["الأنسولين","السعرات الحرارية","ميكروبيوم الأمعاء","الكربوهيدرات"],ans:2},
+  {q:"He eats ___ too much saturated fat and ___ fibre.",opts:["far / very little","much / many","a lot / few","great / small"],ans:0},
+  {q:"ما الـ collocation الصحيح مع calorie؟",opts:["make calories","do calories","burn calories","take calories"],ans:2},
+  {q:"ما معنى antioxidant؟",opts:["الألياف","مضاد الأكسدة","البروتين","الجلوكوز"],ans:1},
+  {q:"___ research supports intermittent fasting for metabolic health.",opts:["A considerable number of","Much of","Many","Few"],ans:1},
+  {q:"ما معنى wholegrain؟",opts:["الحبوب المكرّرة","الدهون المشبعة","الحبوب الكاملة","المكمّل الغذائي"],ans:2},
+  {q:"ما معنى mindful eating؟",opts:["الأكل السريع","الصيام المتقطع","الأكل الواعي المتأمل","الأكل النباتي"],ans:2},
+];
+var spd=1,lspd=1,storyOn=false,listenOn=false;
+var compA=new Array(compQs.length).fill(null);
+var listenA=new Array(listenQs.length).fill(null);
+var quizA=new Array(quizQs.length).fill(null);
+
+function say(text,rate,cb){
+  if(!window.speechSynthesis)return null;
+  window.speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US";u.rate=rate||spd;u.pitch=1.05;
+  if(cb)u.onend=cb;
+  window.speechSynthesis.speak(u);return u;
+}
+
+function buildVocab(){
+  var emo=["🌍","🏛","🤝","👤","🚫","🕯","🌐","🌿","⚖","🍽","📏","🌏","⚠","🕊","✊","💬","♀","✈","💡","🤲","✊","🏳","🤜","🌺","🎓","👑","🔗","🌐","🏙","🧩"];
+  var c=document.getElementById("vocabList");
+  V.forEach(function(v,i){
+    var d=document.createElement("div");d.className="vocab-card";
+    // Build using single-quote innerHTML (Gold Standard from unit2)
+    d.innerHTML=
+      '<div class="vhead">'+
+        '<img class="vimg" id="vi'+i+'" src="'+v.img+'" alt="'+v.w+'" loading="lazy">'+
+        '<div class="vinfo">'+
+          '<div style="display:flex;align-items:center;gap:6px;direction:ltr">'+
+            '<span style="background:rgba(255,255,255,.18);color:rgba(255,255,255,.85);font-size:.68rem;font-weight:800;padding:2px 7px;border-radius:10px">'+(i+1)+'</span>'+
+            '<div class="vword">'+v.w+'</div>'+
+          '</div>'+
+          '<div class="vpron">'+v.p+'</div>'+
+          '<div class="var">'+v.a+'</div>'+
+        '</div>'+
+        '<button class="vspk" id="vs'+i+'">🔊</button>'+
+      '</div>'+
+      '<div class="vbody">'+
+        '<div class="vgrid2">'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-ant" data-i="'+i+'" data-c="1"><div class="vlbl">Antonym</div><div class="vval">'+v.ant+'</div><div class="vtr">'+v.ar_ant+'</div></div>'+
+            '<div class="vcell c-syn" data-i="'+i+'" data-c="0"><div class="vlbl">Synonym</div><div class="vval">'+v.syn+'</div><div class="vtr">'+v.ar_syn+'</div></div>'+
+          '</div>'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-prep" data-i="'+i+'" data-c="3"><div class="vlbl">Preposition</div><div class="vval">'+v.prep+'</div><div class="vtr">'+v.ar_prep+'</div></div>'+
+            '<div class="vcell c-col" data-i="'+i+'" data-c="2"><div class="vlbl">Collocation</div><div class="vval">'+v.col+'</div><div class="vtr">'+v.ar_col+'</div></div>'+
+          '</div>'+
+        '</div>'+
+        '<div class="vex" id="vex'+i+'">'+v.ex+'<div class="vex-tr">'+v.ar_ex+'</div></div>'+
+      '</div>';
+    var img=d.querySelector(".vimg");
+    if(img){img.onerror=(function(ii){return function(){
+      var fb=document.createElement("div");fb.className="vimg-fallback";fb.textContent=emo[ii];
+      this.parentNode.replaceChild(fb,this);
+    };})(i);}
+    d.querySelector(".vspk").addEventListener("click",(function(ii){return function(){
+      document.querySelectorAll(".vspk").forEach(function(b){b.classList.remove("playing");});
+      var btn=document.getElementById("vs"+ii);if(btn)btn.classList.add("playing");
+      var u=say(V[ii].w,spd);if(u)u.onend=function(){if(btn)btn.classList.remove("playing");};
+    };})(i));
+    d.querySelectorAll(".vcell").forEach(function(cell){
+      cell.addEventListener("click",function(){
+        var ii=parseInt(this.getAttribute("data-i"));
+        var cc=parseInt(this.getAttribute("data-c"));
+        say([V[ii].syn,V[ii].ant,V[ii].col,V[ii].prep][cc],0.9);
+        this.classList.toggle("show-tr");
+      });
+    });
+    var vex=d.querySelector(".vex");
+    vex.addEventListener("click",function(){this.classList.toggle("show-ex-tr");});
+    c.appendChild(d);
+  });
+}
+
+function buildStory(){
+  var b=document.getElementById("storyBox");
+  story.forEach(function(s,i){
+    var d=document.createElement("div");d.className="sline";d.id="sl"+i;
+    var txt=document.createTextNode(s.t);d.appendChild(txt);
+    var btn=document.createElement("button");
+    btn.style.cssText="background:transparent;border:1px solid #e5e7eb;border-radius:5px;padding:1px 7px;color:#9ca3af;font-size:.7rem;cursor:pointer;font-family:Tajawal,sans-serif;margin-right:6px";
+    btn.textContent="🌐";
+    btn.addEventListener("click",(function(ii){return function(){toggleTr(ii);};})(i));
+    d.appendChild(btn);
+    var tr=document.createElement("div");tr.id="tr"+i;
+    tr.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;font-family:Tajawal,sans-serif;border-right:3px solid #fde68a;padding-right:8px";
+    tr.textContent=s.ar;d.appendChild(tr);b.appendChild(d);
+  });
+}
+var _trAll=false;
+function toggleAllTr(){_trAll=!_trAll;for(var i=0;i<story.length;i++){var e=document.getElementById("tr"+i);if(e)e.style.display=_trAll?"block":"none";}document.getElementById("trBtn").textContent=_trAll?"🙈 أخفِ":"🌐 الترجمة";}
+function toggleTr(i){var e=document.getElementById("tr"+i);if(e)e.style.display=e.style.display==="none"?"block":"none";}
+function setSpd(r,btn){spd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function storySeq(i){if(!storyOn||i>=story.length){stopStory();return;}document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("sl"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(story[i].t);u.lang="en-US";u.rate=spd;u.pitch=1.05;u.onend=function(){if(storyOn)setTimeout(function(){storySeq(i+1);},320);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startStory(){storyOn=true;document.getElementById("sIcon").textContent="⏹";document.getElementById("sTxt").textContent="إيقاف القصة";storySeq(0);}
+function stopStory(){storyOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});document.getElementById("sIcon").textContent="▶";document.getElementById("sTxt").textContent="استمع للقصة";}
+function toggleStory(){storyOn?stopStory():startStory();}
+
+function buildReading(){
+  var t=document.getElementById("readingText");
+  reading.forEach(function(p){var d=document.createElement("p");d.textContent=p;t.appendChild(d);});
+  var c=document.getElementById("compList");
+  compQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";
+    p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="co"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){
+        compA[qi]=oi;
+        for(var k=0;k<q.opts.length;k++){var el=document.getElementById("co"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}
+        this.style.borderColor="#0a1628";
+      });
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function checkComp(){var s=0;compQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("co"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(compA[qi]===i)el.classList.add("no");}if(compA[qi]===q.ans)s++;});var r=document.getElementById("compRes");r.style.display="block";var pct=Math.round(s/compQs.length*100);r.textContent=s+" من "+compQs.length+" إجابة صحيحة ("+pct+"%) "+(pct===100?"🏆":pct>=60?"🎉":"📚 راجع النص");}
+function resetComp(){compA=new Array(compQs.length).fill(null);document.querySelectorAll(".copt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("compRes").style.display="none";}
+
+function buildGrammar(){
+  var c=document.getElementById("grammarBox");
+  var box1=document.createElement("div");box1.className="gbox";
+  var t1=document.createElement("div");t1.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";
+  t1.textContent="١ — Quantifiers للكميات الكبيرة والصغيرة";box1.appendChild(t1);
+  var tbl=document.createElement("div");tbl.style.cssText="background:#0a1628;border-radius:10px;padding:14px 18px;margin-bottom:14px;direction:ltr";
+  var rows=[
+    ["Quantifier","Used with","Example"],
+    ["a great deal of","uncountable","a great deal of evidence"],
+    ["a considerable amount of","uncountable","a considerable amount of sugar"],
+    ["a large number of","countable","a large number of people"],
+    ["a great number of","countable","a great number of studies"],
+    ["very little","uncountable","very little fibre"],
+    ["very few","countable","very few nutrients"],
+    ["much of","uncountable","much of the research"],
+    ["many of","countable","many of the participants"],
+  ];
+  var table=document.createElement("table");table.style.cssText="width:100%;border-collapse:collapse;font-size:.82rem";
+  rows.forEach(function(row,ri){var tr=document.createElement("tr");if(ri>0)tr.style.borderTop="1px solid rgba(255,255,255,.1)";row.forEach(function(cell,ci){var td=document.createElement(ri===0?"th":"td");td.textContent=cell;td.style.cssText="padding:6px 8px;text-align:left;color:"+(ri===0?"#fde68a":ci===0?"#f0c040":ci===1?"#93c5fd":"rgba(255,255,255,.8)");tr.appendChild(td);});table.appendChild(tr);});
+  tbl.appendChild(table);box1.appendChild(tbl);c.appendChild(box1);
+  var box2=document.createElement("div");box2.className="gbox";
+  var t2=document.createElement("div");t2.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";t2.textContent="٢ — أمثلة في سياق التغذية";box2.appendChild(t2);
+  var examples=[
+    ["a great deal of","There is a great deal of evidence that fibre improves gut health.","هناك قدر كبير من الأدلة على أن الألياف تُحسّن صحة الأمعاء."],
+    ["a large number of","A large number of people suffer from vitamin D deficiency.","عدد كبير من الناس يعانون من نقص فيتامين د."],
+    ["very little","She eats very little saturated fat in her daily diet.","هي تأكل كميات قليلة جداً من الدهون المشبعة يومياً."],
+    ["much of","Much of the research links processed food to inflammation.","الكثير من الأبحاث تربط الطعام المصنّع بالالتهاب."],
+  ];
+  examples.forEach(function(ex){var pat=document.createElement("div");pat.className="gpat";var d1=document.createElement("div");d1.style.cssText="font-size:.82rem;color:#f0a000;font-weight:700;direction:ltr;margin-bottom:2px";d1.textContent=ex[0];var d2=document.createElement("div");d2.style.cssText="font-size:.9rem;color:#0a1628;font-weight:600;direction:ltr;margin-bottom:4px";d2.textContent=ex[1];var d3=document.createElement("div");d3.style.cssText="font-size:.82rem;color:#64748b;direction:rtl;text-align:right";d3.textContent=ex[2];pat.appendChild(d1);pat.appendChild(d2);pat.appendChild(d3);box2.appendChild(pat);});
+  c.appendChild(box2);
+  var wrong=document.createElement("div");wrong.style.cssText="background:#fef2f2;border-radius:10px;padding:13px 16px;margin-bottom:8px;border-right:4px solid #dc2626;direction:ltr";
+  wrong.innerHTML='<span style="color:#dc2626;font-weight:700">✗ </span>There is a great deal of <u>people</u> who eat unhealthily. <span style="font-size:.8rem;color:#dc2626">← مع المعدود نستخدم number وليس deal</span>';
+  var right=document.createElement("div");right.style.cssText="background:#f0fdf4;border-radius:10px;padding:13px 16px;border-right:4px solid #059669;direction:ltr";
+  right.innerHTML='<span style="color:#059669;font-weight:700">✓ </span>There is a great <strong>number</strong> of people who eat unhealthily. <span style="font-size:.8rem;color:#059669">← people = معدود → number ✅</span>';
+  c.appendChild(wrong);c.appendChild(right);
+}
+function buildListening(){
+  var s=document.getElementById("listenScript");
+  listenLines.forEach(function(line,i){var d=document.createElement("div");d.className="lline";d.id="ll"+i;d.textContent=line;s.appendChild(d);});
+  var c=document.getElementById("listenQList");
+  listenQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="lq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){listenA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("lq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function setLSpd(r,btn){lspd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function listenSeq(i){if(!listenOn||i>=listenLines.length){stopListen();return;}document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("ll"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(listenLines[i]);u.lang="en-US";u.rate=lspd;u.pitch=1.05;u.onend=function(){if(listenOn)setTimeout(function(){listenSeq(i+1);},380);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startListen(){listenOn=true;document.getElementById("lIcon").textContent="⏹";document.getElementById("lTxt").textContent="إيقاف المونولوج";listenSeq(0);}
+function stopListen(){listenOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});document.getElementById("lIcon").textContent="▶";document.getElementById("lTxt").textContent="شغّل المونولوج";}
+function toggleListen(){listenOn?stopListen():startListen();}
+function checkListen(){var s=0;listenQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("lq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(listenA[qi]===i)el.classList.add("no");}if(listenA[qi]===q.ans)s++;});var r=document.getElementById("listenRes");r.style.display="block";var pct=Math.round(s/listenQs.length*100);r.textContent=s+" من "+listenQs.length+" إجابة صحيحة ("+pct+"%) "+(pct>=80?"✅ ممتاز!":pct>=60?"👍 جيد!":"📚 راجع");}
+function resetListen(){listenA=new Array(listenQs.length).fill(null);document.querySelectorAll(".copt[id^='lq']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("listenRes").style.display="none";}
+
+function buildW(){
+  var ids=["w1","w2","w3","w4","w5"];var any=false;
+  for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value.trim())any=true;}
+  if(!any){document.getElementById("wOut").innerHTML="<span style='color:#9ca3af;font-style:italic'>✨ ستظهر فقرتك هنا...</span>";return;}
+  var parts=[];
+  for(var j=0;j<ids.length;j++){var el=document.getElementById(ids[j]);var v=el?el.value.trim():"";if(v)parts.push("<span style='color:#f0a000;font-weight:700'>"+v+"</span>.");}
+  document.getElementById("wOut").innerHTML="<p style='direction:ltr;line-height:2'>"+parts.join(" ")+"</p>";
+}
+
+function buildSpeaking(){
+  var c=document.getElementById("speakBox");
+  speakQs.forEach(function(q){
+    var d=document.createElement("div");d.style.cssText="background:#f8faff;border-right:4px solid #1e3a8a;border-radius:0 12px 12px 0;padding:16px 18px;margin-bottom:14px";
+    var p1=document.createElement("p");p1.style.cssText="font-size:.97rem;color:#0a1628;font-weight:700;direction:ltr;margin-bottom:5px";p1.textContent=q.q;
+    var p2=document.createElement("p");p2.style.cssText="font-size:.82rem;color:#9ca3af;margin-bottom:6px";p2.textContent=q.ar;
+    var p3=document.createElement("p");p3.style.cssText="font-size:.82rem;color:#f0a000;direction:ltr;margin-bottom:8px";p3.textContent="💡 "+q.hint;
+    var badge=document.createElement("span");badge.style.cssText="background:#dbeafe;color:#1e3a8a;padding:4px 12px;border-radius:20px;font-size:.76rem;font-weight:700";badge.textContent=q.badge;
+    d.appendChild(p1);d.appendChild(p2);d.appendChild(p3);d.appendChild(badge);
+    var btn=document.createElement("button");btn.className="spksmall";btn.textContent="🔊";btn.style.marginTop="10px";
+    btn.addEventListener("click",(function(qq){return function(){say(qq,spd);};})(q.q));
+    d.appendChild(btn);c.appendChild(d);
+  });
+}
+
+function makeExRow(text,arabic,spkText){
+  var div=document.createElement("div");
+  div.style.cssText="cursor:pointer;user-select:none;padding:8px 12px;background:white;border-radius:8px;direction:ltr;font-size:.86rem;color:#374151;font-style:italic;margin-top:6px";
+  var span=document.createElement("span");span.textContent=text;
+  var tr=document.createElement("div");
+  tr.style.cssText="font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;padding-top:4px;border-top:1px dashed #e5e7eb;display:none;font-family:Tajawal,sans-serif;font-style:normal";
+  tr.textContent=arabic;
+  div.appendChild(span);div.appendChild(tr);
+  div.addEventListener("click",(function(t,s){return function(){t.style.display=t.style.display==="none"?"block":"none";say(s,spd);};})(tr,spkText));
+  return div;
+}
+
+function buildReal(){
+  var c=document.getElementById("realBox");
+  var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h1.textContent="🔥 Expressions — اضغط على الجملة لتسمعها وترجمتها";c.appendChild(h1);
+  realExpr.forEach(function(e){
+    var d=document.createElement("div");d.className="expr-card";
+    // Visible 🔊 for main expression
+    var header=document.createElement("div");header.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;direction:ltr";
+    var headerLeft=document.createElement("div");headerLeft.style.cssText="display:flex;align-items:center;gap:8px";
+    var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";
+    spkBtn.addEventListener("click",(function(ee){return function(){say(ee,spd);};})(e.e));
+    var titleSpan=document.createElement("span");titleSpan.style.cssText="font-weight:700;color:#4c1d95;font-size:.97rem";titleSpan.textContent=e.e;
+    headerLeft.appendChild(spkBtn);headerLeft.appendChild(titleSpan);
+    var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.78rem;font-weight:700;font-family:Tajawal,sans-serif";pronSpan.textContent=e.p;
+    header.appendChild(headerLeft);header.appendChild(pronSpan);
+    d.appendChild(header);
+    var grid=document.createElement("div");grid.style.cssText="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px";
+    var g1=document.createElement("div");g1.style.cssText="background:white;border-radius:8px;padding:8px 12px;text-align:right";g1.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>المعنى</div><div style='font-weight:700;color:#374151;font-size:.88rem'>"+e.m+"</div>";
+    var g2=document.createElement("div");g2.style.cssText="background:white;border-radius:8px;padding:8px 12px;direction:ltr";g2.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>Formal</div><div style='font-size:.85rem;color:#64748b'>"+e.f+"</div>";
+    grid.appendChild(g1);grid.appendChild(g2);d.appendChild(grid);
+    d.appendChild(makeExRow(e.x,e.xar,e.x));
+    var note=document.createElement("div");note.style.cssText="font-size:.8rem;color:#7c3aed;text-align:right;margin-top:8px";note.textContent="💡 "+e.n;
+    d.appendChild(note);c.appendChild(d);
+  });
+  var h2=document.createElement("p");h2.style.cssText="font-weight:800;color:#0a1628;margin:20px 0 14px;text-align:right";h2.textContent="😎 Slang";c.appendChild(h2);
+  var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:20px";
+  realSlang.forEach(function(s){
+    var d=document.createElement("div");d.className="slang-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";
+    var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkS=document.createElement("button");spkS.className="spksmall";spkS.textContent="🔊";spkS.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkS.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var sWord=document.createElement("span");sWord.style.cssText="font-weight:700;color:#ea580c;font-size:.9rem";sWord.textContent=s.w;
+    titleLeft.appendChild(spkS);titleLeft.appendChild(sWord);
+    var pp=document.createElement("span");pp.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pp.textContent=s.p;
+    titleRow.appendChild(titleLeft);titleRow.appendChild(pp);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    sg.appendChild(d);
+  });
+  c.appendChild(sg);
+  var h3=document.createElement("p");h3.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h3.textContent="💬 Everyday Phrases";c.appendChild(h3);
+  var ev=document.createElement("div");ev.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";
+  realEvery.forEach(function(s){
+    var d=document.createElement("div");d.className="ev-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;direction:ltr";
+    var titleLeft2=document.createElement("div");titleLeft2.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkE=document.createElement("button");spkE.className="spksmall";spkE.textContent="🔊";spkE.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkE.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var titleTxt=document.createElement("span");titleTxt.style.cssText="font-weight:700;color:#15803d;font-size:.9rem";titleTxt.textContent=s.w;
+    titleLeft2.appendChild(spkE);titleLeft2.appendChild(titleTxt);
+    var evPron=document.createElement("span");evPron.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";evPron.textContent=s.p;
+    titleRow.appendChild(titleLeft2);titleRow.appendChild(evPron);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    ev.appendChild(d);
+  });
+  c.appendChild(ev);
+}
+
+function buildQuiz(){
+  var c=document.getElementById("quizList");
+  quizQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="18px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:10px;direction:ltr;font-size:.93rem";
+    p.innerHTML="<span style='background:#0a1628;color:white;border-radius:5px;padding:1px 8px;font-size:.76rem;margin-left:8px'>"+(qi+1)+"</span>"+q.q;
+    d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="qopt";b.id="qq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){quizA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("qq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function checkQuiz(){var s=0;quizQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("qq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(quizA[qi]===i)el.classList.add("no");}if(quizA[qi]===q.ans)s++;});var pct=Math.round(s/quizQs.length*100);var r=document.getElementById("quizRes");r.style.display="block";document.getElementById("qEmoji").textContent=pct===100?"🏆":pct>=70?"🎉":pct>=50?"💪":"📚";document.getElementById("qScore").textContent=s+" من "+quizQs.length+" إجابة صحيحة ("+pct+"%)";document.getElementById("qMsg").textContent=pct===100?"مثالي!":pct>=70?"أحسنت!":pct>=50?"راجع Conditionals Type 2.":"راجع الوحدة.";r.style.background=pct>=70?"#f0fdf4":"#fef9f0";r.scrollIntoView({behavior:"smooth",block:"center"});}
+function resetQuiz(){quizA=new Array(quizQs.length).fill(null);document.querySelectorAll(".qopt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("quizRes").style.display="none";}
+
+function show(id,btn){document.querySelectorAll(".sec").forEach(function(s){s.classList.remove("on");});document.getElementById("sec-"+id).classList.add("on");window.scrollTo({top:0,behavior:"smooth"});document.querySelectorAll(".nb").forEach(function(b){b.classList.remove("on");});if(btn){btn.classList.add("on");return;}var map={vocab:0,story:1,reading:2,grammar:3,listening:4,writing:5,speaking:6,realeng:7,quiz:8};var btns=document.querySelectorAll(".nb");if(btns[map[id]])btns[map[id]].classList.add("on");}
+
+buildVocab();buildStory();buildReading();buildGrammar();buildListening();buildSpeaking();buildReal();buildQuiz();
+</script>
+</body>
+</html>

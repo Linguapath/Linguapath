@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath B1 — Unit 8: Business English</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Tajawal',sans-serif;background:#f0f4fa;direction:rtl;min-height:100vh}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#1e3a8a;border-radius:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(30,58,138,.35)}50%{box-shadow:0 0 0 8px rgba(30,58,138,0)}}
+.nav-bar{background:linear-gradient(135deg,#0a1628,#1e3a8a);padding:10px 12px;display:flex;justify-content:center;gap:4px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.nb{border:none;border-radius:22px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s}
+.nb.on{background:#f0a000;color:#0a1628}
+.nb:not(.on){background:rgba(255,255,255,.1);color:rgba(255,255,255,.85)}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#1e3a8a 55%,#1d4ed8 100%);color:white;padding:32px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(240,160,0,.06)}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04)}
+.b1tag{display:inline-block;background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-size:.72rem;font-weight:900;padding:4px 14px;border-radius:20px;letter-spacing:1.5px;margin-bottom:10px}
+.sec{display:none;max-width:900px;margin:0 auto;padding:32px 16px 80px;animation:fadeUp .4s ease}
+.sec.on{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 3px 20px rgba(0,0,0,.06);margin-bottom:22px;overflow:hidden}
+.ch{background:#0a1628;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.ch h3{font-size:1rem;font-weight:700}
+.ch .sub{font-size:.75rem;color:#93c5fd;margin-top:1px}
+.cb{padding:22px}
+.vocab-card{background:white;border-radius:16px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 14px rgba(10,22,40,.08);border:1px solid #e5ebf8;transition:transform .2s,box-shadow .2s}
+.vocab-card:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(10,22,40,.13)}
+.vhead{background:linear-gradient(135deg,#0a1628,#1e3a8a);display:flex;flex-direction:row-reverse;align-items:center;padding:14px 18px;gap:14px}
+.vimg{width:80px;height:80px;border-radius:12px;object-fit:cover;flex-shrink:0;border:2px solid rgba(255,255,255,.15)}
+.vimg-fallback{width:80px;height:80px;border-radius:12px;flex-shrink:0;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:2rem;border:2px solid rgba(255,255,255,.12)}
+.vinfo{flex:1;text-align:right}
+.vword{font-family:'Lora',serif;font-size:1.18rem;font-weight:700;color:white;direction:ltr;text-align:left}
+.vpron{font-size:.78rem;font-weight:700;color:#fde68a;margin-top:3px;direction:ltr;text-align:left}
+.var{font-size:.93rem;font-weight:700;color:rgba(255,255,255,.9);margin-top:3px}
+.vspk{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.25);background:transparent;color:white;font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:all .18s;display:flex;align-items:center;justify-content:center}
+.vspk:hover{background:rgba(255,255,255,.2);transform:scale(1.08)}
+.vspk.playing{background:#f0a000;border-color:#f0a000;animation:pulse 1s infinite}
+.vbody{padding:14px 16px 16px}
+.vgrid2{margin-bottom:10px}
+.vrow-pair{display:flex;gap:8px;margin-bottom:8px}
+.vrow-pair .vcell{flex:1;min-width:0}
+.vcell{border-radius:10px;padding:10px 13px;cursor:pointer;transition:all .15s;user-select:none;direction:ltr}
+.vcell:hover{filter:brightness(.96)}
+.vcell:active{transform:scale(.98)}
+.c-syn{background:#f0fdf4;border:1px solid #bbf7d0}
+.c-ant{background:#fff7ed;border:1px solid #fed7aa}
+.c-col{background:#eff6ff;border:1px solid #bfdbfe}
+.c-prep{background:#faf5ff;border:1px solid #ddd6fe}
+.vlbl{font-size:.65rem;font-weight:900;letter-spacing:.7px;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:5px;direction:ltr;justify-content:flex-start}
+.c-syn .vlbl{color:#15803d}.c-ant .vlbl{color:#ea580c}
+.c-col .vlbl{color:#2563eb}.c-prep .vlbl{color:#7c3aed}
+.vlbl::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.c-syn .vlbl::before{background:#15803d}.c-ant .vlbl::before{background:#ea580c}
+.c-col .vlbl::before{background:#2563eb}.c-prep .vlbl::before{background:#7c3aed}
+.vval{font-family:'Lora',serif;font-size:.82rem;color:#374151;direction:ltr;line-height:1.6}
+.vtr{font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px;padding-top:5px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif}
+.vcell.show-tr .vtr{display:block}
+.vex{font-family:'Lora',serif;font-size:.87rem;color:#374151;direction:ltr;font-style:italic;padding:10px 14px;background:#f8faff;border-radius:10px;border-right:3px solid #f0a000;cursor:pointer;user-select:none}
+.vex-tr{font-size:.8rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding-top:6px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif;font-style:normal}
+.vex.show-ex-tr .vex-tr{display:block}
+.sline{font-family:'Lora',serif;font-size:.97rem;line-height:2;padding:5px 8px;border-radius:6px;direction:ltr;transition:background .2s}
+.sline.hl{background:#fef3c7}
+.lline{font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#cbd5e1;padding:3px 6px;border-radius:5px;direction:ltr;transition:background .2s}
+.lline.hl{background:rgba(240,160,0,.18);color:#fde68a}
+.sctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-direction:row-reverse;margin-bottom:16px}
+.pbtn{background:#1e3a8a;color:white;border:none;border-radius:24px;padding:9px 20px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s}
+.pbtn:hover{background:#1d4ed8}
+.spdbtn{padding:5px 12px;border-radius:18px;border:2px solid #cbd5e1;background:white;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;color:#64748b;transition:all .15s}
+.spdbtn.on{border-color:#1e3a8a;background:#1e3a8a;color:white}
+.rtext{font-family:'Lora',serif;font-size:.95rem;line-height:2;color:#374151;direction:ltr;padding:20px;background:#f8faff;border-radius:14px;border:1px solid #e5eaf5;margin-bottom:18px}
+.rtext p{margin-bottom:14px}
+.gbox{background:linear-gradient(135deg,#eff6ff,#e0effe);border:2px solid #bfdbfe;border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.gpat{background:white;border-radius:10px;padding:12px 16px;margin-bottom:10px;border-right:4px solid #2563eb;direction:ltr}
+.geg{font-family:'Lora',serif;font-size:.97rem;color:#0a1628;font-weight:600}
+.geg em{color:#f0a000;font-style:normal;font-weight:800}
+.gar{font-family:'Tajawal',sans-serif;font-size:.85rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px}
+.qopt{padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;font-family:'Lora',serif;font-size:.9rem;direction:ltr;background:white;transition:all .15s;margin-bottom:7px;text-align:left}
+.qopt:hover{border-color:#1e3a8a;background:#eff6ff}
+.qopt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.qopt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.copt{padding:9px 14px;border:2px solid #e5e7eb;border-radius:9px;cursor:pointer;font-family:'Lora',serif;font-size:.87rem;direction:ltr;background:white;transition:all .15s;margin-bottom:6px}
+.copt:hover{border-color:#1e3a8a;background:#eff6ff}
+.copt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.copt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.wq-block{margin-bottom:18px}
+.wq-model{font-family:'Lora',serif;font-size:.8rem;color:#374151;font-style:italic;direction:ltr;padding:10px 14px;background:#f0f9ff;border-radius:8px;border-right:3px solid #bfdbfe;line-height:1.7;display:none;margin-bottom:8px}
+.wq-model.show{display:block}
+.wq-model-btn{background:#dbeafe;border:none;border-radius:20px;padding:4px 14px;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer;margin-bottom:8px;transition:all .15s}
+.wq-model-btn:hover{background:#1e3a8a;color:white}
+.wq-en{font-family:'Lora',serif;font-size:.93rem;font-weight:700;color:#0a1628;direction:ltr;margin-bottom:3px}
+.wq-ar{font-size:.78rem;color:#9ca3af;direction:rtl;text-align:right;margin-bottom:8px;font-family:'Tajawal',sans-serif}
+.winput{width:100%;border:none;border-bottom:2px solid #f0a000;background:transparent;font-family:'Lora',serif;font-size:.95rem;color:#0a1628;outline:none;padding:5px 3px;direction:ltr;margin-bottom:14px}
+.winput:focus{border-color:#1e3a8a}
+.btn{border:none;border-radius:28px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all .18s;padding:10px 24px;font-size:.9rem}
+.btn:hover{opacity:.88;transform:scale(.98)}
+.bd{background:#1e3a8a;color:white}
+.bg{background:#e5e7eb;color:#374151}
+.bgold{background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-weight:900}
+.navrow{display:flex;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.spksmall{width:32px;height:32px;border-radius:50%;border:none;background:#dbeafe;color:#1e3a8a;font-size:.85rem;cursor:pointer;flex-shrink:0;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.spksmall:hover{background:#1e3a8a;color:white}
+.expr-card{background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:16px;margin-bottom:12px}
+.slang-card{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px}
+.ev-card{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px}
+@media(max-width:580px){.vgrid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <button class="nb on"  onclick="show('vocab',this)">📚 المفردات</button>
+  <button class="nb" onclick="show('story',this)">📖 القصة</button>
+  <button class="nb" onclick="show('reading',this)">📰 القراءة</button>
+  <button class="nb" onclick="show('grammar',this)">✏️ القاعدة</button>
+  <button class="nb" onclick="show('listening',this)">🎧 الاستماع</button>
+  <button class="nb" onclick="show('writing',this)">✍️ الكتابة</button>
+  <button class="nb" onclick="show('speaking',this)">💬 المحادثة</button>
+  <button class="nb" onclick="show('realeng',this)">🗣️ Real English</button>
+  <button class="nb" onclick="show('quiz',this)">✅ الاختبار</button>
+</div>
+<div class="hero">
+  <div class="b1tag">B1 — INTERMEDIATE</div>
+  <div style="font-size:.75rem;letter-spacing:3px;color:rgba(255,255,255,.45);font-weight:700;margin-bottom:8px">UNIT 8</div>
+  <h1 style="font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;margin-bottom:6px"> Culture and Society</h1>
+  <p style="font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:4px">الإنجليزية التجارية</p>
+  <p style="font-size:.82rem;color:rgba(255,255,255,.4)">القاعدة: Formal vs Informal Language</p>
+  <div style="display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap">
+    <a href="unit9_b1_food.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">← الوحدة ٧</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="unit9_b1_food.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">الوحدة ٩ ←</a>
+  </div>
+</div>
+
+<div id="sec-vocab" class="sec on">
+  <div style="text-align:right;color:#64748b;font-size:.88rem;max-width:900px;margin:0 auto 16px;padding:0 16px">💡 اضغط 🔊 للكلمة الرئيسية — اضغط على أي خلية لتسمع نطقها وتظهر ترجمتها</div>
+  <div id="vocabList" style="max-width:900px;margin:0 auto;padding:0 16px"></div>
+  <div class="navrow"><button class="btn bd" onclick="show('story',null)">القصة ←</button></div>
+</div>
+
+<div id="sec-story" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📖</span><div><h3>القصة القصيرة</h3><div class="sub">Yasmin تحكي عن الإنجليزية التجارية — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button id="trBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:22px;padding:7px 16px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+        <button class="pbtn" id="storyBtn" onclick="toggleStory()"><span id="sIcon">▶</span><span id="sTxt">استمع للقصة</span></button>
+        <button class="spdbtn on" onclick="setSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setSpd(0.75,this)">بطيء</button>
+      </div>
+      <div id="storyBox" style="border-right:4px solid #f0a000;padding:16px 20px;background:#fffdf7;border-radius:0 14px 14px 0"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn bd" onclick="show('reading',null)">القراءة ←</button>
+  </div>
+</div>
+
+<div id="sec-reading" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📰</span><div><h3>القراءة المعمّقة</h3><div class="sub">نص 350 كلمة + 5 أسئلة فهم</div></div></div>
+    <div class="cb">
+      <div class="rtext" id="readingText"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الفهم</p>
+      <div id="compList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkComp()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetComp()">↺ إعادة</button>
+      </div>
+      <div id="compRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('story',null)">→ القصة</button>
+    <button class="btn bd" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✏️</span><div><h3>القاعدة</h3><div class="sub">Formal vs Informal — الرسمي وغير الرسمي</div></div></div>
+    <div class="cb" id="grammarBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('reading',null)">→ القراءة</button>
+    <button class="btn bd" onclick="show('listening',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listening" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🎧</span><div><h3>الاستماع المضمّن</h3><div class="sub">مونولوج Priya — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button class="pbtn" id="listenBtn" onclick="toggleListen()"><span id="lIcon">▶</span><span id="lTxt">شغّل المونولوج</span></button>
+        <button class="spdbtn on" onclick="setLSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setLSpd(0.75,this)">بطيء</button>
+      </div>
+      <div class="lscript" id="listenScript" style="background:#0f172a;border-radius:14px;padding:18px 20px;margin-bottom:16px"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الاستماع</p>
+      <div id="listenQList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkListen()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetListen()">↺ إعادة</button>
+      </div>
+      <div id="listenRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn bd" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✍️</span><div><h3>الكتابة</h3><div class="sub">اكتب عن تجاربك في بيئة العمل</div></div></div>
+    <div class="cb">
+      <div style="background:#fffdf7;border:2px dashed #f0a000;border-radius:14px;padding:20px;margin-bottom:14px">
+                <div class="wq-block">
+          <div class="wq-en">Write a formal email opening to a client you have not met before.</div>
+          <div class="wq-ar">اكتب افتتاحية بريد رسمي لعميل لم تلتقِ به من قبل.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">Dear Mr Johnson, I hope this message finds you well. I am writing to introduce myself and to enquire about the possibility of scheduling a meeting at your earliest convenience to discuss a potential collaboration.</div>
+          <input class="winput" id="w1" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Describe your current role and responsibilities formally.</div>
+          <div class="wq-ar">صف دورك الوظيفي ومسؤولياتك بأسلوب رسمي.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">In my current position as Senior Content Manager, I am responsible for overseeing the development and delivery of all educational materials, managing a team of five writers, and ensuring all deliverables meet our quality benchmarks.</div>
+          <input class="winput" id="w2" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Write a polite way to decline a meeting or request.</div>
+          <div class="wq-ar">اكتب طريقة مهذبة لرفض اجتماع أو طلب.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">Thank you for your kind invitation. While I greatly appreciate the opportunity, I regret to inform you that I am unable to attend on that date due to a prior commitment. I would welcome the chance to reschedule at your convenience.</div>
+          <input class="winput" id="w3" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Write a sentence proposing a solution to a workplace problem.</div>
+          <div class="wq-ar">اكتب جملة تقترح فيها حلاً لمشكلة في بيئة العمل.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">Following our recent discussions, I would like to propose that we consider implementing a structured onboarding process which would address the issues raised and ensure all new team members are fully operational within two weeks.</div>
+          <input class="winput" id="w4" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Write a formal closing for a business email.</div>
+          <div class="wq-ar">اكتب خاتمة رسمية لبريد إلكتروني تجاري.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">I trust the above information is of use. Should you require any further clarification, please do not hesitate to contact me directly. I look forward to hearing from you. Yours sincerely.</div>
+          <input class="winput" id="w5" placeholder="Write your answer here..." oninput="buildW()" style="margin-bottom:0">
+        </div>
+        </div>
+</div>
+      <div id="wOut" style="background:white;border:1px solid #e5eaf5;border-radius:12px;padding:16px;min-height:70px;font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#374151;direction:ltr">
+        <span style="color:#9ca3af;font-style:italic">✨ ستظهر فقرتك هنا...</span>
+      </div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('listening',null)">→ الاستماع</button>
+    <button class="btn bd" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">💬</span><div><h3>المحادثة</h3><div class="sub">Speaking Challenge</div></div></div>
+    <div class="cb" id="speakBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn bd" onclick="show('realeng',null)">Real English ←</button>
+  </div>
+</div>
+
+<div id="sec-realeng" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🗣️</span><div><h3>Real English</h3><div class="sub">اضغط على الجملة لتسمعها وتظهر ترجمتها</div></div></div>
+    <div class="cb" id="realBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn bd" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-quiz" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✅</span><div><h3>اختبار الوحدة</h3><div class="sub">10 أسئلة — مفردات + قواعد + collocations</div></div></div>
+    <div class="cb">
+      <div id="quizList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:18px">
+        <button class="btn bgold" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn bg" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizRes" style="display:none;text-align:center;padding:22px;margin-top:16px;background:#f0fdf4;border-radius:14px">
+        <div id="qEmoji" style="font-size:2.5rem;margin-bottom:8px"></div>
+        <div id="qScore" style="font-weight:800;font-size:1.1rem;color:#0a1628;margin-bottom:4px"></div>
+        <div id="qMsg" style="font-size:.88rem;color:#64748b"></div>
+      </div>
+    </div>
+  </div>
+  <div style="background:linear-gradient(135deg,#0a1628,#1e3a8a);border-radius:18px;padding:28px;text-align:center;margin-top:8px;max-width:900px;margin-left:auto;margin-right:auto">
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:white;margin-bottom:6px">أحسنت! أكملت وحدة الإنجليزية التجارية</div>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:16px">الوحدة التاسعة: Food and Nutrition</p>
+    <button class="btn bgold" onclick="location.href='unit9_b1_food.html'">الوحدة التاسعة ←</button>
+  </div>
+</div>
+
+<script>
+var V=[
+  {w:"agenda",p:"أجيندا",a:"جدول الأعمال",img:"https://picsum.photos/seed/701/200/100",syn:"schedule, plan, programme",ant:"unplanned, ad hoc",col:"set the agenda / agenda item / follow the agenda",prep:"agenda for (meeting) / on the agenda",ex:"I am writing to circulate the agenda for next Tuesday's board meeting.",ar_syn:"جدول، خطة، برنامج",ar_ant:"غير مخطط، عشوائي",ar_col:"يضع جدول الأعمال / بند على الجدول",ar_prep:"جدول اجتماع / على جدول الأعمال",ar_ex:"أكتب لتوزيع جدول أعمال اجتماع مجلس الإدارة يوم الثلاثاء القادم."},
+  {w:"stakeholder",p:"ستيك-هولدر",a:"صاحب المصلحة",img:"https://picsum.photos/seed/702/200/100",syn:"interested party, shareholder, investor",ant:"outsider, uninvolved party",col:"key stakeholder / stakeholder engagement / consult stakeholders",prep:"stakeholder in (project) / stakeholders of (company)",ex:"We would like to invite all key stakeholders to the quarterly review.",ar_syn:"طرف معني، مساهم، مستثمر",ar_ant:"طرف خارجي، غير معني",ar_col:"صاحب مصلحة رئيسي / إشراك أصحاب المصلحة",ar_prep:"صاحب مصلحة في المشروع / للشركة",ar_ex:"نودّ دعوة جميع أصحاب المصلحة الرئيسيين للمراجعة الفصلية."},
+  {w:"procurement",p:"بروكيورمنت",a:"المشتريات / التوريد",img:"https://picsum.photos/seed/703/200/100",syn:"purchasing, sourcing, acquisition",ant:"selling, disposal",col:"procurement process / procurement manager / procurement strategy",prep:"procurement of (goods) / procurement for (project)",ex:"Please find attached the updated procurement guidelines for Q3.",ar_syn:"شراء، توريد، اقتناء",ar_ant:"بيع، تصرف",ar_col:"عملية المشتريات / مدير المشتريات",ar_prep:"مشتريات البضائع / للمشروع",ar_ex:"يرجى الاطلاع على إرشادات المشتريات المحدّثة للربع الثالث المرفقة."},
+  {w:"benchmark",p:"بينش-مارك",a:"المعيار المرجعي",img:"https://picsum.photos/seed/704/200/100",syn:"standard, reference point, target",ant:"no standard, arbitrary measure",col:"industry benchmark / set a benchmark / benchmark performance",prep:"benchmark for (industry) / benchmark against (competitors)",ex:"Our performance this quarter has exceeded the industry benchmark by twelve percent.",ar_syn:"معيار، نقطة مرجعية، هدف",ar_ant:"لا معيار، مقياس عشوائي",ar_col:"معيار صناعي / يضع معياراً / يقيس الأداء",ar_prep:"معيار الصناعة / مقارنة بالمنافسين",ar_ex:"أداؤنا هذا الربع تجاوز المعيار الصناعي باثني عشر بالمئة."},
+  {w:"leverage",p:"ليفريج",a:"يستغل / الرافعة التجارية",img:"https://picsum.photos/seed/705/200/100",syn:"utilise, exploit, capitalise on",ant:"waste, ignore, underutilise",col:"leverage expertise / leverage technology / leverage relationships",prep:"leverage in (negotiations) / leverage over (competitor)",ex:"We can leverage our existing client base to drive new revenue streams.",ar_syn:"يستغل، يوظّف، يستفيد من",ar_ant:"يهدر، يتجاهل",ar_col:"يستغل الخبرة / التكنولوجيا / العلاقات",ar_prep:"نفوذ في المفاوضات / على المنافس",ar_ex:"يمكننا استغلال قاعدة عملائنا الحالية لتوليد تدفقات إيرادات جديدة."},
+  {w:"deliverable",p:"ديليفرابل",a:"المخرج / الناتج المتفق عليه",img:"https://picsum.photos/seed/706/200/100",syn:"output, result, product",ant:"input, resource",col:"project deliverable / key deliverable / meet deliverables",prep:"deliverable for (project) / deliverable by (date)",ex:"Please confirm that all deliverables will be submitted by the agreed deadline.",ar_syn:"مخرج، نتيجة، منتج",ar_ant:"مدخل، مورد",ar_col:"مخرج المشروع / مخرج رئيسي / يستوفي المخرجات",ar_prep:"مخرج للمشروع / بحلول التاريخ",ar_ex:"يرجى التأكيد بأن جميع المخرجات ستُسلَّم بحلول الموعد المتفق عليه."},
+  {w:"synergy",p:"سينيرجي",a:"التآزر / العمل المشترك",img:"https://picsum.photos/seed/707/200/100",syn:"collaboration, combined effect, teamwork",ant:"conflict, duplication, inefficiency",col:"create synergy / synergy between teams / operational synergy",prep:"synergy between (departments) / synergy with (partner)",ex:"The merger is expected to create significant synergy between the two divisions.",ar_syn:"تعاون، أثر مشترك، عمل جماعي",ar_ant:"صراع، تكرار، عدم كفاءة",ar_col:"يخلق تآزراً / بين الفرق / تآزر تشغيلي",ar_prep:"تآزر بين الأقسام / مع الشريك",ar_ex:"من المتوقع أن يخلق الاندماج تآزراً كبيراً بين القسمين."},
+  {w:"turnaround",p:"تيرن-أراوند",a:"التحوّل / وقت الإنجاز",img:"https://picsum.photos/seed/708/200/100",syn:"recovery, reversal, transformation",ant:"decline, deterioration",col:"quick turnaround / turnaround time / company turnaround",prep:"turnaround of (company) / turnaround in (performance)",ex:"We aim to achieve a turnaround time of forty-eight hours for all client requests.",ar_syn:"تعافٍ، انعكاس، تحوّل",ar_ant:"انحدار، تدهور",ar_col:"تحوّل سريع / وقت الإنجاز / تحوّل الشركة",ar_prep:"تحوّل الشركة / في الأداء",ar_ex:"نهدف إلى تحقيق وقت إنجاز يبلغ ثمانية وأربعين ساعة لجميع طلبات العملاء."},
+  {w:"scalability",p:"سكيلابيلتي",a:"قابلية التوسع",img:"https://picsum.photos/seed/709/200/100",syn:"expandability, growth potential",ant:"limitation, ceiling, cap",col:"business scalability / ensure scalability / scalability issues",prep:"scalability of (model) / scalability for (growth)",ex:"The investor raised concerns about the scalability of our current business model.",ar_syn:"قابلية التوسع، إمكانية النمو",ar_ant:"محدودية، سقف، حد",ar_col:"قابلية توسع الأعمال / يضمن التوسع",ar_prep:"قابلية توسع النموذج / للنمو",ar_ex:"أثار المستثمر مخاوف بشأن قابلية توسع نموذج أعمالنا الحالي."},
+  {w:"remuneration",p:"ريميونريشن",a:"المكافأة المالية / الراتب",img:"https://picsum.photos/seed/710/200/100",syn:"salary, compensation, pay",ant:"unpaid work, voluntary",col:"competitive remuneration / remuneration package / review remuneration",prep:"remuneration for (services) / remuneration of (executive)",ex:"The role offers a highly competitive remuneration package including performance bonuses.",ar_syn:"راتب، تعويض، أجر",ar_ant:"عمل غير مأجور، تطوعي",ar_col:"مكافأة تنافسية / حزمة مكافأة / مراجعة المكافأة",ar_prep:"مكافأة مقابل الخدمات / للمدير التنفيذي",ar_ex:"يوفر الدور حزمة مكافأة تنافسية للغاية تتضمن مكافآت الأداء."},
+  {w:"onboarding",p:"أون-بوردينج",a:"تأهيل الموظف الجديد",img:"https://picsum.photos/seed/711/200/100",syn:"induction, orientation, integration",ant:"offboarding, departure",col:"onboarding process / new employee onboarding / smooth onboarding",prep:"onboarding of (new staff) / onboarding into (company)",ex:"Our onboarding programme ensures new staff are fully productive within two weeks.",ar_syn:"تدريب تعريفي، توجيه، اندماج",ar_ant:"مغادرة، خروج",ar_col:"عملية التأهيل / تأهيل الموظف الجديد",ar_prep:"تأهيل الموظفين الجدد / في الشركة",ar_ex:"برنامج التأهيل لدينا يضمن أن الموظفين الجدد يصبحون منتجين بالكامل خلال أسبوعين."},
+  {w:"feasibility",p:"فيزبيلتي",a:"الجدوى",img:"https://picsum.photos/seed/712/200/100",syn:"viability, practicality, workability",ant:"impossibility, impracticality",col:"feasibility study / assess feasibility / question feasibility",prep:"feasibility of (project) / feasibility for (investment)",ex:"Before proceeding, we recommend conducting a full feasibility study.",ar_syn:"جدوى، عملية، قابلية التطبيق",ar_ant:"استحالة، عدم عملية",ar_col:"دراسة الجدوى / يقيّم الجدوى",ar_prep:"جدوى المشروع / للاستثمار",ar_ex:"قبل المضي قدماً نوصي بإجراء دراسة جدوى شاملة."},
+  {w:"revenue stream",p:"ريفينيو ستريم",a:"مصدر الإيرادات",img:"https://picsum.photos/seed/713/200/100",syn:"income source, profit channel",ant:"cost centre, expense",col:"new revenue stream / diversify revenue streams / identify revenue streams",prep:"revenue stream from (product) / revenue stream for (company)",ex:"We have identified three new revenue streams that could double our annual income.",ar_syn:"مصدر دخل، قناة ربح",ar_ant:"مركز تكلفة، مصروف",ar_col:"مصدر إيرادات جديد / يُنوّع مصادر الإيرادات",ar_prep:"مصدر إيرادات من المنتج / للشركة",ar_ex:"حددنا ثلاثة مصادر إيرادات جديدة يمكن أن تضاعف دخلنا السنوي."},
+  {w:"KPI",p:"كيه-بيه-آي",a:"مؤشر الأداء الرئيسي",img:"https://picsum.photos/seed/714/200/100",syn:"performance indicator, metric, target",ant:"unmeasured goal",col:"set KPIs / meet KPIs / track KPIs",prep:"KPI for (team) / KPI of (department)",ex:"Each team member is expected to meet their individual KPIs by end of quarter.",ar_syn:"مؤشر الأداء، مقياس، هدف",ar_ant:"هدف غير مقيس",ar_col:"يضع مؤشرات الأداء / يستوفيها / يتتبعها",ar_prep:"مؤشر أداء للفريق / للقسم",ar_ex:"يُتوقع من كل عضو في الفريق تحقيق مؤشرات أدائه الفردية بنهاية الربع."},
+  {w:"due diligence",p:"ديو ديليجنس",a:"العناية الواجبة / التدقيق المسبق",img:"https://picsum.photos/seed/715/200/100",syn:"thorough investigation, background check",ant:"negligence, oversight",col:"conduct due diligence / due diligence process / complete due diligence",prep:"due diligence on (company) / due diligence before (acquisition)",ex:"We will need to conduct thorough due diligence before signing the agreement.",ar_syn:"تحقيق شامل، فحص خلفية",ar_ant:"إهمال، تقصير",ar_col:"يُجري العناية الواجبة / عملية التدقيق",ar_prep:"عناية واجبة على الشركة / قبل الاستحواذ",ar_ex:"سنحتاج إلى إجراء عناية واجبة شاملة قبل توقيع الاتفاقية."},
+  {w:"mandate",p:"مانديت",a:"التفويض / الصلاحية",img:"https://picsum.photos/seed/716/200/100",syn:"authority, brief, instruction",ant:"unauthorised action, suggestion",col:"have a mandate / mandate to act / within the mandate",prep:"mandate for (action) / mandate from (board)",ex:"The committee has a clear mandate to review all existing contracts by December.",ar_syn:"صلاحية، توجيه، تعليمات",ar_ant:"تصرف غير مفوّض، اقتراح",ar_col:"يمتلك تفويضاً / صلاحية التصرف / ضمن التفويض",ar_prep:"تفويض للعمل / من مجلس الإدارة",ar_ex:"اللجنة لديها تفويض واضح لمراجعة جميع العقود الموجودة بحلول ديسمبر."},
+  {w:"bottom line",p:"بوتم لاين",a:"صافي الربح / المحصّلة النهائية",img:"https://picsum.photos/seed/717/200/100",syn:"net profit, final result, end result",ant:"top line, gross revenue",col:"improve the bottom line / impact the bottom line / bottom line growth",prep:"bottom line of (company) / impact on bottom line",ex:"Every decision we make must ultimately improve the bottom line.",ar_syn:"صافي الربح، النتيجة النهائية",ar_ant:"الإيرادات الإجمالية",ar_col:"يُحسّن الربح النهائي / يؤثر عليه",ar_prep:"صافي ربح الشركة / تأثير على الربح",ar_ex:"كل قرار نتخذه يجب أن يُحسّن في نهاية المطاف صافي الربح."},
+  {w:"outsource",p:"أوت-سورس",a:"يستعين بمصادر خارجية",img:"https://picsum.photos/seed/718/200/100",syn:"subcontract, delegate externally",ant:"in-house, insource",col:"outsource operations / outsource IT / outsource to (company)",prep:"outsource to (provider) / outsource from (department)",ex:"We have decided to outsource our customer service operations to a specialist firm.",ar_syn:"يُسند خارجياً، يُعهد لطرف ثالث",ar_ant:"داخلي، يُنفَّذ داخلياً",ar_col:"يُسند العمليات / الدعم التقني / لشركة",ar_prep:"يُسند إلى مزود / من القسم",ar_ex:"قررنا الاستعانة بشركة متخصصة لتولّي عمليات خدمة العملاء."},
+  {w:"pitch",p:"بيتش",a:"العرض التقديمي للأعمال",img:"https://picsum.photos/seed/719/200/100",syn:"presentation, proposal, sales talk",ant:"no proposal, silence",col:"sales pitch / elevator pitch / pitch to investors",prep:"pitch for (contract) / pitch to (client)",ex:"We have been invited to pitch for the contract at next month's presentation.",ar_syn:"عرض تقديمي، اقتراح، كلام مبيعات",ar_ant:"لا عرض، صمت",ar_col:"عرض مبيعات / عرض موجز / عرض للمستثمرين",ar_prep:"عرض للحصول على عقد / لعميل",ar_ex:"دُعينا لتقديم عرضنا للحصول على العقد في العرض الشهر القادم."},
+  {w:"milestone",p:"مايل-ستون",a:"المعلم / الإنجاز الرئيسي",img:"https://picsum.photos/seed/720/200/100",syn:"achievement, landmark, checkpoint",ant:"setback, delay",col:"reach a milestone / project milestone / key milestone",prep:"milestone in (project) / milestone for (team)",ex:"I am pleased to confirm that we have reached the first major milestone ahead of schedule.",ar_syn:"إنجاز، معلم بارز، نقطة تفتيش",ar_ant:"نكسة، تأخر",ar_col:"يصل إلى معلم / معلم المشروع / معلم رئيسي",ar_prep:"معلم في المشروع / للفريق",ar_ex:"يسعدني تأكيد أننا وصلنا إلى المعلم الرئيسي الأول قبل الموعد المحدد."},
+  {w:"memo",p:"ميمو",a:"المذكرة الرسمية",img:"https://picsum.photos/seed/721/200/100",syn:"internal note, circular, notice",ant:"verbal communication, informal chat",col:"send a memo / internal memo / draft a memo",prep:"memo to (staff) / memo regarding (matter)",ex:"Please refer to the memo circulated last Friday regarding the updated policy.",ar_syn:"مذكرة داخلية، نشرة، إشعار",ar_ant:"تواصل شفهي، محادثة غير رسمية",ar_col:"يرسل مذكرة / مذكرة داخلية / يصيغ مذكرة",ar_prep:"مذكرة للموظفين / بشأن موضوع",ar_ex:"يرجى الرجوع إلى المذكرة الموزّعة يوم الجمعة الماضية بشأن السياسة المحدّثة."},
+  {w:"protocol",p:"بروتوكول",a:"البروتوكول / الإجراء الرسمي",img:"https://picsum.photos/seed/722/200/100",syn:"procedure, guidelines, standard",ant:"informality, improvisation",col:"follow protocol / standard protocol / breach of protocol",prep:"protocol for (situation) / protocol of (organisation)",ex:"All staff are required to follow the established protocol when handling complaints.",ar_syn:"إجراء، مبادئ توجيهية، معيار",ar_ant:"غير رسمية، ارتجال",ar_col:"يتبع البروتوكول / بروتوكول معياري / خرق البروتوكول",ar_prep:"بروتوكول للموقف / للمنظمة",ar_ex:"يُطلب من جميع الموظفين اتباع البروتوكول المعتمد عند التعامل مع الشكاوى."},
+  {w:"liability",p:"لايابيلتي",a:"المسؤولية القانونية",img:"https://picsum.photos/seed/723/200/100",syn:"responsibility, obligation, legal risk",ant:"immunity, protection, indemnity",col:"legal liability / limit liability / accept liability",prep:"liability for (damage) / liability of (company)",ex:"The company accepts no liability for any losses incurred during the trial period.",ar_syn:"مسؤولية، التزام، خطر قانوني",ar_ant:"حصانة، حماية، تعويض",ar_col:"مسؤولية قانونية / يحدّ المسؤولية / يقبل المسؤولية",ar_prep:"مسؤولية عن الضرر / للشركة",ar_ex:"الشركة لا تتحمل أي مسؤولية عن أي خسائر تنشأ خلال فترة التجربة."},
+  {w:"grievance",p:"غريفنس",a:"الشكوى الرسمية",img:"https://picsum.photos/seed/724/200/100",syn:"complaint, dispute, objection",ant:"praise, satisfaction, commendation",col:"raise a grievance / handle a grievance / grievance procedure",prep:"grievance against (employer) / grievance regarding (matter)",ex:"If you wish to raise a formal grievance, please contact HR directly.",ar_syn:"شكوى، نزاع، اعتراض",ar_ant:"مدح، رضا، تقدير",ar_col:"يرفع شكوى / يتعامل مع شكوى / إجراء الشكوى",ar_prep:"شكوى ضد صاحب العمل / بشأن موضوع",ar_ex:"إذا كنت ترغب في تقديم شكوى رسمية يرجى التواصل مع الموارد البشرية مباشرة."},
+  {w:"redundancy",p:"ريداندنسي",a:"التسريح من العمل",img:"https://picsum.photos/seed/725/200/100",syn:"layoff, downsizing, dismissal",ant:"recruitment, hiring",col:"face redundancy / redundancy package / make redundant",prep:"redundancy due to (restructure) / redundancy of (position)",ex:"Unfortunately, following a restructure, your position has been made redundant.",ar_syn:"تسريح، تقليص، فصل",ar_ant:"توظيف، تعيين",ar_col:"يواجه التسريح / حزمة التسريح / يُسرَّح",ar_prep:"تسريح بسبب إعادة الهيكلة / للمنصب",ar_ex:"للأسف وإثر إعادة الهيكلة تم إلغاء منصبك."},
+  {w:"incentive",p:"إنسنتف",a:"الحافز",img:"https://picsum.photos/seed/726/200/100",syn:"reward, motivation, bonus",ant:"deterrent, penalty, disincentive",col:"financial incentive / offer incentives / performance incentive",prep:"incentive for (staff) / incentive to (perform)",ex:"We are pleased to introduce a new performance incentive scheme for all employees.",ar_syn:"مكافأة، دافع، مكافأة إضافية",ar_ant:"رادع، عقوبة",ar_col:"حافز مالي / يقدم حوافز / حافز الأداء",ar_prep:"حافز للموظفين / للأداء",ar_ex:"يسعدنا تقديم نظام حوافز أداء جديد لجميع الموظفين."},
+  {w:"networking",p:"نيت-ويركينج",a:"بناء العلاقات المهنية",img:"https://picsum.photos/seed/727/200/100",syn:"connecting, relationship building",ant:"isolation, anti-social",col:"professional networking / networking event / networking skills",prep:"networking with (professionals) / networking at (event)",ex:"I look forward to networking with you at the upcoming industry conference.",ar_syn:"تواصل، بناء العلاقات",ar_ant:"عزلة، انطواء اجتماعي",ar_col:"تواصل مهني / فعالية تواصل / مهارات التواصل",ar_prep:"تواصل مع محترفين / في فعالية",ar_ex:"أتطلع إلى التواصل معك في مؤتمر الصناعة القادم."},
+  {w:"acquisition",p:"أكويزيشن",a:"الاستحواذ",img:"https://picsum.photos/seed/728/200/100",syn:"takeover, purchase, merger",ant:"divestment, sale, spin-off",col:"company acquisition / hostile acquisition / acquisition strategy",prep:"acquisition of (company) / acquisition by (firm)",ex:"Following the successful acquisition, we will be integrating both teams.",ar_syn:"استيلاء، شراء، اندماج",ar_ant:"تجريد، بيع، انفصال",ar_col:"استحواذ على شركة / عدائي / استراتيجية استحواذ",ar_prep:"استحواذ على شركة / من قِبل شركة",ar_ex:"إثر الاستحواذ الناجح سنعمل على دمج الفريقين."},
+  {w:"compliance",p:"كومبلايانس",a:"الامتثال / الالتزام",img:"https://picsum.photos/seed/729/200/100",syn:"adherence, conformity, observance",ant:"non-compliance, violation, breach",col:"regulatory compliance / ensure compliance / compliance department",prep:"compliance with (regulations) / compliance of (company)",ex:"All departments must ensure full compliance with the new data protection regulations.",ar_syn:"التزام، امتثال، مطابقة",ar_ant:"عدم امتثال، انتهاك، خرق",ar_col:"امتثال تنظيمي / يضمن الامتثال / قسم الامتثال",ar_prep:"امتثال للوائح / للشركة",ar_ex:"يجب على جميع الأقسام ضمان الامتثال الكامل للوائح حماية البيانات الجديدة."},
+  {w:"quorum",p:"كووروم",a:"النصاب القانوني",img:"https://picsum.photos/seed/730/200/100",syn:"minimum attendance, required number",ant:"inquorate, insufficient attendance",col:"achieve quorum / quorum for (meeting) / lack a quorum",prep:"quorum of (members) / quorum at (meeting)",ex:"As we do not have a quorum, the vote will be postponed until next week.",ar_syn:"الحضور الأدنى، العدد المطلوب",ar_ant:"غير مكتمل النصاب، حضور غير كافٍ",ar_col:"يحقق النصاب / نصاب الاجتماع / يفتقر للنصاب",ar_prep:"نصاب الأعضاء / في الاجتماع",ar_ex:"بما أننا لا نملك النصاب القانوني سيُؤجَّل التصويت إلى الأسبوع القادم."},
+];
+
+var story=[
+  {t:"Priya is a senior business development manager at a multinational firm based in London.",ar:"بريا مديرة تطوير أعمال أولى في شركة متعددة الجنسيات مقرها لندن."},
+  {t:"Last month, she was asked to lead a high-stakes pitch to a potential client worth five million pounds.",ar:"الشهر الماضي طُلب منها قيادة عرض تجاري ذو مخاطر عالية لعميل محتمل بقيمة خمسة ملايين جنيه."},
+  {t:"She knew that the language she used had to be precise. Formal, confident, and persuasive.",ar:"كانت تعلم أن اللغة التي ستستخدمها يجب أن تكون دقيقة. رسمية وواثقة ومقنعة."},
+  {t:"In the pitch, she said: We are uniquely positioned to leverage our expertise and deliver measurable results.",ar:"في العرض قالت: نحن في وضع فريد يُمكّننا من توظيف خبرتنا وتحقيق نتائج قابلة للقياس."},
+  {t:"She also outlined the key deliverables, the timeline, and the KPIs for success.",ar:"كما أوضحت المخرجات الرئيسية والجدول الزمني ومؤشرات الأداء لتحقيق النجاح."},
+  {t:"The client asked about scalability. Priya explained that the model had been designed with growth in mind.",ar:"سأل العميل عن قابلية التوسع. بريا شرحت أن النموذج صُمِّم مع مراعاة النمو."},
+  {t:"After due diligence, the client signed the agreement and Priya sent a formal memo to all stakeholders.",ar:"بعد إجراء العناية الواجبة وقّع العميل الاتفاقية وأرسلت بريا مذكرة رسمية لجميع أصحاب المصلحة."},
+  {t:"She told her team: In business, the words you choose are as important as the ideas behind them.",ar:"أخبرت فريقها: في الأعمال الكلمات التي تختارها بنفس أهمية الأفكار التي تقف خلفها."},
+];
+
+var reading=[
+  "Business English is not simply a register — it is a complete system of communication that signals professionalism, credibility, and competence. The ability to switch fluently between formal and informal registers is one of the most valued skills in the modern workplace, where emails, presentations, reports, and meetings all demand different levels of formality.",
+  "In formal business communication, precision is paramount. Vague language is replaced by specific terms: instead of saying things are going well, a professional would report that Q3 revenue has exceeded benchmarks by twelve percent. Instead of asking for a quick chat, a manager would request a meeting at your earliest convenience to discuss the deliverables outlined in last week's agenda.",
+  "The art of polite refusal is particularly valued. Directly saying no is rarely appropriate in business contexts. Instead, professionals use phrases such as I appreciate your proposal however we are unable to proceed at this stage, or While we value your input we have decided to pursue a different direction. These formulations preserve the relationship while delivering a clear message.",
+  "Email etiquette remains central to business communication despite the rise of instant messaging. Subject lines should be specific and informative. Opening salutations must match the level of formality, and emails should close with a clear call to action. Ending an email with Please do not hesitate to contact me should you require further information signals both professionalism and accessibility.",
+  "Meetings, whether in person or virtual, require their own set of skills. Chairing a meeting effectively means managing the agenda, ensuring all stakeholders have an opportunity to contribute, and summarising decisions with clarity. The ability to take accurate minutes — capturing key decisions, actions, and deadlines without reproducing every word — is a skill that distinguishes highly effective business communicators.",
+];
+
+var compQs=[
+  {q:"What does the text say about switching between formal and informal registers?",opts:["It is confusing","It is one of the most valued skills","It is unnecessary","It is only needed for emails"],ans:1},
+  {q:"How should a professional report good financial results, according to the text?",opts:["Things are going well","Revenue has exceeded benchmarks by a specific percentage","We did great","Profits are up"],ans:1},
+  {q:"What is the polite way to refuse in business?",opts:["Say no directly","Ignore the request","Use phrases that preserve the relationship while declining","Walk out of the meeting"],ans:2},
+  {q:"What should email subject lines be?",opts:["Short and vague","Specific and informative","Informal and friendly","As long as possible"],ans:1},
+  {q:"What distinguishes effective business communicators in meetings?",opts:["Talking the most","Ability to take accurate minutes","Arriving first","Using the longest words"],ans:1},
+];
+
+var listenLines=[
+  "My name is Priya, and I lead business development at an international firm.",
+  "I want to talk about something that took me years to master — business English.",
+  "When I started my career, I thought fluency meant knowing vocabulary. I was wrong.",
+  "Business English is about choosing the right words for the right context — always.",
+  "In formal emails, you do not say sorry for the late reply. You say please accept my apologies for the delayed response.",
+  "You do not ask can we meet? You say I would like to request a meeting at your earliest convenience.",
+  "In presentations, vague language kills credibility. Do not say things are going well.",
+  "Say: our Q3 revenue has exceeded the benchmark by twelve percent — specific, measurable, professional.",
+  "Refusing requests politely is an art. Never say no bluntly.",
+  "Instead say: while we appreciate your proposal, we are unable to proceed at this stage.",
+  "In meetings, you must manage the agenda. Ensure all stakeholders contribute. Summarise clearly.",
+  "If you chair a meeting, your job is to drive decisions — not to win arguments.",
+  "Minutes should capture key decisions and deadlines — not every word spoken.",
+  "The tone of your communication reflects your entire organisation. It must always be professional.",
+  "My advice: read business emails from top executives. Study their language. Then practise daily.",
+];
+
+var listenQs=[
+  {q:"What did Priya think fluency meant when she started her career?",opts:["Good grammar","Knowing vocabulary","Speaking fast","Writing long emails"],ans:1},
+  {q:"What is the formal way to apologise for a late reply?",opts:["Sorry for the late reply","Please accept my apologies for the delayed response","My bad","I forgot to reply"],ans:1},
+  {q:"What makes vague language dangerous in presentations?",opts:["It is too long","It kills credibility","It confuses grammar","It takes more time"],ans:1},
+  {q:"What should meeting minutes capture?",opts:["Every word spoken","Only the chairman's words","Key decisions and deadlines","Personal opinions"],ans:2},
+  {q:"What is Priya's advice for improving business English?",opts:["Watch films","Read business emails from top executives and practise daily","Take a grammar course","Memorise vocabulary lists"],ans:1},
+];
+
+var speakQs=[
+  {q:"You need to cancel an important meeting with a client. Write and say a formal apology.",hint:"Dear Mr/Ms X, I am writing to sincerely apologise for... I would like to propose an alternative time of... I assure you that...",ar:"أنت تحتاج لإلغاء اجتماع مهم مع عميل. اكتب واقرأ اعتذاراً رسمياً.",badge:"🎯 استخدم لغة رسمية بالكامل"},
+  {q:"Describe your ideal job using formal business language.",hint:"My ideal role would involve overseeing... I would be responsible for... The position would require a candidate who...",ar:"صف وظيفتك المثالية باستخدام لغة الأعمال الرسمية.",badge:"🎯 استخدم 5 مصطلحات تجارية من الوحدة"},
+  {q:"How do you politely disagree with your manager in a meeting?",hint:"I appreciate your perspective, however I would like to suggest... With respect, I believe the data indicates... Perhaps we might consider...",ar:"كيف تختلف بأدب مع مديرك في اجتماع؟",badge:"🎯 استخدم however / I would like to suggest"},
+  {q:"Explain the difference between formal and informal English with examples.",hint:"In formal English we say... whereas informally... For example, instead of saying... a professional would say...",ar:"اشرح الفرق بين الإنجليزية الرسمية وغير الرسمية مع أمثلة.",badge:"🎯 أعطِ 3 أمثلة مقارنة"},
+  {q:"You are chairing a meeting. How do you open it, manage it, and close it formally?",hint:"Good morning everyone. The purpose of today's meeting is... I would like to move on to the next agenda item... To summarise the key decisions...",ar:"أنت ترأس اجتماعاً. كيف تفتحه وتديره وتختتمه بشكل رسمي؟",badge:"🎯 استخدم لغة رئيس الاجتماع"},
+  {q:"What are the key differences between a memo and a business email?",hint:"A memo is typically used for... whereas an email is more... In terms of format, a memo requires... A business email should always include...",ar:"ما الفروق الرئيسية بين المذكرة الرسمية والبريد الإلكتروني التجاري؟",badge:"🎯 قارن باستخدام whereas / while"},
+  {q:"Describe a time you had to communicate bad news professionally.",hint:"I had to inform my team that... I chose to frame it positively by saying... The key was to be transparent while remaining... The response was...",ar:"صف مرة اضطررت فيها لإيصال خبر سيء باحترافية.",badge:"🎯 استخدم لغة تجارية رسمية"},
+  {q:"What makes a good business presentation? Give practical advice.",hint:"First and foremost, the opening must... A well-structured presentation should include... Visual aids which support... The closing call to action should...",ar:"ما الذي يجعل عرضاً تجارياً جيداً؟ أعطِ نصائح عملية.",badge:"🎯 استخدم first and foremost / furthermore / in conclusion"},
+  {q:"How should you write a subject line for a business email?",hint:"An effective subject line should be specific and... For example, instead of writing Meeting, you should write... The purpose is to...",ar:"كيف تكتب سطر الموضوع لبريد إلكتروني تجاري؟",badge:"🎯 أعطِ 3 أمثلة جيدة وسيئة"},
+  {q:"You are introducing yourself at a formal networking event. What do you say?",hint:"Good evening. Allow me to introduce myself. I am... I currently hold the position of... My company specialises in... I would be very interested to discuss...",ar:"أنت تقدّم نفسك في فعالية تواصل رسمية. ماذا تقول؟",badge:"🎯 تحدّث 90 ثانية — انتبه للرسمية الكاملة!"},
+];
+
+var realExpr=[
+  {e:"Touch base",p:"تاتش بيس",m:"يتواصل سريعاً للمتابعة",f:"Make brief contact to follow up.",x:"I will touch base with you after the meeting to confirm the next steps.",xar:"سأتواصل معك بعد الاجتماع لتأكيد الخطوات القادمة.",n:"من البيسبول — لمس القاعدة — يعني تتواصل مع شخص لمتابعة موضوع"},
+  {e:"Move the goalposts",p:"موف ذا غول-بوستس",m:"يغيّر المتطلبات في منتصف الطريق",f:"Change the requirements after work has begun.",x:"The client keeps moving the goalposts which is making it impossible to deliver on time.",xar:"العميل يستمر في تغيير المتطلبات مما يجعل التسليم في الوقت المحدد مستحيلاً.",n:"تخيّل مرمى كرة القدم يتحرك — لا يمكنك تسجيل هدف!"},
+  {e:"On the same page",p:"أون ذا سيم بيج",m:"متفقون على نفس الفهم",f:"Having the same understanding or agreement.",x:"Before we proceed I want to make sure we are all on the same page.",xar:"قبل أن نتابع أريد التأكد من أننا جميعاً متفقون على نفس الفهم.",n:"يعني الجميع يقرأ من نفس الصفحة — لا سوء فهم"},
+];
+var realSlang=[
+  {w:"Blue sky thinking",p:"بلو سكاي ثينكينج",i:"creative unrestricted brainstorming",x:"Let us do some blue sky thinking before we narrow down options.",xar:"لنقم ببعض التفكير الإبداعي الحر قبل أن نُضيّق الخيارات.",a:"تفكير إبداعي حر بدون قيود"},
+  {w:"Low-hanging fruit",p:"لو-هانغينج فروت",i:"easiest tasks or opportunities first",x:"Let us target the low-hanging fruit before tackling the complex accounts.",xar:"لنستهدف الفرص السهلة قبل التعامل مع الحسابات المعقدة.",a:"الفرص السهلة التي يمكن تحقيقها أولاً"},
+  {w:"Circle back",p:"سيركل باك",i:"return to a topic later",x:"Let us circle back to the budget discussion after lunch.",xar:"لنعود إلى مناقشة الميزانية بعد الغداء.",a:"يعود لموضوع لاحقاً في الاجتماع"},
+  {w:"Bandwidth",p:"باندويدث",i:"capacity to take on more work",x:"I do not have the bandwidth to take on another project this month.",xar:"ليس لديّ السعة لتولّي مشروع آخر هذا الشهر.",a:"سعة العمل — الوقت والطاقة المتاحة للمهام"},
+];
+var realEvery=[
+  {w:"As per my last email",p:"آز بير ماي لاست إيميل",m:"referring to previous email — often passive-aggressive",x:"As per my last email, the deadline is this Friday.",xar:"كما ذكرت في بريدي الأخير الموعد النهائي هو هذا الجمعة.",a:"كما في بريدي السابق — مشهور كتعبير سلبي ومفهوم"},
+  {w:"Going forward",p:"غوينج فوورد",m:"من الآن فصاعداً — للمستقبل",x:"Going forward all expense reports must be submitted by the fifth.",xar:"من الآن فصاعداً يجب تقديم جميع تقارير المصاريف بحلول الخامس.",a:"في المستقبل — عبارة شائعة جداً في الأعمال"},
+  {w:"Take this offline",p:"تيك ذيس أوف-لاين",m:"ناقش هذا خارج الاجتماع",x:"That is a great point — let us take this offline and discuss in more detail.",xar:"هذه نقطة رائعة — لنناقشها خارج الاجتماع بمزيد من التفصيل.",a:"يعني تأجيل النقاش الجانبي لما بعد الاجتماع"},
+];
+
+var quizQs=[
+  {q:"Please accept my ___ for the delayed response.",opts:["sorry","apologies","regret","excuse"],ans:1},
+  {q:"ما معنى KPI؟",opts:["مؤشر الأداء الرئيسي","الميزانية","الجدوى","البروتوكول"],ans:0},
+  {q:"I am writing to ___ a meeting at your earliest convenience.",opts:["ask for","request","want","need"],ans:1},
+  {q:"ما معنى due diligence؟",opts:["الشكوى الرسمية","العناية الواجبة والتدقيق المسبق","النصاب القانوني","تأهيل الموظف"],ans:1},
+  {q:"While we appreciate your proposal, we are ___ to proceed at this stage.",opts:["not wanting","unable","not liking","refusing"],ans:1},
+  {q:"ما الـ collocation الصحيح مع agenda؟",opts:["make an agenda","do an agenda","set the agenda","take an agenda"],ans:2},
+  {q:"ما معنى stakeholder؟",opts:["المحاسب","صاحب المصلحة في الشركة","المدير المالي","المدير التنفيذي"],ans:1},
+  {q:"ما معنى leverage في الأعمال؟",opts:["يرفض","يستغل ويوظّف","يُلاحق","يُوقّع"],ans:1},
+  {q:"Please ___ hesitate to contact me should you require further information.",opts:["not do","do not","never","don't"],ans:1},
+  {q:"ما معنى onboarding؟",opts:["التسريح من العمل","المشتريات","تأهيل الموظف الجديد","الاستحواذ"],ans:2},
+];
+var spd=1,lspd=1,storyOn=false,listenOn=false;
+var compA=new Array(compQs.length).fill(null);
+var listenA=new Array(listenQs.length).fill(null);
+var quizA=new Array(quizQs.length).fill(null);
+
+function say(text,rate,cb){
+  if(!window.speechSynthesis)return null;
+  window.speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US";u.rate=rate||spd;u.pitch=1.2;
+  if(cb)u.onend=cb;
+  window.speechSynthesis.speak(u);return u;
+}
+
+function buildVocab(){
+  var emo=["🌍","🏛","🤝","👤","🚫","🕯","🌐","🌿","⚖","🍽","📏","🌏","⚠","🕊","✊","💬","♀","✈","💡","🤲","✊","🏳","🤜","🌺","🎓","👑","🔗","🌐","🏙","🧩"];
+  var c=document.getElementById("vocabList");
+  V.forEach(function(v,i){
+    var d=document.createElement("div");d.className="vocab-card";
+    // Build using single-quote innerHTML (Gold Standard from unit2)
+    d.innerHTML=
+      '<div class="vhead">'+
+        '<img class="vimg" id="vi'+i+'" src="'+v.img+'" alt="'+v.w+'" loading="lazy">'+
+        '<div class="vinfo">'+
+          '<div style="display:flex;align-items:center;gap:6px;direction:ltr">'+
+            '<span style="background:rgba(255,255,255,.18);color:rgba(255,255,255,.85);font-size:.68rem;font-weight:800;padding:2px 7px;border-radius:10px">'+(i+1)+'</span>'+
+            '<div class="vword">'+v.w+'</div>'+
+          '</div>'+
+          '<div class="vpron">'+v.p+'</div>'+
+          '<div class="var">'+v.a+'</div>'+
+        '</div>'+
+        '<button class="vspk" id="vs'+i+'">🔊</button>'+
+      '</div>'+
+      '<div class="vbody">'+
+        '<div class="vgrid2">'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-ant" data-i="'+i+'" data-c="1"><div class="vlbl">Antonym</div><div class="vval">'+v.ant+'</div><div class="vtr">'+v.ar_ant+'</div></div>'+
+            '<div class="vcell c-syn" data-i="'+i+'" data-c="0"><div class="vlbl">Synonym</div><div class="vval">'+v.syn+'</div><div class="vtr">'+v.ar_syn+'</div></div>'+
+          '</div>'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-prep" data-i="'+i+'" data-c="3"><div class="vlbl">Preposition</div><div class="vval">'+v.prep+'</div><div class="vtr">'+v.ar_prep+'</div></div>'+
+            '<div class="vcell c-col" data-i="'+i+'" data-c="2"><div class="vlbl">Collocation</div><div class="vval">'+v.col+'</div><div class="vtr">'+v.ar_col+'</div></div>'+
+          '</div>'+
+        '</div>'+
+        '<div class="vex" id="vex'+i+'">'+v.ex+'<div class="vex-tr">'+v.ar_ex+'</div></div>'+
+      '</div>';
+    var img=d.querySelector(".vimg");
+    if(img){img.onerror=(function(ii){return function(){
+      var fb=document.createElement("div");fb.className="vimg-fallback";fb.textContent=emo[ii];
+      this.parentNode.replaceChild(fb,this);
+    };})(i);}
+    d.querySelector(".vspk").addEventListener("click",(function(ii){return function(){
+      document.querySelectorAll(".vspk").forEach(function(b){b.classList.remove("playing");});
+      var btn=document.getElementById("vs"+ii);if(btn)btn.classList.add("playing");
+      var u=say(V[ii].w,spd);if(u)u.onend=function(){if(btn)btn.classList.remove("playing");};
+    };})(i));
+    d.querySelectorAll(".vcell").forEach(function(cell){
+      cell.addEventListener("click",function(){
+        var ii=parseInt(this.getAttribute("data-i"));
+        var cc=parseInt(this.getAttribute("data-c"));
+        say([V[ii].syn,V[ii].ant,V[ii].col,V[ii].prep][cc],0.9);
+        this.classList.toggle("show-tr");
+      });
+    });
+    var vex=d.querySelector(".vex");
+    vex.addEventListener("click",function(){this.classList.toggle("show-ex-tr");});
+    c.appendChild(d);
+  });
+}
+
+function buildStory(){
+  var b=document.getElementById("storyBox");
+  story.forEach(function(s,i){
+    var d=document.createElement("div");d.className="sline";d.id="sl"+i;
+    var txt=document.createTextNode(s.t);d.appendChild(txt);
+    var btn=document.createElement("button");
+    btn.style.cssText="background:transparent;border:1px solid #e5e7eb;border-radius:5px;padding:1px 7px;color:#9ca3af;font-size:.7rem;cursor:pointer;font-family:Tajawal,sans-serif;margin-right:6px";
+    btn.textContent="🌐";
+    btn.addEventListener("click",(function(ii){return function(){toggleTr(ii);};})(i));
+    d.appendChild(btn);
+    var tr=document.createElement("div");tr.id="tr"+i;
+    tr.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;font-family:Tajawal,sans-serif;border-right:3px solid #fde68a;padding-right:8px";
+    tr.textContent=s.ar;d.appendChild(tr);b.appendChild(d);
+  });
+}
+var _trAll=false;
+function toggleAllTr(){_trAll=!_trAll;for(var i=0;i<story.length;i++){var e=document.getElementById("tr"+i);if(e)e.style.display=_trAll?"block":"none";}document.getElementById("trBtn").textContent=_trAll?"🙈 أخفِ":"🌐 الترجمة";}
+function toggleTr(i){var e=document.getElementById("tr"+i);if(e)e.style.display=e.style.display==="none"?"block":"none";}
+function setSpd(r,btn){spd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function storySeq(i){if(!storyOn||i>=story.length){stopStory();return;}document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("sl"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(story[i].t);u.lang="en-US";u.rate=spd;u.pitch=1.2;u.onend=function(){if(storyOn)setTimeout(function(){storySeq(i+1);},320);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startStory(){storyOn=true;document.getElementById("sIcon").textContent="⏹";document.getElementById("sTxt").textContent="إيقاف القصة";storySeq(0);}
+function stopStory(){storyOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});document.getElementById("sIcon").textContent="▶";document.getElementById("sTxt").textContent="استمع للقصة";}
+function toggleStory(){storyOn?stopStory():startStory();}
+
+function buildReading(){
+  var t=document.getElementById("readingText");
+  reading.forEach(function(p){var d=document.createElement("p");d.textContent=p;t.appendChild(d);});
+  var c=document.getElementById("compList");
+  compQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";
+    p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="co"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){
+        compA[qi]=oi;
+        for(var k=0;k<q.opts.length;k++){var el=document.getElementById("co"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}
+        this.style.borderColor="#0a1628";
+      });
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function checkComp(){var s=0;compQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("co"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(compA[qi]===i)el.classList.add("no");}if(compA[qi]===q.ans)s++;});var r=document.getElementById("compRes");r.style.display="block";var pct=Math.round(s/compQs.length*100);r.textContent=s+" من "+compQs.length+" إجابة صحيحة ("+pct+"%) "+(pct===100?"🏆":pct>=60?"🎉":"📚 راجع النص");}
+function resetComp(){compA=new Array(compQs.length).fill(null);document.querySelectorAll(".copt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("compRes").style.display="none";}
+
+function buildGrammar(){
+  var c=document.getElementById("grammarBox");
+  var box1=document.createElement("div");box1.className="gbox";
+  var t1=document.createElement("div");t1.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";t1.textContent="١ — التكوين: If + Past Simple → would + verb";box1.appendChild(t1);
+  var tbl=document.createElement("div");tbl.style.cssText="background:#0a1628;border-radius:10px;padding:14px 18px;margin-bottom:14px;direction:ltr";
+  var rows=[["If clause","Main clause"],["If + Past Simple","would / wouldn't + verb"],["If I lived abroad,","I would experience new cultures."],["If stereotypes didn't exist,","society would be more equal."],["If we protected languages,","heritage would survive."]];
+  var table=document.createElement("table");table.style.cssText="width:100%;border-collapse:collapse;font-size:.85rem";
+  rows.forEach(function(row,ri){var tr=document.createElement("tr");if(ri>0)tr.style.borderTop="1px solid rgba(255,255,255,.1)";row.forEach(function(cell,ci){var td=document.createElement(ri===0?"th":"td");td.textContent=cell;td.style.cssText="padding:6px 10px;text-align:left;color:"+(ri===0?"#fde68a":ci===0?"#93c5fd":"#f0c040");tr.appendChild(td);});table.appendChild(tr);});
+  tbl.appendChild(table);box1.appendChild(tbl);
+  var note=document.createElement("div");note.style.cssText="background:#fffdf7;border-right:3px solid #f0a000;padding:10px 14px;border-radius:8px;font-size:.85rem;color:#64748b;direction:rtl";note.textContent="نستخدم Type 2 للفرضيات البعيدة أو الخيالية — الأمر لم يحدث بعد أو لا يحدث عادة.";
+  box1.appendChild(note);c.appendChild(box1);
+  var box2=document.createElement("div");box2.className="gbox";
+  var t2=document.createElement("div");t2.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";t2.textContent="٢ — Type 1 مقابل Type 2";box2.appendChild(t2);
+  var diffs=[["Type 1 — ممكن فعلاً:","If we protect diversity, it will survive.","احتمال حقيقي"],["Type 2 — خيالي / بعيد:","If we protected diversity, it would survive.","فرضية أو حلم"]];
+  diffs.forEach(function(d){var pat=document.createElement("div");pat.className="gpat";var d1=document.createElement("div");d1.style.cssText="font-size:.82rem;color:#f0a000;font-weight:700;direction:ltr;margin-bottom:2px";d1.textContent=d[0];var d2=document.createElement("div");d2.style.cssText="font-size:.9rem;color:#0a1628;font-weight:700;direction:ltr;margin-bottom:4px";d2.textContent=d[1];var d3=document.createElement("div");d3.style.cssText="font-size:.82rem;color:#64748b;direction:rtl;text-align:right";d3.textContent=d[2];pat.appendChild(d1);pat.appendChild(d2);pat.appendChild(d3);box2.appendChild(pat);});
+  c.appendChild(box2);
+  var wrong=document.createElement("div");wrong.style.cssText="background:#fef2f2;border-radius:10px;padding:13px 16px;margin-bottom:8px;border-right:4px solid #dc2626;direction:ltr";
+  wrong.innerHTML='<span style="color:#dc2626;font-weight:700">✗ </span>If I <u>would live</u> abroad, I would learn more. <span style="font-size:.8rem;color:#dc2626">← لا تضع would في الـ if clause</span>';
+  var right=document.createElement("div");right.style.cssText="background:#f0fdf4;border-radius:10px;padding:13px 16px;border-right:4px solid #059669;direction:ltr";
+  right.innerHTML='<span style="color:#059669;font-weight:700">✓ </span>If I <strong>lived</strong> abroad, I <strong>would</strong> learn more. <span style="font-size:.8rem;color:#059669">← Past Simple في if / would في الجواب ✅</span>';
+  c.appendChild(wrong);c.appendChild(right);
+}
+
+function buildListening(){
+  var s=document.getElementById("listenScript");
+  listenLines.forEach(function(line,i){var d=document.createElement("div");d.className="lline";d.id="ll"+i;d.textContent=line;s.appendChild(d);});
+  var c=document.getElementById("listenQList");
+  listenQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="lq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){listenA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("lq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function setLSpd(r,btn){lspd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function listenSeq(i){if(!listenOn||i>=listenLines.length){stopListen();return;}document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("ll"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(listenLines[i]);u.lang="en-US";u.rate=lspd;u.pitch=1.2;u.onend=function(){if(listenOn)setTimeout(function(){listenSeq(i+1);},380);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startListen(){listenOn=true;document.getElementById("lIcon").textContent="⏹";document.getElementById("lTxt").textContent="إيقاف المونولوج";listenSeq(0);}
+function stopListen(){listenOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});document.getElementById("lIcon").textContent="▶";document.getElementById("lTxt").textContent="شغّل المونولوج";}
+function toggleListen(){listenOn?stopListen():startListen();}
+function checkListen(){var s=0;listenQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("lq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(listenA[qi]===i)el.classList.add("no");}if(listenA[qi]===q.ans)s++;});var r=document.getElementById("listenRes");r.style.display="block";var pct=Math.round(s/listenQs.length*100);r.textContent=s+" من "+listenQs.length+" إجابة صحيحة ("+pct+"%) "+(pct>=80?"✅ ممتاز!":pct>=60?"👍 جيد!":"📚 راجع");}
+function resetListen(){listenA=new Array(listenQs.length).fill(null);document.querySelectorAll(".copt[id^='lq']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("listenRes").style.display="none";}
+
+function buildW(){
+  var ids=["w1","w2","w3","w4","w5"];var any=false;
+  for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value.trim())any=true;}
+  if(!any){document.getElementById("wOut").innerHTML="<span style='color:#9ca3af;font-style:italic'>✨ ستظهر فقرتك هنا...</span>";return;}
+  var parts=[];
+  for(var j=0;j<ids.length;j++){var el=document.getElementById(ids[j]);var v=el?el.value.trim():"";if(v)parts.push("<span style='color:#f0a000;font-weight:700'>"+v+"</span>.");}
+  document.getElementById("wOut").innerHTML="<p style='direction:ltr;line-height:2'>"+parts.join(" ")+"</p>";
+}
+
+function buildSpeaking(){
+  var c=document.getElementById("speakBox");
+  speakQs.forEach(function(q){
+    var d=document.createElement("div");d.style.cssText="background:#f8faff;border-right:4px solid #1e3a8a;border-radius:0 12px 12px 0;padding:16px 18px;margin-bottom:14px";
+    var p1=document.createElement("p");p1.style.cssText="font-size:.97rem;color:#0a1628;font-weight:700;direction:ltr;margin-bottom:5px";p1.textContent=q.q;
+    var p2=document.createElement("p");p2.style.cssText="font-size:.82rem;color:#9ca3af;margin-bottom:6px";p2.textContent=q.ar;
+    var p3=document.createElement("p");p3.style.cssText="font-size:.82rem;color:#f0a000;direction:ltr;margin-bottom:8px";p3.textContent="💡 "+q.hint;
+    var badge=document.createElement("span");badge.style.cssText="background:#dbeafe;color:#1e3a8a;padding:4px 12px;border-radius:20px;font-size:.76rem;font-weight:700";badge.textContent=q.badge;
+    d.appendChild(p1);d.appendChild(p2);d.appendChild(p3);d.appendChild(badge);
+    var btn=document.createElement("button");btn.className="spksmall";btn.textContent="🔊";btn.style.marginTop="10px";
+    btn.addEventListener("click",(function(qq){return function(){say(qq,spd);};})(q.q));
+    d.appendChild(btn);c.appendChild(d);
+  });
+}
+
+function makeExRow(text,arabic,spkText){
+  var div=document.createElement("div");
+  div.style.cssText="cursor:pointer;user-select:none;padding:8px 12px;background:white;border-radius:8px;direction:ltr;font-size:.86rem;color:#374151;font-style:italic;margin-top:6px";
+  var span=document.createElement("span");span.textContent=text;
+  var tr=document.createElement("div");
+  tr.style.cssText="font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;padding-top:4px;border-top:1px dashed #e5e7eb;display:none;font-family:Tajawal,sans-serif;font-style:normal";
+  tr.textContent=arabic;
+  div.appendChild(span);div.appendChild(tr);
+  div.addEventListener("click",(function(t,s){return function(){t.style.display=t.style.display==="none"?"block":"none";say(s,spd);};})(tr,spkText));
+  return div;
+}
+
+function buildReal(){
+  var c=document.getElementById("realBox");
+  var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h1.textContent="🔥 Expressions — اضغط على الجملة لتسمعها وترجمتها";c.appendChild(h1);
+  realExpr.forEach(function(e){
+    var d=document.createElement("div");d.className="expr-card";
+    // Visible 🔊 for main expression
+    var header=document.createElement("div");header.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;direction:ltr";
+    var headerLeft=document.createElement("div");headerLeft.style.cssText="display:flex;align-items:center;gap:8px";
+    var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";
+    spkBtn.addEventListener("click",(function(ee){return function(){say(ee,spd);};})(e.e));
+    var titleSpan=document.createElement("span");titleSpan.style.cssText="font-weight:700;color:#4c1d95;font-size:.97rem";titleSpan.textContent=e.e;
+    headerLeft.appendChild(spkBtn);headerLeft.appendChild(titleSpan);
+    var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.78rem;font-weight:700;font-family:Tajawal,sans-serif";pronSpan.textContent=e.p;
+    header.appendChild(headerLeft);header.appendChild(pronSpan);
+    d.appendChild(header);
+    var grid=document.createElement("div");grid.style.cssText="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px";
+    var g1=document.createElement("div");g1.style.cssText="background:white;border-radius:8px;padding:8px 12px;text-align:right";g1.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>المعنى</div><div style='font-weight:700;color:#374151;font-size:.88rem'>"+e.m+"</div>";
+    var g2=document.createElement("div");g2.style.cssText="background:white;border-radius:8px;padding:8px 12px;direction:ltr";g2.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>Formal</div><div style='font-size:.85rem;color:#64748b'>"+e.f+"</div>";
+    grid.appendChild(g1);grid.appendChild(g2);d.appendChild(grid);
+    d.appendChild(makeExRow(e.x,e.xar,e.x));
+    var note=document.createElement("div");note.style.cssText="font-size:.8rem;color:#7c3aed;text-align:right;margin-top:8px";note.textContent="💡 "+e.n;
+    d.appendChild(note);c.appendChild(d);
+  });
+  var h2=document.createElement("p");h2.style.cssText="font-weight:800;color:#0a1628;margin:20px 0 14px;text-align:right";h2.textContent="😎 Slang";c.appendChild(h2);
+  var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:20px";
+  realSlang.forEach(function(s){
+    var d=document.createElement("div");d.className="slang-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";
+    var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkS=document.createElement("button");spkS.className="spksmall";spkS.textContent="🔊";spkS.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkS.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var sWord=document.createElement("span");sWord.style.cssText="font-weight:700;color:#ea580c;font-size:.9rem";sWord.textContent=s.w;
+    titleLeft.appendChild(spkS);titleLeft.appendChild(sWord);
+    var pp=document.createElement("span");pp.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pp.textContent=s.p;
+    titleRow.appendChild(titleLeft);titleRow.appendChild(pp);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    sg.appendChild(d);
+  });
+  c.appendChild(sg);
+  var h3=document.createElement("p");h3.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h3.textContent="💬 Everyday Phrases";c.appendChild(h3);
+  var ev=document.createElement("div");ev.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";
+  realEvery.forEach(function(s){
+    var d=document.createElement("div");d.className="ev-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;direction:ltr";
+    var titleLeft2=document.createElement("div");titleLeft2.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkE=document.createElement("button");spkE.className="spksmall";spkE.textContent="🔊";spkE.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkE.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var titleTxt=document.createElement("span");titleTxt.style.cssText="font-weight:700;color:#15803d;font-size:.9rem";titleTxt.textContent=s.w;
+    titleLeft2.appendChild(spkE);titleLeft2.appendChild(titleTxt);
+    var evPron=document.createElement("span");evPron.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";evPron.textContent=s.p;
+    titleRow.appendChild(titleLeft2);titleRow.appendChild(evPron);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    ev.appendChild(d);
+  });
+  c.appendChild(ev);
+}
+
+function buildQuiz(){
+  var c=document.getElementById("quizList");
+  quizQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="18px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:10px;direction:ltr;font-size:.93rem";
+    p.innerHTML="<span style='background:#0a1628;color:white;border-radius:5px;padding:1px 8px;font-size:.76rem;margin-left:8px'>"+(qi+1)+"</span>"+q.q;
+    d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="qopt";b.id="qq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){quizA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("qq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function checkQuiz(){var s=0;quizQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("qq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(quizA[qi]===i)el.classList.add("no");}if(quizA[qi]===q.ans)s++;});var pct=Math.round(s/quizQs.length*100);var r=document.getElementById("quizRes");r.style.display="block";document.getElementById("qEmoji").textContent=pct===100?"🏆":pct>=70?"🎉":pct>=50?"💪":"📚";document.getElementById("qScore").textContent=s+" من "+quizQs.length+" إجابة صحيحة ("+pct+"%)";document.getElementById("qMsg").textContent=pct===100?"مثالي!":pct>=70?"أحسنت!":pct>=50?"راجع Conditionals Type 2.":"راجع الوحدة.";r.style.background=pct>=70?"#f0fdf4":"#fef9f0";r.scrollIntoView({behavior:"smooth",block:"center"});}
+function resetQuiz(){quizA=new Array(quizQs.length).fill(null);document.querySelectorAll(".qopt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("quizRes").style.display="none";}
+
+function show(id,btn){document.querySelectorAll(".sec").forEach(function(s){s.classList.remove("on");});document.getElementById("sec-"+id).classList.add("on");window.scrollTo({top:0,behavior:"smooth"});document.querySelectorAll(".nb").forEach(function(b){b.classList.remove("on");});if(btn){btn.classList.add("on");return;}var map={vocab:0,story:1,reading:2,grammar:3,listening:4,writing:5,speaking:6,realeng:7,quiz:8};var btns=document.querySelectorAll(".nb");if(btns[map[id]])btns[map[id]].classList.add("on");}
+
+buildVocab();buildStory();buildReading();buildGrammar();buildListening();buildSpeaking();buildReal();buildQuiz();
+</script>
+</body>
+</html>
