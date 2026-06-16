@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath B2 — Unit 5: Politics and Power</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap"></noscript>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Tajawal',system-ui,-apple-system,sans-serif;background:#f0f4fa;direction:rtl;min-height:100vh}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#1e3a8a;border-radius:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(30,58,138,.35)}50%{box-shadow:0 0 0 8px rgba(30,58,138,0)}}
+.nav-bar{background:linear-gradient(135deg,#0a1628,#1e3a8a);padding:10px 12px;display:flex;justify-content:center;gap:4px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.nb{border:none;border-radius:22px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s}
+.nb.on{background:#f0a000;color:#0a1628}
+.nb:not(.on){background:rgba(255,255,255,.1);color:rgba(255,255,255,.85)}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#1e3a8a 55%,#1d4ed8 100%);color:white;padding:32px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(240,160,0,.06)}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04)}
+.lvltag{display:inline-block;background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-size:.72rem;font-weight:900;padding:4px 14px;border-radius:20px;letter-spacing:1.5px;margin-bottom:10px}
+.sec{display:none;max-width:900px;margin:0 auto;padding:32px 16px 80px;animation:fadeUp .4s ease}
+.sec.on{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 3px 20px rgba(0,0,0,.06);margin-bottom:22px;overflow:hidden}
+.ch{background:#0a1628;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.ch h3{font-size:1rem;font-weight:700}
+.ch .sub{font-size:.75rem;color:#93c5fd;margin-top:1px}
+.cb{padding:22px}
+.vocab-card{background:white;border-radius:16px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 14px rgba(10,22,40,.08);border:1px solid #e5ebf8;transition:transform .2s,box-shadow .2s}
+.vocab-card:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(10,22,40,.13)}
+.vhead{background:linear-gradient(135deg,#0a1628,#1e3a8a);display:flex;flex-direction:row-reverse;align-items:center;padding:14px 18px;gap:14px}
+.vword{font-family:'Lora',Georgia,serif;font-size:1.18rem;font-weight:700;color:white;direction:ltr;text-align:left}
+.vpron{font-size:.78rem;font-weight:700;color:#fde68a;margin-top:3px;direction:ltr;text-align:left}
+.var{font-size:.93rem;font-weight:700;color:rgba(255,255,255,.9);margin-top:3px}
+.vspk{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.25);background:transparent;color:white;font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:all .18s;display:flex;align-items:center;justify-content:center}
+.vspk:hover{background:rgba(255,255,255,.2);transform:scale(1.08)}
+.vspk.playing{background:#f0a000;border-color:#f0a000;animation:pulse 1s infinite}
+.vbody{padding:14px 16px 16px}
+.vgrid2{margin-bottom:10px}
+.vrow-pair{display:flex;gap:8px;margin-bottom:8px}
+.vrow-pair .vcell{flex:1;min-width:0}
+.vcell{border-radius:10px;padding:10px 13px;cursor:pointer;transition:all .15s;user-select:none;direction:ltr}
+.vcell:hover{filter:brightness(.96)}
+.vcell:active{transform:scale(.98)}
+.c-syn{background:#f0fdf4;border:1px solid #bbf7d0}
+.c-ant{background:#fff7ed;border:1px solid #fed7aa}
+.c-col{background:#eff6ff;border:1px solid #bfdbfe}
+.c-prep{background:#faf5ff;border:1px solid #ddd6fe}
+.c-fam{background:#fefce8;border:1px solid #fde68a}
+.vlbl{font-size:.65rem;font-weight:900;letter-spacing:.7px;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:5px;direction:ltr}
+.c-syn .vlbl{color:#15803d}.c-ant .vlbl{color:#ea580c}.c-col .vlbl{color:#2563eb}.c-prep .vlbl{color:#7c3aed}.c-fam .vlbl{color:#b45309}
+.vlbl::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.c-syn .vlbl::before{background:#15803d}.c-ant .vlbl::before{background:#ea580c}.c-col .vlbl::before{background:#2563eb}.c-prep .vlbl::before{background:#7c3aed}.c-fam .vlbl::before{background:#b45309}
+.vval{font-family:'Lora',Georgia,serif;font-size:.82rem;color:#374151;direction:ltr;line-height:1.6}
+.vtr{font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px;padding-top:5px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif}
+.vcell.show-tr .vtr{display:block}
+.vex{font-family:'Lora',Georgia,serif;font-size:.87rem;color:#374151;direction:ltr;font-style:italic;padding:10px 14px;background:#f8faff;border-radius:10px;border-right:3px solid #f0a000;cursor:pointer;user-select:none}
+.vex-tr{font-size:.8rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding-top:6px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif;font-style:normal}
+.vex.show-ex-tr .vex-tr{display:block}
+.vcat{display:flex;align-items:center;justify-content:flex-end;gap:12px;margin:28px 4px 14px;padding-bottom:8px;border-bottom:2px solid #dbe4f3}
+.vcat-en{font-family:'Lora',Georgia,serif;font-weight:700;color:#0a1628;font-size:1.05rem;direction:ltr}
+.vcat-ar{font-size:.85rem;color:#64748b}
+.vcat-num{background:linear-gradient(135deg,#0a1628,#1e3a8a);color:#fff;width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;flex-shrink:0}
+.sline{font-family:'Lora',Georgia,serif;font-size:.97rem;line-height:2;padding:5px 8px;border-radius:6px;direction:ltr;transition:background .2s}
+.sline.hl{background:#fef3c7}
+.lline{font-family:'Lora',Georgia,serif;font-size:.93rem;line-height:2;color:#cbd5e1;padding:3px 6px;border-radius:5px;direction:ltr;transition:background .2s}
+.lline.hl{background:rgba(240,160,0,.18);color:#fde68a}
+.sctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-direction:row-reverse;margin-bottom:16px}
+.pbtn{background:#1e3a8a;color:white;border:none;border-radius:24px;padding:9px 20px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s}
+.pbtn:hover{background:#1d4ed8}
+.spdbtn{padding:5px 12px;border-radius:18px;border:2px solid #cbd5e1;background:white;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;color:#64748b;transition:all .15s}
+.spdbtn.on{border-color:#1e3a8a;background:#1e3a8a;color:white}
+.rtext{font-family:'Lora',Georgia,serif;font-size:.95rem;line-height:2;color:#374151;direction:ltr;padding:20px;background:#f8faff;border-radius:14px;border:1px solid #e5eaf5;margin-bottom:18px}
+.rtext p{margin-bottom:14px}
+.gbox{background:linear-gradient(135deg,#eff6ff,#e0effe);border:2px solid #bfdbfe;border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.gpat{background:white;border-radius:10px;padding:12px 16px;margin-bottom:10px;border-right:4px solid #2563eb;direction:ltr}
+.copt{padding:9px 14px;border:2px solid #e5e7eb;border-radius:9px;cursor:pointer;font-family:'Lora',Georgia,serif;font-size:.87rem;direction:ltr;background:white;transition:all .15s;margin-bottom:6px}
+.copt:hover{border-color:#1e3a8a;background:#eff6ff}
+.copt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.copt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.qopt{padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;font-family:'Lora',Georgia,serif;font-size:.9rem;direction:ltr;background:white;transition:all .15s;margin-bottom:7px;text-align:left}
+.qopt:hover{border-color:#1e3a8a;background:#eff6ff}
+.qopt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.qopt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.wq-block{margin-bottom:18px}
+.wq-model{font-family:'Lora',Georgia,serif;font-size:.8rem;color:#374151;font-style:italic;direction:ltr;padding:10px 14px;background:#f0f9ff;border-radius:8px;border-right:3px solid #bfdbfe;line-height:1.7;display:none;margin-bottom:8px}
+.wq-model.show{display:block}
+.wq-model-btn{background:#dbeafe;border:none;border-radius:20px;padding:4px 14px;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer;margin-bottom:8px;transition:all .15s}
+.wq-model-btn:hover{background:#1e3a8a;color:white}
+.wq-en{font-family:'Lora',Georgia,serif;font-size:.93rem;font-weight:700;color:#0a1628;direction:ltr;margin-bottom:3px}
+.wq-ar{font-size:.78rem;color:#9ca3af;direction:rtl;text-align:right;margin-bottom:8px;font-family:'Tajawal',sans-serif}
+.winput{width:100%;border:none;border-bottom:2px solid #f0a000;background:transparent;font-family:'Lora',Georgia,serif;font-size:.95rem;color:#0a1628;outline:none;padding:5px 3px;direction:ltr;margin-bottom:14px}
+.winput:focus{border-color:#1e3a8a}
+.ielts-tip{background:linear-gradient(135deg,#0a1628,#1e3a8a);color:#fff;border-radius:14px;padding:16px 20px;margin-bottom:18px}
+.ielts-tip .ielts-badge{display:inline-block;background:#f0a000;color:#0a1628;font-size:.7rem;font-weight:900;padding:3px 11px;border-radius:12px;letter-spacing:.5px;margin-bottom:9px}
+.ielts-tip h4{color:#fde68a;font-size:.92rem;margin-bottom:8px;text-align:right;font-weight:800}
+.ielts-tip ul{list-style:none;padding:0;margin:0}
+.ielts-tip li{font-size:.83rem;line-height:1.95;color:rgba(255,255,255,.92);text-align:right;padding-right:18px;position:relative;margin-bottom:3px}
+.ielts-tip li::before{content:'◂';color:#f0a000;position:absolute;right:0;font-size:.7rem;top:3px}
+.btn{border:none;border-radius:28px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all .18s;padding:10px 24px;font-size:.9rem}
+.btn:hover{opacity:.88;transform:scale(.98)}
+.bd{background:#1e3a8a;color:white}
+.bg{background:#e5e7eb;color:#374151}
+.bgold{background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-weight:900}
+.navrow{display:flex;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.spksmall{width:32px;height:32px;border-radius:50%;border:none;background:#dbeafe;color:#1e3a8a;font-size:.85rem;cursor:pointer;flex-shrink:0;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.spksmall:hover{background:#1e3a8a;color:white}
+.expr-card{background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:16px;margin-bottom:12px}
+.slang-card{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px}
+.ev-card{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px}
+.vword{white-space:nowrap;overflow:hidden}.vword.mq{animation:vwmq 6s ease-in-out .5s infinite alternate;display:inline-block}@keyframes vwmq{0%,25%{transform:translateX(0)}75%,100%{transform:translateX(var(--vtx,0px))}}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <button class="nb on" onclick="show('vocab',this)">📚 المفردات</button>
+  <button class="nb" onclick="show('story',this)">📖 القصة</button>
+  <button class="nb" onclick="show('reading',this)">📰 القراءة</button>
+  <button class="nb" onclick="show('grammar',this)">✏️ القاعدة</button>
+  <button class="nb" onclick="show('listening',this)">🎧 الاستماع</button>
+  <button class="nb" onclick="show('writing',this)">✍️ الكتابة</button>
+  <button class="nb" onclick="show('speaking',this)">💬 المحادثة</button>
+  <button class="nb" onclick="show('realeng',this)">🗣️ Real English</button>
+  <button class="nb" onclick="show('pv',this)">💬 Phrasal Verbs</button>
+  <button class="nb" onclick="show('quiz',this)">✅ الاختبار</button>
+</div>
+<div class="hero">
+  <div class="lvltag">B2 — UPPER INTERMEDIATE</div>
+  <div style="font-size:.75rem;letter-spacing:3px;color:rgba(255,255,255,.45);font-weight:700;margin-bottom:8px">UNIT 5</div>
+  <h1 style="font-family:'Lora',Georgia,serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;margin-bottom:6px">Politics and Power</h1>
+  <p style="font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:4px">السياسة والقوة</p>
+  <p style="font-size:.82rem;color:rgba(255,255,255,.4)">القاعدة: Complex Relative Clauses — whose / whom / preposition + which / reduced relatives</p>
+  <div style="display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap">
+    <a href="unit4_b2_environment.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">← الوحدة ٤</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="index.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">الفهرس</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="unit6_b2_health.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">الوحدة ٦ ←</a>
+  </div>
+</div>
+
+<div id="sec-vocab" class="sec on">
+  <div style="text-align:right;color:#64748b;font-size:.88rem;max-width:900px;margin:0 auto 16px;padding:0 16px">💡 المعنى العربي للكلمة ثابت دائماً — اضغط 🔊 للنطق، واضغط أي خلية لتسمع وتظهر الترجمة</div>
+  <div id="vocabList" style="max-width:900px;margin:0 auto;padding:0 16px"></div>
+  <div class="navrow"><button class="btn bd" onclick="show('story',null)">القصة ←</button></div>
+</div>
+
+<div id="sec-story" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📖</span><div><h3>القصة القصيرة</h3><div class="sub">قصة عن السياسة والسلطة والشعوب — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button id="trBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:22px;padding:7px 16px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+        <button class="pbtn" id="storyBtn" onclick="toggleStory()"><span id="sIcon">▶</span><span id="sTxt">استمع للقصة</span></button>
+        <button class="spdbtn on" onclick="setSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setSpd(0.75,this)">بطيء</button>
+      </div>
+      <div id="storyBox" style="border-right:4px solid #f0a000;padding:16px 20px;background:#fffdf7;border-radius:0 14px 14px 0"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn bd" onclick="show('reading',null)">القراءة ←</button>
+  </div>
+</div>
+
+<div id="sec-reading" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📰</span><div><h3>القراءة المعمّقة</h3><div class="sub">نص ~480 كلمة + 5 أسئلة استنتاجية</div></div></div>
+    <div class="cb">
+      <div class="rtext" id="readingText"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الفهم والاستنتاج</p>
+      <div id="compList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkComp()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetComp()">↺ إعادة</button>
+      </div>
+      <div id="compRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('story',null)">→ القصة</button>
+    <button class="btn bd" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✏️</span><div><h3>القاعدة</h3><div class="sub">Complex Relative Clauses — الجمل الوصفية المعقّدة</div></div></div>
+    <div class="cb" id="grammarBox"></div>
+  </div>
+  <div class="card" id="grammarExtra"></div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('reading',null)">→ القراءة</button>
+    <button class="btn bd" onclick="show('listening',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listening" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🎧</span><div><h3>الاستماع المضمّن</h3><div class="sub">حوار: صحفي 🎙️ × أستاذ علوم سياسية 👨‍🏫 — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button class="pbtn" id="listenBtn" onclick="toggleListen()"><span id="lIcon">▶</span><span id="lTxt">شغّل الحوار</span></button>
+        <button class="spdbtn on" onclick="setLSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setLSpd(0.75,this)">بطيء</button>
+        <span style="font-size:.72rem;color:#64748b;font-family:Tajawal,sans-serif;padding:4px 10px;background:#f1f5f9;border-radius:12px">🔊 يعمل بـ Safari</span>
+      </div>
+      <div id="listenScript" style="background:#0f172a;border-radius:14px;padding:18px 20px;margin-bottom:16px"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الاستماع</p>
+      <div id="listenQList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkListen()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetListen()">↺ إعادة</button>
+      </div>
+      <div id="listenRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+      <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:14px;padding:20px;margin-top:18px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-direction:row-reverse">
+          <div style="text-align:right"><div style="font-weight:800;color:white;font-size:.95rem">🌍 Authentic Listening</div><div style="font-size:.78rem;color:#93c5fd;margin-top:2px">استمع لإنجليزي حقيقي — اختر فيديو</div></div>
+          <span style="background:#f0a000;color:#0a1628;font-size:.7rem;font-weight:900;padding:3px 11px;border-radius:12px">B2 · Politics</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:16px">
+          <a href="https://youtu.be/Cd0JH1AreDw" onclick="window.location.href='https://youtu.be/Cd0JH1AreDw';return false;" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:14px;text-decoration:none;display:block" onmouseover="this.style.background='rgba(255,255,255,.14)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
+            <div style="color:#f0a000;font-size:.72rem;font-weight:800;margin-bottom:4px">TED · 9 min</div>
+            <div style="color:white;font-weight:700;font-size:.88rem;margin-bottom:3px">Why Ordinary People Need to Understand Power</div>
+            <div style="color:rgba(255,255,255,.6);font-size:.76rem">Eric Liu</div>
+            <div style="color:rgba(255,255,255,.35);font-size:.65rem;margin-top:4px">youtu.be/Cd0JH1AreDw</div>
+            <div style="margin-top:8px;display:flex;gap:6px"><span style="background:rgba(240,160,0,.2);color:#fde68a;font-size:.68rem;padding:2px 8px;border-radius:10px">⭐⭐ B2 easy</span><span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:.68rem;padding:2px 8px;border-radius:10px">🇺🇸 American</span></div>
+          </a>
+          <a href="https://youtu.be/8SOQduoLgRw" onclick="window.location.href='https://youtu.be/8SOQduoLgRw';return false;" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:14px;text-decoration:none;display:block" onmouseover="this.style.background='rgba(255,255,255,.14)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
+            <div style="color:#f0a000;font-size:.72rem;font-weight:800;margin-bottom:4px">TED · 18 min</div>
+            <div style="color:white;font-weight:700;font-size:.88rem;margin-bottom:3px">The Moral Roots of Liberals and Conservatives</div>
+            <div style="color:rgba(255,255,255,.6);font-size:.76rem">Jonathan Haidt</div>
+            <div style="color:rgba(255,255,255,.35);font-size:.65rem;margin-top:4px">youtu.be/8SOQduoLgRw</div>
+            <div style="margin-top:8px;display:flex;gap:6px"><span style="background:rgba(240,160,0,.2);color:#fde68a;font-size:.68rem;padding:2px 8px;border-radius:10px">⭐⭐⭐ B2+</span><span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:.68rem;padding:2px 8px;border-radius:10px">🇺🇸 American</span></div>
+          </a>
+          <a href="https://youtu.be/phgjouv0BUA" onclick="window.location.href='https://youtu.be/phgjouv0BUA';return false;" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:14px;text-decoration:none;display:block" onmouseover="this.style.background='rgba(255,255,255,.14)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
+            <div style="color:#f0a000;font-size:.72rem;font-weight:800;margin-bottom:4px">TED · 10 min</div>
+            <div style="color:white;font-weight:700;font-size:.88rem;margin-bottom:3px">How to Disagree Productively</div>
+            <div style="color:rgba(255,255,255,.6);font-size:.76rem">Julia Dhar</div>
+            <div style="color:rgba(255,255,255,.35);font-size:.65rem;margin-top:4px">youtu.be/phgjouv0BUA</div>
+            <div style="margin-top:8px;display:flex;gap:6px"><span style="background:rgba(240,160,0,.2);color:#fde68a;font-size:.68rem;padding:2px 8px;border-radius:10px">⭐⭐ B2 easy</span><span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:.68rem;padding:2px 8px;border-radius:10px">🇺🇸 American</span></div>
+          </a>
+        </div>
+        <div style="background:rgba(255,255,255,.07);border-radius:10px;padding:14px 16px">
+          <div style="font-size:.8rem;font-weight:800;color:#fde68a;margin-bottom:8px;text-align:right">🎯 أسئلة التركيز:</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.85);direction:rtl;text-align:right;line-height:2">
+            <div>١ — ما موقف المتحدث من السلطة أو الديمقراطية؟</div>
+            <div>٢ — استمع للـ Relative Clauses. كم مرة سمعت whose / whom / in which / who?</div>
+            <div>٣ — ما الكلمات من الوحدة التي سمعتها؟</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn bd" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✍️</span><div><h3>الكتابة — IELTS Writing Task 2</h3><div class="sub">مقالات أكاديمية عن السياسة والقوة</div></div></div>
+    <div class="cb">
+      <div class="ielts-tip">
+        <span class="ielts-badge">IELTS · TASK 2</span>
+        <h4>📋 Relative Clauses في IELTS Writing</h4>
+        <ul>
+          <li>Non-defining في وصف الحجج: "Democracy, which requires an informed electorate, is under threat."</li>
+          <li>Whose وwhom في السياق الرسمي: "Leaders whose mandate is questioned... / The voters whom politicians ignore..."</li>
+          <li>Preposition + which: "The system in which we live / The parliament through which laws pass"</li>
+          <li>Reduced relative: "Politicians elected by narrow margins tend to avoid bold reform."</li>
+        </ul>
+      </div>
+      <div style="background:#fffdf7;border:2px dashed #f0a000;border-radius:14px;padding:20px;margin-bottom:14px">
+        <div class="wq-block">
+          <div class="wq-en">Some argue that democracy is the best system of government. Others believe it has serious weaknesses. Discuss both views and give your opinion.</div>
+          <div class="wq-ar">ناقش مزايا وعيوب الديمقراطية وأعطِ رأيك. (Discuss both views)</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">Democracy, which rests on the idea that governments derive their authority from the governed, has much to recommend it. In systems in which citizens elect their representatives, leaders remain accountable and power is peacefully transferred. The voters whom politicians serve have a mechanism, however imperfect, to remove those who fail them. Critics, whose concerns deserve serious consideration, point to the tyranny of majorities, the short-termism of electoral cycles, and the ease with which populism — a force that exploits fear rather than reason — can capture democratic institutions. In my view, democracy, for all its imperfections, remains preferable to the alternatives. What is needed is not less democracy but better-informed, more actively engaged citizens.</div>
+          <input class="winput" id="w1" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Corruption is a major problem in many countries. What are its causes, and how can it be reduced?</div>
+          <div class="wq-ar">ما أسباب الفساد وكيف يمكن تقليله؟ (Problem/Solution)</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">Corruption, which can be defined as the abuse of entrusted power for private gain, thrives where accountability is weak and transparency absent. Politicians who face no meaningful scrutiny, officials whose decisions are unreviewable, and institutions in which secrecy is the norm all create conditions in which corrupt practices spread. The causes are structural: low public-sector wages that push officials toward bribery, weak judiciaries whose independence is compromised, and media landscapes in which investigative journalism is suppressed. Solutions require building the institutions whose strength alone can deter wrongdoing: independent courts, protected whistleblowers, and a free press — all of which require sustained political will to establish and maintain.</div>
+          <input class="winput" id="w2" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Some believe governments should prioritise national interests over international cooperation. Do you agree?</div>
+          <div class="wq-ar">هل يجب أن تُقدّم الحكومات مصالحها الوطنية على التعاون الدولي؟ (Opinion)</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">The tension between national interest and international cooperation is one in which modern politics is constantly trapped. Leaders whose mandate comes from domestic electorates face pressure to prioritise immediate national concerns. Yet the challenges that most urgently require attention — climate change, pandemics, financial instability — are precisely those in which no single country can succeed alone. I largely disagree with the premise that national interest and international cooperation are opposed. Trade agreements, whose benefits are widely distributed, strengthen economies whose citizens they serve. The world in which we live is one of interdependence that makes pure nationalism not just morally narrow but economically self-defeating.</div>
+          <input class="winput" id="w3" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Is freedom of the press essential for a healthy democracy?</div>
+          <div class="wq-ar">هل حرية الصحافة ضرورية للديمقراطية الصحية؟ (Opinion)</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">A free press, whose primary function is to hold power to account, is not merely a feature of democracy — it is among its essential preconditions. Citizens who cannot access reliable information about the decisions made in their name cannot meaningfully exercise political judgement. Governments whose actions go unreported operate without constraint. That said, a press in which ownership is concentrated in few hands, or one whose funding depends entirely on advertising, faces its own structural pressures that compromise independence. The solution is not censorship — which invariably serves those already in power — but rather media literacy education and regulatory frameworks in which plurality and independence are protected.</div>
+          <input class="winput" id="w4" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block" style="margin-bottom:0">
+          <div class="wq-en">Rising political polarisation is a threat to democratic societies. To what extent do you agree?</div>
+          <div class="wq-ar">الاستقطاب السياسي المتصاعد تهديد للمجتمعات الديمقراطية. إلى أي مدى توافق؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">Political polarisation — a phenomenon in which citizens increasingly sort into hostile camps whose members share neither facts nor values — does represent a genuine threat to democratic function. Democracies in which compromise is impossible become ungovernable; legislatures whose members see opponents as enemies rather than rivals can pass no meaningful legislation. That said, I would argue that the greater threat lies not in disagreement itself but in the decay of shared institutions through which disagreement was once managed. It is not difference of opinion that damages democracy — disagreement, after all, is democracy's raw material. It is the collapse of common ground in which that disagreement can be conducted honestly that poses the real danger.</div>
+          <input class="winput" id="w5" placeholder="Write your answer here..." oninput="buildW()" style="margin-bottom:0">
+        </div>
+      </div>
+      <div id="wOut" style="background:white;border:1px solid #e5eaf5;border-radius:12px;padding:16px;min-height:70px;font-family:'Lora',Georgia,serif;font-size:.93rem;line-height:2;color:#374151;direction:ltr"><span style="color:#9ca3af;font-style:italic">✨ ستظهر فقرتك هنا...</span></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('listening',null)">→ الاستماع</button>
+    <button class="btn bd" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">💬</span><div><h3>المحادثة — IELTS Speaking</h3><div class="sub">Part 1 · Part 2 · Part 3</div></div></div>
+    <div class="cb">
+      <div class="ielts-tip">
+        <span class="ielts-badge">IELTS · SPEAKING</span>
+        <h4>🎙️ Relative Clauses في Speaking</h4>
+        <ul>
+          <li>Non-defining في وصف الأفكار: "Democracy, which I believe is fragile, requires..."</li>
+          <li>Whose في الحديث عن القادة: "A leader whose actions contradict their words..."</li>
+          <li>Reduced relative: "Politicians elected without broad support often..."</li>
+          <li>سجّل صوتك — هل تستخدم relative clauses أم تُبسّط الجملة بالـ and?</li>
+        </ul>
+      </div>
+      <div id="speakBox"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn bd" onclick="show('realeng',null)">Real English ←</button>
+  </div>
+</div>
+
+<div id="sec-realeng" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🗣️</span><div><h3>Real English</h3><div class="sub">اضغط على الجملة لتسمعها وتظهر ترجمتها</div></div></div>
+    <div class="cb" id="realBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn bd" onclick="show('pv',null)">Phrasal Verbs ←</button>
+  </div>
+</div>
+
+<div id="sec-pv" class="sec">
+  <div class="card">
+    <div class="cb">
+      <div style="font-weight:800;color:#0a1628;font-size:1rem;text-align:right;margin-bottom:6px">💬 Phrasal Verbs — السياسة والقوة</div>
+      <p style="font-size:.82rem;color:#64748b;text-align:right;margin-bottom:16px;font-family:Tajawal,sans-serif">اضغط على الجملة لتسمعها وترى ترجمتها 🔊</p>
+      <div id="pvBox"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('realeng',null)">→ Real English</button>
+    <button class="btn bd" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-quiz" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✅</span><div><h3>اختبار الوحدة</h3><div class="sub">10 أسئلة — مفردات + Relative Clauses + collocations</div></div></div>
+    <div class="cb">
+      <div id="quizList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:18px">
+        <button class="btn bgold" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn bg" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizRes" style="display:none;text-align:center;padding:22px;margin-top:16px;background:#f0fdf4;border-radius:14px">
+        <div id="qEmoji" style="font-size:2.5rem;margin-bottom:8px"></div>
+        <div id="qScore" style="font-weight:800;font-size:1.1rem;color:#0a1628;margin-bottom:4px"></div>
+        <div id="qMsg" style="font-size:.88rem;color:#64748b"></div>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:8px">
+    <div class="ch"><span style="font-size:1.3rem">🎯</span><div><h3>هل أستطيع...؟</h3><div class="sub">CEFR B2 Self-Assessment</div></div></div>
+    <div class="cb">
+      <p style="font-size:.84rem;color:#64748b;direction:rtl;text-align:right;margin-bottom:16px;line-height:1.9">ضع علامة ✅ على كل هدف تشعر أنك حققته فعلاً.</p>
+      <div id="assessList"></div>
+      <div id="assessResult" style="display:none;margin-top:16px;padding:16px;border-radius:12px;text-align:center"></div>
+    </div>
+  </div>
+  <div style="background:linear-gradient(135deg,#0a1628,#1e3a8a);border-radius:18px;padding:28px;text-align:center;margin-top:8px;max-width:900px;margin-left:auto;margin-right:auto">
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:white;margin-bottom:6px">أحسنت! أكملت وحدة Politics and Power</div>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:16px">الوحدة السادسة: Health and Medicine</p>
+    <button class="btn bgold" onclick="location.href='unit6_b2_health.html'">الوحدة ٦ ←</button>
+  </div>
+</div>
+<script>
+var V=[
+  {cat:"Government & Institutions",catAr:"الحكومة والمؤسسات",w:"parliament",p:"بارليمِنت",a:"برلمان",syn:"legislature, congress, assembly",ant:"executive, monarchy",col:"dissolve parliament / act of parliament / parliamentary democracy",prep:"parliament of (a country) / in (session)",fam:"parliament (n) · parliamentary (adj) · parliamentarian (n)",ex:"The legislation, which had been debated in parliament for months, was finally passed.",ar_syn:"هيئة تشريعية، كونغرس، جمعية",ar_ant:"السلطة التنفيذية، الملكية",ar_col:"يُحلّ البرلمان / قانون / ديمقراطية",ar_prep:"برلمان (دولة) / في (دورة)",ar_fam:"برلمان · برلماني · عضو برلمان",ar_ex:"التشريع الذي جرى نقاشه في البرلمان لأشهر أُقرّ أخيراً."},
+  {cat:"Government & Institutions",catAr:"الحكومة والمؤسسات",w:"constitution",p:"كونستيتيوشن",a:"دستور",syn:"founding law, basic law, charter",ant:"arbitrary rule, lawlessness",col:"constitutional right / amend the constitution / constitutional crisis",prep:"constitution of (a state) / guaranteed by (the constitution)",fam:"constitution (n) · constitutional (adj) · unconstitutional (adj)",ex:"The right to free speech, which is enshrined in the constitution, cannot be suspended by decree.",ar_syn:"القانون الأساسي، ميثاق",ar_ant:"الحكم التعسفي، الفوضى القانونية",ar_col:"حق دستوري / يُعدّل / أزمة",ar_prep:"دستور (دولة) / مكفول بـ (الدستور)",ar_fam:"دستور · دستوري · غير دستوري",ar_ex:"حق حرية التعبير المكرَّس في الدستور لا يمكن تعليقه بمرسوم."},
+  {cat:"Government & Institutions",catAr:"الحكومة والمؤسسات",w:"judiciary",p:"جوديشيِري",a:"القضاء",syn:"courts, justice system, bench",ant:"executive power, legislature",col:"independent judiciary / corrupt judiciary / judiciary under pressure",prep:"judiciary of (a country) / independent from (politics)",fam:"judge (n/v) · judiciary (n) · judicial (adj) · jurisdiction (n)",ex:"A judiciary whose independence is compromised cannot protect citizens from state abuse.",ar_syn:"المحاكم، منظومة العدالة",ar_ant:"السلطة التنفيذية، السلطة التشريعية",ar_col:"قضاء مستقل / فاسد / تحت ضغط",ar_prep:"قضاء (دولة) / مستقل عن (السياسة)",ar_fam:"قاضٍ · قضاء · قضائي · اختصاص قضائي",ar_ex:"قضاء أُفقدت استقلاليته لا يستطيع حماية المواطنين من انتهاكات الدولة."},
+  {cat:"Government & Institutions",catAr:"الحكومة والمؤسسات",w:"sovereignty",p:"سوفرِنتي",a:"سيادة",syn:"supreme authority, self-governance, autonomy",ant:"subjugation, colonialism",col:"national sovereignty / sovereignty over (territory) / violate sovereignty",prep:"sovereignty of (a nation) / over (its affairs)",fam:"sovereign (n/adj) · sovereignty (n) · sovereignly (adv — rare)",ex:"The nation, whose sovereignty had been contested for decades, finally achieved international recognition.",ar_syn:"سلطة عليا، حكم ذاتي، استقلالية",ar_ant:"الخضوع، الاستعمار",ar_col:"سيادة وطنية / على (أراضٍ) / ينتهك",ar_prep:"سيادة (أمة) / على (شؤونها)",ar_fam:"سيّد / ذو سيادة · سيادة",ar_ex:"الأمة التي طُعن في سيادتها لعقود حققت اعترافاً دولياً أخيراً."},
+  {cat:"Government & Institutions",catAr:"الحكومة والمؤسسات",w:"coalition",p:"كوِيليشن",a:"ائتلاف",syn:"alliance, partnership, bloc",ant:"single-party rule, opposition",col:"form a coalition / coalition government / fragile coalition",prep:"coalition of (parties) / between (groups)",fam:"coalesce (v) · coalition (n) · coalitional (adj)",ex:"The coalition government, whose partners disagreed on fundamental issues, collapsed within a year.",ar_syn:"تحالف، شراكة، كتلة",ar_ant:"حكم الحزب الواحد، معارضة",ar_col:"يُشكّل ائتلافاً / حكومة / هش",ar_prep:"ائتلاف من (أحزاب) / بين (مجموعات)",ar_fam:"يتحالف · ائتلاف · ائتلافي",ar_ex:"حكومة الائتلاف التي تتناقض شركاؤها في قضايا جوهرية انهارت في غضون سنة."},
+  {cat:"Government & Institutions",catAr:"الحكومة والمؤسسات",w:"bureaucracy",p:"بيوروكراسي",a:"بيروقراطية",syn:"administration, red tape, civil service",ant:"efficiency, flat structure",col:"government bureaucracy / cut through bureaucracy / bureaucratic delay",prep:"bureaucracy in (a system) / created by (regulations)",fam:"bureaucrat (n) · bureaucracy (n) · bureaucratic (adj)",ex:"The reforms, which aimed to cut through bureaucracy, were blocked by the very officials whose jobs they threatened.",ar_syn:"إدارة، روتين، خدمة مدنية",ar_ant:"كفاءة، هيكل مسطّح",ar_col:"بيروقراطية حكومية / يخترق / تأخير",ar_prep:"بيروقراطية في (نظام) / ناجمة عن (لوائح)",ar_fam:"بيروقراطي · بيروقراطية · بيروقراطي",ar_ex:"الإصلاحات الهادفة لاختراق البيروقراطية عُرقلت من قِبَل المسؤولين أنفسهم الذين هدّدت وظائفهم."},
+  {cat:"Government & Institutions",catAr:"الحكومة والمؤسسات",w:"mandate",p:"ماندِت",a:"تفويض / ولاية",syn:"authority, remit, commission",ant:"opposition, lack of authority",col:"electoral mandate / receive a mandate / mandate to govern",prep:"mandate from (voters) / for (reform)",fam:"mandate (v/n) · mandatory (adj) · mandated (adj)",ex:"The president, whose mandate had been renewed by a large majority, moved quickly to implement reform.",ar_syn:"صلاحية، نطاق عمل، تكليف",ar_ant:"معارضة، غياب السلطة",ar_col:"تفويض انتخابي / يتلقى / للحكم",ar_prep:"تفويض من (الناخبين) / لـ (الإصلاح)",ar_fam:"يُفوَّض / يُلزَم · تفويض · إلزامي · مُفوَّض",ar_ex:"الرئيس الذي جُدِّد تفويضه بأغلبية كبيرة أسرع بتنفيذ الإصلاح."},
+  {cat:"Democracy & Elections",catAr:"الديمقراطية والانتخابات",w:"ballot",p:"بالِت",a:"اقتراع / صندوق اقتراع",syn:"vote, poll, election",ant:"dictatorship, appointed power",col:"secret ballot / cast a ballot / ballot box / ballot paper",prep:"ballot for (a candidate) / in (an election)",fam:"ballot (v/n) · balloting (n)",ex:"Citizens in a democracy, whose will is expressed through the ballot, are the ultimate source of political power.",ar_syn:"تصويت، استطلاع، انتخاب",ar_ant:"ديكتاتورية، سلطة مُعيَّنة",ar_col:"اقتراع سري / يُدلي / صندوق / ورقة",ar_prep:"اقتراع لـ (مرشح) / في (انتخابات)",ar_fam:"يُصوِّت · اقتراع · تصويت",ar_ex:"المواطنون في الديمقراطية الذين تُعبَّر إرادتهم عبر الاقتراع هم المصدر الأقصى للسلطة السياسية."},
+  {cat:"Democracy & Elections",catAr:"الديمقراطية والانتخابات",w:"suffrage",p:"سَفريج",a:"حق التصويت",syn:"voting rights, franchise, right to vote",ant:"disenfranchisement, exclusion",col:"universal suffrage / women's suffrage / right to suffrage",prep:"suffrage for (all citizens) / denied to (minorities)",fam:"suffrage (n) · suffragette (n) · suffragist (n)",ex:"Universal suffrage, which was won through decades of struggle, must not be taken for granted.",ar_syn:"حق الاقتراع، الامتياز",ar_ant:"الحرمان من حق التصويت",ar_col:"اقتراع عام / حق تصويت المرأة / حق",ar_prep:"حق تصويت لـ (جميع المواطنين) / مُحرَم منه (الأقليات)",ar_fam:"حق التصويت · ناشطة حق اقتراع",ar_ex:"الاقتراع العام الذي انتُزع عبر عقود من النضال يجب ألّا يُؤخذ كأمر مُسلَّم به."},
+  {cat:"Democracy & Elections",catAr:"الديمقراطية والانتخابات",w:"electorate",p:"إليكتورِت",a:"الناخبون / الهيئة الانتخابية",syn:"voters, the voting public, citizens",ant:"non-voters, appointed officials",col:"swing electorate / address the electorate / divided electorate",prep:"electorate of (a country) / among (voters)",fam:"elect (v) · electorate (n) · electoral (adj) · election (n)",ex:"The electorate, whose patience with empty promises had run out, delivered a historic verdict.",ar_syn:"الناخبون، الجمهور المصوِّت",ar_ant:"غير الناخبين، المسؤولون المُعيَّنون",ar_col:"متأرجح / يُخاطب / منقسم",ar_prep:"ناخبو (دولة) / بين (المصوِّتين)",ar_fam:"ينتخب · هيئة انتخابية · انتخابي · انتخابات",ar_ex:"الهيئة الانتخابية التي نفد صبرها من الوعود الفارغة أصدرت حكماً تاريخياً."},
+  {cat:"Democracy & Elections",catAr:"الديمقراطية والانتخابات",w:"referendum",p:"ريفيرندِم",a:"استفتاء",syn:"plebiscite, public vote, popular vote",ant:"parliamentary decision, executive decree",col:"hold a referendum / binding referendum / referendum on (an issue)",prep:"referendum on (independence) / held by (the government)",fam:"refer (v) · referendum (n) · referenda (pl)",ex:"The referendum, in which citizens were asked to vote on independence, was disputed by the central government.",ar_syn:"استفتاء شعبي، تصويت عام",ar_ant:"قرار برلماني، مرسوم تنفيذي",ar_col:"يعقد / ملزِم / حول (قضية)",ar_prep:"استفتاء حول (الاستقلال) / أجرته (الحكومة)",ar_fam:"يحيل · استفتاء · استفتاءات",ar_ex:"الاستفتاء الذي طُلب فيه من المواطنين التصويت على الاستقلال طعن فيه الحكومة المركزية."},
+  {cat:"Democracy & Elections",catAr:"الديمقراطية والانتخابات",w:"campaign",p:"كامبين",a:"حملة انتخابية",syn:"electoral campaign, canvassing, drive",ant:"inaction, withdrawal",col:"run a campaign / election campaign / campaign promise / grassroots campaign",prep:"campaign for (a candidate) / against (a policy)",fam:"campaign (v/n) · campaigner (n) · campaigning (n)",ex:"The candidate, whose campaign had focused on economic reform, won by a narrow margin.",ar_syn:"حملة انتخابية، توعية، مسعى",ar_ant:"السلبية، الانسحاب",ar_col:"يدير / انتخابية / وعد / شعبية",ar_prep:"حملة لـ (مرشح) / ضد (سياسة)",ar_fam:"يحمل / يُشنّ حملة · حملة · ناشط في حملة",ar_ex:"المرشح الذي ركّزت حملته على الإصلاح الاقتصادي فاز بفارق ضيّق."},
+  {cat:"Democracy & Elections",catAr:"الديمقراطية والانتخابات",w:"political spectrum",p:"بوليتيكال سبكترِم",a:"الطيف السياسي",syn:"political range, left-right axis",ant:"single ideology",col:"across the political spectrum / left/right of the political spectrum",prep:"spectrum from (left to right) / across (all parties)",fam:"political (adj) · spectrum (n) · spectrum (metaphor)",ex:"The policy attracted support from politicians across the political spectrum, who rarely agreed on anything else.",ar_syn:"المدى السياسي، محور اليسار-اليمين",ar_ant:"الإيديولوجية الواحدة",ar_col:"عبر / يسار/يمين الطيف",ar_prep:"طيف من (اليسار لليمين) / عبر (كل الأحزاب)",ar_fam:"سياسي · طيف",ar_ex:"السياسة جذبت دعم سياسيين عبر الطيف السياسي كله، ممن نادراً ما يتفقون على أي شيء آخر."},
+  {cat:"Democracy & Elections",catAr:"الديمقراطية والانتخابات",w:"populism",p:"بوبيوليزم",a:"شعبوية",syn:"demagoguery, anti-establishment politics",ant:"technocracy, consensus politics",col:"rise of populism / right-wing populism / populist leader",prep:"populism in (politics) / directed at (elites)",fam:"populist (n/adj) · populism (n) · popular (adj)",ex:"Populism, which appeals to simple solutions for complex problems, often benefits those whose power it claims to challenge.",ar_syn:"الديماغوجية، السياسة المناهضة للمؤسسة",ar_ant:"التكنوقراطية، سياسة التوافق",ar_col:"صعود / يميني / زعيم شعبوي",ar_prep:"شعبوية في (السياسة) / موجَّهة ضد (النخب)",ar_fam:"شعبوي · شعبوية · شعبي",ar_ex:"الشعبوية التي تروّج لحلول بسيطة لمشاكل معقدة كثيراً ما تفيد أولئك الذين تدّعي تحدّي سلطتهم."},
+  {cat:"Policy & Legislation",catAr:"السياسة والتشريع",w:"legislation",p:"ليجِسليشن",a:"تشريع / قانون",syn:"law, statute, act, bill",ant:"repeal, deregulation",col:"pass legislation / introduce legislation / landmark legislation",prep:"legislation on (an issue) / passed by (parliament)",fam:"legislate (v) · legislation (n) · legislative (adj) · legislator (n)",ex:"The legislation, whose passage had been blocked for years, was finally signed into law.",ar_syn:"قانون، تشريع، فعل قانوني",ar_ant:"إلغاء القانون، رفع التنظيم",ar_col:"يُقرّ / يُقدّم / بارز",ar_prep:"تشريع حول (قضية) / أقرّه (برلمان)",ar_fam:"يُشرّع · تشريع · تشريعي · مشرِّع",ar_ex:"التشريع الذي عُرقل إقراره لسنوات وُقِّع أخيراً ليُصبح قانوناً."},
+  {cat:"Policy & Legislation",catAr:"السياسة والتشريع",w:"reform",p:"ريفورم",a:"إصلاح",syn:"change, overhaul, transformation",ant:"status quo, stagnation, conservatism",col:"economic reform / push for reform / sweeping reform / reform agenda",prep:"reform of (a system) / within (institutions)",fam:"reform (v/n) · reformer (n) · reformed (adj) · reformist (adj/n)",ex:"The party, whose reform agenda had won wide support, faced resistance from those whose interests it challenged.",ar_syn:"تغيير، تجديد، تحوّل",ar_ant:"الوضع الراهن، الجمود، المحافظة",ar_col:"إصلاح اقتصادي / يدفع نحو / جذري / أجندة",ar_prep:"إصلاح (نظام) / داخل (مؤسسات)",ar_fam:"يُصلح · إصلاح · مُصلِح · مُصلَح · إصلاحي",ar_ex:"الحزب الذي نالت أجندة إصلاحه دعماً واسعاً واجه مقاومة من أولئك الذين تحدّت مصالحهم."},
+  {cat:"Policy & Legislation",catAr:"السياسة والتشريع",w:"sanctions",p:"سانكشِنز",a:"عقوبات / جزاءات",syn:"penalties, restrictions, measures",ant:"rewards, incentives, trade",col:"impose sanctions / lift sanctions / economic sanctions / targeted sanctions",prep:"sanctions against (a country) / imposed by (the UN)",fam:"sanction (v/n) · sanctioned (adj)",ex:"The sanctions, which targeted the financial sector, were lifted once the agreement had been reached.",ar_syn:"عقوبات، قيود، إجراءات",ar_ant:"مكافآت، حوافز، تجارة",ar_col:"يفرض / يرفع / اقتصادية / موجَّهة",ar_prep:"عقوبات على (دولة) / مفروضة من (الأمم المتحدة)",ar_fam:"يُقرّ / يُصادق · عقوبات · مُقرَّر",ar_ex:"العقوبات التي استهدفت القطاع المالي رُفعت بمجرد التوصل للاتفاق."},
+  {cat:"Policy & Legislation",catAr:"السياسة والتشريع",w:"veto",p:"فيتو",a:"حق النقض",syn:"block, override, rejection",ant:"approval, endorsement",col:"presidential veto / exercise a veto / veto power / right of veto",prep:"veto on (a resolution) / by (a permanent member)",fam:"veto (v/n) · vetoer (n — rare)",ex:"The resolution, which had been passed by a large majority, was blocked by a veto from a permanent member.",ar_syn:"حجب، إلغاء، رفض",ar_ant:"موافقة، تأييد",ar_col:"رئاسي / يستخدم / قوة / حق",ar_prep:"نقض على (قرار) / من قِبَل (عضو دائم)",ar_fam:"يستخدم حق النقض · حق النقض",ar_ex:"القرار الذي أُقرّ بأغلبية كبيرة أُسقط بنقض من عضو دائم."},
+  {cat:"Policy & Legislation",catAr:"السياسة والتشريع",w:"lobbying",p:"لوبيينغ",a:"الضغط السياسي / المناصرة",syn:"advocacy, influence, pressure campaign",ant:"transparency, public interest",col:"corporate lobbying / lobby group / against lobbying / register as a lobbyist",prep:"lobbying for (an industry) / against (a regulation)",fam:"lobby (v/n) · lobbyist (n) · lobbying (n)",ex:"The legislation was weakened by lobbying from industries whose profits it threatened.",ar_syn:"مناصرة، تأثير، حملة ضغط",ar_ant:"الشفافية، المصلحة العامة",ar_col:"مؤسسي / مجموعة ضغط / ضد / يُسجَّل كـ",ar_prep:"ضغط لصالح (صناعة) / ضد (تنظيم)",ar_fam:"يضغط / يُمارس لوبي · ضغط / مجموعة ضغط · ممارس لوبي · لوبي",ar_ex:"التشريع أُضعف نتيجة الضغط من الصناعات التي هدّدت أرباحها."},
+  {cat:"Policy & Legislation",catAr:"السياسة والتشريع",w:"treaty",p:"تريتي",a:"معاهدة",syn:"agreement, accord, pact",ant:"hostility, conflict, withdrawal",col:"sign a treaty / ratify a treaty / peace treaty / international treaty",prep:"treaty between (nations) / on (an issue)",fam:"treaty (n) · treatise (n — different meaning)",ex:"The peace treaty, which ended a decade of conflict, was signed by leaders whose populations had suffered greatly.",ar_syn:"اتفاق، ميثاق، تعاهد",ar_ant:"العدوان، النزاع، الانسحاب",ar_col:"يوقّع / يُصادق / سلام / دولية",ar_prep:"معاهدة بين (الدول) / حول (قضية)",ar_fam:"معاهدة · أطروحة (معنى مختلف)",ar_ex:"معاهدة السلام التي أنهت عقداً من الصراع وقّعها قادة عانت شعوبهم كثيراً."},
+  {cat:"Power & Authority",catAr:"القوة والسلطة",w:"autocracy",p:"أوتوكراسي",a:"حكم استبدادي / أوتوقراطية",syn:"dictatorship, tyranny, authoritarianism",ant:"democracy, republic",col:"rise of autocracy / slide into autocracy / autocratic rule",prep:"autocracy in (a region) / under (a ruler)",fam:"autocrat (n) · autocracy (n) · autocratic (adj)",ex:"The state, whose democratic institutions had been gradually dismantled, had slid into autocracy within a generation.",ar_syn:"ديكتاتورية، طغيان، استبداد",ar_ant:"ديمقراطية، جمهورية",ar_col:"صعود / الانزلاق نحو / حكم استبدادي",ar_prep:"استبداد في (منطقة) / في ظل (حاكم)",ar_fam:"مستبد · استبداد · استبدادي",ar_ex:"الدولة التي جرى تفكيك مؤسساتها الديمقراطية تدريجياً انزلقت نحو الاستبداد في غضون جيل."},
+  {cat:"Power & Authority",catAr:"القوة والسلطة",w:"propaganda",p:"بروباغاندا",a:"دعاية سياسية",syn:"disinformation, spin, state media",ant:"objective journalism, free press",col:"state propaganda / spread propaganda / propaganda machine",prep:"propaganda from (a government) / aimed at (citizens)",fam:"propagandise (v) · propaganda (n) · propagandist (n)",ex:"The media landscape, which had been captured by the ruling party, served primarily as a propaganda tool.",ar_syn:"تضليل، تلاعب، إعلام الدولة",ar_ant:"صحافة موضوعية، صحافة حرة",ar_col:"دعاية الدولة / تنشر / آلة الدعاية",ar_prep:"دعاية من (حكومة) / موجَّهة ضد (المواطنين)",ar_fam:"يمارس الدعاية · دعاية · مُروِّج للدعاية",ar_ex:"المشهد الإعلامي الذي استولى عليه الحزب الحاكم كان يخدم أساساً كأداة دعاية."},
+  {cat:"Power & Authority",catAr:"القوة والسلطة",w:"censorship",p:"سنسِرشيب",a:"رقابة / تعتيم",syn:"suppression, control, gagging",ant:"freedom of expression, openness",col:"government censorship / impose censorship / censorship of the press",prep:"censorship of (media) / by (the state)",fam:"censor (v/n) · censorship (n) · censored (adj)",ex:"The book, whose author had been jailed, survived only because copies had been smuggled out before censorship began.",ar_syn:"قمع، تحكم، كتم",ar_ant:"حرية التعبير، الانفتاح",ar_col:"رقابة حكومية / يفرض / على الصحافة",ar_prep:"رقابة على (الإعلام) / من قِبَل (الدولة)",ar_fam:"يفرض الرقابة · رقابة · خاضع للرقابة",ar_ex:"الكتاب الذي سُجن مؤلّفه نجا فقط لأن نسخاً منه هُرِّبت قبل أن تبدأ الرقابة."},
+  {cat:"Power & Authority",catAr:"القوة والسلطة",w:"corruption",p:"كوراپشن",a:"فساد",syn:"bribery, graft, dishonesty",ant:"integrity, transparency",col:"political corruption / tackle corruption / corruption scandal / endemic corruption",prep:"corruption in (government) / among (officials)",fam:"corrupt (v/adj) · corruption (n) · corruptly (adv)",ex:"The official, whose accounts revealed unexplained wealth, became a symbol of the corruption that had hollowed out the state.",ar_syn:"رشوة، انتهاز، أمانة منتهكة",ar_ant:"نزاهة، شفافية",ar_col:"سياسي / يعالج / فضيحة / متجذّر",ar_prep:"فساد في (الحكومة) / بين (المسؤولين)",ar_fam:"يُفسِد / فاسد · فساد · بفساد",ar_ex:"المسؤول الذي كشفت حساباته ثروة غير مُبرَّرة أصبح رمزاً للفساد الذي أفرغ الدولة من الداخل."},
+  {cat:"Power & Authority",catAr:"القوة والسلطة",w:"ideology",p:"آيديولوجي",a:"إيديولوجية",syn:"belief system, doctrine, worldview",ant:"pragmatism, neutrality",col:"political ideology / driven by ideology / ideological conflict",prep:"ideology of (a party) / based on (principles)",fam:"ideological (adj) · ideologically (adv) · ideologue (n) · ideology (n)",ex:"The party, whose ideology had shifted significantly since its founding, struggled to define itself for a new generation.",ar_syn:"منظومة معتقدات، عقيدة، رؤية للعالم",ar_ant:"براغماتية، حياد",ar_col:"إيديولوجية سياسية / مدفوع بـ / صراع إيديولوجي",ar_prep:"إيديولوجية (حزب) / مبنية على (مبادئ)",ar_fam:"إيديولوجي · إيديولوجياً · مُدَوْلِج · إيديولوجية",ar_ex:"الحزب الذي تحوّلت إيديولوجيته بشكل ملحوظ منذ تأسيسه كافح لتعريف نفسه أمام جيل جديد."},
+  {cat:"Power & Authority",catAr:"القوة والسلطة",w:"opposition",p:"أوبوزيشن",a:"معارضة",syn:"resistance, counter-party, dissent",ant:"ruling party, compliance",col:"lead the opposition / opposition party / suppress the opposition",prep:"opposition to (a policy) / from (critics)",fam:"oppose (v) · opposition (n) · opponent (n) · opposing (adj)",ex:"The opposition, whose leaders had been jailed, continued to organise through networks that evaded surveillance.",ar_syn:"مقاومة، حزب مقابل، معارضة",ar_ant:"الحزب الحاكم، الامتثال",ar_col:"يقود / حزب المعارضة / يقمع",ar_prep:"معارضة لـ (سياسة) / من (المنتقدين)",ar_fam:"يُعارض · معارضة · خصم · معارض",ar_ex:"المعارضة التي سُجن قادتها واصلت تنظيم نفسها عبر شبكات تفلّت من المراقبة."},
+  {cat:"Conflict & Change",catAr:"الصراع والتغيير",w:"coup",p:"كو",a:"انقلاب",syn:"takeover, putsch, seizure of power",ant:"democratic transition, election",col:"military coup / stage a coup / coup attempt / coup leader",prep:"coup against (a government) / by (the military)",fam:"coup (n) · counter-coup (n)",ex:"The general, who had served the elected government for decades, led the coup that overthrew it.",ar_syn:"استيلاء على السلطة، بوتشي",ar_ant:"انتقال ديمقراطي، انتخابات",ar_col:"عسكري / يُدبّر / محاولة / قائد",ar_prep:"انقلاب ضد (حكومة) / من قِبَل (الجيش)",ar_fam:"انقلاب · انقلاب مضاد",ar_ex:"الجنرال الذي خدم الحكومة المنتخبة لعقود قاد الانقلاب الذي أطاح بها."},
+  {cat:"Conflict & Change",catAr:"الصراع والتغيير",w:"protest",p:"بروتِست",a:"احتجاج",syn:"demonstration, rally, march",ant:"compliance, acceptance",col:"mass protest / peaceful protest / protest movement / right to protest",prep:"protest against (a policy) / in (the streets)",fam:"protest (v/n) · protester (n) · protestor (n)",ex:"The protest, in which hundreds of thousands took part, was the largest demonstration the capital had seen in a generation.",ar_syn:"مظاهرة، تجمع، مسيرة",ar_ant:"الامتثال، القبول",ar_col:"جماهيري / سلمي / حركة / حق",ar_prep:"احتجاج ضد (سياسة) / في (الشوارع)",ar_fam:"يحتج · احتجاج · محتج",ar_ex:"الاحتجاج الذي شارك فيه مئات الآلاف كان أكبر مظاهرة تشهدها العاصمة في جيل."},
+  {cat:"Conflict & Change",catAr:"الصراع والتغيير",w:"diplomacy",p:"دِبلوماسي",a:"دبلوماسية",syn:"negotiation, statecraft, foreign relations",ant:"conflict, aggression",col:"shuttle diplomacy / diplomatic relations / skilled diplomacy / diplomatic channel",prep:"diplomacy between (nations) / through (negotiation)",fam:"diplomat (n) · diplomacy (n) · diplomatic (adj) · diplomatically (adv)",ex:"The diplomat, whose skills had resolved earlier disputes, was called upon again to prevent war.",ar_syn:"تفاوض، فن الحكم، علاقات خارجية",ar_ant:"صراع، عدوان",ar_col:"مكوكية / علاقات / ماهرة / قناة دبلوماسية",ar_prep:"دبلوماسية بين (الأمم) / عبر (التفاوض)",ar_fam:"دبلوماسي · دبلوماسية · دبلوماسي · دبلوماسياً",ar_ex:"الدبلوماسي الذي حسمت مهاراته نزاعات سابقة جرى استدعاؤه مجدداً لمنع الحرب."},
+  {cat:"Conflict & Change",catAr:"الصراع والتغيير",w:"polarisation",p:"بولاريزيشن",a:"استقطاب",syn:"division, fragmentation, tribalism",ant:"consensus, unity, bridge-building",col:"political polarisation / growing polarisation / polarisation of society",prep:"polarisation between (groups) / in (a country)",fam:"polarise (v) · polarisation (n) · polarised (adj)",ex:"The polarisation in which the country found itself made any form of compromise almost politically impossible.",ar_syn:"انقسام، تشرذم، قبلية",ar_ant:"توافق، وحدة، بناء الجسور",ar_col:"سياسي / متزايد / في المجتمع",ar_prep:"استقطاب بين (مجموعات) / في (دولة)",ar_fam:"يستقطب · استقطاب · مستقطَب",ar_ex:"الاستقطاب الذي وجدت البلاد نفسها فيه جعل أي شكل من أشكال التسوية شبه مستحيل سياسياً."},
+  {cat:"Conflict & Change",catAr:"الصراع والتغيير",w:"geopolitics",p:"جيو-بوليتكس",a:"جيوسياسة",syn:"international relations, global strategy",ant:"local politics",col:"global geopolitics / geopolitical shift / geopolitical rivalry",prep:"geopolitics of (a region) / driven by (interests)",fam:"geopolitical (adj) · geopolitically (adv) · geopolitics (n)",ex:"The alliance, whose rationale had been geopolitical, came under strain when its members' interests diverged.",ar_syn:"علاقات دولية، استراتيجية عالمية",ar_ant:"السياسة المحلية",ar_col:"عالمية / تحوّل / تنافس",ar_prep:"جيوسياسة (منطقة) / مدفوعة بـ (مصالح)",ar_fam:"جيوسياسي · جيوسياسياً · جيوسياسة",ar_ex:"التحالف الذي كان مسوِّغه جيوسياسياً أُصيب بتوتر حين تباينت مصالح أعضائه."},
+  {cat:"Conflict & Change",catAr:"الصراع والتغيير",w:"civil liberties",p:"سيفِل ليبِرتيز",a:"الحريات المدنية",syn:"individual rights, freedoms, human rights",ant:"state control, repression",col:"protect civil liberties / civil liberties violations / restrict civil liberties",prep:"civil liberties of (citizens) / guaranteed by (law)",fam:"civil (adj) · liberty (n) · liberties (pl) · libertarian (n/adj)",ex:"The emergency measures, which had suspended civil liberties temporarily, were extended indefinitely by a government whose priorities lay elsewhere.",ar_syn:"حقوق الفرد، حريات، حقوق الإنسان",ar_ant:"سيطرة الدولة، قمع",ar_col:"يحمي / انتهاكات / يقيّد",ar_prep:"حريات (المواطنين) / مكفولة بـ (القانون)",ar_fam:"مدني · حرية · حريات · ليبرتاري",ar_ex:"التدابير الطارئة التي علّقت الحريات المدنية مؤقتاً مُدِّدت أجلاً غير مسمى من قِبَل حكومة كانت أولوياتها في مكان آخر."}
+];
+var VFamEx=[
+[["parliamentary","adj","متى تستخدمه: وصف ما يتعلق بالبرلمان أو النظام البرلماني","Parliamentary debate often reveals more about power than about policy."],["parliamentarian","n","متى تستخدمه: عضو البرلمان المحترف والمتمرّس","An experienced parliamentarian knows how to delay a vote indefinitely."],["parliament","n","متى تستخدمه: الهيئة التشريعية المنتخبة","Parliament is where power is supposed to be held to account."]],
+[["constitutional","adj","متى تستخدمه: وصف ما يتوافق مع الدستور أو يتعلق به","A constitutional amendment requires a supermajority in most systems."],["unconstitutional","adj","متى تستخدمه: وصف ما يخالف الدستور","The decree was ruled unconstitutional by the Supreme Court."],["constitution","n","متى تستخدمه: الوثيقة الأساسية التي تُنظّم الحكم","Without a constitution, power has no agreed limits."]],
+[["judge","v","متى تستخدمه: يحكم على / يُقيّم","History will judge leaders by their actions, not their words."],["judge","n","متى تستخدمه: القاضي المُعيَّن في محكمة","An independent judge must be immune from political pressure."],["judicial","adj","متى تستخدمه: وصف ما يتعلق بالقضاء أو المحاكم","Judicial independence is a cornerstone of the rule of law."],["jurisdiction","n","متى تستخدمه: نطاق الصلاحية القانونية لمحكمة أو دولة","The crime fell outside the court's jurisdiction."]],
+[["sovereign","n","متى تستخدمه: الحاكم الأعلى أو الدولة ذات السيادة","A sovereign state answers to no higher authority."],["sovereign","adj","متى تستخدمه: وصف سلطة أو دولة مستقلة كاملة السيادة","Sovereign decisions cannot be overturned by external bodies."],["sovereignty","n","متى تستخدمه: مفهوم السلطة العليا للدولة على أراضيها","Sovereignty is the foundation on which international law is built."]],
+[["coalesce","v","متى تستخدمه: يتحد / يتجمّع لتشكيل كيان واحد","Smaller parties coalesced around a single anti-government platform."],["coalition","n","متى تستخدمه: الحكومة أو التحالف المُكوَّن من أكثر من طرف","Coalition governments tend to be less decisive but more representative."],["coalitional","adj","متى تستخدمه: وصف ما يتعلق بالائتلاف أو يتسم به","Coalitional politics demand constant compromise."]],
+[["bureaucrat","n","متى تستخدمه: الموظف الحكومي المتمسّك بالإجراءات","Bureaucrats who resist reform often do so to protect their own power."],["bureaucracy","n","متى تستخدمه: الجهاز الإداري الحكومي الضخم","A bloated bureaucracy slows down every decision."],["bureaucratic","adj","متى تستخدمه: وصف إجراءات مُعقَّدة ومُطوَّلة","The bureaucratic process added six months to a simple application."]],
+[["mandate","v","متى تستخدمه: يُلزِم / يُفوِّض رسمياً","The law mandates that all citizens register to vote."],["mandate","n","متى تستخدمه: التفويض الرسمي بالحكم أو التصرف","A narrow election victory provides a weak mandate for radical change."],["mandatory","adj","متى تستخدمه: وصف شيء إلزامي لا اختياري","Voting is mandatory in several countries, including Australia."],["mandated","adj","متى تستخدمه: وصف ما جرى تفويضه أو إلزامه رسمياً","The mandated review was delayed by three years."]],
+[["ballot","v","متى تستخدمه: يُصوِّت / يُجري استطلاعاً بالاقتراع","Members were balloted on whether to accept the agreement."],["ballot","n","متى تستخدمه: بطاقة التصويت أو عملية الاقتراع","The ballot was conducted in secret to protect voters from pressure."],["balloting","n","متى تستخدمه: عملية التصويت كإجراء رسمي","Balloting took place over three days in rural areas."]],
+[["suffrage","n","متى تستخدمه: حق التصويت كمبدأ سياسي","Suffrage, once restricted to property owners, was gradually extended."],["suffragette","n","متى تستخدمه: الناشطة التاريخية في مطالبة المرأة بحق التصويت","Suffragettes endured imprisonment and force-feeding to win the vote."],["suffragist","n","متى تستخدمه: الناشط في المناصرة لحق التصويت عموماً","Many suffragists believed peaceful campaigning was more effective."]],
+[["elect","v","متى تستخدمه: يختار بالتصويت","Citizens elect their representatives every four or five years."],["electorate","n","متى تستخدمه: مجموع الناخبين المؤهلين للتصويت","The electorate grows more unpredictable with each election."],["electoral","adj","متى تستخدمه: وصف ما يتعلق بالانتخابات أو العملية الانتخابية","Electoral reform was the central demand of the protest movement."],["election","n","متى تستخدمه: حدث التصويت الرسمي","Free and fair elections are the minimum standard for democracy."]],
+[["refer","v","متى تستخدمه: يُحيل قرار للشعب للتصويت عليه","The government referred the constitutional change to a public vote."],["referendum","n","متى تستخدمه: الاستفتاء الشعبي على قضية بعينها","A referendum on EU membership divided the country deeply."],["referenda","n","متى تستخدمه: جمع referendum في الكتابة الرسمية","Several referenda were held in the same year on unrelated issues."]],
+[["campaign","v","متى تستخدمه: يُشنّ حملة / يناضل من أجل قضية","She campaigned for ten years before finally winning a seat."],["campaign","n","متى تستخدمه: الحملة الانتخابية أو حملة مناصرة","The campaign focused entirely on the economy, ignoring other issues."],["campaigner","n","متى تستخدمه: الشخص النشط في الحملة","A lifelong campaigner for human rights, she never held elected office."]],
+[["political","adj","متى تستخدمه: وصف ما يتعلق بالسياسة أو السلطة","Political courage means saying unpopular things to win power anyway."],["spectrum","n","متى تستخدمه: المدى الكامل من نقطة إلى أخرى — مجاز للطيف السياسي","The policy appealed across the full spectrum of opinion."]],
+[["populist","n","متى تستخدمه: السياسي الذي يخاطب غضب الجماهير ضد النخب","Populists rarely admit complexity; their answers are always simple."],["populist","adj","متى تستخدمه: وصف خطاب أو سياسة شعبوية","Populist rhetoric often hides a power grab behind a people's mandate."],["populism","n","متى تستخدمه: الظاهرة الشعبوية كحركة سياسية","Populism thrives in conditions of genuine grievance and weak institutions."],["popular","adj","متى تستخدمه: محبوب لدى الجمهور العام","A popular policy is not always the right one."]],
+[["legislate","v","متى تستخدمه: يُشرّع / يُصدر قوانين","Parliament can legislate to protect workers, but enforcement matters more."],["legislation","n","متى تستخدمه: القانون أو مجموعة القوانين المُقرَّرة","Landmark legislation can transform a society within a generation."],["legislative","adj","متى تستخدمه: وصف ما يتعلق بصنع القوانين","The legislative process is designed to be slow, for good reason."],["legislator","n","متى تستخدمه: المشرِّع / عضو الهيئة التشريعية","Legislators who read the bills they vote on are the exception, not the rule."]],
+[["reform","v","متى تستخدمه: يُصلح / يُعيد هيكلة نظام قائم","To reform an institution, you often need to control it first."],["reform","n","متى تستخدمه: الإصلاح كعملية أو كمجموعة تغييرات","Reform without resources is a political gesture, not a policy."],["reformer","n","متى تستخدمه: الشخص الذي يُقود أو يدفع نحو الإصلاح","Every reformer faces the resistance of those who benefit from the status quo."],["reformist","adj","متى تستخدمه: وصف سياسي يسعى للإصلاح لا للثورة","A reformist agenda promises change without threatening the whole system."]],
+[["sanction","v","متى تستخدمه: يُقرّ / يُصادق أو يفرض عقوبة","The council sanctioned the use of force only as a last resort."],["sanction","n","متى تستخدمه: العقوبة الاقتصادية أو القانونية المفروضة","Targeted sanctions are more effective than blanket trade bans."],["sanctioned","adj","متى تستخدمه: وصف ما أُقرّ رسمياً أو خضع للعقوبات","A sanctioned state finds it difficult to access international credit."]],
+[["veto","v","متى تستخدمه: يستخدم حق النقض لمنع قرار","One permanent member vetoed the resolution despite broad support."],["veto","n","متى تستخدمه: حق النقض كصلاحية أو كفعل","The veto system in the UN Security Council often paralysis action."]],
+[["lobby","v","متى تستخدمه: يضغط على صانعي القرار لخدمة مصلحة معينة","Oil companies have lobbied against climate legislation for decades."],["lobbying","n","متى تستخدمه: الممارسة الكاملة للضغط السياسي","Lobbying is legal in most democracies but often corrupting in practice."],["lobbyist","n","متى تستخدمه: الشخص المحترف الذي يمارس الضغط السياسي","A former minister who becomes a lobbyist is selling access."]],
+[["treaty","n","متى تستخدمه: الاتفاقية الرسمية الملزِمة بين الدول","A treaty is only as strong as the willingness to enforce it."],["treatise","n","متى تستخدمه: دراسة علمية مطوّلة (معنى مختلف تماماً)","Machiavelli's treatise on power remains essential reading."]],
+[["autocrat","n","متى تستخدمه: الحاكم المستبد الذي يحكم بلا قيود","An autocrat who controls the courts, media, and army is very hard to remove."],["autocracy","n","متى تستخدمه: نظام الحكم الفردي غير المُقيَّد","Autocracy is stable until it isn't — then collapse is sudden."],["autocratic","adj","متى تستخدمه: وصف أسلوب حكم استبدادي","An autocratic management style works poorly in creative environments."]],
+[["propagandise","v","متى تستخدمه: يروّج لدعاية سياسية بشكل ممنهج","State broadcasters propagandised relentlessly throughout the conflict."],["propaganda","n","متى تستخدمه: المحتوى المُصمَّم لإقناع لا لإعلام","Modern propaganda often mimics journalism to be more convincing."],["propagandist","n","متى تستخدمه: من يُنتج ويروّج للدعاية","Every regime needs propagandists to justify what it cannot defend."]],
+[["censor","v","متى تستخدمه: يمنع نشر محتوى معين أو يُزيله","The authorities censored any report that mentioned the protests."],["censorship","n","متى تستخدمه: الممارسة الممنهجة لمنع حرية التعبير","Self-censorship is often more effective than official censorship."],["censored","adj","متى تستخدمه: وصف محتوى خضع للرقابة","The censored version of the documentary was almost meaningless."]],
+[["corrupt","v","متى تستخدمه: يُفسِد شخصاً أو نظاماً","Absolute power tends to corrupt even those who begin with integrity."],["corrupt","adj","متى تستخدمه: وصف شخص أو نظام تحكمه المصلحة الشخصية","A corrupt judiciary is worse than no judiciary at all."],["corruption","n","متى تستخدمه: الفساد كظاهرة مؤسسية أو فردية","Corruption is not just a moral failure — it is an economic one."],["corruptly","adv","متى تستخدمه: بطريقة فاسدة أو غير نزيهة","Officials who act corruptly rarely face consequences without institutional pressure."]],
+[["ideological","adj","متى تستخدمه: وصف موقف أو صراع قائم على الإيديولوجية","The debate was ideological, not practical."],["ideologically","adv","متى تستخدمه: من الناحية الإيديولوجية","The two parties are ideologically opposed but often vote the same way."],["ideologue","n","متى تستخدمه: الشخص المتعصّب لإيديولوجية بعينها","Ideologues rarely update their views when faced with contradictory evidence."],["ideology","n","متى تستخدمه: المنظومة الفكرية التي توجّه الفعل السياسي","An ideology is useful until it becomes a prison."]],
+[["oppose","v","متى تستخدمه: يُعارض / يقف ضد","Every significant reform has opponents who will oppose it for selfish reasons."],["opposition","n","متى تستخدمه: جماعة المعارضة أو فعل المعارضة ذاته","The role of opposition is to scrutinise, not simply to oppose."],["opponent","n","متى تستخدمه: الخصم السياسي أو المنافس","A democratic politician treats opponents as rivals, not enemies."],["opposing","adj","متى تستخدمه: وصف موقف أو طرف مقابل","The opposing sides failed to agree on even the basic facts."]],
+[["coup","n","متى تستخدمه: الاستيلاء المفاجئ على السلطة بالقوة","A coup is not a revolution — it replaces one elite with another."],["counter-coup","n","متى تستخدمه: محاولة الإطاحة بالانقلابيين","Loyal forces mounted a counter-coup within days."]],
+[["protest","v","متى تستخدمه: يحتج / يُعبّر عن الرفض علناً","Thousands protested outside parliament for three consecutive weeks."],["protest","n","متى تستخدمه: الاحتجاج كحدث أو حركة","The right to protest is fundamental to any functioning democracy."],["protester","n","متى تستخدمه: الشخص المشارك في الاحتجاج","Protesters whose demands were ignored returned in greater numbers."]],
+[["diplomat","n","متى تستخدمه: المسؤول المتخصص في العلاقات الدولية","A skilled diplomat says difficult things without causing offence."],["diplomacy","n","متى تستخدمه: فن التفاوض وإدارة العلاقات الدولية","Diplomacy failed when both sides decided war served their interests."],["diplomatic","adj","متى تستخدمه: وصف ما يتعلق بالدبلوماسية أو أسلوب الدبلوماسية","Breaking diplomatic relations is a serious but reversible step."],["diplomatically","adv","متى تستخدمه: بأسلوب دبلوماسي أو بالطرق الدبلوماسية","The crisis was resolved diplomatically after months of secret talks."]],
+[["polarise","v","متى تستخدمه: يُسبّب الانقسام الحاد بين الناس","Social media tends to polarise rather than inform."],["polarisation","n","متى تستخدمه: ظاهرة الانقسام الحاد في المجتمع","Polarisation makes governing a democracy increasingly difficult."],["polarised","adj","متى تستخدمه: وصف مجتمع أو جمهور منقسم بحدّة","A polarised electorate punishes compromise and rewards extremism."]],
+[["geopolitical","adj","متى تستخدمه: وصف ما يتعلق بالجغرافيا والسياسة الدولية","The war had geopolitical consequences that reshaped alliances for decades."],["geopolitically","adv","متى تستخدمه: من المنظور الجيوسياسي","Geopolitically, the region is one of the most contested on earth."],["geopolitics","n","متى تستخدمه: العلاقات الدولية المتشكّلة بالجغرافيا والمصالح","Geopolitics explains why neighbours with different values can still be allies."]],
+[["civil","adj","متى تستخدمه: وصف ما يتعلق بالمواطنين أو المجتمع المدني","Civil society organisations often fill the gaps left by weak states."],["liberty","n","متى تستخدمه: الحرية الفردية المحمية من تدخّل الدولة","Liberty is not the absence of constraint — it is the right kind of constraint."],["liberties","n","متى تستخدمه: جمع liberty — الحقوق والحريات الفردية","Civil liberties are always easier to suspend than to restore."],["libertarian","n/adj","متى تستخدمه: من يؤمن بتقليص سلطة الدولة لأدنى حد ممكن","Libertarians and progressives disagree on almost everything except surveillance."]]
+];
+var story=[
+  {t:"The parliament, which had been elected on a platform of reform, faced its first test within weeks.",ar:"البرلمان الذي انتُخب على منصة إصلاحية واجه اختباره الأول في غضون أسابيع."},
+  {t:"The legislation, in which the coalition had invested enormous political capital, was blocked by a veto.",ar:"التشريع الذي استثمر فيه الائتلاف رأسمالاً سياسياً ضخماً أُسقط بنقض."},
+  {t:"The opposition leader, whose popularity had been growing steadily, called it a historic failure.",ar:"زعيم المعارضة الذي كانت شعبيته تتنامى بشكل مطّرد وصفه بأنه فشل تاريخي."},
+  {t:"The protesters, among whom were teachers, doctors, and ordinary workers, filled the square for a third night.",ar:"المحتجون الذين كان بينهم معلمون وأطباء وعمال عاديون ملأوا الميدان للليلة الثالثة."},
+  {t:"The president, whose mandate had barely two years remaining, refused to dissolve parliament.",ar:"الرئيس الذي لم يتبقَّ من ولايته سوى عامَين رفض حلّ البرلمان."},
+  {t:"The diplomat whom both sides trusted was called in to mediate.",ar:"الدبلوماسي الذي وثق به كلا الطرفَين جرى استدعاؤه للوساطة."},
+  {t:"It was the constitution, under which all powers were defined, that ultimately prevailed.",ar:"كان الدستور الذي تُحدَّد بموجبه كل الصلاحيات هو ما انتصر في النهاية."},
+  {t:"The generation whose patience had run out built the movement that changed everything.",ar:"الجيل الذي نفد صبره بنى الحركة التي غيّرت كل شيء."}
+];
+var reading=[
+  "Power is among the oldest subjects of political thought. Who should have it? How should it be constrained? What happens when it is abused? These questions, to which no permanent answers have been found, remain as urgent today as they were in ancient Athens. Democracy, which emerged as one answer, rests on the idea that no individual or group should hold unchecked authority. The institutions in which power is lodged — parliaments, judiciaries, constitutions — are designed to distribute it, slow it, and above all make it accountable.",
+  "The grammar of political writing reflects this complexity. Relative clauses — particularly non-defining ones and those using whose, whom, and prepositions — carry enormous weight in political English. 'The legislation, which had been debated for months, was blocked.' 'The government whose mandate was weakest moved fastest.' 'The voters whom politicians ignored returned with a verdict.' 'The system in which we live was built on compromises that now strain under new pressures.' Mastering these structures allows a B2 writer to pack information and nuance into sentences that remain clear.",
+  "Among the most discussed political trends of our era is the rise of populism — a force that offers simple answers to complex questions and that portrays society as a battle between a pure people and a corrupt elite. Populism, whose appeal depends on genuine grievance, has found audiences across the political spectrum. The frustrations which populists channel are real. The institutions which they target are often genuinely imperfect. What makes populism dangerous is not that it asks questions, but that it supplies answers designed to concentrate power rather than distribute it.",
+  "The polarisation in which many democracies are trapped makes governance increasingly difficult. When citizens inhabit information ecosystems in which opposing facts rarely cross, compromise becomes not just politically costly but psychologically difficult. The moderate politician, whose appeal rested on the assumption that voters would reward pragmatism, finds herself squeezed by partisans on both sides. What suffers is not only policy-making but the very culture of democratic legitimacy — the shared acceptance of rules in which an election can be lost without claiming the process was fraudulent.",
+  "What the most successful democracies share is a set of habits as much as institutions. Citizens who engage, question, and hold their governments accountable. A judiciary whose decisions are respected even by those they go against. A press that is free to embarrass those in power. And political leaders who, whatever their ideology, accept the legitimacy of the system in which they compete. None of these features is guaranteed; all require active maintenance. The democracy that assumes its own survival will, sooner or later, find itself surprised."
+];
+var compQs=[
+  {q:"According to the text, what is democracy designed to do?",opts:["Concentrate power","Distribute power, slow it, and make it accountable","Eliminate conflict","Guarantee good decisions"],ans:1},
+  {q:"Why does the writer say relative clauses carry weight in political writing?",opts:["They are grammatically simple","They allow writers to pack information and nuance into clear sentences","They are required by IELTS","They replace active voice"],ans:1},
+  {q:"What does the writer say makes populism dangerous?",opts:["That it asks questions","That it amplifies real grievances","That its answers are designed to concentrate rather than distribute power","That it is popular"],ans:2},
+  {q:"According to the fourth paragraph, what suffers from polarisation?",opts:["Only media","Both policy-making and democratic culture","Only elections","Only moderate politicians"],ans:1},
+  {q:"What does the writer suggest democracies require to survive?",opts:["Strong military","Active maintenance of habits including engagement, accountability, and acceptance of rules","Wealthy citizens","A single dominant party"],ans:1}
+];
+var listenLines=[
+  {speaker:"J",text:"Professor Okafor, is liberal democracy in retreat globally?"},
+  {speaker:"R",text:"The institutions in which liberal democracy is housed — parliaments, courts, free media — are under pressure in more countries than at any time since the Second World War. Whether that constitutes retreat depends on which democracies you examine."},
+  {speaker:"J",text:"What explains the rise of autocratic leaders, many of whom were democratically elected?"},
+  {speaker:"R",text:"The voters whom these leaders appealed to had genuine grievances — economic insecurity, cultural anxiety, distrust of elites whose expertise seemed self-serving. The error was assuming that elections alone make democracy. They don't. Democracy is the institutions, the norms, the habits of restraint — all of which can be eroded while elections continue."},
+  {speaker:"J",text:"Can those institutions be rebuilt once they are weakened?"},
+  {speaker:"R",text:"History, to which we should pay more attention, offers both warning and encouragement. The countries in which democracy collapsed in the 1930s mostly rebuilt it. The process is slow and painful, and it requires a political generation whose ambitions lie in restoration rather than conquest."},
+  {speaker:"J",text:"What about civil liberties — are they adequately protected?"},
+  {speaker:"R",text:"In many states, the emergency measures under which civil liberties were suspended for a pandemic have not been fully reversed. The precedent, in which a government demonstrated it could restrict movement and speech, has been noted. Citizens whose complacency allowed temporary measures to become permanent will struggle to reclaim what they lost."},
+  {speaker:"J",text:"What gives you hope?"},
+  {speaker:"R",text:"The protests we have seen — in countries in which authoritarian instincts run deep — show that citizens whose patience has run out still know how to make their voices heard. Democracy is not a destination. It is a practice that must be renewed by each generation."},
+  {speaker:"J",text:"Thank you, Professor Okafor."},
+  {speaker:"R",text:"Thank you."}
+];
+var listenQs=[
+  {q:"What does Prof. Okafor say democracy consists of beyond elections?",opts:["Elections alone","Military power","Institutions, norms, and habits of restraint","Strong leadership"],ans:2},
+  {q:"What genuine grievances did voters who backed autocratic leaders have?",opts:["Too much democracy","Economic insecurity, cultural anxiety, distrust of elites","Lack of elections","Border problems"],ans:1},
+  {q:"What does Professor Okafor say about countries in which democracy collapsed in the 1930s?",opts:["They never recovered","Most rebuilt democracy, though slowly and painfully","They became permanently autocratic","They found better alternatives"],ans:1},
+  {q:"What concern does Prof. Okafor raise about emergency measures?",opts:["They were needed","They were too short","Many were not fully reversed, setting a worrying precedent","They strengthened democracy"],ans:2},
+  {q:"What does Prof. Okafor say gives them hope?",opts:["International organisations","Economic growth","Protests showing citizens still know how to make voices heard","Strong constitutions"],ans:2}
+];
+var speakQs=[
+  {q:"Part 1: Are you interested in politics? Why or why not?",hint:"Politics, which affects every part of life, is... / The system in which we live... / Politicians whose actions...",ar:"هل تهتم بالسياسة؟ لماذا؟",badge:"🎯 Part 1 · relative clauses naturally"},
+  {q:"Part 2 (cue card): Describe a political event that you think was significant. Say what happened, when and where, why it mattered, and how it changed things.",hint:"The event, which... / The leader whose... / The country in which... Speak for 2 minutes.",ar:"صف حدثاً سياسياً تراه مهماً (دقيقتان).",badge:"🎯 Part 2 · non-defining + whose"},
+  {q:"Part 3: What qualities should a good political leader have?",hint:"A leader whose decisions... / Leaders whom voters trust... / The qualities that separate...",ar:"ما الصفات التي يجب أن يمتلكها القائد السياسي الجيد؟",badge:"🎯 Part 3 · whose + whom"},
+  {q:"Part 3: Is corruption inevitable in political systems?",hint:"The systems in which corruption thrives... / Officials whose salaries... / Corruption, which...",ar:"هل الفساد حتمي في الأنظمة السياسية؟",badge:"🎯 Part 3 · preposition + which"},
+  {q:"Part 3: Has social media made democracy stronger or weaker?",hint:"Platforms in which misinformation spreads... / Citizens whose views are shaped by algorithms... / Democracy, which needs...",ar:"هل وسائل التواصل الاجتماعي قوّت الديمقراطية أم أضعفتها؟",badge:"🎯 Part 3 · complex relative"},
+  {q:"Part 3: Should voting be compulsory?",hint:"Countries in which voting is mandatory... / Citizens who choose not to vote... / A system whose legitimacy...",ar:"هل يجب أن يكون التصويت إلزامياً؟",badge:"🎯 Part 3 · defining + non-defining"},
+  {q:"Part 2 (cue card): Describe a law or policy in your country that you think is good or bad. Say what it is, why it exists, who it affects, and what you think should change.",hint:"The policy, which was introduced... / Citizens whose lives it affects... / The law under which...",ar:"صف قانوناً أو سياسة في بلدك (دقيقتان).",badge:"🎯 Part 2 · non-defining + preposition + which"}
+];
+var pvData=[
+  {v:"step down",p:"ستيب داون",m:"يتنحّى / يستقيل من منصب",ex:"The leader, whose authority had collapsed, was forced to step down.",ar:"الزعيم الذي انهارت سلطته اضطر للتنحّي."},
+  {v:"come to power",p:"كَم تو باور",m:"يصل إلى السلطة",ex:"Parties that come to power on reform promises often abandon them.",ar:"الأحزاب التي تصل للسلطة بوعود إصلاحية كثيراً ما تتخلى عنها."},
+  {v:"clamp down on",p:"كلامب داون أون",m:"يُشدّد / يُطبّق قيوداً صارمة",ex:"The government clamped down on protests in which thousands had taken part.",ar:"الحكومة شدّدت على الاحتجاجات التي شارك فيها آلاف."},
+  {v:"push through",p:"بوش ثرو",m:"يُمرِّر بالقوة / يُقرّ رغم المعارضة",ex:"The legislation was pushed through parliament despite widespread opposition.",ar:"التشريع مُرِّر في البرلمان رغم المعارضة الواسعة."},
+  {v:"speak out",p:"سبيك آوت",m:"يُعلن رأيه بجرأة",ex:"Officials who speak out against corruption do so at considerable personal risk.",ar:"المسؤولون الذين يجاهرون بالرأي ضد الفساد يفعلون ذلك بخطر شخصي كبير."},
+  {v:"back down",p:"باك داون",m:"يتراجع / يتخلى عن موقف",ex:"A leader whose credibility depends on firmness cannot easily back down.",ar:"الزعيم الذي تعتمد مصداقيته على الصلابة لا يستطيع التراجع بسهولة."},
+  {v:"crack down on",p:"كراك داون أون",m:"يتخذ إجراءات صارمة",ex:"Governments that crack down on free speech rarely admit that is what they are doing.",ar:"الحكومات التي تتخذ إجراءات صارمة ضد حرية التعبير نادراً ما تعترف بذلك."},
+  {v:"stand for",p:"ستاند فور",m:"يترشح / يؤمن بـ",ex:"Politicians who stand for office must be clear about what they stand for.",ar:"السياسيون الذين يترشحون لمناصب يجب أن يكونوا واضحين بشأن ما يؤمنون به."},
+  {v:"run for",p:"رَن فور",m:"يترشح لمنصب",ex:"She ran for office three times before winning, each time in a constituency in which she was unknown.",ar:"ترشّحت ثلاث مرات قبل أن تفوز، في كل مرة في دائرة لم تكن معروفة فيها."},
+  {v:"give in",p:"غِف إن",m:"يستسلم / يرضخ للضغط",ex:"Leaders whose base expects firmness find it very hard to give in, even when they should.",ar:"القادة الذين تتوقع قاعدتهم الصلابة يجدون من الصعب جداً الرضوخ، حتى حين يجب عليهم ذلك."}
+];
+var realExpr=[
+  {e:"Checks and balances",p:"تشيكس آند بالِنسز",m:"الضوابط والتوازنات",f:"Systems designed to prevent any one person or body from holding too much power.",x:"The system of checks and balances, in which each branch limits the others, is democracy's greatest invention.",xar:"نظام الضوابط والتوازنات الذي تحدّ فيه كل سلطة الأخريات هو أعظم اختراع ديمقراطي.",n:"المصطلح الذي يصف آلية توزيع وتقييد السلطة بين أجهزة الحكم"},
+  {e:"Red tape",p:"ريد تيب",m:"روتين بيروقراطي معيق",f:"Excessive bureaucracy and rules that obstruct action.",x:"The reforms, whose purpose was to cut red tape, were themselves delayed by red tape.",xar:"الإصلاحات التي كان هدفها قطع الروتين البيروقراطي تأخّرت هي نفسها بسبب الروتين.",n:"يشير للبيروقراطية المُعقَّدة التي تُعرقل الإنجاز — مصطلح سياسي وإداري شائع"},
+  {e:"Smoke and mirrors",p:"سموك آند ميررز",m:"خداع / شعوذة / تضليل",f:"Actions designed to confuse or distract from the truth.",x:"The policy announcement, which generated headlines, was largely smoke and mirrors.",xar:"الإعلان عن السياسة الذي حصد العناوين كان في معظمه مجرد شعوذة وتضليل.",n:"تُستخدم لوصف السياسات أو الإعلانات المُصمَّمة للإيهام لا للإنجاز الحقيقي"},
+  {e:"The elephant in the room",p:"ذا إليفِنت إن ذا روم",m:"الحقيقة المُتجنَّبة / الفيل في الغرفة",f:"An obvious problem that everyone is aware of but no one discusses.",x:"Corruption, which everyone knew about but whose existence no minister acknowledged, was the elephant in the room.",xar:"الفساد الذي كان الجميع يعلم به لكن لم يُقرّ بوجوده أي وزير كان الفيل في الغرفة.",n:"المشكلة الواضحة التي يتجنّب الجميع الحديث عنها رغم علمهم بها"}
+];
+var realSlang=[
+  {w:"Spin",p:"سبين",i:"presenting information in a way that is misleading but technically accurate",ex:"The press release, in which every failure was reframed as a learning opportunity, was pure spin.",xar:"البيان الصحفي الذي أُعيد فيه تأطير كل فشل باعتباره فرصة تعلّم كان تدويراً خالصاً للوقائع.",a:"تدوير الحقائق وتقديمها بشكل يُضلّل دون أن يكذب صراحةً"},
+  {w:"Political football",p:"بوليتيكال فوتبول",i:"an issue that politicians use for point-scoring rather than solving",ex:"Healthcare, whose reform both parties claimed to want, became a political football.",xar:"الرعاية الصحية التي ادّعى كلا الحزبَين رغبته في إصلاحها أصبحت كرة قدم سياسية.",a:"قضية يتنازع عليها الساسة لصالح نقاطهم لا لحلّها"},
+  {w:"Party line",p:"بارتي لاين",i:"the official position that all members of a party are expected to follow",ex:"The senator, whose views differed, was forced to vote the party line.",xar:"السيناتور الذي اختلفت آراؤه اضطر للتصويت وفق موقف الحزب.",a:"الموقف الرسمي للحزب الذي يُتوقَّع أن يلتزم به كل أعضائه"},
+  {w:"Rubber stamp",p:"رَبر ستامب",i:"to approve something automatically without real scrutiny",ex:"A parliament that rubber-stamps executive decisions is a parliament in which democracy is only theatre.",xar:"برلمان يُصادق تلقائياً على قرارات السلطة التنفيذية برلمان تصبح فيه الديمقراطية مجرد مسرحية.",a:"الموافقة التلقائية الشكلية دون مراجعة حقيقية"}
+];
+var realEvery=[
+  {w:"Have a say",p:"هاف أ ساي",i:"to have the right or opportunity to express an opinion",m:"يكون له رأي / حق التعبير",ex:"Citizens in democracies have a say, however imperfect, in who governs them.",xar:"المواطنون في الديمقراطيات لهم رأي، مهما كان ناقصاً، فيمن يحكمهم."},
+  {w:"Toe the line",p:"تو ذا لاين",i:"to follow the rules or official position",m:"يلتزم بالموقف الرسمي",ex:"Ministers whose private views diverge are expected to toe the line publicly.",xar:"يُتوقَّع من الوزراء الذين تختلف آراؤهم الخاصة الالتزام بالموقف الرسمي علناً."},
+  {w:"Behind closed doors",p:"بيهايند كلوزد دورز",m:"خلف الأبواب المغلقة",i:"in secret, away from public view",ex:"The deal, whose existence was denied publicly, was negotiated entirely behind closed doors.",xar:"الصفقة التي جرى إنكار وجودها علناً جرى التفاوض عليها بالكامل خلف أبواب مغلقة."}
+];
+var quizQs=[
+  {q:"The constitution, ___ was drafted in 1948, still governs today.",opts:["that","whose","which","who"],ans:2},
+  {q:"ما معنى sovereignty؟",opts:["ائتلاف","سيادة","تشريع","معارضة"],ans:1},
+  {q:"The official ___ accounts revealed unexplained wealth was dismissed.",opts:["which","who","whose","whom"],ans:2},
+  {q:"ما معنى suffrage؟",opts:["البيروقراطية","حق التصويت","الاستفتاء","الدستور"],ans:1},
+  {q:"The system ___ which we live is imperfect.",opts:["at","for","in","on"],ans:2},
+  {q:"ما معنى polarisation؟",opts:["دبلوماسية","انقلاب","جيوسياسة","استقطاب"],ans:3},
+  {q:"Politicians ___ by narrow margins rarely attempt radical reform.",opts:["who elect","elected","electing","who are electing"],ans:1},
+  {q:"Collocation: ___ a coalition",opts:["make","build","form","create"],ans:2},
+  {q:"ما معنى lobbying؟",opts:["الرقابة","الدعاية","الضغط السياسي","حق النقض"],ans:2},
+  {q:"ما الـ phrasal verb: يتنحّى من منصب؟",opts:["step down","speak out","push through","back down"],ans:0}
+];
+var assessItems=[
+  "أستطيع بناء Non-Defining Relative Clause صحيحة مع الفاصلة: The policy, which... / The leader, whose...",
+  "أعرف الفرق بين whose وwhom وأستخدمهما بشكل طبيعي في الكتابة.",
+  "أستطيع استخدام Preposition + which: the system in which / the party for which.",
+  "أعرف متى أستخدم Reduced Relative: 'Politicians elected by...' بدلاً من 'who were elected by...'",
+  "أعرف 20+ كلمة من مفردات السياسة مع collocations (مثل: dissolve parliament, impose sanctions, lead the opposition).",
+  "أتجنب الأخطاء: 'The constitution which was drafted' بدل الفاصلة / 'the country which' بدل in which.",
+  "أستطيع كتابة مقال IELTS Task 2 سياسي (250+ كلمة) في 40 دقيقة مع Complex Relative Clauses.",
+  "أستطيع التحدث دقيقتين عن موضوع سياسي باستخدام whose وwhom والـ preposition + which."
+];
+var spd=1,lspd=1,storyOn=false,listenOn=false;
+var compA=new Array(compQs.length).fill(null);
+var listenA=new Array(listenQs.length).fill(null);
+var quizA=new Array(quizQs.length).fill(null);
+function say(t,r,cb){if(!window.speechSynthesis)return null;window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=r||spd;u.pitch=1.0;var v=getVoice("F");if(v)u.voice=v;if(cb)u.onend=cb;window.speechSynthesis.speak(u);return u;}
+function getVoice(g){var vs=window.speechSynthesis.getVoices();var en=vs.filter(function(v){return v.lang.indexOf("en")===0;});if(g==="M"){var r=en.filter(function(v){return v.name.indexOf("Rishi")>-1;});if(r.length)return r[0];var m=en.filter(function(v){var n=v.name.toLowerCase();return n.indexOf("daniel")>-1||n.indexOf("james")>-1||n.indexOf("david")>-1;});return m.length?m[0]:(en.length?en[0]:null);}else{var f=en.filter(function(v){var n=v.name.toLowerCase();return n.indexOf("samantha")>-1||n.indexOf("female")>-1||n.indexOf("victoria")>-1||n.indexOf("karen")>-1||n.indexOf("kate")>-1;});return f.length?f[0]:(en.length>1?en[1]:en[0]||null);}}
+function show(id,btn){document.querySelectorAll(".sec").forEach(function(s){s.classList.remove("on");});document.getElementById("sec-"+id).classList.add("on");window.scrollTo({top:0,behavior:"smooth"});document.querySelectorAll(".nb").forEach(function(b){b.classList.remove("on");});if(btn){btn.classList.add("on");return;}var map={vocab:0,story:1,reading:2,grammar:3,listening:4,writing:5,speaking:6,realeng:7,pv:8,quiz:9};var btns=document.querySelectorAll(".nb");if(btns[map[id]])btns[map[id]].classList.add("on");}
+function buildVocab(){var c=document.getElementById("vocabList");var lastCat="";var catNum=0;V.forEach(function(v,i){if(v.cat!==lastCat){catNum++;lastCat=v.cat;var hd=document.createElement("div");hd.className="vcat";hd.innerHTML='<div class="vcat-ar">'+v.catAr+'</div><div class="vcat-en">'+v.cat+'</div><div class="vcat-num">'+catNum+'</div>';c.appendChild(hd);}var d=document.createElement("div");d.className="vocab-card";d.innerHTML='<div class="vhead"><div style="display:flex;align-items:center;gap:10px;width:100%"><button class="vspk" id="vs'+i+'">🔊</button><div class="var" style="flex:1;text-align:right">'+v.a+'</div><div class="vpron" style="direction:ltr;white-space:nowrap">'+v.p+'</div><div style="display:flex;align-items:center;gap:6px"><div class="vword">'+v.w+'</div><span style="background:rgba(255,255,255,.18);color:rgba(255,255,255,.85);font-size:.68rem;font-weight:800;padding:2px 7px;border-radius:10px">'+(i+1)+'</span></div></div></div><div class="vbody"><div class="vgrid2"><div class="vrow-pair"><div class="vcell c-ant" data-i="'+i+'" data-c="1"><div class="vlbl">Antonym</div><div class="vval">'+v.ant+'</div><div class="vtr">'+v.ar_ant+'</div></div><div class="vcell c-syn" data-i="'+i+'" data-c="0"><div class="vlbl">Synonym</div><div class="vval">'+v.syn+'</div><div class="vtr">'+v.ar_syn+'</div></div></div><div class="vrow-pair"><div class="vcell c-prep" data-i="'+i+'" data-c="3"><div class="vlbl">Preposition</div><div class="vval">'+v.prep+'</div><div class="vtr">'+v.ar_prep+'</div></div><div class="vcell c-col" data-i="'+i+'" data-c="2"><div class="vlbl">Collocation</div><div class="vval">'+v.col+'</div><div class="vtr">'+v.ar_col+'</div></div></div><div class="vrow-pair"><div class="vcell c-fam" data-i="'+i+'" data-c="4" style="flex:1"><div class="vlbl">Word Family</div><div class="vval">'+v.fam+'</div><div class="vtr" id="ftr'+i+'"></div></div></div></div><div class="vex" id="vex'+i+'">'+v.ex+'<div class="vex-tr">'+v.ar_ex+'</div></div></div>';
+d.querySelector('.vspk').addEventListener('click',(function(ii){return function(){document.querySelectorAll('.vspk').forEach(function(b){b.classList.remove('playing');});var btn=document.getElementById('vs'+ii);if(btn)btn.classList.add('playing');var u=say(V[ii].w,spd);if(u)u.onend=function(){if(btn)btn.classList.remove('playing');};};;})(i));
+d.querySelectorAll('.vcell').forEach(function(cell){cell.addEventListener('click',function(){var ii=parseInt(this.getAttribute('data-i'));var cc=parseInt(this.getAttribute('data-c'));say([V[ii].syn,V[ii].ant,V[ii].col,V[ii].prep,V[ii].fam][cc],0.9);this.classList.toggle('show-tr');});});
+var vex=d.querySelector('.vex');if(vex)vex.addEventListener('click',function(){this.classList.toggle('show-ex-tr');});
+var ftrDiv=d.querySelector('.c-fam .vtr');if(ftrDiv&&VFamEx[i]){var fhtml='<div style="margin-top:6px">';VFamEx[i].forEach(function(fe){var pc={"v":"#2563eb","n":"#059669","adj":"#7c3aed","adv":"#b45309","phr v":"#dc2626","n/adj":"#059669"}[fe[1]]||"#0a1628";fhtml+='<div style="background:#fffdf7;border-radius:9px;padding:9px 11px;margin-bottom:7px;border-right:3px solid '+pc+'"><div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;direction:ltr"><strong style="font-family:Lora,Georgia,serif;color:#0a1628;font-size:.9rem">'+fe[0]+'</strong><span style="background:'+pc+';color:white;font-size:.6rem;padding:1px 7px;border-radius:8px;font-weight:800">'+fe[1]+'</span></div><div style="font-size:.76rem;color:#b45309;direction:rtl;text-align:right;margin-bottom:4px;font-family:Tajawal,sans-serif">'+fe[2]+'</div><div style="font-family:Lora,Georgia,serif;font-style:italic;font-size:.83rem;color:#374151;direction:ltr">'+fe[3]+'</div></div>';});fhtml+='</div>';ftrDiv.innerHTML=fhtml;}
+c.appendChild(d);});}
+function buildStory(){var b=document.getElementById("storyBox");if(!b)return;b.innerHTML="";story.forEach(function(s,i){var d=document.createElement("div");d.className="sline";d.id="sl"+i;var txt=document.createTextNode(s.t);d.appendChild(txt);var btn=document.createElement("button");btn.style.cssText="background:transparent;border:1px solid #e5e7eb;border-radius:5px;padding:1px 7px;color:#9ca3af;font-size:.7rem;cursor:pointer;font-family:Tajawal,sans-serif;margin-right:6px";btn.textContent="🌐";btn.addEventListener("click",(function(ii){return function(){toggleTr(ii);};})(i));d.appendChild(btn);var tr=document.createElement("div");tr.id="tr"+i;tr.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;font-family:Tajawal,sans-serif;border-right:3px solid #fde68a;padding-right:8px";tr.textContent=s.ar;d.appendChild(tr);b.appendChild(d);});}
+var _trAll=false;
+function toggleAllTr(){_trAll=!_trAll;for(var i=0;i<story.length;i++){var e=document.getElementById("tr"+i);if(e)e.style.display=_trAll?"block":"none";}var btn=document.getElementById("trBtn");if(btn)btn.textContent=_trAll?"🙈 أخفِ":"🌐 الترجمة";}
+function toggleTr(i){var e=document.getElementById("tr"+i);if(e)e.style.display=e.style.display==="none"?"block":"none";}
+function setSpd(r,btn){spd=r;var p=btn.parentNode;p.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function storySeq(i){if(!storyOn||i>=story.length){stopStory();return;}document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("sl"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(story[i].t);u.lang="en-US";u.rate=spd;var v=getVoice("F");if(v)u.voice=v;u.onend=function(){if(storyOn)setTimeout(function(){storySeq(i+1);},320);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startStory(){storyOn=true;var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="⏹";btn.querySelector("#sTxt").textContent="إيقاف القصة";}storySeq(0);}
+function stopStory(){storyOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="▶";btn.querySelector("#sTxt").textContent="استمع للقصة";}}
+function toggleStory(){storyOn?stopStory():startStory();}
+function buildReading(){var t=document.getElementById("readingText");if(!t)return;t.innerHTML="";reading.forEach(function(p){var d=document.createElement("p");d.textContent=p;t.appendChild(d);});var c=document.getElementById("compList");if(!c)return;c.innerHTML="";compQs.forEach(function(q,qi){var d=document.createElement("div");d.style.marginBottom="14px";var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);q.opts.forEach(function(opt,oi){var b=document.createElement("div");b.className="copt";b.id="co"+qi+"-"+oi;b.textContent=opt;b.addEventListener("click",function(){compA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("co"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});d.appendChild(b);});c.appendChild(d);});}
+function checkComp(){var s=0;compQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("co"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(compA[qi]===i)el.classList.add("no");}if(compA[qi]===q.ans)s++;});var r=document.getElementById("compRes");r.style.display="block";var pct=Math.round(s/compQs.length*100);r.textContent=s+" من "+compQs.length+" إجابة صحيحة ("+pct+"%) "+(pct===100?"🏆":pct>=60?"🎉":"📚 راجع");}
+function resetComp(){compA=new Array(compQs.length).fill(null);document.querySelectorAll(".copt[id^='co']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("compRes").style.display="none";}
+function buildGrammar(){var c=document.getElementById("grammarBox");
+var box1=document.createElement("div");box1.className="gbox";
+var t1=document.createElement("div");t1.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:8px;text-align:right";t1.textContent="١ — Complex Relative Clauses: أنواعها واستخداماتها";box1.appendChild(t1);
+var intro=document.createElement("p");intro.style.cssText="font-size:.84rem;color:#475569;direction:rtl;text-align:right;margin-bottom:12px;line-height:1.9";intro.textContent="الجمل الوصفية تُضيف معلومة إضافية (non-defining) أو تُحدّد الهوية (defining) — وبعضها يستخدم whose وwhom وpreposition + which. إتقانها علامة B2.";box1.appendChild(intro);
+var tbl=document.createElement("div");tbl.style.cssText="background:#0a1628;border-radius:10px;padding:14px 18px;direction:ltr;overflow-x:auto;margin-bottom:14px";
+var table=document.createElement("table");table.style.cssText="width:100%;border-collapse:collapse;font-size:.82rem";
+var rows=[["Type","Pattern","Example"],["Defining","Noun + who/that/which + clause","The politician who won deserves scrutiny."],["Non-defining","Noun + , who/which/whose , + clause","Democracy, which is fragile, needs active citizens."],["Whose (possession)","Noun + , whose + noun + clause","The party whose mandate was weakest acted fastest."],["Whom (object)","Noun + whom + subject + verb","The leader whom voters rejected returned years later."],["Prep + which","Noun + prep + which + clause","The system in which we live was built on compromise."],["Reduced","Noun + past participle + phrase","Legislation passed last year has failed."]];
+rows.forEach(function(row,ri){var tr=document.createElement("tr");if(ri>0)tr.style.borderTop="1px solid rgba(255,255,255,.08)";row.forEach(function(cell,ci){var td=document.createElement(ri===0?"th":"td");td.textContent=cell;td.style.cssText="padding:6px 8px;text-align:left;color:"+(ri===0?"#fde68a":ci===0?"#f0c040":ci===1?"#93c5fd":"rgba(255,255,255,.9)");tr.appendChild(td);});table.appendChild(tr);});
+tbl.appendChild(table);box1.appendChild(tbl);c.appendChild(box1);
+var box2=document.createElement("div");box2.className="gbox";
+var t2=document.createElement("div");t2.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";t2.textContent="٢ — في سياق السياسة";box2.appendChild(t2);
+var examples=[
+  ["Non-defining:","The constitution, which dates from 1789, remains the world's oldest written charter.","الدستور الذي يعود لعام 1789 لا يزال أقدم ميثاق مكتوب في العالم."],
+  ["Whose:","The coalition, whose internal divisions were well known, collapsed within months.","الائتلاف الذي كانت انقساماته الداخلية معروفة انهار في غضون أشهر."],
+  ["Whom:","The candidate whom the party had endorsed withdrew at the last moment.","المرشح الذي أيّده الحزب انسحب في اللحظة الأخيرة."],
+  ["Prep + which:","The institution in which power was concentrated was abolished.","المؤسسة التي كانت تتمركز فيها السلطة أُلغيت."],
+  ["Reduced:","Politicians elected by narrow margins rarely attempt radical reform.","السياسيون المنتخَبون بفوارق ضيّقة نادراً ما يحاولون إصلاحاً جذرياً."]
+];
+examples.forEach(function(ex){var pat=document.createElement("div");pat.className="gpat";var d1=document.createElement("div");d1.style.cssText="font-size:.78rem;color:#f0a000;font-weight:700;direction:ltr;margin-bottom:2px";d1.textContent=ex[0];var d2=document.createElement("div");d2.style.cssText="font-family:Lora,Georgia,serif;font-size:.88rem;color:#0a1628;font-weight:600;direction:ltr;margin-bottom:3px";d2.textContent=ex[1];var d3=document.createElement("div");d3.style.cssText="font-size:.8rem;color:#64748b;direction:rtl;text-align:right";d3.textContent=ex[2];pat.appendChild(d1);pat.appendChild(d2);pat.appendChild(d3);box2.appendChild(pat);});
+c.appendChild(box2);
+var wrong=document.createElement("div");wrong.style.cssText="background:#fef2f2;border-radius:10px;padding:13px 16px;margin-bottom:8px;border-right:4px solid #dc2626;direction:ltr";
+wrong.innerHTML='<span style="color:#dc2626;font-weight:700">✗ </span>The system which we live in it. / The leader who his mandate expired. <span style="font-size:.8rem;color:#dc2626">← أخطاء شائعة</span>';
+var right=document.createElement("div");right.style.cssText="background:#f0fdf4;border-radius:10px;padding:13px 16px;border-right:4px solid #059669;direction:ltr";
+right.innerHTML='<span style="color:#059669;font-weight:700">✓ </span>The system <strong>in which</strong> we live. / The leader <strong>whose</strong> mandate expired. <span style="font-size:.8rem;color:#059669">← Prep + which / whose ✅</span>';
+c.appendChild(wrong);c.appendChild(right);}
+function buildGrammarExtra(){var c=document.getElementById("grammarExtra");if(!c)return;var inner=document.createElement("div");inner.className="cb";
+var dm=document.createElement("div");dm.className="gbox";
+var dmt=document.createElement("div");dmt.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:8px;text-align:right";dmt.textContent="٣ — Discourse Markers في الكتابة السياسية";dm.appendChild(dmt);
+var dmRows=[["➕ Adding","Furthermore / Moreover / What is more","علاوة على ذلك"],["↔ Contrasting","However / Nevertheless / Whereas","لكن / ومع ذلك / في حين"],["⚖ Conceding","Admittedly / That said / Even so","صحيح أن / مع ذلك"],["💡 Emphasising","Crucially / Indeed / In particular","والأهم / في الواقع / بشكل خاص"],["🎯 Concluding","On balance / It would seem / Therefore","في المجمل / يبدو أن / لذلك"]];
+var dmi=document.createElement("p");dmi.style.cssText="font-size:.84rem;color:#475569;direction:rtl;text-align:right;margin-bottom:12px;line-height:1.9";dmi.textContent="اجمع بين الـ Complex Relative Clauses والروابط للحصول على نثر أكاديمي متماسك.";dm.appendChild(dmi);
+var dtbl=document.createElement("div");dtbl.style.cssText="background:#0a1628;border-radius:10px;padding:14px 18px;direction:ltr;overflow-x:auto";var tbl=document.createElement("table");tbl.style.cssText="width:100%;border-collapse:collapse;font-size:.82rem";var hr=document.createElement("tr");["Function","Markers","العربي"].forEach(function(tx){var th=document.createElement("th");th.textContent=tx;th.style.cssText="padding:5px 8px;text-align:left;color:#fde68a;border-bottom:1px solid rgba(255,255,255,.2)";hr.appendChild(th);});tbl.appendChild(hr);dmRows.forEach(function(row){var tr=document.createElement("tr");tr.style.borderTop="1px solid rgba(255,255,255,.07)";row.forEach(function(cell,ci){var td=document.createElement("td");td.textContent=cell;td.style.cssText="padding:6px 8px;text-align:left;vertical-align:top;color:"+(ci===0?"#f0c040":ci===1?"rgba(255,255,255,.9)":"#93c5fd");tr.appendChild(td);});tbl.appendChild(tr);});dtbl.appendChild(tbl);dm.appendChild(dtbl);inner.appendChild(dm);
+var eb=document.createElement("div");eb.style.cssText="background:linear-gradient(135deg,#fff7ed,#fef3e8);border:2px solid #fed7aa;border-radius:14px;padding:18px 20px;margin-top:14px";
+var ebt=document.createElement("div");ebt.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:6px;text-align:right";ebt.textContent="٤ — أخطاء يقع فيها المتعلم العربي — Relative Clauses";eb.appendChild(ebt);
+var errs=[
+  ["The system which we live in it.","في أسلوب in which لا تُعاد الضمير — هو موجود في which","The system in which we live."],
+  ["The leader who his mandate expired.","الملكية تحتاج whose — لا who + ضمير","The leader whose mandate expired."],
+  ["The party which policies were popular...","which لا تصلح للملكية — استخدم whose","The party whose policies were popular..."],
+  ["The politician whom he won...","whom هو المفعول به — لا الفاعل. من ثَمّ: The politician whom voters elected.","The politician whom voters elected..."],
+  ["Democracy, that is fragile...","في Non-Defining لا يُستخدم that — استخدم which أو who","Democracy, which is fragile..."]
+];
+errs.forEach(function(row){var card=document.createElement("div");card.style.cssText="background:white;border-radius:10px;padding:11px 14px;margin-bottom:8px;border-right:4px solid #dc2626";var w=document.createElement("div");w.style.cssText="color:#dc2626;font-weight:700;font-size:.86rem;margin-bottom:3px;direction:ltr";w.innerHTML='<span style="background:#fef2f2;border-radius:5px;padding:1px 7px">✗</span>  '+row[0];var why=document.createElement("div");why.style.cssText="font-size:.76rem;color:#92400e;direction:rtl;text-align:right;margin:3px 0;font-family:Tajawal,sans-serif";why.textContent="💡 "+row[1];var right=document.createElement("div");right.style.cssText="color:#059669;font-weight:700;font-size:.86rem;direction:ltr";right.innerHTML='<span style="background:#f0fdf4;border-radius:5px;padding:1px 7px">✓</span>  '+row[2];card.appendChild(w);card.appendChild(why);card.appendChild(right);eb.appendChild(card);});inner.appendChild(eb);
+var sb=document.createElement("div");sb.className="gbox";sb.style.marginTop="14px";
+var sbt=document.createElement("div");sbt.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:6px;text-align:right";sbt.textContent="٥ — تحويل الجمل: ادمج الجملتَين بـ Relative Clause";sb.appendChild(sbt);
+var sbi=document.createElement("p");sbi.style.cssText="font-size:.82rem;color:#475569;direction:rtl;text-align:right;margin-bottom:12px;line-height:1.8";sbi.textContent="ادمج كل جملتَين في جملة واحدة باستخدام whose / whom / in which / where. اضغط للجواب.";sb.appendChild(sbi);
+var pairs=[
+  ["The coalition fell. Its internal divisions proved fatal.","The coalition, whose internal divisions proved fatal, fell."],
+  ["The party elected her. She later reformed it.","The party that elected her was later reformed by her."],
+  ["The system was created in 1945. We still live in it.","The system in which we still live was created in 1945."],
+  ["The voters rejected the candidate. He had promised reform.","The candidate whom voters rejected had promised reform."],
+  ["The legislation was passed last year. It has since been challenged.","The legislation passed last year has since been challenged."]
+];
+pairs.forEach(function(pair,ti){var td=document.createElement("div");td.style.cssText="background:white;border-radius:10px;padding:13px 16px;margin-bottom:10px;border-right:4px solid #2563eb";var num=document.createElement("span");num.style.cssText="background:#1e3a8a;color:white;border-radius:5px;padding:1px 8px;font-size:.75rem;font-weight:800;margin-left:8px";num.textContent=ti+1;var orig=document.createElement("div");orig.style.cssText="font-family:Lora,Georgia,serif;color:#374151;font-size:.9rem;direction:ltr;margin-bottom:8px";orig.appendChild(num);orig.appendChild(document.createTextNode(pair[0]));var ab=document.createElement("button");ab.style.cssText="background:#dbeafe;border:none;border-radius:18px;padding:4px 14px;font-family:Tajawal,sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer";ab.textContent="💡 الجواب";var ad=document.createElement("div");ad.style.cssText="display:none;background:#f0fdf4;border-radius:8px;padding:10px 13px;margin-top:8px;font-family:Lora,Georgia,serif;font-size:.88rem;color:#059669;direction:ltr;border-right:3px solid #059669";ad.textContent="✓ "+pair[1];ab.addEventListener('click',(function(ad2,ab2){return function(){ad2.style.display=ad2.style.display==='none'?'block':'none';ab2.textContent=ad2.style.display==='block'?'🙈 إخفاء':'💡 الجواب';};})(ad,ab));td.appendChild(orig);td.appendChild(ab);td.appendChild(ad);sb.appendChild(td);});inner.appendChild(sb);c.appendChild(inner);}
+function buildListening(){var s=document.getElementById("listenScript");listenLines.forEach(function(line,i){var d=document.createElement("div");d.className="lline";d.id="ll"+i;if(typeof line==="object"&&line.speaker){var lbl=document.createElement("span");var isJ=line.speaker==="J";lbl.style.cssText="font-size:.7rem;font-weight:800;padding:1px 7px;border-radius:8px;margin-left:6px;"+(isJ?"background:#dbeafe;color:#1e3a8a":"background:#dcfce7;color:#15803d");lbl.textContent=isJ?"Journalist":"Prof. Okafor";var txt=document.createElement("span");txt.textContent=line.text;d.appendChild(lbl);d.appendChild(txt);}else{d.appendChild(document.createTextNode(typeof line==="object"?line.text:line));}s.appendChild(d);});var ql=document.getElementById("listenQList");listenQs.forEach(function(q,qi){var d=document.createElement("div");d.style.marginBottom="14px";var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);q.opts.forEach(function(opt,oi){var b=document.createElement("div");b.className="copt";b.id="lq"+qi+"-"+oi;b.textContent=opt;b.addEventListener("click",function(){listenA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("lq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});d.appendChild(b);});ql.appendChild(d);});}
+function setLSpd(r,btn){lspd=r;var p=btn.parentNode;p.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function listenSeq(i){if(!listenOn||i>=listenLines.length){stopListen();return;}document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("ll"+i);if(e)e.classList.add("hl");var line=listenLines[i];var text=typeof line==="object"?line.text:line;var gender=typeof line==="object"?(line.speaker==="J"?"F":"M"):"M";var u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=lspd;var v=getVoice(gender);if(v)u.voice=v;u.pitch=1.0;u.onend=function(){if(listenOn)setTimeout(function(){listenSeq(i+1);},380);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startListen(){listenOn=true;document.getElementById("lIcon").textContent="⏹";document.getElementById("lTxt").textContent="إيقاف الحوار";listenSeq(0);}
+function stopListen(){listenOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});document.getElementById("lIcon").textContent="▶";document.getElementById("lTxt").textContent="شغّل الحوار";}
+function toggleListen(){listenOn?stopListen():startListen();}
+function checkListen(){var s=0;listenQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("lq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(listenA[qi]===i)el.classList.add("no");}if(listenA[qi]===q.ans)s++;});var r=document.getElementById("listenRes");r.style.display="block";var pct=Math.round(s/listenQs.length*100);r.textContent=s+" من "+listenQs.length+" إجابة صحيحة ("+pct+"%) "+(pct>=80?"✅ ممتاز!":pct>=60?"👍 جيد!":"📚 راجع");}
+function resetListen(){listenA=new Array(listenQs.length).fill(null);document.querySelectorAll(".copt[id^='lq']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("listenRes").style.display="none";}
+function buildW(){var ids=["w1","w2","w3","w4","w5"];var any=false;for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value.trim())any=true;}if(!any){document.getElementById("wOut").innerHTML="<span style='color:#9ca3af;font-style:italic'>✨ ستظهر فقرتك هنا...</span>";return;}var parts=[];for(var j=0;j<ids.length;j++){var el=document.getElementById(ids[j]);var v=el?el.value.trim():"";if(v)parts.push("<span style='color:#f0a000;font-weight:700'>"+v+"</span>.");}document.getElementById("wOut").innerHTML="<p style='direction:ltr;line-height:2'>"+parts.join(" ")+"</p>";}
+function buildSpeaking(){var c=document.getElementById("speakBox");speakQs.forEach(function(q){var d=document.createElement("div");d.style.cssText="background:#f8faff;border-right:4px solid #1e3a8a;border-radius:0 12px 12px 0;padding:16px 18px;margin-bottom:14px";var p1=document.createElement("p");p1.style.cssText="font-size:.97rem;color:#0a1628;font-weight:700;direction:ltr;margin-bottom:5px";p1.textContent=q.q;var p2=document.createElement("p");p2.style.cssText="font-size:.82rem;color:#9ca3af;margin-bottom:6px";p2.textContent=q.ar;var p3=document.createElement("p");p3.style.cssText="font-size:.82rem;color:#f0a000;direction:ltr;margin-bottom:8px";p3.textContent="💡 "+q.hint;var badge=document.createElement("span");badge.style.cssText="background:#dbeafe;color:#1e3a8a;padding:4px 12px;border-radius:20px;font-size:.76rem;font-weight:700";badge.textContent=q.badge;d.appendChild(p1);d.appendChild(p2);d.appendChild(p3);d.appendChild(badge);var btn=document.createElement("button");btn.className="spksmall";btn.textContent="🔊";btn.style.marginTop="10px";btn.addEventListener("click",(function(qq){return function(){say(qq,spd);};})(q.q));d.appendChild(btn);c.appendChild(d);});}
+function makeExRow(t,a,s){var div=document.createElement("div");div.style.cssText="cursor:pointer;user-select:none;padding:8px 12px;background:white;border-radius:8px;direction:ltr;font-size:.86rem;color:#374151;font-style:italic;margin-top:6px";var sp=document.createElement("span");sp.textContent=t;var tr=document.createElement("div");tr.style.cssText="font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;padding-top:4px;border-top:1px dashed #e5e7eb;display:none;font-family:Tajawal,sans-serif;font-style:normal";tr.textContent=a;div.appendChild(sp);div.appendChild(tr);div.addEventListener("click",(function(t2,s2){return function(){t2.style.display=t2.style.display==="none"?"block":"none";say(s2,spd);};})(tr,s));return div;}
+function buildReal(){var c=document.getElementById("realBox");var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h1.textContent="🔥 Expressions";c.appendChild(h1);realExpr.forEach(function(e){var d=document.createElement("div");d.className="expr-card";var header=document.createElement("div");header.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;direction:ltr";var hL=document.createElement("div");hL.style.cssText="display:flex;align-items:center;gap:8px";var sb=document.createElement("button");sb.className="spksmall";sb.textContent="🔊";sb.addEventListener("click",(function(ee){return function(){say(ee,spd);};})(e.e));var ts=document.createElement("span");ts.style.cssText="font-weight:700;color:#4c1d95;font-size:.97rem";ts.textContent=e.e;hL.appendChild(sb);hL.appendChild(ts);var ps=document.createElement("span");ps.style.cssText="color:#f0a000;font-size:.78rem;font-weight:700;font-family:Tajawal,sans-serif";ps.textContent=e.p;header.appendChild(hL);header.appendChild(ps);d.appendChild(header);var grid=document.createElement("div");grid.style.cssText="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px";var g1=document.createElement("div");g1.style.cssText="background:white;border-radius:8px;padding:8px 12px;text-align:right";g1.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>المعنى</div><div style='font-weight:700;color:#374151;font-size:.88rem'>"+e.m+"</div>";var g2=document.createElement("div");g2.style.cssText="background:white;border-radius:8px;padding:8px 12px;direction:ltr";g2.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>Formal</div><div style='font-size:.85rem;color:#64748b'>"+e.f+"</div>";grid.appendChild(g1);grid.appendChild(g2);d.appendChild(grid);d.appendChild(makeExRow(e.x,e.xar,e.x));var note=document.createElement("div");note.style.cssText="font-size:.8rem;color:#7c3aed;text-align:right;margin-top:8px";note.textContent="💡 "+e.n;d.appendChild(note);c.appendChild(d);});var h2=document.createElement("p");h2.style.cssText="font-weight:800;color:#0a1628;margin:20px 0 14px;text-align:right";h2.textContent="😎 Idioms & Slang";c.appendChild(h2);var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:20px";realSlang.forEach(function(s){var d=document.createElement("div");d.className="slang-card";var tR=document.createElement("div");tR.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";var tL=document.createElement("div");tL.style.cssText="display:flex;align-items:center;gap:6px";var spkS=document.createElement("button");spkS.className="spksmall";spkS.textContent="🔊";spkS.style.cssText="width:28px;height:28px;font-size:.8rem";spkS.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));var sWord=document.createElement("span");sWord.style.cssText="font-weight:700;color:#ea580c;font-size:.9rem";sWord.textContent=s.w;tL.appendChild(spkS);tL.appendChild(sWord);tR.appendChild(tL);var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a||"";var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Meaning: "+s.i;d.appendChild(tR);d.appendChild(ar);d.appendChild(instead);d.appendChild(makeExRow(s.x,s.xar,s.x));sg.appendChild(d);});c.appendChild(sg);var h3=document.createElement("p");h3.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h3.textContent="💬 Everyday Phrases";c.appendChild(h3);var ev=document.createElement("div");ev.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";realEvery.forEach(function(s){var d=document.createElement("div");d.className="ev-card";var tR=document.createElement("div");tR.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;direction:ltr";var tL2=document.createElement("div");tL2.style.cssText="display:flex;align-items:center;gap:6px";var spkE=document.createElement("button");spkE.className="spksmall";spkE.textContent="🔊";spkE.style.cssText="width:28px;height:28px;font-size:.8rem";spkE.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));var tTxt=document.createElement("span");tTxt.style.cssText="font-weight:700;color:#15803d;font-size:.9rem";tTxt.textContent=s.w;tL2.appendChild(spkE);tL2.appendChild(tTxt);tR.appendChild(tL2);var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.m||"";var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Meaning: "+s.i;d.appendChild(tR);d.appendChild(ar);d.appendChild(instead);d.appendChild(makeExRow(s.x,s.xar,s.x));ev.appendChild(d);});c.appendChild(ev);}
+function buildPhrasal(){var c=document.getElementById("pvBox");if(!c)return;var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";pvData.forEach(function(pv){var d=document.createElement("div");d.className="slang-card";var tR=document.createElement("div");tR.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";var tL=document.createElement("div");tL.style.cssText="display:flex;align-items:center;gap:6px";var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";spkBtn.style.cssText="width:28px;height:28px;font-size:.8rem";spkBtn.addEventListener("click",(function(w){return function(e){e.stopPropagation();say(w,spd);};})(pv.v));var pvW=document.createElement("span");pvW.style.cssText="font-weight:700;color:#7c3aed;font-size:.95rem";pvW.textContent=pv.v;tL.appendChild(spkBtn);tL.appendChild(pvW);var pS=document.createElement("span");pS.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pS.textContent=pv.p||"";tR.appendChild(tL);tR.appendChild(pS);var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:6px";ar.textContent=pv.m;var exBox=document.createElement("div");exBox.style.cssText="font-family:'Lora',Georgia,serif;font-style:italic;color:#1e3a8a;font-size:.88rem;direction:ltr;cursor:pointer;padding:8px 10px;background:#f0f9ff;border-radius:8px;border-left:3px solid #7c3aed";exBox.textContent=pv.ex;var trBox=document.createElement("div");trBox.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding:7px 10px;background:#fffdf7;border-radius:8px;border-right:3px solid #fde68a";trBox.textContent=pv.ar;exBox.addEventListener("click",(function(ex,tb){return function(){say(ex,spd);tb.style.display=tb.style.display==="none"?"block":"none";this.style.background=tb.style.display==="block"?"#dbeafe":"#f0f9ff";};})(pv.ex,trBox));d.appendChild(tR);d.appendChild(ar);d.appendChild(exBox);d.appendChild(trBox);sg.appendChild(d);});c.appendChild(sg);}
+function buildQuiz(){var c=document.getElementById("quizList");quizQs.forEach(function(q,qi){var d=document.createElement("div");d.style.marginBottom="18px";var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:10px;direction:ltr;font-size:.93rem";p.innerHTML="<span style='background:#0a1628;color:white;border-radius:5px;padding:1px 8px;font-size:.76rem;margin-left:8px'>"+(qi+1)+"</span>"+q.q;d.appendChild(p);q.opts.forEach(function(opt,oi){var b=document.createElement("div");b.className="qopt";b.id="qq"+qi+"-"+oi;b.textContent=opt;b.addEventListener("click",function(){quizA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("qq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});d.appendChild(b);});c.appendChild(d);});}
+function checkQuiz(){var s=0;quizQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("qq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(quizA[qi]===i)el.classList.add("no");}if(quizA[qi]===q.ans)s++;});var pct=Math.round(s/quizQs.length*100);var r=document.getElementById("quizRes");r.style.display="block";document.getElementById("qEmoji").textContent=pct===100?"🏆":pct>=70?"🎉":pct>=50?"💪":"📚";document.getElementById("qScore").textContent=s+" من "+quizQs.length+" إجابة صحيحة ("+pct+"%)";document.getElementById("qMsg").textContent=pct===100?"مثالي! إتقان Complex Relative Clauses":pct>=70?"أحسنت!":pct>=50?"راجع القاعدة.":"راجع الوحدة.";r.style.background=pct>=70?"#f0fdf4":"#fef9f0";r.scrollIntoView({behavior:"smooth",block:"center"});}
+function resetQuiz(){quizA=new Array(quizQs.length).fill(null);document.querySelectorAll(".qopt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("quizRes").style.display="none";}
+function buildAssessment(){var c=document.getElementById("assessList");if(!c)return;assessItems.forEach(function(item,i){var d=document.createElement("div");d.style.cssText="display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border-radius:10px;margin-bottom:8px;background:#f8faff;border:1.5px solid #e5eaf5;cursor:pointer;transition:all .15s;flex-direction:row-reverse";var cb=document.createElement("input");cb.type="checkbox";cb.id="as"+i;cb.style.cssText="width:18px;height:18px;cursor:pointer;accent-color:#1e3a8a;flex-shrink:0;margin-top:2px";var lbl=document.createElement("label");lbl.htmlFor="as"+i;lbl.style.cssText="font-size:.88rem;color:#374151;direction:rtl;text-align:right;cursor:pointer;line-height:1.8;flex:1";lbl.textContent=item;cb.addEventListener('change',function(){d.style.background=this.checked?'#f0fdf4':'#f8faff';d.style.borderColor=this.checked?'#86efac':'#e5eaf5';updateAssess();});d.appendChild(lbl);d.appendChild(cb);c.appendChild(d);});}
+function updateAssess(){var total=assessItems.length;var done=document.querySelectorAll('#assessList input:checked').length;var r=document.getElementById('assessResult');r.style.display='block';var pct=Math.round(done/total*100);var msg=pct===100?'🏆 B2 Politics حقيقي!':pct>=75?'🎉 قريب!':pct>=50?'💪 نصف الطريق':pct>0?'📚 حدّد ما تحتاج':'👆 خلّيني أعرف';r.style.background=pct>=75?'#f0fdf4':pct>=50?'#fefce8':'#f8faff';r.innerHTML='<div style="font-size:1.4rem;margin-bottom:6px">'+msg.split(' ')[0]+'</div><div style="font-weight:800;color:#0a1628;margin-bottom:3px">'+done+' من '+total+' ('+pct+'%)</div><div style="font-size:.82rem;color:#64748b">'+msg.substring(msg.indexOf(' ')+1)+'</div>';}
+buildVocab();
+setTimeout(function(){document.querySelectorAll('.vword').forEach(function(e){var ov=e.scrollWidth-e.clientWidth;if(ov>4){e.style.setProperty('--vtx','-'+(ov+2)+'px');e.classList.add('mq');}});},500);buildStory();buildReading();buildGrammar();buildGrammarExtra();buildListening();buildSpeaking();buildReal();buildPhrasal();buildQuiz();buildAssessment();
+if(window.speechSynthesis){window.speechSynthesis.onvoiceschanged=function(){};window.speechSynthesis.getVoices();}
+</script>
+</body>
+</html>

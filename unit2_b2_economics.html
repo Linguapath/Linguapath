@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath B2 — Unit 2: Economics and Markets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap"></noscript>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Tajawal',system-ui,-apple-system,sans-serif;background:#f0f4fa;direction:rtl;min-height:100vh}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#1e3a8a;border-radius:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(30,58,138,.35)}50%{box-shadow:0 0 0 8px rgba(30,58,138,0)}}
+.nav-bar{background:linear-gradient(135deg,#0a1628,#1e3a8a);padding:10px 12px;display:flex;justify-content:center;gap:4px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.nb{border:none;border-radius:22px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s}
+.nb.on{background:#f0a000;color:#0a1628}
+.nb:not(.on){background:rgba(255,255,255,.1);color:rgba(255,255,255,.85)}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#1e3a8a 55%,#1d4ed8 100%);color:white;padding:32px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(240,160,0,.06)}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04)}
+.lvltag{display:inline-block;background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-size:.72rem;font-weight:900;padding:4px 14px;border-radius:20px;letter-spacing:1.5px;margin-bottom:10px}
+.sec{display:none;max-width:900px;margin:0 auto;padding:32px 16px 80px;animation:fadeUp .4s ease}
+.sec.on{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 3px 20px rgba(0,0,0,.06);margin-bottom:22px;overflow:hidden}
+.ch{background:#0a1628;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.ch h3{font-size:1rem;font-weight:700}
+.ch .sub{font-size:.75rem;color:#93c5fd;margin-top:1px}
+.cb{padding:22px}
+.vocab-card{background:white;border-radius:16px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 14px rgba(10,22,40,.08);border:1px solid #e5ebf8;transition:transform .2s,box-shadow .2s}
+.vocab-card:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(10,22,40,.13)}
+.vhead{background:linear-gradient(135deg,#0a1628,#1e3a8a);display:flex;flex-direction:row-reverse;align-items:center;padding:14px 18px;gap:14px}
+.vword{font-family:'Lora',Georgia,serif;font-size:1.18rem;font-weight:700;color:white;direction:ltr;text-align:left}
+.vpron{font-size:.78rem;font-weight:700;color:#fde68a;margin-top:3px;direction:ltr;text-align:left}
+.var{font-size:.93rem;font-weight:700;color:rgba(255,255,255,.9);margin-top:3px}
+.vspk{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.25);background:transparent;color:white;font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:all .18s;display:flex;align-items:center;justify-content:center}
+.vspk:hover{background:rgba(255,255,255,.2);transform:scale(1.08)}
+.vspk.playing{background:#f0a000;border-color:#f0a000;animation:pulse 1s infinite}
+.vbody{padding:14px 16px 16px}
+.vgrid2{margin-bottom:10px}
+.vrow-pair{display:flex;gap:8px;margin-bottom:8px}
+.vrow-pair .vcell{flex:1;min-width:0}
+.vcell{border-radius:10px;padding:10px 13px;cursor:pointer;transition:all .15s;user-select:none;direction:ltr}
+.vcell:hover{filter:brightness(.96)}
+.vcell:active{transform:scale(.98)}
+.c-syn{background:#f0fdf4;border:1px solid #bbf7d0}
+.c-ant{background:#fff7ed;border:1px solid #fed7aa}
+.c-col{background:#eff6ff;border:1px solid #bfdbfe}
+.c-prep{background:#faf5ff;border:1px solid #ddd6fe}
+.c-fam{background:#fefce8;border:1px solid #fde68a}
+.vlbl{font-size:.65rem;font-weight:900;letter-spacing:.7px;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:5px;direction:ltr;justify-content:flex-start}
+.c-syn .vlbl{color:#15803d}.c-ant .vlbl{color:#ea580c}
+.c-col .vlbl{color:#2563eb}.c-prep .vlbl{color:#7c3aed}.c-fam .vlbl{color:#b45309}
+.vlbl::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.c-syn .vlbl::before{background:#15803d}.c-ant .vlbl::before{background:#ea580c}
+.c-col .vlbl::before{background:#2563eb}.c-prep .vlbl::before{background:#7c3aed}
+.c-fam .vlbl::before{background:#b45309}
+.vval{font-family:'Lora',Georgia,serif;font-size:.82rem;color:#374151;direction:ltr;line-height:1.6}
+.vtr{font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px;padding-top:5px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif}
+.vcell.show-tr .vtr{display:block}
+.vex{font-family:'Lora',Georgia,serif;font-size:.87rem;color:#374151;direction:ltr;font-style:italic;padding:10px 14px;background:#f8faff;border-radius:10px;border-right:3px solid #f0a000;cursor:pointer;user-select:none}
+.vex-tr{font-size:.8rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding-top:6px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif;font-style:normal}
+.vex.show-ex-tr .vex-tr{display:block}
+.vcat{display:flex;align-items:center;justify-content:flex-end;gap:12px;margin:28px 4px 14px;padding-bottom:8px;border-bottom:2px solid #dbe4f3}
+.vcat-en{font-family:'Lora',Georgia,serif;font-weight:700;color:#0a1628;font-size:1.05rem;direction:ltr}
+.vcat-ar{font-size:.85rem;color:#64748b}
+.vcat-num{background:linear-gradient(135deg,#0a1628,#1e3a8a);color:#fff;width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;flex-shrink:0}
+.sline{font-family:'Lora',Georgia,serif;font-size:.97rem;line-height:2;padding:5px 8px;border-radius:6px;direction:ltr;transition:background .2s}
+.sline.hl{background:#fef3c7}
+.lline{font-family:'Lora',Georgia,serif;font-size:.93rem;line-height:2;color:#cbd5e1;padding:3px 6px;border-radius:5px;direction:ltr;transition:background .2s}
+.lline.hl{background:rgba(240,160,0,.18);color:#fde68a}
+.sctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-direction:row-reverse;margin-bottom:16px}
+.pbtn{background:#1e3a8a;color:white;border:none;border-radius:24px;padding:9px 20px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s}
+.pbtn:hover{background:#1d4ed8}
+.spdbtn{padding:5px 12px;border-radius:18px;border:2px solid #cbd5e1;background:white;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;color:#64748b;transition:all .15s}
+.spdbtn.on{border-color:#1e3a8a;background:#1e3a8a;color:white}
+.rtext{font-family:'Lora',Georgia,serif;font-size:.95rem;line-height:2;color:#374151;direction:ltr;padding:20px;background:#f8faff;border-radius:14px;border:1px solid #e5eaf5;margin-bottom:18px}
+.rtext p{margin-bottom:14px}
+.gbox{background:linear-gradient(135deg,#eff6ff,#e0effe);border:2px solid #bfdbfe;border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.gpat{background:white;border-radius:10px;padding:12px 16px;margin-bottom:10px;border-right:4px solid #2563eb;direction:ltr}
+.copt{padding:9px 14px;border:2px solid #e5e7eb;border-radius:9px;cursor:pointer;font-family:'Lora',Georgia,serif;font-size:.87rem;direction:ltr;background:white;transition:all .15s;margin-bottom:6px}
+.copt:hover{border-color:#1e3a8a;background:#eff6ff}
+.copt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.copt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.qopt{padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;font-family:'Lora',Georgia,serif;font-size:.9rem;direction:ltr;background:white;transition:all .15s;margin-bottom:7px;text-align:left}
+.qopt:hover{border-color:#1e3a8a;background:#eff6ff}
+.qopt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.qopt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.wq-block{margin-bottom:18px}
+.wq-model{font-family:'Lora',Georgia,serif;font-size:.8rem;color:#374151;font-style:italic;direction:ltr;padding:10px 14px;background:#f0f9ff;border-radius:8px;border-right:3px solid #bfdbfe;line-height:1.7;display:none;margin-bottom:8px}
+.wq-model.show{display:block}
+.wq-model-btn{background:#dbeafe;border:none;border-radius:20px;padding:4px 14px;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer;margin-bottom:8px;transition:all .15s}
+.wq-model-btn:hover{background:#1e3a8a;color:white}
+.wq-en{font-family:'Lora',Georgia,serif;font-size:.93rem;font-weight:700;color:#0a1628;direction:ltr;margin-bottom:3px}
+.wq-ar{font-size:.78rem;color:#9ca3af;direction:rtl;text-align:right;margin-bottom:8px;font-family:'Tajawal',sans-serif}
+.winput{width:100%;border:none;border-bottom:2px solid #f0a000;background:transparent;font-family:'Lora',Georgia,serif;font-size:.95rem;color:#0a1628;outline:none;padding:5px 3px;direction:ltr;margin-bottom:14px}
+.winput:focus{border-color:#1e3a8a}
+.ielts-tip{background:linear-gradient(135deg,#0a1628,#1e3a8a);color:#fff;border-radius:14px;padding:16px 20px;margin-bottom:18px}
+.ielts-tip .ielts-badge{display:inline-block;background:#f0a000;color:#0a1628;font-size:.7rem;font-weight:900;padding:3px 11px;border-radius:12px;letter-spacing:.5px;margin-bottom:9px}
+.ielts-tip h4{color:#fde68a;font-size:.92rem;margin-bottom:8px;text-align:right;font-weight:800}
+.ielts-tip ul{list-style:none;padding:0;margin:0}
+.ielts-tip li{font-size:.83rem;line-height:1.95;color:rgba(255,255,255,.92);text-align:right;padding-right:18px;position:relative;margin-bottom:3px}
+.ielts-tip li::before{content:'◂';color:#f0a000;position:absolute;right:0;font-size:.7rem;top:3px}
+.btn{border:none;border-radius:28px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all .18s;padding:10px 24px;font-size:.9rem}
+.btn:hover{opacity:.88;transform:scale(.98)}
+.bd{background:#1e3a8a;color:white}
+.bg{background:#e5e7eb;color:#374151}
+.bgold{background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-weight:900}
+.navrow{display:flex;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.spksmall{width:32px;height:32px;border-radius:50%;border:none;background:#dbeafe;color:#1e3a8a;font-size:.85rem;cursor:pointer;flex-shrink:0;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.spksmall:hover{background:#1e3a8a;color:white}
+.expr-card{background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:16px;margin-bottom:12px}
+.slang-card{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px}
+.ev-card{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px}
+.vword{white-space:nowrap;overflow:hidden}.vword.mq{animation:vwmq 6s ease-in-out .5s infinite alternate;display:inline-block}@keyframes vwmq{0%,25%{transform:translateX(0)}75%,100%{transform:translateX(var(--vtx,0px))}}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <button class="nb on" onclick="show('vocab',this)">📚 المفردات</button>
+  <button class="nb" onclick="show('story',this)">📖 القصة</button>
+  <button class="nb" onclick="show('reading',this)">📰 القراءة</button>
+  <button class="nb" onclick="show('grammar',this)">✏️ القاعدة</button>
+  <button class="nb" onclick="show('listening',this)">🎧 الاستماع</button>
+  <button class="nb" onclick="show('writing',this)">✍️ الكتابة</button>
+  <button class="nb" onclick="show('speaking',this)">💬 المحادثة</button>
+  <button class="nb" onclick="show('realeng',this)">🗣️ Real English</button>
+  <button class="nb" onclick="show('pv',this)">💬 Phrasal Verbs</button>
+  <button class="nb" onclick="show('quiz',this)">✅ الاختبار</button>
+</div>
+<div class="hero">
+  <div class="lvltag">B2 — UPPER INTERMEDIATE</div>
+  <div style="font-size:.75rem;letter-spacing:3px;color:rgba(255,255,255,.45);font-weight:700;margin-bottom:8px">UNIT 2</div>
+  <h1 style="font-family:'Lora',Georgia,serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;margin-bottom:6px">Economics and Markets</h1>
+  <p style="font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:4px">الاقتصاد والأسواق</p>
+  <p style="font-size:.82rem;color:rgba(255,255,255,.4)">القاعدة: Inversion Advanced — Never have I / Not only… but / Hardly… when</p>
+  <div style="display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap">
+    <a href="unit1_b2_science.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">← الوحدة ١</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="index.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">الفهرس</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="unit3_b2_psychology.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">الوحدة ٣ ←</a>
+  </div>
+</div>
+
+<div id="sec-vocab" class="sec on">
+  <div style="text-align:right;color:#64748b;font-size:.88rem;max-width:900px;margin:0 auto 16px;padding:0 16px">💡 المعنى العربي للكلمة ثابت دائماً — اضغط 🔊 للنطق، واضغط أي خلية لتسمع وتظهر الترجمة</div>
+  <div id="vocabList" style="max-width:900px;margin:0 auto;padding:0 16px"></div>
+  <div class="navrow"><button class="btn bd" onclick="show('story',null)">القصة ←</button></div>
+</div>
+
+<div id="sec-story" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📖</span><div><h3>القصة القصيرة</h3><div class="sub">قصة عن الأسواق والأزمات والقرارات الاقتصادية — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button id="trBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:22px;padding:7px 16px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+        <button class="pbtn" id="storyBtn" onclick="toggleStory()"><span id="sIcon">▶</span><span id="sTxt">استمع للقصة</span></button>
+        <button class="spdbtn on" onclick="setSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setSpd(0.75,this)">بطيء</button>
+      </div>
+      <div id="storyBox" style="border-right:4px solid #f0a000;padding:16px 20px;background:#fffdf7;border-radius:0 14px 14px 0"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn bd" onclick="show('reading',null)">القراءة ←</button>
+  </div>
+</div>
+
+<div id="sec-reading" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📰</span><div><h3>القراءة المعمّقة</h3><div class="sub">نص ~480 كلمة + 5 أسئلة استنتاجية</div></div></div>
+    <div class="cb">
+      <div class="rtext" id="readingText"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الفهم والاستنتاج</p>
+      <div id="compList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkComp()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetComp()">↺ إعادة</button>
+      </div>
+      <div id="compRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('story',null)">→ القصة</button>
+    <button class="btn bd" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✏️</span><div><h3>القاعدة</h3><div class="sub">Inversion Advanced — تقديم المفعول وقلب الترتيب</div></div></div>
+    <div class="cb" id="grammarBox"></div>
+  </div>
+  <div class="card" id="grammarExtra"></div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('reading',null)">→ القراءة</button>
+    <button class="btn bd" onclick="show('listening',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listening" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🎧</span><div><h3>الاستماع المضمّن</h3><div class="sub">حوار: صحفية اقتصادية 🎙️ × خبير اقتصادي 👨‍💼 — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button class="pbtn" id="listenBtn" onclick="toggleListen()"><span id="lIcon">▶</span><span id="lTxt">شغّل الحوار</span></button>
+        <button class="spdbtn on" onclick="setLSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setLSpd(0.75,this)">بطيء</button>
+        <span style="font-size:.72rem;color:#64748b;font-family:Tajawal,sans-serif;padding:4px 10px;background:#f1f5f9;border-radius:12px">🔊 يعمل بـ Safari</span>
+      </div>
+      <div id="listenScript" style="background:#0f172a;border-radius:14px;padding:18px 20px;margin-bottom:16px"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الاستماع</p>
+      <div id="listenQList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkListen()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetListen()">↺ إعادة</button>
+      </div>
+      <div id="listenRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+      <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:14px;padding:20px;margin-top:18px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-direction:row-reverse">
+          <div style="text-align:right">
+            <div style="font-weight:800;color:white;font-size:.95rem">🌍 Authentic Listening</div>
+            <div style="font-size:.78rem;color:#93c5fd;margin-top:2px">استمع لإنجليزي حقيقي — اختر فيديو وركّز على الأسئلة أدناه</div>
+          </div>
+          <span style="background:#f0a000;color:#0a1628;font-size:.7rem;font-weight:900;padding:3px 11px;border-radius:12px">B2 · Economics</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:16px">
+          <a href="https://youtu.be/cZ7LzE3u7Bw" onclick="window.location.href='https://youtu.be/cZ7LzE3u7Bw';return false;" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:14px;text-decoration:none;display:block;transition:all .2s" onmouseover="this.style.background='rgba(255,255,255,.14)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
+            <div style="color:#f0a000;font-size:.72rem;font-weight:800;margin-bottom:4px">TED · 17 min</div>
+            <div style="color:white;font-weight:700;font-size:.88rem;margin-bottom:3px">How Economic Inequality Harms Societies</div>
+            <div style="color:rgba(255,255,255,.6);font-size:.76rem">Richard Wilkinson</div>
+            <div style="color:rgba(255,255,255,.35);font-size:.65rem;margin-top:4px">youtu.be/cZ7LzE3u7Bw</div>
+            <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">
+              <span style="background:rgba(240,160,0,.2);color:#fde68a;font-size:.68rem;padding:2px 8px;border-radius:10px">⭐⭐⭐ B2</span>
+              <span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:.68rem;padding:2px 8px;border-radius:10px">🇬🇧 British</span>
+            </div>
+          </a>
+          <a href="https://youtu.be/q2gO4DKVpa8" onclick="window.location.href='https://youtu.be/q2gO4DKVpa8';return false;" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:14px;text-decoration:none;display:block;transition:all .2s" onmouseover="this.style.background='rgba(255,255,255,.14)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
+            <div style="color:#f0a000;font-size:.72rem;font-weight:800;margin-bottom:4px">TED · 16 min</div>
+            <div style="color:white;font-weight:700;font-size:.88rem;margin-bottom:3px">Beware, Fellow Plutocrats, the Pitchforks Are Coming</div>
+            <div style="color:rgba(255,255,255,.6);font-size:.76rem">Nick Hanauer</div>
+            <div style="color:rgba(255,255,255,.35);font-size:.65rem;margin-top:4px">youtu.be/q2gO4DKVpa8</div>
+            <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">
+              <span style="background:rgba(240,160,0,.2);color:#fde68a;font-size:.68rem;padding:2px 8px;border-radius:10px">⭐⭐⭐ B2</span>
+              <span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:.68rem;padding:2px 8px;border-radius:10px">🇺🇸 American</span>
+            </div>
+          </a>
+          <a href="https://youtu.be/fn39vHu0tm8" onclick="window.location.href='https://youtu.be/fn39vHu0tm8';return false;" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:14px;text-decoration:none;display:block;transition:all .2s" onmouseover="this.style.background='rgba(255,255,255,.14)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
+            <div style="color:#f0a000;font-size:.72rem;font-weight:800;margin-bottom:4px">YouTube · ~12 min</div>
+            <div style="color:white;font-weight:700;font-size:.88rem;margin-bottom:3px">What Is GDP and Why Does It Matter?</div>
+            <div style="color:rgba(255,255,255,.6);font-size:.76rem">Economics Explained</div>
+            <div style="color:rgba(255,255,255,.35);font-size:.65rem;margin-top:4px">youtu.be/fn39vHu0tm8</div>
+            <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">
+              <span style="background:rgba(240,160,0,.2);color:#fde68a;font-size:.68rem;padding:2px 8px;border-radius:10px">⭐⭐ B2 easy</span>
+              <span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:.68rem;padding:2px 8px;border-radius:10px">🌍 Neutral</span>
+            </div>
+          </a>
+        </div>
+        <div style="background:rgba(255,255,255,.07);border-radius:10px;padding:14px 16px">
+          <div style="font-size:.8rem;font-weight:800;color:#fde68a;margin-bottom:8px;text-align:right">🎯 أسئلة التركيز — قبل ما تشاهد، اقرأ هذه الأسئلة:</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.85);direction:rtl;text-align:right;line-height:2">
+            <div>١ — ما الحجة الرئيسية للمتحدث؟ هل يدعم السوق الحر أم ينتقده؟</div>
+            <div>٢ — استمع للـ Inversion. كم مرة سمعت Never / Not only / Hardly؟</div>
+            <div>٣ — ما الكلمات من الوحدة التي سمعتها؟ دوّنها.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn bd" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✍️</span><div><h3>الكتابة — IELTS Writing Task 2</h3><div class="sub">مقالات أكاديمية عن الاقتصاد والأسواق</div></div></div>
+    <div class="cb">
+      <div class="ielts-tip">
+        <span class="ielts-badge">IELTS · TASK 2</span>
+        <h4>📋 كيف تدرّب نفسك — الاقتصاد في IELTS</h4>
+        <ul>
+          <li>ابدأ مقدمتك بـ Inversion: "Never has the gap between rich and poor been wider…"</li>
+          <li>استخدم inversions في الجسم لإضافة التأثير: "Not only does inequality harm growth, but it also undermines trust."</li>
+          <li>الـ Inversion يرفع درجة Grammatical Range مباشرة — الممتحن يلاحظه</li>
+          <li>وقّت نفسك: ٤٠ دقيقة بالضبط، ٢٥٠+ كلمة</li>
+        </ul>
+      </div>
+      <div style="background:#fffdf7;border:2px dashed #f0a000;border-radius:14px;padding:20px;margin-bottom:14px">
+        <div class="wq-block">
+          <div class="wq-en">The gap between rich and poor is growing in many countries. What are the causes of this, and what can governments do to address it?</div>
+          <div class="wq-ar">تتّسع الفجوة بين الأغنياء والفقراء في دول كثيرة. ما أسباب ذلك وما الذي تستطيع الحكومات فعله؟ (Problem/Solution)</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">Never has the wealth gap been wider than it is today, and several forces are driving it. Not only has automation displaced low-skilled workers, but it has also concentrated profits among those who own the technology. Hardly had globalisation raised living standards for some before it began hollowing out middle-income employment in others. As for solutions, governments can raise minimum wages, invest in education, and reform tax systems so that capital is taxed as heavily as labour. Under no circumstances should the state abandon those left behind by economic change. Only through a combination of redistribution and investment will the gap begin to narrow.</div>
+          <input class="winput" id="w1" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Some economists argue that free markets are the best way to organise an economy. Others believe governments must intervene. Discuss both views and give your opinion.</div>
+          <div class="wq-ar">ناقش رأيَي السوق الحر مقابل تدخّل الدولة وأعطِ رأيك. (Discuss both views)</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">Rarely do economists agree on much, but the debate between free markets and state intervention has generated more heat than most. Proponents of free markets argue that only through competition can productivity rise and prices fall. Not only does intervention distort incentives, they say, but it also creates inefficiency. Yet the opposing view is equally compelling. Hardly had the financial crisis of 2008 begun before even committed free-marketeers accepted the need for government bailouts. In my view, neither extreme is wise. Only a market tempered by sensible regulation and a safety net for the vulnerable can produce both growth and fairness.</div>
+          <input class="winput" id="w2" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">What are the advantages and disadvantages of economic globalisation?</div>
+          <div class="wq-ar">ما مزايا وعيوب العولمة الاقتصادية؟ (Advantages/Disadvantages)</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">Not only has globalisation lifted millions out of poverty, but it has also given consumers access to cheaper goods than ever before. Under no circumstances should these gains be dismissed. Yet the disadvantages are real. Seldom have the benefits of trade been distributed evenly; not only do some regions prosper, but others suffer prolonged unemployment as industries migrate. Little do critics of globalisation realise, however, that closing borders rarely brings back the jobs that left. On balance, globalisation is a force for good — but only if its gains are redistributed through strong social policies and investment in workers displaced by change.</div>
+          <input class="winput" id="w3" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">High inflation causes serious problems for society. To what extent do you agree?</div>
+          <div class="wq-ar">التضخم المرتفع يسبب مشاكل خطيرة للمجتمع. إلى أي مدى توافق؟ (Opinion)</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">Rarely does an economic problem affect every citizen as immediately as inflation, and to a large extent I agree that its consequences are serious. Not only does rising inflation erode purchasing power, but it also punishes those on fixed incomes most cruelly. Hardly had inflation peaked in 2022 before millions found they could no longer afford basic goods. That said, a degree of nuance is required: not only is low, stable inflation considered healthy by most economists, but deflation — its opposite — carries its own dangers. Only when inflation becomes persistent and unpredictable does it truly destabilise an economy and erode public confidence.</div>
+          <input class="winput" id="w4" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block" style="margin-bottom:0">
+          <div class="wq-en">Some say that economic growth should be the main priority of governments. Others argue that protecting the environment is more important. Discuss.</div>
+          <div class="wq-ar">هل الأولوية للنمو الاقتصادي أم حماية البيئة؟ (Discuss both views)</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">Never has the tension between growth and environmental protection been more acute. Advocates of growth argue that only through a strong economy can a society afford clean energy and environmental protection. Not only does poverty harm people directly, they say, but it also prevents the investment in green technology that sustainability requires. The opposing view holds that under no circumstances should short-term GDP growth be prioritised over the long-term survival of the planet. Hardly had scientists issued their most urgent climate warnings before governments continued approving new fossil fuel projects. In my view, only a model of sustainable development — which treats ecological limits as non-negotiable — can resolve this conflict.</div>
+          <input class="winput" id="w5" placeholder="Write your answer here..." oninput="buildW()" style="margin-bottom:0">
+        </div>
+      </div>
+      <div id="wOut" style="background:white;border:1px solid #e5eaf5;border-radius:12px;padding:16px;min-height:70px;font-family:'Lora',Georgia,serif;font-size:.93rem;line-height:2;color:#374151;direction:ltr">
+        <span style="color:#9ca3af;font-style:italic">✨ ستظهر فقرتك هنا...</span>
+      </div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('listening',null)">→ الاستماع</button>
+    <button class="btn bd" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">💬</span><div><h3>المحادثة — IELTS Speaking</h3><div class="sub">Part 1 · Part 2 (cue card) · Part 3</div></div></div>
+    <div class="cb">
+      <div class="ielts-tip">
+        <span class="ielts-badge">IELTS · SPEAKING</span>
+        <h4>🎙️ كيف تدرّب نفسك — الاقتصاد في Speaking</h4>
+        <ul>
+          <li>ابدأ إجابة Part 3 بـ Inversion: "Rarely have I seen an issue more complex than…"</li>
+          <li>سجّل صوتك — هل تستخدم inversions بشكل طبيعي أم مصطنع؟</li>
+          <li>Part 2: دقيقة تحضير + دقيقتان كلام — تحدّث عن تجربة اقتصادية حقيقية</li>
+        </ul>
+      </div>
+      <div id="speakBox"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn bd" onclick="show('realeng',null)">Real English ←</button>
+  </div>
+</div>
+
+<div id="sec-realeng" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🗣️</span><div><h3>Real English</h3><div class="sub">اضغط على الجملة لتسمعها وتظهر ترجمتها</div></div></div>
+    <div class="cb" id="realBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn bd" onclick="show('pv',null)">Phrasal Verbs ←</button>
+  </div>
+</div>
+
+<div id="sec-pv" class="sec">
+  <div class="card">
+    <div class="cb">
+      <div style="font-weight:800;color:#0a1628;font-size:1rem;text-align:right;margin-bottom:6px">💬 Phrasal Verbs — الاقتصاد والأسواق</div>
+      <p style="font-size:.82rem;color:#64748b;text-align:right;margin-bottom:16px;font-family:Tajawal,sans-serif">اضغط على الجملة لتسمعها وترى ترجمتها 🔊</p>
+      <div id="pvBox"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('realeng',null)">→ Real English</button>
+    <button class="btn bd" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-quiz" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✅</span><div><h3>اختبار الوحدة</h3><div class="sub">10 أسئلة — مفردات + Inversion + collocations</div></div></div>
+    <div class="cb">
+      <div id="quizList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:18px">
+        <button class="btn bgold" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn bg" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizRes" style="display:none;text-align:center;padding:22px;margin-top:16px;background:#f0fdf4;border-radius:14px">
+        <div id="qEmoji" style="font-size:2.5rem;margin-bottom:8px"></div>
+        <div id="qScore" style="font-weight:800;font-size:1.1rem;color:#0a1628;margin-bottom:4px"></div>
+        <div id="qMsg" style="font-size:.88rem;color:#64748b"></div>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:8px">
+    <div class="ch"><span style="font-size:1.3rem">🎯</span><div><h3>هل أستطيع...؟</h3><div class="sub">قيّم نفسك بصدق — CEFR B2 Self-Assessment</div></div></div>
+    <div class="cb">
+      <p style="font-size:.84rem;color:#64748b;direction:rtl;text-align:right;margin-bottom:16px;line-height:1.9">ضع علامة ✅ على كل هدف تشعر أنك حققته فعلاً — مو بس درسته.</p>
+      <div id="assessList"></div>
+      <div id="assessResult" style="display:none;margin-top:16px;padding:16px;border-radius:12px;text-align:center"></div>
+    </div>
+  </div>
+  <div style="background:linear-gradient(135deg,#0a1628,#1e3a8a);border-radius:18px;padding:28px;text-align:center;margin-top:8px;max-width:900px;margin-left:auto;margin-right:auto">
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:white;margin-bottom:6px">أحسنت! أكملت وحدة Economics and Markets</div>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:16px">الوحدة الثالثة: Psychology and Behaviour</p>
+    <button class="btn bgold" onclick="location.href='unit3_b2_psychology.html'">الوحدة ٣ ←</button>
+  </div>
+</div>
+<script>
+var V=[
+  {cat:"Markets & Trade",catAr:"السوق والتجارة",w:"supply and demand",p:"سَبلاي أند ديماند",a:"العرض والطلب",syn:"market forces, price mechanism",ant:"planned economy, fixed price",col:"law of supply and demand / supply meets demand / excess supply",prep:"demand for (goods) / supply of (labour)",fam:"supply (v/n) · demand (v/n) · supplier (n) · consumer (n)",ex:"Never has the law of supply and demand been more visible than during a shortage.",ar_syn:"قوى السوق، آلية الأسعار",ar_ant:"الاقتصاد المخطط، السعر الثابت",ar_col:"قانون العرض والطلب / يلتقيان / فائض",ar_prep:"طلب على (بضائع) / عرض من (عمالة)",ar_fam:"يزوّد · يطلب · مورّد · مستهلك",ar_ex:"ما كان قانون العرض والطلب أكثر وضوحاً من أوقات الشُّح."},
+  {cat:"Markets & Trade",catAr:"السوق والتجارة",w:"trade",p:"تريد",a:"تجارة",syn:"commerce, exchange, business",ant:"isolation, autarky",col:"free trade / trade deficit / trade agreement / trade off",prep:"trade in (goods) / with (countries) / trade-off between",fam:"trade (v/n) · trader (n) · trading (adj) · trade-off (n)",ex:"Not only does free trade lower prices, but it also drives innovation.",ar_syn:"تجارة، تبادل، أعمال",ar_ant:"عزلة، الاكتفاء الذاتي",ar_col:"تجارة حرة / عجز تجاري / اتفاقية / مقايضة",ar_prep:"تجارة في (بضائع) / مع (دول)",ar_fam:"يتاجر · تاجر · تجاري · مقايضة",ar_ex:"ليس فقط تخفّض التجارة الحرة الأسعار، بل تدفع الابتكار أيضاً."},
+  {cat:"Markets & Trade",catAr:"السوق والتجارة",w:"competition",p:"كومبيتيشن",a:"منافسة",syn:"rivalry, contest, market pressure",ant:"monopoly, cooperation",col:"fierce competition / healthy competition / unfair competition",prep:"competition between (firms) / for (market share)",fam:"compete (v) · competition (n) · competitive (adj) · competitor (n)",ex:"Hardly had one firm cut its prices before its competitors followed.",ar_syn:"تنافس، صراع، ضغط السوق",ar_ant:"احتكار، تعاون",ar_col:"منافسة شديدة / صحية / غير عادلة",ar_prep:"منافسة بين (شركات) / على (حصة سوقية)",ar_fam:"يتنافس · منافسة · تنافسي · منافِس",ar_ex:"ما إن خفّضت إحدى الشركات أسعارها حتى تبعها منافسوها."},
+  {cat:"Markets & Trade",catAr:"السوق والتجارة",w:"monopoly",p:"مونوبولي",a:"احتكار",syn:"dominance, sole control, cartel",ant:"competition, open market",col:"break up a monopoly / state monopoly / natural monopoly",prep:"monopoly on (a product) / over (a market)",fam:"monopolise (v) · monopoly (n) · monopolistic (adj)",ex:"Under no circumstances should a single company hold a monopoly over essential services.",ar_syn:"هيمنة، سيطرة منفردة، كارتل",ar_ant:"منافسة، سوق مفتوح",ar_col:"يكسر الاحتكار / احتكار الدولة / طبيعي",ar_prep:"احتكار على (منتج) / فوق (سوق)",ar_fam:"يحتكر · احتكار · احتكاري",ar_ex:"لا ينبغي بأي حال أن تمتلك شركة واحدة احتكاراً على الخدمات الأساسية."},
+  {cat:"Markets & Trade",catAr:"السوق والتجارة",w:"commodity",p:"كوموديتي",a:"سلعة",syn:"good, product, raw material",ant:"service, intangible asset",col:"commodity prices / agricultural commodity / commodity market",prep:"commodity traded on (a market) / priced in (dollars)",fam:"commodity (n) · commodify (v) · commodification (n)",ex:"Rarely have commodity prices been as volatile as in the past decade.",ar_syn:"بضاعة، منتج، مادة خام",ar_ant:"خدمة، أصل غير ملموس",ar_col:"أسعار السلع / زراعية / سوق السلع",ar_prep:"سلعة متداولة في (سوق) / مسعّرة بالدولار",ar_fam:"سلعة · يُسلعن · تسليع",ar_ex:"نادراً ما كانت أسعار السلع متذبذبة كما في العقد الأخير."},
+  {cat:"Markets & Trade",catAr:"السوق والتجارة",w:"free market",p:"فري ماركت",a:"السوق الحرة",syn:"open market, market economy, laissez-faire",ant:"planned economy, command economy",col:"free-market economy / free market principles / free market competition",prep:"free market in (goods) / free market for (services)",fam:"free (adj) · market (n) · free-market (adj)",ex:"Not only does the free market allocate resources efficiently, but it also rewards innovation.",ar_syn:"سوق مفتوح، اقتصاد السوق، سياسة عدم التدخل",ar_ant:"الاقتصاد المخطط، الاقتصاد الموجَّه",ar_col:"اقتصاد السوق الحرة / مبادئ / منافسة",ar_prep:"سوق حرة في (بضائع) / لـ (خدمات)",ar_fam:"حر · سوق · سوق حرة",ar_ex:"ليس فقط يُخصّص السوق الحر الموارد بكفاءة، بل يكافئ الابتكار أيضاً."},
+  {cat:"Markets & Trade",catAr:"السوق والتجارة",w:"volatility",p:"فولاتيليتي",a:"تذبذب / تقلّب",syn:"instability, fluctuation, unpredictability",ant:"stability, consistency",col:"market volatility / high volatility / price volatility",prep:"volatility in (markets) / of (prices)",fam:"volatile (adj) · volatility (n) · volatilise (v — chemistry)",ex:"Never have investors faced greater volatility than in the years following the pandemic.",ar_syn:"عدم استقرار، تقلّب، عدم قدرة على التنبؤ",ar_ant:"استقرار، اتساق",ar_col:"تذبذب السوق / مرتفع / في الأسعار",ar_prep:"تذبذب في (الأسواق) / في (الأسعار)",ar_fam:"متقلّب · تذبذب",ar_ex:"ما واجه المستثمرون تذبذباً أكبر مما واجهوه في السنوات التالية للجائحة."},
+  {cat:"Money & Finance",catAr:"المال والتمويل",w:"inflation",p:"إنفليشن",a:"تضخم",syn:"price rise, cost-of-living increase",ant:"deflation, price stability",col:"rate of inflation / high inflation / curb inflation / inflation target",prep:"inflation in (a country) / of (prices)",fam:"inflate (v) · inflation (n) · inflationary (adj) · deflation (n)",ex:"Not only does inflation erode savings, but it also hits those on fixed incomes hardest.",ar_syn:"ارتفاع الأسعار، ارتفاع تكلفة المعيشة",ar_ant:"انكماش، استقرار الأسعار",ar_col:"معدل التضخم / مرتفع / يكبح / مستهدَف",ar_prep:"تضخم في (دولة) / في (الأسعار)",ar_fam:"يتضخم · تضخم · تضخمي · انكماش",ar_ex:"ليس فقط يأكل التضخم المدخرات، بل يضرب أصحاب الدخل الثابت بالدرجة الأولى."},
+  {cat:"Money & Finance",catAr:"المال والتمويل",w:"interest rate",p:"إنترِست ريت",a:"معدل الفائدة",syn:"base rate, borrowing rate, lending rate",ant:"zero interest, interest-free",col:"raise/cut interest rates / interest rate hike / low interest rates",prep:"interest rate on (loans) / set by (central bank)",fam:"interest (n) · rate (n) · interest-bearing (adj)",ex:"Hardly had the central bank raised interest rates before mortgage payments began to soar.",ar_syn:"السعر الأساسي، معدل الاقتراض، معدل الإقراض",ar_ant:"صفر فائدة، بلا فائدة",ar_col:"يرفع/يخفض معدلات / ارتفاع حاد / منخفضة",ar_prep:"فائدة على (قروض) / تحدّدها (البنوك المركزية)",ar_fam:"فائدة · معدل · يحمل فائدة",ar_ex:"ما إن رفع البنك المركزي معدلات الفائدة حتى بدأت أقساط الرهن تقفز."},
+  {cat:"Money & Finance",catAr:"المال والتمويل",w:"fiscal policy",p:"فيسكال بوليسي",a:"السياسة المالية",syn:"budgetary policy, government spending policy",ant:"monetary policy",col:"tight fiscal policy / expansionary fiscal policy / fiscal discipline",prep:"fiscal policy of (a government) / towards (spending)",fam:"fiscal (adj) · fiscally (adv) · fiscalise (v — rare)",ex:"Seldom has fiscal policy alone been sufficient to pull an economy out of recession.",ar_syn:"سياسة الميزانية، سياسة الإنفاق الحكومي",ar_ant:"السياسة النقدية",ar_col:"سياسة مالية مشددة / توسعية / انضباط مالي",ar_prep:"سياسة مالية لـ (حكومة) / تجاه (الإنفاق)",ar_fam:"مالي · بشكل مالي",ar_ex:"نادراً ما كانت السياسة المالية وحدها كافية لانتشال اقتصاد من الركود."},
+  {cat:"Money & Finance",catAr:"المال والتمويل",w:"currency",p:"كارنسي",a:"عملة",syn:"money, legal tender, cash",ant:"barter, cryptocurrency (in traditional sense)",col:"currency exchange / foreign currency / currency depreciation / strong/weak currency",prep:"currency of (a country) / traded on (forex markets)",fam:"currency (n) · current (adj) · currently (adv)",ex:"Not only did the currency depreciate sharply, but it also triggered a wave of inflation.",ar_syn:"نقود، عملة قانونية، نقد",ar_ant:"مقايضة، عملة مشفّرة",ar_col:"صرف العملة / أجنبية / انخفاض / قوية/ضعيفة",ar_prep:"عملة (دولة) / متداولة في (أسواق الفوركس)",ar_fam:"عملة · حالي · حالياً",ar_ex:"ليس فقط انخفضت العملة بحدة، بل أطلقت موجة تضخم أيضاً."},
+  {cat:"Money & Finance",catAr:"المال والتمويل",w:"revenue",p:"ريفيينيو",a:"إيراد / عائد",syn:"income, earnings, receipts, proceeds",ant:"expenditure, costs",col:"generate revenue / tax revenue / annual revenue / revenue stream",prep:"revenue from (sales) / for (the government)",fam:"revenue (n) · revenue-generating (adj)",ex:"Rarely has a government managed to increase revenue without raising taxes.",ar_syn:"دخل، أرباح، إيصالات، حصيلة",ar_ant:"مصروفات، تكاليف",ar_col:"يولّد إيراداً / ضريبي / سنوي / مصدر",ar_prep:"إيراد من (مبيعات) / للحكومة",ar_fam:"إيراد · يولّد إيراداً",ar_ex:"نادراً ما نجحت حكومة في رفع الإيرادات دون رفع الضرائب."},
+  {cat:"Money & Finance",catAr:"المال والتمويل",w:"deficit",p:"ديفيسيت",a:"عجز مالي",syn:"shortfall, budget gap, negative balance",ant:"surplus, profit",col:"budget deficit / trade deficit / run a deficit / deficit spending",prep:"deficit in (the budget) / of (billions)",fam:"deficit (n) · deficient (adj) · deficiency (n)",ex:"Under no circumstances should a country run a structural deficit indefinitely.",ar_syn:"نقص، فجوة في الميزانية، رصيد سالب",ar_ant:"فائض، ربح",ar_col:"عجز في الميزانية / تجاري / يسجّل / إنفاق بعجز",ar_prep:"عجز في (الميزانية) / بـ (مليارات)",ar_fam:"عجز · ناقص · نقص",ar_ex:"لا ينبغي بأي حال أن تستمر دولة في تسجيل عجز هيكلي إلى أجل غير مسمى."},
+  {cat:"Growth & Recession",catAr:"النمو والركود",w:"GDP",p:"جي دي بي",a:"الناتج المحلي الإجمالي",syn:"national output, economic output, gross domestic product",ant:"GDP decline, contraction",col:"GDP growth / GDP per capita / measure GDP / GDP shrinks",prep:"GDP of (a country) / measured in (billions)",fam:"GDP (n) · output (n) · growth (n)",ex:"Not only did GDP fall by three percent, but unemployment also reached a ten-year high.",ar_syn:"الناتج القومي، المخرجات الاقتصادية",ar_ant:"انكماش الناتج، تراجع",ar_col:"نمو الناتج / نصيب الفرد / يقيس / يتقلص",ar_prep:"ناتج (دولة) / مقاس بـ (مليارات)",ar_fam:"الناتج المحلي الإجمالي · مخرجات · نمو",ar_ex:"ليس فقط تراجع الناتج ثلاثة بالمئة، بل بلغت البطالة أعلى مستوياتها في عشر سنوات."},
+  {cat:"Growth & Recession",catAr:"النمو والركود",w:"recession",p:"ريسيشن",a:"ركود اقتصادي",syn:"downturn, slump, contraction",ant:"boom, expansion, recovery",col:"enter a recession / economic recession / deep recession / recover from a recession",prep:"recession in (a sector) / across (the economy)",fam:"recede (v) · recession (n) · recessionary (adj)",ex:"Hardly had the economy recovered from one recession before another began.",ar_syn:"تراجع، كساد، انكماش",ar_ant:"ازدهار، توسع، انتعاش",ar_col:"يدخل ركوداً / اقتصادي / حاد / يتعافى",ar_prep:"ركود في (قطاع) / عبر (الاقتصاد)",ar_fam:"يتراجع · ركود · ركودي",ar_ex:"ما إن تعافى الاقتصاد من ركود حتى بدأ آخر."},
+  {cat:"Growth & Recession",catAr:"النمو والركود",w:"boom",p:"بوم",a:"ازدهار / طفرة",syn:"surge, rapid growth, expansion",ant:"bust, crash, recession",col:"economic boom / housing boom / boom and bust / boom in demand",prep:"boom in (a sector) / boom for (an industry)",fam:"boom (v/n) · booming (adj)",ex:"Seldom does a boom last without the seeds of a bust already being sown.",ar_syn:"ارتفاع حاد، نمو متسارع، توسع",ar_ant:"انهيار، كساد، ركود",ar_col:"ازدهار اقتصادي / عقاري / الازدهار والكساد / في الطلب",ar_prep:"طفرة في (قطاع) / لـ (صناعة)",ar_fam:"يزدهر · مزدهر",ar_ex:"نادراً ما يستمر الازدهار دون أن تكون بذور الكساد قد زُرعت بالفعل."},
+  {cat:"Growth & Recession",catAr:"النمو والركود",w:"productivity",p:"بروداكتيفيتي",a:"إنتاجية",syn:"efficiency, output, performance",ant:"inefficiency, waste",col:"boost productivity / labour productivity / productivity gap / declining productivity",prep:"productivity of (workers) / in (a sector)",fam:"produce (v) · productive (adj) · productivity (n) · unproductive (adj)",ex:"Not only does investment in education raise productivity, but it also reduces inequality.",ar_syn:"كفاءة، مخرجات، أداء",ar_ant:"عدم كفاءة، هدر",ar_col:"يعزز الإنتاجية / عمالية / فجوة / متراجعة",ar_prep:"إنتاجية (عمال) / في (قطاع)",ar_fam:"ينتج · منتج · إنتاجية · غير منتج",ar_ex:"ليس فقط يرفع الاستثمار في التعليم الإنتاجية، بل يقلّل اللامساواة أيضاً."},
+  {cat:"Growth & Recession",catAr:"النمو والركود",w:"austerity",p:"أوستيريتي",a:"تقشف",syn:"spending cuts, belt-tightening, fiscal restraint",ant:"stimulus, spending increase, expansion",col:"austerity measures / impose austerity / austerity package",prep:"austerity in (public services) / imposed by (government)",fam:"austere (adj) · austerity (n) · austerely (adv)",ex:"Rarely have austerity measures succeeded without causing significant social unrest.",ar_syn:"قطع الإنفاق، ترشيد، ضبط مالي",ar_ant:"تحفيز، زيادة الإنفاق، توسع",ar_col:"إجراءات التقشف / يفرض / حزمة",ar_prep:"تقشف في (الخدمات) / مفروض من (الحكومة)",ar_fam:"متقشف · تقشف · بتقشف",ar_ex:"نادراً ما نجحت إجراءات التقشف دون إثارة اضطرابات اجتماعية كبيرة."},
+  {cat:"Growth & Recession",catAr:"النمو والركود",w:"stagnation",p:"ستاغنيشن",a:"ركود / جمود",syn:"standstill, sluggishness, zero growth",ant:"growth, expansion, dynamism",col:"economic stagnation / period of stagnation / stagnation and inflation",prep:"stagnation in (an economy) / of (wages)",fam:"stagnate (v) · stagnation (n) · stagnant (adj)",ex:"Not only has economic stagnation persisted, but wages have barely kept pace with inflation.",ar_syn:"توقف، بطء، نمو صفري",ar_ant:"نمو، توسع، حيوية",ar_col:"ركود اقتصادي / فترة / وتضخم",ar_prep:"ركود في (اقتصاد) / في (الأجور)",ar_fam:"يركد · ركود · راكد",ar_ex:"ليس فقط استمر الركود الاقتصادي، بل كادت الأجور ألّا تواكب التضخم."},
+  {cat:"Inequality & Labour",catAr:"التفاوت والعمل",w:"wealth gap",p:"ولث غاب",a:"فجوة الثروة",syn:"income inequality, wealth disparity",ant:"equality, equal distribution",col:"widen the wealth gap / address the wealth gap / growing wealth gap",prep:"wealth gap between (rich and poor) / in (a society)",fam:"wealth (n) · gap (n) · wealthy (adj)",ex:"Never has the wealth gap between the richest and poorest been wider.",ar_syn:"عدم المساواة في الدخل، التفاوت في الثروة",ar_ant:"مساواة، توزيع متساوٍ",ar_col:"يوسّع / يعالج / الفجوة المتزايدة",ar_prep:"فجوة بين (الأغنياء والفقراء) / في (مجتمع)",ar_fam:"ثروة · فجوة · ثري",ar_ex:"ما كانت الفجوة بين الأثرياء والفقراء أعمق مما هي عليه اليوم."},
+  {cat:"Inequality & Labour",catAr:"التفاوت والعمل",w:"unemployment",p:"أن-إمبلويمنت",a:"بطالة",syn:"joblessness, being out of work",ant:"full employment",col:"rate of unemployment / tackle unemployment / structural unemployment / unemployment benefit",prep:"unemployment among (youth) / in (a region)",fam:"employ (v) · unemployed (adj) · unemployment (n) · employer (n)",ex:"Hardly had the factory closed before hundreds of workers found themselves facing unemployment.",ar_syn:"عدم التوظيف، البطالة",ar_ant:"التوظيف الكامل",ar_col:"معدل البطالة / يعالج / هيكلية / إعانة",ar_prep:"بطالة بين (الشباب) / في (منطقة)",ar_fam:"يوظّف · عاطل · بطالة · صاحب عمل",ar_ex:"ما إن أغلق المصنع حتى وجد مئات العمال أنفسهم في مواجهة البطالة."},
+  {cat:"Inequality & Labour",catAr:"التفاوت والعمل",w:"wages",p:"ويجز",a:"أجور",syn:"pay, earnings, salary, remuneration",ant:"unpaid labour, voluntary work",col:"minimum wage / stagnant wages / real wages / wage growth",prep:"wages for (workers) / in (an industry)",fam:"wage (n) · low-wage (adj) · high-wage (adj)",ex:"Not only have real wages failed to rise, but purchasing power has actually declined.",ar_syn:"راتب، أرباح، مكافأة",ar_ant:"عمل غير مدفوع، عمل تطوعي",ar_col:"الحد الأدنى / راكدة / حقيقية / نمو",ar_prep:"أجور لـ (عمال) / في (صناعة)",ar_fam:"أجر · منخفض الأجر · مرتفع الأجر",ar_ex:"ليس فقط فشلت الأجور الحقيقية في الارتفاع، بل تراجعت القوة الشرائية فعلياً."},
+  {cat:"Inequality & Labour",catAr:"التفاوت والعمل",w:"purchasing power",p:"بيرتشيسينغ باور",a:"القوة الشرائية",syn:"buying power, real income",ant:"inflation erosion, reduced income",col:"erode purchasing power / purchasing power parity / decline in purchasing power",prep:"purchasing power of (consumers) / in (a country)",fam:"purchase (v/n) · purchasing (adj) · purchaser (n)",ex:"Seldom has inflation eroded purchasing power as rapidly as in recent years.",ar_syn:"القوة الشرائية، الدخل الحقيقي",ar_ant:"تآكل التضخم، تراجع الدخل",ar_col:"يآكل القوة / تعادل / تراجع في",ar_prep:"قوة شرائية لـ (مستهلكين) / في (دولة)",ar_fam:"يشتري · شرائي · مشترٍ",ar_ex:"نادراً ما آكل التضخم القوة الشرائية بهذه السرعة كما في السنوات الأخيرة."},
+  {cat:"Inequality & Labour",catAr:"التفاوت والعمل",w:"labour market",p:"ليبر ماركت",a:"سوق العمل",syn:"job market, employment market, workforce",ant:"unemployed pool",col:"tight labour market / flexible labour market / labour market reforms",prep:"labour market in (a country) / for (skilled workers)",fam:"labour (n/v) · labourer (n) · labour-intensive (adj)",ex:"Never has the labour market been as competitive as it is for highly skilled workers today.",ar_syn:"سوق الوظائف، سوق التوظيف، القوى العاملة",ar_ant:"تجمّع العاطلين",ar_col:"سوق عمل محكم / مرن / إصلاحات",ar_prep:"سوق عمل في (دولة) / للعمالة الماهرة",ar_fam:"عمل · عامل · كثيف العمالة",ar_ex:"ما كان سوق العمل منافساً كما هو اليوم للعمالة عالية المهارة."},
+  {cat:"Crisis & Risk",catAr:"الأزمات والمخاطر",w:"speculative bubble",p:"سبكيوليتف بابِل",a:"فقاعة مضاربة",syn:"asset bubble, boom-bust cycle",ant:"stable market, fair valuation",col:"speculative bubble bursts / housing bubble / dot-com bubble / inflate a bubble",prep:"bubble in (real estate) / driven by (speculation)",fam:"speculate (v) · speculation (n) · speculative (adj) · bubble (n)",ex:"Not only did the speculative bubble inflate rapidly, but its collapse was equally swift.",ar_syn:"فقاعة الأصول، دورة الازدهار والانهيار",ar_ant:"سوق مستقر، تقييم عادل",ar_col:"تنفجر / عقارية / إنترنت / ينفخ",ar_prep:"فقاعة في (العقارات) / مدفوعة بـ (المضاربة)",ar_fam:"يضارب · مضاربة · مضاربي · فقاعة",ar_ex:"ليس فقط تضخمت الفقاعة المضاربية بسرعة، بل كان انهيارها بالسرعة ذاتها."},
+  {cat:"Crisis & Risk",catAr:"الأزمات والمخاطر",w:"bailout",p:"بيل-آوت",a:"إنقاذ مالي",syn:"rescue package, government support, financial aid",ant:"bankruptcy, default, collapse",col:"government bailout / bank bailout / request a bailout / bailout package",prep:"bailout for (a company) / by (the government)",fam:"bail out (phr v) · bailout (n)",ex:"Hardly had the banks failed before governments rushed in with emergency bailout packages.",ar_syn:"حزمة إنقاذ، دعم حكومي، مساعدة مالية",ar_ant:"إفلاس، عجز، انهيار",ar_col:"إنقاذ حكومي / مصرفي / يطلب / حزمة",ar_prep:"إنقاذ لـ (شركة) / من قِبل (الحكومة)",ar_fam:"ينقذ مالياً · إنقاذ مالي",ar_ex:"ما إن أفلست البنوك حتى اندفعت الحكومات بحزم إنقاذ طارئة."},
+  {cat:"Crisis & Risk",catAr:"الأزمات والمخاطر",w:"default",p:"ديفولت",a:"عجز عن السداد",syn:"failure to pay, insolvency, non-payment",ant:"repayment, solvency",col:"default on debt / sovereign default / risk of default / credit default",prep:"default on (a loan) / by (a country)",fam:"default (v/n) · defaulter (n) · non-default (adj)",ex:"Seldom has a country defaulted on its debt without triggering a wider financial crisis.",ar_syn:"فشل في السداد، إعسار، عدم دفع",ar_ant:"سداد، ملاءة مالية",ar_col:"يعجز عن سداد الدين / سيادي / خطر / ائتماني",ar_prep:"عجز عن (قرض) / من قِبل (دولة)",ar_fam:"يعجز عن السداد · متعثر",ar_ex:"نادراً ما عجزت دولة عن سداد ديونها دون إثارة أزمة مالية أوسع."},
+  {cat:"Crisis & Risk",catAr:"الأزمات والمخاطر",w:"market crash",p:"ماركت كراش",a:"انهيار السوق",syn:"stock market collapse, financial crash, crash",ant:"market rally, bull market",col:"stock market crash / sudden market crash / trigger a crash / market crash of",prep:"crash in (markets) / of (asset prices)",fam:"crash (v/n) · market (n) · crashed (adj)",ex:"Not only did the market crash wipe out trillions, but it also destroyed millions of jobs.",ar_syn:"انهيار البورصة، أزمة مالية، انهيار",ar_ant:"ارتفاع السوق، السوق الصاعدة",ar_col:"انهيار بورصة / مفاجئ / يُثير / انهيار عام",ar_prep:"انهيار في (الأسواق) / في (أسعار الأصول)",ar_fam:"ينهار · سوق · منهار",ar_ex:"ليس فقط أبادت أزمة السوق تريليونات، بل دمّرت ملايين الوظائف أيضاً."},
+  {cat:"Crisis & Risk",catAr:"الأزمات والمخاطر",w:"subsidy",p:"سَبسِدي",a:"دعم حكومي",syn:"grant, financial support, state aid",ant:"tax, levy, penalty",col:"government subsidy / agricultural subsidy / housing subsidy / cut subsidies",prep:"subsidy for (farmers) / from (the state)",fam:"subsidise (v) · subsidy (n) · subsidised (adj)",ex:"Rarely does cutting subsidies prove politically painless, regardless of the economic logic.",ar_syn:"منحة، دعم مالي، مساعدة حكومية",ar_ant:"ضريبة، رسم، غرامة",ar_col:"دعم حكومي / زراعي / سكني / يقطع",ar_prep:"دعم لـ (المزارعين) / من (الدولة)",ar_fam:"يدعم · دعم · مدعوم",ar_ex:"نادراً ما تكون عملية قطع الدعم غير مؤلمة سياسياً، بصرف النظر عن المنطق الاقتصادي."},
+  {cat:"Crisis & Risk",catAr:"الأزمات والمخاطر",w:"investment",p:"إنفستمنت",a:"استثمار",syn:"capital outlay, funding, backing",ant:"divestment, withdrawal",col:"foreign investment / return on investment / attract investment / long-term investment",prep:"investment in (infrastructure) / by (companies)",fam:"invest (v) · investment (n) · investor (n) · investable (adj)",ex:"Under no circumstances should a government cut investment in education during a recession.",ar_syn:"رأس مال، تمويل، مساندة",ar_ant:"سحب استثمار",ar_col:"أجنبي / عائد على / يجذب / طويل الأمد",ar_prep:"استثمار في (البنية) / من قِبل (شركات)",ar_fam:"يستثمر · استثمار · مستثمر · قابل للاستثمار",ar_ex:"لا ينبغي بأي حال أن تقطع الحكومة الاستثمار في التعليم إبّان الركود."},
+  {cat:"Crisis & Risk",catAr:"الأزمات والمخاطر",w:"debt",p:"ديت",a:"دين",syn:"borrowing, liability, obligation",ant:"credit, asset, savings",col:"public debt / national debt / debt crisis / service a debt / debt-to-GDP ratio",prep:"debt of (a country) / owed to (creditors)",fam:"debt (n) · indebted (adj) · indebtedness (n) · creditor (n)",ex:"Little did future generations realise the debt burden being accumulated on their behalf.",ar_syn:"اقتراض، التزام، مطلوبات",ar_ant:"رصيد دائن، أصل، مدخرات",ar_col:"دين عام / وطني / أزمة / يخدم / نسبة لناتج",ar_prep:"دين على (دولة) / مديون لـ (دائنين)",ar_fam:"دين · مثقل بالديون · ثقل الديون · دائن",ar_ex:"ما أدركت الأجيال القادمة عبء الديون المتراكمة باسمها."}
+];
+var VFamEx=[
+[["supply","v","متى تستخدمه: توفير البضائع أو الخدمات","The factory supplies components to over 200 companies."],["supply","n","متى تستخدمه: الكميّة المتاحة من شيء","The supply of affordable housing has fallen sharply."],["demand","v","متى تستخدمه: المطالبة بشيء / الاستلزام","Workers demanded higher wages."],["demand","n","متى تستخدمه: الرغبة أو الحاجة لشيء في السوق","Demand for electric cars has surged."]],
+[["trade","v","متى تستخدمه: التبادل التجاري أو البيع والشراء","Countries that trade freely tend to grow faster."],["trade","n","متى تستخدمه: النشاط التجاري عموماً","International trade is the backbone of the global economy."],["trader","n","متى تستخدمه: الشخص الذي يتاجر","Currency traders reacted immediately to the news."],["trade-off","n","متى تستخدمه: مقايضة بين شيئين — كسب أحدهما يعني خسارة الآخر","There is always a trade-off between growth and equality."]],
+[["compete","v","متى تستخدمه: التنافس على السوق أو الموارد","Firms compete on price, quality, and innovation."],["competition","n","متى تستخدمه: حالة التنافس أو المنافسة","Healthy competition drives down prices."],["competitive","adj","متى تستخدمه: وصف سعر أو شركة تنافسية","They offer highly competitive rates."],["competitor","n","متى تستخدمه: المنافس في السوق","The new product undercut every competitor."]],
+[["monopolise","v","متى تستخدمه: السيطرة الكاملة على سوق","One firm effectively monopolised the sector for a decade."],["monopoly","n","متى تستخدمه: حالة الاحتكار","A monopoly removes the incentive to innovate."],["monopolistic","adj","متى تستخدمه: وصف سلوك يشبه الاحتكار","Regulators investigated the company's monopolistic practices."]],
+[["commodity","n","متى تستخدمه: سلعة خام كالنفط أو القمح","Oil is the world's most traded commodity."],["commodify","v","متى تستخدمه: تحويل شيء إلى سلعة يُباع ويُشترى","Critics argue that housing has been commodified."],["commodification","n","متى تستخدمه: عملية تحويل شيء لسلعة تجارية","The commodification of education remains controversial."]],
+[["free","adj","متى تستخدمه: وصف شيء بلا قيود","A free press is essential to democracy."],["market","n","متى تستخدمه: مكان أو نظام للبيع والشراء","The stock market fell sharply on the news."],["free-market","adj","متى تستخدمه: وصف اقتصاد قائم على قوى السوق","Free-market reforms were introduced in the 1980s."]],
+[["volatile","adj","متى تستخدمه: وصف سوق أو وضع متقلّب","Oil prices are notoriously volatile."],["volatility","n","متى تستخدمه: درجة التقلّب والتذبذب","Investors seek stability and avoid volatility."]],
+[["inflate","v","متى تستخدمه: رفع الأسعار أو تضخيم الأرقام","Rising demand inflated house prices."],["inflation","n","متى تستخدمه: الارتفاع العام في الأسعار","Inflation hit a forty-year high last year."],["inflationary","adj","متى تستخدمه: وصف ما يُسبّب ارتفاعاً في الأسعار","Printing money is widely seen as inflationary."],["deflation","n","متى تستخدمه: الانخفاض العام في الأسعار — عكس التضخم","Deflation can be as damaging as inflation."]],
+[["interest","n","متى تستخدمه: الفائدة المدفوعة على القرض أو المكتسبة","The loan carries an interest rate of five percent."],["rate","n","متى تستخدمه: نسبة أو معدل مقيس","The unemployment rate fell to its lowest level in years."],["interest-bearing","adj","متى تستخدمه: وصف حساب أو سند يُدرّ فائدة","Interest-bearing accounts offer little return now."]],
+[["fiscal","adj","متى تستخدمه: وصف ما يتعلق بالمال الحكومي والضرائب","The government announced a tough fiscal package."],["fiscally","adv","متى تستخدمه: بطريقة تتعلق بالمال الحكومي","The country is now more fiscally responsible."]],
+[["currency","n","متى تستخدمه: العملة الوطنية كالدولار أو اليورو","The currency lost a third of its value in a week."],["current","adj","متى تستخدمه: وصف شيء حالي / موجود الآن","The current economic climate is uncertain."],["currently","adv","متى تستخدمه: في الوقت الحالي","Interest rates currently stand at their highest level."]],
+[["revenue","n","متى تستخدمه: الدخل أو الإيراد المكتسب","Tax revenue fell during the recession."],["revenue-generating","adj","متى تستخدمه: وصف نشاط يجلب دخلاً","The government sought new revenue-generating strategies."]],
+[["deficit","n","متى تستخدمه: عجز أو نقص في الميزانية أو التجارة","The budget deficit widened for the third year."],["deficient","adj","متى تستخدمه: ناقص / غير كافٍ","The system was deficient in key safeguards."],["deficiency","n","متى تستخدمه: النقص أو الخلل","A deficiency in regulation allowed the crisis to develop."]],
+[["GDP","n","متى تستخدمه: مقياس حجم الاقتصاد","GDP grew by two percent last quarter."],["output","n","متى تستخدمه: الكمية المنتجة","Industrial output fell sharply."],["growth","n","متى تستخدمه: الزيادة في حجم الاقتصاد","Economic growth slowed in the second quarter."]],
+[["recede","v","متى تستخدمه: التراجع أو الانحسار","The threat of recession has not yet receded."],["recession","n","متى تستخدمه: فترة الانكماش الاقتصادي (ربعَين متتاليَين سلبيَّين)","The country entered its worst recession in decades."],["recessionary","adj","متى تستخدمه: وصف ظروف أو ضغوط ركودية","Recessionary pressures are mounting."]],
+[["boom","v","متى تستخدمه: الازدهار أو الانتعاش السريع","The technology sector is booming."],["boom","n","متى تستخدمه: فترة النمو السريع","The construction boom lasted five years."],["booming","adj","متى تستخدمه: وصف قطاع أو سوق ينمو بسرعة","Tourism is a booming industry in the region."]],
+[["produce","v","متى تستخدمه: إنتاج البضائع أو الخدمات","The factory produces three hundred units a day."],["productive","adj","متى تستخدمه: وصف شيء يُنتج نتائج جيدة","A well-rested workforce is more productive."],["productivity","n","متى تستخدمه: مقدار الإنتاج لكل وحدة عمل","Productivity has failed to keep pace with wages."],["unproductive","adj","متى تستخدمه: وصف جهد لا يُنتج نتائج تُذكر","Long commutes are unproductive for the economy."]],
+[["austere","adj","متى تستخدمه: وصف ظروف أو سياسات شديدة التقشف","Life under austere economic conditions was difficult."],["austerity","n","متى تستخدمه: سياسة تقليص الإنفاق الحكومي","Austerity hit public services hardest."],["austerely","adv","متى تستخدمه: بأسلوب متقشف وصارم","The budget was managed austerely for a decade."]],
+[["stagnate","v","متى تستخدمه: الوقوف عند مستوى دون نمو","Wages have stagnated for over a decade."],["stagnation","n","متى تستخدمه: حالة الجمود الاقتصادي","Economic stagnation is harder to escape than recession."],["stagnant","adj","متى تستخدمه: وصف اقتصاد أو سوق راكد","Growth remains stagnant despite government efforts."]],
+[["wealth","n","متى تستخدمه: المجموع الكلي للثروة المملوكة","The distribution of wealth is deeply unequal."],["gap","n","متى تستخدمه: الفجوة أو الفارق بين مستويين","The gap between north and south is widening."],["wealthy","adj","متى تستخدمه: وصف شخص أو دولة ثرية","Wealthy individuals often face lower effective tax rates."]],
+[["employ","v","متى تستخدمه: توظيف شخص أو استخدام شيء","The company employs over ten thousand workers."],["unemployed","adj","متى تستخدمه: وصف شخص بلا عمل","Unemployed workers struggle to re-enter the market."],["unemployment","n","متى تستخدمه: معدل أو حالة البطالة","Youth unemployment remains above fifteen percent."],["employer","n","متى تستخدمه: الجهة أو الشخص الذي يوظّف","The employer offered a generous benefits package."]],
+[["wage","n","متى تستخدمه: الأجر الأسبوعي أو الساعي (عكس الراتب الشهري)","The minimum wage was raised for the first time in years."],["low-wage","adj","متى تستخدمه: وصف عمل أو قطاع بأجور منخفضة","Low-wage jobs offer little security or benefits."],["high-wage","adj","متى تستخدمه: وصف عمل أو قطاع بأجور مرتفعة","High-wage economies attract skilled global talent."]],
+[["purchase","v","متى تستخدمه: الشراء الرسمي أو الكبير","The company purchased a rival firm for two billion dollars."],["purchase","n","متى تستخدمه: الشيء المشترى أو عملية الشراء","The purchase of public assets was widely criticised."],["purchaser","n","متى تستخدمه: الشخص أو الجهة التي تشتري","The government was the sole purchaser of the product."]],
+[["labour","n","متى تستخدمه: العمل أو القوى العاملة بشكل عام","The cost of labour has risen sharply."],["labourer","n","متى تستخدمه: عامل يدوي يقوم بعمل جسدي","Migrant labourers filled the gap in seasonal agriculture."],["labour-intensive","adj","متى تستخدمه: وصف صناعة تحتاج كثيراً من العمالة","Agriculture remains highly labour-intensive."]],
+[["speculate","v","متى تستخدمه: الاستثمار المحفوف بمخاطر أملاً في ربح سريع","Investors speculated heavily on tech stocks."],["speculation","n","متى تستخدمه: النشاط الاستثماري المحفوف بمخاطر","Pure speculation drove prices to unsustainable levels."],["speculative","adj","متى تستخدمه: وصف استثمار قائم على التوقع لا القيمة الحقيقية","The market became highly speculative in its final months."],["bubble","n","متى تستخدمه: الأصول التي يرتفع ثمنها بشكل مصطنع","The bubble burst when confidence suddenly collapsed."]],
+[["bail out","phr v","متى تستخدمه: إنقاذ شركة أو بنك من الإفلاس","Governments bailed out major banks in 2008."],["bailout","n","متى تستخدمه: عملية الإنقاذ المالي الطارئة","The bailout was controversial but arguably necessary."]],
+[["default","v","متى تستخدمه: الفشل في سداد الديون في موعدها","Greece defaulted on its IMF loan in 2015."],["default","n","متى تستخدمه: حالة العجز عن السداد","A sovereign default sent shockwaves through markets."],["defaulter","n","متى تستخدمه: الجهة أو الشخص المتعثر في السداد","The bank wrote off losses from serial defaulters."]],
+[["crash","v","متى تستخدمه: الانهيار المفاجئ والحاد","The market crashed thirty percent in a single day."],["crash","n","متى تستخدمه: الانهيار المالي أو الاقتصادي","The crash of 2008 was the worst since the 1930s."],["crashed","adj","متى تستخدمه: وصف سوق أو نظام انهار فعلاً","The crashed market took years to recover."]],
+[["subsidise","v","متى تستخدمه: دعم صناعة أو قطاع مالياً","Governments subsidise farmers to ensure food security."],["subsidy","n","متى تستخدمه: مبلغ الدعم المقدَّم","Agricultural subsidies distort global trade."],["subsidised","adj","متى تستخدمه: وصف منتج أو خدمة مدعومة حكومياً","Subsidised housing helped low-income families."]],
+[["invest","v","متى تستخدمه: وضع المال في مشروع أملاً في ربح","The company invested heavily in research."],["investment","n","متى تستخدمه: المبلغ المستثمَر أو عملية الاستثمار","Foreign investment creates jobs and transfers skills."],["investor","n","متى تستخدمه: الشخص أو الجهة التي تستثمر","Investors fled to safer assets during the crisis."],["investable","adj","متى تستخدمه: وصف أصل أو سوق يستحق الاستثمار","Emerging markets are highly investable at current prices."]],
+[["debt","n","متى تستخدمه: ما تم اقتراضه ويجب سداده","National debt has tripled in the past decade."],["indebted","adj","متى تستخدمه: مثقَل بالديون أو ممتنّ","The country was deeply indebted after the war."],["indebtedness","n","متى تستخدمه: حالة الإثقال بالديون","Household indebtedness reached record levels."],["creditor","n","متى تستخدمه: الجهة التي أقرضت المال","Creditors agreed to restructure the debt."]],
+[["lend","v","متى تستخدمه: الاقتراض بالاتجاه الآخر — إعطاء القرض","The IMF agreed to lend the country two billion dollars."],["borrow","v","متى تستخدمه: أخذ قرض","Governments borrow to fund spending when tax revenue falls short."],["borrowing","n","متى تستخدمه: عملية الاقتراض وحجمه","Government borrowing hit a record high last year."]]
+];
+var story=[
+  {t:"Not only did the markets open lower that Monday morning, but panic spread faster than any analyst had predicted.",ar:"ليس فقط فتحت الأسواق على انخفاض ذلك الصباح، بل انتشر الذعر بسرعة تجاوزت توقعات كل المحللين."},
+  {t:"Never had investors seen such volatility — in a single hour, billions had been wiped off the value of major companies.",ar:"ما رأى المستثمرون تذبذباً كهذا — في ساعة واحدة، محيت مليارات من قيمة كبرى الشركات."},
+  {t:"Hardly had the government announced its fiscal policy before the currency began to fall.",ar:"ما إن أعلنت الحكومة سياستها المالية حتى بدأت العملة في التراجع."},
+  {t:"Under no circumstances, the finance minister insisted, would the state allow the banks to default.",ar:"تحت أي ظرف من الظروف، أصرّ وزير المالية، لن تسمح الدولة للبنوك بالعجز عن السداد."},
+  {t:"Little did the public know that a speculative bubble had been quietly inflating for years.",ar:"ما أدرك الجمهور أن فقاعة مضاربة كانت تتضخم بهدوء منذ سنوات."},
+  {t:"Not only were wages stagnating, but unemployment was rising — the classic signs of a deepening recession.",ar:"ليس فقط كانت الأجور تركد، بل كانت البطالة ترتفع — العلامات الكلاسيكية لركود يتعمق."},
+  {t:"No sooner had the bailout been announced than critics argued it rewarded reckless behaviour.",ar:"ما إن أُعلن الإنقاذ المالي حتى جادل المنتقدون بأنه يكافئ التهور."},
+  {t:"Seldom does a crash teach lasting lessons; yet this time, something had to change.",ar:"نادراً ما يُعلّم الانهيار دروساً دائمة؛ غير أن هذه المرة، شيئاً ما كان لا بدّ أن يتغير."}
+];
+var reading=[
+  "Economics is, at its heart, the study of how people make decisions when resources are scarce. Markets bring buyers and sellers together, and their interaction — through the forces of supply and demand — sets prices. When demand exceeds supply, prices rise; when supply exceeds demand, they fall. Not only is this mechanism efficient at allocating resources, but it also sends signals to producers about where effort is most needed. Yet markets are imperfect, and few economists today believe they can solve every problem unaided.",
+  "The language of economics is shaped by an awareness of complexity. Rarely does one factor alone cause a recession; seldom does a single policy cure inflation. This is why academic writing about economics — and high-scoring IELTS essays about it — lean heavily on Inversion Advanced. 'Never have interest rates been so low.' 'Not only did wages stagnate, but purchasing power fell.' Hardly had one bubble burst before another was forming. These inverted structures signal that the writer understands nuance and can express it with grammatical precision.",
+  "The 2008 global financial crisis remains the defining economic event of the early twenty-first century. Not only did it begin in the United States housing market, but it spread rapidly to economies worldwide. Hardly had regulators identified the scale of the problem before several major banks were on the edge of default. Under no circumstances, governments declared, would they allow the financial system to collapse — and so they authorised emergency bailout packages of extraordinary size. Seldom had public money been deployed so rapidly, or so controversially.",
+  "Critics of these bailouts argued that little had changed. Not only had the banks that caused the crisis survived, but their executives had in some cases kept their bonuses. Little did the architects of the rescue packages anticipate the political backlash that followed, which fuelled a decade of austerity, growing wealth gaps, and declining trust in institutions. Under no circumstances should the lessons be forgotten: when speculation replaces production as the engine of an economy, a crash is eventually inevitable.",
+  "Yet the story of markets is not only one of crisis. Not only have free markets lifted millions out of poverty over the past century, but they have also driven innovation that has improved quality of life. The challenge is not to abandon markets, but to ensure they operate within rules that prevent monopoly, protect workers, and distribute the gains of growth fairly. Never has this challenge been more urgent — nor the tools to meet it more available — than today."
+];
+var compQs=[
+  {q:"According to the text, what is the primary function of markets?",opts:["To create monopolies","To bring buyers and sellers together and set prices through supply and demand","To distribute wealth equally","To prevent financial crises"],ans:1},
+  {q:"Why does the writer say economics essays lean on Inversion Advanced?",opts:["Because it sounds academic","Because it signals awareness of nuance and grammatical precision","Because it is easier to write","Because examiners prefer it"],ans:1},
+  {q:"What does the writer imply about the architects of the 2008 bailouts?",opts:["They acted wisely","They failed to anticipate the political consequences","They were corrupt","They should have let banks fail"],ans:1},
+  {q:"What is the writer's main argument in the final paragraph?",opts:["Markets should be abolished","Free markets are perfect","The solution is neither to abandon markets nor leave them unregulated","Only government can fix the economy"],ans:2},
+  {q:"Which phrase best expresses the writer's overall view of markets?",opts:["Useful but dangerously perfect","Flawed but capable of driving progress if properly governed","Outdated and in need of replacement","Powerful but fundamentally equal"],ans:1}
+];
+var listenLines=[
+  {speaker:"J",text:"Professor Chen, after everything we have seen, do you still believe in free markets?"},
+  {speaker:"R",text:"Never have I doubted their fundamental logic. Not only do markets allocate resources efficiently, but they also drive innovation. What I question is the idea that they are self-correcting."},
+  {speaker:"J",text:"Because of 2008?"},
+  {speaker:"R",text:"Exactly. Not only did the crisis expose excessive speculation, but it revealed how deeply interconnected our financial systems had become. Hardly had the problem begun in one country before it spread globally."},
+  {speaker:"J",text:"And the response — the bailouts. Were they right?"},
+  {speaker:"R",text:"Under no circumstances should we have let the entire system collapse. But the terms were too generous. Little did governments insist on meaningful reform in exchange for the rescue."},
+  {speaker:"J",text:"What about austerity that followed?"},
+  {speaker:"R",text:"Not only did austerity fail to reduce debt as promised, but it deepened inequality and destroyed public trust. Seldom has a policy been so economically damaging and politically self-defeating simultaneously."},
+  {speaker:"J",text:"So what is the alternative?"},
+  {speaker:"R",text:"Not only must markets be free, but they must also be fair. Never has the case for investing in education, healthcare, and infrastructure been stronger. Only through growth that is broadly shared will trust in the market economy be restored."},
+  {speaker:"J",text:"Thank you, Professor."},
+  {speaker:"R",text:"Thank you. These are questions every generation must answer for itself."}
+];
+var listenQs=[
+  {q:"Does the professor doubt the fundamental logic of free markets?",opts:["Yes, completely","No — she has never doubted it","Only since 2008","Only in theory"],ans:1},
+  {q:"What did the 2008 crisis reveal, according to the professor?",opts:["That banks should be nationalised","Both excessive speculation and deep interconnection of financial systems","That austerity works","That markets are always self-correcting"],ans:1},
+  {q:"What does the professor criticise about the bailouts?",opts:["They were too large","The terms were too generous with little reform demanded in exchange","They happened too slowly","They should not have happened at all"],ans:1},
+  {q:"How does the professor describe austerity?",opts:["Economically successful but politically unpopular","Both economically damaging and politically self-defeating","A necessary sacrifice","Effective in the long run"],ans:1},
+  {q:"What does the professor say is needed for trust in markets to be restored?",opts:["Less regulation","Growth that is broadly shared","Lower taxes","Fewer bailouts"],ans:1}
+];
+var speakQs=[
+  {q:"Part 1: Are you interested in economics or business news? Why or why not?",hint:"Never have I found... / Not only is it... / It would seem that...",ar:"هل تهتم بالأخبار الاقتصادية أو التجارية؟",badge:"🎯 Part 1 · inversion openers"},
+  {q:"Part 2 (cue card): Describe something you bought that you consider a good investment. Say what it was, why you bought it, how much it cost, and why you think it was worth it.",hint:"Not only did it... but it also... / Rarely have I... / Speak for 2 minutes.",ar:"صف شيئاً اشتريته وتعتبره استثماراً جيداً (دقيقتان).",badge:"🎯 Part 2 · 2-min long turn"},
+  {q:"Part 3: Should governments control the prices of essential goods like food and energy?",hint:"Under no circumstances should... / Not only does price control... but... / Seldom has...",ar:"هل يجب أن تتحكم الحكومات بأسعار السلع الأساسية؟",badge:"🎯 Part 3 · inversion + opinion"},
+  {q:"Part 3: Is economic growth always a good thing?",hint:"Never has growth been... / Not only does growth... / Seldom do we ask...",ar:"هل النمو الاقتصادي دائماً شيء جيد؟",badge:"🎯 Part 3 · balanced view"},
+  {q:"Part 3: What are the effects of a large gap between rich and poor?",hint:"Not only does inequality harm... but it also... / Little do we realise...",ar:"ما آثار الفجوة الكبيرة بين الأغنياء والفقراء؟",badge:"🎯 Part 3 · reason + example"},
+  {q:"Part 3: Should wealthy people pay higher taxes?",hint:"Under no circumstances can we ignore... / Not only would higher taxes... / Seldom has the debate been...",ar:"هل يجب أن يدفع الأثرياء ضرائب أعلى؟",badge:"🎯 Part 3 · argument + counter"},
+  {q:"Part 2 (cue card): Describe an economic problem you have heard about recently. Say what it is, where it is happening, why it is serious, and what you think should be done.",hint:"Not only is the problem... but it also... / Never have I seen... Speak for 2 minutes.",ar:"صف مشكلة اقتصادية سمعت عنها مؤخراً (دقيقتان).",badge:"🎯 Part 2 · long turn"},
+  {q:"Part 3: Is it possible to have a strong economy without damaging the environment?",hint:"Rarely has any economy... / Not only does... but... / Seldom do economists consider...",ar:"هل يمكن أن يكون الاقتصاد قوياً دون الإضرار بالبيئة؟",badge:"🎯 Part 3 · complex argument"}
+];
+var pvData=[
+  {v:"bail out",p:"بيل آوت",m:"يُنقِذ مالياً / يسدّد ديون شخص",ex:"Not only did the government bail out the banks, but it also guaranteed their future losses.",ar:"ليس فقط أنقذت الحكومة البنوك مالياً، بل ضمنت خسائرها المستقبلية أيضاً."},
+  {v:"cut back (on)",p:"كَت باك",m:"يقلّص / يخفّض الإنفاق",ex:"Hardly had the recession begun before companies started cutting back on staff.",ar:"ما إن بدأ الركود حتى شرعت الشركات في تقليص موظفيها."},
+  {v:"drive up",p:"درايف أب",m:"يرفع الأسعار / يزيد",ex:"Not only did demand drive up prices, but shortages made things worse.",ar:"ليس فقط رفع الطلب الأسعار، بل زادت الندرة الأمور سوءاً."},
+  {v:"bottom out",p:"بوتوم آوت",m:"يبلغ القاع / يتوقف عند أدنى مستوى",ex:"Seldom does a market bottom out before confidence completely collapses.",ar:"نادراً ما يبلغ السوق قاعه قبل أن تنهار الثقة تماماً."},
+  {v:"pick up",p:"بيك أب",m:"يتحسّن / ينتعش (الاقتصاد)",ex:"Never did experts predict that the economy would pick up so quickly after the crash.",ar:"ما توقع الخبراء أبداً أن ينتعش الاقتصاد بهذه السرعة بعد الانهيار."},
+  {v:"phase out",p:"فيز آوت",m:"يُلغي تدريجياً",ex:"Under no circumstances should subsidies be phased out without a replacement plan.",ar:"لا ينبغي بأي حال إلغاء الدعم تدريجياً دون خطة بديلة."},
+  {v:"crowd out",p:"كراود آوت",m:"يُزيح / يمنع القطاع الخاص من الاستثمار",ex:"Not only does excessive borrowing crowd out private investment, but it raises interest rates.",ar:"ليس فقط يُزيح الاقتراض المفرط الاستثمار الخاص، بل يرفع معدلات الفائدة أيضاً."},
+  {v:"write off",p:"رايت أوف",m:"يشطب دَيناً / يعدّ شيئاً خسارة",ex:"Hardly had the debt been written off before new borrowing replaced it.",ar:"ما إن شُطب الدين حتى حلّ اقتراض جديد محلّه."},
+  {v:"trickle down",p:"تريكل داون",m:"ينتشر من الأغنياء للفقراء (نظرية اقتصادية)",ex:"Seldom does wealth trickle down as effortlessly as its proponents suggest.",ar:"نادراً ما تتسرب الثروة إلى الأسفل بالسهولة التي يقترحها المؤيدون."},
+  {v:"scale back",p:"سكيل باك",m:"يقلّص حجم خطة أو مشروع",ex:"Not only did the company scale back production, but it also delayed its expansion plans.",ar:"ليس فقط قلّصت الشركة الإنتاج، بل أجّلت خططها التوسعية أيضاً."}
+];
+var realExpr=[
+  {e:"The bottom line",p:"ذا بوتوم لاين",m:"النتيجة النهائية / ما يهم فعلاً",f:"The essential point, especially the financial result.",x:"Not only are costs rising, but revenue is falling — the bottom line is that reform is unavoidable.",xar:"ليس فقط ترتفع التكاليف، بل تنخفض الإيرادات — النتيجة النهائية: الإصلاح لا مفرّ منه.",n:"تُستخدم في نهاية الحجة لتلخيص المحصّلة"},
+  {e:"Boom and bust",p:"بوم آند بَست",m:"الازدهار والانهيار",f:"Alternating periods of economic growth and decline.",x:"Never has the boom-and-bust cycle been broken without significant structural reform.",xar:"ما كُسر دورة الازدهار والانهيار قط دون إصلاح هيكلي جوهري.",n:"للإشارة لدورية الأزمات الاقتصادية"},
+  {e:"Tighten your belt",p:"تايتن يور بيلت",m:"يشدّ الحزام / يُقلّص نفقاته",f:"To spend less money because of financial difficulties.",x:"Seldom do governments ask citizens to tighten their belts without cutting their own spending first.",xar:"نادراً ما تطلب الحكومات من المواطنين شدّ الحزام دون تقليص إنفاقها هي أولاً.",n:"تشبيه: شدّ حزام الملابس = تقليص الإنفاق"},
+  {e:"In the red",p:"إن ذا ريد",m:"في خسارة / بعجز",f:"Spending more than you earn; having a deficit.",x:"Not only was the company in the red, but it was facing calls to declare bankruptcy.",xar:"ليس فقط كانت الشركة في خسارة، بل كانت تواجه مطالبات بإعلان الإفلاس.",n:"عكسها: in the black = في ربح"}
+];
+var realSlang=[
+  {w:"Golden handshake",p:"غولدِن هاندشيك",i:"a large payment given to a senior executive when they leave a company",ex:"Not only did the CEO leave as the company collapsed, but he received a golden handshake.",xar:"ليس فقط غادر المدير التنفيذي بينما كانت الشركة تنهار، بل استلم مكافأة مغادرة ضخمة.",a:"مكافأة الخروج الكبيرة لكبار المديرين"},
+  {w:"Cooking the books",p:"كوكينغ ذا بوكس",i:"falsifying financial records to hide problems",ex:"Seldom does cooking the books go undetected for long.",xar:"نادراً ما يظل تزوير السجلات المالية مخفياً طويلاً.",a:"تزوير السجلات المالية"},
+  {w:"Cash cow",p:"كاش كاو",i:"a business or product that generates steady, reliable profit",ex:"Not only was the division profitable, but it was the group's undisputed cash cow.",xar:"ليس فقط كانت الوحدة مربحة، بل كانت بقرة الحليب التي لا جدال فيها للمجموعة.",a:"المصدر الرئيسي والموثوق للأرباح"},
+  {w:"Red tape",p:"ريد تيب",i:"excessive bureaucracy and rules that slow things down",ex:"Never have entrepreneurs faced more red tape than during periods of heavy regulation.",xar:"ما واجه رجال الأعمال بيروقراطية أكبر من فترات التنظيم المفرط.",a:"البيروقراطية والإجراءات المعقدة التي تعيق الأعمال"}
+];
+var realEvery=[
+  {w:"Break even",p:"بريك إيفن",i:"to make neither a profit nor a loss",ex:"Not only did the project take longer, but it barely managed to break even.",xar:"ليس فقط استغرق المشروع وقتاً أطول، بل بالكاد تمكّن من تعادل التكاليف.",a:"يُعادل التكاليف / لا يربح ولا يخسر"},
+  {w:"Corner the market",p:"كورنر ذا ماركت",i:"to control so much of a market that you can set prices",ex:"Seldom can one company corner the entire market without attracting regulatory scrutiny.",xar:"نادراً ما تتمكن شركة واحدة من السيطرة الكاملة على السوق دون استقطاب الرقابة.",a:"يستحوذ على السوق بشكل يمنح التحكم بالأسعار"},
+  {w:"Foot the bill",p:"فوت ذا بيل",m:"يدفع الفاتورة",i:"to pay for something, especially an unexpected or large expense",ex:"Not only did the government foot the bill for the bailout, but taxpayers bore the cost for years.",xar:"ليس فقط دفعت الحكومة فاتورة الإنقاذ، بل تحمّل دافعو الضرائب التكلفة لسنوات.",a:"يتحمل تكلفة شيء ما — غالباً فاتورة كبيرة أو غير متوقعة"}
+];
+var quizQs=[
+  {q:"Never ___ interest rates fallen so low as in the decade after 2008.",opts:["did","have","had","was"],ans:1},
+  {q:"ما معنى recession؟",opts:["ازدهار","ركود اقتصادي","تضخم","إنقاذ مالي"],ans:1},
+  {q:"Not only did inflation rise, ___ purchasing power fell.",opts:["but it also","also","as well","and also"],ans:0},
+  {q:"ما معنى fiscal policy؟",opts:["السياسة النقدية","السياسة المالية","سعر الصرف","الدين العام"],ans:1},
+  {q:"Collocation: ___ a bailout",opts:["make","do","request","give"],ans:2},
+  {q:"Hardly ___ the bubble burst before another began inflating.",opts:["did","had","has","was"],ans:1},
+  {q:"ما معنى speculative bubble؟",opts:["فجوة الثروة","فقاعة مضاربة","العجز المالي","التقشف"],ans:1},
+  {q:"Under no circumstances ___ the state allow monopolies to dominate.",opts:["should","would","will","shall"],ans:0},
+  {q:"ما معنى austerity؟",opts:["الازدهار","الاستثمار","التقشف","العجز"],ans:2},
+  {q:"ما الـ phrasal verb: يُنقِذ مالياً؟",opts:["write off","bail out","phase out","crowd out"],ans:1}
+];
+var assessItems=[
+  "أستطيع استخدام Never/Seldom/Rarely + inversion بشكل صحيح في جملة كاملة.",
+  "أعرف الفرق بين: Not only... but also / Hardly... before / No sooner... than ولا أخلط بينها.",
+  "أستطيع تحويل جملة عادية لـ Inversion بدون مساعدة.",
+  "أستطيع استخدام discourse markers (Not only... Furthermore... Under no circumstances...) بشكل طبيعي.",
+  "أعرف 20+ كلمة من مفردات الاقتصاد مع collocations حقيقية (مثل: run a deficit, cut interest rates).",
+  "أتجنب الأخطاء الشائعة: 'Never I have seen' / 'Not only... and also' / 'Seldom he does'.",
+  "أستطيع كتابة مقال IELTS Task 2 عن الاقتصاد (250+ كلمة) في 40 دقيقة، مع استخدام inversion.",
+  "أستطيع التحدث دقيقتين متواصلتين عن موضوع اقتصادي باستخدام مفردات وقاعدة الوحدة."
+];
+var spd=1,lspd=1,storyOn=false,listenOn=false;
+var compA=new Array(compQs.length).fill(null);
+var listenA=new Array(listenQs.length).fill(null);
+var quizA=new Array(quizQs.length).fill(null);
+function say(text,rate,cb){if(!window.speechSynthesis)return null;window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=rate||spd;u.pitch=1.0;var v=getVoice("F");if(v)u.voice=v;if(cb)u.onend=cb;window.speechSynthesis.speak(u);return u;}
+function getVoice(gender){var voices=window.speechSynthesis.getVoices();var en=voices.filter(function(v){return v.lang.indexOf("en")===0;});if(gender==="M"){var r=en.filter(function(v){return v.name.indexOf("Rishi")>-1;});if(r.length)return r[0];var m=en.filter(function(v){var n=v.name.toLowerCase();return n.indexOf("male")>-1||n.indexOf("daniel")>-1||n.indexOf("james")>-1||n.indexOf("david")>-1;});return m.length?m[0]:(en.length?en[0]:null);}else{var f=en.filter(function(v){var n=v.name.toLowerCase();return n.indexOf("samantha")>-1||n.indexOf("female")>-1||n.indexOf("victoria")>-1||n.indexOf("karen")>-1||n.indexOf("kate")>-1;});return f.length?f[0]:(en.length>1?en[1]:en[0]||null);}}
+function show(id,btn){document.querySelectorAll(".sec").forEach(function(s){s.classList.remove("on");});document.getElementById("sec-"+id).classList.add("on");window.scrollTo({top:0,behavior:"smooth"});document.querySelectorAll(".nb").forEach(function(b){b.classList.remove("on");});if(btn){btn.classList.add("on");return;}var map={vocab:0,story:1,reading:2,grammar:3,listening:4,writing:5,speaking:6,realeng:7,pv:8,quiz:9};var btns=document.querySelectorAll(".nb");if(btns[map[id]])btns[map[id]].classList.add("on");}
+function buildVocab(){var c=document.getElementById("vocabList");var lastCat="";var catNum=0;V.forEach(function(v,i){if(v.cat!==lastCat){catNum++;lastCat=v.cat;var hd=document.createElement("div");hd.className="vcat";hd.innerHTML='<div class="vcat-ar">'+v.catAr+'</div><div class="vcat-en">'+v.cat+'</div><div class="vcat-num">'+catNum+'</div>';c.appendChild(hd);}var d=document.createElement("div");d.className="vocab-card";d.innerHTML='<div class="vhead"><div style="display:flex;align-items:center;gap:10px;width:100%"><button class="vspk" id="vs'+i+'">🔊</button><div class="var" style="flex:1;text-align:right">'+v.a+'</div><div class="vpron" style="direction:ltr;white-space:nowrap">'+v.p+'</div><div style="display:flex;align-items:center;gap:6px"><div class="vword">'+v.w+'</div><span style="background:rgba(255,255,255,.18);color:rgba(255,255,255,.85);font-size:.68rem;font-weight:800;padding:2px 7px;border-radius:10px">'+(i+1)+'</span></div></div></div><div class="vbody"><div class="vgrid2"><div class="vrow-pair"><div class="vcell c-ant" data-i="'+i+'" data-c="1"><div class="vlbl">Antonym</div><div class="vval">'+v.ant+'</div><div class="vtr">'+v.ar_ant+'</div></div><div class="vcell c-syn" data-i="'+i+'" data-c="0"><div class="vlbl">Synonym</div><div class="vval">'+v.syn+'</div><div class="vtr">'+v.ar_syn+'</div></div></div><div class="vrow-pair"><div class="vcell c-prep" data-i="'+i+'" data-c="3"><div class="vlbl">Preposition</div><div class="vval">'+v.prep+'</div><div class="vtr">'+v.ar_prep+'</div></div><div class="vcell c-col" data-i="'+i+'" data-c="2"><div class="vlbl">Collocation</div><div class="vval">'+v.col+'</div><div class="vtr">'+v.ar_col+'</div></div></div><div class="vrow-pair"><div class="vcell c-fam" data-i="'+i+'" data-c="4" style="flex:1"><div class="vlbl">Word Family</div><div class="vval">'+v.fam+'</div><div class="vtr" id="ftr'+i+'"></div></div></div></div><div class="vex" id="vex'+i+'">'+v.ex+'<div class="vex-tr">'+v.ar_ex+'</div></div></div>';
+d.querySelector('.vspk').addEventListener('click',(function(ii){return function(){document.querySelectorAll('.vspk').forEach(function(b){b.classList.remove('playing');});var btn=document.getElementById('vs'+ii);if(btn)btn.classList.add('playing');var u=say(V[ii].w,spd);if(u)u.onend=function(){if(btn)btn.classList.remove('playing');};};;})(i));
+d.querySelectorAll('.vcell').forEach(function(cell){cell.addEventListener('click',function(){var ii=parseInt(this.getAttribute('data-i'));var cc=parseInt(this.getAttribute('data-c'));say([V[ii].syn,V[ii].ant,V[ii].col,V[ii].prep,V[ii].fam][cc],0.9);this.classList.toggle('show-tr');});});
+var vex=d.querySelector('.vex');if(vex)vex.addEventListener('click',function(){this.classList.toggle('show-ex-tr');});
+var ftrDiv=d.querySelector('.c-fam .vtr');if(ftrDiv&&VFamEx[i]){var fhtml='<div style="margin-top:6px">';VFamEx[i].forEach(function(fe){var pc={"v":"#2563eb","n":"#059669","adj":"#7c3aed","adv":"#b45309","phr v":"#dc2626","n/adj":"#059669"}[fe[1]]||"#0a1628";fhtml+='<div style="background:#fffdf7;border-radius:9px;padding:9px 11px;margin-bottom:7px;border-right:3px solid '+pc+'"><div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;direction:ltr"><strong style="font-family:Lora,Georgia,serif;color:#0a1628;font-size:.9rem">'+fe[0]+'</strong><span style="background:'+pc+';color:white;font-size:.6rem;padding:1px 7px;border-radius:8px;font-weight:800">'+fe[1]+'</span></div><div style="font-size:.76rem;color:#b45309;direction:rtl;text-align:right;margin-bottom:4px;font-family:Tajawal,sans-serif">'+fe[2]+'</div><div style="font-family:Lora,Georgia,serif;font-style:italic;font-size:.83rem;color:#374151;direction:ltr">'+fe[3]+'</div></div>';});fhtml+='</div>';ftrDiv.innerHTML=fhtml;}
+c.appendChild(d);});}
+function buildStory(){var b=document.getElementById("storyBox");if(!b)return;b.innerHTML="";story.forEach(function(s,i){var d=document.createElement("div");d.className="sline";d.id="sl"+i;var txt=document.createTextNode(s.t);d.appendChild(txt);var btn=document.createElement("button");btn.style.cssText="background:transparent;border:1px solid #e5e7eb;border-radius:5px;padding:1px 7px;color:#9ca3af;font-size:.7rem;cursor:pointer;font-family:Tajawal,sans-serif;margin-right:6px";btn.textContent="🌐";btn.addEventListener("click",(function(ii){return function(){toggleTr(ii);};})(i));d.appendChild(btn);var tr=document.createElement("div");tr.id="tr"+i;tr.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;font-family:Tajawal,sans-serif;border-right:3px solid #fde68a;padding-right:8px";tr.textContent=s.ar;d.appendChild(tr);b.appendChild(d);});}
+var _trAll=false;
+function toggleAllTr(){_trAll=!_trAll;for(var i=0;i<story.length;i++){var e=document.getElementById("tr"+i);if(e)e.style.display=_trAll?"block":"none";}var btn=document.getElementById("trBtn");if(btn)btn.textContent=_trAll?"🙈 أخفِ":"🌐 الترجمة";}
+function toggleTr(i){var e=document.getElementById("tr"+i);if(e)e.style.display=e.style.display==="none"?"block":"none";}
+function setSpd(r,btn){spd=r;var p=btn.parentNode;p.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function storySeq(i){if(!storyOn||i>=story.length){stopStory();return;}document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("sl"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(story[i].t);u.lang="en-US";u.rate=spd;var v=getVoice("F");if(v)u.voice=v;u.onend=function(){if(storyOn)setTimeout(function(){storySeq(i+1);},320);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startStory(){storyOn=true;var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="⏹";btn.querySelector("#sTxt").textContent="إيقاف القصة";}storySeq(0);}
+function stopStory(){storyOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="▶";btn.querySelector("#sTxt").textContent="استمع للقصة";}}
+function toggleStory(){storyOn?stopStory():startStory();}
+function buildReading(){var t=document.getElementById("readingText");if(!t)return;t.innerHTML="";reading.forEach(function(p){var d=document.createElement("p");d.textContent=p;t.appendChild(d);});var c=document.getElementById("compList");if(!c)return;c.innerHTML="";compQs.forEach(function(q,qi){var d=document.createElement("div");d.style.marginBottom="14px";var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);q.opts.forEach(function(opt,oi){var b=document.createElement("div");b.className="copt";b.id="co"+qi+"-"+oi;b.textContent=opt;b.addEventListener("click",function(){compA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("co"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});d.appendChild(b);});c.appendChild(d);});}
+function checkComp(){var s=0;compQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("co"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(compA[qi]===i)el.classList.add("no");}if(compA[qi]===q.ans)s++;});var r=document.getElementById("compRes");r.style.display="block";var pct=Math.round(s/compQs.length*100);r.textContent=s+" من "+compQs.length+" إجابة صحيحة ("+pct+"%) "+(pct===100?"🏆":pct>=60?"🎉":"📚 راجع النص");}
+function resetComp(){compA=new Array(compQs.length).fill(null);document.querySelectorAll(".copt[id^='co']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("compRes").style.display="none";}
+function buildGrammar(){var c=document.getElementById("grammarBox");
+var box1=document.createElement("div");box1.className="gbox";
+var t1=document.createElement("div");t1.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:8px;text-align:right";t1.textContent="١ — Inversion Advanced: عندما يأتي المفعول أولاً";box1.appendChild(t1);
+var intro=document.createElement("p");intro.style.cssText="font-size:.84rem;color:#475569;direction:rtl;text-align:right;margin-bottom:12px;line-height:1.9";intro.textContent="الـ Inversion Advanced يُقدّم عبارة سلبية أو تقييدية في بداية الجملة لإضافة التأثير — يُقلب ترتيب الفاعل والفعل المساعد. هذا ما يميز C1 عن B2 في IELTS Writing.";box1.appendChild(intro);
+var tbl=document.createElement("div");tbl.style.cssText="background:#0a1628;border-radius:10px;padding:14px 18px;direction:ltr;overflow-x:auto;margin-bottom:14px";
+var table=document.createElement("table");table.style.cssText="width:100%;border-collapse:collapse;font-size:.82rem";
+var rows=[["Opener","Auxiliary + Subject","Note"],["Never","have / had + subject","All time — strongest"],["Not only… but (also)","do/does/did + subject","Two points joined"],["Hardly / Scarcely","had + subject + when/before","Past only"],["No sooner","had + subject + than","Past — fast sequence"],["Seldom / Rarely","do/does/did + subject","Low frequency"],["Under no circumstances","should/would + subject","Strong prohibition"],["Little","did + subject + know","Surprise / ignorance"],["Only when / Only after","did + subject","Condition met first"]];
+rows.forEach(function(row,ri){var tr=document.createElement("tr");if(ri>0)tr.style.borderTop="1px solid rgba(255,255,255,.08)";row.forEach(function(cell,ci){var td=document.createElement(ri===0?"th":"td");td.textContent=cell;td.style.cssText="padding:6px 8px;text-align:left;color:"+(ri===0?"#fde68a":ci===0?"#f0c040":ci===1?"rgba(255,255,255,.9)":"#93c5fd");tr.appendChild(td);});table.appendChild(tr);});
+tbl.appendChild(table);box1.appendChild(tbl);c.appendChild(box1);
+var box2=document.createElement("div");box2.className="gbox";
+var t2=document.createElement("div");t2.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";t2.textContent="٢ — في سياق الاقتصاد";box2.appendChild(t2);
+var examples=[
+  ["Never:","Never have interest rates been so low for so long.","ما كانت معدلات الفائدة منخفضة لهذه المدة قط."],
+  ["Not only… but:","Not only did inflation rise, but wages fell simultaneously.","ليس فقط ارتفع التضخم، بل انخفضت الأجور في آنٍ معاً."],
+  ["Hardly… before:","Hardly had the bailout been announced before protests erupted.","ما إن أُعلن الإنقاذ المالي حتى اندلعت الاحتجاجات."],
+  ["No sooner… than:","No sooner had the bubble burst than panic spread globally.","ما إن انفجرت الفقاعة حتى انتشر الذعر عالمياً."],
+  ["Under no circumstances:","Under no circumstances should a monopoly be allowed to dominate essential services.","لا ينبغي بأي حال أن يُسمح لاحتكار بالهيمنة على الخدمات الأساسية."],
+  ["Little:","Little did investors realise a crash was imminent.","ما أدرك المستثمرون أن الانهيار كان وشيكاً."]
+];
+examples.forEach(function(ex){var pat=document.createElement("div");pat.className="gpat";var d1=document.createElement("div");d1.style.cssText="font-size:.78rem;color:#f0a000;font-weight:700;direction:ltr;margin-bottom:2px";d1.textContent=ex[0];var d2=document.createElement("div");d2.style.cssText="font-family:Lora,Georgia,serif;font-size:.88rem;color:#0a1628;font-weight:600;direction:ltr;margin-bottom:3px";d2.textContent=ex[1];var d3=document.createElement("div");d3.style.cssText="font-size:.8rem;color:#64748b;direction:rtl;text-align:right";d3.textContent=ex[2];pat.appendChild(d1);pat.appendChild(d2);pat.appendChild(d3);box2.appendChild(pat);});
+c.appendChild(box2);
+var wrong=document.createElement("div");wrong.style.cssText="background:#fef2f2;border-radius:10px;padding:13px 16px;margin-bottom:8px;border-right:4px solid #dc2626;direction:ltr";
+wrong.innerHTML='<span style="color:#dc2626;font-weight:700">✗ </span>Never I have seen such volatility. <span style="font-size:.8rem;color:#dc2626">← الفاعل قبل المساعد — خطأ شائع!</span>';
+var right=document.createElement("div");right.style.cssText="background:#f0fdf4;border-radius:10px;padding:13px 16px;border-right:4px solid #059669;direction:ltr";
+right.innerHTML='<span style="color:#059669;font-weight:700">✓ </span><strong>Never have I</strong> seen such volatility. <span style="font-size:.8rem;color:#059669">← المساعد أولاً ✅</span>';
+c.appendChild(wrong);c.appendChild(right);}
+function buildGrammarExtra(){var c=document.getElementById("grammarExtra");if(!c)return;var inner=document.createElement("div");inner.className="cb";
+var dm=document.createElement("div");dm.className="gbox";
+var dmt=document.createElement("div");dmt.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:8px;text-align:right";dmt.textContent="٣ — Discourse Markers: روابط الخطاب الأكاديمي";dm.appendChild(dmt);
+var dmi=document.createElement("p");dmi.style.cssText="font-size:.84rem;color:#475569;direction:rtl;text-align:right;margin-bottom:12px;line-height:1.9";dmi.textContent="في مقالات الاقتصاد — اجمع بين الـ Inversion والروابط للحصول على تأثير أكاديمي قوي.";dm.appendChild(dmi);
+var dmRows=[["➕ Adding","Furthermore / Moreover / In addition / What is more","علاوة على ذلك / وفضلاً عن ذلك"],["↔ Contrasting","However / Nevertheless / Whereas / In contrast","لكن / ومع ذلك / في حين أن"],["⚖ Conceding","Admittedly / Even so / Despite this / That said","صحيح أن / ومع ذلك / رغم هذا"],["💡 Emphasising","Indeed / In particular / It is worth noting that","في الواقع / بشكل خاص / تجدر الإشارة"],["🎯 Concluding","Therefore / On balance / It would seem, then, that","لذلك / في المجمل / يبدو إذن أن"]];
+var dtbl=document.createElement("div");dtbl.style.cssText="background:#0a1628;border-radius:10px;padding:14px 18px;direction:ltr;overflow-x:auto";var tbl=document.createElement("table");tbl.style.cssText="width:100%;border-collapse:collapse;font-size:.82rem";var hr=document.createElement("tr");["Function","Markers","العربي"].forEach(function(tx){var th=document.createElement("th");th.textContent=tx;th.style.cssText="padding:5px 8px;text-align:left;color:#fde68a;border-bottom:1px solid rgba(255,255,255,.2)";hr.appendChild(th);});tbl.appendChild(hr);dmRows.forEach(function(row){var tr=document.createElement("tr");tr.style.borderTop="1px solid rgba(255,255,255,.07)";row.forEach(function(cell,ci){var td=document.createElement("td");td.textContent=cell;td.style.cssText="padding:6px 8px;text-align:left;vertical-align:top;color:"+(ci===0?"#f0c040":ci===1?"rgba(255,255,255,.9)":"#93c5fd");tr.appendChild(td);});tbl.appendChild(tr);});dtbl.appendChild(tbl);dm.appendChild(dtbl);inner.appendChild(dm);
+var eb=document.createElement("div");eb.style.cssText="background:linear-gradient(135deg,#fff7ed,#fef3e8);border:2px solid #fed7aa;border-radius:14px;padding:18px 20px;margin-top:14px";
+var ebt=document.createElement("div");ebt.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:6px;text-align:right";ebt.textContent="٤ — أخطاء يقع فيها المتعلم العربي — Inversion";eb.appendChild(ebt);
+var ebi=document.createElement("p");ebi.style.cssText="font-size:.82rem;color:#92400e;direction:rtl;text-align:right;margin-bottom:12px;line-height:1.8";ebi.textContent="الـ Inversion فيه فخاخ خاصة — هذه الأخطاء الأكثر شيوعاً.";eb.appendChild(ebi);
+var errs=[["Never I have seen such volatility.","الفاعل يأتي بعد المساعد في inversion — مو قبله","Never have I seen such volatility."],["Not only inflation rose, but also wages fell.","بعد Not only لازم inversion: Not only did + subject + verb","Not only did inflation rise, but wages also fell."],["Hardly had the bank collapsed when investors panicked.","بعد Hardly... لازم before — لا when","Hardly had the bank collapsed before investors panicked."],["Seldom the government interferes.","بعد seldom لازم مساعد + فاعل","Seldom does the government interfere."],["Not only did he worked hard...","بعد المساعد did — الفعل بدون s أو ed (base form)","Not only did he work hard..."]];
+errs.forEach(function(row){var card=document.createElement("div");card.style.cssText="background:white;border-radius:10px;padding:11px 14px;margin-bottom:8px;border-right:4px solid #dc2626";var w=document.createElement("div");w.style.cssText="color:#dc2626;font-weight:700;font-size:.86rem;margin-bottom:3px;direction:ltr";w.innerHTML='<span style="background:#fef2f2;border-radius:5px;padding:1px 7px">✗</span>  '+row[0];var why=document.createElement("div");why.style.cssText="font-size:.76rem;color:#92400e;direction:rtl;text-align:right;margin:3px 0;font-family:Tajawal,sans-serif";why.textContent="💡 "+row[1];var right=document.createElement("div");right.style.cssText="color:#059669;font-weight:700;font-size:.86rem;direction:ltr";right.innerHTML='<span style="background:#f0fdf4;border-radius:5px;padding:1px 7px">✓</span>  '+row[2];card.appendChild(w);card.appendChild(why);card.appendChild(right);eb.appendChild(card);});inner.appendChild(eb);
+var sb=document.createElement("div");sb.className="gbox";sb.style.marginTop="14px";
+var sbt=document.createElement("div");sbt.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:6px;text-align:right";sbt.textContent="٥ — تحويل الجمل: حوّلها لـ Inversion";sb.appendChild(sbt);
+var sbi=document.createElement("p");sbi.style.cssText="font-size:.82rem;color:#475569;direction:rtl;text-align:right;margin-bottom:12px;line-height:1.8";sbi.textContent="هذا النوع يظهر في Cambridge Key Use of English وفي IELTS — اضغط الجواب للتحقق.";sb.appendChild(sbi);
+var pairs=[["Interest rates have never been so low.","Never have interest rates been so low."],["The bubble inflated, and then it immediately burst.","No sooner had the bubble inflated than it burst."],["Wages fell, and at the same time purchasing power declined.","Not only did wages fall, but purchasing power also declined."],["The bank announced the bailout, and protests immediately began.","Hardly had the bank announced the bailout before protests began."],["The government will not allow monopolies under any conditions.","Under no circumstances will the government allow monopolies."]];
+pairs.forEach(function(pair,ti){var td=document.createElement("div");td.style.cssText="background:white;border-radius:10px;padding:13px 16px;margin-bottom:10px;border-right:4px solid #2563eb";var num=document.createElement("span");num.style.cssText="background:#1e3a8a;color:white;border-radius:5px;padding:1px 8px;font-size:.75rem;font-weight:800;margin-left:8px";num.textContent=ti+1;var orig=document.createElement("div");orig.style.cssText="font-family:Lora,Georgia,serif;color:#374151;font-size:.9rem;direction:ltr;margin-bottom:8px";orig.appendChild(num);orig.appendChild(document.createTextNode(pair[0]));var ab=document.createElement("button");ab.style.cssText="background:#dbeafe;border:none;border-radius:18px;padding:4px 14px;font-family:Tajawal,sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer;transition:all .15s";ab.textContent="💡 الجواب";var ad=document.createElement("div");ad.style.cssText="display:none;background:#f0fdf4;border-radius:8px;padding:10px 13px;margin-top:8px;font-family:Lora,Georgia,serif;font-size:.88rem;color:#059669;direction:ltr;border-right:3px solid #059669";ad.textContent="✓ "+pair[1];ab.addEventListener('click',(function(ad2,ab2){return function(){ad2.style.display=ad2.style.display==='none'?'block':'none';ab2.textContent=ad2.style.display==='block'?'🙈 إخفاء':'💡 الجواب';};})(ad,ab));td.appendChild(orig);td.appendChild(ab);td.appendChild(ad);sb.appendChild(td);});inner.appendChild(sb);c.appendChild(inner);}
+function buildListening(){var s=document.getElementById("listenScript");listenLines.forEach(function(line,i){var d=document.createElement("div");d.className="lline";d.id="ll"+i;if(typeof line==="object"&&line.speaker){var lbl=document.createElement("span");var isJ=line.speaker==="J";lbl.style.cssText="font-size:.7rem;font-weight:800;padding:1px 7px;border-radius:8px;margin-left:6px;"+(isJ?"background:#dbeafe;color:#1e3a8a":"background:#dcfce7;color:#15803d");lbl.textContent=isJ?"Journalist":"Prof. Chen";var txt=document.createElement("span");txt.textContent=line.text;d.appendChild(lbl);d.appendChild(txt);}else{d.appendChild(document.createTextNode(typeof line==="object"?line.text:line));}s.appendChild(d);});var ql=document.getElementById("listenQList");listenQs.forEach(function(q,qi){var d=document.createElement("div");d.style.marginBottom="14px";var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);q.opts.forEach(function(opt,oi){var b=document.createElement("div");b.className="copt";b.id="lq"+qi+"-"+oi;b.textContent=opt;b.addEventListener("click",function(){listenA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("lq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});d.appendChild(b);});ql.appendChild(d);});}
+function setLSpd(r,btn){lspd=r;var p=btn.parentNode;p.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function listenSeq(i){if(!listenOn||i>=listenLines.length){stopListen();return;}document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("ll"+i);if(e)e.classList.add("hl");var line=listenLines[i];var text=typeof line==="object"?line.text:line;var gender=typeof line==="object"?(line.speaker==="J"?"F":"M"):"M";var u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=lspd;var v=getVoice(gender);if(v)u.voice=v;u.pitch=1.0;u.onend=function(){if(listenOn)setTimeout(function(){listenSeq(i+1);},380);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startListen(){listenOn=true;document.getElementById("lIcon").textContent="⏹";document.getElementById("lTxt").textContent="إيقاف الحوار";listenSeq(0);}
+function stopListen(){listenOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});document.getElementById("lIcon").textContent="▶";document.getElementById("lTxt").textContent="شغّل الحوار";}
+function toggleListen(){listenOn?stopListen():startListen();}
+function checkListen(){var s=0;listenQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("lq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(listenA[qi]===i)el.classList.add("no");}if(listenA[qi]===q.ans)s++;});var r=document.getElementById("listenRes");r.style.display="block";var pct=Math.round(s/listenQs.length*100);r.textContent=s+" من "+listenQs.length+" إجابة صحيحة ("+pct+"%) "+(pct>=80?"✅ ممتاز!":pct>=60?"👍 جيد!":"📚 راجع");}
+function resetListen(){listenA=new Array(listenQs.length).fill(null);document.querySelectorAll(".copt[id^='lq']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("listenRes").style.display="none";}
+function buildW(){var ids=["w1","w2","w3","w4","w5"];var any=false;for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value.trim())any=true;}if(!any){document.getElementById("wOut").innerHTML="<span style='color:#9ca3af;font-style:italic'>✨ ستظهر فقرتك هنا...</span>";return;}var parts=[];for(var j=0;j<ids.length;j++){var el=document.getElementById(ids[j]);var v=el?el.value.trim():"";if(v)parts.push("<span style='color:#f0a000;font-weight:700'>"+v+"</span>.");}document.getElementById("wOut").innerHTML="<p style='direction:ltr;line-height:2'>"+parts.join(" ")+"</p>";}
+function buildSpeaking(){var c=document.getElementById("speakBox");speakQs.forEach(function(q){var d=document.createElement("div");d.style.cssText="background:#f8faff;border-right:4px solid #1e3a8a;border-radius:0 12px 12px 0;padding:16px 18px;margin-bottom:14px";var p1=document.createElement("p");p1.style.cssText="font-size:.97rem;color:#0a1628;font-weight:700;direction:ltr;margin-bottom:5px";p1.textContent=q.q;var p2=document.createElement("p");p2.style.cssText="font-size:.82rem;color:#9ca3af;margin-bottom:6px";p2.textContent=q.ar;var p3=document.createElement("p");p3.style.cssText="font-size:.82rem;color:#f0a000;direction:ltr;margin-bottom:8px";p3.textContent="💡 "+q.hint;var badge=document.createElement("span");badge.style.cssText="background:#dbeafe;color:#1e3a8a;padding:4px 12px;border-radius:20px;font-size:.76rem;font-weight:700";badge.textContent=q.badge;d.appendChild(p1);d.appendChild(p2);d.appendChild(p3);d.appendChild(badge);var btn=document.createElement("button");btn.className="spksmall";btn.textContent="🔊";btn.style.marginTop="10px";btn.addEventListener("click",(function(qq){return function(){say(qq,spd);};})(q.q));d.appendChild(btn);c.appendChild(d);});}
+function makeExRow(text,arabic,spkText){var div=document.createElement("div");div.style.cssText="cursor:pointer;user-select:none;padding:8px 12px;background:white;border-radius:8px;direction:ltr;font-size:.86rem;color:#374151;font-style:italic;margin-top:6px";var span=document.createElement("span");span.textContent=text;var tr=document.createElement("div");tr.style.cssText="font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;padding-top:4px;border-top:1px dashed #e5e7eb;display:none;font-family:Tajawal,sans-serif;font-style:normal";tr.textContent=arabic;div.appendChild(span);div.appendChild(tr);div.addEventListener("click",(function(t,s){return function(){t.style.display=t.style.display==="none"?"block":"none";say(s,spd);};})(tr,spkText));return div;}
+function buildReal(){var c=document.getElementById("realBox");var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h1.textContent="🔥 Expressions — اضغط على الجملة لتسمعها وترجمتها";c.appendChild(h1);realExpr.forEach(function(e){var d=document.createElement("div");d.className="expr-card";var header=document.createElement("div");header.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;direction:ltr";var headerLeft=document.createElement("div");headerLeft.style.cssText="display:flex;align-items:center;gap:8px";var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";spkBtn.addEventListener("click",(function(ee){return function(){say(ee,spd);};})(e.e));var titleSpan=document.createElement("span");titleSpan.style.cssText="font-weight:700;color:#4c1d95;font-size:.97rem";titleSpan.textContent=e.e;headerLeft.appendChild(spkBtn);headerLeft.appendChild(titleSpan);var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.78rem;font-weight:700;font-family:Tajawal,sans-serif";pronSpan.textContent=e.p;header.appendChild(headerLeft);header.appendChild(pronSpan);d.appendChild(header);var grid=document.createElement("div");grid.style.cssText="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px";var g1=document.createElement("div");g1.style.cssText="background:white;border-radius:8px;padding:8px 12px;text-align:right";g1.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>المعنى</div><div style='font-weight:700;color:#374151;font-size:.88rem'>"+e.m+"</div>";var g2=document.createElement("div");g2.style.cssText="background:white;border-radius:8px;padding:8px 12px;direction:ltr";g2.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>Formal</div><div style='font-size:.85rem;color:#64748b'>"+e.f+"</div>";grid.appendChild(g1);grid.appendChild(g2);d.appendChild(grid);d.appendChild(makeExRow(e.x,e.xar,e.x));var note=document.createElement("div");note.style.cssText="font-size:.8rem;color:#7c3aed;text-align:right;margin-top:8px";note.textContent="💡 "+e.n;d.appendChild(note);c.appendChild(d);});var h2=document.createElement("p");h2.style.cssText="font-weight:800;color:#0a1628;margin:20px 0 14px;text-align:right";h2.textContent="😎 Idioms & Slang";c.appendChild(h2);var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:20px";realSlang.forEach(function(s){var d=document.createElement("div");d.className="slang-card";var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";var spkS=document.createElement("button");spkS.className="spksmall";spkS.textContent="🔊";spkS.style.cssText="width:28px;height:28px;font-size:.8rem";spkS.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));var sWord=document.createElement("span");sWord.style.cssText="font-weight:700;color:#ea580c;font-size:.9rem";sWord.textContent=s.w;titleLeft.appendChild(spkS);titleLeft.appendChild(sWord);titleRow.appendChild(titleLeft);var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Meaning: "+s.i;d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);d.appendChild(makeExRow(s.x,s.xar,s.x));sg.appendChild(d);});c.appendChild(sg);var h3=document.createElement("p");h3.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h3.textContent="💬 Everyday Phrases";c.appendChild(h3);var ev=document.createElement("div");ev.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";realEvery.forEach(function(s){var d=document.createElement("div");d.className="ev-card";var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;direction:ltr";var titleLeft2=document.createElement("div");titleLeft2.style.cssText="display:flex;align-items:center;gap:6px";var spkE=document.createElement("button");spkE.className="spksmall";spkE.textContent="🔊";spkE.style.cssText="width:28px;height:28px;font-size:.8rem";spkE.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));var titleTxt=document.createElement("span");titleTxt.style.cssText="font-weight:700;color:#15803d;font-size:.9rem";titleTxt.textContent=s.w;titleLeft2.appendChild(spkE);titleLeft2.appendChild(titleTxt);titleRow.appendChild(titleLeft2);var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.m||s.a||"";var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Meaning: "+s.i;d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);d.appendChild(makeExRow(s.x,s.xar,s.x));ev.appendChild(d);});c.appendChild(ev);}
+function buildPhrasal(){var c=document.getElementById("pvBox");if(!c)return;var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";pvData.forEach(function(pv){var d=document.createElement("div");d.className="slang-card";var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";spkBtn.style.cssText="width:28px;height:28px;font-size:.8rem";spkBtn.addEventListener("click",(function(word){return function(e){e.stopPropagation();say(word,spd);};})(pv.v));var pvWord=document.createElement("span");pvWord.style.cssText="font-weight:700;color:#7c3aed;font-size:.95rem";pvWord.textContent=pv.v;titleLeft.appendChild(spkBtn);titleLeft.appendChild(pvWord);var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pronSpan.textContent=pv.p||"";titleRow.appendChild(titleLeft);titleRow.appendChild(pronSpan);var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:6px";ar.textContent=pv.m;var exBox=document.createElement("div");exBox.style.cssText="font-family:'Lora',Georgia,serif;font-style:italic;color:#1e3a8a;font-size:.88rem;direction:ltr;cursor:pointer;padding:8px 10px;background:#f0f9ff;border-radius:8px;border-left:3px solid #7c3aed";exBox.textContent=pv.ex;var trBox=document.createElement("div");trBox.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding:7px 10px;background:#fffdf7;border-radius:8px;border-right:3px solid #fde68a";trBox.textContent=pv.ar;exBox.addEventListener("click",(function(ex,tb){return function(){say(ex,spd);tb.style.display=tb.style.display==="none"?"block":"none";this.style.background=tb.style.display==="block"?"#dbeafe":"#f0f9ff";};})(pv.ex,trBox));d.appendChild(titleRow);d.appendChild(ar);d.appendChild(exBox);d.appendChild(trBox);sg.appendChild(d);});c.appendChild(sg);}
+function buildQuiz(){var c=document.getElementById("quizList");quizQs.forEach(function(q,qi){var d=document.createElement("div");d.style.marginBottom="18px";var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:10px;direction:ltr;font-size:.93rem";p.innerHTML="<span style='background:#0a1628;color:white;border-radius:5px;padding:1px 8px;font-size:.76rem;margin-left:8px'>"+(qi+1)+"</span>"+q.q;d.appendChild(p);q.opts.forEach(function(opt,oi){var b=document.createElement("div");b.className="qopt";b.id="qq"+qi+"-"+oi;b.textContent=opt;b.addEventListener("click",function(){quizA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("qq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});d.appendChild(b);});c.appendChild(d);});}
+function checkQuiz(){var s=0;quizQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("qq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(quizA[qi]===i)el.classList.add("no");}if(quizA[qi]===q.ans)s++;});var pct=Math.round(s/quizQs.length*100);var r=document.getElementById("quizRes");r.style.display="block";document.getElementById("qEmoji").textContent=pct===100?"🏆":pct>=70?"🎉":pct>=50?"💪":"📚";document.getElementById("qScore").textContent=s+" من "+quizQs.length+" إجابة صحيحة ("+pct+"%)";document.getElementById("qMsg").textContent=pct===100?"مثالي! إتقان كامل للـ Inversion":pct>=70?"أحسنت!":pct>=50?"راجع القاعدة.":"راجع الوحدة.";r.style.background=pct>=70?"#f0fdf4":"#fef9f0";r.scrollIntoView({behavior:"smooth",block:"center"});}
+function resetQuiz(){quizA=new Array(quizQs.length).fill(null);document.querySelectorAll(".qopt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("quizRes").style.display="none";}
+function buildAssessment(){var c=document.getElementById("assessList");if(!c)return;assessItems.forEach(function(item,i){var d=document.createElement("div");d.style.cssText="display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border-radius:10px;margin-bottom:8px;background:#f8faff;border:1.5px solid #e5eaf5;cursor:pointer;transition:all .15s;flex-direction:row-reverse";var cb=document.createElement("input");cb.type="checkbox";cb.id="as"+i;cb.style.cssText="width:18px;height:18px;cursor:pointer;accent-color:#1e3a8a;flex-shrink:0;margin-top:2px";var lbl=document.createElement("label");lbl.htmlFor="as"+i;lbl.style.cssText="font-size:.88rem;color:#374151;direction:rtl;text-align:right;cursor:pointer;line-height:1.8;flex:1";lbl.textContent=item;cb.addEventListener('change',function(){d.style.background=this.checked?'#f0fdf4':'#f8faff';d.style.borderColor=this.checked?'#86efac':'#e5eaf5';updateAssess();});d.appendChild(lbl);d.appendChild(cb);c.appendChild(d);});}
+function updateAssess(){var total=assessItems.length;var done=document.querySelectorAll('#assessList input:checked').length;var r=document.getElementById('assessResult');r.style.display='block';var pct=Math.round(done/total*100);var msg=pct===100?'🏆 B2 Economics حقيقي!':pct>=75?'🎉 قريب! كمّل تدريبك':pct>=50?'💪 نصف الطريق — استمر':pct>0?'📚 حدّد ما تحتاج للتركيز عليه':'👆 خلّيني أعرف أين أنت الآن';r.style.background=pct>=75?'#f0fdf4':pct>=50?'#fefce8':'#f8faff';r.innerHTML='<div style="font-size:1.4rem;margin-bottom:6px">'+msg.split(' ')[0]+'</div><div style="font-weight:800;color:#0a1628;margin-bottom:3px">'+done+' من '+total+' هدف محقَّق ('+pct+'%)</div><div style="font-size:.82rem;color:#64748b">'+msg.substring(msg.indexOf(' ')+1)+'</div>';}
+buildVocab();
+setTimeout(function(){document.querySelectorAll('.vword').forEach(function(e){var ov=e.scrollWidth-e.clientWidth;if(ov>4){e.style.setProperty('--vtx','-'+(ov+2)+'px');e.classList.add('mq');}});},500);buildStory();buildReading();buildGrammar();buildGrammarExtra();buildListening();buildSpeaking();buildReal();buildPhrasal();buildQuiz();buildAssessment();
+if(window.speechSynthesis){window.speechSynthesis.onvoiceschanged=function(){};window.speechSynthesis.getVoices();}
+</script>
+</body>
+</html>

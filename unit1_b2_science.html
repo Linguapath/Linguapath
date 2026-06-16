@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath B2 — Unit 1: Science and Innovation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap"></noscript>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Tajawal',system-ui,-apple-system,sans-serif;background:#f0f4fa;direction:rtl;min-height:100vh}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#1e3a8a;border-radius:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(30,58,138,.35)}50%{box-shadow:0 0 0 8px rgba(30,58,138,0)}}
+.nav-bar{background:linear-gradient(135deg,#0a1628,#1e3a8a);padding:10px 12px;display:flex;justify-content:center;gap:4px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.nb{border:none;border-radius:22px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s}
+.nb.on{background:#f0a000;color:#0a1628}
+.nb:not(.on){background:rgba(255,255,255,.1);color:rgba(255,255,255,.85)}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#1e3a8a 55%,#1d4ed8 100%);color:white;padding:32px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(240,160,0,.06)}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04)}
+.lvltag{display:inline-block;background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-size:.72rem;font-weight:900;padding:4px 14px;border-radius:20px;letter-spacing:1.5px;margin-bottom:10px}
+.sec{display:none;max-width:900px;margin:0 auto;padding:32px 16px 80px;animation:fadeUp .4s ease}
+.sec.on{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 3px 20px rgba(0,0,0,.06);margin-bottom:22px;overflow:hidden}
+.ch{background:#0a1628;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.ch h3{font-size:1rem;font-weight:700}
+.ch .sub{font-size:.75rem;color:#93c5fd;margin-top:1px}
+.cb{padding:22px}
+.vocab-card{background:white;border-radius:16px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 14px rgba(10,22,40,.08);border:1px solid #e5ebf8;transition:transform .2s,box-shadow .2s}
+.vocab-card:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(10,22,40,.13)}
+.vhead{background:linear-gradient(135deg,#0a1628,#1e3a8a);display:flex;flex-direction:row-reverse;align-items:center;padding:14px 18px;gap:14px}
+.vinfo{flex:1;text-align:right}
+.vword{font-family:'Lora',Georgia,serif;font-size:1.18rem;font-weight:700;color:white;direction:ltr;text-align:left}
+.vpron{font-size:.78rem;font-weight:700;color:#fde68a;margin-top:3px;direction:ltr;text-align:left}
+.var{font-size:.93rem;font-weight:700;color:rgba(255,255,255,.9);margin-top:3px}
+.vspk{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.25);background:transparent;color:white;font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:all .18s;display:flex;align-items:center;justify-content:center}
+.vspk:hover{background:rgba(255,255,255,.2);transform:scale(1.08)}
+.vspk.playing{background:#f0a000;border-color:#f0a000;animation:pulse 1s infinite}
+.vbody{padding:14px 16px 16px}
+.vgrid2{margin-bottom:10px}
+.vrow-pair{display:flex;gap:8px;margin-bottom:8px}
+.vrow-pair .vcell{flex:1;min-width:0}
+.vcell{border-radius:10px;padding:10px 13px;cursor:pointer;transition:all .15s;user-select:none;direction:ltr}
+.vcell:hover{filter:brightness(.96)}
+.vcell:active{transform:scale(.98)}
+.c-syn{background:#f0fdf4;border:1px solid #bbf7d0}
+.c-ant{background:#fff7ed;border:1px solid #fed7aa}
+.c-col{background:#eff6ff;border:1px solid #bfdbfe}
+.c-prep{background:#faf5ff;border:1px solid #ddd6fe}
+.c-fam{background:#fefce8;border:1px solid #fde68a}
+.vlbl{font-size:.65rem;font-weight:900;letter-spacing:.7px;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:5px;direction:ltr;justify-content:flex-start}
+.c-syn .vlbl{color:#15803d}.c-ant .vlbl{color:#ea580c}
+.c-col .vlbl{color:#2563eb}.c-prep .vlbl{color:#7c3aed}
+.c-fam .vlbl{color:#b45309}
+.vlbl::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.c-syn .vlbl::before{background:#15803d}.c-ant .vlbl::before{background:#ea580c}
+.c-col .vlbl::before{background:#2563eb}.c-prep .vlbl::before{background:#7c3aed}
+.c-fam .vlbl::before{background:#b45309}
+.vval{font-family:'Lora',serif;font-size:.82rem;color:#374151;direction:ltr;line-height:1.6}
+.vtr{font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px;padding-top:5px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif}
+.vcell.show-tr .vtr{display:block}
+.vex{font-family:'Lora',serif;font-size:.87rem;color:#374151;direction:ltr;font-style:italic;padding:10px 14px;background:#f8faff;border-radius:10px;border-right:3px solid #f0a000;cursor:pointer;user-select:none}
+.vex-tr{font-size:.8rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding-top:6px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif;font-style:normal}
+.vex.show-ex-tr .vex-tr{display:block}
+.vcat{display:flex;align-items:center;justify-content:flex-end;gap:12px;margin:28px 4px 14px;padding-bottom:8px;border-bottom:2px solid #dbe4f3}
+.vcat-en{font-family:'Lora',serif;font-weight:700;color:#0a1628;font-size:1.05rem;direction:ltr}
+.vcat-ar{font-size:.85rem;color:#64748b}
+.vcat-num{background:linear-gradient(135deg,#0a1628,#1e3a8a);color:#fff;width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;flex-shrink:0}
+.sline{font-family:'Lora',serif;font-size:.97rem;line-height:2;padding:5px 8px;border-radius:6px;direction:ltr;transition:background .2s}
+.sline.hl{background:#fef3c7}
+.lline{font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#cbd5e1;padding:3px 6px;border-radius:5px;direction:ltr;transition:background .2s}
+.lline.hl{background:rgba(240,160,0,.18);color:#fde68a}
+.sctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-direction:row-reverse;margin-bottom:16px}
+.pbtn{background:#1e3a8a;color:white;border:none;border-radius:24px;padding:9px 20px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s}
+.pbtn:hover{background:#1d4ed8}
+.spdbtn{padding:5px 12px;border-radius:18px;border:2px solid #cbd5e1;background:white;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;color:#64748b;transition:all .15s}
+.spdbtn.on{border-color:#1e3a8a;background:#1e3a8a;color:white}
+.rtext{font-family:'Lora',Georgia,serif;font-size:.95rem;line-height:2;color:#374151;direction:ltr;padding:20px;background:#f8faff;border-radius:14px;border:1px solid #e5eaf5;margin-bottom:18px}
+.rtext p{margin-bottom:14px}
+.gbox{background:linear-gradient(135deg,#eff6ff,#e0effe);border:2px solid #bfdbfe;border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.gpat{background:white;border-radius:10px;padding:12px 16px;margin-bottom:10px;border-right:4px solid #2563eb;direction:ltr}
+.geg{font-family:'Lora',serif;font-size:.97rem;color:#0a1628;font-weight:600}
+.geg em{color:#f0a000;font-style:normal;font-weight:800}
+.gar{font-family:'Tajawal',sans-serif;font-size:.85rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px}
+.qopt{padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;font-family:'Lora',serif;font-size:.9rem;direction:ltr;background:white;transition:all .15s;margin-bottom:7px;text-align:left}
+.qopt:hover{border-color:#1e3a8a;background:#eff6ff}
+.qopt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.qopt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.copt{padding:9px 14px;border:2px solid #e5e7eb;border-radius:9px;cursor:pointer;font-family:'Lora',serif;font-size:.87rem;direction:ltr;background:white;transition:all .15s;margin-bottom:6px}
+.copt:hover{border-color:#1e3a8a;background:#eff6ff}
+.copt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.copt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.wq-block{margin-bottom:18px}
+.wq-model{font-family:'Lora',serif;font-size:.8rem;color:#374151;font-style:italic;direction:ltr;padding:10px 14px;background:#f0f9ff;border-radius:8px;border-right:3px solid #bfdbfe;line-height:1.7;display:none;margin-bottom:8px}
+.wq-model.show{display:block}
+.wq-model-btn{background:#dbeafe;border:none;border-radius:20px;padding:4px 14px;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer;margin-bottom:8px;transition:all .15s}
+.wq-model-btn:hover{background:#1e3a8a;color:white}
+.wq-en{font-family:'Lora',serif;font-size:.93rem;font-weight:700;color:#0a1628;direction:ltr;margin-bottom:3px}
+.wq-ar{font-size:.78rem;color:#9ca3af;direction:rtl;text-align:right;margin-bottom:8px;font-family:'Tajawal',sans-serif}
+.winput{width:100%;border:none;border-bottom:2px solid #f0a000;background:transparent;font-family:'Lora',serif;font-size:.95rem;color:#0a1628;outline:none;padding:5px 3px;direction:ltr;margin-bottom:14px}
+.winput:focus{border-color:#1e3a8a}
+.ielts-tip{background:linear-gradient(135deg,#0a1628,#1e3a8a);color:#fff;border-radius:14px;padding:16px 20px;margin-bottom:18px}
+.ielts-tip .ielts-badge{display:inline-block;background:#f0a000;color:#0a1628;font-size:.7rem;font-weight:900;padding:3px 11px;border-radius:12px;letter-spacing:.5px;margin-bottom:9px}
+.ielts-tip h4{color:#fde68a;font-size:.92rem;margin-bottom:8px;text-align:right;font-weight:800}
+.ielts-tip ul{list-style:none;padding:0;margin:0}
+.ielts-tip li{font-size:.83rem;line-height:1.95;color:rgba(255,255,255,.92);text-align:right;padding-right:18px;position:relative;margin-bottom:3px}
+.ielts-tip li::before{content:'◂';color:#f0a000;position:absolute;right:0;font-size:.7rem;top:3px}
+.btn{border:none;border-radius:28px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all .18s;padding:10px 24px;font-size:.9rem}
+.btn:hover{opacity:.88;transform:scale(.98)}
+.bd{background:#1e3a8a;color:white}
+.bg{background:#e5e7eb;color:#374151}
+.bgold{background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-weight:900}
+.navrow{display:flex;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.spksmall{width:32px;height:32px;border-radius:50%;border:none;background:#dbeafe;color:#1e3a8a;font-size:.85rem;cursor:pointer;flex-shrink:0;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.spksmall:hover{background:#1e3a8a;color:white}
+.expr-card{background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:16px;margin-bottom:12px}
+.slang-card{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px}
+.ev-card{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px}
+.card-title{font-weight:800;color:#0a1628;font-size:1rem;text-align:right;margin-bottom:6px}
+@media(max-width:580px){.vgrid2{grid-template-columns:1fr}}
+.vword{white-space:nowrap;overflow:hidden}.vword.mq{animation:vwmq 6s ease-in-out .5s infinite alternate;display:inline-block}@keyframes vwmq{0%,25%{transform:translateX(0)}75%,100%{transform:translateX(var(--vtx,0px))}}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <button class="nb on"  onclick="show('vocab',this)">📚 المفردات</button>
+  <button class="nb" onclick="show('story',this)">📖 القصة</button>
+  <button class="nb" onclick="show('reading',this)">📰 القراءة</button>
+  <button class="nb" onclick="show('grammar',this)">✏️ القاعدة</button>
+  <button class="nb" onclick="show('listening',this)">🎧 الاستماع</button>
+  <button class="nb" onclick="show('writing',this)">✍️ الكتابة</button>
+  <button class="nb" onclick="show('speaking',this)">💬 المحادثة</button>
+  <button class="nb" onclick="show('realeng',this)">🗣️ Real English</button>
+  <button class="nb" onclick="show('pv',this)">💬 Phrasal Verbs</button>
+  <button class="nb" onclick="show('quiz',this)">✅ الاختبار</button>
+</div>
+<div class="hero">
+  <div class="lvltag">B2 — UPPER INTERMEDIATE</div>
+  <div style="font-size:.75rem;letter-spacing:3px;color:rgba(255,255,255,.45);font-weight:700;margin-bottom:8px">UNIT 1</div>
+  <h1 style="font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;margin-bottom:6px">Science and Innovation</h1>
+  <p style="font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:4px">العلم والابتكار</p>
+  <p style="font-size:.82rem;color:rgba(255,255,255,.4)">القاعدة: Impersonal Structures — It is said that / It is believed that / X is thought to be</p>
+  <div style="display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap">
+    <a href="index.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">← الفهرس</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="unit2_b2_economics.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">الوحدة ٢ ←</a>
+  </div>
+</div>
+
+<div id="sec-vocab" class="sec on">
+  <div style="text-align:right;color:#64748b;font-size:.88rem;max-width:900px;margin:0 auto 16px;padding:0 16px">💡 المعنى العربي للكلمة ثابت دائماً — اضغط 🔊 للنطق، واضغط أي خلية لتسمع وتظهر الترجمة</div>
+  <div id="vocabList" style="max-width:900px;margin:0 auto;padding:0 16px"></div>
+  <div class="navrow"><button class="btn bd" onclick="show('story',null)">القصة ←</button></div>
+</div>
+
+<div id="sec-story" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📖</span><div><h3>القصة القصيرة</h3><div class="sub">قصة عن العلم والشك والاكتشاف — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button id="trBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:22px;padding:7px 16px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+        <button class="pbtn" id="storyBtn" onclick="toggleStory()"><span id="sIcon">▶</span><span id="sTxt">استمع للقصة</span></button>
+        <button class="spdbtn on" onclick="setSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setSpd(0.75,this)">بطيء</button>
+      </div>
+      <div id="storyBox" style="border-right:4px solid #f0a000;padding:16px 20px;background:#fffdf7;border-radius:0 14px 14px 0"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn bd" onclick="show('reading',null)">القراءة ←</button>
+  </div>
+</div>
+
+<div id="sec-reading" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📰</span><div><h3>القراءة المعمّقة</h3><div class="sub">نص ~480 كلمة + 5 أسئلة استنتاجية</div></div></div>
+    <div class="cb">
+      <div class="rtext" id="readingText"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الفهم والاستنتاج</p>
+      <div id="compList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkComp()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetComp()">↺ إعادة</button>
+      </div>
+      <div id="compRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('story',null)">→ القصة</button>
+    <button class="btn bd" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✏️</span><div><h3>القاعدة</h3><div class="sub">Impersonal Structures — الصيغ غير الشخصية</div></div></div>
+    <div class="cb" id="grammarBox"></div>
+  </div>
+  <div class="card" id="grammarExtra"></div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('reading',null)">→ القراءة</button>
+    <button class="btn bd" onclick="show('listening',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listening" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🎧</span><div><h3>الاستماع المضمّن</h3><div class="sub">حوار: صحفي علمي 🎙️ × د. حسن 👨‍🔬 — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button class="pbtn" id="listenBtn" onclick="toggleListen()"><span id="lIcon">▶</span><span id="lTxt">شغّل الحوار</span></button>
+        <button class="spdbtn on" onclick="setLSpd(1,this)">عادي</button>
+        <span style="font-size:.72rem;color:#64748b;font-family:Tajawal,sans-serif;padding:4px 10px;background:#f1f5f9;border-radius:12px">🔊 يعمل بـ Safari</span>
+        <button class="spdbtn" onclick="setLSpd(0.75,this)">بطيء</button>
+      </div>
+      <div class="lscript" id="listenScript" style="background:#0f172a;border-radius:14px;padding:18px 20px;margin-bottom:16px"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الاستماع</p>
+      <div id="listenQList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkListen()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetListen()">↺ إعادة</button>
+      </div>
+      <div id="listenRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+      <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:14px;padding:20px;margin-top:18px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-direction:row-reverse">
+          <div style="text-align:right">
+            <div style="font-weight:800;color:white;font-size:.95rem">🌍 Authentic Listening</div>
+            <div style="font-size:.78rem;color:#93c5fd;margin-top:2px">استمع لإنجليزي حقيقي — اختر فيديو وركّز على الأسئلة أدناه</div>
+          </div>
+          <span style="background:#f0a000;color:#0a1628;font-size:.7rem;font-weight:900;padding:3px 11px;border-radius:12px">B2 · Science</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:16px">
+          <a href="https://youtu.be/JDBkeYSxPtY" onclick="window.location.href='https://youtu.be/JDBkeYSxPtY';return false;" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:14px;text-decoration:none;display:block;transition:all .2s" onmouseover="this.style.background='rgba(255,255,255,.14)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
+            <div style="color:#f0a000;font-size:.72rem;font-weight:800;margin-bottom:4px">YouTube · Science 🔬</div>
+            <div style="color:white;font-weight:700;font-size:.88rem;margin-bottom:3px">فيديو ١ — اضغط للمشاهدة</div>
+            <div style="color:rgba(255,255,255,.6);font-size:.76rem">youtu.be/JDBkeYSxPtY</div><div style="color:rgba(255,255,255,.35);font-size:.65rem;margin-top:4px;word-break:break-all;direction:ltr">youtu.be/JDBkeYSxPtY</div>
+            <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">
+              <span style="background:rgba(240,160,0,.2);color:#fde68a;font-size:.68rem;padding:2px 8px;border-radius:10px">⭐⭐⭐ B2</span>
+              <span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:.68rem;padding:2px 8px;border-radius:10px">🇺🇸 American</span>
+            </div>
+          </a>
+          <a href="https://youtu.be/GyN2RhbhiEU" onclick="window.location.href='https://youtu.be/GyN2RhbhiEU';return false;" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:14px;text-decoration:none;display:block;transition:all .2s" onmouseover="this.style.background='rgba(255,255,255,.14)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
+            <div style="color:#f0a000;font-size:.72rem;font-weight:800;margin-bottom:4px">YouTube · Science 🔬</div>
+            <div style="color:white;font-weight:700;font-size:.88rem;margin-bottom:3px">فيديو ٢ — اضغط للمشاهدة</div>
+            <div style="color:rgba(255,255,255,.6);font-size:.76rem">Animated — clear & slow</div>
+            <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">
+              <span style="background:rgba(240,160,0,.2);color:#fde68a;font-size:.68rem;padding:2px 8px;border-radius:10px">⭐⭐ B2 easy</span>
+              <span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:.68rem;padding:2px 8px;border-radius:10px">🌍 Neutral</span>
+            </div>
+          </a>
+          <a href="https://youtu.be/Kq7NHoRnSF4" onclick="window.location.href='https://youtu.be/Kq7NHoRnSF4';return false;" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:14px;text-decoration:none;display:block;transition:all .2s" onmouseover="this.style.background='rgba(255,255,255,.14)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
+            <div style="color:#f0a000;font-size:.72rem;font-weight:800;margin-bottom:4px">YouTube · Science 🔬</div>
+            <div style="color:white;font-weight:700;font-size:.88rem;margin-bottom:3px">Science & Ideas — Short Series</div>
+            <div style="color:rgba(255,255,255,.6);font-size:.76rem">youtu.be/Kq7NHoRnSF4</div><div style="color:rgba(255,255,255,.35);font-size:.65rem;margin-top:4px;word-break:break-all;direction:ltr">youtu.be/Kq7NHoRnSF4</div>
+            <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">
+              <span style="background:rgba(240,160,0,.2);color:#fde68a;font-size:.68rem;padding:2px 8px;border-radius:10px">⭐⭐⭐ B2+</span>
+              <span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:.68rem;padding:2px 8px;border-radius:10px">🇬🇧 British</span>
+            </div>
+          </a>
+        </div>
+        <div style="background:rgba(255,255,255,.07);border-radius:10px;padding:14px 16px">
+          <div style="font-size:.8rem;font-weight:800;color:#fde68a;margin-bottom:8px;text-align:right">🎯 أسئلة التركيز — قبل ما تشاهد، اقرأ هذه الأسئلة:</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.85);direction:rtl;text-align:right;line-height:2">
+            <div>١ — ما الهدف الرئيسي للمتحدث؟ هل يُقنع، يُعلّم، أم يُحذّر؟</div>
+            <div>٢ — استمع لـ Impersonal Structures. كم مرة سمعت it is said / believed / argued؟</div>
+            <div>٣ — ما الكلمات من الوحدة التي سمعتها؟ دوّنها.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn bd" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✍️</span><div><h3>الكتابة — IELTS Writing Task 2</h3><div class="sub">مقالات أكاديمية عن العلم والتقنية</div></div></div>
+    <div class="cb">
+      <div class="ielts-tip">
+        <span class="ielts-badge">IELTS · TASK 2</span>
+        <h4>📋 كيف تدرّب نفسك للكتابة</h4>
+        <ul>
+          <li>اكتب ٢٥٠+ كلمة خلال ٤٠ دقيقة بالضبط — وقّت نفسك دائماً</li>
+          <li>البنية: مقدمة (أعد صياغة السؤال + موقفك) ← فقرتا جسم (فكرة + شرح + مثال) ← خاتمة</li>
+          <li>استخدم الـ Impersonal Structures — ترفع درجة Grammatical Range وتعطي نبرة أكاديمية محايدة</li>
+          <li>استخدم collocations الوحدة (scientific evidence, peer review…) لرفع Lexical Resource</li>
+        </ul>
+      </div>
+      <div style="background:#fffdf7;border:2px dashed #f0a000;border-radius:14px;padding:20px;margin-bottom:14px">
+        <div class="wq-block">
+          <div class="wq-en">Some people believe scientific research should be funded by governments rather than private companies. To what extent do you agree or disagree?</div>
+          <div class="wq-ar">يرى البعض أن البحث العلمي ينبغي أن تموّله الحكومات لا الشركات الخاصة. إلى أي مدى توافق؟ (Opinion essay)</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">It is often argued that government funding keeps science independent, and to a large extent I agree. When research is financed privately, it is feared that profit, not truth, sets the agenda. It is widely accepted that breakthroughs in basic science — the kind with no immediate commercial value — are precisely those the market will not support. That said, it cannot be denied that private funding drives rapid innovation. It would seem, therefore, that the wisest system combines public funding for fundamental research with private investment for its application.</div>
+          <input class="winput" id="w1" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Some argue the benefits of artificial intelligence outweigh its risks, while others disagree. Discuss both views and give your opinion.</div>
+          <div class="wq-ar">ناقش الرأيين حول فوائد ومخاطر الذكاء الاصطناعي وأعطِ رأيك. (Discuss both views)</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">It is predicted that AI will transform medicine, transport, and education, and supporters point to these gains as decisive. It is also claimed that automation will free people from dangerous and repetitive work. Critics, however, warn of unintended consequences: it is feared that millions of jobs will disappear before new ones emerge. In my view, the technology is neither good nor bad in itself. It is increasingly recognised that the real question is one of regulation and accountability — and it would seem that we are answering it too slowly.</div>
+          <input class="winput" id="w2" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">What are the advantages and disadvantages of rapid technological progress?</div>
+          <div class="wq-ar">ما مزايا وعيوب التقدّم التقني السريع؟ (Advantages / disadvantages)</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">The advantages of rapid progress are obvious. It is widely accepted that new technologies raise living standards, cure disease, and connect the world. Yet the disadvantages are equally real. It is frequently observed that progress brings unintended consequences, from pollution to misinformation, and it has been suggested that change now outpaces our ability to regulate it. It is worth noting that what is cutting-edge today is obsolete tomorrow. On balance, progress is welcome — provided that ethics and oversight are not left behind.</div>
+          <input class="winput" id="w3" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Misinformation about science is spreading rapidly. What are the causes, and what can be done?</div>
+          <div class="wq-ar">المعلومات المضللة حول العلم تنتشر بسرعة. ما الأسباب وما الحلول؟ (Problem / solution)</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">It is feared that misinformation now spreads faster than any correction. Several causes can be identified: social media rewards drama over accuracy, and it is often forgotten that scientific consensus rests on evidence, not on confident assertion. It has also been suggested that low scientific literacy leaves the public vulnerable. As for solutions, it is widely agreed that education is the foundation. It is argued, further, that transparency from scientists and accountability from platforms are both essential. Only when good information is easier to find than bad will the problem ease.</div>
+          <input class="winput" id="w4" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block" style="margin-bottom:0">
+          <div class="wq-en">Some say traditional skills are becoming obsolete because of technology. Is this a positive or negative development?</div>
+          <div class="wq-ar">يقول البعض إن المهارات التقليدية تندثر بسبب التقنية. هل هذا تطور إيجابي أم سلبي؟ (Direct question)</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">It is undeniable that technology is making some skills obsolete; few would now learn to navigate by the stars. On balance, I regard this as positive, though not without cost. It is generally accepted that automation frees us to focus on higher tasks, and it is argued that every generation has feared the loss of skills it later did not miss. Yet it is worth noting that something is lost when a craft disappears entirely. It would seem, then, that the goal should be to preserve what is valuable while embracing what is genuinely better.</div>
+          <input class="winput" id="w5" placeholder="Write your answer here..." oninput="buildW()" style="margin-bottom:0">
+        </div></div>
+      <div id="wOut" style="background:white;border:1px solid #e5eaf5;border-radius:12px;padding:16px;min-height:70px;font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#374151;direction:ltr">
+        <span style="color:#9ca3af;font-style:italic">✨ ستظهر فقرتك هنا...</span>
+      </div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('listening',null)">→ الاستماع</button>
+    <button class="btn bd" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">💬</span><div><h3>المحادثة — IELTS Speaking</h3><div class="sub">Part 1 · Part 2 (cue card) · Part 3</div></div></div>
+    <div class="cb">
+      <div class="ielts-tip">
+        <span class="ielts-badge">IELTS · SPEAKING</span>
+        <h4>🎙️ كيف تدرّب نفسك للمحادثة</h4>
+        <ul>
+          <li>Part 2: عندك دقيقة تحضير + دقيقتان كلام متواصل — سجّل صوتك واسمع نفسك بعدين</li>
+          <li>Part 3: جاوب مطوّل (٣-٤ جمل): رأي + سبب + مثال</li>
+          <li>ابدأ بعبارة impersonal (It is often said that…) — تعطي نبرة C1 وتكسبك وقت تفكير</li>
+        </ul>
+      </div>
+      <div id="speakBox"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn bd" onclick="show('realeng',null)">Real English ←</button>
+  </div>
+</div>
+
+<div id="sec-realeng" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🗣️</span><div><h3>Real English</h3><div class="sub">اضغط على الجملة لتسمعها وتظهر ترجمتها</div></div></div>
+    <div class="cb" id="realBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn bd" onclick="show('pv',null)">Phrasal Verbs ←</button>
+  </div>
+</div>
+
+<div id="sec-pv" class="sec">
+  <div class="card">
+    <div class="cb">
+      <div class="card-title">💬 Phrasal Verbs — العلم والبحث</div>
+      <p style="font-size:.82rem;color:#64748b;text-align:right;margin-bottom:16px;font-family:Tajawal,sans-serif">اضغط على الجملة لتسمعها وترى ترجمتها 🔊</p>
+      <div id="pvBox"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('realeng',null)">→ Real English</button>
+    <button class="btn bd" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-quiz" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✅</span><div><h3>اختبار الوحدة</h3><div class="sub">10 أسئلة — مفردات + impersonal structures + collocations</div></div></div>
+    <div class="cb">
+      <div id="quizList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:18px">
+        <button class="btn bgold" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn bg" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizRes" style="display:none;text-align:center;padding:22px;margin-top:16px;background:#f0fdf4;border-radius:14px">
+        <div id="qEmoji" style="font-size:2.5rem;margin-bottom:8px"></div>
+        <div id="qScore" style="font-weight:800;font-size:1.1rem;color:#0a1628;margin-bottom:4px"></div>
+        <div id="qMsg" style="font-size:.88rem;color:#64748b"></div>
+      </div>
+    </div>
+  
+  <div class="card" style="margin-top:8px">
+    <div class="ch"><span style="font-size:1.3rem">🎯</span><div><h3>هل أستطيع...؟</h3><div class="sub">قيّم نفسك بصدق — CEFR B2 Self-Assessment</div></div></div>
+    <div class="cb">
+      <p style="font-size:.84rem;color:#64748b;direction:rtl;text-align:right;margin-bottom:16px;line-height:1.9">ضع علامة ✅ على كل هدف تشعر أنك حققته فعلاً — مو بس درسته. هذا ما يُميّز المتعلم الحقيقي.</p>
+      <div id="assessList"></div>
+      <div id="assessResult" style="display:none;margin-top:16px;padding:16px;border-radius:12px;text-align:center"></div>
+    </div>
+  </div>
+  </div>
+  <div style="background:linear-gradient(135deg,#0a1628,#1e3a8a);border-radius:18px;padding:28px;text-align:center;margin-top:8px;max-width:900px;margin-left:auto;margin-right:auto">
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:white;margin-bottom:6px">أحسنت! أكملت وحدة Science and Innovation</div>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:16px">الوحدة الثانية: Economics and Markets</p>
+    <button class="btn bgold" onclick="location.href='unit2_b2_economics.html'">الوحدة ٢ ←</button>
+  </div>
+</div>
+
+<script>
+var V=[
+  {cat:"Scientific Method",catAr:"المنهج العلمي",w:"hypothesis",p:"هايبوثيسِس",a:"فرضية",syn:"theory, proposition, assumption",ant:"proven fact, certainty",col:"test a hypothesis / formulate a hypothesis / null hypothesis",prep:"hypothesis about (X) / based on (data)",fam:"hypothesise (v) · hypothesis (n) · hypothetical (adj)",ex:"It is widely believed that a good hypothesis must be testable and capable of being proven wrong.",ar_syn:"نظرية، اقتراح، افتراض",ar_ant:"حقيقة مُثبَتة، يقين",ar_col:"يختبر فرضية / يصوغ / الفرضية الصفرية",ar_prep:"فرضية حول (س) / مبنية على بيانات",ar_fam:"يفترض · فرضية · افتراضي",ar_ex:"يُعتقد على نطاق واسع أن الفرضية الجيدة يجب أن تكون قابلة للاختبار وقابلة لأن تُثبَت خاطئة."},
+  {cat:"Scientific Method",catAr:"المنهج العلمي",w:"experiment",p:"إكسبيرمِنت",a:"تجربة",syn:"trial, test, investigation",ant:"speculation, guesswork",col:"conduct an experiment / controlled experiment / experiment fails",prep:"experiment on (subjects) / with (materials)",fam:"experiment (v/n) · experimental (adj) · experimentation (n)",ex:"It is said that a single well-designed experiment can overturn decades of assumption.",ar_syn:"تجربة، اختبار، تحرٍّ",ar_ant:"تكهّن، تخمين",ar_col:"يُجري تجربة / تجربة مضبوطة / تفشل",ar_prep:"تجربة على (مفحوصين) / بـ (مواد)",ar_fam:"يجرّب · تجريبي · إجراء التجارب",ar_ex:"يُقال إن تجربة واحدة مُصمَّمة جيداً قد تُسقِط عقوداً من الافتراض."},
+  {cat:"Scientific Method",catAr:"المنهج العلمي",w:"evidence",p:"إفيدِنس",a:"دليل / أدلة",syn:"proof, data, findings",ant:"speculation, assumption",col:"scientific evidence / compelling evidence / lack of evidence",prep:"evidence for/of (X) / against (a claim)",fam:"evident (adj) · evidently (adv) · evidence (n)",ex:"It has been suggested that extraordinary claims require extraordinarily strong evidence.",ar_syn:"برهان، بيانات، نتائج",ar_ant:"تكهّن، افتراض",ar_col:"دليل علمي / دامغ / غياب الدليل",ar_prep:"دليل على (س) / ضدّ ادّعاء",ar_fam:"واضح · بوضوح · دليل",ar_ex:"اقتُرح أن الادّعاءات الاستثنائية تتطلّب أدلّة قوية بشكل استثنائي."},
+  {cat:"Scientific Method",catAr:"المنهج العلمي",w:"peer review",p:"بير ريفيو",a:"مراجعة الأقران",syn:"expert evaluation, refereeing",ant:"self-publication, unverified claim",col:"undergo peer review / peer-reviewed journal / pass peer review",prep:"review by (experts) / before (publication)",fam:"peer (n) · review (v/n) · reviewer (n)",ex:"It is generally accepted that no study should be trusted until it has passed peer review.",ar_syn:"تقييم الخبراء، التحكيم",ar_ant:"النشر الذاتي، ادّعاء غير مُتحقَّق",ar_col:"يخضع للمراجعة / مجلة محكّمة / يجتاز",ar_prep:"مراجعة من قِبل (خبراء) / قبل النشر",ar_fam:"قرين · يراجع · مراجِع",ar_ex:"من المقبول عموماً ألّا يُوثَق بأي دراسة حتى تجتاز مراجعة الأقران."},
+  {cat:"Scientific Method",catAr:"المنهج العلمي",w:"replication",p:"ريبليكيشن",a:"تكرار التجربة",syn:"reproduction, repeat study",ant:"one-off result, anomaly",col:"independent replication / replication crisis / fail to replicate",prep:"replication of (results) / across (labs)",fam:"replicate (v) · replication (n) · replicable (adj)",ex:"It is now understood that a finding which cannot be replicated should be treated with caution.",ar_syn:"إعادة إنتاج، دراسة مُكرَّرة",ar_ant:"نتيجة لمرة واحدة، شذوذ",ar_col:"تكرار مستقل / أزمة التكرار / يفشل في التكرار",ar_prep:"تكرار (نتائج) / عبر (مختبرات)",ar_fam:"يكرّر · تكرار · قابل للتكرار",ar_ex:"بات مفهوماً الآن أن النتيجة التي لا يمكن تكرارها ينبغي التعامل معها بحذر."},
+  {cat:"Scientific Method",catAr:"المنهج العلمي",w:"variable",p:"فيريبِل",a:"متغيّر",syn:"factor, parameter, element",ant:"constant",col:"control a variable / dependent variable / confounding variable",prep:"variable in (an experiment) / between (groups)",fam:"vary (v) · variable (n/adj) · variation (n)",ex:"It is essential that every variable except the one being tested be held constant.",ar_syn:"عامل، مُعامِل، عنصر",ar_ant:"ثابت",ar_col:"يضبط متغيّراً / تابع / مُربِك",ar_prep:"متغيّر في (تجربة) / بين (مجموعات)",ar_fam:"يتغيّر · متغيّر · تباين",ar_ex:"من الضروري أن يُثبَّت كل متغيّر باستثناء الذي يُختبَر."},
+  {cat:"Scientific Method",catAr:"المنهج العلمي",w:"empirical",p:"إمبيريكال",a:"تجريبي / قائم على الملاحظة",syn:"observational, experimental, factual",ant:"theoretical, anecdotal, speculative",col:"empirical evidence / empirical study / empirical data",prep:"empirical in (nature) / based on (observation)",fam:"empirically (adv) · empiricism (n) · empirical (adj)",ex:"It is often argued that empirical evidence outweighs opinion, however confidently the opinion is expressed.",ar_syn:"رصدي، تجريبي، واقعي",ar_ant:"نظري، حكائي، تكهّني",ar_col:"دليل تجريبي / دراسة / بيانات",ar_prep:"تجريبي في (الطبيعة) / مبني على الملاحظة",ar_fam:"تجريبياً · المذهب التجريبي · تجريبي",ar_ex:"كثيراً ما يُحتجّ بأن الدليل التجريبي يرجح على الرأي، مهما عُبّر عن الرأي بثقة."},
+  {cat:"Research & Discovery",catAr:"البحث والاكتشاف",w:"breakthrough",p:"بريك-ثرو",a:"اختراق / إنجاز كبير",syn:"major advance, milestone, leap",ant:"setback, dead end",col:"medical breakthrough / scientific breakthrough / major breakthrough",prep:"breakthrough in (a field) / for (humanity)",fam:"break through (phr v) · breakthrough (n)",ex:"It is hoped that this breakthrough will be remembered as a turning point in cancer treatment.",ar_syn:"تقدّم كبير، معلَم، قفزة",ar_ant:"نكسة، طريق مسدود",ar_col:"اختراق طبي / علمي / كبير",ar_prep:"اختراق في (مجال) / لـ (البشرية)",ar_fam:"يخترق · اختراق",ar_ex:"يُؤمَل أن يُذكَر هذا الإنجاز كنقطة تحوّل في علاج السرطان."},
+  {cat:"Research & Discovery",catAr:"البحث والاكتشاف",w:"innovation",p:"إنوفيشن",a:"ابتكار",syn:"invention, novelty, advance",ant:"stagnation, imitation, tradition",col:"drive innovation / technological innovation / culture of innovation",prep:"innovation in (technology) / through (research)",fam:"innovate (v) · innovation (n) · innovative (adj) · innovator (n)",ex:"It is widely held that innovation flourishes where failure is tolerated rather than punished.",ar_syn:"اختراع، جِدّة، تقدّم",ar_ant:"ركود، تقليد، محاكاة",ar_col:"يدفع الابتكار / تقني / ثقافة",ar_prep:"ابتكار في (التقنية) / عبر (البحث)",ar_fam:"يبتكر · ابتكار · مبتكِر · مبتكِر",ar_ex:"يُعتقد على نطاق واسع أن الابتكار يزدهر حيث يُتسامَح مع الفشل بدل معاقبته."},
+  {cat:"Research & Discovery",catAr:"البحث والاكتشاف",w:"patent",p:"بيتِنت",a:"براءة اختراع",syn:"licence, intellectual property right",ant:"open source, public domain",col:"file a patent / hold a patent / patent infringement",prep:"patent on (an invention) / for (a design)",fam:"patent (v/n) · patented (adj) · patentable (adj)",ex:"It is claimed that the patent system both rewards and obstructs invention.",ar_syn:"ترخيص، حق ملكية فكرية",ar_ant:"مفتوح المصدر، مُلك عام",ar_col:"يُسجّل براءة / يملك / انتهاك",ar_prep:"براءة على (اختراع) / لـ (تصميم)",ar_fam:"يسجّل براءة · مُسجَّل · قابل للتسجيل",ar_ex:"يُزعَم أن نظام براءات الاختراع يكافئ الاختراع ويعرقله في آنٍ معاً."},
+  {cat:"Research & Discovery",catAr:"البحث والاكتشاف",w:"prototype",p:"بروتوتايب",a:"نموذج أوّلي",syn:"model, first version, mock-up",ant:"finished product, mass production",col:"build a prototype / working prototype / early prototype",prep:"prototype of (a device) / for (testing)",fam:"prototype (v/n) · prototyping (n)",ex:"It is reported that the first prototype barely worked, yet it proved the concept was sound.",ar_syn:"نموذج، نسخة أولى، مُجسَّم",ar_ant:"منتج نهائي، إنتاج بالجملة",ar_col:"يبني نموذجاً / عامل / مبكّر",ar_prep:"نموذج لـ (جهاز) / للاختبار",ar_fam:"ينمذج · النمذجة",ar_ex:"أُفيد أن النموذج الأول بالكاد عمل، لكنه أثبت سلامة الفكرة."},
+  {cat:"Research & Discovery",catAr:"البحث والاكتشاف",w:"data",p:"ديتا / داتا",a:"بيانات",syn:"information, figures, statistics",ant:"assumption, guesswork",col:"collect data / analyse data / raw data / big data",prep:"data on (a topic) / from (a study)",fam:"data (n) · dataset (n) · database (n)",ex:"It cannot be denied that conclusions are only as reliable as the data on which they rest.",ar_syn:"معلومات، أرقام، إحصاءات",ar_ant:"افتراض، تخمين",ar_col:"يجمع البيانات / يحلّل / خام / ضخمة",ar_prep:"بيانات حول (موضوع) / من (دراسة)",ar_fam:"بيانات · مجموعة بيانات · قاعدة بيانات",ar_ex:"لا يمكن إنكار أن الاستنتاجات موثوقة بقدر موثوقية البيانات التي تستند إليها."},
+  {cat:"Research & Discovery",catAr:"البحث والاكتشاف",w:"analysis",p:"أناليسِس",a:"تحليل",syn:"examination, evaluation, interpretation",ant:"synthesis, guesswork",col:"statistical analysis / detailed analysis / data analysis",prep:"analysis of (results) / by (researchers)",fam:"analyse (v) · analysis (n) · analytical (adj) · analyst (n)",ex:"It would seem that careful analysis often reveals patterns the raw numbers conceal.",ar_syn:"فحص، تقييم، تفسير",ar_ant:"تركيب، تخمين",ar_col:"تحليل إحصائي / مُفصَّل / للبيانات",ar_prep:"تحليل (النتائج) / من قِبل (الباحثين)",ar_fam:"يحلّل · تحليل · تحليلي · محلِّل",ar_ex:"يبدو أن التحليل الدقيق غالباً ما يكشف أنماطاً تخفيها الأرقام الخام."},
+  {cat:"Research & Discovery",catAr:"البحث والاكتشاف",w:"funding",p:"فاندينغ",a:"تمويل",syn:"financing, investment, grants",ant:"budget cuts, defunding",col:"secure funding / research funding / lack of funding",prep:"funding for (research) / from (governments)",fam:"fund (v/n) · funding (n) · funder (n)",ex:"It is often noted that the most original research is precisely what funding bodies are least willing to support.",ar_syn:"تمويل، استثمار، مِنَح",ar_ant:"خفض الميزانية، سحب التمويل",ar_col:"يؤمّن التمويل / للبحث / غياب",ar_prep:"تمويل لـ (البحث) / من (الحكومات)",ar_fam:"يموّل · تمويل · مموِّل",ar_ex:"كثيراً ما يُلاحَظ أن أكثر الأبحاث أصالةً هو بالضبط ما تقلّ رغبة جهات التمويل في دعمه."},
+  {cat:"Technology & Engineering",catAr:"التقنية والهندسة",w:"artificial intelligence",p:"آرتيفيشل إنتيليجِنس",a:"الذكاء الاصطناعي",syn:"machine intelligence, AI",ant:"human cognition, natural intelligence",col:"develop AI / AI system / general AI",prep:"intelligence in (machines) / behind (a system)",fam:"artificial (adj) · intelligence (n) · intelligent (adj)",ex:"It is predicted that artificial intelligence will transform almost every profession within a generation.",ar_syn:"ذكاء الآلة، AI",ar_ant:"الإدراك البشري، الذكاء الطبيعي",ar_col:"يطوّر الذكاء الاصطناعي / نظام / عام",ar_prep:"ذكاء في (الآلات) / خلف (نظام)",ar_fam:"اصطناعي · ذكاء · ذكي",ar_ex:"يُتوقَّع أن يُحدِث الذكاء الاصطناعي تحوّلاً في كل مهنة تقريباً خلال جيل واحد."},
+  {cat:"Technology & Engineering",catAr:"التقنية والهندسة",w:"automation",p:"أوتوميشن",a:"الأتمتة",syn:"mechanisation, computerisation",ant:"manual labour, human operation",col:"workplace automation / full automation / automation of tasks",prep:"automation of (jobs) / in (industry)",fam:"automate (v) · automation (n) · automated (adj) · automatic (adj)",ex:"It is feared that automation will displace millions of workers before new roles emerge.",ar_syn:"مَكنَنة، حوسبة",ar_ant:"العمل اليدوي، التشغيل البشري",ar_col:"أتمتة مكان العمل / كاملة / للمهام",ar_prep:"أتمتة (الوظائف) / في (الصناعة)",ar_fam:"يؤتمت · أتمتة · مؤتمت · آلي",ar_ex:"يُخشى أن تُزيح الأتمتة ملايين العمال قبل أن تظهر أدوار جديدة."},
+  {cat:"Technology & Engineering",catAr:"التقنية والهندسة",w:"biotechnology",p:"بايو-تكنولوجي",a:"التقنية الحيوية",syn:"biotech, genetic engineering",ant:"traditional medicine",col:"advances in biotechnology / biotechnology firm",prep:"biotechnology for (medicine) / in (agriculture)",fam:"biotechnology (n) · biotechnological (adj)",ex:"It is believed that biotechnology holds the key to curing diseases once thought untreatable.",ar_syn:"بيوتك، الهندسة الوراثية",ar_ant:"الطب التقليدي",ar_col:"تقدّمات في التقنية الحيوية / شركة",ar_prep:"تقنية حيوية لـ (الطب) / في (الزراعة)",ar_fam:"تقنية حيوية · تقني حيوي",ar_ex:"يُعتقد أن التقنية الحيوية تحمل مفتاح علاج أمراض كان يُظنّ أنها غير قابلة للعلاج."},
+  {cat:"Technology & Engineering",catAr:"التقنية والهندسة",w:"renewable energy",p:"رينيوبِل إنرجي",a:"الطاقة المتجددة",syn:"clean energy, green energy",ant:"fossil fuels, non-renewable energy",col:"shift to renewable energy / renewable energy sources",prep:"energy from (the sun/wind) / for (the grid)",fam:"renew (v) · renewable (adj) · renewal (n)",ex:"It is widely accepted that a transition to renewable energy is no longer optional but essential.",ar_syn:"طاقة نظيفة، خضراء",ar_ant:"الوقود الأحفوري، طاقة غير متجددة",ar_col:"التحوّل للطاقة المتجددة / مصادر",ar_prep:"طاقة من (الشمس/الرياح) / للشبكة",ar_fam:"يجدّد · متجدّد · تجديد",ar_ex:"من المقبول على نطاق واسع أن الانتقال للطاقة المتجددة لم يعد خياراً بل ضرورة."},
+  {cat:"Technology & Engineering",catAr:"التقنية والهندسة",w:"semiconductor",p:"سيمي-كوندكتر",a:"أشباه الموصلات",syn:"microchip material, silicon chip",ant:"insulator",col:"semiconductor industry / semiconductor shortage / advanced semiconductors",prep:"semiconductor for (devices) / in (electronics)",fam:"conduct (v) · conductor (n) · semiconductor (n)",ex:"It is estimated that a single modern device contains billions of semiconductor components.",ar_syn:"مادة الرقائق، رقاقة سيليكون",ar_ant:"عازل",ar_col:"صناعة أشباه الموصلات / نقص / متقدّمة",ar_prep:"أشباه موصلات لـ (أجهزة) / في (إلكترونيات)",ar_fam:"يوصّل · موصِّل · شبه موصّل",ar_ex:"يُقدَّر أن جهازاً حديثاً واحداً يحتوي مليارات من مكوّنات أشباه الموصلات."},
+  {cat:"Technology & Engineering",catAr:"التقنية والهندسة",w:"infrastructure",p:"إنفراستركتشر",a:"البنية التحتية",syn:"framework, foundations, facilities",ant:"superstructure",col:"digital infrastructure / aging infrastructure / invest in infrastructure",prep:"infrastructure for (a city) / of (a network)",fam:"infrastructure (n) · infrastructural (adj)",ex:"It is argued that no innovation can scale without the infrastructure to support it.",ar_syn:"إطار، أُسس، مرافق",ar_ant:"البنية الفوقية",ar_col:"بنية رقمية / متقادمة / يستثمر فيها",ar_prep:"بنية تحتية لـ (مدينة) / لـ (شبكة)",ar_fam:"بنية تحتية · بنيوي تحتي",ar_ex:"يُحتجّ بأنه لا يمكن لأي ابتكار أن يتوسّع دون بنية تحتية تدعمه."},
+  {cat:"Impact & Ethics",catAr:"الأثر والأخلاقيات",w:"ethics",p:"إثيكس",a:"الأخلاقيات",syn:"morality, principles, integrity",ant:"corruption, malpractice",col:"research ethics / medical ethics / ethical guidelines",prep:"ethics of (a practice) / in (science)",fam:"ethical (adj) · ethically (adv) · ethics (n)",ex:"It is increasingly recognised that scientific progress must be guided by ethics, not driven by what is merely possible.",ar_syn:"أخلاق، مبادئ، نزاهة",ar_ant:"فساد، سوء ممارسة",ar_col:"أخلاقيات البحث / الطب / إرشادات",ar_prep:"أخلاقيات (ممارسة) / في (العلم)",ar_fam:"أخلاقي · أخلاقياً · أخلاقيات",ar_ex:"يتزايد الإدراك بأن التقدّم العلمي يجب أن تقوده الأخلاقيات، لا أن يدفعه مجرّد ما هو ممكن."},
+  {cat:"Impact & Ethics",catAr:"الأثر والأخلاقيات",w:"sustainability",p:"سستينابيليتي",a:"الاستدامة",syn:"viability, endurance, eco-balance",ant:"depletion, exhaustion",col:"long-term sustainability / environmental sustainability",prep:"sustainability of (a system) / for (future generations)",fam:"sustain (v) · sustainable (adj) · sustainability (n)",ex:"It is now understood that growth without sustainability is borrowing against the future.",ar_syn:"قابلية البقاء، صمود، توازن بيئي",ar_ant:"استنزاف، نضوب",ar_col:"استدامة طويلة الأمد / بيئية",ar_prep:"استدامة (نظام) / لـ (الأجيال القادمة)",ar_fam:"يُديم · مستدام · استدامة",ar_ex:"بات مفهوماً أن النمو دون استدامة هو اقتراض على حساب المستقبل."},
+  {cat:"Impact & Ethics",catAr:"الأثر والأخلاقيات",w:"unintended consequences",p:"أن-إنتندد كونسيكوينسز",a:"عواقب غير مقصودة",syn:"side effects, unforeseen outcomes",ant:"intended results, planned outcomes",col:"serious unintended consequences / law of unintended consequences",prep:"consequences of (an action) / for (society)",fam:"intend (v) · intended (adj) · unintended (adj)",ex:"It is frequently observed that powerful technologies bring unintended consequences no one predicted.",ar_syn:"آثار جانبية، نتائج غير متوقعة",ar_ant:"نتائج مقصودة، مخرجات مخطّطة",ar_col:"عواقب خطيرة / قانون العواقب غير المقصودة",ar_prep:"عواقب (فعل) / على (المجتمع)",ar_fam:"يقصد · مقصود · غير مقصود",ar_ex:"كثيراً ما يُلاحَظ أن التقنيات القوية تجلب عواقب غير مقصودة لم يتنبّأ بها أحد."},
+  {cat:"Impact & Ethics",catAr:"الأثر والأخلاقيات",w:"regulation",p:"ريغيوليشن",a:"التنظيم / اللوائح",syn:"rules, oversight, control",ant:"deregulation, free rein",col:"government regulation / strict regulation / lack of regulation",prep:"regulation of (an industry) / by (the state)",fam:"regulate (v) · regulation (n) · regulator (n) · regulatory (adj)",ex:"It is debated whether regulation protects the public or merely slows progress.",ar_syn:"قواعد، رقابة، ضبط",ar_ant:"رفع القيود، إطلاق الحرية",ar_col:"تنظيم حكومي / صارم / غياب",ar_prep:"تنظيم (صناعة) / من قِبل (الدولة)",ar_fam:"ينظّم · تنظيم · مُنظِّم · تنظيمي",ar_ex:"يُتجادَل فيما إذا كان التنظيم يحمي الجمهور أم أنه يُبطئ التقدّم فحسب."},
+  {cat:"Impact & Ethics",catAr:"الأثر والأخلاقيات",w:"risk assessment",p:"رِسك أسسمِنت",a:"تقييم المخاطر",syn:"hazard analysis, risk evaluation",ant:"recklessness, negligence",col:"carry out a risk assessment / thorough risk assessment",prep:"assessment of (risks) / before (deployment)",fam:"assess (v) · assessment (n) · assessor (n)",ex:"It is required that a full risk assessment be completed before any new drug reaches patients.",ar_syn:"تحليل الأخطار، تقييم المخاطر",ar_ant:"تهوّر، إهمال",ar_col:"يُجري تقييم مخاطر / شامل",ar_prep:"تقييم (المخاطر) / قبل (النشر)",ar_fam:"يُقيّم · تقييم · مُقيِّم",ar_ex:"يُشترَط إتمام تقييم كامل للمخاطر قبل أن يصل أي دواء جديد للمرضى."},
+  {cat:"Impact & Ethics",catAr:"الأثر والأخلاقيات",w:"transparency",p:"ترانسبيرنسي",a:"الشفافية",syn:"openness, honesty, disclosure",ant:"secrecy, concealment",col:"full transparency / lack of transparency / demand transparency",prep:"transparency in (research) / about (methods)",fam:"transparent (adj) · transparently (adv) · transparency (n)",ex:"It is argued that without transparency, public trust in science cannot survive.",ar_syn:"انفتاح، صدق، إفصاح",ar_ant:"سرّية، إخفاء",ar_col:"شفافية كاملة / غياب / يطالب بها",ar_prep:"شفافية في (البحث) / حول (الأساليب)",ar_fam:"شفّاف · بشفافية · شفافية",ar_ex:"يُحتجّ بأنه بدون شفافية لا يمكن لثقة الجمهور بالعلم أن تبقى."},
+  {cat:"Impact & Ethics",catAr:"الأثر والأخلاقيات",w:"accountability",p:"أكاونتابيليتي",a:"المساءلة",syn:"responsibility, answerability",ant:"impunity, immunity",col:"hold to account / public accountability / lack of accountability",prep:"accountability for (decisions) / to (the public)",fam:"account (v/n) · accountable (adj) · accountability (n)",ex:"It is often said that with great technological power must come equally great accountability.",ar_syn:"مسؤولية، قابلية المحاسبة",ar_ant:"الإفلات من العقاب، الحصانة",ar_col:"يُحاسِب / مساءلة عامة / غياب",ar_prep:"مساءلة عن (قرارات) / أمام (الجمهور)",ar_fam:"يُحاسِب · خاضع للمساءلة · مساءلة",ar_ex:"كثيراً ما يُقال إنه مع القوة التقنية الكبيرة يجب أن تأتي مساءلة كبيرة بالقدر نفسه."},
+  {cat:"Progress & Society",catAr:"التقدّم والمجتمع",w:"paradigm shift",p:"بارادايم شِفت",a:"نقلة نوعية / تحوّل جذري",syn:"revolution, fundamental change",ant:"gradual progress, status quo",col:"a major paradigm shift / trigger a paradigm shift",prep:"shift in (thinking) / from (one model to another)",fam:"paradigm (n) · shift (v/n)",ex:"It is said that a true paradigm shift changes not the answers but the questions themselves.",ar_syn:"ثورة، تغيير جوهري",ar_ant:"تقدّم تدريجي، الوضع الراهن",ar_col:"نقلة نوعية كبرى / يُحدِث",ar_prep:"تحوّل في (التفكير) / من (نموذج لآخر)",ar_fam:"نموذج إرشادي · تحوّل",ar_ex:"يُقال إن النقلة النوعية الحقيقية لا تُغيّر الأجوبة بل الأسئلة نفسها."},
+  {cat:"Progress & Society",catAr:"التقدّم والمجتمع",w:"scientific consensus",p:"ساينتفك كونسنسس",a:"الإجماع العلمي",syn:"expert agreement, settled science",ant:"dispute, controversy",col:"scientific consensus on (X) / reach consensus / overwhelming consensus",prep:"consensus among (scientists) / on (an issue)",fam:"consensus (n) · consensual (adj)",ex:"It is sometimes forgotten that scientific consensus is built on evidence, not on authority.",ar_syn:"اتفاق الخبراء، علم مستقر",ar_ant:"نزاع، جدل",ar_col:"إجماع علمي على (س) / يبلغ / ساحق",ar_prep:"إجماع بين (العلماء) / حول (قضية)",ar_fam:"إجماع · توافقي",ar_ex:"يُنسى أحياناً أن الإجماع العلمي يُبنى على الأدلة لا على السلطة."},
+  {cat:"Progress & Society",catAr:"التقدّم والمجتمع",w:"misinformation",p:"مِس-إنفورميشن",a:"معلومات مُضلِّلة",syn:"false information, disinformation",ant:"facts, accurate information",col:"spread misinformation / combat misinformation / online misinformation",prep:"misinformation about (science) / on (social media)",fam:"inform (v) · misinform (v) · misinformation (n)",ex:"It is feared that misinformation now spreads faster than any correction can follow.",ar_syn:"معلومات خاطئة، تضليل",ar_ant:"حقائق، معلومات دقيقة",ar_col:"ينشر التضليل / يكافحه / عبر الإنترنت",ar_prep:"تضليل حول (العلم) / على (وسائل التواصل)",ar_fam:"يُعلِم · يُضلِّل · تضليل",ar_ex:"يُخشى أن المعلومات المضلِّلة تنتشر الآن أسرع مما يمكن لأي تصحيح أن يلحق به."},
+  {cat:"Progress & Society",catAr:"التقدّم والمجتمع",w:"scientific literacy",p:"ساينتفك ليتراسي",a:"الثقافة العلمية",syn:"scientific understanding, science education",ant:"scientific illiteracy, ignorance",col:"improve scientific literacy / low scientific literacy",prep:"literacy in (science) / among (the public)",fam:"literate (adj) · literacy (n)",ex:"It is widely agreed that scientific literacy is as vital to a citizen as the ability to read.",ar_syn:"الفهم العلمي، التعليم العلمي",ar_ant:"الأمّية العلمية، الجهل",ar_col:"يحسّن الثقافة العلمية / منخفضة",ar_prep:"ثقافة في (العلم) / بين (الجمهور)",ar_fam:"متعلّم · ثقافة/معرفة القراءة",ar_ex:"من المتّفق عليه على نطاق واسع أن الثقافة العلمية حيوية للمواطن كالقدرة على القراءة."},
+  {cat:"Progress & Society",catAr:"التقدّم والمجتمع",w:"cutting-edge",p:"كاتينغ إيدج",a:"أحدث ما توصّل إليه",syn:"state-of-the-art, leading, advanced",ant:"outdated, obsolete",col:"cutting-edge technology / cutting-edge research",prep:"cutting-edge in (a field) / at (the frontier)",fam:"cut (v) · edge (n) · cutting-edge (adj)",ex:"It would seem that what is cutting-edge today is destined to look primitive within a decade.",ar_syn:"أحدث طراز، رائد، متقدّم",ar_ant:"قديم، متقادم",ar_col:"تقنية متطوّرة / بحث رائد",ar_prep:"رائد في (مجال) / عند (الحدود)",ar_fam:"يقطع · حافة · أحدث طراز",ar_ex:"يبدو أن ما هو أحدث طراز اليوم مصيره أن يبدو بدائياً خلال عقد."},
+  {cat:"Progress & Society",catAr:"التقدّم والمجتمع",w:"obsolete",p:"أوبسليت",a:"متقادم / بائد",syn:"outdated, defunct, antiquated",ant:"current, modern, cutting-edge",col:"become obsolete / technologically obsolete / planned obsolescence",prep:"obsolete in (years) / for (a purpose)",fam:"obsolete (adj) · obsolescence (n)",ex:"It is often observed that technologies become obsolete not when they fail, but when something better appears.",ar_syn:"قديم، مُهمَل، عتيق",ar_ant:"حالي، حديث، متطوّر",ar_col:"يصبح متقادماً / تقنياً / تقادم مخطّط",ar_prep:"متقادم خلال (سنوات) / لـ (غرض)",ar_fam:"متقادم · تقادم",ar_ex:"كثيراً ما يُلاحَظ أن التقنيات تتقادم لا حين تفشل، بل حين يظهر ما هو أفضل."},
+  {cat:"Progress & Society",catAr:"التقدّم والمجتمع",w:"disruptive",p:"ديسرابتيف",a:"مُغيّر للمألوف",syn:"revolutionary, game-changing, transformative",ant:"conventional, sustaining",col:"disruptive technology / disruptive innovation",prep:"disruptive to (an industry) / for (incumbents)",fam:"disrupt (v) · disruption (n) · disruptive (adj) · disruptor (n)",ex:"It is argued that the most disruptive innovations are dismissed as toys before they reshape entire markets.",ar_syn:"ثوري، يغيّر قواعد اللعبة، تحويلي",ar_ant:"تقليدي، داعم للقائم",ar_col:"تقنية مُغيِّرة / ابتكار مُغيِّر",ar_prep:"مُغيِّر لـ (صناعة) / للشركات القائمة",ar_fam:"يُعطِّل/يُغيّر · اضطراب · مُغيِّر · مُغيِّر",ar_ex:"يُحتجّ بأن أكثر الابتكارات تغييراً تُرفَض كألعاب قبل أن تُعيد تشكيل أسواق بأكملها."}
+];
+var story=[
+  {t:"For most of human history, it was believed that the sun revolved around the earth.",ar:"طوال معظم تاريخ البشرية، كان يُعتقَد أن الشمس تدور حول الأرض."},
+  {t:"It is said that when Galileo claimed otherwise, almost no one was willing to listen.",ar:"يُقال إنه عندما ادّعى غاليليو عكس ذلك، لم يكن أحد تقريباً مستعداً للإصغاء."},
+  {t:"It has often been noted that the greatest discoveries begin as the least welcome ones.",ar:"كثيراً ما لوحِظ أن أعظم الاكتشافات تبدأ كأقلّها ترحيباً."},
+  {t:"Today it is generally accepted that science advances not by certainty but by doubt.",ar:"اليوم، من المقبول عموماً أن العلم يتقدّم لا باليقين بل بالشك."},
+  {t:"It is now understood that a single experiment proves nothing until others can repeat it.",ar:"بات مفهوماً الآن أن تجربة واحدة لا تُثبت شيئاً حتى يستطيع آخرون تكرارها."},
+  {t:"Yet it cannot be denied that progress brings consequences no one intended.",ar:"ومع ذلك لا يمكن إنكار أن التقدّم يجلب عواقب لم يقصدها أحد."},
+  {t:"It is increasingly argued that what science can do and what it should do are different questions.",ar:"يُحتجّ بشكل متزايد بأن ما يستطيع العلم فعله وما ينبغي له فعله سؤالان مختلفان."},
+  {t:"It would seem, then, that the future of science depends as much on wisdom as on discovery.",ar:"يبدو إذن أن مستقبل العلم يعتمد على الحكمة بقدر اعتماده على الاكتشاف."}
+];
+var reading=[
+  "Science is less a body of facts than a method for testing them. It is often assumed that scientists deal in certainties, yet the opposite is closer to the truth. A scientific claim is accepted only provisionally — held to be the best available explanation until stronger evidence replaces it. It is this willingness to be proven wrong, rather than any claim to final knowledge, that distinguishes science from belief. It cannot be denied that this makes science slower and more cautious than its critics would like.",
+  "Notice how the language of science avoids the personal. 'It is assumed', 'it is held to be', 'it cannot be denied' — these are impersonal structures, and they are everywhere in academic writing. Rather than saying 'I think' or 'scientists believe', writers use forms such as it is said that, it is widely accepted that, and X is thought to be. It is generally agreed that such structures lend objectivity and distance, shifting attention from the speaker to the claim itself. For a B2 learner, mastering them is essential.",
+  "Few areas illustrate both the promise and the peril of science better than artificial intelligence. It is predicted that AI will reshape medicine, transport, and education within a generation. At the same time, it is feared that automation will displace workers faster than economies can adapt. It is worth noting that almost every powerful technology has arrived with such mixed feelings. What is new is the speed: it has been suggested that the pace of change now outstrips our ability to regulate it.",
+  "With power comes the question of responsibility. It is increasingly recognised that scientists cannot treat ethics as an afterthought. History offers a warning: it is frequently observed that breakthroughs bring unintended consequences no one predicted, from pollution to surveillance. It is therefore argued that transparency, regulation, and accountability must develop alongside discovery, not years behind it. It would seem that the harder question is no longer what science can achieve, but what it should be allowed to.",
+  "Finally, there is the relationship between science and the public. It is widely agreed that scientific literacy is now as vital as the ability to read. Yet it is feared that misinformation spreads faster than any correction. It is sometimes forgotten that scientific consensus rests on evidence, not authority — and that a single dramatic claim, however false, can travel further than a careful one. It is said that the future will belong not to those with the most information, but to those who can tell good information from bad."
+];
+var compQs=[
+  {q:"According to the text, what distinguishes science from belief?",opts:["Its access to better facts","Its willingness to be proven wrong","Its use of expensive equipment","Its speed and certainty"],ans:1},
+  {q:"Why does the writer point to phrases like 'it is assumed' and 'it cannot be denied'?",opts:["To criticise scientists","To demonstrate the impersonal structures the passage describes","To define artificial intelligence","To prove a hypothesis"],ans:1},
+  {q:"What is the writer's view of artificial intelligence?",opts:["Entirely positive","Entirely negative","It offers both promise and peril","It is overrated"],ans:2},
+  {q:"What can be inferred about ethics and scientific discovery?",opts:["Ethics should come years after discovery","Ethics should develop alongside discovery, not lag behind it","Ethics slow science unnecessarily","Ethics are irrelevant to science"],ans:1},
+  {q:"According to the final paragraph, what will matter most in the future?",opts:["Having the most information","The ability to distinguish good information from bad","Faster internet","Larger datasets"],ans:1}
+];
+var listenLines=[
+  {speaker:"J",text:"Dr. Hassan, thank you for joining us. Your lab's recent work has been described as a breakthrough. Is that fair?"},
+  {speaker:"R",text:"It's kind of you to say. It is sometimes claimed that any new result is a breakthrough, but most are small steps. This one, it would seem, is genuinely significant."},
+  {speaker:"J",text:"Can you explain it simply?"},
+  {speaker:"R",text:"It is now understood that the disease is triggered by a single faulty protein. It had long been believed to involve dozens of factors, so this changes how treatment is approached."},
+  {speaker:"J",text:"How confident are you in the finding?"},
+  {speaker:"R",text:"Cautiously. It cannot be stressed enough that one study proves little. It is only when the results are replicated by other labs that they will be accepted."},
+  {speaker:"J",text:"Some people are already calling it a cure."},
+  {speaker:"R",text:"And that worries me. It is frequently observed that the public hears 'breakthrough' and assumes 'cure'. It would be irresponsible to raise hopes before the evidence is in."},
+  {speaker:"J",text:"There is also concern about the ethics of this kind of research. How do you respond?"},
+  {speaker:"R",text:"Those concerns are legitimate. It is increasingly recognised that ethics cannot be an afterthought. It is argued, rightly, that transparency and regulation must keep pace with discovery."},
+  {speaker:"J",text:"Finally, what would you say to a young person considering science?"},
+  {speaker:"R",text:"That doubt is not weakness but the engine of progress. It is often forgotten that the best scientists are those most willing to be proven wrong."},
+  {speaker:"J",text:"Wonderful. Thank you, Dr. Hassan."},
+  {speaker:"R",text:"Thank you for having me."}
+];
+var listenQs=[
+  {q:"How does the researcher describe most new results?",opts:["As cures","As small steps, not breakthroughs","As failures","As certainties"],ans:1},
+  {q:"What is now understood about the disease?",opts:["It involves dozens of factors","It is triggered by a single faulty protein","It cannot be treated","It is harmless"],ans:1},
+  {q:"Why is the researcher cautious about the finding?",opts:["It was expensive","One study proves little until it is replicated","Nobody funded it","It was rejected by peers"],ans:1},
+  {q:"What worries the researcher about public reaction?",opts:["People ignore the research","People hear 'breakthrough' and assume 'cure'","People distrust all science","People want more data"],ans:1},
+  {q:"What does the researcher say about doubt?",opts:["It is a weakness","It is the engine of progress","It should be hidden","It slows science"],ans:1}
+];
+var speakQs=[
+  {q:"Part 1: Are you interested in science? Why or why not?",hint:"It is often said that... I find... It would seem to me that...",ar:"هل تهتم بالعلم؟ ولماذا؟",badge:"🎯 Part 1 · impersonal openers"},
+  {q:"Part 2 (cue card): Describe a piece of technology you find useful. Say what it is, how you use it, why it is useful, and how life would differ without it.",hint:"It is widely accepted that... It is hard to deny that... It would seem that... Speak for 2 minutes.",ar:"صف قطعة تقنية تجدها مفيدة (دقيقتان).",badge:"🎯 Part 2 · 2-min long turn"},
+  {q:"Part 3: Do you think governments should fund scientific research?",hint:"It is often argued that... It is widely accepted that... One can argue that...",ar:"هل يجب أن تموّل الحكومات البحث العلمي؟",badge:"🎯 Part 3 · extended answer"},
+  {q:"Part 3: What are the dangers of artificial intelligence?",hint:"It is feared that... It is increasingly recognised that... It has been suggested that...",ar:"ما مخاطر الذكاء الاصطناعي؟",badge:"🎯 Part 3 · impersonal + opinion"},
+  {q:"Part 3: How can people tell reliable information from misinformation?",hint:"It is widely agreed that... It is sometimes forgotten that... It would seem that...",ar:"كيف يميّز الناس المعلومة الموثوقة من المضلِّلة؟",badge:"🎯 Part 3 · reason + example"},
+  {q:"Part 3: Is it always good when old technology becomes obsolete?",hint:"It cannot be denied that... It is worth noting that... It would seem that...",ar:"هل تقادُم التقنية القديمة أمرٌ جيد دائماً؟",badge:"🎯 Part 3 · balanced view"},
+  {q:"Part 3: Should scientists be responsible for how their discoveries are used?",hint:"It is increasingly argued that... It is often said that... One can argue that...",ar:"هل العلماء مسؤولون عن طريقة استخدام اكتشافاتهم؟",badge:"🎯 Part 3 · ethics + opinion"},
+  {q:"Part 2 (cue card): Describe a scientific discovery you think is important. Say what it is, who made it, why it matters, and how it changed life.",hint:"It is generally accepted that... It is said that... It would seem that... Speak for 2 minutes.",ar:"صف اكتشافاً علمياً تراه مهماً (دقيقتان).",badge:"🎯 Part 2 · long turn"}
+];
+var pvData=[
+  {v:"carry out",p:"كاري آوت",m:"يُجري (تجربة/بحثاً)",ex:"It is essential that experiments be carried out under carefully controlled conditions.",ar:"من الضروري أن تُجرى التجارب في ظروف مضبوطة بعناية."},
+  {v:"find out",p:"فايند آوت",m:"يكتشف / يعرف",ex:"It is hoped that researchers will soon find out what causes the condition.",ar:"يُؤمَل أن يكتشف الباحثون قريباً سبب الحالة."},
+  {v:"figure out",p:"فيغر آوت",m:"يحلّ / يفهم",ex:"It is said that it took decades to figure out how the molecule actually works.",ar:"يُقال إن فهم آلية عمل الجزيء الحقيقية استغرق عقوداً."},
+  {v:"come up with",p:"كَم أب وذ",m:"يبتكر / يتوصّل إلى",ex:"It is claimed that she came up with the idea in a single afternoon.",ar:"يُزعَم أنها توصّلت للفكرة في فترة ظهيرة واحدة."},
+  {v:"set out (to)",p:"سِت آوت",m:"يشرع بهدف / ينطلق",ex:"It is reported that the team set out to disprove their own theory.",ar:"أُفيد أن الفريق شرع في محاولة دحض نظريته الخاصة."},
+  {v:"break down",p:"بريك داون",m:"يُحلِّل لأجزاء / يتعطّل",ex:"It is useful, it would seem, to break the problem down into smaller parts.",ar:"يبدو أنه من المفيد تجزئة المشكلة إلى أجزاء أصغر."},
+  {v:"scale up",p:"سكيل أب",m:"يوسّع الإنتاج / يكبّر",ex:"It is feared that the technology cannot be scaled up affordably.",ar:"يُخشى أن التقنية لا يمكن توسيع إنتاجها بتكلفة معقولة."},
+  {v:"roll out",p:"رول آوت",m:"يُطلق / ينشر تدريجياً",ex:"It is planned that the system will be rolled out nationwide next year.",ar:"من المخطّط أن يُطرَح النظام على مستوى البلد العام المقبل."},
+  {v:"build on",p:"بيلد أون",m:"يبني على / يطوّر من",ex:"It is often said that every discovery builds on the work of others.",ar:"كثيراً ما يُقال إن كل اكتشاف يبني على عمل الآخرين."},
+  {v:"rule out",p:"رول آوت",m:"يستبعد",ex:"It cannot, as yet, be ruled out that the results were a coincidence.",ar:"لا يمكن حتى الآن استبعاد أن تكون النتائج محض صدفة."}
+];
+var realExpr=[
+  {e:"Back to the drawing board",p:"باك تو ذا دروينغ بورد",m:"نرجع للبداية من جديد",f:"To start again because a plan or design has failed.",x:"It is said that every inventor ends up back to the drawing board more than once.",xar:"يُقال إن كل مخترع ينتهي به الأمر عائداً للبداية أكثر من مرة.",n:"تُستخدم حين تفشل خطة وتضطر للبدء من الصفر"},
+  {e:"A double-edged sword",p:"أ دابل-إيجد سورد",m:"سلاح ذو حدّين",f:"Something with both significant benefits and drawbacks.",x:"It is widely recognised that powerful technology is a double-edged sword.",xar:"من المُسلَّم به أن التقنية القوية سلاح ذو حدّين.",n:"شيء له فائدة كبيرة وضرر كبير في آنٍ معاً"},
+  {e:"The tip of the iceberg",p:"ذا تِب أوف ذي آيسبرغ",m:"قمة جبل الجليد / جزء صغير ظاهر",f:"A small visible part of a much larger hidden problem.",x:"It is feared that the data we can see is only the tip of the iceberg.",xar:"يُخشى أن البيانات التي نراها ليست سوى قمة جبل الجليد.",n:"الجزء الظاهر الصغير من مشكلة أكبر بكثير مخفية"},
+  {e:"Ahead of its time",p:"أهيد أوف إتس تايم",m:"متقدّم على عصره",f:"More advanced than the period in which it appeared.",x:"It is now agreed that the design was decades ahead of its time.",xar:"بات من المتّفق عليه أن التصميم كان متقدّماً على عصره بعقود.",n:"فكرة أو منتج ظهر قبل أن يكون العالم جاهزاً له"}
+];
+var realSlang=[
+  {w:"Guinea pig",p:"غيني بيغ",i:"a person or thing used as a test subject in an experiment",ex:"It is often said that early adopters are the guinea pigs of new technology.",xar:"كثيراً ما يُقال إن أوائل المستخدمين هم حقول تجارب للتقنية الجديدة.",a:"حقل تجارب / من يُجرَّب عليه شيء جديد أولاً"},
+  {w:"Game-changer",p:"غيم-تشينجر",i:"something that completely changes a situation",ex:"It is claimed that the new battery is a real game-changer for electric cars.",xar:"يُزعَم أن البطارية الجديدة تغيّر قواعد اللعبة فعلاً للسيارات الكهربائية.",a:"شيء يغيّر الوضع كلياً ويقلب الموازين"},
+  {w:"Reinvent the wheel",p:"ري-إنفنت ذا ويل",i:"to waste effort creating something that already exists",ex:"It would seem pointless to reinvent the wheel when a solution already exists.",xar:"يبدو أنه لا جدوى من إعادة اختراع العجلة بينما يوجد حلّ بالفعل.",a:"بذل جهد لصنع شيء موجود أصلاً — جهد ضائع"},
+  {w:"Bells and whistles",p:"بيلز آند ويسلز",i:"extra, non-essential features",ex:"It is argued that users want reliability, not bells and whistles.",xar:"يُحتجّ بأن المستخدمين يريدون الموثوقية لا الكماليات.",a:"إضافات شكلية غير أساسية / كماليات"}
+];
+var realEvery=[
+  {w:"Keep up with",p:"كيب أب وذ",i:"to stay informed about or current with something",ex:"It is hard, it would seem, to keep up with the pace of technological change.",xar:"يبدو أنه من الصعب مواكبة وتيرة التغيّر التقني.",a:"يواكب / يبقى مطّلعاً على آخر المستجدات"},
+  {w:"Up and running",p:"أب آند رانينغ",i:"working and fully operational",ex:"It is reported that the new lab is finally up and running.",xar:"أُفيد أن المختبر الجديد بات أخيراً جاهزاً وعاملاً.",a:"يشتغل / جاهز للعمل بالكامل"},
+  {w:"Cutting corners",p:"كاتينغ كورنرز",i:"doing something cheaply or quickly, sacrificing quality",ex:"It is feared that cutting corners on safety could prove disastrous.",xar:"يُخشى أن التهاون في السلامة قد يكون كارثياً.",a:"يختصر الطريق على حساب الجودة أو السلامة"}
+];
+var quizQs=[
+  {q:"It is widely ___ that the earth is warming.",opts:["believe","believed","believing","belief"],ans:1},
+  {q:"ما معنى hypothesis؟",opts:["دليل","فرضية","تجربة","نتيجة"],ans:1},
+  {q:"The drug is ___ to be effective.",opts:["think","thought","thinking","thinks"],ans:1},
+  {q:"ما معنى peer review؟",opts:["تمويل البحث","مراجعة الأقران","براءة اختراع","تكرار التجربة"],ans:1},
+  {q:"Collocation: scientific ___",opts:["weather","consensus","family","holiday"],ans:1},
+  {q:"It has been ___ that sleep improves memory.",opts:["suggest","suggested","suggesting","suggestion"],ans:1},
+  {q:"ما معنى obsolete؟",opts:["حديث جداً","متقادم وبائد","مبتكَر","مفيد"],ans:1},
+  {q:"أي عبارة impersonal صحيحة؟",opts:["Me believe the theory","It would seem that the theory is right","The theory thinks","I theory believe"],ans:1},
+  {q:"ما معنى misinformation؟",opts:["الإجماع العلمي","معلومات مضلِّلة","البنية التحتية","الشفافية"],ans:1},
+  {q:"ما الـ phrasal verb: يُجري تجربة؟",opts:["find out","carry out","give up","look after"],ans:1}
+];
+
+var VFamEx=[
+[["hypothesise","v","متى تستخدمه: عند صياغة نظرية","They hypothesised that stress triggers the condition."],
+ ["hypothesis","n","متى تستخدمه: النظرية نفسها قبل الإثبات","Their hypothesis was eventually proven correct."],
+ ["hypothetical","adj","متى تستخدمه: في أمثلة افتراضية / خيالية","She gave a hypothetical example to clarify the concept."]],
+[["experiment","v","متى تستخدمه: فعل التجربة / الاختبار","Scientists experimented with different protein levels."],
+ ["experiment","n","متى تستخدمه: التجربة كحدث","The experiment produced unexpected results."],
+ ["experimental","adj","متى تستخدمه: قيد الاختبار / غير مُثبَت بعد","The drug is still at the experimental stage."],
+ ["experimentation","n","متى تستخدمه: عملية إجراء التجارب بشكل عام","Experimentation is at the heart of science."]],
+[["evidence","n","متى تستخدمه: الأدلة / لا تُجمَع — uncountable","The evidence for climate change is overwhelming."],
+ ["evident","adj","متى تستخدمه: عندما يكون الأمر واضحاً جداً","It was evident that the hypothesis needed revision."],
+ ["evidently","adv","متى تستخدمه: بوضوح — في بداية الجملة","Evidently, the results had been misinterpreted."]],
+[["peer","n","متى تستخدمه: زميل / شخص في نفس المستوى","Her peers recognised the significance of the work."],
+ ["review","v","متى تستخدمه: فحص ونقد بعناية","Experts reviewed the paper before publication."],
+ ["review","n","متى تستخدمه: عملية الفحص النقدي","The review process took three months."],
+ ["reviewer","n","متى تستخدمه: الشخص الذي يقيّم","The reviewer requested significant changes."]],
+[["replicate","v","متى تستخدمه: تكرار التجربة للتحقق","Several labs tried to replicate the findings."],
+ ["replication","n","متى تستخدمه: عملية التكرار كمفهوم","Replication is the cornerstone of scientific validity."],
+ ["replicable","adj","متى تستخدمه: صفة تصف نتيجة قابلة للتكرار","A good experiment must be replicable."]],
+[["vary","v","متى تستخدمه: عندما تتغير النتائج / تختلف","Results varied significantly across labs."],
+ ["variable","n","متى تستخدمه: العامل المتغير في التجربة","Temperature was the key variable in the study."],
+ ["variable","adj","متى تستخدمه: وصف شيء غير ثابت","The outcomes were highly variable."],
+ ["variation","n","متى تستخدمه: الاختلاف / التباين","There was considerable variation between groups."]],
+[["empirical","adj","متى تستخدمه: مبني على الملاحظة والتجربة","Empirical data supported the hypothesis."],
+ ["empirically","adv","متى تستخدمه: بطريقة قائمة على الملاحظة","The claim was empirically tested and confirmed."],
+ ["empiricism","n","متى تستخدمه: المذهب الفلسفي القائم على التجربة","Empiricism underpins the scientific method."]],
+[["break through","phr v","متى تستخدمه: تجاوز عقبة كبيرة أخيراً","The team finally broke through after years of failure."],
+ ["breakthrough","n","متى تستخدمه: إنجاز كبير يُغيّر الواقع","The discovery was a genuine scientific breakthrough."]],
+[["innovate","v","متى تستخدمه: فعل الابتكار / الإبداع","Companies must innovate to remain competitive."],
+ ["innovation","n","متى تستخدمه: الابتكار كمنتج أو فكرة جديدة","The innovation transformed how surgeries are performed."],
+ ["innovative","adj","متى تستخدمه: وصف شخص أو فكرة مبتكِرة","Her approach was innovative and widely praised."],
+ ["innovator","n","متى تستخدمه: الشخص المبتكِر","He was regarded as one of the great innovators."]],
+[["patent","v","متى تستخدمه: تسجيل الاختراع رسمياً","She patented the design before publishing her work."],
+ ["patent","n","متى تستخدمه: حق الملكية الرسمي للاختراع","The company holds over 200 patents."],
+ ["patented","adj","متى تستخدمه: وصف اختراع محمي قانوناً","The patented formula is sold under licence."],
+ ["patentable","adj","متى تستخدمه: وصف ما يمكن تسجيله","Not all discoveries are patentable."]],
+[["prototype","v","متى تستخدمه: بناء النموذج الأولي","The engineers prototyped the device in two weeks."],
+ ["prototype","n","متى تستخدمه: النسخة الأولى من المنتج","The prototype barely worked, but proved the concept."],
+ ["prototyping","n","متى تستخدمه: عملية بناء النماذج الأولية","Rapid prototyping has transformed product design."]],
+[["data","n","متى تستخدمه: البيانات — استخدمها دائماً مع فعل جمع","The data suggest a clear link between the variables."],
+ ["dataset","n","متى تستخدمه: مجموعة بيانات محددة للتحليل","The researchers released their dataset publicly."],
+ ["database","n","متى تستخدمه: نظام تخزين منظّم للبيانات","The database contains records of over a million patients."]],
+[["analyse","v","متى تستخدمه: فحص البيانات بعمق","They analysed the results carefully."],
+ ["analysis","n","متى تستخدمه: الفحص المفصّل كنتيجة","A full analysis of the data took several weeks."],
+ ["analytical","adj","متى تستخدمه: وصف تفكير منطقي دقيق","She has a highly analytical mind."],
+ ["analyst","n","متى تستخدمه: المتخصص في تحليل البيانات","The analyst predicted the trend three months early."]],
+[["fund","v","متى تستخدمه: تمويل مشروع بشكل فعلي","The government funded the project for five years."],
+ ["fund","n","متى تستخدمه: مبلغ مخصص لغرض محدد","A special fund was created to support basic research."],
+ ["funding","n","متى تستخدمه: عملية التمويل بشكل عام","Securing funding was the biggest challenge."],
+ ["funder","n","متى تستخدمه: الجهة أو الشخص الممول","The funder required quarterly progress reports."]],
+[["artificial","adj","متى تستخدمه: صناعي / من صنع الإنسان","Artificial light affects the body's sleep cycle."],
+ ["intelligence","n","متى تستخدمه: القدرة العقلية / الذكاء","Human intelligence is still far more flexible than AI."],
+ ["intelligent","adj","متى تستخدمه: وصف نظام أو شخص ذكي","The system responds in an intelligent and adaptive way."]],
+[["automate","v","متى تستخدمه: جعل العملية تعمل تلقائياً","The factory automated its assembly line in 2018."],
+ ["automation","n","متى تستخدمه: الأتمتة كظاهرة اقتصادية","Automation has displaced many low-skill jobs."],
+ ["automated","adj","متى تستخدمه: وصف نظام يعمل تلقائياً","An automated system checks for errors instantly."],
+ ["automatic","adj","متى تستخدمه: يعمل وحده دون تدخل بشري","The door has an automatic sensor."]],
+[["biotechnology","n","متى تستخدمه: استخدام الأنظمة الحية لتطوير منتجات","Biotechnology is transforming modern medicine."],
+ ["biotechnological","adj","متى تستخدمه: وصف ما يتعلق بالتقنية الحيوية","Biotechnological advances have raised ethical questions."]],
+[["renew","v","متى تستخدمه: تجديد / إعادة تشغيل","The contract was renewed for another three years."],
+ ["renewable","adj","متى تستخدمه: قابل للتجدد الطبيعي","Wind and solar are renewable sources of energy."],
+ ["renewal","n","متى تستخدمه: عملية التجديد أو الاستمرارية","Urban renewal projects transformed the city centre."]],
+[["conduct","v","متى تستخدمه: نقل الكهرباء أو الحرارة","Copper conducts electricity very efficiently."],
+ ["conductor","n","متى تستخدمه: مادة تنقل الكهرباء بسهولة","Gold is an excellent conductor."],
+ ["semiconductor","n","متى تستخدمه: مادة تنقل الكهرباء جزئياً فقط","Silicon is the most widely used semiconductor."]],
+[["infrastructure","n","متى تستخدمه: الأنظمة الأساسية للمجتمع","The country needs to invest in digital infrastructure."],
+ ["infrastructural","adj","متى تستخدمه: وصف ما يتعلق بالبنية التحتية","Infrastructural development is key to economic growth."]],
+[["ethical","adj","متى تستخدمه: وصف قرار أو سلوك أخلاقي","An ethical scientist discloses all conflicts of interest."],
+ ["ethically","adv","متى تستخدمه: بطريقة تتوافق مع المبادئ","The research must be conducted ethically."],
+ ["ethics","n","متى تستخدمه: المبادئ الأخلاقية كمفهوم","Research ethics must be discussed before any trial."]],
+[["sustain","v","متى تستخدمه: الحفاظ على شيء عبر الزمن","The planet cannot sustain this level of consumption."],
+ ["sustainable","adj","متى تستخدمه: يمكن الحفاظ عليه دون أضرار","Sustainable farming protects soil for future generations."],
+ ["sustainability","n","متى تستخدمه: القدرة على الاستمرار دون استنزاف","Sustainability is now central to corporate strategy."]],
+[["intend","v","متى تستخدمه: التخطيط لشيء / قصده","No one intended the policy to cause harm."],
+ ["intended","adj","متى تستخدمه: مقصود / مخطط له","The intended effect was positive."],
+ ["unintended","adj","متى تستخدمه: غير مقصود / حدث بدون تخطيط","The unintended consequences proved more significant."]],
+[["regulate","v","متى تستخدمه: وضع قواعد للتحكم","Governments must regulate new technologies carefully."],
+ ["regulation","n","متى تستخدمه: قاعدة أو قانون رسمي","Strict regulations govern clinical drug trials."],
+ ["regulator","n","متى تستخدمه: الجهة المسؤولة عن التنظيم","The financial regulator imposed a heavy fine."],
+ ["regulatory","adj","متى تستخدمه: وصف ما يتعلق بالتنظيم الرسمي","The regulatory framework needs updating."]],
+[["assess","v","متى تستخدمه: تقييم جودة أو حجم شيء","Doctors assessed the patient's condition on arrival."],
+ ["assessment","n","متى تستخدمه: التقرير أو عملية التقييم","A full risk assessment was completed before launch."],
+ ["assessor","n","متى تستخدمه: الشخص الذي يُجري التقييم","An independent assessor reviewed the report."]],
+[["transparent","adj","متى تستخدمه: وصف شخص أو عملية مفتوحة وصادقة","The process was transparent and well-documented."],
+ ["transparently","adv","متى تستخدمه: بشكل مفتوح وصادق","The company acted transparently throughout the inquiry."],
+ ["transparency","n","متى تستخدمه: مبدأ الانفتاح والصدق","Transparency in research builds public trust."]],
+[["account","v","متى تستخدمه: تقديم تفسير / تحمّل المسؤولية","Scientists must account for every variable in their design."],
+ ["accountable","adj","متى تستخدمه: وصف من يمكن محاسبته","Public officials should be held accountable."],
+ ["accountability","n","متى تستخدمه: مبدأ المساءلة","Accountability is essential in any institution."]],
+[["paradigm","n","متى تستخدمه: النموذج الفكري السائد","The old paradigm assumed the earth was the centre."],
+ ["shift","v","متى تستخدمه: التحوّل أو الانتقال من موقف لآخر","The debate has shifted towards prevention rather than cure."],
+ ["shift","n","متى تستخدمه: التحوّل الكبير في التفكير","A paradigm shift in thinking was clearly visible."]],
+[["consensus","n","متى تستخدمه: الاتفاق العام بين الخبراء","There is a clear scientific consensus on climate change."],
+ ["consensual","adj","متى تستخدمه: وصف قرار متّفق عليه من الجميع","A consensual decision was reached after long debate."]],
+[["inform","v","متى تستخدمه: إعطاء معلومات صحيحة لشخص","The report informed policymakers of the key risks."],
+ ["misinform","v","متى تستخدمه: إعطاء معلومات خاطئة بقصد أو بدونه","The public was misinformed about the drug's effects."],
+ ["misinformation","n","متى تستخدمه: المعلومات الخاطئة المنتشرة","Misinformation spreads faster than any correction."]],
+[["literate","adj","متى تستخدمه: وصف شخص متعلّم / يفهم مجالاً","Every citizen should be scientifically literate."],
+ ["literacy","n","متى تستخدمه: القدرة على الفهم في مجال معين","Scientific literacy is as important as reading ability."]],
+[["cut","v","متى تستخدمه: القطع — أو تقليل الميزانية","New funding was cut from the research budget."],
+ ["edge","n","متى تستخدمه: حافة المعرفة / الميزة التنافسية","The lab is at the cutting edge of cancer research."],
+ ["cutting-edge","adj","متى تستخدمه: وصف أحدث وأرقى ما وصل إليه المجال","They use cutting-edge imaging technology."]],
+[["obsolete","adj","متى تستخدمه: وصف شيء لم يعد مستخدماً","Fax machines are now largely obsolete."],
+ ["obsolescence","n","متى تستخدمه: عملية التقادم كظاهرة","Planned obsolescence drives consumers to buy newer models."]],
+[["disrupt","v","متى تستخدمه: قطع نظام / تغييره جذرياً","Streaming services disrupted the music industry."],
+ ["disruption","n","متى تستخدمه: التغيير الجذري الكبير","The disruption caused by AI is still unfolding."],
+ ["disruptive","adj","متى تستخدمه: وصف ما يُغيّر قواعد اللعبة","The most disruptive ideas are often dismissed at first."],
+ ["disruptor","n","متى تستخدمه: الشركة أو الشخص الذي يُغيّر صناعة","Tesla became the ultimate disruptor in car manufacturing."]]
+];
+var spd=1,lspd=1,storyOn=false,listenOn=false;
+var compA=new Array(compQs.length).fill(null);
+var listenA=new Array(listenQs.length).fill(null);
+var quizA=new Array(quizQs.length).fill(null);
+
+function say(text,rate,cb){
+  if(!window.speechSynthesis)return null;
+  window.speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US";u.rate=rate||spd;u.pitch=1.0;
+  var v=getVoice("F");if(v)u.voice=v;
+  if(cb)u.onend=cb;
+  window.speechSynthesis.speak(u);return u;
+}
+function buildVocab(){
+  var c=document.getElementById("vocabList");
+  var lastCat="";var catNum=0;
+  V.forEach(function(v,i){
+    if(v.cat!==lastCat){
+      catNum++;lastCat=v.cat;
+      var hd=document.createElement("div");hd.className="vcat";
+      hd.innerHTML='<div class="vcat-ar">'+v.catAr+'</div><div class="vcat-en">'+v.cat+'</div><div class="vcat-num">'+catNum+'</div>';
+      c.appendChild(hd);
+    }
+    var d=document.createElement("div");d.className="vocab-card";
+    d.innerHTML=
+      '<div class="vhead">'+
+        '<div style="display:flex;align-items:center;gap:10px;width:100%">'+
+          '<button class="vspk" id="vs'+i+'">🔊</button>'+
+          '<div class="var" style="flex:1;text-align:right">'+v.a+'</div>'+
+          '<div class="vpron" style="direction:ltr;white-space:nowrap">'+v.p+'</div>'+
+          '<div style="display:flex;align-items:center;gap:6px">'+
+            '<div class="vword">'+v.w+'</div>'+
+            '<span style="background:rgba(255,255,255,.18);color:rgba(255,255,255,.85);font-size:.68rem;font-weight:800;padding:2px 7px;border-radius:10px">'+(i+1)+'</span>'+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="vbody">'+
+        '<div class="vgrid2">'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-ant" data-i="'+i+'" data-c="1"><div class="vlbl">Antonym</div><div class="vval">'+v.ant+'</div><div class="vtr">'+v.ar_ant+'</div></div>'+
+            '<div class="vcell c-syn" data-i="'+i+'" data-c="0"><div class="vlbl">Synonym</div><div class="vval">'+v.syn+'</div><div class="vtr">'+v.ar_syn+'</div></div>'+
+          '</div>'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-prep" data-i="'+i+'" data-c="3"><div class="vlbl">Preposition</div><div class="vval">'+v.prep+'</div><div class="vtr">'+v.ar_prep+'</div></div>'+
+            '<div class="vcell c-col" data-i="'+i+'" data-c="2"><div class="vlbl">Collocation</div><div class="vval">'+v.col+'</div><div class="vtr">'+v.ar_col+'</div></div>'+
+          '</div>'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-fam" data-i="'+i+'" data-c="4" style="flex:1"><div class="vlbl">Word Family</div><div class="vval">'+v.fam+'</div><div class="vtr">'+v.ar_fam+'</div></div>'+
+          '</div>'+
+        '</div>'+
+        '<div class="vex" id="vex'+i+'">'+v.ex+'<div class="vex-tr">'+v.ar_ex+'</div></div>'+
+      '</div>';
+    d.querySelector('.vspk').addEventListener('click',(function(ii){return function(){
+      document.querySelectorAll('.vspk').forEach(function(b){b.classList.remove('playing');});
+      var btn=document.getElementById('vs'+ii);if(btn)btn.classList.add('playing');
+      var u=say(V[ii].w,spd);if(u)u.onend=function(){if(btn)btn.classList.remove('playing');};
+    };})(i));
+    d.querySelectorAll('.vcell').forEach(function(cell){
+      cell.addEventListener('click',function(){
+        var ii=parseInt(this.getAttribute('data-i'));
+        var cc=parseInt(this.getAttribute('data-c'));
+        say([V[ii].syn,V[ii].ant,V[ii].col,V[ii].prep,V[ii].fam][cc],0.9);
+        this.classList.toggle('show-tr');
+      });
+    });
+    var vex=d.querySelector('.vex');if(vex)vex.addEventListener('click',function(){this.classList.toggle('show-ex-tr');});
+    // Populate Word Family panel from VFamEx
+    var ftrDiv=d.querySelector('.c-fam .vtr');
+    if(ftrDiv&&VFamEx[i]){
+      var fhtml='<div style="margin-top:6px">';
+      VFamEx[i].forEach(function(fe){
+        var posColors={"v":"#2563eb","n":"#059669","adj":"#7c3aed","adv":"#b45309","phr v":"#dc2626","n/adj":"#059669"};
+        var pc=posColors[fe[1]]||"#0a1628";
+        fhtml+='<div style="background:#fffdf7;border-radius:9px;padding:9px 11px;margin-bottom:7px;border-right:3px solid '+pc+'">'
+              +'<div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;direction:ltr">'
+              +'<strong style="font-family:Lora,serif;color:#0a1628;font-size:.9rem">'+fe[0]+'</strong>'
+              +'<span style="background:'+pc+';color:white;font-size:.6rem;padding:1px 7px;border-radius:8px;font-weight:800">'+fe[1]+'</span>'
+              +'</div>'
+              +'<div style="font-size:.76rem;color:#b45309;direction:rtl;text-align:right;margin-bottom:4px;font-family:Tajawal,sans-serif">'+fe[2]+'</div>'
+              +'<div style="font-family:Lora,serif;font-style:italic;font-size:.83rem;color:#374151;direction:ltr">'+fe[3]+'</div>'
+              +'</div>';
+      });
+      fhtml+='</div>';
+      ftrDiv.innerHTML=fhtml;
+    }
+    c.appendChild(d);
+  });
+}
+function buildStory(){
+  var b=document.getElementById("storyBox");
+  if(!b)return;
+  b.innerHTML="";
+  story.forEach(function(s,i){
+    var d=document.createElement("div");d.className="sline";d.id="sl"+i;
+    var txt=document.createTextNode(s.t);d.appendChild(txt);
+    var btn=document.createElement("button");
+    btn.style.cssText="background:transparent;border:1px solid #e5e7eb;border-radius:5px;padding:1px 7px;color:#9ca3af;font-size:.7rem;cursor:pointer;font-family:Tajawal,sans-serif;margin-right:6px";
+    btn.textContent="🌐";
+    btn.addEventListener("click",(function(ii){return function(){toggleTr(ii);};})(i));
+    d.appendChild(btn);
+    var tr=document.createElement("div");tr.id="tr"+i;
+    tr.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;font-family:Tajawal,sans-serif;border-right:3px solid #fde68a;padding-right:8px";
+    tr.textContent=s.ar;d.appendChild(tr);b.appendChild(d);
+  });
+}
+var _trAll=false;
+function toggleAllTr(){_trAll=!_trAll;for(var i=0;i<story.length;i++){var e=document.getElementById("tr"+i);if(e)e.style.display=_trAll?"block":"none";}var btn=document.getElementById("trBtn");if(btn)btn.textContent=_trAll?"🙈 أخفِ":"🌐 الترجمة";}
+function toggleTr(i){var e=document.getElementById("tr"+i);if(e)e.style.display=e.style.display==="none"?"block":"none";}
+function setSpd(r,btn){spd=r;var p=btn.parentNode;p.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function storySeq(i){if(!storyOn||i>=story.length){stopStory();return;}document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("sl"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(story[i].t);u.lang="en-US";u.rate=spd;var v=getVoice("F");if(v)u.voice=v;u.onend=function(){if(storyOn)setTimeout(function(){storySeq(i+1);},320);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startStory(){storyOn=true;var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="⏹";btn.querySelector("#sTxt").textContent="إيقاف القصة";}storySeq(0);}
+function stopStory(){storyOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="▶";btn.querySelector("#sTxt").textContent="استمع للقصة";}}
+function toggleStory(){storyOn?stopStory():startStory();}
+function buildReading(){
+  var t=document.getElementById("readingText");
+  if(!t)return;
+  t.innerHTML="";
+  reading.forEach(function(p){var d=document.createElement("p");d.textContent=p;t.appendChild(d);});
+  var c=document.getElementById("compList");
+  if(!c)return;
+  c.innerHTML="";
+  compQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";
+    p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="co"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){
+        compA[qi]=oi;
+        for(var k=0;k<q.opts.length;k++){var el=document.getElementById("co"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}
+        this.style.borderColor="#0a1628";
+      });
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function checkComp(){var s=0;compQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("co"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(compA[qi]===i)el.classList.add("no");}if(compA[qi]===q.ans)s++;});var r=document.getElementById("compRes");r.style.display="block";var pct=Math.round(s/compQs.length*100);r.textContent=s+" من "+compQs.length+" إجابة صحيحة ("+pct+"%) "+(pct===100?"🏆":pct>=60?"🎉":"📚 راجع النص");}
+function resetComp(){compA=new Array(compQs.length).fill(null);document.querySelectorAll(".copt[id^='co']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("compRes").style.display="none";}
+function buildGrammar(){
+  var c=document.getElementById("grammarBox");
+  var box1=document.createElement("div");box1.className="gbox";
+  var t1=document.createElement("div");t1.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";
+  t1.textContent="١ — Impersonal Structures: الموضوعية وإخفاء الفاعل";box1.appendChild(t1);
+  var intro=document.createElement("p");intro.style.cssText="font-size:.84rem;color:#475569;direction:rtl;text-align:right;margin-bottom:12px;line-height:1.9";
+  intro.textContent="الصيغ غير الشخصية تنقل الرأي أو المعلومة دون نسبتها لشخص محدّد — تعطي نبرة أكاديمية محايدة، وهي أساسية في كتابة IELTS.";box1.appendChild(intro);
+  var tbl=document.createElement("div");tbl.style.cssText="background:#0a1628;border-radius:10px;padding:14px 18px;margin-bottom:14px;direction:ltr;overflow-x:auto";
+  var rows=[["Structure","Use","Example"],["It is said/believed that...","Report a general view","It is believed that the universe is expanding."],["It is widely accepted that...","Strong consensus","It is widely accepted that smoking causes cancer."],["X is thought/said to be...","Passive + infinitive","The drug is thought to be effective."],["It has been suggested that...","Tentative claim","It has been suggested that sleep aids memory."],["Research suggests that...","Cite evidence impersonally","Research suggests that exercise improves mood."],["It would seem that...","Cautious conclusion","It would seem that the theory is correct."],["One can argue that...","Impersonal opinion","One can argue that progress has costs."],["It is worth noting that...","Add emphasis neutrally","It is worth noting that data can mislead."]];
+  var table=document.createElement("table");table.style.cssText="width:100%;border-collapse:collapse;font-size:.83rem";
+  rows.forEach(function(row,ri){var tr=document.createElement("tr");if(ri>0)tr.style.borderTop="1px solid rgba(255,255,255,.1)";row.forEach(function(cell,ci){var td=document.createElement(ri===0?"th":"td");td.textContent=cell;td.style.cssText="padding:5px 7px;text-align:left;color:"+(ri===0?"#fde68a":ci===0?"#f0c040":ci===1?"#93c5fd":"rgba(255,255,255,.8)");tr.appendChild(td);});table.appendChild(tr);});
+  tbl.appendChild(table);box1.appendChild(tbl);c.appendChild(box1);
+  var box2=document.createElement("div");box2.className="gbox";
+  var t2=document.createElement("div");t2.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";t2.textContent="٢ — في سياق العلم";box2.appendChild(t2);
+  var examples=[["It is believed that:","It is believed that the experiment can be replicated.","يُعتقَد أن التجربة يمكن تكرارها."],["X is thought to be:","The new material is thought to be far stronger than steel.","يُعتقَد أن المادة الجديدة أقوى بكثير من الفولاذ."],["It has been suggested:","It has been suggested that AI could one day exceed human reasoning.","اقتُرِح أن الذكاء الاصطناعي قد يتجاوز يوماً ما التفكير البشري."]];
+  examples.forEach(function(ex){var pat=document.createElement("div");pat.className="gpat";var d1=document.createElement("div");d1.style.cssText="font-size:.78rem;color:#f0a000;font-weight:700;direction:ltr;margin-bottom:2px";d1.textContent=ex[0];var d2=document.createElement("div");d2.style.cssText="font-size:.88rem;color:#0a1628;font-weight:600;direction:ltr;margin-bottom:3px";d2.textContent=ex[1];var d3=document.createElement("div");d3.style.cssText="font-size:.8rem;color:#64748b;direction:rtl;text-align:right";d3.textContent=ex[2];pat.appendChild(d1);pat.appendChild(d2);pat.appendChild(d3);box2.appendChild(pat);});
+  c.appendChild(box2);
+  var wrong=document.createElement("div");wrong.style.cssText="background:#fef2f2;border-radius:10px;padding:13px 16px;margin-bottom:8px;border-right:4px solid #dc2626;direction:ltr";
+  wrong.innerHTML='<span style="color:#dc2626;font-weight:700">✗ </span>It is said that the drug to be safe. <span style="font-size:.8rem;color:#dc2626">← لا تخلط الصيغتين</span>';
+  var right=document.createElement("div");right.style.cssText="background:#f0fdf4;border-radius:10px;padding:13px 16px;border-right:4px solid #059669;direction:ltr";
+  right.innerHTML='<span style="color:#059669;font-weight:700">✓ </span><strong>It is said that</strong> the drug <strong>is</strong> safe. / The drug <strong>is said to be</strong> safe. <span style="font-size:.8rem;color:#059669">← إمّا that + جملة كاملة، أو to + مصدر ✅</span>';
+  c.appendChild(wrong);c.appendChild(right);
+}
+function buildListening(){
+  var s=document.getElementById("listenScript");
+  listenLines.forEach(function(line,i){
+    var d=document.createElement("div");d.className="lline";d.id="ll"+i;
+    if(typeof line==="object"&&line.speaker){
+      var lbl=document.createElement("span");
+      var isJ=line.speaker==="J";
+      lbl.style.cssText="font-size:.7rem;font-weight:800;padding:1px 7px;border-radius:8px;margin-left:6px;"+(isJ?"background:#dbeafe;color:#1e3a8a":"background:#dcfce7;color:#15803d");
+      lbl.textContent=isJ?"Journalist":"Dr. Hassan";
+      var txt=document.createElement("span");txt.textContent=line.text;
+      d.appendChild(lbl);d.appendChild(txt);
+    } else {
+      d.appendChild(document.createTextNode(typeof line==="object"?line.text:line));
+    }
+    s.appendChild(d);
+  });
+  var c=document.getElementById("listenQList");
+  listenQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="lq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){listenA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("lq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function setLSpd(r,btn){lspd=r;var p=btn.parentNode;p.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function getVoice(gender){
+  var voices=window.speechSynthesis.getVoices();
+  var enVoices=voices.filter(function(v){return v.lang.indexOf("en")===0;});
+  if(gender==="M"){
+    var rishi=enVoices.filter(function(v){return v.name.indexOf("Rishi")>-1;});
+    if(rishi.length)return rishi[0];
+    var male=enVoices.filter(function(v){
+      var n=v.name.toLowerCase();
+      return n.indexOf("male")>-1||n.indexOf("daniel")>-1||n.indexOf("james")>-1||n.indexOf("david")>-1||n.indexOf("mark")>-1||n.indexOf("arthur")>-1;
+    });
+    return male.length?male[0]:(enVoices.length?enVoices[0]:null);
+  } else {
+    var female=enVoices.filter(function(v){
+      var n=v.name.toLowerCase();
+      return n.indexOf("samantha")>-1||n.indexOf("female")>-1||n.indexOf("victoria")>-1||n.indexOf("karen")>-1||n.indexOf("kate")>-1||n.indexOf("fiona")>-1||n.indexOf("moira")>-1;
+    });
+    return female.length?female[0]:(enVoices.length>1?enVoices[1]:enVoices[0]||null);
+  }
+}
+function listenSeq(i){
+  if(!listenOn||i>=listenLines.length){stopListen();return;}
+  document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});
+  var e=document.getElementById("ll"+i);if(e)e.classList.add("hl");
+  var line=listenLines[i];
+  var text=typeof line==="object"?line.text:line;
+  var gender=typeof line==="object"?(line.speaker==="J"?"F":"M"):"M";
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US";u.rate=lspd;
+  var v=getVoice(gender);
+  if(v)u.voice=v;
+  u.pitch=1.0;
+  u.onend=function(){if(listenOn)setTimeout(function(){listenSeq(i+1);},380);};
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+function startListen(){listenOn=true;document.getElementById("lIcon").textContent="⏹";document.getElementById("lTxt").textContent="إيقاف الحوار";listenSeq(0);}
+function stopListen(){listenOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});document.getElementById("lIcon").textContent="▶";document.getElementById("lTxt").textContent="شغّل الحوار";}
+function toggleListen(){listenOn?stopListen():startListen();}
+function checkListen(){var s=0;listenQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("lq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(listenA[qi]===i)el.classList.add("no");}if(listenA[qi]===q.ans)s++;});var r=document.getElementById("listenRes");r.style.display="block";var pct=Math.round(s/listenQs.length*100);r.textContent=s+" من "+listenQs.length+" إجابة صحيحة ("+pct+"%) "+(pct>=80?"✅ ممتاز!":pct>=60?"👍 جيد!":"📚 راجع");}
+function resetListen(){listenA=new Array(listenQs.length).fill(null);document.querySelectorAll(".copt[id^='lq']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("listenRes").style.display="none";}
+function buildW(){
+  var ids=["w1","w2","w3","w4","w5"];var any=false;
+  for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value.trim())any=true;}
+  if(!any){document.getElementById("wOut").innerHTML="<span style='color:#9ca3af;font-style:italic'>✨ ستظهر فقرتك هنا...</span>";return;}
+  var parts=[];
+  for(var j=0;j<ids.length;j++){var el=document.getElementById(ids[j]);var v=el?el.value.trim():"";if(v)parts.push("<span style='color:#f0a000;font-weight:700'>"+v+"</span>.");}
+  document.getElementById("wOut").innerHTML="<p style='direction:ltr;line-height:2'>"+parts.join(" ")+"</p>";
+}
+function buildSpeaking(){
+  var c=document.getElementById("speakBox");
+  speakQs.forEach(function(q){
+    var d=document.createElement("div");d.style.cssText="background:#f8faff;border-right:4px solid #1e3a8a;border-radius:0 12px 12px 0;padding:16px 18px;margin-bottom:14px";
+    var p1=document.createElement("p");p1.style.cssText="font-size:.97rem;color:#0a1628;font-weight:700;direction:ltr;margin-bottom:5px";p1.textContent=q.q;
+    var p2=document.createElement("p");p2.style.cssText="font-size:.82rem;color:#9ca3af;margin-bottom:6px";p2.textContent=q.ar;
+    var p3=document.createElement("p");p3.style.cssText="font-size:.82rem;color:#f0a000;direction:ltr;margin-bottom:8px";p3.textContent="💡 "+q.hint;
+    var badge=document.createElement("span");badge.style.cssText="background:#dbeafe;color:#1e3a8a;padding:4px 12px;border-radius:20px;font-size:.76rem;font-weight:700";badge.textContent=q.badge;
+    d.appendChild(p1);d.appendChild(p2);d.appendChild(p3);d.appendChild(badge);
+    var btn=document.createElement("button");btn.className="spksmall";btn.textContent="🔊";btn.style.marginTop="10px";
+    btn.addEventListener("click",(function(qq){return function(){say(qq,spd);};})(q.q));
+    d.appendChild(btn);c.appendChild(d);
+  });
+}
+function makeExRow(text,arabic,spkText){
+  var div=document.createElement("div");
+  div.style.cssText="cursor:pointer;user-select:none;padding:8px 12px;background:white;border-radius:8px;direction:ltr;font-size:.86rem;color:#374151;font-style:italic;margin-top:6px";
+  var span=document.createElement("span");span.textContent=text;
+  var tr=document.createElement("div");
+  tr.style.cssText="font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;padding-top:4px;border-top:1px dashed #e5e7eb;display:none;font-family:Tajawal,sans-serif;font-style:normal";
+  tr.textContent=arabic;
+  div.appendChild(span);div.appendChild(tr);
+  div.addEventListener("click",(function(t,s){return function(){t.style.display=t.style.display==="none"?"block":"none";say(s,spd);};})(tr,spkText));
+  return div;
+}
+function buildReal(){
+  var c=document.getElementById("realBox");
+  var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h1.textContent="🔥 Expressions — اضغط على الجملة لتسمعها وترجمتها";c.appendChild(h1);
+  realExpr.forEach(function(e){
+    var d=document.createElement("div");d.className="expr-card";
+    var header=document.createElement("div");header.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;direction:ltr";
+    var headerLeft=document.createElement("div");headerLeft.style.cssText="display:flex;align-items:center;gap:8px";
+    var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";
+    spkBtn.addEventListener("click",(function(ee){return function(){say(ee,spd);};})(e.e));
+    var titleSpan=document.createElement("span");titleSpan.style.cssText="font-weight:700;color:#4c1d95;font-size:.97rem";titleSpan.textContent=e.e;
+    headerLeft.appendChild(spkBtn);headerLeft.appendChild(titleSpan);
+    var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.78rem;font-weight:700;font-family:Tajawal,sans-serif";pronSpan.textContent=e.p;
+    header.appendChild(headerLeft);header.appendChild(pronSpan);
+    d.appendChild(header);
+    var grid=document.createElement("div");grid.style.cssText="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px";
+    var g1=document.createElement("div");g1.style.cssText="background:white;border-radius:8px;padding:8px 12px;text-align:right";g1.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>المعنى</div><div style='font-weight:700;color:#374151;font-size:.88rem'>"+e.m+"</div>";
+    var g2=document.createElement("div");g2.style.cssText="background:white;border-radius:8px;padding:8px 12px;direction:ltr";g2.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>Formal</div><div style='font-size:.85rem;color:#64748b'>"+e.f+"</div>";
+    grid.appendChild(g1);grid.appendChild(g2);d.appendChild(grid);
+    d.appendChild(makeExRow(e.x,e.xar,e.x));
+    var note=document.createElement("div");note.style.cssText="font-size:.8rem;color:#7c3aed;text-align:right;margin-top:8px";note.textContent="💡 "+e.n;
+    d.appendChild(note);c.appendChild(d);
+  });
+  var h2=document.createElement("p");h2.style.cssText="font-weight:800;color:#0a1628;margin:20px 0 14px;text-align:right";h2.textContent="😎 Idioms & Slang";c.appendChild(h2);
+  var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:20px";
+  realSlang.forEach(function(s){
+    var d=document.createElement("div");d.className="slang-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";
+    var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkS=document.createElement("button");spkS.className="spksmall";spkS.textContent="🔊";spkS.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkS.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var sWord=document.createElement("span");sWord.style.cssText="font-weight:700;color:#ea580c;font-size:.9rem";sWord.textContent=s.w;
+    titleLeft.appendChild(spkS);titleLeft.appendChild(sWord);
+    var pp=document.createElement("span");pp.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pp.textContent=s.p;
+    titleRow.appendChild(titleLeft);titleRow.appendChild(pp);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Meaning: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    sg.appendChild(d);
+  });
+  c.appendChild(sg);
+  var h3=document.createElement("p");h3.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h3.textContent="💬 Everyday Phrases";c.appendChild(h3);
+  var ev=document.createElement("div");ev.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";
+  realEvery.forEach(function(s){
+    var d=document.createElement("div");d.className="ev-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;direction:ltr";
+    var titleLeft2=document.createElement("div");titleLeft2.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkE=document.createElement("button");spkE.className="spksmall";spkE.textContent="🔊";spkE.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkE.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var titleTxt=document.createElement("span");titleTxt.style.cssText="font-weight:700;color:#15803d;font-size:.9rem";titleTxt.textContent=s.w;
+    titleLeft2.appendChild(spkE);titleLeft2.appendChild(titleTxt);
+    var evPron=document.createElement("span");evPron.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";evPron.textContent=s.p;
+    titleRow.appendChild(titleLeft2);titleRow.appendChild(evPron);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Meaning: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    ev.appendChild(d);
+  });
+  c.appendChild(ev);
+}
+function buildPhrasal(){
+  var c=document.getElementById("pvBox");
+  if(!c)return;
+  var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";
+  pvData.forEach(function(pv){
+    var d=document.createElement("div");d.className="slang-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";
+    var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";
+    spkBtn.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkBtn.addEventListener("click",(function(word){return function(e){e.stopPropagation();say(word,spd);};})(pv.v));
+    var pvWord=document.createElement("span");pvWord.style.cssText="font-weight:700;color:#7c3aed;font-size:.95rem";pvWord.textContent=pv.v;
+    titleLeft.appendChild(spkBtn);titleLeft.appendChild(pvWord);
+    var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pronSpan.textContent=pv.p||"";
+    titleRow.appendChild(titleLeft);titleRow.appendChild(pronSpan);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:6px";ar.textContent=pv.m;
+    var exBox=document.createElement("div");
+    exBox.style.cssText="font-family:'Lora',serif;font-style:italic;color:#1e3a8a;font-size:.88rem;direction:ltr;cursor:pointer;padding:8px 10px;background:#f0f9ff;border-radius:8px;border-left:3px solid #7c3aed";
+    exBox.textContent=pv.ex;
+    var trBox=document.createElement("div");
+    trBox.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding:7px 10px;background:#fffdf7;border-radius:8px;border-right:3px solid #fde68a";
+    trBox.textContent=pv.ar;
+    exBox.addEventListener("click",(function(ex,tb){return function(){
+      say(ex,spd);
+      tb.style.display=tb.style.display==="none"?"block":"none";
+      this.style.background=tb.style.display==="block"?"#dbeafe":"#f0f9ff";
+    };})(pv.ex,trBox));
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(exBox);d.appendChild(trBox);
+    sg.appendChild(d);
+  });
+  c.appendChild(sg);
+}
+function buildQuiz(){
+  var c=document.getElementById("quizList");
+  quizQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="18px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:10px;direction:ltr;font-size:.93rem";
+    p.innerHTML="<span style='background:#0a1628;color:white;border-radius:5px;padding:1px 8px;font-size:.76rem;margin-left:8px'>"+(qi+1)+"</span>"+q.q;
+    d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="qopt";b.id="qq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){quizA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("qq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function checkQuiz(){var s=0;quizQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("qq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(quizA[qi]===i)el.classList.add("no");}if(quizA[qi]===q.ans)s++;});var pct=Math.round(s/quizQs.length*100);var r=document.getElementById("quizRes");r.style.display="block";document.getElementById("qEmoji").textContent=pct===100?"🏆":pct>=70?"🎉":pct>=50?"💪":"📚";document.getElementById("qScore").textContent=s+" من "+quizQs.length+" إجابة صحيحة ("+pct+"%)";document.getElementById("qMsg").textContent=pct===100?"مثالي! إتقان كامل للـ Impersonal Structures":pct>=70?"أحسنت!":pct>=50?"راجع القاعدة.":"راجع الوحدة.";r.style.background=pct>=70?"#f0fdf4":"#fef9f0";r.scrollIntoView({behavior:"smooth",block:"center"});}
+function resetQuiz(){quizA=new Array(quizQs.length).fill(null);document.querySelectorAll(".qopt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("quizRes").style.display="none";}
+function show(id,btn){document.querySelectorAll(".sec").forEach(function(s){s.classList.remove("on");});document.getElementById("sec-"+id).classList.add("on");window.scrollTo({top:0,behavior:"smooth"});document.querySelectorAll(".nb").forEach(function(b){b.classList.remove("on");});if(btn){btn.classList.add("on");return;}var map={vocab:0,story:1,reading:2,grammar:3,listening:4,writing:5,speaking:6,realeng:7,pv:8,quiz:9};var btns=document.querySelectorAll(".nb");if(btns[map[id]])btns[map[id]].classList.add("on");}
+
+var assessItems=[
+  "أستطيع استخدام It is said/believed/thought that بشكل صحيح في جملة كاملة.",
+  "أعرف الفرق بين 'It is thought that X is...' و 'X is thought to be...' ولا أخلط بينهما.",
+  "أستطيع تحويل جملة عادية لصيغة Impersonal بدون مساعدة.",
+  "أستطيع استخدام discourse markers (Furthermore, Nevertheless, Whereas) بشكل طبيعي.",
+  "أعرف 20+ كلمة من الوحدة مع collocations حقيقية (مثل: conduct research, carry out an experiment).",
+  "أتجنب الأخطاء الشائعة: I am agree / discuss about / make a research / informations.",
+  "أستطيع كتابة مقال IELTS Task 2 عن العلم (250+ كلمة) في 40 دقيقة.",
+  "أستطيع التحدث دقيقتين متواصلتين عن موضوع علمي مستخدماً مفردات وقاعدة الوحدة."
+];
+
+function buildGrammarExtra(){
+  var c=document.getElementById('grammarExtra');
+  if(!c)return;
+  c.style.cssText='overflow:visible';
+  var inner=document.createElement('div');inner.className='cb';
+  // ---- DISCOURSE MARKERS ----
+  var dm=document.createElement('div');dm.className='gbox';
+  var dmt=document.createElement('div');dmt.style.cssText='font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:8px;text-align:right';dmt.textContent='٣ — Discourse Markers: روابط الخطاب الأكاديمي';dm.appendChild(dmt);
+  var dmi=document.createElement('p');dmi.style.cssText='font-size:.84rem;color:#475569;direction:rtl;text-align:right;margin-bottom:12px;line-height:1.9';dmi.textContent='B2 = أفكار مترابطة، لا جُمَل منفصلة. هذه الروابط ترفع درجتك في Coherence & Cohesion في IELTS.';dm.appendChild(dmi);
+  var dmRows=[
+    ['➕ Adding','Furthermore / Moreover / In addition / What is more','علاوة على ذلك / وفضلاً عن ذلك'],
+    ['↔ Contrasting','However / Nevertheless / Whereas / In contrast','لكن / ومع ذلك / في حين أن'],
+    ['⚖ Conceding','Admittedly / Even so / Despite this / That said','صحيح أن / ومع ذلك / رغم هذا'],
+    ['💡 Emphasising','Indeed / In particular / It is worth noting that','في الواقع / بشكل خاص / تجدر الإشارة'],
+    ['🎯 Concluding','Therefore / On balance / It would seem, then, that','لذلك / في المجمل / يبدو إذن أن']
+  ];
+  var dtbl=document.createElement('div');dtbl.style.cssText='background:#0a1628;border-radius:10px;padding:14px 18px;direction:ltr;overflow-x:auto';
+  var tbl=document.createElement('table');tbl.style.cssText='width:100%;border-collapse:collapse;font-size:.82rem';
+  var hr=document.createElement('tr');['Function','Markers','العربي'].forEach(function(tx){var th=document.createElement('th');th.textContent=tx;th.style.cssText='padding:5px 8px;text-align:left;color:#fde68a;border-bottom:1px solid rgba(255,255,255,.2)';hr.appendChild(th);});tbl.appendChild(hr);
+  dmRows.forEach(function(row){var tr=document.createElement('tr');tr.style.borderTop='1px solid rgba(255,255,255,.07)';row.forEach(function(cell,ci){var td=document.createElement('td');td.textContent=cell;td.style.cssText='padding:6px 8px;text-align:left;vertical-align:top;color:'+(ci===0?'#f0c040':ci===1?'rgba(255,255,255,.9)':'#93c5fd');tr.appendChild(td);});tbl.appendChild(tr);});
+  dtbl.appendChild(tbl);dm.appendChild(dtbl);inner.appendChild(dm);
+  // ---- COMMON ARABIC ERRORS ----
+  var eb=document.createElement('div');eb.style.cssText='background:linear-gradient(135deg,#fff7ed,#fef3e8);border:2px solid #fed7aa;border-radius:14px;padding:18px 20px;margin-top:14px';
+  var ebt=document.createElement('div');ebt.style.cssText='font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:6px;text-align:right';ebt.textContent='٤ — أخطاء يقع فيها المتعلم العربي';eb.appendChild(ebt);
+  var ebi=document.createElement('p');ebi.style.cssText='font-size:.82rem;color:#92400e;direction:rtl;text-align:right;margin-bottom:12px;line-height:1.8';ebi.textContent='هذه الأخطاء شائعة جداً لأن العربية تعمل بطريقة مختلفة — انتبه لها في الكتابة والمحادثة.';eb.appendChild(ebi);
+  var errs=[
+    ['I am agree with this.','agree فعل كامل — لا يحتاج "am" (مثل: I am happy)','I agree with this.'],
+    ['We should discuss about the issue.','discuss لا تحتاج حرف جر، عكس العربية "يناقش في"','We should discuss the issue.'],
+    ['The scientist he discovered it.','لا يُكرَّر الفاعل بالإنجليزية كما في العربية','The scientist discovered it.'],
+    ['It is believed that science it is important.','جملة that لها فاعلها — no double subject','It is believed that science is important.'],
+    ['Make a research / make an experiment.','research وexperiment يحتاجان conduct أو carry out','Conduct research / carry out an experiment.'],
+    ['According to my opinion...','According to + مصدر خارجي — ليس رأيك الشخصي','In my opinion... / It is my view that...'],
+    ['Many informations / several evidences.','information وevidence غير معدودتين — لا جمع لهما','Much information / a great deal of evidence.']
+  ];
+  errs.forEach(function(row){
+    var card=document.createElement('div');card.style.cssText='background:white;border-radius:10px;padding:11px 14px;margin-bottom:8px;border-right:4px solid #dc2626';
+    var w=document.createElement('div');w.style.cssText='color:#dc2626;font-weight:700;font-size:.86rem;margin-bottom:3px;direction:ltr';w.innerHTML='<span style="background:#fef2f2;border-radius:5px;padding:1px 7px">✗</span>  '+row[0];
+    var why=document.createElement('div');why.style.cssText='font-size:.76rem;color:#92400e;direction:rtl;text-align:right;margin:3px 0;font-family:Tajawal,sans-serif';why.textContent='💡 '+row[1];
+    var right=document.createElement('div');right.style.cssText='color:#059669;font-weight:700;font-size:.86rem;direction:ltr';right.innerHTML='<span style="background:#f0fdf4;border-radius:5px;padding:1px 7px">✓</span>  '+row[2];
+    card.appendChild(w);card.appendChild(why);card.appendChild(right);eb.appendChild(card);
+  });
+  inner.appendChild(eb);
+  // ---- SENTENCE TRANSFORMATION ----
+  var sb=document.createElement('div');sb.className='gbox';sb.style.marginTop='14px';
+  var sbt=document.createElement('div');sbt.style.cssText='font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:6px;text-align:right';sbt.textContent='٥ — تحويل الجمل: حوّلها أنت ← Impersonal';sb.appendChild(sbt);
+  var sbi=document.createElement('p');sbi.style.cssText='font-size:.82rem;color:#475569;direction:rtl;text-align:right;margin-bottom:12px;line-height:1.8';sbi.textContent='هذا بالضبط ما يُختبر في Cambridge. حوّل كل جملة لصيغة Impersonal — اضغط الجواب للتحقق.';sb.appendChild(sbi);
+  var pairs=[
+    ['People say that AI is changing the world.','It is said that AI is changing the world.'],
+    ['Scientists think the drug is effective.','The drug is thought to be effective.'],
+    ['Experts believe replication is essential.','It is believed that replication is essential.'],
+    ['Researchers have suggested that data can mislead.','It has been suggested that data can mislead.'],
+    ['Everyone accepts that evidence matters more than opinion.','It is widely accepted that evidence matters more than opinion.']
+  ];
+  pairs.forEach(function(pair,ti){
+    var td=document.createElement('div');td.style.cssText='background:white;border-radius:10px;padding:13px 16px;margin-bottom:10px;border-right:4px solid #2563eb';
+    var num=document.createElement('span');num.style.cssText='background:#1e3a8a;color:white;border-radius:5px;padding:1px 8px;font-size:.75rem;font-weight:800;margin-left:8px';num.textContent=ti+1;
+    var orig=document.createElement('div');orig.style.cssText='font-family:Lora,serif;color:#374151;font-size:.9rem;direction:ltr;margin-bottom:8px';orig.appendChild(num);orig.appendChild(document.createTextNode(pair[0]));
+    var ab=document.createElement('button');ab.style.cssText='background:#dbeafe;border:none;border-radius:18px;padding:4px 14px;font-family:Tajawal,sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer;transition:all .15s';ab.textContent='💡 الجواب';
+    var ad=document.createElement('div');ad.style.cssText='display:none;background:#f0fdf4;border-radius:8px;padding:10px 13px;margin-top:8px;font-family:Lora,serif;font-size:.88rem;color:#059669;direction:ltr;border-right:3px solid #059669';ad.textContent='✓ '+pair[1];
+    ab.addEventListener('click',(function(ad2,ab2){return function(){ad2.style.display=ad2.style.display==='none'?'block':'none';ab2.textContent=ad2.style.display==='block'?'🙈 إخفاء':'💡 الجواب';};})(ad,ab));
+    td.appendChild(orig);td.appendChild(ab);td.appendChild(ad);sb.appendChild(td);
+  });
+  inner.appendChild(sb);
+  c.appendChild(inner);
+}
+
+function buildAssessment(){
+  var c=document.getElementById('assessList');
+  if(!c)return;
+  assessItems.forEach(function(item,i){
+    var d=document.createElement('div');d.style.cssText='display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border-radius:10px;margin-bottom:8px;background:#f8faff;border:1.5px solid #e5eaf5;cursor:pointer;transition:all .15s;flex-direction:row-reverse';
+    var cb=document.createElement('input');cb.type='checkbox';cb.id='as'+i;cb.style.cssText='width:18px;height:18px;cursor:pointer;accent-color:#1e3a8a;flex-shrink:0;margin-top:2px';
+    var lbl=document.createElement('label');lbl.htmlFor='as'+i;lbl.style.cssText='font-size:.88rem;color:#374151;direction:rtl;text-align:right;cursor:pointer;line-height:1.8;flex:1';lbl.textContent=item;
+    cb.addEventListener('change',function(){
+      d.style.background=this.checked?'#f0fdf4':'#f8faff';
+      d.style.borderColor=this.checked?'#86efac':'#e5eaf5';
+      updateAssess();
+    });
+    d.appendChild(lbl);d.appendChild(cb);c.appendChild(d);
+  });
+}
+function updateAssess(){
+  var total=assessItems.length;
+  var done=document.querySelectorAll('#assessList input:checked').length;
+  var r=document.getElementById('assessResult');
+  r.style.display='block';
+  var pct=Math.round(done/total*100);
+  var msg=pct===100?'🏆 مبروك — B2 Science حقيقي!':pct>=75?'🎉 قريب! كمّل تدريبك':pct>=50?'💪 نصف الطريق — استمر':pct>0?'📚 حدّد ما تحتاج للتركيز عليه':'👆 خلّيني أعرف أين أنت الآن';
+  r.style.background=pct>=75?'#f0fdf4':pct>=50?'#fefce8':'#f8faff';
+  r.innerHTML='<div style="font-size:1.4rem;margin-bottom:6px">'+msg.split(' ')[0]+'</div><div style="font-weight:800;color:#0a1628;margin-bottom:3px">'+done+' من '+total+' هدف محقَّق ('+pct+'%)</div><div style="font-size:.82rem;color:#64748b">'+msg.substring(msg.indexOf(' ')+1)+'</div>';
+}
+
+buildVocab();
+setTimeout(function(){document.querySelectorAll('.vword').forEach(function(e){var ov=e.scrollWidth-e.clientWidth;if(ov>4){e.style.setProperty('--vtx','-'+(ov+2)+'px');e.classList.add('mq');}});},500);buildStory();buildReading();buildGrammar();buildGrammarExtra();buildListening();buildSpeaking();buildReal();buildPhrasal();buildQuiz();buildAssessment();
+if(window.speechSynthesis){window.speechSynthesis.onvoiceschanged=function(){};window.speechSynthesis.getVoices();}
+</script>
+</body>
+</html>

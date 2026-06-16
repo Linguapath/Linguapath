@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath B2 — Unit 8: Philosophy of Mind</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap"></noscript>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Tajawal',system-ui,-apple-system,sans-serif;background:#f0f4fa;direction:rtl;min-height:100vh}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#1e3a8a;border-radius:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(30,58,138,.35)}50%{box-shadow:0 0 0 8px rgba(30,58,138,0)}}
+.nav-bar{background:linear-gradient(135deg,#0a1628,#1e3a8a);padding:10px 12px;display:flex;justify-content:center;gap:4px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.nb{border:none;border-radius:22px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s}
+.nb.on{background:#f0a000;color:#0a1628}
+.nb:not(.on){background:rgba(255,255,255,.1);color:rgba(255,255,255,.85)}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#1e3a8a 55%,#1d4ed8 100%);color:white;padding:32px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(240,160,0,.06)}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04)}
+.lvltag{display:inline-block;background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-size:.72rem;font-weight:900;padding:4px 14px;border-radius:20px;letter-spacing:1.5px;margin-bottom:10px}
+.sec{display:none;max-width:900px;margin:0 auto;padding:32px 16px 80px;animation:fadeUp .4s ease}
+.sec.on{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 3px 20px rgba(0,0,0,.06);margin-bottom:22px;overflow:hidden}
+.ch{background:#0a1628;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.ch h3{font-size:1rem;font-weight:700}
+.ch .sub{font-size:.75rem;color:#93c5fd;margin-top:1px}
+.cb{padding:22px}
+.vocab-card{background:white;border-radius:16px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 14px rgba(10,22,40,.08);border:1px solid #e5ebf8;transition:transform .2s,box-shadow .2s}
+.vocab-card:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(10,22,40,.13)}
+.vhead{background:linear-gradient(135deg,#0a1628,#1e3a8a);display:flex;flex-direction:row-reverse;align-items:center;padding:14px 18px;gap:14px}
+.vword{font-family:'Lora',Georgia,serif;font-size:1.18rem;font-weight:700;color:white;direction:ltr;text-align:left}
+.vpron{font-size:.78rem;font-weight:700;color:#fde68a;margin-top:3px;direction:ltr;text-align:left}
+.var{font-size:.93rem;font-weight:700;color:rgba(255,255,255,.9);margin-top:3px}
+.vspk{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.25);background:transparent;color:white;font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:all .18s;display:flex;align-items:center;justify-content:center}
+.vspk:hover{background:rgba(255,255,255,.2);transform:scale(1.08)}
+.vspk.playing{background:#f0a000;border-color:#f0a000;animation:pulse 1s infinite}
+.vbody{padding:14px 16px 16px}
+.vgrid2{margin-bottom:10px}
+.vrow-pair{display:flex;gap:8px;margin-bottom:8px}
+.vrow-pair .vcell{flex:1;min-width:0}
+.vcell{border-radius:10px;padding:10px 13px;cursor:pointer;transition:all .15s;user-select:none;direction:ltr}
+.vcell:hover{filter:brightness(.96)}
+.c-syn{background:#f0fdf4;border:1px solid #bbf7d0}
+.c-ant{background:#fff7ed;border:1px solid #fed7aa}
+.c-col{background:#eff6ff;border:1px solid #bfdbfe}
+.c-prep{background:#faf5ff;border:1px solid #ddd6fe}
+.c-fam{background:#fefce8;border:1px solid #fde68a}
+.vlbl{font-size:.65rem;font-weight:900;letter-spacing:.7px;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:5px;direction:ltr}
+.c-syn .vlbl{color:#15803d}.c-ant .vlbl{color:#ea580c}.c-col .vlbl{color:#2563eb}.c-prep .vlbl{color:#7c3aed}.c-fam .vlbl{color:#b45309}
+.vlbl::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.c-syn .vlbl::before{background:#15803d}.c-ant .vlbl::before{background:#ea580c}.c-col .vlbl::before{background:#2563eb}.c-prep .vlbl::before{background:#7c3aed}.c-fam .vlbl::before{background:#b45309}
+.vval{font-family:'Lora',Georgia,serif;font-size:.82rem;color:#374151;direction:ltr;line-height:1.6}
+.vtr{font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px;padding-top:5px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif}
+.vcell.show-tr .vtr{display:block}
+.vex{font-family:'Lora',Georgia,serif;font-size:.87rem;color:#374151;direction:ltr;font-style:italic;padding:10px 14px;background:#f8faff;border-radius:10px;border-right:3px solid #f0a000;cursor:pointer;user-select:none}
+.vex-tr{font-size:.8rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding-top:6px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif;font-style:normal}
+.vex.show-ex-tr .vex-tr{display:block}
+.vcat{display:flex;align-items:center;justify-content:flex-end;gap:12px;margin:28px 4px 14px;padding-bottom:8px;border-bottom:2px solid #dbe4f3}
+.vcat-en{font-family:'Lora',Georgia,serif;font-weight:700;color:#0a1628;font-size:1.05rem;direction:ltr}
+.vcat-ar{font-size:.85rem;color:#64748b}
+.vcat-num{background:linear-gradient(135deg,#0a1628,#1e3a8a);color:#fff;width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;flex-shrink:0}
+.sline{font-family:'Lora',Georgia,serif;font-size:.97rem;line-height:2;padding:5px 8px;border-radius:6px;direction:ltr;transition:background .2s}
+.sline.hl{background:#fef3c7}
+.lline{font-family:'Lora',Georgia,serif;font-size:.93rem;line-height:2;color:#cbd5e1;padding:3px 6px;border-radius:5px;direction:ltr;transition:background .2s}
+.lline.hl{background:rgba(240,160,0,.18);color:#fde68a}
+.sctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-direction:row-reverse;margin-bottom:16px}
+.pbtn{background:#1e3a8a;color:white;border:none;border-radius:24px;padding:9px 20px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s}
+.pbtn:hover{background:#1d4ed8}
+.spdbtn{padding:5px 12px;border-radius:18px;border:2px solid #cbd5e1;background:white;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;color:#64748b;transition:all .15s}
+.spdbtn.on{border-color:#1e3a8a;background:#1e3a8a;color:white}
+.rtext{font-family:'Lora',Georgia,serif;font-size:.95rem;line-height:2;color:#374151;direction:ltr;padding:20px;background:#f8faff;border-radius:14px;border:1px solid #e5eaf5;margin-bottom:18px}
+.rtext p{margin-bottom:14px}
+.gbox{background:linear-gradient(135deg,#eff6ff,#e0effe);border:2px solid #bfdbfe;border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.gpat{background:white;border-radius:10px;padding:12px 16px;margin-bottom:10px;border-right:4px solid #2563eb;direction:ltr}
+.copt{padding:9px 14px;border:2px solid #e5e7eb;border-radius:9px;cursor:pointer;font-family:'Lora',Georgia,serif;font-size:.87rem;direction:ltr;background:white;transition:all .15s;margin-bottom:6px}
+.copt:hover{border-color:#1e3a8a;background:#eff6ff}
+.copt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.copt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.qopt{padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;font-family:'Lora',Georgia,serif;font-size:.9rem;direction:ltr;background:white;transition:all .15s;margin-bottom:7px;text-align:left}
+.qopt:hover{border-color:#1e3a8a;background:#eff6ff}
+.qopt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.qopt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.wq-block{margin-bottom:18px}
+.wq-model{font-family:'Lora',Georgia,serif;font-size:.8rem;color:#374151;font-style:italic;direction:ltr;padding:10px 14px;background:#f0f9ff;border-radius:8px;border-right:3px solid #bfdbfe;line-height:1.7;display:none;margin-bottom:8px}
+.wq-model.show{display:block}
+.wq-model-btn{background:#dbeafe;border:none;border-radius:20px;padding:4px 14px;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer;margin-bottom:8px;transition:all .15s}
+.wq-model-btn:hover{background:#1e3a8a;color:white}
+.wq-en{font-family:'Lora',Georgia,serif;font-size:.93rem;font-weight:700;color:#0a1628;direction:ltr;margin-bottom:3px}
+.winput{width:100%;border:none;border-bottom:2px solid #f0a000;background:transparent;font-family:'Lora',Georgia,serif;font-size:.95rem;color:#0a1628;outline:none;padding:5px 3px;direction:ltr;margin-bottom:14px}
+.winput:focus{border-color:#1e3a8a}
+.ielts-tip{background:linear-gradient(135deg,#0a1628,#1e3a8a);color:#fff;border-radius:14px;padding:16px 20px;margin-bottom:18px}
+.ielts-tip .ielts-badge{display:inline-block;background:#f0a000;color:#0a1628;font-size:.7rem;font-weight:900;padding:3px 11px;border-radius:12px;letter-spacing:.5px;margin-bottom:9px}
+.ielts-tip h4{color:#fde68a;font-size:.92rem;margin-bottom:8px;text-align:right;font-weight:800}
+.ielts-tip ul{list-style:none;padding:0;margin:0}
+.ielts-tip li{font-size:.83rem;line-height:1.95;color:rgba(255,255,255,.92);text-align:right;padding-right:18px;position:relative;margin-bottom:3px}
+.ielts-tip li::before{content:'◂';color:#f0a000;position:absolute;right:0;font-size:.7rem;top:3px}
+.btn{border:none;border-radius:28px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all .18s;padding:10px 24px;font-size:.9rem}
+.btn:hover{opacity:.88;transform:scale(.98)}
+.bd{background:#1e3a8a;color:white}
+.bg{background:#e5e7eb;color:#374151}
+.bgold{background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-weight:900}
+.navrow{display:flex;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.spksmall{width:32px;height:32px;border-radius:50%;border:none;background:#dbeafe;color:#1e3a8a;font-size:.85rem;cursor:pointer;flex-shrink:0;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.spksmall:hover{background:#1e3a8a;color:white}
+.expr-card{background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:16px;margin-bottom:12px}
+.slang-card{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px}
+.ev-card{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px}
+.vword{white-space:nowrap;overflow:hidden}.vword.mq{animation:vwmq 6s ease-in-out .5s infinite alternate;display:inline-block}@keyframes vwmq{0%,25%{transform:translateX(0)}75%,100%{transform:translateX(var(--vtx,0px))}}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <button class="nb on" onclick="show('vocab',this)">📚 المفردات</button>
+  <button class="nb" onclick="show('story',this)">📖 القصة</button>
+  <button class="nb" onclick="show('reading',this)">📰 القراءة</button>
+  <button class="nb" onclick="show('grammar',this)">✏️ القاعدة</button>
+  <button class="nb" onclick="show('listening',this)">🎧 الاستماع</button>
+  <button class="nb" onclick="show('writing',this)">✍️ الكتابة</button>
+  <button class="nb" onclick="show('speaking',this)">💬 المحادثة</button>
+  <button class="nb" onclick="show('realeng',this)">🗣️ Real English</button>
+  <button class="nb" onclick="show('pv',this)">💬 Phrasal Verbs</button>
+  <button class="nb" onclick="show('quiz',this)">✅ الاختبار</button>
+</div>
+<div class="hero">
+  <div class="lvltag">B2 — UPPER INTERMEDIATE</div>
+  <div style="font-size:.75rem;letter-spacing:3px;color:rgba(255,255,255,.45);font-weight:700;margin-bottom:8px">UNIT 8</div>
+  <h1 style="font-family:'Lora',Georgia,serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;margin-bottom:6px">Philosophy of Mind</h1>
+  <p style="font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:4px">فلسفة العقل</p>
+  <p style="font-size:.82rem;color:rgba(255,255,255,.4)">القاعدة: Comment Clauses — I would argue / it seems to me / as far as I know / it could be said</p>
+  <div style="display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap">
+    <a href="unit7_b2_history.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">← الوحدة ٧</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="index.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">الفهرس</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="unit9_b2_law.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">الوحدة ٩ ←</a>
+  </div>
+</div>
+
+<div id="sec-vocab" class="sec on">
+  <div style="text-align:right;color:#64748b;font-size:.88rem;max-width:900px;margin:0 auto 16px;padding:0 16px">💡 المعنى العربي للكلمة ثابت دائماً — اضغط 🔊 للنطق، واضغط أي خلية لتسمع وتظهر الترجمة</div>
+  <div id="vocabList" style="max-width:900px;margin:0 auto;padding:0 16px"></div>
+  <div class="navrow"><button class="btn bd" onclick="show('story',null)">القصة ←</button></div>
+</div>
+
+<div id="sec-story" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📖</span><div><h3>القصة القصيرة</h3><div class="sub">قصة عن الوعي والعقل والحقيقة — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button id="trBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:22px;padding:7px 16px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+        <button class="pbtn" id="storyBtn" onclick="toggleStory()"><span id="sIcon">▶</span><span id="sTxt">استمع للقصة</span></button>
+        <button class="spdbtn on" onclick="setSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setSpd(0.75,this)">بطيء</button>
+      </div>
+      <div id="storyBox" style="border-right:4px solid #f0a000;padding:16px 20px;background:#fffdf7;border-radius:0 14px 14px 0"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn bd" onclick="show('reading',null)">القراءة ←</button>
+  </div>
+</div>
+
+<div id="sec-reading" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📰</span><div><h3>القراءة المعمّقة</h3><div class="sub">نص ~480 كلمة + 5 أسئلة استنتاجية</div></div></div>
+    <div class="cb">
+      <div class="rtext" id="readingText"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الفهم والاستنتاج</p>
+      <div id="compList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkComp()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetComp()">↺ إعادة</button>
+      </div>
+      <div id="compRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('story',null)">→ القصة</button>
+    <button class="btn bd" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✏️</span><div><h3>القاعدة</h3><div class="sub">Comment Clauses — جمل التعليق والموقف</div></div></div>
+    <div class="cb" id="grammarBox"></div>
+  </div>
+  <div class="card" id="grammarExtra"></div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('reading',null)">→ القراءة</button>
+    <button class="btn bd" onclick="show('listening',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listening" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🎧</span><div><h3>الاستماع المضمّن</h3><div class="sub">حوار: مذيع 🎙️ × فيلسوف 👩‍🏫 — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button class="pbtn" id="listenBtn" onclick="toggleListen()"><span id="lIcon">▶</span><span id="lTxt">شغّل الحوار</span></button>
+        <button class="spdbtn on" onclick="setLSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setLSpd(0.75,this)">بطيء</button>
+        <span style="font-size:.72rem;color:#64748b;font-family:Tajawal,sans-serif;padding:4px 10px;background:#f1f5f9;border-radius:12px">🔊 يعمل بـ Safari</span>
+      </div>
+      <div id="listenScript" style="background:#0f172a;border-radius:14px;padding:18px 20px;margin-bottom:16px"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الاستماع</p>
+      <div id="listenQList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkListen()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetListen()">↺ إعادة</button>
+      </div>
+      <div id="listenRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+      <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:14px;padding:20px;margin-top:18px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-direction:row-reverse">
+          <div style="text-align:right"><div style="font-weight:800;color:white;font-size:.95rem">🌍 Authentic Listening</div><div style="font-size:.78rem;color:#93c5fd;margin-top:2px">استمع لإنجليزي حقيقي</div></div>
+          <span style="background:#f0a000;color:#0a1628;font-size:.7rem;font-weight:900;padding:3px 11px;border-radius:12px">B2 · Philosophy</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:16px">
+          <a href="https://youtu.be/lyu7v7nWzfo" onclick="window.location.href='https://youtu.be/lyu7v7nWzfo';return false;" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:14px;text-decoration:none;display:block" onmouseover="this.style.background='rgba(255,255,255,.14)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
+            <div style="color:#f0a000;font-size:.72rem;font-weight:800;margin-bottom:4px">TED · 17 min</div>
+            <div style="color:white;font-weight:700;font-size:.88rem;margin-bottom:3px">Your Brain Hallucinates Your Conscious Reality</div>
+            <div style="color:rgba(255,255,255,.6);font-size:.76rem">Anil Seth</div>
+            <div style="color:rgba(255,255,255,.35);font-size:.65rem;margin-top:4px">youtu.be/lyu7v7nWzfo</div>
+            <div style="margin-top:8px;display:flex;gap:6px"><span style="background:rgba(240,160,0,.2);color:#fde68a;font-size:.68rem;padding:2px 8px;border-radius:10px">⭐⭐⭐ B2</span><span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:.68rem;padding:2px 8px;border-radius:10px">🇬🇧 British</span></div>
+          </a>
+          <a href="https://youtu.be/uhRhtFFhNzQ" onclick="window.location.href='https://youtu.be/uhRhtFFhNzQ';return false;" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:14px;text-decoration:none;display:block" onmouseover="this.style.background='rgba(255,255,255,.14)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
+            <div style="color:#f0a000;font-size:.72rem;font-weight:800;margin-bottom:4px">TED · 18 min</div>
+            <div style="color:white;font-weight:700;font-size:.88rem;margin-bottom:3px">How Do You Explain Consciousness?</div>
+            <div style="color:rgba(255,255,255,.6);font-size:.76rem">David Chalmers</div>
+            <div style="color:rgba(255,255,255,.35);font-size:.65rem;margin-top:4px">youtu.be/uhRhtFFhNzQ</div>
+            <div style="margin-top:8px;display:flex;gap:6px"><span style="background:rgba(240,160,0,.2);color:#fde68a;font-size:.68rem;padding:2px 8px;border-radius:10px">⭐⭐⭐ B2+</span><span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:.68rem;padding:2px 8px;border-radius:10px">🇦🇺 Australian</span></div>
+          </a>
+          <a href="https://youtu.be/H6u0VBqNBQ8" onclick="window.location.href='https://youtu.be/H6u0VBqNBQ8';return false;" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:14px;text-decoration:none;display:block" onmouseover="this.style.background='rgba(255,255,255,.14)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
+            <div style="color:#f0a000;font-size:.72rem;font-weight:800;margin-bottom:4px">TED-Ed · 5 min</div>
+            <div style="color:white;font-weight:700;font-size:.88rem;margin-bottom:3px">What Is Consciousness?</div>
+            <div style="color:rgba(255,255,255,.6);font-size:.76rem">TED-Ed Animated</div>
+            <div style="color:rgba(255,255,255,.35);font-size:.65rem;margin-top:4px">youtu.be/H6u0VBqNBQ8</div>
+            <div style="margin-top:8px;display:flex;gap:6px"><span style="background:rgba(240,160,0,.2);color:#fde68a;font-size:.68rem;padding:2px 8px;border-radius:10px">⭐⭐ B2 easy</span><span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:.68rem;padding:2px 8px;border-radius:10px">🌍 Neutral</span></div>
+          </a>
+        </div>
+        <div style="background:rgba(255,255,255,.07);border-radius:10px;padding:14px 16px">
+          <div style="font-size:.8rem;font-weight:800;color:#fde68a;margin-bottom:8px;text-align:right">🎯 أسئلة التركيز:</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.85);direction:rtl;text-align:right;line-height:2">
+            <div>١ — ما الموقف الذي يدافع عنه المتحدث؟ هل يقينيّ أم متحفّظ؟</div>
+            <div>٢ — استمع للـ Comment Clauses: I would argue / it seems / as far as I know. كم مرة سمعتها؟</div>
+            <div>٣ — ما الكلمات من الوحدة التي سمعتها؟</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn bd" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✍️</span><div><h3>الكتابة — IELTS Writing Task 2</h3><div class="sub">مقالات أكاديمية عن فلسفة العقل</div></div></div>
+    <div class="cb">
+      <div class="ielts-tip">
+        <span class="ielts-badge">IELTS · TASK 2</span>
+        <h4>📋 Comment Clauses في IELTS Writing</h4>
+        <ul>
+          <li>للتحفّظ: "Free will, I would argue, is more complex than it appears."</li>
+          <li>للإحالة: "Consciousness, as Descartes famously argued, raises the mind-body problem."</li>
+          <li>للإشارة للمصدر: "As far as neuroscience can tell, all mental states have physical correlates."</li>
+          <li>للتأكيد: "It seems to me that the question is not whether the mind exists, but what it is."</li>
+        </ul>
+      </div>
+      <div style="background:#fffdf7;border:2px dashed #f0a000;border-radius:14px;padding:20px;margin-bottom:14px">
+        <div class="wq-block">
+          <div class="wq-en">Do humans have free will, or are our actions determined by biology and environment?</div>
+          <div class="wq-ar">هل يمتلك البشر إرادة حرة أم أن أفعالنا محدَّدة مسبقاً؟ (Discuss / Opinion)</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">The question of free will is, I would argue, the most practically urgent in philosophy — because it underlies our entire framework of moral responsibility. Those who hold a strictly determinist view contend that every decision we make is the inevitable product of prior causes: genetics, upbringing, and neural processes beyond conscious access. It must be admitted that the evidence from neuroscience is troubling. As far as we can tell, the brain initiates action before the conscious mind is aware of deciding. That said, it seems to me that this does not settle the matter. Consciousness, as many philosophers believe, may play a role in evaluating and redirecting impulses rather than simply executing them. In my view, the question is not whether we are free in some absolute sense, but whether the kind of self-reflection we are capable of is sufficient to ground moral responsibility. I believe it is.</div>
+          <input class="winput" id="w1" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Is consciousness more than just brain activity? Discuss.</div>
+          <div class="wq-ar">هل الوعي أكثر من مجرد نشاط دماغي؟ ناقش. (Discussion)</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">Consciousness is, it seems to me, the hardest problem in science — not because we lack data, but because no amount of data about neurons can, as far as we currently know, fully explain the subjective experience of being. This is what the philosopher David Chalmers calls the 'hard problem': why does physical brain activity feel like anything at all? Those who adopt a purely materialist view argue that consciousness is simply what the brain does; there is nothing more to explain. I would argue, however, that this view sidesteps rather than solves the question. The experience of seeing red, of feeling pain, of having a thought — these, it must be admitted, are not obviously captured by a neural description alone. Whether this means consciousness transcends the brain, or simply that our current concepts are inadequate, remains, in my view, genuinely open.</div>
+          <input class="winput" id="w2" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Can animals think? To what extent do you agree that thought requires language?</div>
+          <div class="wq-ar">هل تستطيع الحيوانات التفكير؟ هل يستلزم التفكير اللغة؟ (Opinion)</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">The question of whether animals think depends, I would argue, entirely on what we mean by thinking. If thought requires language in the full human sense, then, as far as we know, only humans qualify. But this definition seems to me needlessly restrictive. Cognitive science has shown that many species demonstrate problem-solving, tool use, and what appears to be anticipatory planning — capacities that, it could be argued, constitute a form of thought without language. The crow that bends a wire to retrieve food is, it seems to me, doing something that deserves the name. That said, it must be admitted that the richness of abstract thought — imagining hypothetical futures, reflecting on one's own existence — does appear to require something very close to language. My view is that thought exists on a spectrum, and that the honest answer is not 'yes' or 'no' but 'to what degree?'</div>
+          <input class="winput" id="w3" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Are emotions a strength or a weakness in human decision-making?</div>
+          <div class="wq-ar">هل المشاعر قوة أم ضعف في صنع القرار البشري؟ (Discuss / Opinion)</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">The traditional view, as philosophers from Plato to Kant argued, is that reason should govern emotion. Emotions, on this account, distort judgement; the rational agent is one who, it seems to me, has learned to set feeling aside. But this view, I would argue, is mistaken — or at least dangerously incomplete. As the neuroscientist Antonio Damasio has shown, patients who suffer damage to the brain's emotional centres become incapable of making decisions at all, even when their reasoning faculties remain intact. It must be admitted, then, that emotion and cognition are not opposed but deeply entangled. Emotions, it seems, provide the value signals that make decisions possible. That said, not all emotions improve decision-making equally; fear and anger, in particular, can bias judgement in ways that damage both the individual and others. In my view, the goal is not to suppress emotion but to cultivate the right ones.</div>
+          <input class="winput" id="w4" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block" style="margin-bottom:0">
+          <div class="wq-en">Is it ethical to develop artificial intelligence that simulates human consciousness?</div>
+          <div class="wq-ar">هل من الأخلاقي تطوير ذكاء اصطناعي يُحاكي الوعي البشري؟ (Ethics/Opinion)</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">The ethical question raised by conscious AI is, I would argue, among the most serious we face — and it hinges on a prior philosophical question: what is consciousness, and can it be manufactured? As far as we currently know, no AI system is genuinely conscious; what we call 'simulated consciousness' is, it seems to me, the appearance of inner life rather than the thing itself. Nevertheless, it must be admitted that we do not fully understand what consciousness is in biological systems either. If we were to create an entity that genuinely experienced suffering or joy, the moral implications would be profound. The question, as I see it, is not whether to develop AI but how to do so responsibly — with the humility to acknowledge what we do not know, and the caution to avoid creating minds we are not prepared to take moral responsibility for.</div>
+          <input class="winput" id="w5" placeholder="Write your answer here..." oninput="buildW()" style="margin-bottom:0">
+        </div>
+      </div>
+      <div id="wOut" style="background:white;border:1px solid #e5eaf5;border-radius:12px;padding:16px;min-height:70px;font-family:'Lora',Georgia,serif;font-size:.93rem;line-height:2;color:#374151;direction:ltr"><span style="color:#9ca3af;font-style:italic">✨ ستظهر فقرتك هنا...</span></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('listening',null)">→ الاستماع</button>
+    <button class="btn bd" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">💬</span><div><h3>المحادثة — IELTS Speaking</h3><div class="sub">Part 1 · Part 2 · Part 3</div></div></div>
+    <div class="cb">
+      <div class="ielts-tip">
+        <span class="ielts-badge">IELTS · SPEAKING</span>
+        <h4>🎙️ Comment Clauses في Speaking</h4>
+        <ul>
+          <li>للتحفّظ بأدب: "I would argue that..." / "It seems to me that..."</li>
+          <li>للإحالة: "As far as I know..." / "As some philosophers argue..."</li>
+          <li>للتأمّل: "If I think about it..." / "To be honest with you..."</li>
+          <li>للتأكيد: "I genuinely believe that..." / "It seems clear to me that..."</li>
+        </ul>
+      </div>
+      <div id="speakBox"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn bd" onclick="show('realeng',null)">Real English ←</button>
+  </div>
+</div>
+
+<div id="sec-realeng" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🗣️</span><div><h3>Real English</h3><div class="sub">اضغط على الجملة لتسمعها وتظهر ترجمتها</div></div></div>
+    <div class="cb" id="realBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn bd" onclick="show('pv',null)">Phrasal Verbs ←</button>
+  </div>
+</div>
+
+<div id="sec-pv" class="sec">
+  <div class="card">
+    <div class="cb">
+      <div style="font-weight:800;color:#0a1628;font-size:1rem;text-align:right;margin-bottom:6px">💬 Phrasal Verbs — العقل والتفكير</div>
+      <p style="font-size:.82rem;color:#64748b;text-align:right;margin-bottom:16px;font-family:Tajawal,sans-serif">اضغط على الجملة لتسمعها وترى ترجمتها 🔊</p>
+      <div id="pvBox"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('realeng',null)">→ Real English</button>
+    <button class="btn bd" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-quiz" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✅</span><div><h3>اختبار الوحدة</h3><div class="sub">10 أسئلة — مفردات + Comment Clauses + collocations</div></div></div>
+    <div class="cb">
+      <div id="quizList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:18px">
+        <button class="btn bgold" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn bg" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizRes" style="display:none;text-align:center;padding:22px;margin-top:16px;background:#f0fdf4;border-radius:14px">
+        <div id="qEmoji" style="font-size:2.5rem;margin-bottom:8px"></div>
+        <div id="qScore" style="font-weight:800;font-size:1.1rem;color:#0a1628;margin-bottom:4px"></div>
+        <div id="qMsg" style="font-size:.88rem;color:#64748b"></div>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:8px">
+    <div class="ch"><span style="font-size:1.3rem">🎯</span><div><h3>هل أستطيع...؟</h3><div class="sub">CEFR B2 Self-Assessment</div></div></div>
+    <div class="cb">
+      <p style="font-size:.84rem;color:#64748b;direction:rtl;text-align:right;margin-bottom:16px;line-height:1.9">ضع علامة ✅ على كل هدف تشعر أنك حققته فعلاً.</p>
+      <div id="assessList"></div>
+      <div id="assessResult" style="display:none;margin-top:16px;padding:16px;border-radius:12px;text-align:center"></div>
+    </div>
+  </div>
+  <div style="background:linear-gradient(135deg,#0a1628,#1e3a8a);border-radius:18px;padding:28px;text-align:center;margin-top:8px;max-width:900px;margin-left:auto;margin-right:auto">
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:white;margin-bottom:6px">أحسنت! أكملت وحدة Philosophy of Mind</div>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:16px">الوحدة التاسعة: Law and Justice</p>
+    <button class="btn bgold" onclick="location.href='unit9_b2_law.html'">الوحدة ٩ ←</button>
+  </div>
+</div>
+<script>
+var V=[
+  {cat:"Mind & Consciousness",catAr:"العقل والوعي",w:"consciousness",p:"كونشِسنِس",a:"وعي",syn:"awareness, sentience, self-awareness",ant:"unconsciousness, oblivion",col:"stream of consciousness / loss of consciousness / states of consciousness",prep:"consciousness of (self) / in (philosophy)",fam:"conscious (adj) · consciousness (n) · consciously (adv) · unconscious (adj)",ex:"Consciousness, it seems to me, is the hardest problem science has yet to confront.",ar_syn:"إدراك، وعي ذاتي، حضور ذهني",ar_ant:"فقدان الوعي، غياب الوعي",ar_col:"تيار / فقدان / حالات",ar_prep:"وعي بـ (الذات) / في (الفلسفة)",ar_fam:"واعٍ · وعي · بوعي · لا واعٍ",ar_ex:"الوعي، في رأيي، هو أصعب مشكلة واجهها العلم حتى الآن."},
+  {cat:"Mind & Consciousness",catAr:"العقل والوعي",w:"perception",p:"بيرسبشن",a:"إدراك / تصوّر",syn:"awareness, sensation, observation",ant:"blindness, insensitivity",col:"visual perception / distorted perception / depth perception / perception of reality",prep:"perception of (colour) / through (the senses)",fam:"perceive (v) · perception (n) · perceptual (adj)",ex:"Perception, it turns out, is not a passive window onto reality but an active construction.",ar_syn:"إحساس، ملاحظة",ar_ant:"عمى، عدم إحساس",ar_col:"بصري / مشوَّه / عمقي / للواقع",ar_prep:"إدراك (اللون) / عبر (الحواس)",ar_fam:"يُدرك · إدراك · إدراكي",ar_ex:"اتضح أن الإدراك ليس نافذة سلبية على الواقع بل بناءً نشطاً."},
+  {cat:"Mind & Consciousness",catAr:"العقل والوعي",w:"cognition",p:"كوغنيشن",a:"إدراك معرفي / تفكير",syn:"thinking, mental processing, reasoning",ant:"emotion, instinct",col:"human cognition / cognitive ability / impaired cognition / cognition and emotion",prep:"cognition in (children) / linked to (brain function)",fam:"cognise (v) · cognition (n) · cognitive (adj) · cognitively (adv)",ex:"As far as cognitive science can tell, emotion and cognition are deeply intertwined rather than opposed.",ar_syn:"تفكير، معالجة ذهنية، استدلال",ar_ant:"العاطفة، الغريزة",ar_col:"بشري / قدرة / ضعيف / والعاطفة",ar_prep:"في (الأطفال) / مرتبط بـ (وظيفة الدماغ)",ar_fam:"يُدرك معرفياً · إدراك معرفي · معرفي · معرفياً",ar_ex:"بقدر ما تُخبرنا العلوم المعرفية، العاطفة والتفكير متشابكان بعمق لا متعارضان."},
+  {cat:"Mind & Consciousness",catAr:"العقل والوعي",w:"self-awareness",p:"سيلف-أوِيرنِس",a:"الوعي بالذات / الإدراك الذاتي",syn:"self-consciousness, introspection, reflexivity",ant:"unawareness, unreflectiveness",col:"develop self-awareness / lack of self-awareness / emotional self-awareness",prep:"self-awareness of (one's biases) / in (primates)",fam:"self-aware (adj) · self-awareness (n) · introspection (n)",ex:"Self-awareness, I would argue, is what distinguishes a mere information-processing system from a mind.",ar_syn:"وعي ذاتي، استبطان",ar_ant:"غياب الوعي الذاتي",ar_col:"يطوّر / افتقار / عاطفي",ar_prep:"بـ (تحيّزات المرء) / في (الرئيسيات)",ar_fam:"واعٍ بذاته · وعي ذاتي · استبطان",ar_ex:"الوعي بالذات، في رأيي، هو ما يُميّز نظام معالجة المعلومات البسيط عن العقل."},
+  {cat:"Mind & Consciousness",catAr:"العقل والوعي",w:"sentience",p:"سينشِنس",a:"القدرة على الإحساس / الوجدانية",syn:"capacity to feel, sensitivity, feeling",ant:"non-sentience, insensitivity",col:"animal sentience / moral sentience / sentience and consciousness",prep:"sentience in (animals) / relevant to (ethics)",fam:"sentient (adj) · sentience (n)",ex:"Animal sentience, as many philosophers now argue, has profound implications for how we treat other species.",ar_syn:"القدرة على الشعور، حساسية",ar_ant:"عدم الإحساس",ar_col:"حيوانية / أخلاقية / والوعي",ar_prep:"في (الحيوانات) / ذات صلة بـ (الأخلاق)",ar_fam:"واعٍ بالإحساس / مُحِس · وجدانية",ar_ex:"الوجدانية الحيوانية، كما يجادل كثير من الفلاسفة الآن، لها آثار عميقة في كيفية تعاملنا مع الأنواع الأخرى."},
+  {cat:"Mind & Consciousness",catAr:"العقل والوعي",w:"subconscious",p:"سَب-كونشَس",a:"اللاوعي / ما دون الوعي",syn:"unconscious mind, hidden self, repressed thoughts",ant:"conscious mind, deliberate thought",col:"subconscious mind / subconscious desire / subconscious bias / access the subconscious",prep:"subconscious in (psychology) / beyond (conscious control)",fam:"subconscious (n/adj) · unconscious (n/adj) · subliminal (adj)",ex:"Many of our decisions, it turns out, are made by the subconscious before the conscious mind is even aware.",ar_syn:"العقل الباطن، الذات الخفية",ar_ant:"العقل الواعي، التفكير المتعمّد",ar_col:"العقل / رغبة / تحيّز / الوصول إلى",ar_prep:"في (علم النفس) / خارج (السيطرة الواعية)",ar_fam:"اللاوعي / دون الواعي · اللاوعي · تحت الحسّي",ar_ex:"اتضح أن كثيراً من قراراتنا يتّخذها اللاوعي قبل أن يُدرك العقل الواعي ذلك."},
+  {cat:"Mental States",catAr:"الحالات الذهنية",w:"belief",p:"بيليف",a:"اعتقاد / إيمان",syn:"conviction, opinion, faith",ant:"doubt, scepticism, disbelief",col:"core belief / false belief / belief system / deeply held belief",prep:"belief in (free will) / about (reality)",fam:"believe (v) · belief (n) · believer (n) · believable (adj)",ex:"A belief, it must be admitted, can be sincerely held and profoundly mistaken at the same time.",ar_syn:"قناعة، رأي، إيمان",ar_ant:"شك، تشكيك، كفر",ar_col:"جوهري / خاطئ / منظومة / راسخ",ar_prep:"في (الإرادة الحرة) / حول (الواقع)",ar_fam:"يعتقد · اعتقاد · مؤمن · معقول",ar_ex:"الاعتقاد، لا بدّ من الإقرار بذلك، يمكن أن يكون صادقاً في آنٍ وخاطئاً بعمق."},
+  {cat:"Mental States",catAr:"الحالات الذهنية",w:"intuition",p:"إنتيويشن",a:"حدس",syn:"gut feeling, instinct, sixth sense",ant:"reason, analysis, deliberation",col:"follow your intuition / trust intuition / strong intuition / moral intuition",prep:"intuition about (a problem) / beyond (rational explanation)",fam:"intuitive (adj) · intuitively (adv) · intuition (n)",ex:"Intuition, as many psychologists now believe, is often the compressed output of accumulated experience.",ar_syn:"شعور داخلي، غريزة، حاسة سادسة",ar_ant:"عقل، تحليل، تروٍّ",ar_col:"يتّبع / يثق بـ / قوي / أخلاقي",ar_prep:"حدس بشأن (مشكلة) / خارج (التفسير العقلاني)",ar_fam:"حدسي · بحدسية · حدس",ar_ex:"الحدس، كما يعتقد كثير من علماء النفس الآن، كثيراً ما يكون المخرج المُكثَّف للخبرة المتراكمة."},
+  {cat:"Mental States",catAr:"الحالات الذهنية",w:"emotion",p:"إيموشن",a:"عاطفة / مشاعر",syn:"feeling, affect, sentiment",ant:"reason, rationality, detachment",col:"raw emotion / suppressing emotions / emotional intelligence / emotional regulation",prep:"emotion in (decision-making) / triggered by (experience)",fam:"emotional (adj) · emotionally (adv) · emotion (n) · emotive (adj)",ex:"Emotion, I would argue, is not the enemy of good judgement but one of its essential ingredients.",ar_syn:"شعور، وجدان، مشاعر",ar_ant:"عقل، رشاد، لا مبالاة",ar_col:"خام / قمع / ذكاء عاطفي / تنظيم",ar_prep:"في (صنع القرار) / تُثيرها (التجربة)",ar_fam:"عاطفي · عاطفياً · عاطفة · مُثير",ar_ex:"العاطفة، في رأيي، ليست عدوّة الحكم السليم بل إحدى مكوّناته الأساسية."},
+  {cat:"Mental States",catAr:"الحالات الذهنية",w:"imagination",p:"إماجينيشن",a:"خيال",syn:"creativity, mental imagery, fantasy",ant:"reality, fact, literalism",col:"human imagination / power of imagination / imagination and reality / active imagination",prep:"imagination in (art) / beyond (physical limits)",fam:"imagine (v) · imagination (n) · imaginative (adj) · imaginary (adj)",ex:"The imagination, as I see it, is not an escape from reality but a tool for understanding possibilities.",ar_syn:"إبداع، تصوير ذهني، خيال",ar_ant:"الواقع، الحقيقة",ar_col:"بشري / قوة / والواقع / نشط",ar_prep:"في (الفن) / خارج (الحدود الجسدية)",ar_fam:"يتخيّل · خيال · خيالي · وهمي",ar_ex:"الخيال، كما أراه، ليس هروباً من الواقع بل أداةً لفهم الإمكانيات."},
+  {cat:"Mental States",catAr:"الحالات الذهنية",w:"memory",p:"ميموري",a:"ذاكرة",syn:"recall, recollection, retention",ant:"forgetting, amnesia",col:"long-term memory / working memory / false memory / memory and identity",prep:"memory of (an event) / stored in (the brain)",fam:"remember (v) · memory (n) · memorial (adj/n) · memorable (adj)",ex:"Memory, I suspect, is less a recording of the past than a continuous act of reconstruction.",ar_syn:"تذكّر، استرجاع، احتفاظ",ar_ant:"نسيان، فقدان الذاكرة",ar_col:"طويلة الأمد / عاملة / زائفة / والهوية",ar_prep:"ذاكرة (حدث) / مخزّنة في (الدماغ)",ar_fam:"يتذكّر · ذاكرة · تذكاري / أثري · لا يُنسى",ar_ex:"الذاكرة، على ما أظن، هي أقل تسجيلاً للماضي وأكثر استحضاراً متجدّداً له."},
+  {cat:"Mental States",catAr:"الحالات الذهنية",w:"cognitive bias",p:"كوغنيتف بايَس",a:"التحيّز المعرفي",syn:"mental bias, thinking error, systematic distortion",ant:"objective thinking, rational analysis",col:"common cognitive bias / overcome cognitive bias / cognitive bias in decision-making",prep:"bias toward (a viewpoint) / in (reasoning)",fam:"cognitive (adj) · bias (n) · biased (adj)",ex:"Cognitive bias, it seems, is not a flaw in human thinking but a feature — one that becomes problematic in complex decisions.",ar_syn:"تحيّز ذهني، خطأ في التفكير",ar_ant:"تفكير موضوعي، تحليل عقلاني",ar_col:"شائع / يتغلّب على / في صنع القرار",ar_prep:"نحو (وجهة نظر) / في (الاستدلال)",ar_fam:"معرفي · تحيّز · متحيّز",ar_ex:"التحيّز المعرفي، يبدو، ليس عيباً في التفكير البشري بل سمةً — تُصبح إشكالية في القرارات المعقّدة."},
+  {cat:"Philosophy Concepts",catAr:"المفاهيم الفلسفية",w:"free will",p:"فري ويل",a:"الإرادة الحرة",syn:"autonomy, agency, self-determination",ant:"determinism, fate, compulsion",col:"belief in free will / question of free will / free will and responsibility",prep:"free will in (philosophy) / constrained by (biology)",fam:"free (adj) · will (n) · freely (adv) · determinism (n — antonym)",ex:"Free will, I would argue, is more complex than the simple choice between freedom and determinism suggests.",ar_syn:"استقلالية، فاعلية، تقرير المصير",ar_ant:"حتمية، قدر، إكراه",ar_col:"الإيمان بـ / مسألة / والمسؤولية",ar_prep:"في (الفلسفة) / مقيَّدة بـ (البيولوجيا)",ar_fam:"حر · إرادة · بحرية · حتمية",ar_ex:"الإرادة الحرة، في رأيي، أكثر تعقيداً مما يوحي به الاختيار البسيط بين الحرية والحتمية."},
+  {cat:"Philosophy Concepts",catAr:"المفاهيم الفلسفية",w:"determinism",p:"ديتيرمينيزم",a:"الحتمية",syn:"fatalism, predetermination, causality",ant:"free will, indeterminism, randomness",col:"strict determinism / hard determinism / causal determinism",prep:"determinism in (physics) / applied to (human behaviour)",fam:"determine (v) · determinism (n) · determinist (n) · deterministic (adj)",ex:"Determinism, as many neuroscientists now argue, is supported by evidence of brain activity preceding conscious choice.",ar_syn:"القدرية، الحتم السببي",ar_ant:"الإرادة الحرة، اللاحتمية",ar_col:"صارمة / قوية / سببية",ar_prep:"في (الفيزياء) / تُطبَّق على (السلوك البشري)",ar_fam:"يُحدِّد · حتمية · حتمي · حتمي",ar_ex:"الحتمية، كما يجادل كثير من علماء الأعصاب الآن، تدعمها أدلة على نشاط الدماغ السابق للاختيار الواعي."},
+  {cat:"Philosophy Concepts",catAr:"المفاهيم الفلسفية",w:"dualism",p:"دياليزم",a:"الثنائية (العقل والجسد)",syn:"mind-body distinction, Cartesian dualism",ant:"monism, materialism, physicalism",col:"Cartesian dualism / mind-body dualism / substance dualism",prep:"dualism in (philosophy) / between (mind and body)",fam:"dual (adj) · dualism (n) · dualist (n) · duality (n)",ex:"Descartes' dualism, as many now argue, creates more problems than it solves.",ar_syn:"التمييز بين العقل والجسد، الثنائية الديكارتية",ar_ant:"الأحادية، المادية",ar_col:"ديكارتية / عقل-جسد / جوهرية",ar_prep:"في (الفلسفة) / بين (العقل والجسد)",ar_fam:"ثنائي · الثنائية · ثنائي المذهب · ثنائية",ar_ex:"ثنائية ديكارت، كما يرى كثيرون، تخلق من المشكلات أكثر مما تحلّ."},
+  {cat:"Philosophy Concepts",catAr:"المفاهيم الفلسفية",w:"rationality",p:"راشيوناليتي",a:"عقلانية / رشادة",syn:"reason, logic, sound judgement",ant:"irrationality, emotion, impulse",col:"bounded rationality / human rationality / economic rationality",prep:"rationality in (decision-making) / constrained by (emotion)",fam:"rational (adj) · rationality (n) · rationally (adv) · rationalise (v)",ex:"Human rationality, it must be admitted, is 'bounded' — limited by cognitive biases and incomplete information.",ar_syn:"عقل، منطق، حكم سليم",ar_ant:"لاعقلانية، عاطفة، اندفاع",ar_col:"محدودة / بشرية / اقتصادية",ar_prep:"في (صنع القرار) / مقيَّدة بـ (العاطفة)",ar_fam:"عقلاني · عقلانية · بعقلانية · يُبرّر",ar_ex:"العقلانية البشرية، لا بدّ من الإقرار، 'محدودة' — مقيَّدة بالتحيّزات المعرفية والمعلومات الناقصة."},
+  {cat:"Philosophy Concepts",catAr:"المفاهيم الفلسفية",w:"moral agency",p:"مورَل إيجِنسي",a:"الفاعلية الأخلاقية",syn:"moral responsibility, ethical agency",ant:"moral passivity, compulsion",col:"moral agency and free will / deny moral agency / full moral agency",prep:"moral agency in (humans) / attributed to (conscious beings)",fam:"moral (adj) · agent (n) · agency (n) · morality (n)",ex:"Moral agency, it seems to me, requires both the capacity to reason and the freedom to act on that reasoning.",ar_syn:"المسؤولية الأخلاقية، الفاعلية الأخلاقية",ar_ant:"السلبية الأخلاقية، الإكراه",ar_col:"والإرادة الحرة / ينفي / كاملة",ar_prep:"في (البشر) / تُعزى إلى (كائنات واعية)",ar_fam:"أخلاقي · فاعل · فاعلية · أخلاق",ar_ex:"الفاعلية الأخلاقية، في رأيي، تستلزم القدرة على الاستدلال والحرية في التصرّف وفقاً لذلك الاستدلال."},
+  {cat:"Philosophy Concepts",catAr:"المفاهيم الفلسفية",w:"identity",p:"آيدِنتِتي",a:"هوية",syn:"selfhood, personal identity, individuality",ant:"anonymity, dissolution, loss of self",col:"personal identity / sense of identity / question of identity / identity and memory",prep:"identity of (a person) / over (time)",fam:"identify (v) · identity (n) · identical (adj) · identification (n)",ex:"Personal identity, as philosophers have long debated, raises the question of what makes you the same person over time.",ar_syn:"الذات، الهوية الشخصية، فردانية",ar_ant:"مجهولية، ذوبان، فقدان الذات",ar_col:"شخصية / إحساس / مسألة / والذاكرة",ar_prep:"هوية (شخص) / عبر (الزمن)",ar_fam:"يُحدِّد / يتعرّف · هوية · مطابق · تعريف",ar_ex:"الهوية الشخصية، كما ناقش الفلاسفة طويلاً، تُثير سؤال ما الذي يجعلك نفس الشخص عبر الزمن."},
+  {cat:"Knowledge & Reality",catAr:"المعرفة والحقيقة",w:"scepticism",p:"سكيبتيسيزم",a:"التشكيك / الشك الفلسفي",syn:"doubt, questioning, critical inquiry",ant:"dogmatism, certainty, belief",col:"philosophical scepticism / healthy scepticism / radical scepticism",prep:"scepticism about (knowledge) / toward (authority)",fam:"sceptical (adj) · sceptically (adv) · sceptic (n) · scepticism (n)",ex:"Scepticism, as Descartes demonstrated, can be a productive starting point rather than a dead end.",ar_syn:"شك، تساؤل، استفسار نقدي",ar_ant:"دوغمائية، يقين، إيمان",ar_col:"فلسفي / صحي / جذري",ar_prep:"بشأن (المعرفة) / تجاه (السلطة)",ar_fam:"شكّاك · بشكّية · شكّاك · تشكيك",ar_ex:"التشكيك، كما برهن ديكارت، يمكن أن يكون نقطة انطلاق مثمرة لا طريقاً مسدوداً."},
+  {cat:"Knowledge & Reality",catAr:"المعرفة والحقيقة",w:"empiricism",p:"إمبيريسيزم",a:"التجريبية",syn:"experiential knowledge, evidence-based thinking",ant:"rationalism, innate ideas, dogmatism",col:"British empiricism / empiricism vs rationalism / empiricist approach",prep:"empiricism in (philosophy) / based on (experience)",fam:"empirical (adj) · empirically (adv) · empiricist (n) · empiricism (n)",ex:"Empiricism holds that, as far as knowledge goes, all genuine understanding must ultimately be grounded in experience.",ar_syn:"المعرفة التجريبية، التفكير القائم على الأدلة",ar_ant:"العقلانية، الأفكار الفطرية",ar_col:"بريطانية / مقابل العقلانية / نهج تجريبي",ar_prep:"في (الفلسفة) / مبنية على (التجربة)",ar_fam:"تجريبي · تجريبياً · تجريبي · تجريبية",ar_ex:"التجريبية ترى أنه بقدر ما يخصّ المعرفة، يجب أن يُستند أي فهم حقيقي في نهاية المطاف إلى التجربة."},
+  {cat:"Knowledge & Reality",catAr:"المعرفة والحقيقة",w:"epistemology",p:"إبيستيمولوجي",a:"نظرية المعرفة / الإبستيمولوجيا",syn:"theory of knowledge, philosophy of knowledge",ant:"dogmatism, unexamined belief",col:"epistemology and ethics / questions in epistemology / epistemological problem",prep:"epistemology in (philosophy) / concerning (knowledge)",fam:"epistemological (adj) · epistemologically (adv) · epistemologist (n)",ex:"Epistemology asks what we can know and how we can know it — questions that, I would argue, underlie all serious inquiry.",ar_syn:"نظرية المعرفة، فلسفة المعرفة",ar_ant:"دوغمائية، اعتقاد غير مُختبَر",ar_col:"والأخلاق / أسئلة في / مشكلة إبستيمولوجية",ar_prep:"في (الفلسفة) / بشأن (المعرفة)",ar_fam:"إبستيمولوجي · إبستيمولوجياً · عالم نظرية المعرفة",ar_ex:"نظرية المعرفة تسأل ما الذي يمكننا معرفته وكيف — أسئلة أعتقد أنها تقف وراء كل بحث جاد."},
+  {cat:"Knowledge & Reality",catAr:"المعرفة والحقيقة",w:"illusion",p:"إلوجِن",a:"وهم / خداع الحواس",syn:"misconception, false impression, hallucination",ant:"reality, truth, fact",col:"optical illusion / sense of illusion / under an illusion / grand illusion",prep:"illusion of (free will) / created by (the brain)",fam:"illude (v — rare) · illusion (n) · illusory (adj) · illusionist (n)",ex:"Perception, it turns out, is full of illusions; the brain, as Anil Seth argues, is a controlled hallucination machine.",ar_syn:"سوء فهم، انطباع كاذب، هلوسة",ar_ant:"حقيقة، واقع، حقيقة",ar_col:"بصري / شعور بـ / في / الوهم الكبير",ar_prep:"وهم (الإرادة الحرة) / تخلقه (المخ)",ar_fam:"يُوهم · وهم · وهمي · ساحر",ar_ex:"الإدراك، كما اتضح، مليء بالأوهام؛ والدماغ، كما يجادل أنيل سيث، آلة هلوسة مضبوطة."},
+  {cat:"Knowledge & Reality",catAr:"المعرفة والحقيقة",w:"paradox",p:"باراداكس",a:"مفارقة / تناقض",syn:"contradiction, dilemma, puzzle",ant:"consistency, clarity, resolution",col:"philosophical paradox / apparent paradox / Zeno's paradox",prep:"paradox in (logic) / arising from (assumptions)",fam:"paradox (n) · paradoxical (adj) · paradoxically (adv)",ex:"The paradox of free will, it seems to me, is that the more we understand its biological basis, the less free we appear — yet we cannot live without acting as though we are.",ar_syn:"تناقض، معضلة، لغز",ar_ant:"اتساق، وضوح، حلّ",ar_col:"فلسفية / ظاهرية / مفارقة زينون",ar_prep:"في (المنطق) / ناشئة عن (الافتراضات)",ar_fam:"مفارقة · متناقض · بشكل متناقض",ar_ex:"مفارقة الإرادة الحرة، في رأيي، أنه كلما فهمنا أساسها البيولوجي، بدونا أقل حرية — ومع ذلك لا يمكننا العيش دون التصرّف كأننا أحرار."},
+  {cat:"Knowledge & Reality",catAr:"المعرفة والحقيقة",w:"hypothesis",p:"هايبوثِسِس",a:"فرضية",syn:"theory, conjecture, proposition",ant:"fact, proven truth, certainty",col:"test a hypothesis / working hypothesis / formulate a hypothesis",prep:"hypothesis about (consciousness) / supported by (evidence)",fam:"hypothesise (v) · hypothesis (n) · hypothetical (adj) · hypothetically (adv)",ex:"Any hypothesis about the nature of consciousness must, as far as we know, account for both subjective experience and neural correlates.",ar_syn:"نظرية، تخمين، افتراض",ar_ant:"حقيقة، يقين مُثبَت",ar_col:"يختبر / عاملة / يُصيغ",ar_prep:"بشأن (الوعي) / تدعمها (الأدلة)",ar_fam:"يُفرضي · فرضية · افتراضي · افتراضياً",ar_ex:"أي فرضية حول طبيعة الوعي يجب، بقدر ما نعلم، أن تُفسّر كلاً من التجربة الذاتية والمرتبطات العصبية."},
+  {cat:"Knowledge & Reality",catAr:"المعرفة والحقيقة",w:"paradigm",p:"باراداايم",a:"نموذج معرفي / باراديم",syn:"framework, model, worldview",ant:"anomaly, exception, paradigm shift",col:"paradigm shift / dominant paradigm / scientific paradigm",prep:"paradigm in (science) / challenged by (new evidence)",fam:"paradigm (n) · paradigmatic (adj)",ex:"A paradigm shift, as Thomas Kuhn argued, occurs not when evidence accumulates but when a new framework makes the old one obsolete.",ar_syn:"إطار، نموذج، رؤية للعالم",ar_ant:"شذوذ، استثناء، تحوّل نموذجي",ar_col:"تحوّل / سائد / علمي",ar_prep:"في (العلم) / يتحدّاه (دليل جديد)",ar_fam:"نموذج معرفي · نموذجي",ar_ex:"التحوّل النموذجي، كما جادل توماس كون، لا يحدث حين تتراكم الأدلة بل حين يجعل إطار جديد القديم متجاوَزاً."}
+];
+var VFamEx=[
+[["conscious","adj","متى تستخدمه: واعٍ / منتبه لشيء ما","A conscious decision is one we make deliberately, not automatically."],["consciousness","n","متى تستخدمه: الوعي كظاهرة فلسفية أو علمية","Consciousness is what makes the universe strange."],["consciously","adv","متى تستخدمه: بوعي وعمد، لا بشكل تلقائي","We consciously choose very little of what we think."],["unconscious","adj","متى تستخدمه: غير واعٍ / لا إرادي","The unconscious mind processes far more than the conscious one."]],
+[["perceive","v","متى تستخدمه: يُدرك / يستشعر شيئاً عبر الحواس","How we perceive colour depends on prior expectations, not just light."],["perception","n","متى تستخدمه: الإدراك كعملية أو نتيجة","Our perception of reality is, it seems, a controlled hallucination."],["perceptual","adj","متى تستخدمه: وصف ما يتعلق بالإدراك الحسّي","Perceptual illusions reveal how heavily the brain relies on assumptions."]],
+[["cognise","v","متى تستخدمه: يُدرك معرفياً (نادر — يُستخدم academic)","To cognise a problem is not the same as to feel it."],["cognition","n","متى تستخدمه: الإدراك المعرفي والتفكير كعملية ذهنية","Cognition encompasses attention, memory, reasoning, and language."],["cognitive","adj","متى تستخدمه: وصف ما يتعلق بالعمليات الذهنية","Cognitive development continues well into early adulthood."],["cognitively","adv","متى تستخدمه: من الناحية المعرفية","Tasks that are cognitively demanding consume more energy."]],
+[["self-aware","adj","متى تستخدمه: واعٍ بذاته ومدرك لمشاعره وتحيّزاته","A self-aware leader acknowledges their own limitations."],["self-awareness","n","متى تستخدمه: القدرة على الانتباه لأفكارك وعواطفك ودوافعك","Self-awareness is the foundation of emotional intelligence."],["introspection","n","متى تستخدمه: التأمّل الداخلي والتفكير في حالاتنا النفسية","Introspection is unreliable — we often misreport our own mental states."]],
+[["sentient","adj","متى تستخدمه: قادر على الشعور والإحساس بالألم والمتعة","Any sentient creature deserves moral consideration."],["sentience","n","متى تستخدمه: القدرة على التجربة الذاتية الواعية","Sentience, not intelligence, is the ground of moral status."]],
+[["subconscious","n/adj","متى تستخدمه: اللاوعي الذي يؤثّر في السلوك دون إدراك واعٍ","Subconscious processes guide most of our daily behaviour."],["unconscious","n/adj","متى تستخدمه: اللاوعي في معناه الفرويدي أو الوصفي العام","Freud believed the unconscious drives most human motivation."],["subliminal","adj","متى تستخدمه: وصف ما يعمل تحت حدّ الوعي","Subliminal advertising exploits perceptual processing below awareness."]],
+[["believe","v","متى تستخدمه: يعتقد / يرى","To believe something is not the same as to know it."],["belief","n","متى تستخدمه: الاعتقاد كحالة ذهنية أو منظومة","A belief held without evidence can still be deeply felt."],["believer","n","متى تستخدمه: الشخص المؤمن بشيء ما","Every scientist is a believer in the reliability of logic."],["believable","adj","متى تستخدمه: وصف ما يمكن تصديقه بشكل معقول","A false belief is believable precisely because it feels true."]],
+[["intuitive","adj","متى تستخدمه: وصف حكم أو تصميم يُشعر أنه طبيعي وبديهي","The best interfaces feel intuitive — you know what to do without thinking."],["intuitively","adv","متى تستخدمه: بشكل حدسي وتلقائي دون تفكير منطقي","Experts often solve problems intuitively before they can explain why."],["intuition","n","متى تستخدمه: الحدس كظاهرة معرفية أو قدرة شخصية","Moral intuition often precedes moral reasoning — we feel before we justify."]],
+[["emotional","adj","متى تستخدمه: وصف ما يتعلق بالعواطف أو من يتأثّر بها","Emotional responses are often faster and more reliable than analytical ones."],["emotionally","adv","متى تستخدمه: من الناحية العاطفية","Emotionally charged memories are retained more vividly."],["emotion","n","متى تستخدمه: العاطفة كحالة نفسية وفسيولوجية","Emotion is the body's way of making values legible to the mind."],["emotive","adj","متى تستخدمه: وصف موضوع أو لغة تُثير عاطفة قوية","Emotive language can manipulate as easily as it can inspire."]],
+[["imagine","v","متى تستخدمه: يتخيّل / يتصوّر شيئاً لا يراه حالياً","To imagine a better future is the first step to creating one."],["imagination","n","متى تستخدمه: الخيال كملكة عقلية أو قدرة إبداعية","Without imagination, reason has no goals to pursue."],["imaginative","adj","متى تستخدمه: وصف شخص أو فكر يتّسم بالخيال الغني","An imaginative thinker connects ideas that others see as unrelated."],["imaginary","adj","متى تستخدمه: وصف شيء موجود فقط في العقل أو الخيال","The line between imaginary and real is, it turns out, blurred at the edges."]],
+[["remember","v","متى تستخدمه: يتذكّر حدثاً أو معلومة","What we remember is shaped by what we felt at the time."],["memory","n","متى تستخدمه: الذاكرة كقدرة أو كمحتوى مُتذكَّر","Memory is not a camera — it is a storyteller."],["memorial","adj/n","متى تستخدمه: وصف ما يتعلق بالتذكار / النصب التذكاري","Memorial sites ask us to hold the past in the present."],["memorable","adj","متى تستخدمه: وصف ما يستحقّ التذكّر لأهميته أو تأثيره","Memorable experiences tend to be emotionally intense, positive or negative."]],
+[["cognitive","adj","متى تستخدمه: وصف ما يتعلق بالتفكير والإدراك المعرفي","Cognitive shortcuts save time but introduce systematic errors."],["bias","n","متى تستخدمه: التحيّز كميل منهجي للخطأ في الحكم","Bias is not a moral failing — it is a feature of how brains work."],["biased","adj","متى تستخدمه: وصف تفكير أو حكم متحيّز","Even the most rational thinkers have biased intuitions."]],
+[["free","adj","متى تستخدمه: حر / غير مقيَّد","A free agent is one who acts from their own reasons, not external compulsion."],["will","n","متى تستخدمه: الإرادة كقدرة على الاختيار والفعل","The will to act differs from the ability to act."],["freely","adv","متى تستخدمه: بحرية وباختيار","We act most freely when we are least aware of choosing."],["determinism","n","متى تستخدمه: مذهب أن كل حدث محدَّد بأسباب سابقة","Determinism does not rule out responsibility — that is what compatibilists argue."]],
+[["determine","v","متى تستخدمه: يُحدِّد / يُقرِّر / يكون سبباً حتمياً لشيء","Prior causes determine our actions, say determinists."],["determinism","n","متى تستخدمه: الحتمية كموقف فلسفي","Hard determinism leaves no room for moral praise or blame."],["determinist","n","متى تستخدمه: من يؤمن بالحتمية الفلسفية","A strict determinist cannot consistently blame anyone for anything."],["deterministic","adj","متى تستخدمه: وصف نظام أو موقف قائم على الحتمية","Classical physics is deterministic; quantum mechanics is not."]],
+[["dual","adj","متى تستخدمه: ثنائي / له وجهان","A dual approach — scientific and philosophical — is needed here."],["dualism","n","متى تستخدمه: الثنائية كموقف فلسفي يفصل العقل عن الجسد","Dualism is appealing because it matches everyday experience."],["dualist","n","متى تستخدمه: من يؤمن بالثنائية الفلسفية","A Cartesian dualist believes mind and body are radically distinct."],["duality","n","متى تستخدمه: الطبيعة الثنائية أو المزدوجة لشيء ما","The duality of light — wave and particle — troubled physicists for decades."]],
+[["rational","adj","متى تستخدمه: وصف تفكير أو شخص عقلاني","A rational agent acts on reasons, not impulses."],["rationality","n","متى تستخدمه: العقلانية كخاصية أو معيار","Bounded rationality acknowledges that we reason with limited resources."],["rationally","adv","متى تستخدمه: بشكل عقلاني ومنطقي","It is almost impossible to act entirely rationally under time pressure."],["rationalise","v","متى تستخدمه: يُبرِّر قراراً اتُّخذ لأسباب عاطفية غير معلنة","We often rationalise decisions made unconsciously."]],
+[["moral","adj","متى تستخدمه: أخلاقي — يتعلق بمبادئ الصواب والخطأ","Moral responsibility requires both knowledge and freedom."],["agent","n","متى تستخدمه: الفاعل / الكيان القادر على اتخاذ قرارات","An agent, in philosophy, is any entity that acts on reasons."],["agency","n","متى تستخدمه: القدرة على التصرّف باستقلالية وتأثير","Agency is what distinguishes a person from a pawn."],["morality","n","متى تستخدمه: الأخلاق كمنظومة مبادئ أو دراسة لها","Morality, I would argue, cannot be separated from the question of free will."]],
+[["identify","v","متى تستخدمه: يُحدِّد هوية شيء ما / يتعرّف عليه","We identify ourselves partly through our memories."],["identity","n","متى تستخدمه: الهوية الشخصية أو الجماعية","Identity, philosophers argue, is constructed not given."],["identical","adj","متى تستخدمه: مطابق تماماً بلا اختلاف","No two experiences are truly identical — context changes everything."],["identification","n","متى تستخدمه: عملية التعريف أو التعرّف","Identification with a character in fiction can produce genuine empathy."]],
+[["sceptical","adj","متى تستخدمه: شكّاك / غير مقتنع بسهولة","A sceptical mind asks for evidence before accepting any claim."],["sceptically","adv","متى تستخدمه: بشكّية وتحفّظ","She listened sceptically to the argument, noting its gaps."],["sceptic","n","متى تستخدمه: الشخص المتشكّك / المُشكّك المنهجي","A productive sceptic questions everything — including their own doubts."],["scepticism","n","متى تستخدمه: موقف فلسفي أو عقلي قائم على الشك المنهجي","Methodological scepticism is a tool, not a conclusion."]],
+[["empirical","adj","متى تستخدمه: وصف ما يُبنى على التجربة والملاحظة لا النظرية","Empirical evidence should always take precedence over intuition."],["empirically","adv","متى تستخدمه: بناءً على ما يمكن اختباره وقياسه","A claim is only empirically testable if it can, in principle, be falsified."],["empiricist","n","متى تستخدمه: الفيلسوف أو العالم الذي يُقدّم التجربة على العقل","Hume was perhaps the most rigorous empiricist in Western philosophy."],["empiricism","n","متى تستخدمه: المذهب الفلسفي القائل إن المعرفة تأتي من التجربة","Empiricism changed what counted as a legitimate question in science."]],
+[["epistemological","adj","متى تستخدمه: وصف ما يتعلق بنظرية المعرفة","The epistemological question 'how do we know?' precedes all other questions."],["epistemologically","adv","متى تستخدمه: من الناحية المعرفية الفلسفية","Epistemologically, empiricism and rationalism start from opposite assumptions."],["epistemologist","n","متى تستخدمه: متخصص في نظرية المعرفة","An epistemologist asks not 'what is true?' but 'how can we know?'"]],
+[["illude","v","متى تستخدمه: يُوهم / يُخدع (نادر، رسمي)","The senses can illude even the most careful observer."],["illusion","n","متى تستخدمه: الوهم / الانطباع الكاذب / الهلوسة البصرية","The self, some philosophers argue, is itself an illusion."],["illusory","adj","متى تستخدمه: وصف ما هو وهمي أو زائف المظهر","The sense of free will may be illusory — or it may be real in a different sense."],["illusionist","n","متى تستخدمه: الساحر / من يُولّد الأوهام","A philosopher who denies consciousness is, to critics, merely a word-illusionist."]],
+[["paradox","n","متى تستخدمه: مفارقة تبدو متناقضة لكن ربما تكون صحيحة","The paradox of choice: more options often lead to worse decisions."],["paradoxical","adj","متى تستخدمه: وصف ما يبدو متناقضاً","It is paradoxical that knowing more can sometimes make us less certain."],["paradoxically","adv","متى تستخدمه: بشكل مفارق / على نحو عجيب","Paradoxically, the most creative solutions often seem obvious in hindsight."]],
+[["hypothesise","v","متى تستخدمه: يُصيغ فرضية أو يفترض","Scientists hypothesised that consciousness arises from integrated information."],["hypothesis","n","متى تستخدمه: الفرضية القابلة للاختبار في مرحلة ما قبل الإثبات","A hypothesis is a well-educated guess — not a guess and not a fact."],["hypothetical","adj","متى تستخدمه: افتراضي / وصف سيناريو غير حقيقي لكن مُتخيَّل","Hypothetical thought experiments are philosophy's chief laboratory."],["hypothetically","adv","متى تستخدمه: بشكل افتراضي، في سياق تجربة ذهنية","Hypothetically, if a machine were conscious, would it have rights?"]],
+[["paradigm","n","متى تستخدمه: النموذج المعرفي السائد أو الإطار الفكري العام","The mechanistic paradigm dominated science for three centuries."],["paradigmatic","adj","متى تستخدمه: وصف ما يُمثّل النموذج المعرفي بوضوح أو بشكل نموذجي","Descartes' cogito is paradigmatic of rationalist method."]]
+];
+var story=[
+  {t:"Consciousness, I would argue, is not what the brain produces but what it is.",ar:"الوعي، في رأيي، ليس ما ينتجه الدماغ بل ما يكونه."},
+  {t:"Perception, it turns out, is not a window onto reality but a construction — the brain's best guess about what lies beyond the senses.",ar:"اتضح أن الإدراك ليس نافذة على الواقع بل بناءٌ — أفضل تخمينات الدماغ لما يكمن وراء الحواس."},
+  {t:"Free will, as many philosophers believe, may be an illusion — and yet, it seems to me, we cannot live as though it is.",ar:"الإرادة الحرة، كما يعتقد كثير من الفلاسفة، ربما تكون وهماً — ومع ذلك، في رأيي، لا يمكننا أن نعيش كأنها كذلك."},
+  {t:"Memory, I suspect, is less a faithful recording of the past than a continuous act of reimagination.",ar:"الذاكرة، على ما أظن، هي أقل تسجيلاً أميناً للماضي وأكثر استحضاراً متجدّداً له."},
+  {t:"The self, it could be argued, is not something we have but something we continuously construct.",ar:"الذات، كما يمكن القول، ليست شيئاً نمتلكه بل شيئاً نبنيه باستمرار."},
+  {t:"Emotion, as far as neuroscience can tell, is not the enemy of rational thought but one of its preconditions.",ar:"العاطفة، بقدر ما يُخبرنا علم الأعصاب، ليست عدوّة التفكير العقلاني بل إحدى شروطه المسبقة."},
+  {t:"Scepticism, it seems to me, is not a destination but a method — a tool for arriving at more honest conclusions.",ar:"التشكيك، في رأيي، ليس وجهةً بل منهجاً — أداةً للوصول إلى استنتاجات أكثر أمانة."},
+  {t:"What we call 'the mind', I would argue, is the story we tell about processes that happen without any narrator at all.",ar:"ما نسمّيه 'العقل'، في رأيي، هو القصة التي نرويها عن عمليات تجري دون أيّ راوٍ على الإطلاق."}
+];
+var reading=[
+  "Philosophy of mind asks questions that seem simple but are, I would argue, among the deepest in human thought: What is consciousness? Does the mind exist separately from the brain? Do we have free will? How do we know anything at all? These questions are not merely academic. As far as we can tell, they bear directly on how we understand moral responsibility, artificial intelligence, and the treatment of other sentient beings.",
+  "Comment Clauses are one of the most powerful tools in academic English. They allow a writer to signal their degree of certainty, attribute a view to a source, or hedge an argument without weakening it. 'Consciousness, I would argue, is the hardest problem in science.' 'Free will, as Kant believed, is a postulate of practical reason.' 'Perception, it seems, constructs rather than copies reality.' 'As far as neuroscience can tell, the brain initiates action before the mind is aware of deciding.' Mastering these structures signals intellectual maturity — and in IELTS, they are characteristic of Band 7 and above.",
+  "The question of free will is, it must be admitted, among the most practically urgent in philosophy. If our actions are the inevitable product of prior causes — genes, upbringing, neural processes — then the entire framework of praise, blame, and moral responsibility becomes suspect. The neuroscientist Benjamin Libet famously showed that the brain initiates action before the conscious mind is aware of deciding. This finding, it seems to me, does not prove that free will is an illusion; it may simply show that consciousness is not where we thought it was. The philosopher Daniel Dennett argues, persuasively in my view, that freedom is not about escaping causation but about which kinds of causation are operative.",
+  "Consciousness, as the philosopher David Chalmers has famously argued, presents a 'hard problem': why does physical brain activity feel like anything at all? We can, in principle, explain all the functional correlates of consciousness — attention, memory, response — without explaining why there is something it is like to be a creature having those processes. This explanatory gap, it could be argued, is not a temporary limitation of science but a fundamental feature of the subject matter. Others, it must be said, disagree. The philosopher Daniel Dennett believes the hard problem is an illusion — a product of how we frame the question rather than an inherent mystery of nature.",
+  "What, then, is the practical value of philosophy of mind? It seems to me that it lies not in providing answers but in clarifying what the questions actually are. The nature of consciousness has implications for AI — if a machine were conscious, it might have moral status. The truth about free will affects criminal justice — if we are fully determined, punishment requires a different justification. The reliability of memory matters for courts and therapy alike. Above all, as I see it, philosophy of mind reminds us that the inner life we take most for granted is, in the deepest sense, the least understood thing in the universe."
+];
+var compQs=[
+  {q:"According to the text, why are philosophy of mind questions 'not merely academic'?",opts:["They are easy to answer","They bear on moral responsibility, AI, and treatment of sentient beings","They are popular with students","They have been solved by neuroscience"],ans:1},
+  {q:"What do Comment Clauses signal, according to the writer?",opts:["Simple facts","Degree of certainty, source attribution, or hedging without weakening","Emotional engagement","Grammatical errors"],ans:1},
+  {q:"What does Libet's experiment show, according to the text?",opts:["That free will definitely exists","That consciousness is where we thought it was","That the brain initiates action before the conscious mind decides","That determinism is false"],ans:2},
+  {q:"What is Chalmers' 'hard problem'?",opts:["How to build a conscious robot","Why physical brain activity feels like anything at all","Whether animals are conscious","How memory works"],ans:1},
+  {q:"What does the writer say is the practical value of philosophy of mind?",opts:["Providing answers","Clarifying what the questions actually are","Replacing neuroscience","Making us more emotional"],ans:1}
+];
+var listenLines=[
+  {speaker:"J",text:"Professor Vera, how would you explain philosophy of mind to someone who has never studied it?"},
+  {speaker:"R",text:"I would say it asks the questions we all have but rarely pursue: Why is there something it is like to be me? How do my beliefs and desires cause my actions? Am I the same person I was twenty years ago? These are, it seems to me, the most fundamental questions about human existence."},
+  {speaker:"J",text:"Let's start with consciousness. Is it just brain activity?"},
+  {speaker:"R",text:"That, I would argue, is precisely the question we cannot yet answer honestly. As far as neuroscience can tell, all mental states correlate with brain states. But correlation is not identity. The hard problem — as Chalmers calls it — is why brain processes feel like anything at all. We can explain all the functional aspects; what we cannot explain, it seems to me, is the subjective quality."},
+  {speaker:"J",text:"And free will? Do you believe we have it?"},
+  {speaker:"R",text:"I believe the question is more subtle than the popular debate suggests. As far as I can tell, the brain does initiate action before conscious awareness. But this doesn't mean consciousness plays no role. It may mean that 'the will' operates differently from how we imagine it. In my view, what matters morally is not whether we escape causation, but whether our actions flow from who we genuinely are."},
+  {speaker:"J",text:"What about the self? Is there a unified 'me' that persists over time?"},
+  {speaker:"R",text:"Interestingly, it seems to me that the unified self is, to a significant degree, a construction. The brain integrates information from many subsystems and creates a narrative of continuous identity. That narrative is, I would argue, enormously useful — but it is a story we tell, not a thing we find."},
+  {speaker:"J",text:"Does any of this have practical implications?"},
+  {speaker:"R",text:"Enormous ones. If consciousness can arise in silicon as well as carbon, AI ethics become urgent. If free will is constrained by upbringing and neurology, criminal justice must change. And if memory is reconstructive rather than reproductive, eyewitness evidence becomes deeply suspect. As I see it, philosophy of mind is not an escape from practical reality — it is its foundation."},
+  {speaker:"J",text:"Thank you, Professor Vera."},
+  {speaker:"R",text:"My pleasure entirely."}
+];
+var listenQs=[
+  {q:"What does Prof. Vera say the 'hard problem' of consciousness is?",opts:["Building a conscious machine","Why brain processes feel like anything at all","How the brain initiates action","Whether animals have consciousness"],ans:1},
+  {q:"What does Prof. Vera say about the brain initiating action before conscious awareness?",opts:["This proves free will is an illusion","It means consciousness plays no role","It may mean will operates differently from how we imagine","It proves determinism"],ans:2},
+  {q:"How does Prof. Vera describe the unified self?",opts:["A biological fact","An illusion with no value","A construction — a useful story the brain creates","Identical across time"],ans:2},
+  {q:"What practical implication does Prof. Vera raise about criminal justice?",opts:["None","If free will is constrained by upbringing/neurology, criminal justice must change","All criminals should be freed","Philosophy has no legal applications"],ans:1},
+  {q:"What does Prof. Vera say about eyewitness evidence?",opts:["It is perfectly reliable","Memory being reconstructive makes it deeply suspect","It should never be used","It is always accurate"],ans:1}
+];
+var speakQs=[
+  {q:"Part 1: Do you consider yourself a logical person or an emotional one?",hint:"I would argue that... / It seems to me that logic and emotion are... / As far as I know...",ar:"هل تعتبر نفسك شخصاً منطقياً أم عاطفياً؟",badge:"🎯 Part 1 · I would argue + it seems"},
+  {q:"Part 2 (cue card): Describe a time when you made an important decision. Say what the decision was, what influenced it, whether you used logic or intuition, and how you feel about it now.",hint:"It seems to me that I relied more on... / I would argue that the decision was... Speak 2 minutes.",ar:"صف مرة اتّخذت فيها قراراً مهماً (دقيقتان).",badge:"🎯 Part 2 · comment clauses in narration"},
+  {q:"Part 3: Do you think humans have free will?",hint:"I would argue that free will is... / As far as science can tell... / It seems to me that...",ar:"هل تعتقد أن البشر يمتلكون إرادة حرة؟",badge:"🎯 Part 3 · I would argue + as far as"},
+  {q:"Part 3: Can a machine ever be conscious?",hint:"It seems to me that consciousness requires... / As far as we know... / I must admit that...",ar:"هل يمكن لآلة أن تكون واعية يوماً ما؟",badge:"🎯 Part 3 · it seems + I must admit"},
+  {q:"Part 3: Is memory reliable? How does this affect how we understand identity?",hint:"Memory, I suspect, is... / As far as neuroscience tells us... / It could be argued that...",ar:"هل الذاكرة موثوقة؟ كيف تؤثّر على فهمنا للهوية؟",badge:"🎯 Part 3 · I suspect + it could be argued"},
+  {q:"Part 3: Are emotions a strength or weakness in decision-making?",hint:"I would argue that emotion is... / As Damasio's research suggests... / It seems clear that...",ar:"هل المشاعر قوة أم ضعف في صنع القرار؟",badge:"🎯 Part 3 · I would argue + research suggests"},
+  {q:"Part 2 (cue card): Describe a time when your intuition was right (or wrong). Say what the situation was, what your gut feeling told you, what you actually did, and what the result was.",hint:"I would argue that intuition is... / It seems that my subconscious... Speak 2 minutes.",ar:"صف مرة أثبت فيها حدسك صحّته (أو خطأه) (دقيقتان).",badge:"🎯 Part 2 · comment clauses"}
+];
+var pvData=[
+  {v:"think through",p:"ثينك ثرو",m:"يُفكّر بعمق ويستوعب جميع جوانب",ex:"It seems to me that we rarely think through the implications of our beliefs.",ar:"في رأيي أننا نادراً ما نفكّر بعمق في تداعيات معتقداتنا."},
+  {v:"work out",p:"وورك آوت",m:"يحلّ / يكتشف بالتفكير",ex:"As far as I can tell, the mind works out most problems below the level of awareness.",ar:"بقدر ما أستطيع تحديده، العقل يحلّ معظم المشكلات تحت مستوى الوعي."},
+  {v:"come to terms with",p:"كَم تو تيرمز وِذ",m:"يتقبّل / يتأقلم مع حقيقة صعبة",ex:"It is not easy to come to terms with the possibility that the self is a construct.",ar:"ليس سهلاً التقبّل لاحتمال أن الذات مجرد بناء."},
+  {v:"figure out",p:"فيغر آوت",m:"يكتشف / يفهم بعد تفكير",ex:"I would argue that we may never figure out what consciousness really is.",ar:"أجادل بأننا ربما لن نكتشف أبداً ما هو الوعي حقاً."},
+  {v:"make sense of",p:"ميك سينس أوف",m:"يُعقلن / يستوعب شيئاً غير واضح",ex:"The mind tries to make sense of incomplete information — often by inventing the missing parts.",ar:"العقل يحاول استيعاب المعلومات الناقصة — كثيراً بابتكار الأجزاء المفقودة."},
+  {v:"grapple with",p:"غرابل وِذ",m:"يُصارع / يتعامل مع أمر صعب",ex:"Philosophers have grappled with the hard problem of consciousness for decades.",ar:"صارع الفلاسفة المشكلة الصعبة للوعي لعقود."},
+  {v:"draw on",p:"درو أون",m:"يستعين بـ / يستمدّ من",ex:"Good philosophical argument draws on both logic and lived experience.",ar:"الحجة الفلسفية الجيدة تستعين بالمنطق والتجربة المعاشة معاً."},
+  {v:"reflect on",p:"ريفليكت أون",m:"يتأمّل ويفكّر في شيء بعمق",ex:"It seems to me that we rarely reflect on the assumptions behind our own thinking.",ar:"في رأيي أننا نادراً ما نتأمّل الافتراضات الكامنة وراء تفكيرنا."},
+  {v:"rule out",p:"رول آوت",m:"يستبعد / يُقرّر أن شيئاً مستحيل",ex:"As far as I know, we cannot rule out the possibility that animals have rich inner lives.",ar:"بقدر ما أعلم، لا يمكننا استبعاد احتمال أن للحيوانات حياة داخلية غنية."},
+  {v:"build on",p:"بيلد أون",m:"يبني على / يستند إلى أساس سابق",ex:"Descartes built on scepticism to arrive, paradoxically, at certainty.",ar:"بنى ديكارت على الشك ليصل، بشكل مفارق، إلى اليقين."}
+];
+var realExpr=[
+  {e:"See eye to eye",p:"سي آي تو آي",m:"يتّفق / يرى نفس الرأي",f:"To agree with someone on a particular issue.",x:"I would argue that on consciousness, philosophers rarely see eye to eye.",xar:"في رأيي أن الفلاسفة نادراً ما يتّفقون فيما يتعلق بالوعي.",n:"يُستخدم كثيراً في النفي — 'we don't always see eye to eye' — للتعبير عن اختلاف الرأي"},
+  {e:"On the tip of your tongue",p:"أون ذا تيب أوف يور تانغ",m:"على طرف اللسان — قريب لكن لا يتذكّره",f:"The feeling of almost remembering something but not being able to recall it.",x:"Memory, it seems, can leave information on the tip of your tongue — close but inaccessible.",xar:"الذاكرة، يبدو، يمكنها ترك المعلومة على طرف اللسان — قريبة لكن لا يمكن الوصول إليها.",n:"تصف ظاهرة نفسية معروفة — شعور اقتراب التذكّر دون اكتماله"},
+  {e:"A gut feeling",p:"أ غَت فيلينغ",m:"حدس / شعور داخلي غريزي",f:"An instinctive feeling about something, not based on conscious reasoning.",x:"I had a gut feeling the argument was wrong, even before I could say why.",xar:"كان عندي شعور داخلي بأن الحجة كانت خاطئة، حتى قبل أن أستطيع ذكر السبب.",n:"يُعبّر عن الحدس — القرار قبل التفكير"},
+  {e:"Food for thought",p:"فود فور ثوت",m:"مادة للتأمّل والتفكير",f:"Something that deserves serious consideration.",x:"The question of whether a machine could be conscious is certainly food for thought.",xar:"مسألة ما إذا كانت الآلة قادرة على الوعي مادة للتأمّل بلا شك.",n:"تُستخدم لوصف فكرة مثيرة تستحق التأمّل"}
+];
+var realSlang=[
+  {w:"Mind-bending",p:"مايند-بيندينغ",i:"so complex or strange it is hard to comprehend",ex:"It is, I would argue, a mind-bending paradox — the brain studying itself.",xar:"هي، في رأيي، مفارقة مُحيِّرة — الدماغ يدرس نفسه.",a:"أمر بالغ التعقيد أو الغرابة لدرجة يصعب استيعابها"},
+  {w:"Blown away",p:"بلون أوِي",i:"extremely surprised or impressed",ex:"I was blown away by Anil Seth's argument that consciousness is a controlled hallucination.",xar:"اندهشت تماماً من حجة أنيل سيث بأن الوعي هلوسة مضبوطة.",a:"يُعبّر عن الدهشة الشديدة من شيء مثير للاهتمام"},
+  {w:"Wrap your head around",p:"راب يور هيد أراوند",i:"to manage to understand something complex",ex:"It is difficult, as far as I can tell, to wrap your head around the idea that the self is a construction.",xar:"من الصعب، بقدر ما أستطيع تحديده، استيعاب فكرة أن الذات مجرد بناء.",a:"يُستخدم للأفكار المعقّدة التي يصعب استيعابها"},
+  {w:"Pick someone's brain",p:"بيك سامونز برين",m:"يستشير / يستفيد من علم شخص ما",i:"to ask someone knowledgeable for their ideas or information",ex:"I would love to pick a philosopher's brain about what free will actually means.",xar:"يسعدني أن أستشير فيلسوفاً حول ما تعنيه الإرادة الحرة فعلاً.",a:"يُستخدم للطلب من خبير أن يُشاركك أفكاره ومعرفته"}
+];
+var realEvery=[
+  {w:"Think outside the box",p:"ثينك آوتسايد ذا بوكس",i:"to think creatively and differently",m:"يُفكّر خارج الصندوق / بطريقة مبتكرة",ex:"Philosophy, it seems to me, is institutionalised thinking outside the box.",xar:"الفلسفة، في رأيي، هي التفكير المؤسَّس خارج الصندوق."},
+  {w:"Change your mind",p:"تشينج يور مايند",i:"to alter an opinion or decision",m:"يُغيّر رأيه",ex:"I would argue that changing your mind is a sign of reason, not weakness.",xar:"في رأيي أن تغيير الرأي علامة على العقل لا ضعف."},
+  {w:"On reflection",p:"أون ريفليكشن",i:"after thinking carefully about something",m:"بعد التأمّل / تأمّلاً في الأمر",ex:"On reflection, it seems to me the argument was stronger than I first thought.",xar:"بعد التأمّل، يبدو لي أن الحجة كانت أقوى مما بدت لي للوهلة الأولى."}
+];
+var quizQs=[
+  {q:"Consciousness, ___ many philosophers believe, remains an unsolved problem.",opts:["that","which","as","what"],ans:2},
+  {q:"ما معنى epistemology؟",opts:["علم الأعصاب","نظرية المعرفة","التحيّز المعرفي","الحتمية"],ans:1},
+  {q:"Free will, I ___ argue, is more complex than a simple yes or no.",opts:["can","would","should","must"],ans:1},
+  {q:"ما معنى subconscious؟",opts:["الوعي الكامل","الحدس","اللاوعي","المفارقة"],ans:2},
+  {q:"___ far as neuroscience can tell, emotion is not the enemy of reason.",opts:["So","As","How","For"],ans:1},
+  {q:"ما معنى determinism؟",opts:["التجريبية","الحتمية","الثنائية","العقلانية"],ans:1},
+  {q:"It must be ___, that some beliefs are sincerely held yet mistaken.",opts:["admitted","admitting","admit","admittedly"],ans:0},
+  {q:"Collocation: ___ a hypothesis",opts:["make","test","do","try"],ans:1},
+  {q:"ما معنى paradigm shift؟",opts:["مفارقة فلسفية","تحوّل في النموذج المعرفي السائد","وهم حسّي","تحيّز معرفي"],ans:1},
+  {q:"ما الـ phrasal verb: يتأمّل بعمق؟",opts:["rule out","work out","reflect on","figure out"],ans:2}
+];
+var assessItems=[
+  "أستطيع استخدام I would argue بشكل طبيعي في منتصف الجملة لتقديم رأيي بأدب أكاديمي.",
+  "أعرف الفرق بين It seems to me (رأيي) وIt seems (ملاحظة عامة) وأستخدمهما بدقة.",
+  "أستطيع استخدام As far as I know / As far as science can tell للتحفّظ على مدى اليقين.",
+  "أستطيع إدراج Comment Clause في منتصف الجملة بشكل طبيعي: 'Memory, I suspect, is...'",
+  "أعرف 20+ كلمة من مفردات فلسفة العقل مع collocations (مثل: stream of consciousness, bounded rationality, paradigm shift).",
+  "أتجنب الأخطاء: 'I would arguing' / 'As far as I know that' / 'I'm arguing' (في الكتابة الرسمية).",
+  "أستطيع كتابة مقال IELTS Task 2 عن موضوع فلسفي (250+ كلمة) في 40 دقيقة.",
+  "أستطيع مناقشة موضوع فلسفي دقيقتين باستخدام Comment Clauses بشكل طبيعي وغير متكلَّف."
+];
+var spd=1,lspd=1,storyOn=false,listenOn=false;
+var compA=new Array(compQs.length).fill(null);
+var listenA=new Array(listenQs.length).fill(null);
+var quizA=new Array(quizQs.length).fill(null);
+function say(t,r,cb){if(!window.speechSynthesis)return null;window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=r||spd;u.pitch=1.0;var v=getVoice("F");if(v)u.voice=v;if(cb)u.onend=cb;window.speechSynthesis.speak(u);return u;}
+function getVoice(g){var vs=window.speechSynthesis.getVoices();var en=vs.filter(function(v){return v.lang.indexOf("en")===0;});if(g==="M"){var r=en.filter(function(v){return v.name.indexOf("Rishi")>-1;});if(r.length)return r[0];var m=en.filter(function(v){var n=v.name.toLowerCase();return n.indexOf("daniel")>-1||n.indexOf("james")>-1;});return m.length?m[0]:(en.length?en[0]:null);}else{var f=en.filter(function(v){var n=v.name.toLowerCase();return n.indexOf("samantha")>-1||n.indexOf("victoria")>-1||n.indexOf("karen")>-1;});return f.length?f[0]:(en.length>1?en[1]:en[0]||null);}}
+function show(id,btn){document.querySelectorAll(".sec").forEach(function(s){s.classList.remove("on");});document.getElementById("sec-"+id).classList.add("on");window.scrollTo({top:0,behavior:"smooth"});document.querySelectorAll(".nb").forEach(function(b){b.classList.remove("on");});if(btn){btn.classList.add("on");return;}var map={vocab:0,story:1,reading:2,grammar:3,listening:4,writing:5,speaking:6,realeng:7,pv:8,quiz:9};var btns=document.querySelectorAll(".nb");if(btns[map[id]])btns[map[id]].classList.add("on");}
+function buildVocab(){var c=document.getElementById("vocabList");var lastCat="";var catNum=0;V.forEach(function(v,i){if(v.cat!==lastCat){catNum++;lastCat=v.cat;var hd=document.createElement("div");hd.className="vcat";hd.innerHTML='<div class="vcat-ar">'+v.catAr+'</div><div class="vcat-en">'+v.cat+'</div><div class="vcat-num">'+catNum+'</div>';c.appendChild(hd);}var d=document.createElement("div");d.className="vocab-card";d.innerHTML='<div class="vhead"><div style="display:flex;align-items:center;gap:10px;width:100%"><button class="vspk" id="vs'+i+'">🔊</button><div class="var" style="flex:1;text-align:right">'+v.a+'</div><div class="vpron" style="direction:ltr;white-space:nowrap">'+v.p+'</div><div style="display:flex;align-items:center;gap:6px"><div class="vword">'+v.w+'</div><span style="background:rgba(255,255,255,.18);color:rgba(255,255,255,.85);font-size:.68rem;font-weight:800;padding:2px 7px;border-radius:10px">'+(i+1)+'</span></div></div></div><div class="vbody"><div class="vgrid2"><div class="vrow-pair"><div class="vcell c-ant" data-i="'+i+'" data-c="1"><div class="vlbl">Antonym</div><div class="vval">'+v.ant+'</div><div class="vtr">'+v.ar_ant+'</div></div><div class="vcell c-syn" data-i="'+i+'" data-c="0"><div class="vlbl">Synonym</div><div class="vval">'+v.syn+'</div><div class="vtr">'+v.ar_syn+'</div></div></div><div class="vrow-pair"><div class="vcell c-prep" data-i="'+i+'" data-c="3"><div class="vlbl">Preposition</div><div class="vval">'+v.prep+'</div><div class="vtr">'+v.ar_prep+'</div></div><div class="vcell c-col" data-i="'+i+'" data-c="2"><div class="vlbl">Collocation</div><div class="vval">'+v.col+'</div><div class="vtr">'+v.ar_col+'</div></div></div><div class="vrow-pair"><div class="vcell c-fam" data-i="'+i+'" data-c="4" style="flex:1"><div class="vlbl">Word Family</div><div class="vval">'+v.fam+'</div><div class="vtr" id="ftr'+i+'"></div></div></div></div><div class="vex" id="vex'+i+'">'+v.ex+'<div class="vex-tr">'+v.ar_ex+'</div></div></div>';
+d.querySelector('.vspk').addEventListener('click',(function(ii){return function(){document.querySelectorAll('.vspk').forEach(function(b){b.classList.remove('playing');});var btn=document.getElementById('vs'+ii);if(btn)btn.classList.add('playing');var u=say(V[ii].w,spd);if(u)u.onend=function(){if(btn)btn.classList.remove('playing');};};;})(i));
+d.querySelectorAll('.vcell').forEach(function(cell){cell.addEventListener('click',function(){var ii=parseInt(this.getAttribute('data-i'));var cc=parseInt(this.getAttribute('data-c'));say([V[ii].syn,V[ii].ant,V[ii].col,V[ii].prep,V[ii].fam][cc],0.9);this.classList.toggle('show-tr');});});
+var vex=d.querySelector('.vex');if(vex)vex.addEventListener('click',function(){this.classList.toggle('show-ex-tr');});
+var ftrDiv=d.querySelector('.c-fam .vtr');if(ftrDiv&&VFamEx[i]){var fhtml='<div style="margin-top:6px">';VFamEx[i].forEach(function(fe){var pc={"v":"#2563eb","n":"#059669","adj":"#7c3aed","adv":"#b45309","phr v":"#dc2626","n/adj":"#059669","adj/n":"#7c3aed"}[fe[1]]||"#0a1628";fhtml+='<div style="background:#fffdf7;border-radius:9px;padding:9px 11px;margin-bottom:7px;border-right:3px solid '+pc+'"><div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;direction:ltr"><strong style="font-family:Lora,Georgia,serif;color:#0a1628;font-size:.9rem">'+fe[0]+'</strong><span style="background:'+pc+';color:white;font-size:.6rem;padding:1px 7px;border-radius:8px;font-weight:800">'+fe[1]+'</span></div><div style="font-size:.76rem;color:#b45309;direction:rtl;text-align:right;margin-bottom:4px;font-family:Tajawal,sans-serif">'+fe[2]+'</div><div style="font-family:Lora,Georgia,serif;font-style:italic;font-size:.83rem;color:#374151;direction:ltr">'+fe[3]+'</div></div>';});fhtml+='</div>';ftrDiv.innerHTML=fhtml;}
+c.appendChild(d);});}
+function buildStory(){var b=document.getElementById("storyBox");if(!b)return;b.innerHTML="";story.forEach(function(s,i){var d=document.createElement("div");d.className="sline";d.id="sl"+i;d.appendChild(document.createTextNode(s.t));var btn=document.createElement("button");btn.style.cssText="background:transparent;border:1px solid #e5e7eb;border-radius:5px;padding:1px 7px;color:#9ca3af;font-size:.7rem;cursor:pointer;font-family:Tajawal,sans-serif;margin-right:6px";btn.textContent="🌐";btn.addEventListener("click",(function(ii){return function(){toggleTr(ii);};})(i));d.appendChild(btn);var tr=document.createElement("div");tr.id="tr"+i;tr.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;font-family:Tajawal,sans-serif;border-right:3px solid #fde68a;padding-right:8px";tr.textContent=s.ar;d.appendChild(tr);b.appendChild(d);});}
+var _trAll=false;
+function toggleAllTr(){_trAll=!_trAll;for(var i=0;i<story.length;i++){var e=document.getElementById("tr"+i);if(e)e.style.display=_trAll?"block":"none";}var btn=document.getElementById("trBtn");if(btn)btn.textContent=_trAll?"🙈 أخفِ":"🌐 الترجمة";}
+function toggleTr(i){var e=document.getElementById("tr"+i);if(e)e.style.display=e.style.display==="none"?"block":"none";}
+function setSpd(r,btn){spd=r;var p=btn.parentNode;p.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function storySeq(i){if(!storyOn||i>=story.length){stopStory();return;}document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("sl"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(story[i].t);u.lang="en-US";u.rate=spd;var v=getVoice("F");if(v)u.voice=v;u.onend=function(){if(storyOn)setTimeout(function(){storySeq(i+1);},320);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startStory(){storyOn=true;var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="⏹";btn.querySelector("#sTxt").textContent="إيقاف القصة";}storySeq(0);}
+function stopStory(){storyOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="▶";btn.querySelector("#sTxt").textContent="استمع للقصة";}}
+function toggleStory(){storyOn?stopStory():startStory();}
+function buildReading(){var t=document.getElementById("readingText");if(!t)return;t.innerHTML="";reading.forEach(function(p){var d=document.createElement("p");d.textContent=p;t.appendChild(d);});var c=document.getElementById("compList");if(!c)return;c.innerHTML="";compQs.forEach(function(q,qi){var d=document.createElement("div");d.style.marginBottom="14px";var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);q.opts.forEach(function(opt,oi){var b=document.createElement("div");b.className="copt";b.id="co"+qi+"-"+oi;b.textContent=opt;b.addEventListener("click",function(){compA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("co"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});d.appendChild(b);});c.appendChild(d);});}
+function checkComp(){var s=0;compQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("co"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(compA[qi]===i)el.classList.add("no");}if(compA[qi]===q.ans)s++;});var r=document.getElementById("compRes");r.style.display="block";r.textContent=s+" من "+compQs.length+" إجابة صحيحة ("+Math.round(s/compQs.length*100)+"%) "+(s===compQs.length?"🏆":s>=3?"🎉":"📚 راجع");}
+function resetComp(){compA=new Array(compQs.length).fill(null);document.querySelectorAll(".copt[id^='co']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("compRes").style.display="none";}
+function buildGrammar(){var c=document.getElementById("grammarBox");
+var b1=document.createElement("div");b1.className="gbox";
+b1.innerHTML='<div style="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:8px;text-align:right">١ — Comment Clauses: أنواعها ووظائفها</div><p style="font-size:.84rem;color:#475569;direction:rtl;text-align:right;margin-bottom:12px;line-height:1.9">Comment Clauses هي جمل قصيرة تُوضَع في منتصف جملة أكبر أو في بدايتها أو نهايتها — تُعبّر عن موقف الكاتب ودرجة يقينه. هي علامة B2+ في IELTS.</p>';
+var tbl=document.createElement("div");tbl.style.cssText="background:#0a1628;border-radius:10px;padding:14px 18px;direction:ltr;overflow-x:auto;margin-bottom:14px";
+var table=document.createElement("table");table.style.cssText="width:100%;border-collapse:collapse;font-size:.81rem";
+var rows=[["Function","Comment Clause","Example"],["Opinion","I would argue / I believe / In my view","Free will, I would argue, is real."],["Uncertainty","It seems / It appears / It seems to me","Memory, it seems, reconstructs the past."],["Knowledge limit","As far as I know / As far as we can tell","As far as we know, no AI is conscious."],["Source","As X argues / As research suggests","Perception, as Anil Seth argues, is a hallucination."],["Concession","It must be admitted / I must admit","It must be admitted, the evidence is unclear."],["Emphasis","What matters / What is clear","What matters, I believe, is the question itself."],["Surprise","Interestingly / Notably / Remarkably","Interestingly, the brain decides before we do."]];
+rows.forEach(function(row,ri){var tr=document.createElement("tr");if(ri>0)tr.style.borderTop="1px solid rgba(255,255,255,.08)";row.forEach(function(cell,ci){var td=document.createElement(ri===0?"th":"td");td.textContent=cell;td.style.cssText="padding:6px 8px;text-align:left;color:"+(ri===0?"#fde68a":ci===0?"#f0c040":ci===1?"#93c5fd":"rgba(255,255,255,.9)");tr.appendChild(td);});table.appendChild(tr);});
+tbl.appendChild(table);b1.appendChild(tbl);c.appendChild(b1);
+var b2=document.createElement("div");b2.className="gbox";
+b2.innerHTML='<div style="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right">٢ — في سياق فلسفة العقل</div>';
+var examples=[
+  ["I would argue:","Consciousness, I would argue, is the most profound mystery in science.","الوعي، في رأيي، هو أعمق لغز في العلم."],
+  ["It seems to me:","Free will, it seems to me, is not an illusion — but it is not what we imagine either.","الإرادة الحرة، في رأيي، ليست وهماً — لكنها ليست ما نتصوّره أيضاً."],
+  ["As far as X can tell:","As far as neuroscience can tell, all emotions have neural correlates.","بقدر ما يُخبرنا علم الأعصاب، لجميع العواطف مرتبطات عصبية."],
+  ["As X argues:","The self, as Daniel Dennett argues, is a 'centre of narrative gravity'.","الذات، كما يجادل دانيال دينيت، هي 'مركز جاذبية سردية'."],
+  ["It must be admitted:","It must be admitted, the hard problem may never have a solution.","لا بدّ من الإقرار، قد لا تجد المشكلة الصعبة حلاً أبداً."],
+  ["Interestingly:","Interestingly, the brain's decision precedes our awareness of it by up to half a second.","ومن المثير للاهتمام أن قرار الدماغ يسبق وعينا به بما يصل لنصف ثانية."]
+];
+examples.forEach(function(ex){var pat=document.createElement("div");pat.className="gpat";var d1=document.createElement("div");d1.style.cssText="font-size:.78rem;color:#f0a000;font-weight:700;direction:ltr;margin-bottom:2px";d1.textContent=ex[0];var d2=document.createElement("div");d2.style.cssText="font-family:Lora,Georgia,serif;font-size:.88rem;color:#0a1628;font-weight:600;direction:ltr;margin-bottom:3px";d2.textContent=ex[1];var d3=document.createElement("div");d3.style.cssText="font-size:.8rem;color:#64748b;direction:rtl;text-align:right";d3.textContent=ex[2];pat.appendChild(d1);pat.appendChild(d2);pat.appendChild(d3);b2.appendChild(pat);});
+c.appendChild(b2);
+var wrong=document.createElement("div");wrong.style.cssText="background:#fef2f2;border-radius:10px;padding:13px 16px;margin-bottom:8px;border-right:4px solid #dc2626;direction:ltr";
+wrong.innerHTML='<span style="color:#dc2626;font-weight:700">✗ </span>I would arguing that... / It seems to me that, consciousness is hard. / As far as I know, that we disagree. ← أخطاء شائعة';
+var right=document.createElement("div");right.style.cssText="background:#f0fdf4;border-radius:10px;padding:13px 16px;border-right:4px solid #059669;direction:ltr";
+right.innerHTML='<span style="color:#059669;font-weight:700">✓ </span>I <strong>would argue</strong> that... / It seems to me <strong>that</strong> consciousness is hard. / As far as I know, <strong>we</strong> disagree. ✅';
+c.appendChild(wrong);c.appendChild(right);}
+function buildGrammarExtra(){var c=document.getElementById("grammarExtra");if(!c)return;var inner=document.createElement("div");inner.className="cb";
+var dm=document.createElement("div");dm.className="gbox";
+dm.innerHTML='<div style="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:8px;text-align:right">٣ — الموضع: أين توضع Comment Clause؟</div><p style="font-size:.84rem;color:#475569;direction:rtl;text-align:right;margin-bottom:12px;line-height:1.9">Comment Clause يمكن وضعها في ثلاثة مواضع — وكل موضع يُعطي تأكيداً مختلفاً.</p>';
+var drows=[["Position","Example","Effect"],["Beginning","I would argue, consciousness is more than brain activity.","Sets stance early — confident tone"],["Middle","Consciousness, I would argue, is more than brain activity.","Creates elegant balance — most academic"],["End","Consciousness is more than brain activity, I would argue.","Sounds natural in speech — slightly less formal"]];
+var dtbl=document.createElement("div");dtbl.style.cssText="background:#0a1628;border-radius:10px;padding:14px 18px;direction:ltr;overflow-x:auto";var tbl=document.createElement("table");tbl.style.cssText="width:100%;border-collapse:collapse;font-size:.8rem";var hr=document.createElement("tr");["Position","Example","Effect"].forEach(function(tx){var th=document.createElement("th");th.textContent=tx;th.style.cssText="padding:5px 8px;text-align:left;color:#fde68a;border-bottom:1px solid rgba(255,255,255,.2)";hr.appendChild(th);});tbl.appendChild(hr);drows.slice(1).forEach(function(row){var tr=document.createElement("tr");tr.style.borderTop="1px solid rgba(255,255,255,.07)";row.forEach(function(cell,ci){var td=document.createElement("td");td.textContent=cell;td.style.cssText="padding:6px 8px;text-align:left;vertical-align:top;color:"+(ci===0?"#f0c040":ci===1?"rgba(255,255,255,.9)":"#93c5fd");tr.appendChild(td);});tbl.appendChild(tr);});dtbl.appendChild(tbl);dm.appendChild(dtbl);inner.appendChild(dm);
+var eb=document.createElement("div");eb.style.cssText="background:linear-gradient(135deg,#fff7ed,#fef3e8);border:2px solid #fed7aa;border-radius:14px;padding:18px 20px;margin-top:14px";
+eb.innerHTML='<div style="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:6px;text-align:right">٤ — أخطاء يقع فيها المتعلم العربي</div>';
+var errs=[
+  ["I would arguing that free will exists.","I would + base verb — لا progressive بعدها","I would argue that free will exists."],
+  ["It seems to me that, the mind is separate.","لا فاصلة بعد 'that' — الفاصلة تأتي قبل Comment Clause لا بعدها","The mind, it seems to me, is not separate."],
+  ["As far as I know that we cannot be sure.","As far as I know لا تحتاج 'that' — تبدأ الجملة مباشرة","As far as I know, we cannot be certain."],
+  ["In my view, I think that consciousness is real.","لا تجمع In my view مع I think — واحدة تكفي","In my view, consciousness is real. / I think consciousness is real."],
+  ["It seems that me the brain decides first.","'to me' لا 'that me' — الحرف to ضروري","It seems to me that the brain decides first."]
+];
+errs.forEach(function(row){var card=document.createElement("div");card.style.cssText="background:white;border-radius:10px;padding:11px 14px;margin-bottom:8px;border-right:4px solid #dc2626";var w=document.createElement("div");w.style.cssText="color:#dc2626;font-weight:700;font-size:.86rem;margin-bottom:3px;direction:ltr";w.innerHTML='<span style="background:#fef2f2;border-radius:5px;padding:1px 7px">✗</span>  '+row[0];var why=document.createElement("div");why.style.cssText="font-size:.76rem;color:#92400e;direction:rtl;text-align:right;margin:3px 0;font-family:Tajawal,sans-serif";why.textContent="💡 "+row[1];var right=document.createElement("div");right.style.cssText="color:#059669;font-weight:700;font-size:.86rem;direction:ltr";right.innerHTML='<span style="background:#f0fdf4;border-radius:5px;padding:1px 7px">✓</span>  '+row[2];card.appendChild(w);card.appendChild(why);card.appendChild(right);eb.appendChild(card);});inner.appendChild(eb);
+var sb=document.createElement("div");sb.className="gbox";sb.style.marginTop="14px";
+sb.innerHTML='<div style="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:6px;text-align:right">٥ — أضف Comment Clause المناسبة</div><p style="font-size:.82rem;color:#475569;direction:rtl;text-align:right;margin-bottom:12px;line-height:1.8">أضف comment clause في مكان ↑ في كل جملة. اضغط الجواب للتحقق.</p>';
+var pairs=[
+  ["Consciousness ↑ is the hardest problem in science. (Your opinion)","Consciousness, I would argue, is the hardest problem in science."],
+  ["↑, the brain initiates action before conscious awareness. (Interesting fact)","Interestingly, the brain initiates action before conscious awareness."],
+  ["Free will ↑ is more complex than people assume. (It seems to you)","Free will, it seems to me, is more complex than people assume."],
+  ["↑, all emotions correlate with neural states. (Limited by what science tells)","As far as neuroscience can tell, all emotions correlate with neural states."],
+  ["The evidence ↑ does not definitively settle the free will debate. (You must admit)","It must be admitted, the evidence does not definitively settle the debate."]
+];
+pairs.forEach(function(pair,ti){var td=document.createElement("div");td.style.cssText="background:white;border-radius:10px;padding:13px 16px;margin-bottom:10px;border-right:4px solid #2563eb";var num=document.createElement("span");num.style.cssText="background:#1e3a8a;color:white;border-radius:5px;padding:1px 8px;font-size:.75rem;font-weight:800;margin-left:8px";num.textContent=ti+1;var orig=document.createElement("div");orig.style.cssText="font-family:Lora,Georgia,serif;color:#374151;font-size:.9rem;direction:ltr;margin-bottom:8px";orig.appendChild(num);orig.appendChild(document.createTextNode(pair[0]));var ab=document.createElement("button");ab.style.cssText="background:#dbeafe;border:none;border-radius:18px;padding:4px 14px;font-family:Tajawal,sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer";ab.textContent="💡 الجواب";var ad=document.createElement("div");ad.style.cssText="display:none;background:#f0fdf4;border-radius:8px;padding:10px 13px;margin-top:8px;font-family:Lora,Georgia,serif;font-size:.88rem;color:#059669;direction:ltr;border-right:3px solid #059669";ad.textContent="✓ "+pair[1];ab.addEventListener('click',(function(ad2,ab2){return function(){ad2.style.display=ad2.style.display==='none'?'block':'none';ab2.textContent=ad2.style.display==='block'?'🙈 إخفاء':'💡 الجواب';};})(ad,ab));td.appendChild(orig);td.appendChild(ab);td.appendChild(ad);sb.appendChild(td);});inner.appendChild(sb);c.appendChild(inner);}
+function buildListening(){var s=document.getElementById("listenScript");listenLines.forEach(function(line,i){var d=document.createElement("div");d.className="lline";d.id="ll"+i;if(typeof line==="object"&&line.speaker){var lbl=document.createElement("span");var isJ=line.speaker==="J";lbl.style.cssText="font-size:.7rem;font-weight:800;padding:1px 7px;border-radius:8px;margin-left:6px;"+(isJ?"background:#dbeafe;color:#1e3a8a":"background:#dcfce7;color:#15803d");lbl.textContent=isJ?"Host":"Prof. Vera";var txt=document.createElement("span");txt.textContent=line.text;d.appendChild(lbl);d.appendChild(txt);}else{d.appendChild(document.createTextNode(typeof line==="object"?line.text:line));}s.appendChild(d);});var ql=document.getElementById("listenQList");listenQs.forEach(function(q,qi){var d=document.createElement("div");d.style.marginBottom="14px";var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);q.opts.forEach(function(opt,oi){var b=document.createElement("div");b.className="copt";b.id="lq"+qi+"-"+oi;b.textContent=opt;b.addEventListener("click",function(){listenA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("lq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});d.appendChild(b);});ql.appendChild(d);});}
+function setLSpd(r,btn){lspd=r;var p=btn.parentNode;p.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function listenSeq(i){if(!listenOn||i>=listenLines.length){stopListen();return;}document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("ll"+i);if(e)e.classList.add("hl");var line=listenLines[i];var text=typeof line==="object"?line.text:line;var gender=typeof line==="object"?(line.speaker==="J"?"M":"F"):"F";var u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=lspd;var v=getVoice(gender);if(v)u.voice=v;u.pitch=1.0;u.onend=function(){if(listenOn)setTimeout(function(){listenSeq(i+1);},380);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startListen(){listenOn=true;document.getElementById("lIcon").textContent="⏹";document.getElementById("lTxt").textContent="إيقاف الحوار";listenSeq(0);}
+function stopListen(){listenOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});document.getElementById("lIcon").textContent="▶";document.getElementById("lTxt").textContent="شغّل الحوار";}
+function toggleListen(){listenOn?stopListen():startListen();}
+function checkListen(){var s=0;listenQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("lq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(listenA[qi]===i)el.classList.add("no");}if(listenA[qi]===q.ans)s++;});var r=document.getElementById("listenRes");r.style.display="block";r.textContent=s+" من "+listenQs.length+" ("+Math.round(s/listenQs.length*100)+"%) "+(s>=4?"✅ ممتاز!":s>=3?"👍 جيد!":"📚 راجع");}
+function resetListen(){listenA=new Array(listenQs.length).fill(null);document.querySelectorAll(".copt[id^='lq']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("listenRes").style.display="none";}
+function buildW(){var ids=["w1","w2","w3","w4","w5"];var any=false;for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value.trim())any=true;}if(!any){document.getElementById("wOut").innerHTML="<span style='color:#9ca3af;font-style:italic'>✨ ستظهر فقرتك هنا...</span>";return;}var parts=[];for(var j=0;j<ids.length;j++){var el=document.getElementById(ids[j]);var v=el?el.value.trim():"";if(v)parts.push("<span style='color:#f0a000;font-weight:700'>"+v+"</span>.");}document.getElementById("wOut").innerHTML="<p style='direction:ltr;line-height:2'>"+parts.join(" ")+"</p>";}
+function buildSpeaking(){var c=document.getElementById("speakBox");speakQs.forEach(function(q){var d=document.createElement("div");d.style.cssText="background:#f8faff;border-right:4px solid #1e3a8a;border-radius:0 12px 12px 0;padding:16px 18px;margin-bottom:14px";var p1=document.createElement("p");p1.style.cssText="font-size:.97rem;color:#0a1628;font-weight:700;direction:ltr;margin-bottom:5px";p1.textContent=q.q;var p2=document.createElement("p");p2.style.cssText="font-size:.82rem;color:#9ca3af;margin-bottom:6px";p2.textContent=q.ar;var p3=document.createElement("p");p3.style.cssText="font-size:.82rem;color:#f0a000;direction:ltr;margin-bottom:8px";p3.textContent="💡 "+q.hint;var badge=document.createElement("span");badge.style.cssText="background:#dbeafe;color:#1e3a8a;padding:4px 12px;border-radius:20px;font-size:.76rem;font-weight:700";badge.textContent=q.badge;d.appendChild(p1);d.appendChild(p2);d.appendChild(p3);d.appendChild(badge);var btn=document.createElement("button");btn.className="spksmall";btn.textContent="🔊";btn.style.marginTop="10px";btn.addEventListener("click",(function(qq){return function(){say(qq,spd);};})(q.q));d.appendChild(btn);c.appendChild(d);});}
+function makeExRow(t,a,s){var div=document.createElement("div");div.style.cssText="cursor:pointer;user-select:none;padding:8px 12px;background:white;border-radius:8px;direction:ltr;font-size:.86rem;color:#374151;font-style:italic;margin-top:6px";div.appendChild(document.createTextNode(t));var tr=document.createElement("div");tr.style.cssText="font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;padding-top:4px;border-top:1px dashed #e5e7eb;display:none;font-family:Tajawal,sans-serif;font-style:normal";tr.textContent=a;div.appendChild(tr);div.addEventListener("click",(function(t2,s2){return function(){t2.style.display=t2.style.display==="none"?"block":"none";say(s2,spd);};})(tr,s));return div;}
+function buildReal(){var c=document.getElementById("realBox");var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h1.textContent="🔥 Expressions";c.appendChild(h1);realExpr.forEach(function(e){var d=document.createElement("div");d.className="expr-card";var hdr=document.createElement("div");hdr.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;direction:ltr";var hL=document.createElement("div");hL.style.cssText="display:flex;align-items:center;gap:8px";var sb=document.createElement("button");sb.className="spksmall";sb.textContent="🔊";sb.addEventListener("click",(function(ee){return function(){say(ee,spd);};})(e.e));var ts=document.createElement("span");ts.style.cssText="font-weight:700;color:#4c1d95;font-size:.92rem";ts.textContent=e.e;hL.appendChild(sb);hL.appendChild(ts);var ps=document.createElement("span");ps.style.cssText="color:#f0a000;font-size:.78rem;font-weight:700;font-family:Tajawal,sans-serif";ps.textContent=e.p;hdr.appendChild(hL);hdr.appendChild(ps);d.appendChild(hdr);var grid=document.createElement("div");grid.style.cssText="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px";var g1=document.createElement("div");g1.style.cssText="background:white;border-radius:8px;padding:8px 12px;text-align:right";g1.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>المعنى</div><div style='font-weight:700;color:#374151;font-size:.88rem'>"+e.m+"</div>";var g2=document.createElement("div");g2.style.cssText="background:white;border-radius:8px;padding:8px 12px;direction:ltr";g2.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>Formal</div><div style='font-size:.85rem;color:#64748b'>"+e.f+"</div>";grid.appendChild(g1);grid.appendChild(g2);d.appendChild(grid);d.appendChild(makeExRow(e.x,e.xar,e.x));var note=document.createElement("div");note.style.cssText="font-size:.8rem;color:#7c3aed;text-align:right;margin-top:8px";note.textContent="💡 "+e.n;d.appendChild(note);c.appendChild(d);});
+var h2=document.createElement("p");h2.style.cssText="font-weight:800;color:#0a1628;margin:20px 0 14px;text-align:right";h2.textContent="😎 Idioms & Slang";c.appendChild(h2);
+var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:20px";realSlang.forEach(function(s){var d=document.createElement("div");d.className="slang-card";var tR=document.createElement("div");tR.style.cssText="display:flex;align-items:center;gap:6px;margin-bottom:4px;direction:ltr";var spkS=document.createElement("button");spkS.className="spksmall";spkS.textContent="🔊";spkS.style.cssText="width:28px;height:28px;font-size:.8rem";spkS.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));var sWord=document.createElement("span");sWord.style.cssText="font-weight:700;color:#ea580c;font-size:.9rem";sWord.textContent=s.w;tR.appendChild(spkS);tR.appendChild(sWord);var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a||"";var inst=document.createElement("div");inst.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";inst.textContent="Meaning: "+s.i;d.appendChild(tR);d.appendChild(ar);d.appendChild(inst);d.appendChild(makeExRow(s.x,s.xar,s.x));sg.appendChild(d);});c.appendChild(sg);
+var h3=document.createElement("p");h3.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h3.textContent="💬 Everyday Phrases";c.appendChild(h3);
+var ev=document.createElement("div");ev.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";realEvery.forEach(function(s){var d=document.createElement("div");d.className="ev-card";var tR=document.createElement("div");tR.style.cssText="display:flex;align-items:center;gap:6px;margin-bottom:6px;direction:ltr";var spkE=document.createElement("button");spkE.className="spksmall";spkE.textContent="🔊";spkE.style.cssText="width:28px;height:28px;font-size:.8rem";spkE.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));var tTxt=document.createElement("span");tTxt.style.cssText="font-weight:700;color:#15803d;font-size:.9rem";tTxt.textContent=s.w;tR.appendChild(spkE);tR.appendChild(tTxt);var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.m||"";var inst=document.createElement("div");inst.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";inst.textContent="Meaning: "+s.i;d.appendChild(tR);d.appendChild(ar);d.appendChild(inst);d.appendChild(makeExRow(s.x,s.xar,s.x));ev.appendChild(d);});c.appendChild(ev);}
+function buildPhrasal(){var c=document.getElementById("pvBox");if(!c)return;var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";pvData.forEach(function(pv){var d=document.createElement("div");d.className="slang-card";var tR=document.createElement("div");tR.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";var tL=document.createElement("div");tL.style.cssText="display:flex;align-items:center;gap:6px";var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";spkBtn.style.cssText="width:28px;height:28px;font-size:.8rem";spkBtn.addEventListener("click",(function(w){return function(e){e.stopPropagation();say(w,spd);};})(pv.v));var pvW=document.createElement("span");pvW.style.cssText="font-weight:700;color:#7c3aed;font-size:.95rem";pvW.textContent=pv.v;tL.appendChild(spkBtn);tL.appendChild(pvW);var pS=document.createElement("span");pS.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pS.textContent=pv.p||"";tR.appendChild(tL);tR.appendChild(pS);var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:6px";ar.textContent=pv.m;var exBox=document.createElement("div");exBox.style.cssText="font-family:'Lora',Georgia,serif;font-style:italic;color:#1e3a8a;font-size:.88rem;direction:ltr;cursor:pointer;padding:8px 10px;background:#f0f9ff;border-radius:8px;border-left:3px solid #7c3aed";exBox.textContent=pv.ex;var trBox=document.createElement("div");trBox.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding:7px 10px;background:#fffdf7;border-radius:8px;border-right:3px solid #fde68a";trBox.textContent=pv.ar;exBox.addEventListener("click",(function(ex,tb){return function(){say(ex,spd);tb.style.display=tb.style.display==="none"?"block":"none";this.style.background=tb.style.display==="block"?"#dbeafe":"#f0f9ff";};})(pv.ex,trBox));d.appendChild(tR);d.appendChild(ar);d.appendChild(exBox);d.appendChild(trBox);sg.appendChild(d);});c.appendChild(sg);}
+function buildQuiz(){var c=document.getElementById("quizList");quizQs.forEach(function(q,qi){var d=document.createElement("div");d.style.marginBottom="18px";var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:10px;direction:ltr;font-size:.93rem";p.innerHTML="<span style='background:#0a1628;color:white;border-radius:5px;padding:1px 8px;font-size:.76rem;margin-left:8px'>"+(qi+1)+"</span>"+q.q;d.appendChild(p);q.opts.forEach(function(opt,oi){var b=document.createElement("div");b.className="qopt";b.id="qq"+qi+"-"+oi;b.textContent=opt;b.addEventListener("click",function(){quizA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("qq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});d.appendChild(b);});c.appendChild(d);});}
+function checkQuiz(){var s=0;quizQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("qq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(quizA[qi]===i)el.classList.add("no");}if(quizA[qi]===q.ans)s++;});var pct=Math.round(s/quizQs.length*100);var r=document.getElementById("quizRes");r.style.display="block";document.getElementById("qEmoji").textContent=pct===100?"🏆":pct>=70?"🎉":pct>=50?"💪":"📚";document.getElementById("qScore").textContent=s+" من "+quizQs.length+" ("+pct+"%)";document.getElementById("qMsg").textContent=pct===100?"مثالي! إتقان Comment Clauses":pct>=70?"أحسنت!":"راجع الوحدة.";r.style.background=pct>=70?"#f0fdf4":"#fef9f0";r.scrollIntoView({behavior:"smooth",block:"center"});}
+function resetQuiz(){quizA=new Array(quizQs.length).fill(null);document.querySelectorAll(".qopt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("quizRes").style.display="none";}
+function buildAssessment(){var c=document.getElementById("assessList");if(!c)return;assessItems.forEach(function(item,i){var d=document.createElement("div");d.style.cssText="display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border-radius:10px;margin-bottom:8px;background:#f8faff;border:1.5px solid #e5eaf5;cursor:pointer;flex-direction:row-reverse";var cb=document.createElement("input");cb.type="checkbox";cb.id="as"+i;cb.style.cssText="width:18px;height:18px;cursor:pointer;accent-color:#1e3a8a;flex-shrink:0;margin-top:2px";var lbl=document.createElement("label");lbl.htmlFor="as"+i;lbl.style.cssText="font-size:.88rem;color:#374151;direction:rtl;text-align:right;cursor:pointer;line-height:1.8;flex:1";lbl.textContent=item;cb.addEventListener('change',function(){d.style.background=this.checked?'#f0fdf4':'#f8faff';d.style.borderColor=this.checked?'#86efac':'#e5eaf5';updateAssess();});d.appendChild(lbl);d.appendChild(cb);c.appendChild(d);});}
+function updateAssess(){var total=assessItems.length;var done=document.querySelectorAll('#assessList input:checked').length;var r=document.getElementById('assessResult');r.style.display='block';var pct=Math.round(done/total*100);var msg=pct===100?'🏆 B2 Philosophy!':pct>=75?'🎉 قريب!':pct>=50?'💪 نصف الطريق':'📚 حدّد ما تحتاج';r.style.background=pct>=75?'#f0fdf4':pct>=50?'#fefce8':'#f8faff';r.innerHTML='<div style="font-size:1.4rem;margin-bottom:6px">'+msg.split(' ')[0]+'</div><div style="font-weight:800;color:#0a1628;margin-bottom:3px">'+done+' من '+total+' ('+pct+'%)</div><div style="font-size:.82rem;color:#64748b">'+msg.substring(msg.indexOf(' ')+1)+'</div>';}
+buildVocab();
+setTimeout(function(){document.querySelectorAll('.vword').forEach(function(e){var ov=e.scrollWidth-e.clientWidth;if(ov>4){e.style.setProperty('--vtx','-'+(ov+2)+'px');e.classList.add('mq');}});},500);buildStory();buildReading();buildGrammar();buildGrammarExtra();buildListening();buildSpeaking();buildReal();buildPhrasal();buildQuiz();buildAssessment();
+if(window.speechSynthesis){window.speechSynthesis.onvoiceschanged=function(){};window.speechSynthesis.getVoices();}
+</script></body></html>

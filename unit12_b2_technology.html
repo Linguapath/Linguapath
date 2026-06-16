@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath B2 — Unit 12: Technology and Society</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap"></noscript>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Tajawal',system-ui,-apple-system,sans-serif;background:#f0f4fa;direction:rtl;min-height:100vh}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#1e3a8a;border-radius:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(30,58,138,.35)}50%{box-shadow:0 0 0 8px rgba(30,58,138,0)}}
+.nav-bar{background:linear-gradient(135deg,#0a1628,#1e3a8a);padding:10px 12px;display:flex;justify-content:center;gap:4px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.nb{border:none;border-radius:22px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s}
+.nb.on{background:#f0a000;color:#0a1628}
+.nb:not(.on){background:rgba(255,255,255,.1);color:rgba(255,255,255,.85)}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#1e3a8a 55%,#1d4ed8 100%);color:white;padding:32px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(240,160,0,.06)}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04)}
+.lvltag{display:inline-block;background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-size:.72rem;font-weight:900;padding:4px 14px;border-radius:20px;letter-spacing:1.5px;margin-bottom:10px}
+.sec{display:none;max-width:900px;margin:0 auto;padding:32px 16px 80px;animation:fadeUp .4s ease}
+.sec.on{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 3px 20px rgba(0,0,0,.06);margin-bottom:22px;overflow:hidden}
+.ch{background:#0a1628;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.ch h3{font-size:1rem;font-weight:700}
+.ch .sub{font-size:.75rem;color:#93c5fd;margin-top:1px}
+.cb{padding:22px}
+.vocab-card{background:white;border-radius:16px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 14px rgba(10,22,40,.08);border:1px solid #e5ebf8;transition:transform .2s,box-shadow .2s}
+.vocab-card:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(10,22,40,.13)}
+.vhead{background:linear-gradient(135deg,#0a1628,#1e3a8a);display:flex;flex-direction:row-reverse;align-items:center;padding:14px 18px;gap:14px}
+.vword{font-family:'Lora',Georgia,serif;font-size:1.18rem;font-weight:700;color:white;direction:ltr;text-align:left;white-space:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}.vword::-webkit-scrollbar{display:none}
+.vpron{font-size:.78rem;font-weight:700;color:#fde68a;margin-top:3px;direction:ltr;text-align:left}
+.var{font-size:.93rem;font-weight:700;color:rgba(255,255,255,.9);margin-top:3px}
+.vspk{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.25);background:transparent;color:white;font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:all .18s;display:flex;align-items:center;justify-content:center}
+.vspk:hover{background:rgba(255,255,255,.2);transform:scale(1.08)}
+.vspk.playing{background:#f0a000;border-color:#f0a000;animation:pulse 1s infinite}
+.vbody{padding:14px 16px 16px}
+.vgrid2{margin-bottom:10px}
+.vrow-pair{display:flex;gap:8px;margin-bottom:8px}
+.vrow-pair .vcell{flex:1;min-width:0}
+.vcell{border-radius:10px;padding:10px 13px;cursor:pointer;transition:all .15s;user-select:none;direction:ltr}
+.vcell:hover{filter:brightness(.96)}
+.c-syn{background:#f0fdf4;border:1px solid #bbf7d0}
+.c-ant{background:#fff7ed;border:1px solid #fed7aa}
+.c-col{background:#eff6ff;border:1px solid #bfdbfe}
+.c-prep{background:#faf5ff;border:1px solid #ddd6fe}
+.c-fam{background:#fefce8;border:1px solid #fde68a}
+.vlbl{font-size:.65rem;font-weight:900;letter-spacing:.7px;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:5px;direction:ltr}
+.c-syn .vlbl{color:#15803d}.c-ant .vlbl{color:#ea580c}.c-col .vlbl{color:#2563eb}.c-prep .vlbl{color:#7c3aed}.c-fam .vlbl{color:#b45309}
+.vlbl::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.c-syn .vlbl::before{background:#15803d}.c-ant .vlbl::before{background:#ea580c}.c-col .vlbl::before{background:#2563eb}.c-prep .vlbl::before{background:#7c3aed}.c-fam .vlbl::before{background:#b45309}
+.vval{font-family:'Lora',Georgia,serif;font-size:.82rem;color:#374151;direction:ltr;line-height:1.6}
+.vtr{font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px;padding-top:5px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif}
+.vcell.show-tr .vtr{display:block}
+.vex{font-family:'Lora',Georgia,serif;font-size:.87rem;color:#374151;direction:ltr;font-style:italic;padding:10px 14px;background:#f8faff;border-radius:10px;border-right:3px solid #f0a000;cursor:pointer;user-select:none}
+.vex-tr{font-size:.8rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding-top:6px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif;font-style:normal}
+.vex.show-ex-tr .vex-tr{display:block}
+.vcat{display:flex;align-items:center;justify-content:flex-end;gap:12px;margin:28px 4px 14px;padding-bottom:8px;border-bottom:2px solid #dbe4f3}
+.vcat-en{font-family:'Lora',Georgia,serif;font-weight:700;color:#0a1628;font-size:1.05rem;direction:ltr}
+.vcat-ar{font-size:.85rem;color:#64748b}
+.vcat-num{background:linear-gradient(135deg,#0a1628,#1e3a8a);color:#fff;width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;flex-shrink:0}
+.sline{font-family:'Lora',Georgia,serif;font-size:.97rem;line-height:2;padding:5px 8px;border-radius:6px;direction:ltr;transition:background .2s}
+.sline.hl{background:#fef3c7}
+.lline{font-family:'Lora',Georgia,serif;font-size:.93rem;line-height:2;color:#cbd5e1;padding:3px 6px;border-radius:5px;direction:ltr;transition:background .2s}
+.lline.hl{background:rgba(240,160,0,.18);color:#fde68a}
+.sctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-direction:row-reverse;margin-bottom:16px}
+.pbtn{background:#1e3a8a;color:white;border:none;border-radius:24px;padding:9px 20px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s}
+.pbtn:hover{background:#1d4ed8}
+.spdbtn{padding:5px 12px;border-radius:18px;border:2px solid #cbd5e1;background:white;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;color:#64748b;transition:all .15s}
+.spdbtn.on{border-color:#1e3a8a;background:#1e3a8a;color:white}
+.rtext{font-family:'Lora',Georgia,serif;font-size:.95rem;line-height:2;color:#374151;direction:ltr;padding:20px;background:#f8faff;border-radius:14px;border:1px solid #e5eaf5;margin-bottom:18px}
+.rtext p{margin-bottom:14px}
+.gbox{background:linear-gradient(135deg,#eff6ff,#e0effe);border:2px solid #bfdbfe;border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.gpat{background:white;border-radius:10px;padding:12px 16px;margin-bottom:10px;border-right:4px solid #2563eb;direction:ltr}
+.copt{padding:9px 14px;border:2px solid #e5e7eb;border-radius:9px;cursor:pointer;font-family:'Lora',Georgia,serif;font-size:.87rem;direction:ltr;background:white;transition:all .15s;margin-bottom:6px}
+.copt:hover{border-color:#1e3a8a;background:#eff6ff}
+.copt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.copt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.qopt{padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;font-family:'Lora',Georgia,serif;font-size:.9rem;direction:ltr;background:white;transition:all .15s;margin-bottom:7px;text-align:left}
+.qopt:hover{border-color:#1e3a8a;background:#eff6ff}
+.qopt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.qopt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.wq-block{margin-bottom:18px}
+.wq-model{font-family:'Lora',Georgia,serif;font-size:.8rem;color:#374151;font-style:italic;direction:ltr;padding:10px 14px;background:#f0f9ff;border-radius:8px;border-right:3px solid #bfdbfe;line-height:1.7;display:none;margin-bottom:8px}
+.wq-model.show{display:block}
+.wq-model-btn{background:#dbeafe;border:none;border-radius:20px;padding:4px 14px;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer;margin-bottom:8px;transition:all .15s}
+.wq-model-btn:hover{background:#1e3a8a;color:white}
+.wq-en{font-family:'Lora',Georgia,serif;font-size:.93rem;font-weight:700;color:#0a1628;direction:ltr;margin-bottom:3px}
+.winput{width:100%;border:none;border-bottom:2px solid #f0a000;background:transparent;font-family:'Lora',Georgia,serif;font-size:.95rem;color:#0a1628;outline:none;padding:5px 3px;direction:ltr;margin-bottom:14px}
+.winput:focus{border-color:#1e3a8a}
+.ielts-tip{background:linear-gradient(135deg,#0a1628,#1e3a8a);color:#fff;border-radius:14px;padding:16px 20px;margin-bottom:18px}
+.ielts-tip .ielts-badge{display:inline-block;background:#f0a000;color:#0a1628;font-size:.7rem;font-weight:900;padding:3px 11px;border-radius:12px;letter-spacing:.5px;margin-bottom:9px}
+.ielts-tip h4{color:#fde68a;font-size:.92rem;margin-bottom:8px;text-align:right;font-weight:800}
+.ielts-tip ul{list-style:none;padding:0;margin:0}
+.ielts-tip li{font-size:.83rem;line-height:1.95;color:rgba(255,255,255,.92);text-align:right;padding-right:18px;position:relative;margin-bottom:3px}
+.ielts-tip li::before{content:'◂';color:#f0a000;position:absolute;right:0;font-size:.7rem;top:3px}
+.btn{border:none;border-radius:28px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all .18s;padding:10px 24px;font-size:.9rem}
+.btn:hover{opacity:.88;transform:scale(.98)}
+.bd{background:#1e3a8a;color:white}
+.bg{background:#e5e7eb;color:#374151}
+.bgold{background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-weight:900}
+.navrow{display:flex;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.spksmall{width:32px;height:32px;border-radius:50%;border:none;background:#dbeafe;color:#1e3a8a;font-size:.85rem;cursor:pointer;flex-shrink:0;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.spksmall:hover{background:#1e3a8a;color:white}
+.expr-card{background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:16px;margin-bottom:12px}
+.slang-card{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px}
+.ev-card{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px}
+.vword{white-space:nowrap;max-width:min(140px,36vw);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;display:block}.vword::-webkit-scrollbar{display:none}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <button class="nb on" onclick="show('vocab',this)">📚 المفردات</button>
+  <button class="nb" onclick="show('story',this)">📖 القصة</button>
+  <button class="nb" onclick="show('reading',this)">📰 القراءة</button>
+  <button class="nb" onclick="show('grammar',this)">✏️ القاعدة</button>
+  <button class="nb" onclick="show('listening',this)">🎧 الاستماع</button>
+  <button class="nb" onclick="show('writing',this)">✍️ الكتابة</button>
+  <button class="nb" onclick="show('speaking',this)">💬 المحادثة</button>
+  <button class="nb" onclick="show('realeng',this)">🗣️ Real English</button>
+  <button class="nb" onclick="show('pv',this)">💬 Phrasal Verbs</button>
+  <button class="nb" onclick="show('quiz',this)">✅ الاختبار</button>
+</div>
+<div class="hero">
+  <div class="lvltag">B2 — UPPER INTERMEDIATE</div>
+  <div style="font-size:.75rem;letter-spacing:3px;color:rgba(255,255,255,.45);font-weight:700;margin-bottom:8px">UNIT 12</div>
+  <h1 style="font-family:'Lora',Georgia,serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;margin-bottom:6px">Technology and Society</h1>
+  <p style="font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:4px">التقنية والمجتمع</p>
+  <p style="font-size:.82rem;color:rgba(255,255,255,.4)">القاعدة: Abstract Noun Phrases — the rapid development of / the failure to / the widespread adoption of</p>
+  <div style="display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap">
+    <a href="unit11_b2_media.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">← الوحدة ١١</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="index.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">الفهرس</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="unit13_b2_culture.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">الوحدة ١٣ ←</a>
+  </div>
+</div>
+
+<div id="sec-vocab" class="sec on">
+  <div style="text-align:right;color:#64748b;font-size:.88rem;max-width:900px;margin:0 auto 16px;padding:0 16px">💡 المعنى العربي للكلمة ثابت دائماً — اضغط 🔊 للنطق، واضغط أي خلية لتسمع وتظهر الترجمة</div>
+  <div id="vocabList" style="max-width:900px;margin:0 auto;padding:0 16px"></div>
+  <div class="navrow"><button class="btn bd" onclick="show('story',null)">القصة ←</button></div>
+</div>
+
+<div id="sec-story" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📖</span><div><h3>القصة القصيرة</h3><div class="sub">قصة عن التقنية والمجتمع والمستقبل — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button id="trBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:22px;padding:7px 16px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+        <button class="pbtn" id="storyBtn" onclick="toggleStory()"><span id="sIcon">▶</span><span id="sTxt">استمع للقصة</span></button>
+        <button class="spdbtn on" onclick="setSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setSpd(0.75,this)">بطيء</button>
+      </div>
+      <div id="storyBox" style="border-right:4px solid #f0a000;padding:16px 20px;background:#fffdf7;border-radius:0 14px 14px 0"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn bd" onclick="show('reading',null)">القراءة ←</button>
+  </div>
+</div>
+
+<div id="sec-reading" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📰</span><div><h3>القراءة المعمّقة</h3><div class="sub">نص ~480 كلمة + 5 أسئلة استنتاجية</div></div></div>
+    <div class="cb">
+      <div class="rtext" id="readingText"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الفهم والاستنتاج</p>
+      <div id="compList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkComp()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetComp()">↺ إعادة</button>
+      </div>
+      <div id="compRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('story',null)">→ القصة</button>
+    <button class="btn bd" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✏️</span><div><h3>القاعدة</h3><div class="sub">Abstract Noun Phrases — المجموعات الاسمية المجرّدة</div></div></div>
+    <div class="cb" id="grammarBox"></div>
+  </div>
+  <div class="card" id="grammarExtra"></div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('reading',null)">→ القراءة</button>
+    <button class="btn bd" onclick="show('listening',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listening" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🎧</span><div><h3>الاستماع المضمّن</h3><div class="sub">حوار: مذيع 🎙️ × باحثة في التقنية والمجتمع 👩‍💻 — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button class="pbtn" id="listenBtn" onclick="toggleListen()"><span id="lIcon">▶</span><span id="lTxt">شغّل الحوار</span></button>
+        <button class="spdbtn on" onclick="setLSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setLSpd(0.75,this)">بطيء</button>
+        <span style="font-size:.72rem;color:#64748b;font-family:Tajawal,sans-serif;padding:4px 10px;background:#f1f5f9;border-radius:12px">🔊 يعمل بـ Safari</span>
+      </div>
+      <div id="listenScript" style="background:#0f172a;border-radius:14px;padding:18px 20px;margin-bottom:16px"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الاستماع</p>
+      <div id="listenQList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkListen()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetListen()">↺ إعادة</button>
+      </div>
+      <div id="listenRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+      <div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:14px;padding:20px;margin-top:18px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-direction:row-reverse">
+          <div style="text-align:right"><div style="font-weight:800;color:white;font-size:.95rem">🌍 Authentic Listening</div><div style="font-size:.78rem;color:#93c5fd;margin-top:2px">استمع لإنجليزي حقيقي</div></div>
+          <span style="background:#f0a000;color:#0a1628;font-size:.7rem;font-weight:900;padding:3px 11px;border-radius:12px">B2 · Technology</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:16px">
+          <a href="https://youtu.be/iFTWM7HV2UI" onclick="window.location.href='https://youtu.be/iFTWM7HV2UI';return false;" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:14px;text-decoration:none;display:block" onmouseover="this.style.background='rgba(255,255,255,.14)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
+            <div style="color:#f0a000;font-size:.72rem;font-weight:800;margin-bottom:4px">TED · 22 min</div>
+            <div style="color:white;font-weight:700;font-size:.88rem;margin-bottom:3px">We're Building a Dystopia Just to Make People Click on Ads</div>
+            <div style="color:rgba(255,255,255,.6);font-size:.76rem">Zeynep Tufekci</div>
+            <div style="color:rgba(255,255,255,.35);font-size:.65rem;margin-top:4px">youtu.be/iFTWM7HV2UI</div>
+            <div style="margin-top:8px;display:flex;gap:6px"><span style="background:rgba(240,160,0,.2);color:#fde68a;font-size:.68rem;padding:2px 8px;border-radius:10px">⭐⭐⭐ B2+</span><span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:.68rem;padding:2px 8px;border-radius:10px">🌍 Turkish-American</span></div>
+          </a>
+          <a href="https://youtu.be/MnT1xgZgkpk" onclick="window.location.href='https://youtu.be/MnT1xgZgkpk';return false;" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:14px;text-decoration:none;display:block" onmouseover="this.style.background='rgba(255,255,255,.14)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
+            <div style="color:#f0a000;font-size:.72rem;font-weight:800;margin-bottom:4px">TED · 16 min</div>
+            <div style="color:white;font-weight:700;font-size:.88rem;margin-bottom:3px">What Happens When Our Computers Get Smarter Than We Are?</div>
+            <div style="color:rgba(255,255,255,.6);font-size:.76rem">Nick Bostrom</div>
+            <div style="color:rgba(255,255,255,.35);font-size:.65rem;margin-top:4px">youtu.be/MnT1xgZgkpk</div>
+            <div style="margin-top:8px;display:flex;gap:6px"><span style="background:rgba(240,160,0,.2);color:#fde68a;font-size:.68rem;padding:2px 8px;border-radius:10px">⭐⭐⭐ B2</span><span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:.68rem;padding:2px 8px;border-radius:10px">🇸🇪 Swedish</span></div>
+          </a>
+          <a href="https://youtu.be/ENWVRcMGDoU" onclick="window.location.href='https://youtu.be/ENWVRcMGDoU';return false;" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:14px;text-decoration:none;display:block" onmouseover="this.style.background='rgba(255,255,255,.14)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
+            <div style="color:#f0a000;font-size:.72rem;font-weight:800;margin-bottom:4px">TED · 15 min</div>
+            <div style="color:white;font-weight:700;font-size:.88rem;margin-bottom:3px">How Algorithms Shape Our World</div>
+            <div style="color:rgba(255,255,255,.6);font-size:.76rem">Kevin Slavin</div>
+            <div style="color:rgba(255,255,255,.35);font-size:.65rem;margin-top:4px">youtu.be/ENWVRcMGDoU</div>
+            <div style="margin-top:8px;display:flex;gap:6px"><span style="background:rgba(240,160,0,.2);color:#fde68a;font-size:.68rem;padding:2px 8px;border-radius:10px">⭐⭐ B2 easy</span><span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:.68rem;padding:2px 8px;border-radius:10px">🇺🇸 American</span></div>
+          </a>
+        </div>
+        <div style="background:rgba(255,255,255,.07);border-radius:10px;padding:14px 16px">
+          <div style="font-size:.8rem;font-weight:800;color:#fde68a;margin-bottom:8px;text-align:right">🎯 أسئلة التركيز:</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.85);direction:rtl;text-align:right;line-height:2">
+            <div>١ — ما المخاطر أو الفرص التي يطرحها المتحدث؟</div>
+            <div>٢ — استمع للـ Abstract Noun Phrases: the rapid development of / the failure to / the widespread adoption of. كم مرة سمعتها؟</div>
+            <div>٣ — ما الكلمات من الوحدة التي سمعتها؟</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn bd" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✍️</span><div><h3>الكتابة — IELTS Writing Task 2</h3><div class="sub">مقالات أكاديمية عن التقنية والمجتمع</div></div></div>
+    <div class="cb">
+      <div class="ielts-tip">
+        <span class="ielts-badge">IELTS · TASK 2</span>
+        <h4>📋 Abstract Noun Phrases في IELTS Writing</h4>
+        <ul>
+          <li>بدل "AI is developing rapidly" → "The rapid development of AI"</li>
+          <li>بدل "governments fail to regulate technology" → "The failure of governments to regulate technology"</li>
+          <li>بدل "people widely use smartphones" → "The widespread adoption of smartphones"</li>
+          <li>تُعطي الكتابة كثافةً أكاديمية وتُمكّن من التعبير بإيجاز — علامة Band 7+</li>
+        </ul>
+      </div>
+      <div style="background:#fffdf7;border:2px dashed #f0a000;border-radius:14px;padding:20px;margin-bottom:14px">
+        <div class="wq-block">
+          <div class="wq-en">Artificial intelligence will do more good than harm. To what extent do you agree?</div>
+          <div class="wq-ar">الذكاء الاصطناعي سيفيد أكثر مما يضرّ. إلى أي مدى توافق؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">The rapid development of artificial intelligence represents both the greatest opportunity and the most serious risk in contemporary technology. The case for optimism rests on concrete evidence: the application of AI to medical diagnosis has already demonstrated the ability to detect cancers earlier and more accurately than human specialists in controlled settings. The potential for reducing the burden of routine cognitive work, freeing humans for more creative and relational tasks, is real. Nevertheless, the failure to develop adequate regulatory frameworks alongside AI systems poses genuine dangers. The widespread automation of jobs — not only manual but cognitive — threatens to concentrate economic gains among those who own the technology while displacing millions. The inability of existing institutions to respond at the pace of technological change is perhaps the most pressing concern. On balance, I believe AI will do more good than harm — but only if the governance of its development keeps pace with its power.</div>
+          <input class="winput" id="w1" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Technology is increasing inequality rather than reducing it. Do you agree?</div>
+          <div class="wq-ar">التقنية تُفاقم التفاوت بدلاً من تقليصه. هل توافق؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">The relationship between technological change and inequality is more complex than either optimists or pessimists typically acknowledge. The unprecedented growth of digital platforms has, in some respects, democratised access to information, markets, and services previously available only to the wealthy. At the same time, the concentration of ownership of these platforms in the hands of a very small number of individuals represents a new form of economic power whose scale has no historical precedent. The inability of tax systems designed for an industrial economy to capture the profits generated in a digital one means that the accumulation of technological wealth tends to occur largely outside existing redistributive mechanisms. The failure to invest in digital infrastructure in poorer regions deepens existing divides. On balance, I largely agree: the rapid deployment of new technologies, without deliberate policy to ensure broad access to their benefits, tends to increase rather than reduce inequality.</div>
+          <input class="winput" id="w2" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Should the development of artificial intelligence be regulated by governments? Discuss.</div>
+          <div class="wq-ar">هل يجب أن تُنظّم الحكومات تطوير الذكاء الاصطناعي؟ ناقش.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">The question is not whether AI should be regulated but how — and how quickly. The case against heavy regulation rests on the risk of stifling innovation: the imposition of premature constraints on a technology whose capabilities and applications are not yet fully understood could prevent beneficial uses from emerging. The case for regulation is, however, compelling. The development of autonomous weapons systems capable of making lethal decisions without human oversight raises questions no technology company is equipped to answer alone. The potential for the use of AI in surveillance — the mass monitoring of populations — demands accountability that markets cannot provide. The failure of self-regulation in social media, where algorithmic amplification of harmful content proceeded unchecked for years, offers a cautionary precedent. Effective AI governance requires not the suppression of development but the establishment of clear ethical boundaries, transparency requirements, and liability frameworks capable of adapting as the technology evolves.</div>
+          <input class="winput" id="w3" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">People are becoming too dependent on technology. To what extent do you agree?</div>
+          <div class="wq-ar">الناس يصبحون معتمدين على التقنية أكثر من اللازم. إلى أي مدى توافق؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">The growing reliance on digital tools for navigation, communication, memory, and social interaction raises legitimate concerns. The outsourcing of cognitive tasks to devices capable of performing them more efficiently than human minds weakens, over time, the muscles of memory, spatial reasoning, and mental arithmetic. The displacement of face-to-face interaction by screen-mediated communication has implications for social skills, particularly in children and adolescents. That said, dependency on tools is not new to human society. The invention of writing was, in a sense, an outsourcing of memory; the development of arithmetic notation changed how humans thought about number. What matters is not whether we use powerful tools but whether we retain sufficient understanding of our reliance on them to function when they fail. The widespread adoption of a single operating system, network, or platform creates systemic vulnerabilities whose scale is genuinely new — and genuinely concerning.</div>
+          <input class="winput" id="w4" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block" style="margin-bottom:0">
+          <div class="wq-en">The benefits of space exploration outweigh the costs. To what extent do you agree?</div>
+          <div class="wq-ar">فوائد استكشاف الفضاء تفوق تكاليفه. إلى أي مدى توافق؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء':'✏️ نموذج Band 7'">✏️ نموذج Band 7</button>
+          <div class="wq-model">The exploration of space has generated technologies whose application on Earth — satellite navigation, water purification systems, medical imaging advances — has produced benefits vastly exceeding their original contexts. The development of international scientific collaboration required by space programmes has also generated diplomatic and cultural value that is difficult to quantify but real. The objection that resources invested in space exploration are better spent solving problems on Earth is serious but ultimately unconvincing. The ability of governments and private actors to pursue multiple priorities simultaneously means that space exploration does not preclude the funding of earthly needs. The growing privatisation of space, however, raises important questions: the extraction of resources from celestial bodies, the accumulation of orbital positions by private companies, and the militarisation of space are all scenarios demanding international governance frameworks. The exploration of space is worth pursuing — but only with appropriate oversight of who benefits and who bears the risks.</div>
+          <input class="winput" id="w5" placeholder="Write your answer here..." oninput="buildW()" style="margin-bottom:0">
+        </div>
+      </div>
+      <div id="wOut" style="background:white;border:1px solid #e5eaf5;border-radius:12px;padding:16px;min-height:70px;font-family:'Lora',Georgia,serif;font-size:.93rem;line-height:2;color:#374151;direction:ltr"><span style="color:#9ca3af;font-style:italic">✨ ستظهر فقرتك هنا...</span></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('listening',null)">→ الاستماع</button>
+    <button class="btn bd" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">💬</span><div><h3>المحادثة — IELTS Speaking</h3><div class="sub">Part 1 · Part 2 · Part 3</div></div></div>
+    <div class="cb">
+      <div class="ielts-tip">
+        <span class="ielts-badge">IELTS · SPEAKING</span>
+        <h4>🎙️ Abstract Noun Phrases في Speaking</h4>
+        <ul>
+          <li>"The rapid development of AI is changing every industry."</li>
+          <li>"The failure to regulate social media has had real consequences."</li>
+          <li>"The widespread use of smartphones has transformed communication."</li>
+          <li>تجعل كلامك أكثر كثافة وأقل ابتذالاً — علامة متحدّث B2+.</li>
+        </ul>
+      </div>
+      <div id="speakBox"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn bd" onclick="show('realeng',null)">Real English ←</button>
+  </div>
+</div>
+
+<div id="sec-realeng" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🗣️</span><div><h3>Real English</h3><div class="sub">اضغط على الجملة لتسمعها وتظهر ترجمتها</div></div></div>
+    <div class="cb" id="realBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn bd" onclick="show('pv',null)">Phrasal Verbs ←</button>
+  </div>
+</div>
+
+<div id="sec-pv" class="sec">
+  <div class="card">
+    <div class="cb">
+      <div style="font-weight:800;color:#0a1628;font-size:1rem;text-align:right;margin-bottom:6px">💬 Phrasal Verbs — التقنية والمجتمع</div>
+      <p style="font-size:.82rem;color:#64748b;text-align:right;margin-bottom:16px;font-family:Tajawal,sans-serif">اضغط على الجملة لتسمعها وترى ترجمتها 🔊</p>
+      <div id="pvBox"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('realeng',null)">→ Real English</button>
+    <button class="btn bd" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-quiz" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✅</span><div><h3>اختبار الوحدة</h3><div class="sub">10 أسئلة — مفردات + Abstract Noun Phrases + collocations</div></div></div>
+    <div class="cb">
+      <div id="quizList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:18px">
+        <button class="btn bgold" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn bg" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizRes" style="display:none;text-align:center;padding:22px;margin-top:16px;background:#f0fdf4;border-radius:14px">
+        <div id="qEmoji" style="font-size:2.5rem;margin-bottom:8px"></div>
+        <div id="qScore" style="font-weight:800;font-size:1.1rem;color:#0a1628;margin-bottom:4px"></div>
+        <div id="qMsg" style="font-size:.88rem;color:#64748b"></div>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:8px">
+    <div class="ch"><span style="font-size:1.3rem">🎯</span><div><h3>هل أستطيع...؟</h3><div class="sub">CEFR B2 Self-Assessment</div></div></div>
+    <div class="cb">
+      <p style="font-size:.84rem;color:#64748b;direction:rtl;text-align:right;margin-bottom:16px;line-height:1.9">ضع علامة ✅ على كل هدف تشعر أنك حققته فعلاً.</p>
+      <div id="assessList"></div>
+      <div id="assessResult" style="display:none;margin-top:16px;padding:16px;border-radius:12px;text-align:center"></div>
+    </div>
+  </div>
+  <div style="background:linear-gradient(135deg,#0a1628,#1e3a8a);border-radius:18px;padding:28px;text-align:center;margin-top:8px;max-width:900px;margin-left:auto;margin-right:auto">
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:white;margin-bottom:6px">أحسنت! أكملت وحدة Technology and Society</div>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:16px">الوحدة الثالثة عشرة: Culture and Identity</p>
+    <button class="btn bgold" onclick="location.href='unit13_b2_culture.html'">الوحدة ١٣ ←</button>
+  </div>
+</div>
+<script>
+var V=[
+  {cat:"Technology & Innovation",catAr:"التقنية والابتكار",w:"innovation",p:"إنوفيشن",a:"ابتكار",syn:"invention, breakthrough, novelty",ant:"stagnation, tradition, conservatism",col:"technological innovation / drive innovation / innovation ecosystem / disruptive innovation",prep:"innovation in (a field) / driven by (investment)",fam:"innovate (v) · innovation (n) · innovative (adj) · innovator (n)",ex:"The rapid pace of technological innovation has outstripped the ability of regulatory frameworks to respond.",ar_syn:"اختراع، اكتشاف، جديد",ar_ant:"ركود، تقليد، محافظة",ar_col:"تقني / يدفع / منظومة / تخريبي",ar_prep:"في (مجال) / مدفوع بـ (الاستثمار)",ar_fam:"يبتكر · ابتكار · مبتكر · مبتكِر",ar_ex:"الوتيرة المتسارعة للابتكار التقني فاقت قدرة الأطر التنظيمية على الاستجابة."},
+  {cat:"Technology & Innovation",catAr:"التقنية والابتكار",w:"automation",p:"أوتوميشن",a:"الأتمتة / التشغيل الآلي",syn:"mechanisation, robotisation, computerisation",ant:"manual labour, human operation",col:"widespread automation / automation of jobs / automation threatens / resist automation",prep:"automation of (industry) / through (AI and robotics)",fam:"automate (v) · automation (n) · automated (adj)",ex:"The widespread automation of both manual and cognitive tasks raises fundamental questions about the future of work.",ar_syn:"ميكنة، تشغيل روبوتي، حوسبة",ar_ant:"العمل اليدوي، التشغيل البشري",ar_col:"واسعة النطاق / للوظائف / تُهدّد / مقاومة",ar_prep:"للصناعة / عبر (الذكاء الاصطناعي والروبوتات)",ar_fam:"يُؤتمت · أتمتة · مُؤتمَت",ar_ex:"الأتمتة الواسعة النطاق للمهام اليدوية والمعرفية على حدٍّ سواء تُثير تساؤلات جوهرية عن مستقبل العمل."},
+  {cat:"Technology & Innovation",catAr:"التقنية والابتكار",w:"disruption",p:"ديسرابشن",a:"التخريب الإبداعي / الاضطراب",syn:"upheaval, transformation, destabilisation",ant:"stability, continuity, gradual change",col:"technological disruption / creative disruption / industry disruption",prep:"disruption of (an industry) / caused by (new technology)",fam:"disrupt (v) · disruption (n) · disruptive (adj)",ex:"The disruption of traditional industries by digital platforms has created new opportunities and eliminated established ones.",ar_syn:"اضطراب، تحوّل، زعزعة",ar_ant:"استقرار، استمرارية، تغيير تدريجي",ar_col:"تقني / إبداعي / صناعي",ar_prep:"للصناعة / سببه (تقنية جديدة)",ar_fam:"يُخرّب / يُعطّل · تخريب / اضطراب · تخريبي",ar_ex:"التخريب الإبداعي للصناعات التقليدية على يد المنصات الرقمية خلق فرصاً جديدة وأزال قائمةً راسخة."},
+  {cat:"Technology & Innovation",catAr:"التقنية والابتكار",w:"digital divide",p:"ديجِتَل ديفايد",a:"الفجوة الرقمية",syn:"technological inequality, access gap",ant:"digital inclusion, universal access",col:"bridge the digital divide / widen the digital divide / digital divide between (groups)",prep:"digital divide between (rich and poor) / in (access to technology)",fam:"digital (adj) · divide (n/v)",ex:"The failure to address the digital divide means that the benefits of technology flow disproportionately to those already advantaged.",ar_syn:"تفاوت تقني، فجوة الوصول",ar_ant:"الشمول الرقمي، وصول شامل",ar_col:"يجسر / يُوسّع / بين (مجموعات)",ar_prep:"بين (الأغنياء والفقراء) / في (الوصول)",ar_fam:"رقمي · فجوة",ar_ex:"الفشل في معالجة الفجوة الرقمية يعني أن فوائد التقنية تتدفق بشكل غير متناسب لمن هم مُميَّزون أصلاً."},
+  {cat:"Technology & Innovation",catAr:"التقنية والابتكار",w:"cybersecurity",p:"سايبر-سيكيوريتي",a:"الأمن الإلكتروني / السيبراني",syn:"digital security, information security, data protection",ant:"vulnerability, cyber threat",col:"cybersecurity threat / cybersecurity breach / invest in cybersecurity",prep:"cybersecurity of (systems) / against (attacks)",fam:"cyber (prefix) · security (n) · cybersecurity (n)",ex:"The growing sophistication of cyberattacks has exposed the vulnerability of critical infrastructure to digital disruption.",ar_syn:"الأمن الرقمي، أمن المعلومات",ar_ant:"ثغرة، تهديد إلكتروني",ar_col:"تهديد / اختراق / الاستثمار في",ar_prep:"لـ (الأنظمة) / ضد (هجمات)",ar_fam:"إلكتروني / سيبراني · أمن · أمن إلكتروني",ar_ex:"التطوّر المتزايد للهجمات الإلكترونية كشف هشاشة البنية التحتية الحيوية أمام الاضطراب الرقمي."},
+  {cat:"Technology & Innovation",catAr:"التقنية والابتكار",w:"biotechnology",p:"بايو-تيكنولوجي",a:"التقنية الحيوية",syn:"genetic technology, biotech, life sciences technology",ant:"traditional medicine, conventional agriculture",col:"advances in biotechnology / biotechnology company / gene editing biotechnology",prep:"biotechnology in (medicine) / used for (treatment)",fam:"bio (prefix) · technology (n) · biotechnology (n) · biotech (n — short form)",ex:"The application of biotechnology to medicine has enabled treatments previously considered science fiction.",ar_syn:"التقنية الجينية، العلوم الحيوية",ar_ant:"الطب التقليدي، الزراعة التقليدية",ar_col:"تقدّمات في / شركة / تحرير جيني",ar_prep:"في (الطب) / تُستخدم لـ (العلاج)",ar_fam:"حيوي / بيولوجي · تقنية · التقنية الحيوية",ar_ex:"تطبيق التقنية الحيوية على الطب أتاح علاجات كانت تُعدّ من الخيال العلمي."},
+  {cat:"AI & Automation",catAr:"الذكاء الاصطناعي والأتمتة",w:"artificial intelligence",p:"آرتيفيشَل إنتيلِجِنس",a:"الذكاء الاصطناعي",syn:"AI, machine intelligence, deep learning systems",ant:"human intelligence, natural cognition",col:"develop AI / AI system / AI regulation / AI-powered / general AI",prep:"AI in (healthcare) / developed by (companies)",fam:"artificial (adj) · intelligence (n) · AI (abbrev) · machine learning (n)",ex:"The development of artificial intelligence that surpasses human performance in specific tasks has proceeded faster than most experts predicted.",ar_syn:"الذكاء الآلي، الأنظمة الذكية",ar_ant:"الذكاء البشري، الإدراك الطبيعي",ar_col:"يطوّر / نظام / تنظيم / مدعوم بـ / عام",ar_prep:"في (الرعاية الصحية) / طوّرته (شركات)",ar_fam:"اصطناعي · ذكاء · ذكاء اصطناعي · تعلّم الآلة",ar_ex:"تطوير ذكاء اصطناعي يتجاوز الأداء البشري في مهام محدّدة جاء أسرع مما توقّعه معظم الخبراء."},
+  {cat:"AI & Automation",catAr:"الذكاء الاصطناعي والأتمتة",w:"machine learning",p:"مَشين ليرنينغ",a:"تعلّم الآلة",syn:"deep learning, neural networks, predictive AI",ant:"rule-based programming, explicit coding",col:"machine learning algorithm / advances in machine learning / apply machine learning",prep:"machine learning in (data analysis) / trained on (data)",fam:"machine (n) · learning (n) · algorithm (n)",ex:"The application of machine learning to medical imaging has transformed the speed and accuracy of diagnosis.",ar_syn:"التعلّم العميق، الشبكات العصبية",ar_ant:"البرمجة القائمة على القواعد",ar_col:"خوارزمية / تقدّمات في / تطبيق",ar_prep:"في (تحليل البيانات) / مُدرَّب على (بيانات)",ar_fam:"آلة · تعلّم · خوارزمية",ar_ex:"تطبيق تعلّم الآلة على التصوير الطبي حوّل سرعة ودقة التشخيص."},
+  {cat:"AI & Automation",catAr:"الذكاء الاصطناعي والأتمتة",w:"autonomous",p:"أوتونوميَس",a:"مستقلّ / ذاتي التحكّم",syn:"self-governing, self-directed, independent",ant:"controlled, supervised, human-operated",col:"autonomous vehicle / autonomous weapon / autonomous decision / fully autonomous system",prep:"autonomous in (operation) / requiring (no human input)",fam:"autonomy (n) · autonomous (adj) · autonomously (adv)",ex:"The deployment of autonomous weapons systems capable of making lethal decisions without human oversight raises profound ethical concerns.",ar_syn:"ذاتي الحوكمة، مستقلّ التوجيه",ar_ant:"مُتحكَّم فيه، مُشرَف عليه، يُشغّله بشر",ar_col:"مركبة / سلاح / قرار / نظام",ar_prep:"مستقل في (التشغيل) / لا يتطلّب (تدخلاً بشرياً)",ar_fam:"استقلالية · مستقلّ · باستقلالية",ar_ex:"نشر أنظمة أسلحة مستقلة قادرة على اتخاذ قرارات مميتة دون إشراف بشري يُثير مخاوف أخلاقية عميقة."},
+  {cat:"AI & Automation",catAr:"الذكاء الاصطناعي والأتمتة",w:"surveillance",p:"سيرفيلَنس",a:"المراقبة (الجماعية)",syn:"monitoring, tracking, observation",ant:"privacy, anonymity",col:"mass surveillance / state surveillance / surveillance capitalism / surveillance technology",prep:"surveillance of (citizens) / by (governments or companies)",fam:"surveil (v) · surveillance (n) · surveilled (adj)",ex:"The growing sophistication of surveillance technology has created new capabilities for states to monitor their populations.",ar_syn:"رصد، تتبّع، مراقبة",ar_ant:"خصوصية، مجهولية",ar_col:"جماعية / حكومية / رأسمالية / تقنية",ar_prep:"لـ (المواطنين) / من قِبَل (حكومات أو شركات)",ar_fam:"يُراقب · مراقبة · مُراقَب",ar_ex:"تطوّر تقنيات المراقبة المتزايد أتاح للدول قدرات جديدة لرصد سكانها."},
+  {cat:"AI & Automation",catAr:"الذكاء الاصطناعي والأتمتة",w:"data privacy",p:"ديتا برايفِسي",a:"خصوصية البيانات",syn:"information privacy, digital privacy, data protection",ant:"data exposure, surveillance, data breach",col:"protect data privacy / data privacy law / violation of data privacy",prep:"data privacy of (users) / protected by (regulation)",fam:"data (n) · privacy (n) · private (adj)",ex:"The inability of existing laws to protect data privacy in a world of pervasive digital collection has created significant vulnerabilities.",ar_syn:"خصوصية المعلومات، الخصوصية الرقمية",ar_ant:"تعرّض البيانات، مراقبة، اختراق بيانات",ar_col:"يحمي / قانون / انتهاك",ar_prep:"لـ (المستخدمين) / يحميها (تنظيم)",ar_fam:"بيانات · خصوصية · خاص",ar_ex:"عجز القوانين القائمة عن حماية خصوصية البيانات في عالم الجمع الرقمي المنتشر أوجد ثغرات خطيرة."},
+  {cat:"Digital Society",catAr:"المجتمع الرقمي",w:"connectivity",p:"كونيكتيفيتي",a:"الاتصالية / الربط الشبكي",syn:"network access, digital connection, online access",ant:"isolation, disconnection",col:"global connectivity / improve connectivity / connectivity gap / digital connectivity",prep:"connectivity between (people) / through (internet)",fam:"connect (v) · connectivity (n) · connected (adj)",ex:"The widespread adoption of mobile internet has extended connectivity to populations previously excluded from the digital economy.",ar_syn:"وصول الشبكة، اتصال رقمي",ar_ant:"عزلة، انقطاع",ar_col:"عالمية / تُحسّن / فجوة / رقمية",ar_prep:"بين (الناس) / عبر (الإنترنت)",ar_fam:"يتّصل · اتصالية · متّصل",ar_ex:"التبنّي الواسع للإنترنت عبر الهاتف المحمول مدّ الاتصالية إلى شعوب كانت مُقصاة سابقاً من الاقتصاد الرقمي."},
+  {cat:"Digital Society",catAr:"المجتمع الرقمي",w:"big data",p:"بيغ ديتا",a:"البيانات الضخمة",syn:"large-scale data, data analytics",ant:"small datasets, limited information",col:"analyse big data / big data insights / big data ethics / harness big data",prep:"big data in (business) / collected from (users)",fam:"big (adj) · data (n) · analytics (n)",ex:"The ability to analyse big data at scale has transformed both medicine and marketing — with very different ethical implications.",ar_syn:"تحليل البيانات الكبيرة",ar_ant:"مجموعات بيانات صغيرة",ar_col:"يُحلّل / رؤى / أخلاقيات / يستثمر",ar_prep:"في (الأعمال) / مجموعة من (المستخدمين)",ar_fam:"ضخم · بيانات · تحليلات",ar_ex:"القدرة على تحليل البيانات الضخمة على نطاق واسع حوّلت كلاً من الطب والتسويق — بتداعيات أخلاقية مختلفة جداً."},
+  {cat:"Digital Society",catAr:"المجتمع الرقمي",w:"digital footprint",p:"ديجِتَل فوتبرِنت",a:"البصمة الرقمية",syn:"online trace, digital trail, data shadow",ant:"anonymity, privacy",col:"leave a digital footprint / manage your digital footprint / digital footprint data",prep:"digital footprint left by (users) / on (platforms)",fam:"digital (adj) · footprint (n)",ex:"Every online interaction adds to the digital footprint that companies and governments can use to build detailed profiles.",ar_syn:"أثر إلكتروني، مسار رقمي",ar_ant:"مجهولية، خصوصية",ar_col:"يترك / يُدير / بيانات",ar_prep:"تركها (المستخدمون) / على (المنصات)",ar_fam:"رقمي · بصمة",ar_ex:"كل تفاعل إلكتروني يُضيف إلى البصمة الرقمية التي يمكن للشركات والحكومات استخدامها لبناء ملفات تعريفية تفصيلية."},
+  {cat:"Digital Society",catAr:"المجتمع الرقمي",w:"gig economy",p:"غيغ إكونوميك",a:"اقتصاد العمل المؤقّت / الغيغ",syn:"platform economy, freelance economy, on-demand work",ant:"permanent employment, salaried work",col:"growth of gig economy / gig economy workers / gig economy platform",prep:"gig economy in (cities) / enabled by (apps)",fam:"gig (n) · economy (n) · platform (n)",ex:"The rapid growth of the gig economy has created flexibility for some workers while denying others the protections of regular employment.",ar_syn:"اقتصاد المنصات، اقتصاد العمل الحر",ar_ant:"التوظيف الدائم، العمل بأجر ثابت",ar_col:"نمو / عمّال / منصة",ar_prep:"في (المدن) / تُمكّنه (التطبيقات)",ar_fam:"عمل مؤقت · اقتصاد · منصة",ar_ex:"النمو السريع لاقتصاد الغيغ أتاح المرونة لبعض العمّال بينما حرم آخرين من حمايات التوظيف النظامي."},
+  {cat:"Ethics & Governance",catAr:"الأخلاقيات والحوكمة",w:"ethics of technology",p:"إيثيكس أوف تيكنولوجي",a:"أخلاقيات التقنية",syn:"tech ethics, responsible innovation, ethical AI",ant:"unregulated development, value-free technology",col:"address the ethics of technology / technology ethics framework / ethical guidelines for technology",prep:"ethics of (AI) / in (development)",fam:"ethics (n) · ethical (adj) · ethically (adv)",ex:"The failure to embed ethics into the design of AI systems produces harms that are extremely difficult to correct after deployment.",ar_syn:"أخلاقيات التقنية، الابتكار المسؤول",ar_ant:"التطوير غير المنظَّم",ar_col:"تعالج / إطار / مبادئ توجيهية",ar_prep:"أخلاقيات (الذكاء الاصطناعي) / في (التطوير)",ar_fam:"أخلاقيات · أخلاقي · بشكل أخلاقي",ar_ex:"الفشل في تضمين الأخلاقيات في تصميم أنظمة الذكاء الاصطناعي يُنتج أضراراً يصعب تصحيحها للغاية بعد النشر."},
+  {cat:"Ethics & Governance",catAr:"الأخلاقيات والحوكمة",w:"regulation",p:"ريغيوليشن",a:"تنظيم / تشريع",syn:"governance, oversight, legal framework",ant:"deregulation, self-regulation, laissez-faire",col:"tech regulation / impose regulation / regulation of AI / light-touch regulation",prep:"regulation of (platforms) / by (governments)",fam:"regulate (v) · regulation (n) · regulatory (adj) · deregulate (v)",ex:"The absence of effective regulation has allowed technology companies to accumulate power at a speed no previous industry achieved.",ex:"غياب التنظيم الفعّال أتاح لشركات التقنية تراكم السلطة بسرعة لم تبلغها أي صناعة سابقة.",ar_syn:"حوكمة، إشراف، إطار قانوني",ar_ant:"إلغاء التنظيم، التنظيم الذاتي",ar_col:"تقني / يفرض / للذكاء الاصطناعي / خفيف",ar_prep:"لـ (المنصات) / من قِبَل (حكومات)",ar_fam:"يُنظّم · تنظيم · تنظيمي · يُلغي التنظيم",ar_ex:"غياب التنظيم الفعّال أتاح لشركات التقنية تراكم السلطة بسرعة لم تبلغها أي صناعة سابقة."},
+  {cat:"Ethics & Governance",catAr:"الأخلاقيات والحوكمة",w:"monopoly",p:"مونوبولي",a:"احتكار",syn:"market dominance, cartel, oligopoly",ant:"competition, open market",col:"tech monopoly / digital monopoly / break up a monopoly / monopoly power",prep:"monopoly over (a market) / held by (a company)",fam:"monopolise (v) · monopoly (n) · monopolistic (adj)",ex:"The concentration of digital markets into a handful of dominant platforms represents a form of monopoly power with no clear historical precedent.",ar_syn:"هيمنة السوق، احتكار مجموعة",ar_ant:"منافسة، سوق مفتوح",ar_col:"تقني / رقمي / يُفكّك / قوة",ar_prep:"على (سوق) / يمتلكه (شركة)",ar_fam:"يحتكر · احتكار · احتكاري",ar_ex:"تمركّز الأسواق الرقمية في حفنة من المنصات السائدة يُمثّل شكلاً من أشكال قوة الاحتكار دون سابقة تاريخية واضحة."},
+  {cat:"Ethics & Governance",catAr:"الأخلاقيات والحوكمة",w:"intellectual property",p:"إنتيليكتيوَل بروبيرتي",a:"الملكية الفكرية",syn:"IP, copyright, patent",ant:"public domain, open source",col:"protect intellectual property / intellectual property rights / violate intellectual property",prep:"intellectual property of (creators) / protected by (law)",fam:"intellectual (adj) · property (n) · patent (n) · copyright (n)",ex:"The emergence of generative AI has raised fundamental questions about intellectual property rights that existing law was not designed to address.",ar_syn:"حقوق الملكية الفكرية، براءة الاختراع",ar_ant:"المجال العام، المصدر المفتوح",ar_col:"يحمي / حقوق / ينتهك",ar_prep:"لـ (المبدعين) / محمية بـ (القانون)",ar_fam:"فكري · ملكية · براءة اختراع · حق مؤلف",ar_ex:"ظهور الذكاء الاصطناعي التوليدي أثار تساؤلات جوهرية حول حقوق الملكية الفكرية لم يُصمَّم القانون القائم لمعالجتها."},
+  {cat:"Future & Change",catAr:"المستقبل والتغيير",w:"singularity",p:"سينغيولاريتي",a:"الانفراد التقني / نقطة التفرّد",syn:"technological singularity, AI superintelligence, exponential growth point",ant:"gradual development, human control",col:"technological singularity / approach the singularity / fear of singularity",prep:"singularity in (AI development) / predicted by (futurists)",fam:"singular (adj) · singularity (n)",ex:"The concept of the technological singularity — a point at which AI surpasses human intelligence — remains debated among scientists.",ar_syn:"الذكاء الفائق، نقطة النمو الأسّي",ar_ant:"التطوير التدريجي، التحكّم البشري",ar_col:"تقنية / الاقتراب من / الخوف من",ar_prep:"في (تطوير الذكاء الاصطناعي) / يتنبّأ بها (المستقبليون)",ar_fam:"فريد / منفرد · نقطة التفرّد",ar_ex:"مفهوم نقطة التفرّد التقني — اللحظة التي يتجاوز فيها الذكاء الاصطناعي الذكاء البشري — لا يزال موضع جدل بين العلماء."},
+  {cat:"Future & Change",catAr:"المستقبل والتغيير",w:"obsolescence",p:"أوبسولِسِنس",a:"التقادم / الانتهاء من الصلاحية",syn:"outdatedness, redundancy, replacement",ant:"relevance, currency, durability",col:"planned obsolescence / technological obsolescence / skills obsolescence",prep:"obsolescence of (a technology) / caused by (innovation)",fam:"obsolete (adj) · obsolescence (n)",ex:"The accelerating pace of change renders skills obsolete faster than educational systems can adapt.",ar_syn:"التقادم، الزيادة عن الحاجة، الاستبدال",ar_ant:"الصلاحية، الحداثة، الديمومة",ar_col:"مخطَّط / تقني / مهارات",ar_prep:"تقادم (تقنية) / سببه (الابتكار)",ar_fam:"متقادم / منتهٍ · تقادم",ar_ex:"الوتيرة المتسارعة للتغيير تُبلّي المهارات أسرع مما تستطيع المنظومات التعليمية التكيّف."},
+  {cat:"Future & Change",catAr:"المستقبل والتغيير",w:"sustainability",p:"سَستينابيليتي",a:"الاستدامة",syn:"durability, long-term viability, environmental responsibility",ant:"depletion, unsustainability, short-termism",col:"environmental sustainability / sustainable development / sustainability goals / sustainable technology",prep:"sustainability of (a system) / in (tech development)",fam:"sustain (v) · sustainable (adj) · sustainably (adv) · sustainability (n)",ex:"The energy demands of large-scale AI systems raise serious questions about the sustainability of current approaches to computing.",ar_syn:"الديمومة، القابلية للاستمرار، المسؤولية البيئية",ar_ant:"استنزاف، عدم الاستدامة",ar_col:"بيئية / تطوير / أهداف / تقنية",ar_prep:"لـ (نظام) / في (تطوير التقنية)",ar_fam:"يُديم · مستدام · باستدامة · استدامة",ar_ex:"متطلبات الطاقة لأنظمة الذكاء الاصطناعي الواسعة النطاق تُثير تساؤلات جدية عن استدامة المناهج الحالية للحوسبة."},
+  {cat:"Future & Change",catAr:"المستقبل والتغيير",w:"exponential growth",p:"إكسبونينشَل غروث",a:"نمو أسّي / تصاعدي",syn:"rapid growth, accelerating expansion, compounding increase",ant:"linear growth, gradual change, stagnation",col:"exponential growth of (AI) / follow an exponential curve / exponential growth in computing power",prep:"exponential growth in (capability) / driven by (Moore's Law)",fam:"exponential (adj) · exponentially (adv) · growth (n)",ex:"The exponential growth in computing power has made possible what would have seemed miraculous a generation ago.",ar_syn:"نمو سريع، توسّع متسارع",ar_ant:"نمو خطّي، تغيير تدريجي",ar_col:"لـ (الذكاء الاصطناعي) / يسلك منحنى / في قوة الحوسبة",ar_prep:"في (القدرة) / مدفوع بـ (قانون مور)",ar_fam:"أسّي · بشكل أسّي · نمو",ar_ex:"النمو الأسّي في قوة الحوسبة جعل الممكن ما كان سيبدو معجزاً قبل جيل."}
+];
+var VFamEx=[
+[["innovate","v","متى تستخدمه: يبتكر / يُنشئ حلاً جديداً","Companies that fail to innovate are eventually displaced by those that do."],["innovation","n","متى تستخدمه: الابتكار كعملية أو نتيجة","The pace of innovation in AI has exceeded all projections."],["innovative","adj","متى تستخدمه: وصف فكرة أو منتج أو نهج مبتكر","The most innovative companies are often the most willing to fail."],["innovator","n","متى تستخدمه: الشخص أو المؤسسة التي تقود الابتكار","Early innovators rarely capture all the value their innovations create."]],
+[["automate","v","متى تستخدمه: يُؤتمت — يستبدل العمل البشري بآلة أو خوارزمية","It is cheaper to automate a task than to employ a human — but not always wiser."],["automation","n","متى تستخدمه: الأتمتة كعملية أو ظاهرة اقتصادية","The automation of cognitive work is the second industrial revolution."],["automated","adj","متى تستخدمه: وصف نظام أو عملية تعمل دون تدخّل بشري","Automated decisions can be faster and cheaper — and less accountable."]],
+[["disrupt","v","متى تستخدمه: يُعطّل نظاماً قائماً بشكل جذري","Smartphones disrupted industries that had seemed permanent."],["disruption","n","متى تستخدمه: التعطيل التقني كعملية أو تأثير","Disruption creates value for some and destroys livelihoods for others."],["disruptive","adj","متى تستخدمه: وصف تقنية أو فكرة تُعيد رسم قواعد صناعة بأكملها","A disruptive technology is not just better — it is fundamentally different."]],
+[["digital","adj","متى تستخدمه: رقمي — يتعلق بالبيانات والحوسبة","A digital economy runs on data as an industrial economy runs on oil."],["divide","n/v","متى تستخدمه: الفجوة / يُقسّم","The digital divide is not just about access — it is about who shapes the technology."]],
+[["cyber","prefix","متى تستخدمه: بادئة تعني الفضاء الإلكتروني أو الأمن السيبراني","Cyber threats are now as significant as physical ones for national security."],["security","n","متى تستخدمه: الأمن — الحماية من التهديدات","Security is only as strong as its weakest point."],["cybersecurity","n","متى تستخدمه: الأمن الإلكتروني كمجال متخصّص","Cybersecurity is no longer optional — it is existential for organisations."]],
+[["bio","prefix","متى تستخدمه: بادئة تعني الحياة أو البيولوجيا","Bio-based solutions may offer what purely digital ones cannot."],["technology","n","متى تستخدمه: التقنية كأدوات أو أنظمة تُوسّع القدرة البشرية","Technology solves problems — and creates new ones in equal measure."],["biotechnology","n","متى تستخدمه: التقنية الحيوية — تطبيق علوم الحياة تقنياً","Biotechnology is rewriting what it means to be biological."],["biotech","n","متى تستخدمه: الشكل المختصر لـ biotechnology","The biotech sector has attracted enormous investment since the pandemic."]],
+[["artificial","adj","متى تستخدمه: اصطناعي — مصنوع من قِبَل البشر لا موجود بالطبيعة","Artificial sweeteners were meant to help people — the story is complicated."],["intelligence","n","متى تستخدمه: الذكاء — القدرة على التعلّم والتكيّف وحل المشكلات","Intelligence is harder to define than to recognise."],["AI","abbrev","متى تستخدمه: الاختصار الشائع للذكاء الاصطناعي","AI is the most transformative technology since electricity."],["machine learning","n","متى تستخدمه: تعلّم الآلة — نوع من الذكاء الاصطناعي يتعلّم من البيانات","Machine learning finds patterns humans never thought to look for."]],
+[["machine","n","متى تستخدمه: الآلة — جهاز يُنجز مهمة","The question is not whether machines can think but what thinking means."],["learning","n","متى تستخدمه: التعلّم — عملية اكتساب المعرفة أو المهارة","Machine learning differs from traditional programming: the machine learns, not the programmer."],["algorithm","n","متى تستخدمه: الخوارزمية — الخطوات المنطقية التي تتّبعها الآلة","An algorithm is only as unbiased as the data it is trained on."]],
+[["autonomy","n","متى تستخدمه: الاستقلالية — القدرة على التصرّف دون توجيه خارجي","Giving AI systems autonomy raises the question of accountability when they err."],["autonomous","adj","متى تستخدمه: وصف نظام يعمل دون تدخّل بشري","An autonomous system is only trustworthy if its values are aligned with human ones."],["autonomously","adv","متى تستخدمه: بشكل مستقلّ ودون توجيه بشري","A car driving autonomously must make ethical decisions in milliseconds."]],
+[["surveil","v","متى تستخدمه: يُراقب — يجمع معلومات عن شخص أو مجموعة","States that surveil their citizens comprehensively undermine the trust that holds societies together."],["surveillance","n","متى تستخدمه: المراقبة كممارسة أو منظومة","Surveillance capitalism extracts value from attention and behaviour."],["surveilled","adj","متى تستخدمه: وصف شخص أو مجموعة خاضعة للمراقبة","A surveilled population is not necessarily a safer one."]],
+[["data","n","متى تستخدمه: البيانات — معلومات رقمية مجموعة ومعالَجة","Data without context produces conclusions without meaning."],["privacy","n","متى تستخدمه: الخصوصية — الحق في عدم الإفصاح عن معلومات شخصية","Privacy is not about hiding — it is about controlling one's own narrative."],["private","adj","متى تستخدمه: خاص — لا يُشارَك مع الآخرين","The distinction between public and private data is increasingly blurred."]],
+[["connect","v","متى تستخدمه: يربط / يتّصل","Technology connects people across continents — and disconnects them across dinner tables."],["connectivity","n","متى تستخدمه: الاتصالية — القدرة على الوصول إلى الشبكة","Connectivity is to the 21st century what electricity was to the 20th."],["connected","adj","متى تستخدمه: وصف شخص أو جهاز يمتلك اتصالاً بالشبكة","A connected world is not automatically a better understood world."]],
+[["big","adj","متى تستخدمه: ضخم / كبير — وصف حجم البيانات","Big is not the same as useful — bigger data can mean bigger confusion."],["data","n","متى تستخدمه: البيانات الرقمية كمصدر للمعرفة","Data is only as valuable as the questions we know how to ask."],["analytics","n","متى تستخدمه: التحليلات — علم استخلاص المعنى من البيانات","Analytics can reveal patterns invisible to individual human observers."]],
+[["digital","adj","متى تستخدمه: رقمي","Every digital action leaves a trace."],["footprint","n","متى تستخدمه: البصمة — الأثر الذي يتركه شيء ما","A digital footprint is permanent — what is uploaded rarely disappears."]],
+[["gig","n","متى تستخدمه: مهمة مؤقتة / عمل بالقطعة","The gig economy turns workers into independent contractors without the protections that entails."],["economy","n","متى تستخدمه: الاقتصاد كنظام أو قطاع","The gig economy is efficient for platforms and precarious for workers."],["platform","n","متى تستخدمه: منصة رقمية تُيسّر المعاملات","A platform captures value without bearing the risks of those who use it."]],
+[["ethics","n","متى تستخدمه: الأخلاقيات كمجال دراسي أو منظومة قيم","Ethics in technology is not a constraint on innovation — it is its guide."],["ethical","adj","متى تستخدمه: وصف ما يتوافق مع المبادئ الأخلاقية","Ethical AI must be interpretable, accountable, and fair."],["ethically","adv","متى تستخدمه: بشكل أخلاقي وسليم من الناحية الأخلاقية","Ethically deploying AI requires asking who benefits and who bears the risks."]],
+[["regulate","v","متى تستخدمه: يُنظّم — يضع قواعد للتحكّم في صناعة أو نشاط","It is easier to regulate an industry that already exists than to anticipate one that is emerging."],["regulation","n","متى تستخدمه: التنظيم كإطار قانوني أو حوكمي","Light-touch regulation benefits incumbents who can navigate it."],["regulatory","adj","متى تستخدمه: وصف ما يتعلق بالتنظيم أو الجهات التنظيمية","Regulatory frameworks designed in the 20th century struggle with 21st-century challenges."],["deregulate","v","متى تستخدمه: يُلغي التنظيم / يُخفّف القيود","Deregulating finance in the 1990s created the conditions for the 2008 crisis."]],
+[["monopolise","v","متى تستخدمه: يحتكر سوقاً أو مجالاً","A company that monopolises a market also monopolises the rules governing it."],["monopoly","n","متى تستخدمه: الاحتكار — هيمنة كيان واحد على سوق","A digital monopoly is more durable than an industrial one — network effects protect it."],["monopolistic","adj","متى تستخدمه: وصف سلوك أو سوق احتكاري","Monopolistic practices harm consumers even when products are offered for free."]],
+[["intellectual","adj","متى تستخدمه: فكري / يتعلق بالعقل والإبداع","Intellectual labour produces outputs that can be infinitely copied."],["property","n","متى تستخدمه: الملكية — حق الامتلاك والتصرّف","Property rights designed for physical goods do not transfer simply to digital ones."],["patent","n","متى تستخدمه: براءة الاختراع — حق الاستئثار بابتكار لفترة محدّدة","A patent system rewards invention but can also delay diffusion of useful knowledge."],["copyright","n","متى تستخدمه: حق المؤلف — حق الاستئثار بعمل إبداعي","Copyright protects expression; it does not protect ideas."]],
+[["singular","adj","متى تستخدمه: فريد / منفرد / غير عادي","A singular technological event — one that changes everything — is by definition unpredictable."],["singularity","n","متى تستخدمه: نقطة التفرّد — اللحظة التي يتجاوز فيها الذكاء الاصطناعي الذكاء البشري","Whether the singularity is possible, desirable, or inevitable remains genuinely open."]],
+[["obsolete","adj","متى تستخدمه: متقادم / لم يعد ذا صلة أو فاعلية","Skills that seemed permanent can become obsolete in under a decade."],["obsolescence","n","متى تستخدمه: التقادم كعملية أو نتيجة","Planned obsolescence is profitable for producers and wasteful for everyone else."]],
+[["sustain","v","متى تستخدمه: يُديم / يحافظ على استمرارية شيء ما","A technology that cannot sustain itself without external subsidy is not viable."],["sustainable","adj","متى تستخدمه: وصف ما يمكن الاستمرار في استخدامه دون استنزاف الموارد","Sustainable computing requires rethinking how we power data centres."],["sustainably","adv","متى تستخدمه: بطريقة تُراعي الاستمرارية والبيئة","Technology can only grow sustainably if energy systems grow sustainably with it."],["sustainability","n","متى تستخدمه: الاستدامة كهدف أو معيار","Sustainability is not a feature to add to a product — it is a condition of its legitimacy."]],
+[["exponential","adj","متى تستخدمه: وصف نمو يتضاعف بنسبة ثابتة مع كل فترة","Exponential growth is intuitive — until it is spectacular."],["exponentially","adv","متى تستخدمه: بشكل أسّي — بتسارع متضاعف","AI capabilities have improved exponentially while costs have fallen."],["growth","n","متى تستخدمه: النمو كعملية أو معدّل","Unchecked growth — in any system — eventually encounters its own limits."]]
+];
+var story=[
+  {t:"The rapid development of artificial intelligence has outpaced the ability of governments to respond — a gap that is growing, not closing.",ar:"التطوّر السريع للذكاء الاصطناعي تجاوز قدرة الحكومات على الاستجابة — وهي فجوة تتّسع لا تضيق."},
+  {t:"The widespread adoption of digital platforms by billions of users has created a new kind of power — one without historical precedent.",ar:"التبنّي الواسع للمنصات الرقمية من قِبَل مليارات المستخدمين أوجد نوعاً جديداً من السلطة — دون سابقة تاريخية."},
+  {t:"The failure to invest in digital infrastructure has meant that the benefits of connectivity remain unavailable to the populations who need them most.",ar:"الفشل في الاستثمار في البنية التحتية الرقمية أبقى فوائد الاتصالية بعيدةً عن الفئات السكانية التي تحتاجها أكثر."},
+  {t:"The growing reliance of modern economies on automated systems has created efficiencies — and vulnerabilities — that no previous generation had to manage.",ar:"الاعتماد المتزايد للاقتصادات الحديثة على الأنظمة الآلية أوجد كفاءات — وثغرات — لم يضطرّ أي جيل سابق لإدارتها."},
+  {t:"The inability of existing laws to regulate data collection at scale has left citizens exposed to forms of surveillance they never consented to.",ar:"عجز القوانين القائمة عن تنظيم جمع البيانات على نطاق واسع جعل المواطنين عرضةً لأشكال مراقبة لم يوافقوا عليها قط."},
+  {t:"The concentration of technological power in a small number of companies represents a challenge to democratic governance that no existing framework adequately addresses.",ar:"تمركّز القوة التقنية في عدد صغير من الشركات يُمثّل تحدياً للحوكمة الديمقراطية لا يُعالجه أي إطار قائم بكفاءة."},
+  {t:"The potential of biotechnology to extend human life, eliminate inherited disease, and enhance human cognition raises questions about what we mean by 'natural'.",ar:"إمكانيات التقنية الحيوية لإطالة الحياة البشرية وإزالة الأمراض الوراثية وتعزيز الإدراك البشري يُثير تساؤلات حول ما نعنيه بـ 'الطبيعي'."},
+  {t:"The exponential growth in computing power has made possible a future in which the relationship between human and machine intelligence is genuinely unclear.",ar:"النمو الأسّي في قوة الحوسبة جعل مستقبلاً ممكناً تكون فيه العلاقة بين الذكاء البشري وذكاء الآلة غامضة فعلاً."}
+];
+var reading=[
+  "Technology is, arguably, the defining force of the twenty-first century — and its governance one of the defining political challenges. The rapid expansion of digital platforms has reshaped commerce, communication, and politics at a speed that regulatory institutions were not designed to match. The concentration of this technology in the hands of a very small number of companies represents an accumulation of power whose implications we are only beginning to understand.",
+  "Abstract Noun Phrases allow writers to pack complex ideas into compact, highly formal structures. Instead of writing 'AI is developing rapidly', skilled writers write 'the rapid development of AI'. Instead of 'governments fail to regulate technology', they write 'the failure of governments to regulate technology'. Instead of 'people widely adopt smartphones', they write 'the widespread adoption of smartphones'. This transformation converts verbs and adjectives into dense noun phrases that carry more information per word — a characteristic feature of Band 7 IELTS writing and all advanced academic prose.",
+  "The ethical dimensions of artificial intelligence are increasingly urgent. The failure to embed human values into AI systems during their design produces harms that are extremely difficult to correct after deployment. The use of AI in hiring, credit decisions, and criminal sentencing — domains where decisions profoundly affect lives — has demonstrated consistent bias against groups already disadvantaged in society. The inability of even the developers of these systems to explain why specific decisions are made raises profound questions about accountability. An AI system that cannot be interrogated cannot be held responsible.",
+  "The economic consequences of automation deserve more attention than they typically receive in public debate. The widespread displacement of both manual and cognitive workers by automated systems is not a future scenario — it is an ongoing process. The growth of the gig economy, in which workers perform tasks for platforms without the legal protections of employment, represents one response to this displacement: a form of work that provides income without security. The inability of existing social safety nets, designed for an era of stable employment, to provide adequate protection for workers in this new landscape is a serious policy failure.",
+  "The relationship between technology and sustainability is deeply contradictory. The development of renewable energy systems and precision agriculture offers genuine hope for reducing humanity's environmental impact. At the same time, the energy demands of large-scale AI, cryptocurrency mining, and data centre operations are growing rapidly — representing a significant and underacknowledged contribution to carbon emissions. The promise of technology to solve the problems technology has created is real, but it is not automatic. Deliberate policy choices will determine whether the net effect of technological change on the environment is positive or negative."
+];
+var compQs=[
+  {q:"What does the writer say about the concentration of technology in few companies?",opts:["It is beneficial","It represents an accumulation of power whose implications we are beginning to understand","It is well regulated","It has no historical significance"],ans:1},
+  {q:"What do Abstract Noun Phrases do in academic writing?",opts:["Make sentences shorter only","Pack complex ideas into compact, formal structures with more information per word","Replace all verbs","Signal informal register"],ans:1},
+  {q:"What problem does the writer identify with AI in hiring and criminal sentencing?",opts:["It is too slow","It has demonstrated consistent bias against already disadvantaged groups","It is too expensive","It is not widely used"],ans:1},
+  {q:"How does the writer describe the gig economy?",opts:["A perfect solution to automation","A form of work that provides income without security","A traditional employment model","A government safety net"],ans:1},
+  {q:"What does the writer say will determine technology's net effect on the environment?",opts:["Technological advances alone","The market","Deliberate policy choices","Individual consumer decisions"],ans:2}
+];
+var listenLines=[
+  {speaker:"J",text:"Professor Amara, you study the intersection of technology and society. What is the most urgent issue you see?"},
+  {speaker:"R",text:"The failure of governance to keep pace with the rate of technological change. The rapid development of AI systems capable of making consequential decisions — in hiring, in credit, in medicine, in law — has proceeded faster than any regulatory framework has been able to respond. The result is that decisions affecting millions of lives are being made by systems whose operations are not fully understood by anyone, including their creators."},
+  {speaker:"J",text:"Is the concentration of power in a few large technology companies a specific concern?"},
+  {speaker:"R",text:"Enormously so. The accumulation of data, infrastructure, and network effects by a handful of platforms represents a concentration of economic and political power with no clear historical precedent. The inability of existing antitrust frameworks to address this concentration is a significant failure of governance. These companies have become, in some respects, more powerful than the states that nominally regulate them."},
+  {speaker:"J",text:"What about the impact on workers through automation?"},
+  {speaker:"R",text:"The widespread displacement of workers by automated systems is happening now — it is not a future scenario. The growth of the gig economy has provided a partial and deeply inadequate response. The inability of social safety nets designed for an era of stable employment to protect workers in a world of precarious gig work is a genuine crisis. The political failure to address this is, I think, one of the main drivers of the populist anger we see in many democracies."},
+  {speaker:"J",text:"Is there any cause for optimism?"},
+  {speaker:"R",text:"Yes — and I want to be clear about this. The application of technology to medicine, climate modelling, and the development of renewable energy offers genuine and substantial hope. The potential of biotechnology to address inherited disease is real. The growing awareness among technologists themselves of the ethical dimensions of their work is also encouraging. What worries me is the gap between the rate of technological development and the rate of political and regulatory response. Closing that gap is, I think, the most important project of our time."},
+  {speaker:"J",text:"Thank you, Professor Amara."},
+  {speaker:"R",text:"Thank you — and I hope the conversation continues beyond this room."}
+];
+var listenQs=[
+  {q:"What does Professor Amara say is the most urgent issue?",opts:["AI replacing jobs","The failure of governance to keep pace with technological change","Lack of investment in technology","Competition between companies"],ans:1},
+  {q:"What does Prof. Amara say about large technology platforms?",opts:["They are well regulated","They represent concentration of power with no clear historical precedent","They are losing market share","They support democracy"],ans:1},
+  {q:"How does Prof. Amara describe the gig economy as a response to automation?",opts:["A perfect solution","A temporary measure","A partial and deeply inadequate response","A government programme"],ans:2},
+  {q:"What positive examples does Prof. Amara give?",opts:["More social media","Technology applied to medicine, climate, renewable energy, and biotechnology","Better regulation","Cheaper products"],ans:1},
+  {q:"What does Prof. Amara say is the most important project of our time?",opts:["Building better AI","Closing the gap between the rate of technological development and political/regulatory response","Training more engineers","Building faster computers"],ans:1}
+];
+var speakQs=[
+  {q:"Part 1: What technology do you use most in your daily life?",hint:"The widespread use of... / The rapid development of... / My growing reliance on...",ar:"ما التقنية التي تستخدمها أكثر في حياتك اليومية؟",badge:"🎯 Part 1 · abstract noun phrases"},
+  {q:"Part 2 (cue card): Describe a piece of technology that has changed your life. Say what it is, how you use it, what impact it has had, and whether the impact is positive or negative.",hint:"The development of... / The widespread adoption of... / My increasing reliance on... Speak 2 minutes.",ar:"صف تقنية غيّرت حياتك (دقيقتان).",badge:"🎯 Part 2 · abstract noun phrases"},
+  {q:"Part 3: Should AI be regulated by governments?",hint:"The failure to regulate... / The rapid development of... / The concentration of power in...",ar:"هل يجب أن تُنظّم الحكومات الذكاء الاصطناعي؟",badge:"🎯 Part 3 · abstract noun phrases"},
+  {q:"Part 3: Is technology making us more or less connected to each other?",hint:"The widespread adoption of... / The growing reliance on... / The displacement of face-to-face...",ar:"هل التقنية تجعلنا أكثر أم أقل ارتباطاً ببعضنا؟",badge:"🎯 Part 3 · abstract noun phrases"},
+  {q:"Part 3: What are the dangers of AI in the workplace?",hint:"The displacement of workers / The inability of... / The growing automation of...",ar:"ما مخاطر الذكاء الاصطناعي في مكان العمل؟",badge:"🎯 Part 3 · abstract noun phrases"},
+  {q:"Part 3: Do you think the benefits of technology outweigh the problems?",hint:"The potential of technology to... / The failure to address... / The exponential growth of...",ar:"هل فوائد التقنية تفوق مشاكلها؟",badge:"🎯 Part 3 · abstract noun phrases"},
+  {q:"Part 2 (cue card): Describe a technological problem affecting society today. Say what it is, how it developed, who it affects, and what could be done.",hint:"The failure of... / The widespread impact of... / The inability of governments to... Speak 2 minutes.",ar:"صف مشكلة تقنية تؤثّر على المجتمع اليوم (دقيقتان).",badge:"🎯 Part 2 · abstract noun phrases"}
+];
+var pvData=[
+  {v:"keep up with",p:"كيب أب ويذ",m:"يواكب / يُسايره",ex:"Governments struggle to keep up with the pace of technological change.",ar:"الحكومات تُكافح لمواكبة وتيرة التغيير التقني."},
+  {v:"take over",p:"تيك أوفر",m:"يستولي / يتولّى السيطرة",ex:"The fear that AI will take over jobs previously done by humans is widespread.",ar:"الخوف من أن يستولي الذكاء الاصطناعي على وظائف كان البشر يؤدّونها منتشر على نطاق واسع."},
+  {v:"roll out",p:"رول آوت",m:"يُطلق / يُطرح على نطاق واسع",ex:"The failure to roll out reliable internet to rural areas deepens the digital divide.",ar:"الفشل في إطلاق إنترنت موثوق في المناطق الريفية يُعمّق الفجوة الرقمية."},
+  {v:"opt out",p:"أوبت آوت",m:"يختار العدم المشاركة / ينسحب",ex:"Most users never opt out of data collection because the process is deliberately complex.",ar:"معظم المستخدمين لا يرفضون جمع البيانات لأن العملية مُعقَّدة عمداً."},
+  {v:"phase out",p:"فيز آوت",m:"يُلغي تدريجياً",ex:"Some governments plan to phase out fossil fuel power in favour of renewable technology.",ar:"بعض الحكومات تعتزم إلغاء محطات الوقود الأحفوري تدريجياً لصالح التقنية المتجددة."},
+  {v:"catch up",p:"كاتش أب",m:"يلحق / يعوّض التأخّر",ex:"Regulatory frameworks need to catch up with the capabilities of AI before harm becomes irreversible.",ar:"أطر التنظيم تحتاج للحاق بقدرات الذكاء الاصطناعي قبل أن يصبح الضرر لا يُعكَس."},
+  {v:"plug in",p:"بلاغ إن",m:"يوصّل / يدمج في نظام",ex:"New AI capabilities can be plugged into existing systems with minimal adaptation.",ar:"القدرات الجديدة للذكاء الاصطناعي يمكن دمجها في الأنظمة القائمة بأدنى قدر من التكيّف."},
+  {v:"shut down",p:"شَت داون",m:"يُغلق / يُوقف تشغيل",ex:"The ability to shut down an AI system that behaves unexpectedly is crucial.",ar:"القدرة على إيقاف نظام ذكاء اصطناعي يتصرّف بشكل غير متوقّع أمر بالغ الأهمية."},
+  {v:"scale up",p:"سكيل أب",m:"يُوسّع النطاق / يُكبّر الحجم",ex:"The challenge lies not in creating AI that works at small scale but in scaling it up safely.",ar:"التحدي لا يكمن في إنشاء ذكاء اصطناعي يعمل بنطاق صغير بل في توسيع نطاقه بأمان."},
+  {v:"break through",p:"بريك ثرو",m:"يحقّق اختراقاً / يتخطّى عائقاً",ex:"Researchers working on quantum computing believe they are close to breaking through a key barrier.",ar:"الباحثون في الحوسبة الكمية يعتقدون أنهم قريبون من تخطّي حاجز رئيسي."}
+];
+var realExpr=[
+  {e:"Ahead of the curve",p:"أهيد أوف ذا كيرف",m:"سبّاق / متقدّم على الآخرين",f:"More innovative or advanced than the competition.",x:"The rapid development of AI means that companies staying ahead of the curve may not stay there for long.",xar:"التطوّر السريع للذكاء الاصطناعي يعني أن الشركات السبّاقة قد لا تبقى كذلك طويلاً.",n:"تُستخدم لوصف من هو أكثر تطوراً وابتكاراً من منافسيه"},
+  {e:"A double-edged sword",p:"أ دابَل-إيجَد سورد",m:"سيف ذو حدّين",f:"Something that has both advantages and disadvantages.",x:"The widespread adoption of AI is a double-edged sword — it creates possibilities and dangers simultaneously.",xar:"التبنّي الواسع للذكاء الاصطناعي سيف ذو حدّين — يخلق إمكانيات ومخاطر في آنٍ واحد.",n:"تُستخدم لوصف شيء له فوائد وعواقب في نفس الوقت"},
+  {e:"Move the goalposts",p:"موف ذا غولبوستس",m:"يُغيّر القواعد في وسط اللعبة",f:"To change the rules or expectations when someone is close to meeting them.",x:"The failure to establish clear AI regulations means companies can accuse governments of moving the goalposts.",xar:"الفشل في وضع لوائح واضحة للذكاء الاصطناعي يعني أن الشركات يمكنها اتهام الحكومات بتغيير القواعد.",n:"تُستخدم حين تتغيّر الشروط أو المعايير بشكل غير عادل"},
+  {e:"Reinvent the wheel",p:"ريإنفينت ذا ويل",m:"يُعيد اختراع العجلة",f:"To waste time creating something that already exists.",x:"The inability of tech companies to share safety research means everyone reinvents the wheel.",xar:"عجز شركات التقنية عن مشاركة أبحاث السلامة يعني أن الجميع يُعيد اختراع العجلة.",n:"تُستخدم لانتقاد تكرار عمل تمّ بالفعل بدلاً من البناء عليه"}
+];
+var realSlang=[
+  {w:"Tech-savvy",p:"تيك-سافي",i:"having good knowledge of technology",ex:"The widespread adoption of AI tools requires a tech-savvy workforce.",xar:"التبنّي الواسع لأدوات الذكاء الاصطناعي يتطلّب قوى عاملة ماهرة تقنياً.",a:"شخص يمتلك معرفة جيدة بالتقنية ويستخدمها بكفاءة"},
+  {w:"Glitch",p:"غليتش",m:"عطل تقني مؤقت",i:"a small error or malfunction in a technological system",ex:"The inability to distinguish between a glitch and a serious flaw can have dangerous consequences.",xar:"العجز عن التمييز بين عطل مؤقت وخلل جسيم قد يكون له عواقب خطيرة.",a:"خطأ أو عطل مؤقت في نظام أو برنامج"},
+  {w:"Plug-and-play",p:"بلاغ-أند-بلي",i:"designed to work immediately without complex setup",ex:"The growing demand for plug-and-play AI solutions risks oversimplifying genuinely complex systems.",xar:"الطلب المتزايد على حلول الذكاء الاصطناعي الجاهزة يخاطر بتبسيط مفرط لأنظمة معقّدة فعلاً.",a:"نظام أو جهاز يعمل فور توصيله دون إعداد معقّد"},
+  {w:"Bandwidth",p:"باندوِدث",m:"طاقة / قدرة (مجازياً)",i:"colloquially used to mean mental or time capacity",ex:"The failure to give regulators enough bandwidth to understand AI is a systemic problem.",xar:"الفشل في منح المنظّمين القدرة الكافية على فهم الذكاء الاصطناعي مشكلة منهجية.",a:"في الاستخدام المجازي: الطاقة الذهنية أو الوقت المتاح للتعامل مع شيء ما"}
+];
+var realEvery=[
+  {w:"Back to the drawing board",p:"باك تو ذا درورينغ بورد",i:"starting over because a plan or design has failed",m:"يعود للنقطة الصفر",ex:"The failure of the first AI safety approach sent researchers back to the drawing board.",xar:"فشل النهج الأول لأمان الذكاء الاصطناعي أعاد الباحثين للنقطة الصفر."},
+  {w:"A game changer",p:"أ غيم تشينجر",i:"something that completely changes a situation",m:"تغيير قواعد اللعبة",ex:"The development of large language models has been a genuine game changer for many industries.",xar:"تطوير نماذج اللغة الكبيرة كان تغييراً حقيقياً لقواعد اللعبة في صناعات عديدة."},
+  {w:"State of the art",p:"ستيت أوف ذا آرت",i:"the most advanced and modern available",m:"أحدث ما توصّل إليه العلم / الأكثر تطوراً",ex:"Today's state-of-the-art AI system is tomorrow's outdated tool.",xar:"نظام الذكاء الاصطناعي الأكثر تطوراً اليوم هو أداة متقادمة في الغد."}
+];
+var quizQs=[
+  {q:"___ development of AI has outpaced regulatory frameworks.",opts:["A rapid","The rapid","Rapid","Rapidly"],ans:1},
+  {q:"ما معنى automation؟",opts:["الابتكار","الاحتكار","الأتمتة / التشغيل الآلي","نقطة التفرّد"],ans:2},
+  {q:"The failure ___ regulate platforms has created new monopolies.",opts:["of governments to","of governments for","to governments to","government's"],ans:0},
+  {q:"ما معنى digital divide؟",opts:["الاستدامة","الفجوة الرقمية","المراقبة الجماعية","خصوصية البيانات"],ans:1},
+  {q:"The widespread ___ of smartphones has transformed communication.",opts:["adopting","adoption","adopt","adopted"],ans:1},
+  {q:"ما معنى singularity في التقنية؟",opts:["تعلّم الآلة","الاتصالية","نقطة التفرّد التقني حين يتجاوز الذكاء الاصطناعي البشري","الأمن الإلكتروني"],ans:2},
+  {q:"The inability ___ existing laws to protect data privacy has exposed citizens.",opts:["for","of","by","from"],ans:1},
+  {q:"Collocation: ___ the digital divide",opts:["cross","gap","bridge","fix"],ans:2},
+  {q:"ما معنى gig economy؟",opts:["الاحتكار الرقمي","التقنية الحيوية","اقتصاد العمل المؤقّت / بالقطعة","الملكية الفكرية"],ans:2},
+  {q:"ما الـ phrasal verb: يواكب / يُسايره؟",opts:["roll out","scale up","keep up with","plug in"],ans:2}
+];
+var assessItems=[
+  "أستطيع تحويل جملة فعلية إلى Abstract Noun Phrase: 'AI develops rapidly' → 'the rapid development of AI'",
+  "أعرف الهياكل الثلاثة الرئيسية: the [adj] + N + of / the [N] + of + V-ing / the [N] + to + infinitive",
+  "أستطيع استخدام 'the failure to...' و'the inability of... to...' و'the potential of... to...' بشكل طبيعي.",
+  "أستطيع استخدام Abstract Noun Phrases كموضوع للجملة: 'The rapid deployment of AI raises concerns.'",
+  "أعرف 20+ كلمة من مفردات التقنية مع collocations (مثل: drive innovation, bridge the digital divide, scale up).",
+  "أتجنب الأخطاء: 'The rapid development' (لا 'A rapid development' في البداية) / 'the failure of government' (لا 'governments' دائماً).",
+  "أستطيع كتابة مقال IELTS Task 2 عن التقنية (250+ كلمة) في 40 دقيقة مع Abstract Noun Phrases.",
+  "أستطيع التحدث دقيقتين عن موضوع تقني باستخدام Abstract Noun Phrases بشكل طبيعي وغير متكلَّف."
+];
+var spd=1,lspd=1,storyOn=false,listenOn=false;
+var compA=new Array(compQs.length).fill(null);
+var listenA=new Array(listenQs.length).fill(null);
+var quizA=new Array(quizQs.length).fill(null);
+function say(t,r,cb){if(!window.speechSynthesis)return null;window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=r||spd;u.pitch=1.0;var v=getVoice("F");if(v)u.voice=v;if(cb)u.onend=cb;window.speechSynthesis.speak(u);return u;}
+function getVoice(g){var vs=window.speechSynthesis.getVoices();var en=vs.filter(function(v){return v.lang.indexOf("en")===0;});if(g==="M"){var r=en.filter(function(v){return v.name.indexOf("Rishi")>-1;});if(r.length)return r[0];var m=en.filter(function(v){var n=v.name.toLowerCase();return n.indexOf("daniel")>-1||n.indexOf("james")>-1;});return m.length?m[0]:(en.length?en[0]:null);}else{var f=en.filter(function(v){var n=v.name.toLowerCase();return n.indexOf("samantha")>-1||n.indexOf("victoria")>-1||n.indexOf("karen")>-1;});return f.length?f[0]:(en.length>1?en[1]:en[0]||null);}}
+function show(id,btn){document.querySelectorAll(".sec").forEach(function(s){s.classList.remove("on");});document.getElementById("sec-"+id).classList.add("on");window.scrollTo({top:0,behavior:"smooth"});document.querySelectorAll(".nb").forEach(function(b){b.classList.remove("on");});if(btn){btn.classList.add("on");return;}var map={vocab:0,story:1,reading:2,grammar:3,listening:4,writing:5,speaking:6,realeng:7,pv:8,quiz:9};var btns=document.querySelectorAll(".nb");if(btns[map[id]])btns[map[id]].classList.add("on");}
+function buildVocab(){var c=document.getElementById("vocabList");var lastCat="";var catNum=0;V.forEach(function(v,i){if(v.cat!==lastCat){catNum++;lastCat=v.cat;var hd=document.createElement("div");hd.className="vcat";hd.innerHTML='<div class="vcat-ar">'+v.catAr+'</div><div class="vcat-en">'+v.cat+'</div><div class="vcat-num">'+catNum+'</div>';c.appendChild(hd);}var d=document.createElement("div");d.className="vocab-card";d.innerHTML='<div class="vhead"><div style="display:flex;align-items:center;gap:10px;width:100%"><button class="vspk" id="vs'+i+'">🔊</button><div class="var" style="flex:1;text-align:right">'+v.a+'</div><div class="vpron" style="direction:ltr;white-space:nowrap">'+v.p+'</div><div style="display:flex;align-items:center;gap:6px"><div class="vword">'+v.w+'</div><span style="background:rgba(255,255,255,.18);color:rgba(255,255,255,.85);font-size:.68rem;font-weight:800;padding:2px 7px;border-radius:10px">'+(i+1)+'</span></div></div></div><div class="vbody"><div class="vgrid2"><div class="vrow-pair"><div class="vcell c-ant" data-i="'+i+'" data-c="1"><div class="vlbl">Antonym</div><div class="vval">'+v.ant+'</div><div class="vtr">'+v.ar_ant+'</div></div><div class="vcell c-syn" data-i="'+i+'" data-c="0"><div class="vlbl">Synonym</div><div class="vval">'+v.syn+'</div><div class="vtr">'+v.ar_syn+'</div></div></div><div class="vrow-pair"><div class="vcell c-prep" data-i="'+i+'" data-c="3"><div class="vlbl">Preposition</div><div class="vval">'+v.prep+'</div><div class="vtr">'+v.ar_prep+'</div></div><div class="vcell c-col" data-i="'+i+'" data-c="2"><div class="vlbl">Collocation</div><div class="vval">'+v.col+'</div><div class="vtr">'+v.ar_col+'</div></div></div><div class="vrow-pair"><div class="vcell c-fam" data-i="'+i+'" data-c="4" style="flex:1"><div class="vlbl">Word Family</div><div class="vval">'+v.fam+'</div><div class="vtr" id="ftr'+i+'"></div></div></div></div><div class="vex" id="vex'+i+'">'+v.ex+'<div class="vex-tr">'+v.ar_ex+'</div></div></div>';
+d.querySelector('.vspk').addEventListener('click',(function(ii){return function(){document.querySelectorAll('.vspk').forEach(function(b){b.classList.remove('playing');});var btn=document.getElementById('vs'+ii);if(btn)btn.classList.add('playing');var u=say(V[ii].w,spd);if(u)u.onend=function(){if(btn)btn.classList.remove('playing');};};;})(i));
+d.querySelectorAll('.vcell').forEach(function(cell){cell.addEventListener('click',function(){var ii=parseInt(this.getAttribute('data-i'));var cc=parseInt(this.getAttribute('data-c'));say([V[ii].syn,V[ii].ant,V[ii].col,V[ii].prep,V[ii].fam][cc],0.9);this.classList.toggle('show-tr');});});
+var vex=d.querySelector('.vex');if(vex)vex.addEventListener('click',function(){this.classList.toggle('show-ex-tr');});
+var ftrDiv=d.querySelector('.c-fam .vtr');if(ftrDiv&&VFamEx[i]){var fhtml='<div style="margin-top:6px">';VFamEx[i].forEach(function(fe){var pc={"v":"#2563eb","n":"#059669","adj":"#7c3aed","adv":"#b45309","phr v":"#dc2626","n/adj":"#059669","n/v":"#059669"}[fe[1]]||"#0a1628";fhtml+='<div style="background:#fffdf7;border-radius:9px;padding:9px 11px;margin-bottom:7px;border-right:3px solid '+pc+'"><div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;direction:ltr"><strong style="font-family:Lora,Georgia,serif;color:#0a1628;font-size:.9rem">'+fe[0]+'</strong><span style="background:'+pc+';color:white;font-size:.6rem;padding:1px 7px;border-radius:8px;font-weight:800">'+fe[1]+'</span></div><div style="font-size:.76rem;color:#b45309;direction:rtl;text-align:right;margin-bottom:4px;font-family:Tajawal,sans-serif">'+fe[2]+'</div><div style="font-family:Lora,Georgia,serif;font-style:italic;font-size:.83rem;color:#374151;direction:ltr">'+fe[3]+'</div></div>';});fhtml+='</div>';ftrDiv.innerHTML=fhtml;}
+c.appendChild(d);});}
+function buildStory(){var b=document.getElementById("storyBox");if(!b)return;b.innerHTML="";story.forEach(function(s,i){var d=document.createElement("div");d.className="sline";d.id="sl"+i;d.appendChild(document.createTextNode(s.t));var btn=document.createElement("button");btn.style.cssText="background:transparent;border:1px solid #e5e7eb;border-radius:5px;padding:1px 7px;color:#9ca3af;font-size:.7rem;cursor:pointer;font-family:Tajawal,sans-serif;margin-right:6px";btn.textContent="🌐";btn.addEventListener("click",(function(ii){return function(){toggleTr(ii);};})(i));d.appendChild(btn);var tr=document.createElement("div");tr.id="tr"+i;tr.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;font-family:Tajawal,sans-serif;border-right:3px solid #fde68a;padding-right:8px";tr.textContent=s.ar;d.appendChild(tr);b.appendChild(d);});}
+var _trAll=false;
+function toggleAllTr(){_trAll=!_trAll;for(var i=0;i<story.length;i++){var e=document.getElementById("tr"+i);if(e)e.style.display=_trAll?"block":"none";}var btn=document.getElementById("trBtn");if(btn)btn.textContent=_trAll?"🙈 أخفِ":"🌐 الترجمة";}
+function toggleTr(i){var e=document.getElementById("tr"+i);if(e)e.style.display=e.style.display==="none"?"block":"none";}
+function setSpd(r,btn){spd=r;var p=btn.parentNode;p.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function storySeq(i){if(!storyOn||i>=story.length){stopStory();return;}document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("sl"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(story[i].t);u.lang="en-US";u.rate=spd;var v=getVoice("F");if(v)u.voice=v;u.onend=function(){if(storyOn)setTimeout(function(){storySeq(i+1);},320);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startStory(){storyOn=true;var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="⏹";btn.querySelector("#sTxt").textContent="إيقاف القصة";}storySeq(0);}
+function stopStory(){storyOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="▶";btn.querySelector("#sTxt").textContent="استمع للقصة";}}
+function toggleStory(){storyOn?stopStory():startStory();}
+function buildReading(){var t=document.getElementById("readingText");if(!t)return;t.innerHTML="";reading.forEach(function(p){var d=document.createElement("p");d.textContent=p;t.appendChild(d);});var c=document.getElementById("compList");if(!c)return;c.innerHTML="";compQs.forEach(function(q,qi){var d=document.createElement("div");d.style.marginBottom="14px";var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);q.opts.forEach(function(opt,oi){var b=document.createElement("div");b.className="copt";b.id="co"+qi+"-"+oi;b.textContent=opt;b.addEventListener("click",function(){compA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("co"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});d.appendChild(b);});c.appendChild(d);});}
+function checkComp(){var s=0;compQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("co"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(compA[qi]===i)el.classList.add("no");}if(compA[qi]===q.ans)s++;});var r=document.getElementById("compRes");r.style.display="block";r.textContent=s+" من "+compQs.length+" ("+Math.round(s/compQs.length*100)+"%) "+(s===compQs.length?"🏆":s>=3?"🎉":"📚 راجع");}
+function resetComp(){compA=new Array(compQs.length).fill(null);document.querySelectorAll(".copt[id^='co']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("compRes").style.display="none";}
+function buildGrammar(){var c=document.getElementById("grammarBox");
+var b1=document.createElement("div");b1.className="gbox";
+b1.innerHTML='<div style="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:8px;text-align:right">١ — Hedging Advanced: أنواع التحوّط اللغوي</div><p style="font-size:.84rem;color:#475569;direction:rtl;text-align:right;margin-bottom:12px;line-height:1.9">التحوّط المتقدّم يُميّز الكاتب الأكاديمي عن المبتدئ — يُظهر أنك تُفرّق بين ما هو ثابت وما هو محتمل.</p>';
+var tbl=document.createElement("div");tbl.style.cssText="background:#0a1628;border-radius:10px;padding:14px 18px;direction:ltr;overflow-x:auto;margin-bottom:14px";
+var table=document.createElement("table");table.style.cssText="width:100%;border-collapse:collapse;font-size:.81rem";
+var rows=[["Type","Hedging Device","Use / Strength"],["Argument hedge","it could be argued that","Presenting a debatable claim as one view"],["Evidence hedge","there is reason to believe","Signals supporting evidence exists"],["Conclusion hedge","it would seem / it appears","Drawing a provisional conclusion"],["Frequency hedge","tends to / is likely to","Avoiding universal claims"],["Degree hedge","to some extent / to a degree","Partially qualifying a claim"],["Attribution hedge","some would argue / critics claim","Distancing from a claim"],["Modal hedge","may / might / could","Classic uncertainty markers"]];
+rows.forEach(function(row,ri){var tr=document.createElement("tr");if(ri>0)tr.style.borderTop="1px solid rgba(255,255,255,.08)";row.forEach(function(cell,ci){var td=document.createElement(ri===0?"th":"td");td.textContent=cell;td.style.cssText="padding:6px 8px;text-align:left;color:"+(ri===0?"#fde68a":ci===0?"#f0c040":ci===1?"#86efac":"rgba(255,255,255,.85)");tr.appendChild(td);});table.appendChild(tr);});
+tbl.appendChild(table);b1.appendChild(tbl);c.appendChild(b1);
+var b2=document.createElement("div");b2.className="gbox";
+b2.innerHTML='<div style="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right">٢ — في سياق الثقافة والهوية</div>';
+var examples=[
+  ["it could be argued:","It could be argued that globalisation intensifies rather than erases cultural identity.","يمكن القول إن العولمة تُعزّز الهوية الثقافية لا تمحوها."],
+  ["there is reason to believe:","There is reason to believe that bilingual children develop stronger executive function.","هناك سبب للاعتقاد بأن الأطفال ثنائيي اللغة يطوّرون وظيفة تنفيذية أقوى."],
+  ["it would seem:","It would seem that stereotypes persist because they are cognitively convenient.","يبدو أن الصور النمطية تستمرّ لأنها مريحة معرفياً."],
+  ["tends to:","Cultural identity tends to strengthen when communities feel it is under threat.","الهوية الثقافية تميل للتعزّز حين تشعر المجتمعات بأنها مُهدَّدة."],
+  ["to some extent:","To some extent, globalisation homogenises culture — but it also creates new hybrid forms.","إلى حدٍّ ما، تُوحّد العولمة الثقافة — لكنها تخلق أيضاً أشكالاً هجينة جديدة."]
+];
+examples.forEach(function(ex){var pat=document.createElement("div");pat.className="gpat";var d1=document.createElement("div");d1.style.cssText="font-size:.78rem;color:#f0a000;font-weight:700;direction:ltr;margin-bottom:2px";d1.textContent=ex[0];var d2=document.createElement("div");d2.style.cssText="font-family:Lora,Georgia,serif;font-size:.88rem;color:#0a1628;font-weight:600;direction:ltr;margin-bottom:3px";d2.textContent=ex[1];var d3=document.createElement("div");d3.style.cssText="font-size:.8rem;color:#64748b;direction:rtl;text-align:right";d3.textContent=ex[2];pat.appendChild(d1);pat.appendChild(d2);pat.appendChild(d3);b2.appendChild(pat);});
+c.appendChild(b2);
+var wrong=document.createElement("div");wrong.style.cssText="background:#fef2f2;border-radius:10px;padding:13px 16px;margin-bottom:8px;border-right:4px solid #dc2626;direction:ltr";
+wrong.innerHTML='<span style="color:#dc2626;font-weight:700">✗ </span>It could be argue that... (verb form ✗) / It is could be argued... (double is ✗) / It could be argued to... (no — that, not to) / Overuse: hedging every single sentence weakens all claims.';
+var right=document.createElement("div");right.style.cssText="background:#f0fdf4;border-radius:10px;padding:13px 16px;border-right:4px solid #059669;direction:ltr";
+right.innerHTML='<span style="color:#059669;font-weight:700">✓ </span>It could be <strong>argued</strong> that... / <strong>There is reason to believe</strong> that... / The evidence <strong>tends to suggest</strong>... ✅';
+c.appendChild(wrong);c.appendChild(right);}
+function buildGrammarExtra(){var c=document.getElementById("grammarExtra");if(!c)return;var inner=document.createElement("div");inner.className="cb";
+var dm=document.createElement("div");dm.className="gbox";
+dm.innerHTML='<div style="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:8px;text-align:right">٣ — قوة التحوّط: من الأضعف إلى الأقوى</div><p style="font-size:.84rem;color:#475569;direction:rtl;text-align:right;margin-bottom:12px;line-height:1.9">ليست كل عبارات التحوّط بنفس القوة — اختر الصحيح حسب درجة يقينك.</p>';
+var drows=[["Weakest hedges","Medium hedges","Stronger hedges"],["might / may","it could be argued","there is reason to believe"],["it's possible that","it appears / it seems","the evidence suggests"],["some would say","tends to","it would seem from the evidence"]];
+var dtbl=document.createElement("div");dtbl.style.cssText="background:#0a1628;border-radius:10px;padding:14px 18px;direction:ltr;overflow-x:auto";var tbl=document.createElement("table");tbl.style.cssText="width:100%;border-collapse:collapse;font-size:.8rem";var hr=document.createElement("tr");["Weakest","Medium","Stronger"].forEach(function(tx){var th=document.createElement("th");th.textContent=tx;th.style.cssText="padding:5px 8px;text-align:left;color:#fde68a;border-bottom:1px solid rgba(255,255,255,.2)";hr.appendChild(th);});tbl.appendChild(hr);drows.slice(1).forEach(function(row){var tr=document.createElement("tr");tr.style.borderTop="1px solid rgba(255,255,255,.07)";row.forEach(function(cell){var td=document.createElement("td");td.textContent=cell;td.style.cssText="padding:5px 8px;text-align:left;color:rgba(255,255,255,.85)";tr.appendChild(td);});tbl.appendChild(tr);});dtbl.appendChild(tbl);dm.appendChild(dtbl);inner.appendChild(dm);
+var eb=document.createElement("div");eb.style.cssText="background:linear-gradient(135deg,#fff7ed,#fef3e8);border:2px solid #fed7aa;border-radius:14px;padding:18px 20px;margin-top:14px";
+eb.innerHTML='<div style="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:6px;text-align:right">٤ — أخطاء يقع فيها المتعلم العربي</div>';
+var errs=[
+  ["It could be argue that culture shapes identity.","بعد be: الفعل بصيغة المصدر المبني للمجهول = argued","It could be argued that culture shapes identity."],
+  ["It is could be argued that stereotypes persist.","is زائدة — الهيكل: it could be argued (بدون is)","It could be argued that stereotypes persist."],
+  ["It could be argued to globalisation is changing.","بعد argued: that + جملة (لا to + فعل)","It could be argued that globalisation is changing cultures."],
+  ["There is reason believe that language shapes thought.","to بين reason و believe لا بدّ منها","There is reason to believe that language shapes thought."],
+  ["All cultures tends to resist change. (جميع الثقافات)","All cultures = جمع → tend (لا tends)","All cultures tend to resist change at some level."]
+];
+errs.forEach(function(row){var card=document.createElement("div");card.style.cssText="background:white;border-radius:10px;padding:11px 14px;margin-bottom:8px;border-right:4px solid #dc2626";var w=document.createElement("div");w.style.cssText="color:#dc2626;font-weight:700;font-size:.86rem;margin-bottom:3px;direction:ltr";w.innerHTML='<span style="background:#fef2f2;border-radius:5px;padding:1px 7px">✗</span>  '+row[0];var why=document.createElement("div");why.style.cssText="font-size:.76rem;color:#92400e;direction:rtl;text-align:right;margin:3px 0;font-family:Tajawal,sans-serif";why.textContent="💡 "+row[1];var right=document.createElement("div");right.style.cssText="color:#059669;font-weight:700;font-size:.86rem;direction:ltr";right.innerHTML='<span style="background:#f0fdf4;border-radius:5px;padding:1px 7px">✓</span>  '+row[2];card.appendChild(w);card.appendChild(why);card.appendChild(right);eb.appendChild(card);});inner.appendChild(eb);
+var sb=document.createElement("div");sb.className="gbox";sb.style.marginTop="14px";
+sb.innerHTML='<div style="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:6px;text-align:right">٥ — أضف التحوّط المناسب</div><p style="font-size:.82rem;color:#475569;direction:rtl;text-align:right;margin-bottom:12px;line-height:1.8">حوّل كل جملة بإضافة عبارة التحوّط المُشار إليها.</p>';
+var pairs=[
+  ["Globalisation erases cultural identity. (This is debatable — present as one view)","It could be argued that globalisation erases cultural identity."],
+  ["Language shapes the way we think. (Evidence exists — signal it)","There is reason to believe that language shapes the way we think."],
+  ["Stereotypes persist in all cultures. (Not universal — add frequency hedge)","Stereotypes tend to persist across most cultures."],
+  ["Multiculturalism succeeds in diverse cities. (Partially true — qualify it)","To some extent, multiculturalism succeeds in diverse cities."],
+  ["Bilingualism benefits cognitive development. (Drawing a provisional conclusion)","It would seem that bilingualism benefits cognitive development."]
+];
+pairs.forEach(function(pair,ti){var td=document.createElement("div");td.style.cssText="background:white;border-radius:10px;padding:13px 16px;margin-bottom:10px;border-right:4px solid #2563eb";var num=document.createElement("span");num.style.cssText="background:#1e3a8a;color:white;border-radius:5px;padding:1px 8px;font-size:.75rem;font-weight:800;margin-left:8px";num.textContent=ti+1;var orig=document.createElement("div");orig.style.cssText="font-family:Lora,Georgia,serif;color:#374151;font-size:.9rem;direction:ltr;margin-bottom:8px";orig.appendChild(num);orig.appendChild(document.createTextNode(pair[0]));var ab=document.createElement("button");ab.style.cssText="background:#dbeafe;border:none;border-radius:18px;padding:4px 14px;font-family:Tajawal,sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer";ab.textContent="💡 الجواب";var ad=document.createElement("div");ad.style.cssText="display:none;background:#f0fdf4;border-radius:8px;padding:10px 13px;margin-top:8px;font-family:Lora,Georgia,serif;font-size:.88rem;color:#059669;direction:ltr;border-right:3px solid #059669";ad.textContent="✓ "+pair[1];ab.addEventListener('click',(function(ad2,ab2){return function(){ad2.style.display=ad2.style.display==='none'?'block':'none';ab2.textContent=ad2.style.display==='block'?'🙈 إخفاء':'💡 الجواب';};})(ad,ab));td.appendChild(orig);td.appendChild(ab);td.appendChild(ad);sb.appendChild(td);});inner.appendChild(sb);c.appendChild(inner);}
+function buildListening(){var s=document.getElementById("listenScript");listenLines.forEach(function(line,i){var d=document.createElement("div");d.className="lline";d.id="ll"+i;if(typeof line==="object"&&line.speaker){var lbl=document.createElement("span");var isJ=line.speaker==="J";lbl.style.cssText="font-size:.7rem;font-weight:800;padding:1px 7px;border-radius:8px;margin-left:6px;"+(isJ?"background:#dbeafe;color:#1e3a8a":"background:#dcfce7;color:#15803d");lbl.textContent=isJ?"Host":"Dr. Sena";var txt=document.createElement("span");txt.textContent=line.text;d.appendChild(lbl);d.appendChild(txt);}else{d.appendChild(document.createTextNode(typeof line==="object"?line.text:line));}s.appendChild(d);});var ql=document.getElementById("listenQList");listenQs.forEach(function(q,qi){var d=document.createElement("div");d.style.marginBottom="14px";var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);q.opts.forEach(function(opt,oi){var b=document.createElement("div");b.className="copt";b.id="lq"+qi+"-"+oi;b.textContent=opt;b.addEventListener("click",function(){listenA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("lq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});d.appendChild(b);});ql.appendChild(d);});}
+function setLSpd(r,btn){lspd=r;var p=btn.parentNode;p.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function listenSeq(i){if(!listenOn||i>=listenLines.length){stopListen();return;}document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("ll"+i);if(e)e.classList.add("hl");var line=listenLines[i];var text=typeof line==="object"?line.text:line;var gender=typeof line==="object"?(line.speaker==="J"?"M":"F"):"F";var u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=lspd;var v=getVoice(gender);if(v)u.voice=v;u.pitch=1.0;u.onend=function(){if(listenOn)setTimeout(function(){listenSeq(i+1);},380);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startListen(){listenOn=true;document.getElementById("lIcon").textContent="⏹";document.getElementById("lTxt").textContent="إيقاف الحوار";listenSeq(0);}
+function stopListen(){listenOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});document.getElementById("lIcon").textContent="▶";document.getElementById("lTxt").textContent="شغّل الحوار";}
+function toggleListen(){listenOn?stopListen():startListen();}
+function checkListen(){var s=0;listenQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("lq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(listenA[qi]===i)el.classList.add("no");}if(listenA[qi]===q.ans)s++;});var r=document.getElementById("listenRes");r.style.display="block";r.textContent=s+" من "+listenQs.length+" ("+Math.round(s/listenQs.length*100)+"%) "+(s>=4?"✅ ممتاز!":s>=3?"👍 جيد!":"📚 راجع");}
+function resetListen(){listenA=new Array(listenQs.length).fill(null);document.querySelectorAll(".copt[id^='lq']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("listenRes").style.display="none";}
+function buildW(){var ids=["w1","w2","w3","w4","w5"];var any=false;for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value.trim())any=true;}if(!any){document.getElementById("wOut").innerHTML="<span style='color:#9ca3af;font-style:italic'>✨ ستظهر فقرتك هنا...</span>";return;}var parts=[];for(var j=0;j<ids.length;j++){var el=document.getElementById(ids[j]);var v=el?el.value.trim():"";if(v)parts.push("<span style='color:#f0a000;font-weight:700'>"+v+"</span>.");}document.getElementById("wOut").innerHTML="<p style='direction:ltr;line-height:2'>"+parts.join(" ")+"</p>";}
+function buildSpeaking(){var c=document.getElementById("speakBox");speakQs.forEach(function(q){var d=document.createElement("div");d.style.cssText="background:#f8faff;border-right:4px solid #1e3a8a;border-radius:0 12px 12px 0;padding:16px 18px;margin-bottom:14px";var p1=document.createElement("p");p1.style.cssText="font-size:.97rem;color:#0a1628;font-weight:700;direction:ltr;margin-bottom:5px";p1.textContent=q.q;var p2=document.createElement("p");p2.style.cssText="font-size:.82rem;color:#9ca3af;margin-bottom:6px";p2.textContent=q.ar;var p3=document.createElement("p");p3.style.cssText="font-size:.82rem;color:#f0a000;direction:ltr;margin-bottom:8px";p3.textContent="💡 "+q.hint;var badge=document.createElement("span");badge.style.cssText="background:#dbeafe;color:#1e3a8a;padding:4px 12px;border-radius:20px;font-size:.76rem;font-weight:700";badge.textContent=q.badge;d.appendChild(p1);d.appendChild(p2);d.appendChild(p3);d.appendChild(badge);var btn=document.createElement("button");btn.className="spksmall";btn.textContent="🔊";btn.style.marginTop="10px";btn.addEventListener("click",(function(qq){return function(){say(qq,spd);};})(q.q));d.appendChild(btn);c.appendChild(d);});}
+function makeExRow(t,a,s){var div=document.createElement("div");div.style.cssText="cursor:pointer;user-select:none;padding:8px 12px;background:white;border-radius:8px;direction:ltr;font-size:.86rem;color:#374151;font-style:italic;margin-top:6px";div.appendChild(document.createTextNode(t));var tr=document.createElement("div");tr.style.cssText="font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;padding-top:4px;border-top:1px dashed #e5e7eb;display:none;font-family:Tajawal,sans-serif;font-style:normal";tr.textContent=a;div.appendChild(tr);div.addEventListener("click",(function(t2,s2){return function(){t2.style.display=t2.style.display==="none"?"block":"none";say(s2,spd);};})(tr,s));return div;}
+function buildReal(){var c=document.getElementById("realBox");var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h1.textContent="🔥 Expressions";c.appendChild(h1);realExpr.forEach(function(e){var d=document.createElement("div");d.className="expr-card";var hdr=document.createElement("div");hdr.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;direction:ltr";var hL=document.createElement("div");hL.style.cssText="display:flex;align-items:center;gap:8px";var sb=document.createElement("button");sb.className="spksmall";sb.textContent="🔊";sb.addEventListener("click",(function(ee){return function(){say(ee,spd);};})(e.e));var ts=document.createElement("span");ts.style.cssText="font-weight:700;color:#4c1d95;font-size:.92rem";ts.textContent=e.e;hL.appendChild(sb);hL.appendChild(ts);var ps=document.createElement("span");ps.style.cssText="color:#f0a000;font-size:.78rem;font-weight:700;font-family:Tajawal,sans-serif";ps.textContent=e.p;hdr.appendChild(hL);hdr.appendChild(ps);d.appendChild(hdr);var grid=document.createElement("div");grid.style.cssText="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px";var g1=document.createElement("div");g1.style.cssText="background:white;border-radius:8px;padding:8px 12px;text-align:right";g1.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>المعنى</div><div style='font-weight:700;color:#374151;font-size:.88rem'>"+e.m+"</div>";var g2=document.createElement("div");g2.style.cssText="background:white;border-radius:8px;padding:8px 12px;direction:ltr";g2.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>Formal</div><div style='font-size:.85rem;color:#64748b'>"+e.f+"</div>";grid.appendChild(g1);grid.appendChild(g2);d.appendChild(grid);d.appendChild(makeExRow(e.x,e.xar,e.x));var note=document.createElement("div");note.style.cssText="font-size:.8rem;color:#7c3aed;text-align:right;margin-top:8px";note.textContent="💡 "+e.n;d.appendChild(note);c.appendChild(d);});
+var h2=document.createElement("p");h2.style.cssText="font-weight:800;color:#0a1628;margin:20px 0 14px;text-align:right";h2.textContent="😎 Idioms & Slang";c.appendChild(h2);
+var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:20px";realSlang.forEach(function(s){var d=document.createElement("div");d.className="slang-card";var tR=document.createElement("div");tR.style.cssText="display:flex;align-items:center;gap:6px;margin-bottom:4px;direction:ltr";var spkS=document.createElement("button");spkS.className="spksmall";spkS.textContent="🔊";spkS.style.cssText="width:28px;height:28px;font-size:.8rem";spkS.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));var sWord=document.createElement("span");sWord.style.cssText="font-weight:700;color:#ea580c;font-size:.9rem";sWord.textContent=s.w;tR.appendChild(spkS);tR.appendChild(sWord);var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.m||s.a||"";var inst=document.createElement("div");inst.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";inst.textContent="Meaning: "+s.i;d.appendChild(tR);d.appendChild(ar);d.appendChild(inst);d.appendChild(makeExRow(s.x,s.xar,s.x));sg.appendChild(d);});c.appendChild(sg);
+var h3=document.createElement("p");h3.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h3.textContent="💬 Everyday Phrases";c.appendChild(h3);
+var ev=document.createElement("div");ev.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";realEvery.forEach(function(s){var d=document.createElement("div");d.className="ev-card";var tR=document.createElement("div");tR.style.cssText="display:flex;align-items:center;gap:6px;margin-bottom:6px;direction:ltr";var spkE=document.createElement("button");spkE.className="spksmall";spkE.textContent="🔊";spkE.style.cssText="width:28px;height:28px;font-size:.8rem";spkE.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));var tTxt=document.createElement("span");tTxt.style.cssText="font-weight:700;color:#15803d;font-size:.9rem";tTxt.textContent=s.w;tR.appendChild(spkE);tR.appendChild(tTxt);var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.m||"";var inst=document.createElement("div");inst.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";inst.textContent="Meaning: "+s.i;d.appendChild(tR);d.appendChild(ar);d.appendChild(inst);d.appendChild(makeExRow(s.x,s.xar,s.x));ev.appendChild(d);});c.appendChild(ev);}
+function buildPhrasal(){var c=document.getElementById("pvBox");if(!c)return;var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";pvData.forEach(function(pv){var d=document.createElement("div");d.className="slang-card";var tR=document.createElement("div");tR.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";var tL=document.createElement("div");tL.style.cssText="display:flex;align-items:center;gap:6px";var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";spkBtn.style.cssText="width:28px;height:28px;font-size:.8rem";spkBtn.addEventListener("click",(function(w){return function(e){e.stopPropagation();say(w,spd);};})(pv.v));var pvW=document.createElement("span");pvW.style.cssText="font-weight:700;color:#7c3aed;font-size:.95rem";pvW.textContent=pv.v;tL.appendChild(spkBtn);tL.appendChild(pvW);var pS=document.createElement("span");pS.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pS.textContent=pv.p||"";tR.appendChild(tL);tR.appendChild(pS);var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:6px";ar.textContent=pv.m;var exBox=document.createElement("div");exBox.style.cssText="font-family:'Lora',Georgia,serif;font-style:italic;color:#1e3a8a;font-size:.88rem;direction:ltr;cursor:pointer;padding:8px 10px;background:#f0f9ff;border-radius:8px;border-left:3px solid #7c3aed";exBox.textContent=pv.ex;var trBox=document.createElement("div");trBox.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding:7px 10px;background:#fffdf7;border-radius:8px;border-right:3px solid #fde68a";trBox.textContent=pv.ar;exBox.addEventListener("click",(function(ex,tb){return function(){say(ex,spd);tb.style.display=tb.style.display==="none"?"block":"none";this.style.background=tb.style.display==="block"?"#dbeafe":"#f0f9ff";};})(pv.ex,trBox));d.appendChild(tR);d.appendChild(ar);d.appendChild(exBox);d.appendChild(trBox);sg.appendChild(d);});c.appendChild(sg);}
+function buildQuiz(){var c=document.getElementById("quizList");quizQs.forEach(function(q,qi){var d=document.createElement("div");d.style.marginBottom="18px";var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:10px;direction:ltr;font-size:.93rem";p.innerHTML="<span style='background:#0a1628;color:white;border-radius:5px;padding:1px 8px;font-size:.76rem;margin-left:8px'>"+(qi+1)+"</span>"+q.q;d.appendChild(p);q.opts.forEach(function(opt,oi){var b=document.createElement("div");b.className="qopt";b.id="qq"+qi+"-"+oi;b.textContent=opt;b.addEventListener("click",function(){quizA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("qq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});d.appendChild(b);});c.appendChild(d);});}
+function checkQuiz(){var s=0;quizQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("qq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(quizA[qi]===i)el.classList.add("no");}if(quizA[qi]===q.ans)s++;});var pct=Math.round(s/quizQs.length*100);var r=document.getElementById("quizRes");r.style.display="block";document.getElementById("qEmoji").textContent=pct===100?"🏆":pct>=70?"🎉":pct>=50?"💪":"📚";document.getElementById("qScore").textContent=s+" من "+quizQs.length+" ("+pct+"%)";document.getElementById("qMsg").textContent=pct===100?"مثالي! إتقان Hedging Advanced":pct>=70?"أحسنت!":"راجع الوحدة.";r.style.background=pct>=70?"#f0fdf4":"#fef9f0";r.scrollIntoView({behavior:"smooth",block:"center"});}
+function resetQuiz(){quizA=new Array(quizQs.length).fill(null);document.querySelectorAll(".qopt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("quizRes").style.display="none";}
+function buildAssessment(){var c=document.getElementById("assessList");if(!c)return;assessItems.forEach(function(item,i){var d=document.createElement("div");d.style.cssText="display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border-radius:10px;margin-bottom:8px;background:#f8faff;border:1.5px solid #e5eaf5;cursor:pointer;flex-direction:row-reverse";var cb=document.createElement("input");cb.type="checkbox";cb.id="as"+i;cb.style.cssText="width:18px;height:18px;cursor:pointer;accent-color:#1e3a8a;flex-shrink:0;margin-top:2px";var lbl=document.createElement("label");lbl.htmlFor="as"+i;lbl.style.cssText="font-size:.88rem;color:#374151;direction:rtl;text-align:right;cursor:pointer;line-height:1.8;flex:1";lbl.textContent=item;cb.addEventListener('change',function(){d.style.background=this.checked?'#f0fdf4':'#f8faff';d.style.borderColor=this.checked?'#86efac':'#e5eaf5';updateAssess();});d.appendChild(lbl);d.appendChild(cb);c.appendChild(d);});}
+function updateAssess(){var total=assessItems.length;var done=document.querySelectorAll('#assessList input:checked').length;var r=document.getElementById('assessResult');r.style.display='block';var pct=Math.round(done/total*100);var msg=pct===100?'🏆 B2 Culture!':pct>=75?'🎉 قريب!':pct>=50?'💪 نصف الطريق':'📚 حدّد ما تحتاج';r.style.background=pct>=75?'#f0fdf4':pct>=50?'#fefce8':'#f8faff';r.innerHTML='<div style="font-size:1.4rem;margin-bottom:6px">'+msg.split(' ')[0]+'</div><div style="font-weight:800;color:#0a1628;margin-bottom:3px">'+done+' من '+total+' ('+pct+'%)</div><div style="font-size:.82rem;color:#64748b">'+msg.substring(msg.indexOf(' ')+1)+'</div>';}
+buildVocab();
+setTimeout(function(){document.querySelectorAll('.vword').forEach(function(e){var ov=e.scrollWidth-e.clientWidth;if(ov>4){e.style.setProperty('--vtx','-'+(ov+2)+'px');e.classList.add('mq');}});},500);buildStory();buildReading();buildGrammar();buildGrammarExtra();buildListening();buildSpeaking();buildReal();buildPhrasal();buildQuiz();buildAssessment();
+if(window.speechSynthesis){window.speechSynthesis.onvoiceschanged=function(){};window.speechSynthesis.getVoices();}
+</script></body></html>
