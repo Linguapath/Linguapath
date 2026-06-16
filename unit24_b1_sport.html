@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath B1 — Unit 24: Sport and Competition</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Tajawal',sans-serif;background:#f0f4fa;direction:rtl;min-height:100vh}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#1e3a8a;border-radius:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(30,58,138,.35)}50%{box-shadow:0 0 0 8px rgba(30,58,138,0)}}
+.nav-bar{background:linear-gradient(135deg,#0a1628,#1e3a8a);padding:10px 12px;display:flex;justify-content:center;gap:4px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.nb{border:none;border-radius:22px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s}
+.nb.on{background:#f0a000;color:#0a1628}
+.nb:not(.on){background:rgba(255,255,255,.1);color:rgba(255,255,255,.85)}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#1e3a8a 55%,#1d4ed8 100%);color:white;padding:32px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(240,160,0,.06)}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04)}
+.b1tag{display:inline-block;background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-size:.72rem;font-weight:900;padding:4px 14px;border-radius:20px;letter-spacing:1.5px;margin-bottom:10px}
+.sec{display:none;max-width:900px;margin:0 auto;padding:32px 16px 80px;animation:fadeUp .4s ease}
+.sec.on{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 3px 20px rgba(0,0,0,.06);margin-bottom:22px;overflow:hidden}
+.ch{background:#0a1628;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.ch h3{font-size:1rem;font-weight:700}
+.ch .sub{font-size:.75rem;color:#93c5fd;margin-top:1px}
+.cb{padding:22px}
+.vocab-card{background:white;border-radius:16px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 14px rgba(10,22,40,.08);border:1px solid #e5ebf8;transition:transform .2s,box-shadow .2s}
+.vocab-card:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(10,22,40,.13)}
+.vhead{background:linear-gradient(135deg,#0a1628,#1e3a8a);display:flex;flex-direction:row-reverse;align-items:center;padding:14px 18px;gap:14px}
+
+
+.vinfo{flex:1;text-align:right}
+.vword{font-family:'Lora',serif;font-size:1.18rem;font-weight:700;color:white;direction:ltr;text-align:left}
+.vpron{font-size:.78rem;font-weight:700;color:#fde68a;margin-top:3px;direction:ltr;text-align:left}
+.var{font-size:.93rem;font-weight:700;color:rgba(255,255,255,.9);margin-top:3px}
+.vspk{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.25);background:transparent;color:white;font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:all .18s;display:flex;align-items:center;justify-content:center}
+.vspk:hover{background:rgba(255,255,255,.2);transform:scale(1.08)}
+.vspk.playing{background:#f0a000;border-color:#f0a000;animation:pulse 1s infinite}
+.vbody{padding:14px 16px 16px}
+.vgrid2{margin-bottom:10px}
+.vrow-pair{display:flex;gap:8px;margin-bottom:8px}
+.vrow-pair .vcell{flex:1;min-width:0}
+.vcell{border-radius:10px;padding:10px 13px;cursor:pointer;transition:all .15s;user-select:none;direction:ltr}
+.vcell:hover{filter:brightness(.96)}
+.vcell:active{transform:scale(.98)}
+.c-syn{background:#f0fdf4;border:1px solid #bbf7d0}
+.c-ant{background:#fff7ed;border:1px solid #fed7aa}
+.c-col{background:#eff6ff;border:1px solid #bfdbfe}
+.c-prep{background:#faf5ff;border:1px solid #ddd6fe}
+.vlbl{font-size:.65rem;font-weight:900;letter-spacing:.7px;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:5px;direction:ltr;justify-content:flex-start}
+.c-syn .vlbl{color:#15803d}.c-ant .vlbl{color:#ea580c}
+.c-col .vlbl{color:#2563eb}.c-prep .vlbl{color:#7c3aed}
+.vlbl::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.c-syn .vlbl::before{background:#15803d}.c-ant .vlbl::before{background:#ea580c}
+.c-col .vlbl::before{background:#2563eb}.c-prep .vlbl::before{background:#7c3aed}
+.vval{font-family:'Lora',serif;font-size:.82rem;color:#374151;direction:ltr;line-height:1.6}
+.vtr{font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px;padding-top:5px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif}
+.vcell.show-tr .vtr{display:block}
+.vex{font-family:'Lora',serif;font-size:.87rem;color:#374151;direction:ltr;font-style:italic;padding:10px 14px;background:#f8faff;border-radius:10px;border-right:3px solid #f0a000;cursor:pointer;user-select:none}
+.vex-tr{font-size:.8rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding-top:6px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif;font-style:normal}
+.vex.show-ex-tr .vex-tr{display:block}
+.sline{font-family:'Lora',serif;font-size:.97rem;line-height:2;padding:5px 8px;border-radius:6px;direction:ltr;transition:background .2s}
+.sline.hl{background:#fef3c7}
+.lline{font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#cbd5e1;padding:3px 6px;border-radius:5px;direction:ltr;transition:background .2s}
+.lline.hl{background:rgba(240,160,0,.18);color:#fde68a}
+.sctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-direction:row-reverse;margin-bottom:16px}
+.pbtn{background:#1e3a8a;color:white;border:none;border-radius:24px;padding:9px 20px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s}
+.pbtn:hover{background:#1d4ed8}
+.spdbtn{padding:5px 12px;border-radius:18px;border:2px solid #cbd5e1;background:white;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;color:#64748b;transition:all .15s}
+.spdbtn.on{border-color:#1e3a8a;background:#1e3a8a;color:white}
+.rtext{font-family:'Lora',serif;font-size:.95rem;line-height:2;color:#374151;direction:ltr;padding:20px;background:#f8faff;border-radius:14px;border:1px solid #e5eaf5;margin-bottom:18px}
+.rtext p{margin-bottom:14px}
+.gbox{background:linear-gradient(135deg,#eff6ff,#e0effe);border:2px solid #bfdbfe;border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.gpat{background:white;border-radius:10px;padding:12px 16px;margin-bottom:10px;border-right:4px solid #2563eb;direction:ltr}
+.geg{font-family:'Lora',serif;font-size:.97rem;color:#0a1628;font-weight:600}
+.geg em{color:#f0a000;font-style:normal;font-weight:800}
+.gar{font-family:'Tajawal',sans-serif;font-size:.85rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px}
+.qopt{padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;font-family:'Lora',serif;font-size:.9rem;direction:ltr;background:white;transition:all .15s;margin-bottom:7px;text-align:left}
+.qopt:hover{border-color:#1e3a8a;background:#eff6ff}
+.qopt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.qopt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.copt{padding:9px 14px;border:2px solid #e5e7eb;border-radius:9px;cursor:pointer;font-family:'Lora',serif;font-size:.87rem;direction:ltr;background:white;transition:all .15s;margin-bottom:6px}
+.copt:hover{border-color:#1e3a8a;background:#eff6ff}
+.copt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.copt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.wq-block{margin-bottom:18px}
+.wq-model{font-family:'Lora',serif;font-size:.8rem;color:#374151;font-style:italic;direction:ltr;padding:10px 14px;background:#f0f9ff;border-radius:8px;border-right:3px solid #bfdbfe;line-height:1.7;display:none;margin-bottom:8px}
+.wq-model.show{display:block}
+.wq-model-btn{background:#dbeafe;border:none;border-radius:20px;padding:4px 14px;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer;margin-bottom:8px;transition:all .15s}
+.wq-model-btn:hover{background:#1e3a8a;color:white}
+.wq-en{font-family:'Lora',serif;font-size:.93rem;font-weight:700;color:#0a1628;direction:ltr;margin-bottom:3px}
+.wq-ar{font-size:.78rem;color:#9ca3af;direction:rtl;text-align:right;margin-bottom:8px;font-family:'Tajawal',sans-serif}
+.winput{width:100%;border:none;border-bottom:2px solid #f0a000;background:transparent;font-family:'Lora',serif;font-size:.95rem;color:#0a1628;outline:none;padding:5px 3px;direction:ltr;margin-bottom:14px}
+.winput:focus{border-color:#1e3a8a}
+.btn{border:none;border-radius:28px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all .18s;padding:10px 24px;font-size:.9rem}
+.btn:hover{opacity:.88;transform:scale(.98)}
+.bd{background:#1e3a8a;color:white}
+.bg{background:#e5e7eb;color:#374151}
+.bgold{background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-weight:900}
+.navrow{display:flex;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.spksmall{width:32px;height:32px;border-radius:50%;border:none;background:#dbeafe;color:#1e3a8a;font-size:.85rem;cursor:pointer;flex-shrink:0;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.spksmall:hover{background:#1e3a8a;color:white}
+.expr-card{background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:16px;margin-bottom:12px}
+.slang-card{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px}
+.ev-card{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px}
+@media(max-width:580px){.vgrid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <button class="nb on"  onclick="show('vocab',this)">📚 المفردات</button>
+  <button class="nb" onclick="show('story',this)">📖 القصة</button>
+  <button class="nb" onclick="show('reading',this)">📰 القراءة</button>
+  <button class="nb" onclick="show('grammar',this)">✏️ القاعدة</button>
+  <button class="nb" onclick="show('listening',this)">🎧 الاستماع</button>
+  <button class="nb" onclick="show('writing',this)">✍️ الكتابة</button>
+  <button class="nb" onclick="show('speaking',this)">💬 المحادثة</button>
+  <button class="nb" onclick="show('realeng',this)">🗣️ Real English</button>
+  <button class="nb" onclick="show('pv',this)">💬 Phrasal Verbs</button>
+  <button class="nb" onclick="show('quiz',this)">✅ الاختبار</button>
+</div>
+<div class="hero">
+  <div class="b1tag">B1 — INTERMEDIATE</div>
+  <div style="font-size:.75rem;letter-spacing:3px;color:rgba(255,255,255,.45);font-weight:700;margin-bottom:8px">UNIT 24</div>
+  <h1 style="font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;margin-bottom:6px"> Sport and Competition</h1>
+  <p style="font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:4px">الرياضة والمنافسة</p>
+  <p style="font-size:.82rem;color:rgba(255,255,255,.4)">القاعدة: Modal Verbs Advanced — must have won / should have trained / might have lost</p>
+  <div style="display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap">
+    <a href="unit23_b1_politics.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">← الوحدة ٢٣</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="unit25_b1_language.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">الوحدة ٢٥ ←</a>
+  </div>
+</div>
+
+<div id="sec-vocab" class="sec on">
+  <div style="text-align:right;color:#64748b;font-size:.88rem;max-width:900px;margin:0 auto 16px;padding:0 16px">💡 اضغط 🔊 للكلمة الرئيسية — اضغط على أي خلية لتسمع نطقها وتظهر ترجمتها</div>
+  <div id="vocabList" style="max-width:900px;margin:0 auto;padding:0 16px"></div>
+  <div class="navrow"><button class="btn bd" onclick="show('story',null)">القصة ←</button></div>
+</div>
+
+<div id="sec-story" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📖</span><div><h3>القصة القصيرة</h3><div class="sub">Fatima تحكي عن الرياضة والمنافسة — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button id="trBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:22px;padding:7px 16px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+        <button class="pbtn" id="storyBtn" onclick="toggleStory()"><span id="sIcon">▶</span><span id="sTxt">استمع للقصة</span></button>
+        <button class="spdbtn on" onclick="setSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setSpd(0.75,this)">بطيء</button>
+      </div>
+      <div id="storyBox" style="border-right:4px solid #f0a000;padding:16px 20px;background:#fffdf7;border-radius:0 14px 14px 0"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn bd" onclick="show('reading',null)">القراءة ←</button>
+  </div>
+</div>
+
+<div id="sec-reading" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📰</span><div><h3>القراءة المعمّقة</h3><div class="sub">نص 350 كلمة + 5 أسئلة فهم</div></div></div>
+    <div class="cb">
+      <div class="rtext" id="readingText"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الفهم</p>
+      <div id="compList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkComp()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetComp()">↺ إعادة</button>
+      </div>
+      <div id="compRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('story',null)">→ القصة</button>
+    <button class="btn bd" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✏️</span><div><h3>القاعدة</h3><div class="sub">Dependent Prepositions — الحروف الجر المقيّدة</div></div></div>
+    <div class="cb" id="grammarBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('reading',null)">→ القراءة</button>
+    <button class="btn bd" onclick="show('listening',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listening" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🎧</span><div><h3>الاستماع المضمّن</h3><div class="sub">حوار بين Dr. James 👨 و Dr. Sarah 👩 — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button class="pbtn" id="listenBtn" onclick="toggleListen()"><span id="lIcon">▶</span><span id="lTxt">شغّل المونولوج</span></button>
+        <button class="spdbtn on" onclick="setLSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setLSpd(0.75,this)">بطيء</button>
+      </div>
+      <div class="lscript" id="listenScript" style="background:#0f172a;border-radius:14px;padding:18px 20px;margin-bottom:16px"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الاستماع</p>
+      <div id="listenQList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkListen()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetListen()">↺ إعادة</button>
+      </div>
+      <div id="listenRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn bd" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✍️</span><div><h3>الكتابة</h3><div class="sub">اكتب عن الرياضة والمنافسة</div></div></div>
+    <div class="cb">
+      <div style="background:#fffdf7;border:2px dashed #f0a000;border-radius:14px;padding:20px;margin-bottom:14px">
+        <div class="wq-block">
+          <div class="wq-en">Describe a sporting achievement you are proud of using modal perfects.</div>
+          <div class="wq-ar">صف إنجازاً رياضياً تفخر به باستخدام Modal Perfect.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">I must have trained for over a thousand hours to reach that level. Looking back, I should have rested more — I might have avoided the injury that derailed my season. But the discipline I developed could not have been learned any other way.</div>
+          <input class="winput" id="w1" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">What makes a great athlete beyond physical ability?</div>
+          <div class="wq-ar">ما الذي يصنع الرياضي العظيم ما وراء القدرة الجسدية؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">The greatest athletes must have developed extraordinary mental resilience alongside physical skill. They cannot have reached the top without learning to manage failure constructively. Their mindset should have been their first training priority.</div>
+          <input class="winput" id="w2" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Should performance-enhancing drugs be banned? Argue using modal verbs.</div>
+          <div class="wq-ar">هل يجب حظر المنشطات؟ جادل باستخدام أفعال المودال.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">Performance-enhancing drugs must be banned because they cannot have been shown to be safe long-term. Athletes who use them may have won through chemical advantage rather than genuine development. The spirit of sport should have been sufficient motivation.</div>
+          <input class="winput" id="w3" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">How does sport bring communities together?</div>
+          <div class="wq-ar">كيف توحّد الرياضة المجتمعات؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">Sport must be one of the few arenas where people from different backgrounds cooperate toward a shared goal. The 1995 Rugby World Cup could not have done what it did without sport's unique capacity to transcend political division. Communities might have drifted further apart without the shared identity that supporting a team provides.</div>
+          <input class="winput" id="w4" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block" style="margin-bottom:0">
+          <div class="wq-en">What can athletes teach us about handling failure?</div>
+          <div class="wq-ar">ماذا يعلّمنا الرياضيون عن التعامل مع الفشل؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">Elite athletes must have experienced more failure than most people ever face. They cannot have reached the top without developing a relationship with defeat that ordinary life rarely forces us to build. They should have failed publicly and repeatedly — and learned each time.</div>
+          <input class="winput" id="w5" placeholder="Write your answer here..." oninput="buildW()" style="margin-bottom:0">
+        </div></div>
+      <div id="wOut" style="background:white;border:1px solid #e5eaf5;border-radius:12px;padding:16px;min-height:70px;font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#374151;direction:ltr">
+        <span style="color:#9ca3af;font-style:italic">✨ ستظهر فقرتك هنا...</span>
+      </div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('listening',null)">→ الاستماع</button>
+    <button class="btn bd" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">💬</span><div><h3>المحادثة</h3><div class="sub">Speaking Challenge</div></div></div>
+    <div class="cb" id="speakBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn bd" onclick="show('realeng',null)">Real English ←</button>
+  </div>
+</div>
+
+<div id="sec-realeng" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🗣️</span><div><h3>Real English</h3><div class="sub">اضغط على الجملة لتسمعها وتظهر ترجمتها</div></div></div>
+    <div class="cb" id="realBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn bd" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-pv" class="sec">
+  <div class="card">
+    <div class="card-title">💬 Phrasal Verbs — الرياضة والمنافسة</div>
+    <p style="font-size:.82rem;color:#64748b;text-align:right;margin-bottom:16px;font-family:Tajawal,sans-serif">اضغط على الجملة لتسمعها وترى ترجمتها 🔊</p>
+    <div id="pvBox"></div>
+  </div>
+</div>
+
+<div id="sec-quiz" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✅</span><div><h3>اختبار الوحدة</h3><div class="sub">10 أسئلة — مفردات + قواعد + collocations</div></div></div>
+    <div class="cb">
+      <div id="quizList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:18px">
+        <button class="btn bgold" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn bg" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizRes" style="display:none;text-align:center;padding:22px;margin-top:16px;background:#f0fdf4;border-radius:14px">
+        <div id="qEmoji" style="font-size:2.5rem;margin-bottom:8px"></div>
+        <div id="qScore" style="font-weight:800;font-size:1.1rem;color:#0a1628;margin-bottom:4px"></div>
+        <div id="qMsg" style="font-size:.88rem;color:#64748b"></div>
+      </div>
+    </div>
+  </div>
+  <div style="background:linear-gradient(135deg,#0a1628,#1e3a8a);border-radius:18px;padding:28px;text-align:center;margin-top:8px;max-width:900px;margin-left:auto;margin-right:auto">
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:white;margin-bottom:6px">أحسنت! أكملت وحدة الرياضة والمنافسة</div>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:16px">الوحدة الخامسة والعشرون: Language</p>
+    <button class="btn bgold" onclick="location.href='unit25_b1_language.html'">الوحدة الحادية والعشرون ←</button>
+  </div>
+</div>
+
+<script>
+var V=[
+  {w:"resilience",p:"ريزيلينس",a:"المرونة / الصمود",syn:"toughness, mental strength",ant:"fragility, giving up",col:"mental resilience / build resilience / resilience under pressure",prep:"resilience in (defeat) / under (pressure)",ex:"She must have developed extraordinary resilience to come back from three consecutive losses.",ar_syn:"صلابة، قوة ذهنية",ar_ant:"هشاشة، استسلام",ar_col:"مرونة ذهنية / يبني / تحت الضغط",ar_prep:"مرونة في الهزيمة / تحت الضغط",ar_ex:"لا بد أنها طوّرت مرونة استثنائية لتتعافى من ثلاث هزائم متتالية."},
+  {w:"sportsmanship",p:"سبورتسمانشب",a:"الروح الرياضية",syn:"fair play, integrity, respect",ant:"cheating, poor conduct",col:"show sportsmanship / spirit of sportsmanship",prep:"sportsmanship in (defeat) / towards (opponent)",ex:"He might have won more trophies but could not have shown more sportsmanship.",ar_syn:"اللعب النظيف، نزاهة",ar_ant:"غش، سوء سلوك",ar_col:"يُظهر الروح الرياضية / روح",ar_prep:"روح رياضية في الهزيمة / تجاه المنافس",ar_ex:"ربما فاز بكؤوس أكثر لكنه لم يكن يستطيع إظهار روح رياضية أكثر."},
+  {w:"endurance",p:"إنديورنس",a:"التحمّل",syn:"stamina, persistence, staying power",ant:"weakness, giving in",col:"physical endurance / endurance sport",prep:"endurance in (race) / over (distance)",ex:"She must have trained her endurance for years before completing the ultra-marathon.",ar_syn:"قدرة على التحمل، مثابرة",ar_ant:"ضعف، استسلام",ar_col:"تحمّل جسدي / رياضة التحمّل",ar_prep:"تحمّل في السباق / على المسافة",ar_ex:"لا بد أنها دربت تحمّلها لسنوات قبل إتمام الماراثون الفائق."},
+  {w:"doping",p:"دوبينغ",a:"استخدام المنشطات",syn:"drug use, performance enhancement",ant:"clean sport, fair competition",col:"caught doping / doping scandal / anti-doping",prep:"doping in (sport) / by (athlete)",ex:"He must have been taking banned substances — his improvement could not have been natural.",ar_syn:"استخدام عقاقير، تعزيز الأداء",ar_ant:"رياضة نظيفة، منافسة عادلة",ar_col:"يُمسك بالمنشطات / فضيحة / مكافحة",ar_prep:"منشطات في الرياضة / من قِبل الرياضي",ar_ex:"لا بد أنه كان يتناول مواد محظورة — تحسّن أدائه لم يكن يمكن أن يكون طبيعياً."},
+  {w:"tactics",p:"تاكتكس",a:"التكتيكات",syn:"strategy, game plan, approach",ant:"improvisation, no plan",col:"tactical approach / change tactics / tactical decision",prep:"tactics of (team) / in (match)",ex:"Their tactics should have worked — they could not have prepared more thoroughly for this opponent.",ar_syn:"استراتيجية، خطة اللعبة",ar_ant:"ارتجال، بلا خطة",ar_col:"نهج تكتيكي / يغير / قرار",ar_prep:"تكتيكات الفريق / في المباراة",ar_ex:"تكتيكاتهم كان يجب أن تنجح — لم يكن بإمكانهم الاستعداد بشكل أكثر شمولاً."},
+  {w:"underdog",p:"أندر-دوغ",a:"المنافس الأضعف",syn:"outsider, long shot",ant:"favourite, champion",col:"classic underdog / underdog story",prep:"underdog in (competition) / against (favourite)",ex:"They must have known they were the underdog — they could not have expected to win by thirty points.",ar_syn:"خارج السباق، المتنافس غير المتوقع",ar_ant:"المفضل، البطل",ar_col:"كلاسيكي / قصة المنبوذ",ar_prep:"منبوذ في المنافسة / ضد المفضل",ar_ex:"لا بد أنهم كانوا يعرفون أنهم المنافس الأضعف — لم يكن بإمكانهم توقع الفوز بثلاثين نقطة."},
+  {w:"momentum",p:"موومينتم",a:"الزخم",syn:"drive, flow, unstoppable force",ant:"stagnation, loss of form",col:"build momentum / lose momentum / shift momentum",prep:"momentum in (game) / towards (victory)",ex:"They had built such momentum that their opponents could not have stopped them without a tactical change.",ar_syn:"دافع، تدفق، قوة لا تُقاوم",ar_ant:"ركود، فقدان الشكل",ar_col:"يبني زخماً / يفقد / يحوّل",ar_prep:"زخم في اللعبة / نحو الفوز",ar_ex:"بنوا زخماً كبيراً لدرجة أن منافسيهم لم يكن بإمكانهم إيقافهم."},
+  {w:"stamina",p:"ستامينا",a:"القدرة على التحمّل",syn:"endurance, fitness, staying power",ant:"weakness, fatigue",col:"build stamina / extraordinary stamina",prep:"stamina for (long events) / throughout (competition)",ex:"She must have worked on her stamina for months — she could not have maintained that pace otherwise.",ar_syn:"تحمّل، لياقة",ar_ant:"ضعف، تعب",ar_col:"يبني القدرة / استثنائية",ar_prep:"قدرة لفعاليات طويلة / عبر المنافسة",ar_ex:"لا بد أنها عملت على قدرتها التحمّلية لأشهر."},
+  {w:"tournament",p:"تورنمنت",a:"البطولة",syn:"championship, competition, contest",ant:"friendly, informal match",col:"win a tournament / host a tournament",prep:"tournament in (sport) / over (weeks)",ex:"They must have prepared for this tournament for over a year — the organisation could not have been more thorough.",ar_syn:"بطولة، منافسة، مسابقة",ar_ant:"مباراة ودية",ar_col:"يفوز ببطولة / يستضيف",ar_prep:"بطولة في الرياضة / على مدى أسابيع",ar_ex:"لا بد أنهم استعدوا لهذه البطولة لأكثر من عام."},
+  {w:"rival",p:"رايفل",a:"المنافس / الغريم",syn:"opponent, competitor, adversary",ant:"teammate, ally",col:"fierce rival / rivalry between",prep:"rival of (team) / in (sport)",ex:"They might have performed differently without the presence of their fiercest rival pushing them higher.",ar_syn:"خصم، منافس",ar_ant:"زميل الفريق، حليف",ar_col:"غريم شرس / تنافس بين",ar_prep:"غريم الفريق / في الرياضة",ar_ex:"ربما أدّوا بشكل مختلف لولا وجود غريمهم الأشد يدفعهم للأعلى."},
+  {w:"comeback",p:"كامباك",a:"العودة القوية",syn:"recovery, return, revival",ant:"retirement, defeat",col:"stage a comeback / remarkable comeback",prep:"comeback from (injury) / in (final stages)",ex:"She must have trained through extraordinary pain to make that comeback from injury so quickly.",ar_syn:"تعافٍ، عودة",ar_ant:"تقاعد، هزيمة",ar_col:"ينفّذ عودة / رائعة",ar_prep:"عودة من إصابة / في المراحل الأخيرة",ar_ex:"لا بد أنها تدربت عبر ألم استثنائي لتنجح بتلك العودة من الإصابة."},
+  {w:"discipline",p:"ديسبلن",a:"الانضباط",syn:"self-control, commitment, dedication",ant:"laziness, inconsistency",col:"strict discipline / self-discipline",prep:"discipline in (training) / over (years)",ex:"She cannot have reached that level without the kind of discipline most people cannot imagine sustaining.",ar_syn:"ضبط النفس، التزام",ar_ant:"كسل، تقلب",ar_col:"انضباط صارم / الانضباط الذاتي",ar_prep:"انضباط في التدريب / على مدى سنوات",ar_ex:"لم يكن بإمكانها الوصول لذلك المستوى بدون الانضباط الاستثنائي."},
+  {w:"coaching",p:"كوتشينغ",a:"التدريب / التوجيه",syn:"training, mentoring, instruction",ant:"self-teaching, unguided",col:"professional coaching / quality coaching",prep:"coaching of (team) / by (coach)",ex:"Their performance must have improved significantly — the coaching must have been exceptional.",ar_syn:"تدريب، إرشاد",ar_ant:"تعلم ذاتي",ar_col:"تدريب احترافي / جودة",ar_prep:"تدريب الفريق / من قِبل المدرب",ar_ex:"أداؤهم لا بد أنه تحسّن بشكل ملحوظ — التدريب لا بد أنه كان استثنائياً."},
+  {w:"championship",p:"تشامبيونشب",a:"البطولة / اللقب",syn:"title, trophy, tournament victory",ant:"defeat, runner-up",col:"win the championship / defend championship",prep:"championship in (sport) / over (season)",ex:"She could not have won the championship without the sacrifice of the previous three years.",ar_syn:"لقب، كأس",ar_ant:"هزيمة، المركز الثاني",ar_col:"يفوز باللقب / يدافع",ar_prep:"بطولة في الرياضة / عبر الموسم",ar_ex:"لم يكن بإمكانها الفوز باللقب بدون تضحيات السنوات الثلاث الماضية."},
+  {w:"squad",p:"سكواد",a:"المجموعة / الفريق الكامل",syn:"team, group, roster",ant:"individual, solo competitor",col:"national squad / squad selection",prep:"squad of (players) / for (tournament)",ex:"They must have had remarkable squad depth — injuries to key players might have ended other teams' campaigns.",ar_syn:"فريق، مجموعة، قائمة لاعبين",ar_ant:"فرد، منافس منفرد",ar_col:"منتخب وطني / اختيار",ar_prep:"مجموعة من اللاعبين / للبطولة",ar_ex:"لا بد أنهم امتلكوا عمقاً استثنائياً في مجموعتهم."},
+  {w:"peak performance",p:"بيك بيرفورمنس",a:"الأداء في قمته",syn:"best performance, optimal level",ant:"poor form, below par",col:"reach peak performance / sustain peak",prep:"performance at (its peak) / during (competition)",ex:"She must have been at peak performance — her times could not have been achieved otherwise.",ar_syn:"أفضل أداء، مستوى أمثل",ar_ant:"شكل ضعيف، دون المستوى",ar_col:"يصل للذروة / يستمر",ar_prep:"أداء في ذروته / أثناء المنافسة",ar_ex:"لا بد أنها كانت في ذروة أدائها — لم يكن بالإمكان تحقيق تلك الأوقات وإلا."},
+  {w:"disqualification",p:"ديسكواليفيكيشن",a:"الاستبعاد / الإقصاء",syn:"elimination, ban, exclusion",ant:"qualification, eligibility",col:"face disqualification / disqualification ruling",prep:"disqualification from (event) / for (violation)",ex:"He should not have made that move — he must have known it risked disqualification.",ar_syn:"إقصاء، حظر، استبعاد",ar_ant:"تأهل، أهلية",ar_col:"يواجه الاستبعاد / حكم",ar_prep:"استبعاد من الفعالية / لمخالفة",ar_ex:"لم يكن يجب أن يقوم بتلك الحركة — لا بد أنه كان يعلم أنها تخاطر بالاستبعاد."},
+  {w:"fixture",p:"فيكستشر",a:"المباراة المجدولة",syn:"scheduled match, game",ant:"postponed game, cancelled match",col:"key fixture / fixture list",prep:"fixture against (opponent) / in (league)",ex:"They might have performed better at that fixture had the injury not occurred the week before.",ar_syn:"مباراة مجدولة، لعبة",ar_ant:"مباراة مؤجلة، ملغاة",ar_col:"مباراة مهمة / قائمة",ar_prep:"مباراة ضد خصم / في الدوري",ar_ex:"ربما أدّوا بشكل أفضل في تلك المباراة لو لم تحدث الإصابة في الأسبوع السابق."},
+  {w:"amateur",p:"أماتور",a:"الهاوي",syn:"non-professional, recreational",ant:"professional, elite, paid",col:"amateur level / amateur status",prep:"amateur in (sport) / at (level)",ex:"He might have turned professional earlier but could not have sacrificed his degree programme.",ar_syn:"غير محترف، ترفيهي",ar_ant:"محترف، نخبوي",ar_col:"مستوى الهاوي / وضع",ar_prep:"هاوٍ في الرياضة / على المستوى",ar_ex:"ربما تحوّل للاحتراف أبكر لكنه لم يكن يستطيع التضحية ببرنامج درجته."},
+  {w:"sprint",p:"سبرنت",a:"العدو السريع",syn:"dash, short race, burst of speed",ant:"marathon, long distance",col:"final sprint / sprint finish",prep:"sprint to (finish) / in (final metres)",ex:"She must have saved something for the final sprint — no one could have passed three athletes in that distance.",ar_syn:"اندفاع، سباق قصير",ar_ant:"ماراثون، مسافة طويلة",ar_col:"سباق نهائي / إنهاء",ar_prep:"عدو نحو النهاية / في الأمتار الأخيرة",ar_ex:"لا بد أنها حفظت شيئاً للعدو النهائي."},
+  {w:"penalty",p:"بينلتي",a:"ضربة الجزاء",syn:"punishment, sanction, free kick",ant:"reward, advantage",col:"award a penalty / miss a penalty / penalty shootout",prep:"penalty for (foul) / in (match)",ex:"He should have scored that penalty — he cannot have missed from that distance under normal circumstances.",ar_syn:"عقوبة، جزاء",ar_ant:"مكافأة، ميزة",ar_col:"يمنح ركلة / يضيّع / ضربات ترجيح",ar_prep:"جزاء على خطأ / في المباراة",ar_ex:"كان يجب أن يسجّل تلك الركلة."},
+  {w:"podium",p:"بوديوم",a:"منصة التتويج",syn:"medal position, top three finish",ant:"outside the medals",col:"reach the podium / podium finish",prep:"podium in (event) / at (competition)",ex:"She must have known she could reach the podium but could not have predicted a gold.",ar_syn:"موقع ميدالية، إنهاء ضمن الثلاثة",ar_ant:"خارج الميداليات",ar_col:"يصل للمنصة / إنهاء",ar_prep:"منصة في الفعالية / في المنافسة",ar_ex:"لا بد أنها كانت تعلم أنها تستطيع الوصول للمنصة لكنها لم تكن تستطيع التنبؤ بالذهب."},
+  {w:"debut",p:"ديبيو",a:"الظهور الأول",syn:"first appearance, first game",ant:"retirement, final game",col:"make debut / professional debut",prep:"debut in (sport) / for (team)",ex:"She must have been nervous on her debut but could not have imagined the reception she would receive.",ar_syn:"أول ظهور، أول مباراة",ar_ant:"اعتزال، آخر مباراة",ar_col:"يُحقق ظهوراً أولياً / احترافي",ar_prep:"ظهور أول في الرياضة / للفريق",ar_ex:"لا بد أنها كانت متوترة في ظهورها الأول."},
+  {w:"concede",p:"كونسيد",a:"يستقبل هدفاً",syn:"let in, allow",ant:"score, prevent, block",col:"concede a goal / concede defeat",prep:"concede to (opponent) / in (final minutes)",ex:"They should not have conceded in the final minute — they must have lost concentration.",ar_syn:"يسمح بدخول، يقبل",ar_ant:"يسجّل، يمنع",ar_col:"يستقبل هدفاً / يُقرّ بالهزيمة",ar_prep:"يستقبل من الخصم / في الدقائق الأخيرة",ar_ex:"لم يكن يجب أن يستقبلوا في الدقيقة الأخيرة."},
+  {w:"venue",p:"فينيو",a:"الملعب / مكان الفعالية",syn:"stadium, arena, ground",ant:"away ground, neutral venue",col:"host venue / world-class venue",prep:"venue for (event) / in (city)",ex:"The venue must have added to the pressure — the home crowd could not have been louder.",ar_syn:"ملعب، ساحة",ar_ant:"أرض الخصم، ملعب محايد",ar_col:"ملعب الاستضافة / عالمي",ar_prep:"ملعب للفعالية / في المدينة",ar_ex:"الملعب لا بد أنه أضاف للضغط."},
+  {w:"perseverance",p:"بيرسيفيرنس",a:"المثابرة",syn:"persistence, determination, grit",ant:"giving up, quitting",col:"show perseverance / perseverance through difficulty",prep:"perseverance in (training) / despite (setbacks)",ex:"She must have needed extraordinary perseverance — she could not have succeeded without it.",ar_syn:"مثابرة، عزم، صمود",ar_ant:"استسلام، تخلي",ar_col:"يُظهر مثابرة / عبر الصعوبة",ar_prep:"مثابرة في التدريب / رغم النكسات",ar_ex:"لا بد أنها احتاجت مثابرة استثنائية."},
+  {w:"league",p:"ليغ",a:"الدوري",syn:"division, conference, competition tier",ant:"cup, knockout",col:"top of the league / league title",prep:"league in (country) / at (level)",ex:"They must have finished at the top of the league — no other team could have performed so consistently.",ar_syn:"قسم، مؤتمر، مستوى المنافسة",ar_ant:"كأس، إقصاء",ar_col:"قمة الدوري / لقب",ar_prep:"دوري في البلد / على المستوى",ar_ex:"لا بد أنهم انتهوا في قمة الدوري."},
+  {w:"fan base",p:"فان بيس",a:"قاعدة المشجعين",syn:"supporters, following, fanbase",ant:"no support, ignored team",col:"loyal fan base / build a fan base",prep:"fans of (team) / across (world)",ex:"They must have built that fan base over decades — it could not have grown so large overnight.",ar_syn:"مؤيدون، متابعون",ar_ant:"بلا دعم",ar_col:"قاعدة مخلصة / يبني",ar_prep:"مشجعو الفريق / حول العالم",ar_ex:"لا بد أنهم بنوا تلك القاعدة على مدى عقود."},
+];
+var story=[
+  {t:"Fatima picked up a tennis racket at the age of seven and immediately knew — this was hers.",ar:"فاطمة رفعت مضرب التنس في سن السابعة وعرفت على الفور — هذا لها."},
+  {t:"She must have played ten thousand hours before anyone outside her city had heard her name.",ar:"لا بد أنها لعبت عشرة آلاف ساعة قبل أن يسمع أحد خارج مدينتها باسمها."},
+  {t:"There were years when she should have quit — when the funding ran out, when the injuries came.",ar:"كانت هناك سنوات كان يجب أن تتوقف فيها — حين نفد التمويل، حين جاءت الإصابات."},
+  {t:"Her coach said: you might have been more comfortable choosing an easier path. But you could not have been more alive.",ar:"قال مدربها: ربما كنت أكثر راحة لو اخترت طريقاً أسهل. لكنك لم تكن يمكن أن تكوني أكثر حيويةً."},
+  {t:"She won her first international title at twenty-four. Some said it should have come sooner. She disagreed.",ar:"فازت بلقبها الدولي الأول في سن الرابعة والعشرين. قال البعض كان يجب أن يأتي أبكر. هي اختلفت."},
+  {t:"Every defeat must have been necessary — she could not have learned the final piece of the puzzle any other way.",ar:"كل هزيمة لا بد أنها كانت ضرورية — لم يكن بإمكانها تعلّم القطعة الأخيرة من اللغز بأي طريقة أخرى."},
+  {t:"She now coaches young players. Her first lesson is always the same: you must have the courage to lose well.",ar:"تدرّب الآن لاعبين شباباً. درسها الأول دائماً هو ذاته: يجب أن تمتلك شجاعة الخسارة بشكل جيد."},
+  {t:"Because without that, you might win matches but you could not have become a real athlete.",ar:"لأنه بدون ذلك، ربما تفوز بمباريات لكنك لم تكن تستطيع أن تصبح رياضياً حقيقياً."},
+];
+var reading=[
+  "Sport occupies a unique place in human culture. At its most basic level, it is physical competition — a test of speed, strength, skill, or endurance. But at its deepest level, sport is a compressed version of human life itself: the pursuit of goals under pressure, the management of failure, the cultivation of discipline, and the experience of belonging to something larger than oneself. These qualities must have been recognised in sport long before modern psychology gave them names.",
+  "The psychology of peak performance has become one of the most intensively studied fields in sports science. Elite athletes must have developed mental skills — focus, visualisation, emotional regulation, resilience — at least as important as physical abilities. Research consistently shows that performance anxiety could have been the decisive factor separating athletes of similar physical ability. The athletes who might have been physically dominant but mentally underprepared often fail to deliver at crucial moments.",
+  "The question of what makes sport ethical is more complex than it might appear. Doping is universally condemned, but the line between acceptable and unacceptable performance enhancement is genuinely blurry. Athletes train at altitude — which increases red blood cell production — and nobody objects. The principle that should have guided regulation is not whether an enhancement is natural but whether it creates unfair advantage and harms health.",
+  "Sport has an extraordinary capacity to transcend social divisions. The 1995 Rugby World Cup in post-apartheid South Africa must have been one of the most politically significant sporting events in history — Nelson Mandela wearing the Springbok jersey could not have sent a more powerful message of reconciliation. Sport cannot solve political problems, but it might have created conditions of emotional solidarity that make solutions more possible.",
+  "The commercialisation of elite sport has transformed it almost beyond recognition. Clubs that might have operated for a century as community institutions are now global brands worth billions. Players who should have represented their local communities now move between continents for financial packages that ordinary people cannot imagine. This cannot have been what the founders of modern sport intended.",
+];
+var compQs=[
+  {q:"What does the text say sport is at its deepest level?",opts:["Just entertainment","A test of physical ability only","A compressed version of human life","A business opportunity"],ans:2},
+  {q:"What could performance anxiety have been according to research?",opts:["Irrelevant","The decisive factor between athletes of similar physical ability","Helpful for performance","Only a problem for amateurs"],ans:1},
+  {q:"What principle should have guided doping regulation?",opts:["Whether the enhancement is natural","Whether it creates unfair advantage and harms health","Whether it is expensive","Whether it is widely used"],ans:1},
+  {q:"What sport event in 1995 was described as highly significant?",opts:["The Olympics","The FIFA World Cup","The Rugby World Cup in South Africa","Wimbledon"],ans:2},
+  {q:"What does commercialisation raise questions about according to the text?",opts:["Ticket prices","What sport is ultimately for","Stadium design","Broadcasting rights"],ans:1},
+];
+var listenLines=[
+  {speaker:"C",text:"Fatima, you must have had moments when you wanted to quit. What kept you going?"},
+  {speaker:"F",text:"Love of the game. I might have quit if I'd been doing it for money or fame. But I genuinely loved competing. That must have been what sustained me."},
+  {speaker:"C",text:"You can't have built a career on motivation alone — motivation is unreliable. But love for what you're doing? That stays."},
+  {speaker:"F",text:"There was one year though — I should have taken a break but I didn't. I pushed through an injury that might have ended my career if I'd been less lucky."},
+  {speaker:"C",text:"I remember that year. You must have been in tremendous pain. I should have insisted you stop. That's on me."},
+  {speaker:"F",text:"No — I wouldn't have listened. I might have resented you for it. Sometimes athletes must make their own mistakes."},
+  {speaker:"C",text:"What made the difference between athletes who could have been great but weren't, and the ones who actually made it?"},
+  {speaker:"F",text:"Mental strength, without question. I've seen players who must have been physically more gifted than me. But they couldn't have handled the losses the way I learned to."},
+  {speaker:"C",text:"Losing well might have been the most important thing I ever tried to teach. Most coaches focus entirely on winning."},
+  {speaker:"F",text:"And that's a mistake. You must have failed at the highest level to understand what failure feels like — and that you can survive it."},
+  {speaker:"C",text:"What would you tell your younger self?"},
+  {speaker:"F",text:"I should have trusted the process earlier. I might have been less anxious if I'd understood that consistency over years matters more than any single result."},
+  {speaker:"C",text:"And I should have told you that more explicitly. I might have assumed you knew."},
+  {speaker:"F",text:"Great coaches don't assume. They must have learned that every athlete needs to hear certain things out loud."},
+];
+var listenQs=[
+  {q:"What does Fatima say kept her going?",opts:["Money and fame","Fear of failure","Love of the game","Her coach's support"],ans:2},
+  {q:"What does Fatima say about the year she pushed through injury?",opts:["Right decision","She should have taken a break","Coach was too strict","Injury was minor"],ans:1},
+  {q:"What made the difference between almost-great athletes and those who made it?",opts:["Physical gifts","Financial support","Mental strength and handling losses","Natural talent"],ans:2},
+  {q:"What does the coach say might have been the most important thing he tried to teach?",opts:["Physical technique","Winning","Losing well","Diet"],ans:2},
+  {q:"What should Fatima have trusted earlier?",opts:["Her coach's judgment","The process — consistency over years matters more than single results","Physical instincts","Opponents' weaknesses"],ans:1},
+];
+var speakQs=[
+  {q:"Describe a sporting achievement using modal perfect forms.",hint:"She must have trained... They could not have won without... He should have rested... They might have performed better if...",ar:"صف إنجازاً رياضياً باستخدام Modal Perfect.",badge:"🎯 must have / could not have / should have"},
+  {q:"Analyse a sporting defeat using modal verbs.",hint:"They must have made a tactical error... They should have changed formation... They might have won if... They could have avoided...",ar:"حلّل هزيمة رياضية باستخدام أفعال المودال.",badge:"🎯 must have / should have / might have / could not have"},
+  {q:"Talk about the mental side of sport using advanced modals.",hint:"Athletes must have developed extraordinary focus... They cannot have reached the top without... Mental training might have been more important than...",ar:"تحدّث عن الجانب الذهني في الرياضة.",badge:"🎯 modal perfects للاستنتاج والتقييم"},
+  {q:"Discuss what makes a great coach using modal verbs.",hint:"A great coach must have experienced failure themselves... They should have developed the ability to... They cannot have relied only on tactics...",ar:"ناقش ما يصنع المدرب العظيم.",badge:"🎯 must have / should have / cannot have"},
+  {q:"Talk about a sporting event that moved you emotionally.",hint:"That moment must have been... The athlete cannot have expected... She should have known... They might have felt...",ar:"تحدّث عن حدث رياضي أثّر فيك عاطفياً.",badge:"🎯 modal perfects للتعبير عن التأثير"},
+  {q:"Is competitive sport healthy for children?",hint:"Young athletes must have benefited... However they might have suffered pressure... Parents should not have pushed so hard... Children cannot have understood the stakes...",ar:"هل الرياضة التنافسية صحية للأطفال؟",badge:"🎯 modal perfects لكلا الجانبَين"},
+  {q:"Discuss doping in sport using modal verbs of deduction.",hint:"He must have known the risks... The athlete cannot have been unaware... They should have been tested more rigorously...",ar:"ناقش المنشطات في الرياضة.",badge:"🎯 must have / cannot have / should have"},
+  {q:"What lessons can sport teach us about life?",hint:"Sport must have taught me more than any classroom... I could not have learned resilience without... Competition might have shown me...",ar:"ما الدروس التي تعلّمها الرياضة عن الحياة؟",badge:"🎯 modal perfects للتأمل والاستنتاج"},
+  {q:"Describe a comeback story using modal verbs throughout.",hint:"She must have been devastated by the injury... She should have been finished... Everyone might have given up but she didn't...",ar:"صف قصة عودة قوية باستخدام أفعال المودال.",badge:"🎯 modal perfects طوال القصة"},
+  {q:"Deliver a ninety-second tribute to an athlete you admire.",hint:"She must have trained every day for twenty years... She cannot have reached that level without... There must have been days when...",ar:"قدّم تكريماً من تسعين ثانية لرياضي تُعجب به.",badge:"🎯 استخدم 6 modal perfect forms!"},
+];
+var pvData=[
+  {v:"warm up",p:"وورم أب",m:"يتحمى / يستعد جسدياً",ex:"She should have warmed up more thoroughly — the injury might have been avoided.",ar:"كان يجب أن تتحمى بشكل أكثر شمولاً — ربما كانت الإصابة ستُتجنب."},
+  {v:"work out",p:"ويرك أوت",m:"يتمرن / يتدرب",ex:"He must have been working out twice a day for months to reach that condition.",ar:"لا بد أنه كان يتمرن مرتين يومياً لأشهر للوصول لتلك الحالة."},
+  {v:"burn out",p:"بيرن أوت",m:"يُرهق نفسه / ينهك",ex:"She might have burned out if she had continued at that intensity without rest.",ar:"ربما أرهقت نفسها لو استمرت بتلك الكثافة بدون راحة."},
+  {v:"pull out",p:"بول أوت",m:"ينسحب من منافسة",ex:"He must have been seriously injured to pull out of the championship at the last minute.",ar:"لا بد أنه أُصيب بجدية للانسحاب من البطولة في اللحظة الأخيرة."},
+  {v:"knock out",p:"نوك أوت",m:"يُقصي من منافسة",ex:"They could not have been knocked out at this stage — they should have been the strongest team.",ar:"لم يكن يجب أن يُقصَوا في هذه المرحلة."},
+  {v:"step up",p:"ستيب أب",m:"يرتقي / يُصعّد مستواه",ex:"She must have stepped up her training significantly to reach that level so quickly.",ar:"لا بد أنها رفعت مستوى تدريبها بشكل ملحوظ."},
+  {v:"power through",p:"باور ثرو",m:"يتخطى بقوة رغم الصعوبة",ex:"He should not have powered through the injury — he might have made it much worse.",ar:"لم يكن يجب أن يتخطى الإصابة بهذه القوة."},
+  {v:"come from behind",p:"كام فروم بيهايند",m:"يتعافى من تأخر",ex:"They must have believed they could come from behind — no team abandons a game that early.",ar:"لا بد أنهم كانوا يؤمنون بقدرتهم على اللحاق."},
+  {v:"put in",p:"بوت إن",m:"يبذل جهداً",ex:"She must have put in thousands of hours that nobody ever saw before achieving that result.",ar:"لا بد أنها بذلت آلاف الساعات التي لم يرها أحد."},
+  {v:"give up",p:"غيف أب",m:"يستسلم / يتخلى",ex:"She could not have given up — she must have known she was still capable of turning it around.",ar:"لم تستطع أن تستسلم — لا بد أنها كانت تعلم أنها لا تزال قادرة على قلب الأمور."},
+];
+var realExpr=[
+  {e:"The ball is in your court",p:"ذا بول إز إن يور كورت",m:"القرار الآن بيدك",f:"It is now your turn to take action.",x:"The offer has been made — the ball is in your court now.",xar:"العرض قُدّم — القرار الآن بيدك.",n:"من التنس — الكرة في ملعبك = دورك للتصرف"},
+  {e:"Move the goalposts",p:"موف ذا غول-بوستس",m:"يغيّر شروط الاتفاق",f:"Change the rules unfairly after agreement.",x:"They might have accepted originally but the company must have moved the goalposts since then.",xar:"ربما قبلوا في الأصل لكن الشركة لا بد أنها غيّرت الشروط.",n:"نقل أعمدة المرمى = تغيير القواعد بشكل غير عادل"},
+  {e:"A level playing field",p:"أ ليفل بليينغ فيلد",m:"تكافؤ الفرص",f:"Equal conditions for all competitors.",x:"The competition could not have been fair — there was never a level playing field.",xar:"المنافسة لم يمكن أن تكون عادلة — لم يكن هناك تكافؤ في الفرص.",n:"ملعب مستوٍ = جميع الفرق تلعب في ظروف متساوية"},
+];
+var realSlang=[
+  {w:"Dark horse",p:"دارك هورس",i:"unexpected competitor who performs surprisingly well",ex:"They must have been seen as the dark horse — nobody could have predicted that result.",xar:"لا بد أنهم كانوا يُنظر إليهم كالمنافس المجهول.",a:"المنافس المجهول الذي يُفاجئ الجميع"},
+  {w:"Play hardball",p:"بلي هاردبول",i:"compete with no mercy",ex:"They must have decided to play hardball in the final.",xar:"لا بد أنهم قرروا التنافس بلا رحمة في النهائي.",a:"يتفاوض أو ينافس بلا رحمة"},
+  {w:"Raise the bar",p:"ريز ذا بار",i:"set a higher standard than before",ex:"She must have raised the bar for everyone — they could not have improved so quickly otherwise.",xar:"لا بد أنها رفعت المستوى للجميع.",a:"يرفع المعيار المطلوب"},
+  {w:"Take it to the wire",p:"تيك إت تو ذا وير",i:"compete until the very last moment",ex:"They must have known it would go to the wire — neither team could have conceded easily.",xar:"لا بد أنهم كانوا يعلمون أنها ستكون حتى آخر لحظة.",a:"يستمر التنافس حتى اللحظة الأخيرة"},
+];
+var realEvery=[
+  {w:"Give it your all",p:"غيف إت يور أول",i:"make maximum effort",ex:"She must have given it her all — you could not have asked for more effort.",xar:"لا بد أنها أعطت كل ما لديها.",a:"يبذل أقصى جهد ممكن"},
+  {w:"Stay focused",p:"ستي فوكسد",i:"maintain concentration throughout",ex:"They must have stayed focused for the entire ninety minutes — that is not easy.",xar:"لا بد أنهم حافظوا على تركيزهم للتسعين دقيقة.",a:"يحافظ على التركيز طوال الوقت"},
+  {w:"Push yourself",p:"بوش يورسيلف",i:"make yourself work harder than feels comfortable",ex:"You should have pushed yourself harder — you might have been surprised what you were capable of.",xar:"كان يجب أن تدفع نفسك بقوة أكبر.",a:"يدفع نفسه لتجاوز حدود راحته"},
+];
+var quizQs=[
+  {q:"She ___ have trained for years to achieve that result.",opts:["might","must","should","could"],ans:1},
+  {q:"ما معنى resilience في الرياضة؟",opts:["الإقصاء","المثابرة والصمود والمرونة","الظهور الأول","جدول المباريات"],ans:1},
+  {q:"He ___ have lost if he had maintained that unsustainable pace.",opts:["must","might","should","would"],ans:1},
+  {q:"ما معنى doping؟",opts:["التدريب المكثف","استخدام المنشطات المحظورة","العودة من الإصابة","روح الفريق"],ans:1},
+  {q:"She ___ have won that trophy — her preparation was clearly insufficient.",opts:["could not","must","should","might"],ans:0},
+  {q:"ما الـ phrasal verb: ينسحب من منافسة؟",opts:["pull out","knock out","step up","warm up"],ans:0},
+  {q:"ما معنى underdog؟",opts:["البطل المفضل","المنافس الأضعف المنبوذ","الفريق الرئيسي","صاحب الزخم"],ans:1},
+  {q:"They ___ have prepared better — the result was completely avoidable.",opts:["must","might","should","could not"],ans:2},
+  {q:"ما معنى momentum؟",opts:["الإصابة","الزخم والقوة المتصاعدة","الملعب","اللقب"],ans:1},
+  {q:"ما معنى sportsmanship؟",opts:["المنشطات","الاستبعاد","الروح الرياضية والنزاهة","الدوري"],ans:2},
+];
+var spd=1,lspd=1,storyOn=false,listenOn=false;
+var compA=new Array(compQs.length).fill(null);
+var listenA=new Array(listenQs.length).fill(null);
+var quizA=new Array(quizQs.length).fill(null);
+
+function say(text,rate,cb){
+  if(!window.speechSynthesis)return null;
+  window.speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US";u.rate=rate||spd;u.pitch=1.0;
+  var v=getVoice("F");if(v)u.voice=v;
+  if(cb)u.onend=cb;
+  window.speechSynthesis.speak(u);return u;
+}
+
+function buildVocab(){
+  var c=document.getElementById("vocabList");
+  V.forEach(function(v,i){
+    var d=document.createElement("div");d.className="vocab-card";
+    // Build using single-quote innerHTML (Gold Standard from unit2)
+    d.innerHTML=
+            '<div class="vhead">'+
+        '<div style="display:flex;align-items:center;gap:10px;width:100%">'+
+          '<button class="vspk" id="vs'+i+'">🔊</button>'+
+          '<div class="var" style="flex:1;text-align:right">'+v.a+'</div>'+
+          '<div class="vpron" style="direction:ltr;white-space:nowrap">'+v.p+'</div>'+
+          '<div style="display:flex;align-items:center;gap:6px">'+
+            '<div class="vword">'+v.w+'</div>'+
+            '<span style="background:rgba(255,255,255,.18);color:rgba(255,255,255,.85);font-size:.68rem;font-weight:800;padding:2px 7px;border-radius:10px">'+(i+1)+'</span>'+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="vbody">'+
+        '<div class="vgrid2">'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-ant" data-i="'+i+'" data-c="1"><div class="vlbl">Antonym</div><div class="vval">'+v.ant+'</div><div class="vtr">'+v.ar_ant+'</div></div>'+
+            '<div class="vcell c-syn" data-i="'+i+'" data-c="0"><div class="vlbl">Synonym</div><div class="vval">'+v.syn+'</div><div class="vtr">'+v.ar_syn+'</div></div>'+
+          '</div>'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-prep" data-i="'+i+'" data-c="3"><div class="vlbl">Preposition</div><div class="vval">'+v.prep+'</div><div class="vtr">'+v.ar_prep+'</div></div>'+
+            '<div class="vcell c-col" data-i="'+i+'" data-c="2"><div class="vlbl">Collocation</div><div class="vval">'+v.col+'</div><div class="vtr">'+v.ar_col+'</div></div>'+
+          '</div>'+
+        '</div>'+
+        '<div class="vex" id="vex'+i+'">'+v.ex+'<div class="vex-tr">'+v.ar_ex+'</div></div>'+
+      '</div>';
+    d.querySelector('.vspk').addEventListener('click',(function(ii){return function(){
+      document.querySelectorAll('.vspk').forEach(function(b){b.classList.remove('playing');});
+      var btn=document.getElementById('vs'+ii);if(btn)btn.classList.add('playing');
+      var u=say(V[ii].w,spd);if(u)u.onend=function(){if(btn)btn.classList.remove('playing');};
+    };})(i));
+    d.querySelectorAll('.vcell').forEach(function(cell){
+      cell.addEventListener('click',function(){
+        var ii=parseInt(this.getAttribute('data-i'));
+        var cc=parseInt(this.getAttribute('data-c'));
+        say([V[ii].syn,V[ii].ant,V[ii].col,V[ii].prep][cc],0.9);
+        this.classList.toggle('show-tr');
+      });
+    });
+    var vex=d.querySelector('.vex');if(vex)vex.addEventListener('click',function(){this.classList.toggle('show-ex-tr');});
+    c.appendChild(d);
+  });
+}
+function checkComp(){var s=0;compQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("co"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(compA[qi]===i)el.classList.add("no");}if(compA[qi]===q.ans)s++;});var r=document.getElementById("compRes");r.style.display="block";var pct=Math.round(s/compQs.length*100);r.textContent=s+" من "+compQs.length+" إجابة صحيحة ("+pct+"%) "+(pct===100?"🏆":pct>=60?"🎉":"📚 راجع النص");}
+function resetComp(){compA=new Array(compQs.length).fill(null);document.querySelectorAll(".copt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("compRes").style.display="none";}
+
+
+function buildStory(){
+  var b=document.getElementById("storyBox");
+  if(!b)return;
+  b.innerHTML="";
+  story.forEach(function(s,i){
+    var d=document.createElement("div");d.className="sline";d.id="sl"+i;
+    var txt=document.createTextNode(s.t);d.appendChild(txt);
+    var btn=document.createElement("button");
+    btn.style.cssText="background:transparent;border:1px solid #e5e7eb;border-radius:5px;padding:1px 7px;color:#9ca3af;font-size:.7rem;cursor:pointer;font-family:Tajawal,sans-serif;margin-right:6px";
+    btn.textContent="🌐";
+    btn.addEventListener("click",(function(ii){return function(){toggleTr(ii);};})(i));
+    d.appendChild(btn);
+    var tr=document.createElement("div");tr.id="tr"+i;
+    tr.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;font-family:Tajawal,sans-serif;border-right:3px solid #fde68a;padding-right:8px";
+    tr.textContent=s.ar;d.appendChild(tr);b.appendChild(d);
+  });
+}
+var _trAll=false;
+function toggleAllTr(){_trAll=!_trAll;for(var i=0;i<story.length;i++){var e=document.getElementById("tr"+i);if(e)e.style.display=_trAll?"block":"none";}var btn=document.getElementById("trBtn");if(btn)btn.textContent=_trAll?"🙈 أخفِ":"🌐 الترجمة";}
+function toggleTr(i){var e=document.getElementById("tr"+i);if(e)e.style.display=e.style.display==="none"?"block":"none";}
+function setSpd(r,btn){spd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function storySeq(i){if(!storyOn||i>=story.length){stopStory();return;}document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("sl"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(story[i].t);u.lang="en-US";u.rate=spd;u.onend=function(){if(storyOn)setTimeout(function(){storySeq(i+1);},320);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startStory(){storyOn=true;var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="⏹";btn.querySelector("#sTxt").textContent="إيقاف القصة";}storySeq(0);}
+function stopStory(){storyOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="▶";btn.querySelector("#sTxt").textContent="استمع للقصة";}}
+function toggleStory(){storyOn?stopStory():startStory();}
+
+function buildReading(){
+  var t=document.getElementById("readingText");
+  if(!t)return;
+  t.innerHTML="";
+  reading.forEach(function(p){var d=document.createElement("p");d.textContent=p;t.appendChild(d);});
+  var c=document.getElementById("compList");
+  if(!c)return;
+  c.innerHTML="";
+  compQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";
+    p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="co"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){
+        compA[qi]=oi;
+        for(var k=0;k<q.opts.length;k++){var el=document.getElementById("co"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}
+        this.style.borderColor="#0a1628";
+      });
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+
+function buildGrammar(){
+  var c=document.getElementById("grammarBox");
+  var box1=document.createElement("div");box1.className="gbox";
+  var t1=document.createElement("div");t1.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";
+  t1.textContent="١ — Modal Perfect: modal + have + past participle";box1.appendChild(t1);
+  var tbl=document.createElement("div");tbl.style.cssText="background:#0a1628;border-radius:10px;padding:14px 18px;margin-bottom:14px;direction:ltr";
+  var rows=[["Modal","Meaning","Example"],["must have","certain deduction (past)","She must have trained for years."],["can't/couldn't have","impossible (past)","He can't have won without cheating."],["should have","past obligation not done","She should have rested more."],["shouldn't have","past action that was wrong","He shouldn't have risked injury."],["might/may have","possibility (past)","They might have performed better."],["could have","past possibility","She could have retired earlier."]];
+  var table=document.createElement("table");table.style.cssText="width:100%;border-collapse:collapse;font-size:.82rem";
+  rows.forEach(function(row,ri){var tr=document.createElement("tr");if(ri>0)tr.style.borderTop="1px solid rgba(255,255,255,.1)";row.forEach(function(cell,ci){var td=document.createElement(ri===0?"th":"td");td.textContent=cell;td.style.cssText="padding:5px 7px;text-align:left;color:"+(ri===0?"#fde68a":ci===0?"#f0c040":ci===1?"#93c5fd":"rgba(255,255,255,.8)");tr.appendChild(td);});table.appendChild(tr);});
+  tbl.appendChild(table);box1.appendChild(tbl);c.appendChild(box1);
+  var box2=document.createElement("div");box2.className="gbox";
+  var t2=document.createElement("div");t2.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";t2.textContent="٢ — في سياق الرياضة";box2.appendChild(t2);
+  var examples=[["Deduction:","She must have trained every day for three years — her technique is perfect.","لا بد أنها تدربت كل يوم لثلاث سنوات — تقنيتها مثالية."],["Regret:","He should have rested that week. He might have avoided the injury.","كان يجب أن يرتاح تلك الأسبوع. ربما كان سيتجنب الإصابة."],["Impossibility:","That result can't have been natural — the improvement was too dramatic.","تلك النتيجة لا يمكن أن تكون طبيعية."]];
+  examples.forEach(function(ex){var pat=document.createElement("div");pat.className="gpat";var d1=document.createElement("div");d1.style.cssText="font-size:.78rem;color:#f0a000;font-weight:700;direction:ltr;margin-bottom:2px";d1.textContent=ex[0];var d2=document.createElement("div");d2.style.cssText="font-size:.88rem;color:#0a1628;font-weight:600;direction:ltr;margin-bottom:3px";d2.textContent=ex[1];var d3=document.createElement("div");d3.style.cssText="font-size:.8rem;color:#64748b;direction:rtl;text-align:right";d3.textContent=ex[2];pat.appendChild(d1);pat.appendChild(d2);pat.appendChild(d3);box2.appendChild(pat);});
+  c.appendChild(box2);
+  var wrong=document.createElement("div");wrong.style.cssText="background:#fef2f2;border-radius:10px;padding:13px 16px;margin-bottom:8px;border-right:4px solid #dc2626;direction:ltr";
+  wrong.innerHTML='<span style="color:#dc2626;font-weight:700">✗ </span>She must trained harder. / He should trained more. <span style="font-size:.8rem;color:#dc2626">← لابد من have بين المودال والتصريف الثالث</span>';
+  var right=document.createElement("div");right.style.cssText="background:#f0fdf4;border-radius:10px;padding:13px 16px;border-right:4px solid #059669;direction:ltr";
+  right.innerHTML='<span style="color:#059669;font-weight:700">✓ </span>She must <strong>have</strong> trained harder. / He should <strong>have</strong> rested. <span style="font-size:.8rem;color:#059669">← modal + have + pp ✅</span>';
+  c.appendChild(wrong);c.appendChild(right);
+}
+function buildListening(){
+  var s=document.getElementById("listenScript");
+  listenLines.forEach(function(line,i){
+    var d=document.createElement("div");d.className="lline";d.id="ll"+i;
+    if(typeof line==="object"&&line.speaker){
+      var lbl=document.createElement("span");
+      var isBen=line.speaker==="C";
+      lbl.style.cssText="font-size:.7rem;font-weight:800;padding:1px 7px;border-radius:8px;margin-left:6px;"+(isBen?"background:#dbeafe;color:#1e3a8a":"background:#fce7f3;color:#9d174d");
+      lbl.textContent=line.speaker==="C"?"Coach":"Fatima";
+      var txt=document.createElement("span");txt.textContent=line.text;
+      d.appendChild(lbl);d.appendChild(txt);
+    } else {
+      d.appendChild(document.createTextNode(typeof line==="object"?line.text:line));
+    }
+    s.appendChild(d);
+  });
+  var c=document.getElementById("listenQList");
+  listenQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="lq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){listenA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("lq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function setLSpd(r,btn){lspd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function getVoice(gender){
+  var voices=window.speechSynthesis.getVoices();
+  var enVoices=voices.filter(function(v){return v.lang.indexOf("en")===0;});
+  if(gender==="M"){
+    var rishi=enVoices.filter(function(v){return v.name.indexOf("Rishi")>-1;});
+    if(rishi.length)return rishi[0];
+    var male=enVoices.filter(function(v){
+      var n=v.name.toLowerCase();
+      return n.indexOf("male")>-1||n.indexOf("daniel")>-1||n.indexOf("james")>-1||n.indexOf("david")>-1||n.indexOf("mark")>-1||n.indexOf("arthur")>-1;
+    });
+    return male.length?male[0]:(enVoices.length?enVoices[0]:null);
+  } else {
+    var female=enVoices.filter(function(v){
+      var n=v.name.toLowerCase();
+      return n.indexOf("samantha")>-1||n.indexOf("female")>-1||n.indexOf("victoria")>-1||n.indexOf("karen")>-1||n.indexOf("kate")>-1||n.indexOf("fiona")>-1||n.indexOf("moira")>-1;
+    });
+    return female.length?female[0]:(enVoices.length>1?enVoices[1]:enVoices[0]||null);
+  }
+}
+function listenSeq(i){
+  if(!listenOn||i>=listenLines.length){stopListen();return;}
+  document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});
+  var e=document.getElementById("ll"+i);if(e)e.classList.add("hl");
+  var line=listenLines[i];
+  var text=typeof line==="object"?line.text:line;
+  var gender=typeof line==="object"?(line.speaker==="C"?"M":"F"):"M";
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US";u.rate=lspd;
+  var v=getVoice(gender);
+  if(v)u.voice=v;
+  u.pitch=1.0;
+  u.onend=function(){if(listenOn)setTimeout(function(){listenSeq(i+1);},380);};
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+function startListen(){listenOn=true;document.getElementById("lIcon").textContent="⏹";document.getElementById("lTxt").textContent="إيقاف المونولوج";listenSeq(0);}
+function stopListen(){listenOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});document.getElementById("lIcon").textContent="▶";document.getElementById("lTxt").textContent="شغّل المونولوج";}
+function toggleListen(){listenOn?stopListen():startListen();}
+function checkListen(){var s=0;listenQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("lq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(listenA[qi]===i)el.classList.add("no");}if(listenA[qi]===q.ans)s++;});var r=document.getElementById("listenRes");r.style.display="block";var pct=Math.round(s/listenQs.length*100);r.textContent=s+" من "+listenQs.length+" إجابة صحيحة ("+pct+"%) "+(pct>=80?"✅ ممتاز!":pct>=60?"👍 جيد!":"📚 راجع");}
+function resetListen(){listenA=new Array(listenQs.length).fill(null);document.querySelectorAll(".copt[id^='lq']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("listenRes").style.display="none";}
+
+function buildW(){
+  var ids=["w1","w2","w3","w4","w5"];var any=false;
+  for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value.trim())any=true;}
+  if(!any){document.getElementById("wOut").innerHTML="<span style='color:#9ca3af;font-style:italic'>✨ ستظهر فقرتك هنا...</span>";return;}
+  var parts=[];
+  for(var j=0;j<ids.length;j++){var el=document.getElementById(ids[j]);var v=el?el.value.trim():"";if(v)parts.push("<span style='color:#f0a000;font-weight:700'>"+v+"</span>.");}
+  document.getElementById("wOut").innerHTML="<p style='direction:ltr;line-height:2'>"+parts.join(" ")+"</p>";
+}
+
+function buildSpeaking(){
+  var c=document.getElementById("speakBox");
+  speakQs.forEach(function(q){
+    var d=document.createElement("div");d.style.cssText="background:#f8faff;border-right:4px solid #1e3a8a;border-radius:0 12px 12px 0;padding:16px 18px;margin-bottom:14px";
+    var p1=document.createElement("p");p1.style.cssText="font-size:.97rem;color:#0a1628;font-weight:700;direction:ltr;margin-bottom:5px";p1.textContent=q.q;
+    var p2=document.createElement("p");p2.style.cssText="font-size:.82rem;color:#9ca3af;margin-bottom:6px";p2.textContent=q.ar;
+    var p3=document.createElement("p");p3.style.cssText="font-size:.82rem;color:#f0a000;direction:ltr;margin-bottom:8px";p3.textContent="💡 "+q.hint;
+    var badge=document.createElement("span");badge.style.cssText="background:#dbeafe;color:#1e3a8a;padding:4px 12px;border-radius:20px;font-size:.76rem;font-weight:700";badge.textContent=q.badge;
+    d.appendChild(p1);d.appendChild(p2);d.appendChild(p3);d.appendChild(badge);
+    var btn=document.createElement("button");btn.className="spksmall";btn.textContent="🔊";btn.style.marginTop="10px";
+    btn.addEventListener("click",(function(qq){return function(){say(qq,spd);};})(q.q));
+    d.appendChild(btn);c.appendChild(d);
+  });
+}
+
+function makeExRow(text,arabic,spkText){
+  var div=document.createElement("div");
+  div.style.cssText="cursor:pointer;user-select:none;padding:8px 12px;background:white;border-radius:8px;direction:ltr;font-size:.86rem;color:#374151;font-style:italic;margin-top:6px";
+  var span=document.createElement("span");span.textContent=text;
+  var tr=document.createElement("div");
+  tr.style.cssText="font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;padding-top:4px;border-top:1px dashed #e5e7eb;display:none;font-family:Tajawal,sans-serif;font-style:normal";
+  tr.textContent=arabic;
+  div.appendChild(span);div.appendChild(tr);
+  div.addEventListener("click",(function(t,s){return function(){t.style.display=t.style.display==="none"?"block":"none";say(s,spd);};})(tr,spkText));
+  return div;
+}
+
+function buildReal(){
+  var c=document.getElementById("realBox");
+  var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h1.textContent="🔥 Expressions — اضغط على الجملة لتسمعها وترجمتها";c.appendChild(h1);
+  realExpr.forEach(function(e){
+    var d=document.createElement("div");d.className="expr-card";
+    // Visible 🔊 for main expression
+    var header=document.createElement("div");header.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;direction:ltr";
+    var headerLeft=document.createElement("div");headerLeft.style.cssText="display:flex;align-items:center;gap:8px";
+    var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";
+    spkBtn.addEventListener("click",(function(ee){return function(){say(ee,spd);};})(e.e));
+    var titleSpan=document.createElement("span");titleSpan.style.cssText="font-weight:700;color:#4c1d95;font-size:.97rem";titleSpan.textContent=e.e;
+    headerLeft.appendChild(spkBtn);headerLeft.appendChild(titleSpan);
+    var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.78rem;font-weight:700;font-family:Tajawal,sans-serif";pronSpan.textContent=e.p;
+    header.appendChild(headerLeft);header.appendChild(pronSpan);
+    d.appendChild(header);
+    var grid=document.createElement("div");grid.style.cssText="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px";
+    var g1=document.createElement("div");g1.style.cssText="background:white;border-radius:8px;padding:8px 12px;text-align:right";g1.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>المعنى</div><div style='font-weight:700;color:#374151;font-size:.88rem'>"+e.m+"</div>";
+    var g2=document.createElement("div");g2.style.cssText="background:white;border-radius:8px;padding:8px 12px;direction:ltr";g2.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>Formal</div><div style='font-size:.85rem;color:#64748b'>"+e.f+"</div>";
+    grid.appendChild(g1);grid.appendChild(g2);d.appendChild(grid);
+    d.appendChild(makeExRow(e.x,e.xar,e.x));
+    var note=document.createElement("div");note.style.cssText="font-size:.8rem;color:#7c3aed;text-align:right;margin-top:8px";note.textContent="💡 "+e.n;
+    d.appendChild(note);c.appendChild(d);
+  });
+  var h2=document.createElement("p");h2.style.cssText="font-weight:800;color:#0a1628;margin:20px 0 14px;text-align:right";h2.textContent="😎 Slang";c.appendChild(h2);
+  var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:20px";
+  realSlang.forEach(function(s){
+    var d=document.createElement("div");d.className="slang-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";
+    var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkS=document.createElement("button");spkS.className="spksmall";spkS.textContent="🔊";spkS.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkS.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var sWord=document.createElement("span");sWord.style.cssText="font-weight:700;color:#ea580c;font-size:.9rem";sWord.textContent=s.w;
+    titleLeft.appendChild(spkS);titleLeft.appendChild(sWord);
+    var pp=document.createElement("span");pp.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pp.textContent=s.p;
+    titleRow.appendChild(titleLeft);titleRow.appendChild(pp);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    sg.appendChild(d);
+  });
+  c.appendChild(sg);
+  var h3=document.createElement("p");h3.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h3.textContent="💬 Everyday Phrases";c.appendChild(h3);
+  var ev=document.createElement("div");ev.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";
+  realEvery.forEach(function(s){
+    var d=document.createElement("div");d.className="ev-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;direction:ltr";
+    var titleLeft2=document.createElement("div");titleLeft2.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkE=document.createElement("button");spkE.className="spksmall";spkE.textContent="🔊";spkE.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkE.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var titleTxt=document.createElement("span");titleTxt.style.cssText="font-weight:700;color:#15803d;font-size:.9rem";titleTxt.textContent=s.w;
+    titleLeft2.appendChild(spkE);titleLeft2.appendChild(titleTxt);
+    var evPron=document.createElement("span");evPron.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";evPron.textContent=s.p;
+    titleRow.appendChild(titleLeft2);titleRow.appendChild(evPron);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    ev.appendChild(d);
+  });
+  c.appendChild(ev);
+}
+
+
+function buildPhrasal(){
+  var c=document.getElementById("pvBox");
+  if(!c)return;
+  var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";
+  h1.textContent="💬 Phrasal Verbs — اضغط على الجملة لتسمعها وترجمتها";c.appendChild(h1);
+  var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";
+  pvData.forEach(function(pv){
+    var d=document.createElement("div");d.className="slang-card";
+    // Row 1: 🔊 reads WORD only + verb + pronunciation
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";
+    var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";
+    spkBtn.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkBtn.addEventListener("click",(function(word){return function(e){e.stopPropagation();say(word,spd);};})(pv.v));
+    var pvWord=document.createElement("span");pvWord.style.cssText="font-weight:700;color:#7c3aed;font-size:.95rem";pvWord.textContent=pv.v;
+    titleLeft.appendChild(spkBtn);titleLeft.appendChild(pvWord);
+    var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pronSpan.textContent=pv.p||"";
+    titleRow.appendChild(titleLeft);titleRow.appendChild(pronSpan);
+    // Arabic meaning
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:6px";ar.textContent=pv.m;
+    // Example sentence — click to HEAR + show translation
+    var exBox=document.createElement("div");
+    exBox.style.cssText="font-family:'Lora',serif;font-style:italic;color:#1e3a8a;font-size:.88rem;direction:ltr;cursor:pointer;padding:8px 10px;background:#f0f9ff;border-radius:8px;border-left:3px solid #7c3aed";
+    exBox.textContent=pv.ex;
+    var trBox=document.createElement("div");
+    trBox.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding:7px 10px;background:#fffdf7;border-radius:8px;border-right:3px solid #fde68a";
+    trBox.textContent=pv.ar;
+    exBox.addEventListener("click",(function(ex,tb){return function(){
+      say(ex,spd);
+      tb.style.display=tb.style.display==="none"?"block":"none";
+      this.style.background=tb.style.display==="block"?"#dbeafe":"#f0f9ff";
+    };})(pv.ex,trBox));
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(exBox);d.appendChild(trBox);
+    sg.appendChild(d);
+  });
+  c.appendChild(sg);
+}
+
+function buildQuiz(){
+  var c=document.getElementById("quizList");
+  quizQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="18px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:10px;direction:ltr;font-size:.93rem";
+    p.innerHTML="<span style='background:#0a1628;color:white;border-radius:5px;padding:1px 8px;font-size:.76rem;margin-left:8px'>"+(qi+1)+"</span>"+q.q;
+    d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="qopt";b.id="qq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){quizA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("qq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function checkQuiz(){var s=0;quizQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("qq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(quizA[qi]===i)el.classList.add("no");}if(quizA[qi]===q.ans)s++;});var pct=Math.round(s/quizQs.length*100);var r=document.getElementById("quizRes");r.style.display="block";document.getElementById("qEmoji").textContent=pct===100?"🏆":pct>=70?"🎉":pct>=50?"💪":"📚";document.getElementById("qScore").textContent=s+" من "+quizQs.length+" إجابة صحيحة ("+pct+"%)";document.getElementById("qMsg").textContent=pct===100?"مثالي!":pct>=70?"أحسنت!":pct>=50?"راجع Conditionals Type 2.":"راجع الوحدة.";r.style.background=pct>=70?"#f0fdf4":"#fef9f0";r.scrollIntoView({behavior:"smooth",block:"center"});}
+function resetQuiz(){quizA=new Array(quizQs.length).fill(null);document.querySelectorAll(".qopt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("quizRes").style.display="none";}
+
+function show(id,btn){document.querySelectorAll(".sec").forEach(function(s){s.classList.remove("on");});document.getElementById("sec-"+id).classList.add("on");window.scrollTo({top:0,behavior:"smooth"});document.querySelectorAll(".nb").forEach(function(b){b.classList.remove("on");});if(btn){btn.classList.add("on");return;}var map={vocab:0,story:1,reading:2,grammar:3,listening:4,writing:5,speaking:6,realeng:7,pv:8,quiz:9};var btns=document.querySelectorAll(".nb");if(btns[map[id]])btns[map[id]].classList.add("on");}
+
+buildVocab();buildStory();buildReading();buildGrammar();buildListening();buildSpeaking();buildReal();buildPhrasal();buildQuiz();
+</script>
+</body>
+</html>

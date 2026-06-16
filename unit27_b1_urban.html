@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath B1 — Unit 27: Urban Life and City Planning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Tajawal',sans-serif;background:#f0f4fa;direction:rtl;min-height:100vh}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#1e3a8a;border-radius:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(30,58,138,.35)}50%{box-shadow:0 0 0 8px rgba(30,58,138,0)}}
+.nav-bar{background:linear-gradient(135deg,#0a1628,#1e3a8a);padding:10px 12px;display:flex;justify-content:center;gap:4px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.nb{border:none;border-radius:22px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s}
+.nb.on{background:#f0a000;color:#0a1628}
+.nb:not(.on){background:rgba(255,255,255,.1);color:rgba(255,255,255,.85)}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#1e3a8a 55%,#1d4ed8 100%);color:white;padding:32px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(240,160,0,.06)}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04)}
+.b1tag{display:inline-block;background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-size:.72rem;font-weight:900;padding:4px 14px;border-radius:20px;letter-spacing:1.5px;margin-bottom:10px}
+.sec{display:none;max-width:900px;margin:0 auto;padding:32px 16px 80px;animation:fadeUp .4s ease}
+.sec.on{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 3px 20px rgba(0,0,0,.06);margin-bottom:22px;overflow:hidden}
+.ch{background:#0a1628;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.ch h3{font-size:1rem;font-weight:700}
+.ch .sub{font-size:.75rem;color:#93c5fd;margin-top:1px}
+.cb{padding:22px}
+.vocab-card{background:white;border-radius:16px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 14px rgba(10,22,40,.08);border:1px solid #e5ebf8;transition:transform .2s,box-shadow .2s}
+.vocab-card:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(10,22,40,.13)}
+.vhead{background:linear-gradient(135deg,#0a1628,#1e3a8a);display:flex;flex-direction:row-reverse;align-items:center;padding:14px 18px;gap:14px}
+
+
+.vinfo{flex:1;text-align:right}
+.vword{font-family:'Lora',serif;font-size:1.18rem;font-weight:700;color:white;direction:ltr;text-align:left}
+.vpron{font-size:.78rem;font-weight:700;color:#fde68a;margin-top:3px;direction:ltr;text-align:left}
+.var{font-size:.93rem;font-weight:700;color:rgba(255,255,255,.9);margin-top:3px}
+.vspk{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.25);background:transparent;color:white;font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:all .18s;display:flex;align-items:center;justify-content:center}
+.vspk:hover{background:rgba(255,255,255,.2);transform:scale(1.08)}
+.vspk.playing{background:#f0a000;border-color:#f0a000;animation:pulse 1s infinite}
+.vbody{padding:14px 16px 16px}
+.vgrid2{margin-bottom:10px}
+.vrow-pair{display:flex;gap:8px;margin-bottom:8px}
+.vrow-pair .vcell{flex:1;min-width:0}
+.vcell{border-radius:10px;padding:10px 13px;cursor:pointer;transition:all .15s;user-select:none;direction:ltr}
+.vcell:hover{filter:brightness(.96)}
+.vcell:active{transform:scale(.98)}
+.c-syn{background:#f0fdf4;border:1px solid #bbf7d0}
+.c-ant{background:#fff7ed;border:1px solid #fed7aa}
+.c-col{background:#eff6ff;border:1px solid #bfdbfe}
+.c-prep{background:#faf5ff;border:1px solid #ddd6fe}
+.vlbl{font-size:.65rem;font-weight:900;letter-spacing:.7px;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:5px;direction:ltr;justify-content:flex-start}
+.c-syn .vlbl{color:#15803d}.c-ant .vlbl{color:#ea580c}
+.c-col .vlbl{color:#2563eb}.c-prep .vlbl{color:#7c3aed}
+.vlbl::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.c-syn .vlbl::before{background:#15803d}.c-ant .vlbl::before{background:#ea580c}
+.c-col .vlbl::before{background:#2563eb}.c-prep .vlbl::before{background:#7c3aed}
+.vval{font-family:'Lora',serif;font-size:.82rem;color:#374151;direction:ltr;line-height:1.6}
+.vtr{font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px;padding-top:5px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif}
+.vcell.show-tr .vtr{display:block}
+.vex{font-family:'Lora',serif;font-size:.87rem;color:#374151;direction:ltr;font-style:italic;padding:10px 14px;background:#f8faff;border-radius:10px;border-right:3px solid #f0a000;cursor:pointer;user-select:none}
+.vex-tr{font-size:.8rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding-top:6px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif;font-style:normal}
+.vex.show-ex-tr .vex-tr{display:block}
+.sline{font-family:'Lora',serif;font-size:.97rem;line-height:2;padding:5px 8px;border-radius:6px;direction:ltr;transition:background .2s}
+.sline.hl{background:#fef3c7}
+.lline{font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#cbd5e1;padding:3px 6px;border-radius:5px;direction:ltr;transition:background .2s}
+.lline.hl{background:rgba(240,160,0,.18);color:#fde68a}
+.sctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-direction:row-reverse;margin-bottom:16px}
+.pbtn{background:#1e3a8a;color:white;border:none;border-radius:24px;padding:9px 20px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s}
+.pbtn:hover{background:#1d4ed8}
+.spdbtn{padding:5px 12px;border-radius:18px;border:2px solid #cbd5e1;background:white;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;color:#64748b;transition:all .15s}
+.spdbtn.on{border-color:#1e3a8a;background:#1e3a8a;color:white}
+.rtext{font-family:'Lora',serif;font-size:.95rem;line-height:2;color:#374151;direction:ltr;padding:20px;background:#f8faff;border-radius:14px;border:1px solid #e5eaf5;margin-bottom:18px}
+.rtext p{margin-bottom:14px}
+.gbox{background:linear-gradient(135deg,#eff6ff,#e0effe);border:2px solid #bfdbfe;border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.gpat{background:white;border-radius:10px;padding:12px 16px;margin-bottom:10px;border-right:4px solid #2563eb;direction:ltr}
+.geg{font-family:'Lora',serif;font-size:.97rem;color:#0a1628;font-weight:600}
+.geg em{color:#f0a000;font-style:normal;font-weight:800}
+.gar{font-family:'Tajawal',sans-serif;font-size:.85rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px}
+.qopt{padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;font-family:'Lora',serif;font-size:.9rem;direction:ltr;background:white;transition:all .15s;margin-bottom:7px;text-align:left}
+.qopt:hover{border-color:#1e3a8a;background:#eff6ff}
+.qopt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.qopt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.copt{padding:9px 14px;border:2px solid #e5e7eb;border-radius:9px;cursor:pointer;font-family:'Lora',serif;font-size:.87rem;direction:ltr;background:white;transition:all .15s;margin-bottom:6px}
+.copt:hover{border-color:#1e3a8a;background:#eff6ff}
+.copt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.copt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.wq-block{margin-bottom:18px}
+.wq-model{font-family:'Lora',serif;font-size:.8rem;color:#374151;font-style:italic;direction:ltr;padding:10px 14px;background:#f0f9ff;border-radius:8px;border-right:3px solid #bfdbfe;line-height:1.7;display:none;margin-bottom:8px}
+.wq-model.show{display:block}
+.wq-model-btn{background:#dbeafe;border:none;border-radius:20px;padding:4px 14px;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer;margin-bottom:8px;transition:all .15s}
+.wq-model-btn:hover{background:#1e3a8a;color:white}
+.wq-en{font-family:'Lora',serif;font-size:.93rem;font-weight:700;color:#0a1628;direction:ltr;margin-bottom:3px}
+.wq-ar{font-size:.78rem;color:#9ca3af;direction:rtl;text-align:right;margin-bottom:8px;font-family:'Tajawal',sans-serif}
+.winput{width:100%;border:none;border-bottom:2px solid #f0a000;background:transparent;font-family:'Lora',serif;font-size:.95rem;color:#0a1628;outline:none;padding:5px 3px;direction:ltr;margin-bottom:14px}
+.winput:focus{border-color:#1e3a8a}
+.btn{border:none;border-radius:28px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all .18s;padding:10px 24px;font-size:.9rem}
+.btn:hover{opacity:.88;transform:scale(.98)}
+.bd{background:#1e3a8a;color:white}
+.bg{background:#e5e7eb;color:#374151}
+.bgold{background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-weight:900}
+.navrow{display:flex;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.spksmall{width:32px;height:32px;border-radius:50%;border:none;background:#dbeafe;color:#1e3a8a;font-size:.85rem;cursor:pointer;flex-shrink:0;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.spksmall:hover{background:#1e3a8a;color:white}
+.expr-card{background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:16px;margin-bottom:12px}
+.slang-card{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px}
+.ev-card{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px}
+@media(max-width:580px){.vgrid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <button class="nb on"  onclick="show('vocab',this)">📚 المفردات</button>
+  <button class="nb" onclick="show('story',this)">📖 القصة</button>
+  <button class="nb" onclick="show('reading',this)">📰 القراءة</button>
+  <button class="nb" onclick="show('grammar',this)">✏️ القاعدة</button>
+  <button class="nb" onclick="show('listening',this)">🎧 الاستماع</button>
+  <button class="nb" onclick="show('writing',this)">✍️ الكتابة</button>
+  <button class="nb" onclick="show('speaking',this)">💬 المحادثة</button>
+  <button class="nb" onclick="show('realeng',this)">🗣️ Real English</button>
+  <button class="nb" onclick="show('pv',this)">💬 Phrasal Verbs</button>
+  <button class="nb" onclick="show('quiz',this)">✅ الاختبار</button>
+</div>
+<div class="hero">
+  <div class="b1tag">B1 — INTERMEDIATE</div>
+  <div style="font-size:.75rem;letter-spacing:3px;color:rgba(255,255,255,.45);font-weight:700;margin-bottom:8px">UNIT 27</div>
+  <h1 style="font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;margin-bottom:6px"> Urban Life and City Planning</h1>
+  <p style="font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:4px">الحياة الحضرية وتخطيط المدن</p>
+  <p style="font-size:.82rem;color:rgba(255,255,255,.4)">القاعدة: Articles Advanced — a/an/the/zero article</p>
+  <div style="display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap">
+    <a href="unit26_b1_philosophy.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">← الوحدة ٢٦</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="unit28_b1_family.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">الوحدة ٢٨ ←</a>
+  </div>
+</div>
+
+<div id="sec-vocab" class="sec on">
+  <div style="text-align:right;color:#64748b;font-size:.88rem;max-width:900px;margin:0 auto 16px;padding:0 16px">💡 اضغط 🔊 للكلمة الرئيسية — اضغط على أي خلية لتسمع نطقها وتظهر ترجمتها</div>
+  <div id="vocabList" style="max-width:900px;margin:0 auto;padding:0 16px"></div>
+  <div class="navrow"><button class="btn bd" onclick="show('story',null)">القصة ←</button></div>
+</div>
+
+<div id="sec-story" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📖</span><div><h3>القصة القصيرة</h3><div class="sub">Yasmin تحكي عن الحياة الحضرية وتخطيط المدن — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button id="trBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:22px;padding:7px 16px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+        <button class="pbtn" id="storyBtn" onclick="toggleStory()"><span id="sIcon">▶</span><span id="sTxt">استمع للقصة</span></button>
+        <button class="spdbtn on" onclick="setSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setSpd(0.75,this)">بطيء</button>
+      </div>
+      <div id="storyBox" style="border-right:4px solid #f0a000;padding:16px 20px;background:#fffdf7;border-radius:0 14px 14px 0"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn bd" onclick="show('reading',null)">القراءة ←</button>
+  </div>
+</div>
+
+<div id="sec-reading" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📰</span><div><h3>القراءة المعمّقة</h3><div class="sub">نص 350 كلمة + 5 أسئلة فهم</div></div></div>
+    <div class="cb">
+      <div class="rtext" id="readingText"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الفهم</p>
+      <div id="compList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkComp()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetComp()">↺ إعادة</button>
+      </div>
+      <div id="compRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('story',null)">→ القصة</button>
+    <button class="btn bd" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✏️</span><div><h3>القاعدة</h3><div class="sub">Dependent Prepositions — الحروف الجر المقيّدة</div></div></div>
+    <div class="cb" id="grammarBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('reading',null)">→ القراءة</button>
+    <button class="btn bd" onclick="show('listening',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listening" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🎧</span><div><h3>الاستماع المضمّن</h3><div class="sub">حوار بين Dr. James 👨 و Dr. Sarah 👩 — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button class="pbtn" id="listenBtn" onclick="toggleListen()"><span id="lIcon">▶</span><span id="lTxt">شغّل المونولوج</span></button>
+        <button class="spdbtn on" onclick="setLSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setLSpd(0.75,this)">بطيء</button>
+      </div>
+      <div class="lscript" id="listenScript" style="background:#0f172a;border-radius:14px;padding:18px 20px;margin-bottom:16px"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الاستماع</p>
+      <div id="listenQList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkListen()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetListen()">↺ إعادة</button>
+      </div>
+      <div id="listenRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn bd" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✍️</span><div><h3>الكتابة</h3><div class="sub">اكتب عن الحياة الحضرية وتخطيط المدن</div></div></div>
+    <div class="cb">
+      <div style="background:#fffdf7;border:2px dashed #f0a000;border-radius:14px;padding:20px;margin-bottom:14px">
+        <div class="wq-block">
+          <div class="wq-en">Describe the city you live in or grew up in. Use articles correctly.</div>
+          <div class="wq-ar">صف المدينة التي تعيش فيها أو نشأت فيها. استخدم المقالات بشكل صحيح.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">The city I grew up in was built primarily for cars rather than people. A typical day required driving everywhere — the market, the school, even the nearest park. Public transport barely existed. Walking felt dangerous rather than pleasurable. Cities like this are common, built in an era when the car seemed like progress.</div>
+          <input class="winput" id="w1" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">What does your ideal neighbourhood look like?</div>
+          <div class="wq-ar">كيف يبدو حيّك المثالي؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">An ideal neighbourhood combines housing with the shops, cafes, and public spaces that make spontaneous community possible. The streets should be designed for people walking, not cars speeding. A park within five minutes' walk is essential. The neighbourhood should have a mix of generations and backgrounds — homogeneity tends to produce the social isolation that modern cities increasingly suffer from.</div>
+          <input class="winput" id="w2" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Is rapid urban development good or bad for a city's character?</div>
+          <div class="wq-ar">هل التطوير الحضري السريع جيد أم سيء لطابع المدينة؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">The rapid development of a city often destroys the very character that made it attractive. A neighbourhood that takes a century to develop cannot be replicated in a decade. The heritage of a place — its layered history, its diverse communities — takes time to accumulate. Development that ignores this tends to produce cities that look modern but feel empty.</div>
+          <input class="winput" id="w3" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">How could your city be improved in the next ten years?</div>
+          <div class="wq-ar">كيف يمكن تحسين مدينتك في السنوات العشر القادمة؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">The most important investment the city could make is in public transport. A reliable metro system connecting the main residential areas to the centre would reduce car dependency and improve air quality. The green spaces that exist should be expanded and connected. A network of tree-lined streets linking parks would transform the walkability of the whole city at relatively low cost.</div>
+          <input class="winput" id="w4" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block" style="margin-bottom:0">
+          <div class="wq-en">Do you prefer city life or rural life? Why?</div>
+          <div class="wq-ar">هل تُفضّل الحياة الحضرية أم الريفية؟ لماذا؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">The city offers a density of experience that the countryside cannot match — the variety of food, culture, ideas, and people within walking distance is genuinely extraordinary. However, the countryside provides something cities rarely offer: a relationship with the natural world that restores something essential. The ideal would be a small city dense enough to be walkable but surrounded by accessible nature.</div>
+          <input class="winput" id="w5" placeholder="Write your answer here..." oninput="buildW()" style="margin-bottom:0">
+        </div></div>
+      <div id="wOut" style="background:white;border:1px solid #e5eaf5;border-radius:12px;padding:16px;min-height:70px;font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#374151;direction:ltr">
+        <span style="color:#9ca3af;font-style:italic">✨ ستظهر فقرتك هنا...</span>
+      </div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('listening',null)">→ الاستماع</button>
+    <button class="btn bd" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">💬</span><div><h3>المحادثة</h3><div class="sub">Speaking Challenge</div></div></div>
+    <div class="cb" id="speakBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn bd" onclick="show('realeng',null)">Real English ←</button>
+  </div>
+</div>
+
+<div id="sec-realeng" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🗣️</span><div><h3>Real English</h3><div class="sub">اضغط على الجملة لتسمعها وتظهر ترجمتها</div></div></div>
+    <div class="cb" id="realBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn bd" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-pv" class="sec">
+  <div class="card">
+    <div class="card-title">💬 Phrasal Verbs — الحياة الحضرية وتخطيط المدن</div>
+    <p style="font-size:.82rem;color:#64748b;text-align:right;margin-bottom:16px;font-family:Tajawal,sans-serif">اضغط على الجملة لتسمعها وترى ترجمتها 🔊</p>
+    <div id="pvBox"></div>
+  </div>
+</div>
+
+<div id="sec-quiz" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✅</span><div><h3>اختبار الوحدة</h3><div class="sub">10 أسئلة — مفردات + قواعد + collocations</div></div></div>
+    <div class="cb">
+      <div id="quizList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:18px">
+        <button class="btn bgold" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn bg" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizRes" style="display:none;text-align:center;padding:22px;margin-top:16px;background:#f0fdf4;border-radius:14px">
+        <div id="qEmoji" style="font-size:2.5rem;margin-bottom:8px"></div>
+        <div id="qScore" style="font-weight:800;font-size:1.1rem;color:#0a1628;margin-bottom:4px"></div>
+        <div id="qMsg" style="font-size:.88rem;color:#64748b"></div>
+      </div>
+    </div>
+  </div>
+  <div style="background:linear-gradient(135deg,#0a1628,#1e3a8a);border-radius:18px;padding:28px;text-align:center;margin-top:8px;max-width:900px;margin-left:auto;margin-right:auto">
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:white;margin-bottom:6px">أحسنت! أكملت وحدة الحياة الحضرية وتخطيط المدن</div>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:16px">الوحدة الثامنة والعشرون: Family</p>
+    <button class="btn bgold" onclick="location.href='unit28_b1_family.html'">الوحدة الحادية والعشرون ←</button>
+  </div>
+</div>
+
+<script>
+var V=[
+  {w:"urban planning",p:"أربن بلانينغ",a:"التخطيط العمراني",syn:"city planning, urban design",ant:"unplanned growth, urban sprawl",col:"urban planning policy / sustainable urban planning",prep:"planning of (city) / in (context)",ex:"The urban planning decisions made in the 1950s continue to shape the quality of life in cities today.",ar_syn:"تخطيط المدن، تصميم حضري",ar_ant:"نمو غير مخطط، تمدد عشوائي",ar_col:"سياسة التخطيط / مستدام",ar_prep:"تخطيط المدينة / في السياق",ar_ex:"قرارات التخطيط العمراني في الخمسينيات تستمر في تشكيل جودة الحياة في المدن اليوم."},
+  {w:"infrastructure",p:"إنفراستراكتشر",a:"البنية التحتية",syn:"facilities, public works, systems",ant:"superstructure, private buildings",col:"crumbling infrastructure / invest in infrastructure",prep:"infrastructure of (city) / for (transport)",ex:"A city's infrastructure reveals more about its priorities than any political speech.",ar_syn:"مرافق، أعمال عامة، أنظمة",ar_ant:"بنية فوقية، مباني خاصة",ar_col:"بنية تحتية متداعية / يستثمر",ar_prep:"بنية تحتية للمدينة / للنقل",ar_ex:"البنية التحتية للمدينة تكشف عن أولوياتها أكثر من أي خطاب سياسي."},
+  {w:"gentrification",p:"جينتريفيكيشن",a:"التحوّل الجنتري",syn:"urban renewal, upscaling, displacement",ant:"urban decay, community preservation",col:"rapid gentrification / resist gentrification",prep:"gentrification of (neighbourhood) / due to (investment)",ex:"The gentrification of the old quarter brought investment but displaced the communities that made it distinctive.",ar_syn:"تجديد حضري، ارتقاء، تهجير",ar_ant:"تدهور حضري، حفاظ على المجتمع",ar_col:"تحوّل سريع / يقاوم",ar_prep:"تحوّل الحي / بسبب الاستثمار",ar_ex:"التحوّل الجنتري للحي القديم جلب الاستثمار لكن هجّر المجتمعات التي جعلته مميزاً."},
+  {w:"walkability",p:"وولكبيلتي",a:"قابلية السير / ملاءمة المشاة",syn:"pedestrian-friendly, accessible on foot",ant:"car-dependent, inaccessible",col:"improve walkability / walkability score",prep:"walkability in (city) / of (neighbourhood)",ex:"A city's walkability is one of the strongest predictors of residents' happiness and health.",ar_syn:"صديق للمشاة، يمكن الوصول سيراً",ar_ant:"مرتبط بالسيارة، غير قابل للوصول",ar_col:"يحسّن قابلية المشي / درجة",ar_prep:"قابلية المشي في المدينة / للحي",ar_ex:"قابلية المشي في مدينة ما هي أحد أقوى المنبئات بسعادة السكان وصحتهم."},
+  {w:"public space",p:"بابلك سبيس",a:"المساحة العامة",syn:"communal space, civic space",ant:"private space, restricted area",col:"design public space / quality public space",prep:"space for (citizens) / in (city)",ex:"The quality of public space in a city reflects the degree to which it was designed for people rather than cars.",ar_syn:"مساحة مشتركة، فضاء مدني",ar_ant:"مساحة خاصة، منطقة مقيّدة",ar_col:"يصمم المساحة / عالية الجودة",ar_prep:"مساحة للمواطنين / في المدينة",ar_ex:"جودة المساحة العامة في مدينة ما تعكس مدى تصميمها للناس لا للسيارات."},
+  {w:"affordable housing",p:"أفوردبل هاوزينغ",a:"الإسكان الميسور",syn:"social housing, low-cost housing",ant:"luxury housing, unaffordable property",col:"provide affordable housing / affordable housing crisis",prep:"housing for (low-income) / in (city)",ex:"The affordable housing crisis is pushing key workers out of the cities where their services are needed most.",ar_syn:"إسكان اجتماعي، مساكن منخفضة التكلفة",ar_ant:"إسكان فاخر، عقارات باهظة",ar_col:"يوفر إسكاناً ميسوراً / أزمة",ar_prep:"إسكان لذوي الدخل المنخفض / في المدينة",ar_ex:"أزمة الإسكان الميسور تدفع العمال الأساسيين خارج المدن التي تحتاج خدماتهم أكثر."},
+  {w:"commute",p:"كوميوت",a:"التنقل اليومي",syn:"daily travel, journey to work",ant:"working from home, remote work",col:"long commute / daily commute / reduce commute",prep:"commute to (work) / from (suburb)",ex:"The average commute has a measurable negative effect on wellbeing that accumulates over years.",ar_syn:"سفر يومي، رحلة للعمل",ar_ant:"العمل من المنزل، عمل عن بُعد",ar_col:"تنقل طويل / يومي / يقلل",ar_prep:"التنقل للعمل / من الضاحية",ar_ex:"متوسط التنقل له تأثير سلبي قابل للقياس على الصحة النفسية يتراكم على مدى سنوات."},
+  {w:"zoning",p:"زونينغ",a:"تقسيم المناطق",syn:"land use planning, area designation",ant:"mixed use, unregulated",col:"zoning law / mixed-use zoning",prep:"zoning of (area) / in (city)",ex:"Single-use zoning has created cities where everything is separated — work, housing, and commerce all divided.",ar_syn:"تخطيط استخدام الأراضي، تخصيص منطقة",ar_ant:"استخدام مختلط، غير منظم",ar_col:"قانون التقسيم / استخدام مختلط",ar_prep:"تقسيم منطقة / في المدينة",ar_ex:"تقسيم الاستخدام الفردي أنشأ مدناً يكون فيها كل شيء مفصولاً."},
+  {w:"density",p:"دينستي",a:"الكثافة السكانية",syn:"population concentration, built density",ant:"sprawl, low density, suburban",col:"high density / residential density",prep:"density of (city) / in (area)",ex:"Higher urban density, when well-designed, tends to produce more efficient and more liveable cities.",ar_syn:"تركز سكاني، كثافة مبنية",ar_ant:"تمدد، كثافة منخفضة، ضاحوي",ar_col:"كثافة عالية / سكنية",ar_prep:"كثافة المدينة / في المنطقة",ar_ex:"الكثافة الحضرية العالية، حين تُصمَّم جيداً، تميل لإنتاج مدن أكثر كفاءة وأكثر قابلية للسكن."},
+  {w:"smart city",p:"سمارت ستي",a:"المدينة الذكية",syn:"digital city, tech-integrated city",ant:"traditional city, analogue infrastructure",col:"smart city initiative / smart city technology",prep:"city using (technology) / in (future)",ex:"The smart city concept promises efficiency but raises significant questions about surveillance and data privacy.",ar_syn:"مدينة رقمية، مدينة متكاملة تقنياً",ar_ant:"مدينة تقليدية",ar_col:"مبادرة مدينة ذكية / تقنية",ar_prep:"مدينة تستخدم التقنية / في المستقبل",ar_ex:"مفهوم المدينة الذكية يعد بالكفاءة لكن يُثير تساؤلات كبيرة حول المراقبة وخصوصية البيانات."},
+  {w:"green space",p:"غرين سبيس",a:"المساحة الخضراء",syn:"park, natural area, urban nature",ant:"concrete, built environment",col:"urban green space / access to green space",prep:"space in (city) / for (residents)",ex:"Access to green space in cities is now recognised as a public health issue, not just an aesthetic one.",ar_syn:"حديقة، منطقة طبيعية",ar_ant:"اسمنت، بيئة مبنية",ar_col:"مساحة خضراء حضرية / الوصول",ar_prep:"مساحة في المدينة / للسكان",ar_ex:"الوصول إلى المساحات الخضراء في المدن يُعترف به الآن كقضية صحة عامة."},
+  {w:"segregation",p:"سيغريغيشن",a:"الفصل الاجتماعي",syn:"division, separation, stratification",ant:"integration, mixing, inclusion",col:"residential segregation / economic segregation",prep:"segregation of (groups) / in (city)",ex:"Economic segregation in cities creates parallel societies that rarely interact meaningfully.",ar_syn:"تقسيم، فصل، تطبق",ar_ant:"اندماج، خلط، شمول",ar_col:"فصل سكني / اقتصادي",ar_prep:"فصل المجموعات / في المدينة",ar_ex:"الفصل الاقتصادي في المدن يخلق مجتمعات موازية نادراً ما تتفاعل بشكل ذو معنى."},
+  {w:"heritage site",p:"هيريتيج سايت",a:"موقع التراث",syn:"historic site, listed building, landmark",ant:"new development, modern building",col:"UNESCO heritage site / preserve heritage site",prep:"site in (city) / on (list)",ex:"The tension between heritage preservation and urban development is one of the most persistent in city planning.",ar_syn:"موقع تاريخي، مبنى مُدرج، معلَم",ar_ant:"تطوير جديد، مبنى حديث",ar_col:"موقع يونسكو / يحافظ على",ar_prep:"موقع في المدينة / على القائمة",ar_ex:"التوتر بين الحفاظ على التراث والتطوير الحضري هو من أكثر التوترات استمراراً في تخطيط المدن."},
+  {w:"public transport",p:"بابلك ترانسبورت",a:"وسائل النقل العام",syn:"mass transit, buses, metro, rail",ant:"private car, individual transport",col:"invest in public transport / public transport network",prep:"transport in (city) / for (residents)",ex:"Cities that have invested heavily in public transport consistently outperform car-dependent equivalents on quality of life.",ar_syn:"عبور جماعي، حافلات، مترو، قطار",ar_ant:"سيارة خاصة، نقل فردي",ar_col:"يستثمر في النقل / شبكة",ar_prep:"نقل في المدينة / للسكان",ar_ex:"المدن التي استثمرت بكثافة في وسائل النقل العام تتفوق باستمرار على نظيراتها المعتمدة على السيارات."},
+  {w:"urban renewal",p:"أربن رينيول",a:"التجديد الحضري",syn:"regeneration, revitalisation, redevelopment",ant:"urban decay, neglect",col:"urban renewal project / urban renewal programme",prep:"renewal of (area) / through (investment)",ex:"Urban renewal projects have transformed derelict areas but displacement of existing communities remains a serious concern.",ar_syn:"تجديد، إنعاش، إعادة تطوير",ar_ant:"تدهور حضري، إهمال",ar_col:"مشروع تجديد / برنامج",ar_prep:"تجديد المنطقة / من خلال الاستثمار",ar_ex:"مشاريع التجديد الحضري حوّلت المناطق المهجورة لكن تهجير المجتمعات الحالية يبقى مصدر قلق جدي."},
+  {w:"liveable city",p:"ليفبل ستي",a:"المدينة الصالحة للسكن",syn:"habitable, quality city",ant:"hostile city, uninhabitable",col:"most liveable city / liveable city index",prep:"city for (people) / according to (index)",ex:"The world's most liveable cities consistently share: excellent public transport, green space, and safety.",ar_syn:"صالحة للسكن، مدينة جودة",ar_ant:"مدينة معادية، غير صالحة",ar_col:"أكثر مدينة صالحة / مؤشر",ar_prep:"مدينة للناس / وفقاً للمؤشر",ar_ex:"أكثر مدن العالم قابلية للسكن تتشارك: نقل عام ممتاز ومساحات خضراء وأمان."},
+  {w:"social cohesion",p:"سوشل كوهيجن",a:"التماسك الاجتماعي",syn:"community bond, social unity",ant:"fragmentation, isolation, division",col:"promote social cohesion / build social cohesion",prep:"cohesion in (neighbourhood) / among (residents)",ex:"Urban design can either promote or destroy social cohesion depending on how it prioritises people.",ar_syn:"روابط مجتمعية، وحدة اجتماعية",ar_ant:"تفكك، عزلة، انقسام",ar_col:"يعزز التماسك / يبني",ar_prep:"تماسك في الحي / بين السكان",ar_ex:"التصميم الحضري يمكن أن يعزز أو يدمر التماسك الاجتماعي."},
+  {w:"displacement",p:"ديسبليسمنت",a:"التهجير / الإزاحة",syn:"eviction, relocation, forced removal",ant:"stability, community retention",col:"community displacement / prevent displacement",prep:"displacement from (area) / due to (development)",ex:"The displacement of long-term residents through development is one of the most ethically contested processes in urban change.",ar_syn:"إخلاء، إعادة توطين، إزالة قسرية",ar_ant:"استقرار، الاحتفاظ بالمجتمع",ar_col:"تهجير مجتمعي / يمنع",ar_prep:"تهجير من المنطقة / بسبب التطوير",ar_ex:"تهجير السكان طويلي الأمد من خلال التطوير هو أحد أكثر العمليات خلافاً أخلاقياً في التغيير الحضري."},
+  {w:"mixed-use development",p:"ميكسد-يوز ديفلوبمنت",a:"التطوير متعدد الاستخدامات",syn:"integrated development, combined use",ant:"single-use, separated zones",col:"mixed-use development project / mixed-use neighbourhood",prep:"development in (area) / combining (uses)",ex:"Mixed-use development — combining housing, shops, and workplaces — creates conditions for genuine urban vitality.",ar_syn:"تطوير متكامل، استخدام مجمّع",ar_ant:"استخدام فردي، مناطق مفصولة",ar_col:"مشروع تطوير / حي",ar_prep:"تطوير في المنطقة / يجمع استخدامات",ar_ex:"التطوير متعدد الاستخدامات — الجمع بين الإسكان والمتاجر وأماكن العمل — يخلق ظروف الحيوية الحضرية الحقيقية."},
+  {w:"homelessness",p:"هوملسنس",a:"انعدام المأوى",syn:"street homelessness, rough sleeping",ant:"stable housing, housed population",col:"address homelessness / homelessness crisis",prep:"homelessness in (city) / among (population)",ex:"Homelessness in cities is not primarily a housing problem — it is a complex intersection of mental health, addiction, and systemic failure.",ar_syn:"بلا مأوى، النوم في الشوارع",ar_ant:"إسكان مستقر",ar_col:"يعالج انعدام المأوى / أزمة",ar_prep:"انعدام المأوى في المدينة / بين السكان",ar_ex:"انعدام المأوى في المدن ليس مشكلة إسكان فحسب — بل تقاطع معقد بين الصحة النفسية والإدمان والفشل المنهجي."},
+  {w:"urban heat island",p:"أربن هيت آيلند",a:"جزيرة الحرارة الحضرية",syn:"city heat effect",ant:"rural coolness, green cooling",col:"urban heat island effect / combat urban heat",prep:"heat island in (city) / due to (density)",ex:"The urban heat island effect means city centres are measurably hotter than surrounding rural areas.",ar_syn:"تأثير حرارة المدينة",ar_ant:"برودة ريفية، تبريد أخضر",ar_col:"تأثير جزيرة الحرارة / يكافح",ar_prep:"جزيرة الحرارة في المدينة / بسبب الكثافة",ar_ex:"تأثير جزيرة الحرارة الحضرية يعني أن مراكز المدن أكثر حرارة من المناطق الريفية المحيطة."},
+  {w:"neighbourhood",p:"نيبرهود",a:"الحي / المنطقة السكنية",syn:"district, quarter, local community",ant:"citywide, region",col:"vibrant neighbourhood / local neighbourhood",prep:"neighbourhood in (city) / of (residents)",ex:"A great neighbourhood is not designed in a planning office — it grows from the accumulated habits of its residents.",ar_syn:"حارة، منطقة، مجتمع محلي",ar_ant:"على مستوى المدينة",ar_col:"حي نابض / محلي",ar_prep:"حي في المدينة / للسكان",ar_ex:"الحي العظيم لا يُصمَّم في مكتب تخطيط — بل ينمو من العادات المتراكمة لسكانه."},
+  {w:"resilient city",p:"ريزيلينت ستي",a:"المدينة المرنة",syn:"adaptive city, disaster-ready city",ant:"fragile city, vulnerable city",col:"build a resilient city / climate-resilient city",prep:"city resilient to (disasters) / in (planning)",ex:"Building a resilient city means designing for the unexpected — flood, pandemic, and social crisis all require adaptive foundations.",ar_syn:"مدينة تكيّفية، جاهزة للكوارث",ar_ant:"مدينة هشة، مدينة ضعيفة",ar_col:"يبني مدينة مرنة / مناخية",ar_prep:"مدينة مرنة تجاه الكوارث / في التخطيط",ar_ex:"بناء مدينة مرنة يعني التصميم للمتوقع — الفيضان والجائحة والأزمة الاجتماعية تتطلب نفس الأسس التكيّفية."},
+  {w:"civic pride",p:"سيفك برايد",a:"الفخر المدني",syn:"community pride, urban identity",ant:"urban apathy, civic indifference",col:"develop civic pride / foster civic pride",prep:"pride in (city) / among (residents)",ex:"Civic pride — the feeling that one's city is worth caring about — must be deliberately cultivated.",ar_syn:"فخر مجتمعي، هوية حضرية",ar_ant:"لامبالاة حضرية",ar_col:"يطور الفخر المدني / يعزز",ar_prep:"فخر بالمدينة / بين السكان",ar_ex:"الفخر المدني — الشعور بأن مدينة المرء تستحق الاهتمام — يجب زرعه عمداً."},
+  {w:"participatory planning",p:"بارتيسيباتوري بلانينغ",a:"التخطيط التشاركي",syn:"community-led planning, inclusive planning",ant:"top-down planning, expert-led planning",col:"participatory planning process / adopt participatory approach",prep:"planning with (residents) / in (process)",ex:"Participatory planning — involving residents in decisions about their neighbourhoods — tends to produce better outcomes.",ar_syn:"تخطيط بقيادة المجتمع، تخطيط شامل",ar_ant:"تخطيط من القمة للأسفل",ar_col:"عملية تخطيط تشاركي / يتبنى نهجاً",ar_prep:"تخطيط مع السكان / في العملية",ar_ex:"التخطيط التشاركي — إشراك السكان في قرارات أحيائهم — يميل لإنتاج نتائج أفضل."},
+  {w:"skyline",p:"سكايلاين",a:"أفق المدينة",syn:"city silhouette, built horizon",ant:"natural horizon, rural landscape",col:"iconic skyline / city skyline / changing skyline",prep:"skyline of (city) / against (sky)",ex:"A city's skyline tells the story of its ambition, wealth, and architectural values across generations.",ar_syn:"صورة ظلية للمدينة، الأفق المبني",ar_ant:"الأفق الطبيعي",ar_col:"أفق أيقوني / للمدينة / متغير",ar_prep:"أفق المدينة / على خلفية السماء",ar_ex:"أفق المدينة يحكي قصة طموحها وثروتها وقيمها المعمارية عبر الأجيال."},
+  {w:"urban agriculture",p:"أربن أغريكلتشر",a:"الزراعة الحضرية",syn:"city farming, rooftop farming, community garden",ant:"rural agriculture, industrial farming",col:"urban agriculture initiative / promote urban agriculture",prep:"agriculture in (city) / on (rooftop)",ex:"Urban agriculture is being explored as a way to improve food security, community connection, and mental health simultaneously.",ar_syn:"زراعة المدينة، زراعة الأسطح",ar_ant:"زراعة ريفية، زراعة صناعية",ar_col:"مبادرة زراعة حضرية / يعزز",ar_prep:"زراعة في المدينة / على الأسطح",ar_ex:"الزراعة الحضرية يجري استكشافها كطريقة لتحسين أمن الغذاء وروابط المجتمع والصحة النفسية في آن واحد."},
+];
+var story=[
+  {t:"Diego spent his childhood in a city designed entirely around cars. You could not walk to anything.",ar:"ديغو قضى طفولته في مدينة مصمّمة بالكامل حول السيارات. لم يمكن المشي لأي مكان."},
+  {t:"The supermarket required a car. The school required a car. The park required a car.",ar:"السوبر ماركت يتطلب سيارة. المدرسة تتطلب سيارة. الحديقة تتطلب سيارة."},
+  {t:"When he moved to Barcelona at twenty-two, the experience was transformative. A city designed for people.",ar:"حين انتقل لبرشلونة في سن الثانية والعشرين، كانت التجربة محوّلة. مدينة مصمّمة للناس."},
+  {t:"He walked to the market every morning. He knew his neighbours. He felt, for the first time, like a citizen.",ar:"مشى للسوق كل صباح. عرف جيرانه. شعر، لأول مرة، بأنه مواطن."},
+  {t:"He became an urban planner. His obsession: what makes a city feel like a city rather than a car park?",ar:"أصبح مخططاً عمرانياً. هاجسه: ما الذي يجعل المدينة تبدو كمدينة لا مرأباً للسيارات؟"},
+  {t:"His answer is always the same: human scale, mixed use, and public space people actually want to spend time in.",ar:"إجابته دائماً نفسها: المقياس الإنساني، الاستخدام المتعدد، والمساحة العامة التي يريد الناس فعلاً قضاء الوقت فيها."},
+  {t:"Cities are not neutral. Every design choice is a political choice about whose life is prioritised.",ar:"المدن ليست محايدة. كل قرار تصميمي هو قرار سياسي حول من تُعطى حياته الأولوية."},
+  {t:"The best city is the one where the person without a car lives as well as the person with one.",ar:"أفضل مدينة هي تلك التي يعيش فيها الشخص بدون سيارة جيداً كالشخص الذي لديه واحدة."},
+];
+var reading=[
+  "Cities are the defining human achievement of the modern era. More than half of the world's population now lives in urban areas, and this proportion continues to rise. The decisions made today about how cities are designed, built, and governed will shape the quality of human life for generations. Urban planning is therefore one of the most consequential professions — yet it operates largely below public awareness.",
+  "The article requires careful attention in discussions of urban issues. When we say the city has invested in public transport, the definite article signals a specific known city. When we say a city that invests in public transport tends to be more liveable, the indefinite article indicates any city of that type. Zero article before plural and uncountable nouns — cities need investment, public transport matters — signals general statements about categories.",
+  "The car-centred city emerged primarily in the mid-twentieth century as a design choice presented as inevitable but highly contested. The prioritisation of car traffic over pedestrian movement and the investment in highways over public transport were political decisions reflecting industry interests as much as genuine planning principles. The consequences — car dependency, sprawl, segregation, and the destruction of walkable communities — continue to be felt globally.",
+  "Gentrification presents one of the most ethically complex processes in contemporary urban life. When investment revitalises a neglected area, property values rise, which attracts more investment, which raises values further, until the original community can no longer afford to live there. The neighbourhood that was distinctive because of its long-term residents becomes a sanitised version of itself — the form preserved, the substance displaced. Urban planners increasingly recognise that the community is the asset, not the property.",
+  "The smartest cities in the world are rediscovering ancient principles: walkability, mixed use, public space, and human scale. Copenhagen, Amsterdam, Vienna, and Singapore consistently rank as the world's most liveable cities. What they share is not size or wealth but a commitment to designing for human experience at street level. The city designed for a car journey rather than a walking journey produces a fundamentally different quality of life — and decades of research confirm which one people prefer.",
+];
+var compQs=[
+  {q:"What will shape quality of human life for generations?",opts:["Population growth","The decisions made today about how cities are designed","Climate change","Technology"],ans:1},
+  {q:"What does zero article before plural nouns signal?",opts:["Specific known instances","General statements about categories","Definite references","Past events"],ans:1},
+  {q:"What were car-centred cities described as in the text?",opts:["Inevitable and necessary","The result of public demand","Political decisions reflecting industry interests","The best design approach"],ans:2},
+  {q:"What does the text say is the real asset in a neighbourhood?",opts:["Property values","Architecture","The community itself","Infrastructure"],ans:2},
+  {q:"What do the world's most liveable cities share?",opts:["Great wealth and large size","Commitment to designing for human experience at street level","Advanced technology","Low population"],ans:1},
+];
+var listenLines=[
+  {speaker:"D",text:"Nadia, what's the one thing you'd change about your city's urban design?"},
+  {speaker:"N",text:"The car dependence. The city was designed in the 1970s assuming cars were the future. Now there's no reason to be outside on foot."},
+  {speaker:"D",text:"That's the most common answer I get. We built environments that made walking unpleasant, then wonder why people are unhealthy and isolated."},
+  {speaker:"N",text:"What's your view on gentrification? The neighbourhood I grew up in has been transformed — beautiful now, but the people who made it that way can't afford to live there."},
+  {speaker:"D",text:"That's the core paradox. The development comes for the community but ends up replacing it with something more sterile."},
+  {speaker:"N",text:"So what's the solution? You can't tell a city not to invest in neglected areas — the alternative is leaving them to decay."},
+  {speaker:"D",text:"Community land trusts are one model that works. The community owns the land collectively, so development doesn't displace original residents. Vienna has done it well."},
+  {speaker:"N",text:"What about smart cities? All these sensors and AI-optimised traffic — is that the future?"},
+  {speaker:"D",text:"Parts of it, probably. But I'm sceptical that technology solves what is fundamentally a political problem. Who do you build the city for? Sensors can't answer that."},
+  {speaker:"N",text:"Fair point. A well-designed surveillance infrastructure is still surveillance infrastructure."},
+  {speaker:"D",text:"The best urban interventions tend to be the simplest: a bench in the right place, a tree on a hot street, a market that brings people out of their houses."},
+  {speaker:"N",text:"Human scale. Everything that works in urban design comes back to that."},
+  {speaker:"D",text:"Because that's what cities are for. Not cars, not investment returns. For the people who actually live in them."},
+];
+var listenQs=[
+  {q:"What does Nadia say was the main problem with her city?",opts:["Too many buildings","Car dependence from 1970s design","Lack of investment","Poor architecture"],ans:1},
+  {q:"What does Diego say is the core paradox of gentrification?",opts:["Values rise too slowly","Development comes for the community but replaces it with something more sterile","Investment is poorly distributed","Architecture is prioritised"],ans:1},
+  {q:"What solution does Diego mention for preventing displacement?",opts:["Government subsidies","More housing","Community land trusts where community owns land collectively","Rent controls"],ans:2},
+  {q:"What is Diego's view on smart cities?",opts:["Complete solution","Technology solves all problems","Some value but technology cannot answer who the city is built for","Dangerous"],ans:2},
+  {q:"What does Diego say the best urban interventions tend to be?",opts:["Expensive and high-tech","Large scale projects","The simplest: bench tree market","Digital"],ans:2},
+];
+var speakQs=[
+  {q:"Describe your city using correct articles.",hint:"The city I live in... A major problem is... Public transport in my city... The streets are designed for... A park within walking distance... Cities need...",ar:"صف مدينتك باستخدام المقالات بشكل صحيح.",badge:"🎯 a/an/the/zero article في كل اسم"},
+  {q:"Discuss what makes a great neighbourhood.",hint:"A good neighbourhood has... The neighbourhood I grew up in... Neighbourhoods without public space... The community is what matters... A bench in the right place...",ar:"ناقش ما يجعل الحي رائعاً.",badge:"🎯 a/the/zero article بدقة"},
+  {q:"Talk about the problems of car-dependent cities.",hint:"The car-centred city produces... A city without walkability tends to... Public transport is essential because... The investment in highways instead of... Cities that prioritise cars tend to...",ar:"تحدّث عن مشاكل المدن المعتمدة على السيارات.",badge:"🎯 المقالات مع أسماء المدن والأنظمة"},
+  {q:"Discuss gentrification — benefits and problems.",hint:"The process of gentrification... A neighbourhood that attracts investment... The original community... Cities need investment but... The displacement of residents is... A balanced approach requires...",ar:"ناقش التحوّل الجنتري — الفوائد والمشاكل.",badge:"🎯 a/the/zero في كل نقطة"},
+  {q:"What should cities of the future look like?",hint:"The city of the future needs... A neighbourhood should contain... Public transport would connect... The streets would be designed for... A mix of housing work and leisure... Green space accessible to every...",ar:"كيف يجب أن تبدو مدن المستقبل؟",badge:"🎯 استخدم جميع أنواع المقالات بشكل صحيح"},
+  {q:"Compare two cities you know or have heard of.",hint:"The first city has... A distinctive feature of the second city is... Public transport in both cities... The streets of X are more walkable than... A neighbourhood like... Both cities share the problem of...",ar:"قارن بين مدينتَين تعرفهما أو سمعت عنهما.",badge:"🎯 the للمحدد / a للأول ذكر / zero للعام"},
+  {q:"Talk about public space and why it matters for communities.",hint:"A good public space allows... The park in my neighbourhood... Public space without trees or benches... The design of a plaza affects... Cities need public space because... The best public spaces I have seen...",ar:"تحدّث عن المساحة العامة ودورها.",badge:"🎯 the/a/zero مع أسماء الأماكن"},
+  {q:"Discuss the relationship between urban design and health.",hint:"The design of a city affects health... A walkable city produces... The access to green space is essential... Cities that have invested in public transport... A commute of over an hour... The quality of urban environment...",ar:"ناقش العلاقة بين التصميم الحضري والصحة.",badge:"🎯 المقالات في كل ادعاء"},
+  {q:"Should historic buildings be preserved or demolished for development?",hint:"The historic centre should be... A city without heritage loses... The tension between preservation and new development... An old building in the right context... The community that lives near heritage sites... A balance between old and new...",ar:"هل يجب الحفاظ على المباني التاريخية أم هدمها للتطوير؟",badge:"🎯 a/the/zero مع أسماء المباني والمناطق"},
+  {q:"Deliver a ninety-second vision of your ideal city.",hint:"The ideal city needs... A great neighbourhood contains... Public transport should connect every... The streets would be designed for pedestrians... A park would be accessible to... Cities function best when the human scale is...",ar:"قدّم رؤية من تسعين ثانية لمدينتك المثالية.",badge:"🎯 استخدم a/an/the/zero بشكل صحيح في كل جملة!"},
+];
+var pvData=[
+  {v:"tear down",p:"تير داون",m:"يهدم / يزيل مبنى",ex:"They tore down the old market to build apartments — many residents never forgave that decision.",ar:"هدموا السوق القديمة لبناء شقق — كثير من السكان لم يسامحوا على ذلك القرار."},
+  {v:"spring up",p:"سبرينغ أب",m:"ينبثق / ينشأ فجأة",ex:"Coffee shops spring up wherever a neighbourhood starts to gentrify — they are always the first sign.",ar:"المقاهي تنبثق أينما يبدأ حي بالتحوّل — إنها دائماً أول علامة."},
+  {v:"spread out",p:"سبريد أوت",m:"يمتد / ينتشر",ex:"The city has spread out so much that the journey to work takes over an hour for most residents.",ar:"المدينة امتدت كثيراً لدرجة أن رحلة العمل تستغرق أكثر من ساعة لمعظم السكان."},
+  {v:"run down",p:"ران داون",m:"يصف المكان بأنه متداعٍ",ex:"The neighbourhood had been run down for years before investment finally arrived.",ar:"الحي كان متداعياً لسنوات قبل أن يصل الاستثمار أخيراً."},
+  {v:"open up",p:"أوبن أب",m:"يفتح / يجعل قابلاً للوصول",ex:"The new metro line opened up the eastern suburbs and changed the housing market completely.",ar:"خط المترو الجديد فتح الضواحي الشرقية وغيّر سوق الإسكان بالكامل."},
+  {v:"take over",p:"تيك أوفر",m:"يستولي / يهيمن تدريجياً",ex:"Chain stores have taken over the high street, replacing the independent shops that gave it character.",ar:"سلاسل المتاجر استولت على الشارع التجاري الرئيسي، محلّةً المحلات المستقلة."},
+  {v:"knock down",p:"نوك داون",m:"يهدم مبنى",ex:"They knocked down the old library to build apartments — many residents never forgave the decision.",ar:"هدموا المكتبة القديمة لبناء شقق — كثير من السكان لم يسامحوا على ذلك القرار."},
+  {v:"build up",p:"بيلد أب",m:"يبني تدريجياً",ex:"The community had been building up its local market for years before it became a destination.",ar:"المجتمع كان يطور سوقه المحلي لسنوات قبل أن يصبح وجهة."},
+  {v:"move in",p:"موف إن",m:"ينتقل للسكن",ex:"As property prices rose, younger residents moved in and long-term residents began to move out.",ar:"مع ارتفاع أسعار العقارات انتقل سكان أصغر سناً وبدأ السكان القدامى بالخروج."},
+  {v:"clean up",p:"كلين أب",m:"يُنظّف / يُحسّن منطقة",ex:"The city cleaned up the waterfront and turned it into a public park — the transformation was dramatic.",ar:"المدينة نظّفت الواجهة البحرية وحوّلتها لحديقة عامة — التحوّل كان دراماتيكياً."},
+];
+var realExpr=[
+  {e:"Concrete jungle",p:"كونكريت جانغل",m:"غابة الاسمنت / مدينة بلا خضرة",f:"A city with too many grey buildings and no green space.",x:"Growing up in a concrete jungle makes you appreciate a single tree more than most people ever will.",xar:"النشأة في غابة الاسمنت تجعلك تُقدّر شجرة واحدة أكثر مما يفعله معظم الناس.",n:"الغابة = كثافة وتشابك — لكن بدل أشجار هناك مبانٍ اسمنتية"},
+  {e:"Put something on the map",p:"بوت سامثينغ أون ذا ماب",m:"يضع شيئاً على الخريطة",f:"Make a place famous or significant enough to be noticed.",x:"The cultural festival put the small city on the map internationally for the first time.",xar:"المهرجان الثقافي وضع المدينة الصغيرة على الخريطة دولياً للمرة الأولى.",n:"وضع شيء على الخريطة = تعريف العالم به"},
+  {e:"Off the beaten track",p:"أوف ذا بيتن تراك",m:"بعيد عن المناطق السياحية المطروقة",f:"Away from tourist routes and well-known areas.",x:"The best restaurants are always off the beaten track — you have to know a local to find them.",xar:"أفضل المطاعم دائماً بعيدة عن المسالك المطروقة — يجب أن تعرف محلياً لتجدها.",n:"المسلك المطروق = الطريق المألوف — الابتعاد عنه يعني اكتشاف الأصيل"},
+];
+var realSlang=[
+  {w:"Leafy suburb",p:"ليفي سبيرب",i:"a pleasant residential area with many trees",ex:"They moved to a leafy suburb when they had children — quiet streets and good schools.",xar:"انتقلوا لضاحية خضراء حين أنجبوا أطفالاً — شوارع هادئة ومدارس جيدة.",a:"ضاحية سكنية جميلة بأشجار كثيرة ومساحات خضراء"},
+  {w:"Up and coming",p:"أب أند كامينغ",i:"developing rapidly and becoming more fashionable",ex:"They bought in an up and coming neighbourhood before prices rose completely.",xar:"اشتروا في حي صاعد قبل ارتفاع الأسعار بالكامل.",a:"منطقة تتطور بسرعة وتكتسب قيمة وأهمية"},
+  {w:"Ghost town",p:"غوست تاون",i:"a place that feels empty and abandoned",ex:"After the factory closed the whole area became a ghost town within five years.",xar:"بعد إغلاق المصنع تحوّلت المنطقة كلها لمدينة أشباح في خمس سنوات.",a:"مكان يبدو خالياً ومهجوراً تماماً"},
+  {w:"The wrong side of the tracks",p:"ذا رونغ سايد أوف ذا تراكس",i:"the poorer less desirable part of a city",ex:"The railway line divided the city — everyone knew which was the wrong side of the tracks.",xar:"خط السكة الحديد قسّم المدينة — الجميع كان يعلم أي الجانبَين هو الأقل رغبةً.",a:"الجانب الأفقر الأقل رغبةً من المدينة"},
+];
+var realEvery=[
+  {w:"Put down roots",p:"بوت داون روتس",i:"establish yourself permanently in a place",ex:"She finally put down roots in the city after years of moving — bought a flat and got involved in the community.",xar:"أرست جذورها أخيراً في المدينة بعد سنوات من التنقل.",a:"يستقر ويُرسّخ وجوده في مكان بشكل دائم"},
+  {w:"Off the beaten track",p:"أوف ذا بيتن تراك",i:"away from tourist routes",ex:"The best hidden restaurants are always off the beaten track.",xar:"أفضل المطاعم الخفية دائماً بعيدة عن المسالك المطروقة.",a:"بعيد عن المناطق السياحية المعروفة"},
+  {w:"Settle down",p:"سيتل داون",i:"establish a stable life in one place",ex:"After years of travelling he decided to settle down in the city that had felt most like home.",xar:"بعد سنوات من السفر قرر الاستقرار في المدينة التي شعر فيها أكثر ببيته.",a:"يستقر ويبني حياة مستقرة في مكان واحد"},
+];
+var quizQs=[
+  {q:"___ city that invests in public transport tends to be more liveable.",opts:["The","A","An","Zero article"],ans:1},
+  {q:"ما معنى gentrification؟",opts:["الفصل السكني","التخطيط العمراني","التحوّل الجنتري مع تهجير السكان","المدينة الذكية"],ans:2},
+  {q:"She lives in ___ most liveable city in the country.",opts:["a","an","the","zero"],ans:2},
+  {q:"ما معنى walkability؟",opts:["الكثافة السكانية","قابلية السير للمشاة","تقسيم المناطق","التهجير"],ans:1},
+  {q:"___ cities need good public transport. (general truth)",opts:["The","A","An","Zero article"],ans:3},
+  {q:"ما الـ phrasal verb: ينشأ المكان فجأة؟",opts:["tear down","clean up","spring up","run down"],ans:2},
+  {q:"ما معنى displacement في الحياة الحضرية؟",opts:["التطوير المختلط","التماسك الاجتماعي","تهجير السكان من مناطقهم","الفخر المدني"],ans:2},
+  {q:"He moved to ___ affordable neighbourhood on ___ outskirts.",opts:["an / the","a / the","the / a","an / a"],ans:0},
+  {q:"ما معنى mixed-use development؟",opts:["الزراعة الحضرية","انعدام المأوى","التطوير الجامع للإسكان والتجارة والعمل","جزيرة الحرارة"],ans:2},
+  {q:"ما معنى social cohesion؟",opts:["الفصل الاجتماعي","التهجير","التماسك الاجتماعي والروابط المجتمعية","التخطيط"],ans:2},
+];
+var spd=1,lspd=1,storyOn=false,listenOn=false;
+var compA=new Array(compQs.length).fill(null);
+var listenA=new Array(listenQs.length).fill(null);
+var quizA=new Array(quizQs.length).fill(null);
+
+function say(text,rate,cb){
+  if(!window.speechSynthesis)return null;
+  window.speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US";u.rate=rate||spd;u.pitch=1.0;
+  var v=getVoice("F");if(v)u.voice=v;
+  if(cb)u.onend=cb;
+  window.speechSynthesis.speak(u);return u;
+}
+
+function buildVocab(){
+  var c=document.getElementById("vocabList");
+  V.forEach(function(v,i){
+    var d=document.createElement("div");d.className="vocab-card";
+    // Build using single-quote innerHTML (Gold Standard from unit2)
+    d.innerHTML=
+            '<div class="vhead">'+
+        '<div style="display:flex;align-items:center;gap:10px;width:100%">'+
+          '<button class="vspk" id="vs'+i+'">🔊</button>'+
+          '<div class="var" style="flex:1;text-align:right">'+v.a+'</div>'+
+          '<div class="vpron" style="direction:ltr;white-space:nowrap">'+v.p+'</div>'+
+          '<div style="display:flex;align-items:center;gap:6px">'+
+            '<div class="vword">'+v.w+'</div>'+
+            '<span style="background:rgba(255,255,255,.18);color:rgba(255,255,255,.85);font-size:.68rem;font-weight:800;padding:2px 7px;border-radius:10px">'+(i+1)+'</span>'+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="vbody">'+
+        '<div class="vgrid2">'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-ant" data-i="'+i+'" data-c="1"><div class="vlbl">Antonym</div><div class="vval">'+v.ant+'</div><div class="vtr">'+v.ar_ant+'</div></div>'+
+            '<div class="vcell c-syn" data-i="'+i+'" data-c="0"><div class="vlbl">Synonym</div><div class="vval">'+v.syn+'</div><div class="vtr">'+v.ar_syn+'</div></div>'+
+          '</div>'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-prep" data-i="'+i+'" data-c="3"><div class="vlbl">Preposition</div><div class="vval">'+v.prep+'</div><div class="vtr">'+v.ar_prep+'</div></div>'+
+            '<div class="vcell c-col" data-i="'+i+'" data-c="2"><div class="vlbl">Collocation</div><div class="vval">'+v.col+'</div><div class="vtr">'+v.ar_col+'</div></div>'+
+          '</div>'+
+        '</div>'+
+        '<div class="vex" id="vex'+i+'">'+v.ex+'<div class="vex-tr">'+v.ar_ex+'</div></div>'+
+      '</div>';
+    d.querySelector('.vspk').addEventListener('click',(function(ii){return function(){
+      document.querySelectorAll('.vspk').forEach(function(b){b.classList.remove('playing');});
+      var btn=document.getElementById('vs'+ii);if(btn)btn.classList.add('playing');
+      var u=say(V[ii].w,spd);if(u)u.onend=function(){if(btn)btn.classList.remove('playing');};
+    };})(i));
+    d.querySelectorAll('.vcell').forEach(function(cell){
+      cell.addEventListener('click',function(){
+        var ii=parseInt(this.getAttribute('data-i'));
+        var cc=parseInt(this.getAttribute('data-c'));
+        say([V[ii].syn,V[ii].ant,V[ii].col,V[ii].prep][cc],0.9);
+        this.classList.toggle('show-tr');
+      });
+    });
+    var vex=d.querySelector('.vex');if(vex)vex.addEventListener('click',function(){this.classList.toggle('show-ex-tr');});
+    c.appendChild(d);
+  });
+}
+function checkComp(){var s=0;compQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("co"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(compA[qi]===i)el.classList.add("no");}if(compA[qi]===q.ans)s++;});var r=document.getElementById("compRes");r.style.display="block";var pct=Math.round(s/compQs.length*100);r.textContent=s+" من "+compQs.length+" إجابة صحيحة ("+pct+"%) "+(pct===100?"🏆":pct>=60?"🎉":"📚 راجع النص");}
+function resetComp(){compA=new Array(compQs.length).fill(null);document.querySelectorAll(".copt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("compRes").style.display="none";}
+
+
+function buildStory(){
+  var b=document.getElementById("storyBox");
+  if(!b)return;
+  b.innerHTML="";
+  story.forEach(function(s,i){
+    var d=document.createElement("div");d.className="sline";d.id="sl"+i;
+    var txt=document.createTextNode(s.t);d.appendChild(txt);
+    var btn=document.createElement("button");
+    btn.style.cssText="background:transparent;border:1px solid #e5e7eb;border-radius:5px;padding:1px 7px;color:#9ca3af;font-size:.7rem;cursor:pointer;font-family:Tajawal,sans-serif;margin-right:6px";
+    btn.textContent="🌐";
+    btn.addEventListener("click",(function(ii){return function(){toggleTr(ii);};})(i));
+    d.appendChild(btn);
+    var tr=document.createElement("div");tr.id="tr"+i;
+    tr.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;font-family:Tajawal,sans-serif;border-right:3px solid #fde68a;padding-right:8px";
+    tr.textContent=s.ar;d.appendChild(tr);b.appendChild(d);
+  });
+}
+var _trAll=false;
+function toggleAllTr(){_trAll=!_trAll;for(var i=0;i<story.length;i++){var e=document.getElementById("tr"+i);if(e)e.style.display=_trAll?"block":"none";}var btn=document.getElementById("trBtn");if(btn)btn.textContent=_trAll?"🙈 أخفِ":"🌐 الترجمة";}
+function toggleTr(i){var e=document.getElementById("tr"+i);if(e)e.style.display=e.style.display==="none"?"block":"none";}
+function setSpd(r,btn){spd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function storySeq(i){if(!storyOn||i>=story.length){stopStory();return;}document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("sl"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(story[i].t);u.lang="en-US";u.rate=spd;u.onend=function(){if(storyOn)setTimeout(function(){storySeq(i+1);},320);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startStory(){storyOn=true;var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="⏹";btn.querySelector("#sTxt").textContent="إيقاف القصة";}storySeq(0);}
+function stopStory(){storyOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="▶";btn.querySelector("#sTxt").textContent="استمع للقصة";}}
+function toggleStory(){storyOn?stopStory():startStory();}
+
+function buildReading(){
+  var t=document.getElementById("readingText");
+  if(!t)return;
+  t.innerHTML="";
+  reading.forEach(function(p){var d=document.createElement("p");d.textContent=p;t.appendChild(d);});
+  var c=document.getElementById("compList");
+  if(!c)return;
+  c.innerHTML="";
+  compQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";
+    p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="co"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){
+        compA[qi]=oi;
+        for(var k=0;k<q.opts.length;k++){var el=document.getElementById("co"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}
+        this.style.borderColor="#0a1628";
+      });
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+
+function buildGrammar(){
+  var c=document.getElementById("grammarBox");
+  var box1=document.createElement("div");box1.className="gbox";
+  var t1=document.createElement("div");t1.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";
+  t1.textContent="١ — Articles: متى نستخدم a/an/the/zero";box1.appendChild(t1);
+  var tbl=document.createElement("div");tbl.style.cssText="background:#0a1628;border-radius:10px;padding:14px 18px;margin-bottom:14px;direction:ltr";
+  var rows=[["Article","Use","Example"],["a/an","First mention / one of many","A city needs public transport."],["the","Specific / known / unique","The city I grew up in lacks green space."],["the","Superlative","The most liveable city in the world."],["zero","Plural general","Cities need investment. (general)"],["zero","Uncountable general","Public transport matters."],["zero","Most proper nouns","London, Baghdad, Europe"]];
+  var table=document.createElement("table");table.style.cssText="width:100%;border-collapse:collapse;font-size:.85rem";
+  rows.forEach(function(row,ri){var tr=document.createElement("tr");if(ri>0)tr.style.borderTop="1px solid rgba(255,255,255,.1)";row.forEach(function(cell,ci){var td=document.createElement(ri===0?"th":"td");td.textContent=cell;td.style.cssText="padding:6px 8px;text-align:left;color:"+(ri===0?"#fde68a":ci===0?"#f0c040":ci===1?"#93c5fd":"rgba(255,255,255,.8)");tr.appendChild(td);});table.appendChild(tr);});
+  tbl.appendChild(table);box1.appendChild(tbl);c.appendChild(box1);
+  var box2=document.createElement("div");box2.className="gbox";
+  var t2=document.createElement("div");t2.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";t2.textContent="٢ — في سياق الحياة الحضرية";box2.appendChild(t2);
+  var examples=[["zero article:","Cities need investment in public transport. (general)","المدن تحتاج استثماراً في النقل العام — حقيقة عامة."],["a/an:","A city that invests in parks tends to be more liveable. (any city)","مدينة تستثمر في الحدائق تميل لأن تكون أكثر صالحيةً للسكن."],["the:","The city invested in the waterfront last year. (specific)","المدينة استثمرت في الواجهة البحرية السنة الماضية."]];
+  examples.forEach(function(ex){var pat=document.createElement("div");pat.className="gpat";var d1=document.createElement("div");d1.style.cssText="font-size:.78rem;color:#f0a000;font-weight:700;direction:ltr;margin-bottom:2px";d1.textContent=ex[0];var d2=document.createElement("div");d2.style.cssText="font-size:.88rem;color:#0a1628;font-weight:600;direction:ltr;margin-bottom:3px";d2.textContent=ex[1];var d3=document.createElement("div");d3.style.cssText="font-size:.8rem;color:#64748b;direction:rtl;text-align:right";d3.textContent=ex[2];pat.appendChild(d1);pat.appendChild(d2);pat.appendChild(d3);box2.appendChild(pat);});
+  c.appendChild(box2);
+  var wrong=document.createElement("div");wrong.style.cssText="background:#fef2f2;border-radius:10px;padding:13px 16px;margin-bottom:8px;border-right:4px solid #dc2626;direction:ltr";
+  wrong.innerHTML='<span style="color:#dc2626;font-weight:700">✗ </span>The cities need the investment. <span style="font-size:.8rem;color:#dc2626">← جملة عامة = zero article مع الجمع</span>';
+  var right=document.createElement("div");right.style.cssText="background:#f0fdf4;border-radius:10px;padding:13px 16px;border-right:4px solid #059669;direction:ltr";
+  right.innerHTML='<span style="color:#059669;font-weight:700">✓ </span><strong>Cities</strong> need <strong>investment</strong>. (general) / <strong>The</strong> city needs <strong>the</strong> investment. (specific) <span style="font-size:.8rem;color:#059669">✅</span>';
+  c.appendChild(wrong);c.appendChild(right);
+}
+function buildListening(){
+  var s=document.getElementById("listenScript");
+  listenLines.forEach(function(line,i){
+    var d=document.createElement("div");d.className="lline";d.id="ll"+i;
+    if(typeof line==="object"&&line.speaker){
+      var lbl=document.createElement("span");
+      var isBen=line.speaker==="D";
+      lbl.style.cssText="font-size:.7rem;font-weight:800;padding:1px 7px;border-radius:8px;margin-left:6px;"+(isBen?"background:#dbeafe;color:#1e3a8a":"background:#fce7f3;color:#9d174d");
+      lbl.textContent=line.speaker==="D"?"Diego":"Nadia";
+      var txt=document.createElement("span");txt.textContent=line.text;
+      d.appendChild(lbl);d.appendChild(txt);
+    } else {
+      d.appendChild(document.createTextNode(typeof line==="object"?line.text:line));
+    }
+    s.appendChild(d);
+  });
+  var c=document.getElementById("listenQList");
+  listenQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="lq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){listenA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("lq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function setLSpd(r,btn){lspd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function getVoice(gender){
+  var voices=window.speechSynthesis.getVoices();
+  var enVoices=voices.filter(function(v){return v.lang.indexOf("en")===0;});
+  if(gender==="M"){
+    var rishi=enVoices.filter(function(v){return v.name.indexOf("Rishi")>-1;});
+    if(rishi.length)return rishi[0];
+    var male=enVoices.filter(function(v){
+      var n=v.name.toLowerCase();
+      return n.indexOf("male")>-1||n.indexOf("daniel")>-1||n.indexOf("james")>-1||n.indexOf("david")>-1||n.indexOf("mark")>-1||n.indexOf("arthur")>-1;
+    });
+    return male.length?male[0]:(enVoices.length?enVoices[0]:null);
+  } else {
+    var female=enVoices.filter(function(v){
+      var n=v.name.toLowerCase();
+      return n.indexOf("samantha")>-1||n.indexOf("female")>-1||n.indexOf("victoria")>-1||n.indexOf("karen")>-1||n.indexOf("kate")>-1||n.indexOf("fiona")>-1||n.indexOf("moira")>-1;
+    });
+    return female.length?female[0]:(enVoices.length>1?enVoices[1]:enVoices[0]||null);
+  }
+}
+function listenSeq(i){
+  if(!listenOn||i>=listenLines.length){stopListen();return;}
+  document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});
+  var e=document.getElementById("ll"+i);if(e)e.classList.add("hl");
+  var line=listenLines[i];
+  var text=typeof line==="object"?line.text:line;
+  var gender=typeof line==="object"?(line.speaker==="D"?"M":"F"):"M";
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US";u.rate=lspd;
+  var v=getVoice(gender);
+  if(v)u.voice=v;
+  u.pitch=1.0;
+  u.onend=function(){if(listenOn)setTimeout(function(){listenSeq(i+1);},380);};
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+function startListen(){listenOn=true;document.getElementById("lIcon").textContent="⏹";document.getElementById("lTxt").textContent="إيقاف المونولوج";listenSeq(0);}
+function stopListen(){listenOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});document.getElementById("lIcon").textContent="▶";document.getElementById("lTxt").textContent="شغّل المونولوج";}
+function toggleListen(){listenOn?stopListen():startListen();}
+function checkListen(){var s=0;listenQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("lq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(listenA[qi]===i)el.classList.add("no");}if(listenA[qi]===q.ans)s++;});var r=document.getElementById("listenRes");r.style.display="block";var pct=Math.round(s/listenQs.length*100);r.textContent=s+" من "+listenQs.length+" إجابة صحيحة ("+pct+"%) "+(pct>=80?"✅ ممتاز!":pct>=60?"👍 جيد!":"📚 راجع");}
+function resetListen(){listenA=new Array(listenQs.length).fill(null);document.querySelectorAll(".copt[id^='lq']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("listenRes").style.display="none";}
+
+function buildW(){
+  var ids=["w1","w2","w3","w4","w5"];var any=false;
+  for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value.trim())any=true;}
+  if(!any){document.getElementById("wOut").innerHTML="<span style='color:#9ca3af;font-style:italic'>✨ ستظهر فقرتك هنا...</span>";return;}
+  var parts=[];
+  for(var j=0;j<ids.length;j++){var el=document.getElementById(ids[j]);var v=el?el.value.trim():"";if(v)parts.push("<span style='color:#f0a000;font-weight:700'>"+v+"</span>.");}
+  document.getElementById("wOut").innerHTML="<p style='direction:ltr;line-height:2'>"+parts.join(" ")+"</p>";
+}
+
+function buildSpeaking(){
+  var c=document.getElementById("speakBox");
+  speakQs.forEach(function(q){
+    var d=document.createElement("div");d.style.cssText="background:#f8faff;border-right:4px solid #1e3a8a;border-radius:0 12px 12px 0;padding:16px 18px;margin-bottom:14px";
+    var p1=document.createElement("p");p1.style.cssText="font-size:.97rem;color:#0a1628;font-weight:700;direction:ltr;margin-bottom:5px";p1.textContent=q.q;
+    var p2=document.createElement("p");p2.style.cssText="font-size:.82rem;color:#9ca3af;margin-bottom:6px";p2.textContent=q.ar;
+    var p3=document.createElement("p");p3.style.cssText="font-size:.82rem;color:#f0a000;direction:ltr;margin-bottom:8px";p3.textContent="💡 "+q.hint;
+    var badge=document.createElement("span");badge.style.cssText="background:#dbeafe;color:#1e3a8a;padding:4px 12px;border-radius:20px;font-size:.76rem;font-weight:700";badge.textContent=q.badge;
+    d.appendChild(p1);d.appendChild(p2);d.appendChild(p3);d.appendChild(badge);
+    var btn=document.createElement("button");btn.className="spksmall";btn.textContent="🔊";btn.style.marginTop="10px";
+    btn.addEventListener("click",(function(qq){return function(){say(qq,spd);};})(q.q));
+    d.appendChild(btn);c.appendChild(d);
+  });
+}
+
+function makeExRow(text,arabic,spkText){
+  var div=document.createElement("div");
+  div.style.cssText="cursor:pointer;user-select:none;padding:8px 12px;background:white;border-radius:8px;direction:ltr;font-size:.86rem;color:#374151;font-style:italic;margin-top:6px";
+  var span=document.createElement("span");span.textContent=text;
+  var tr=document.createElement("div");
+  tr.style.cssText="font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;padding-top:4px;border-top:1px dashed #e5e7eb;display:none;font-family:Tajawal,sans-serif;font-style:normal";
+  tr.textContent=arabic;
+  div.appendChild(span);div.appendChild(tr);
+  div.addEventListener("click",(function(t,s){return function(){t.style.display=t.style.display==="none"?"block":"none";say(s,spd);};})(tr,spkText));
+  return div;
+}
+
+function buildReal(){
+  var c=document.getElementById("realBox");
+  var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h1.textContent="🔥 Expressions — اضغط على الجملة لتسمعها وترجمتها";c.appendChild(h1);
+  realExpr.forEach(function(e){
+    var d=document.createElement("div");d.className="expr-card";
+    // Visible 🔊 for main expression
+    var header=document.createElement("div");header.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;direction:ltr";
+    var headerLeft=document.createElement("div");headerLeft.style.cssText="display:flex;align-items:center;gap:8px";
+    var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";
+    spkBtn.addEventListener("click",(function(ee){return function(){say(ee,spd);};})(e.e));
+    var titleSpan=document.createElement("span");titleSpan.style.cssText="font-weight:700;color:#4c1d95;font-size:.97rem";titleSpan.textContent=e.e;
+    headerLeft.appendChild(spkBtn);headerLeft.appendChild(titleSpan);
+    var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.78rem;font-weight:700;font-family:Tajawal,sans-serif";pronSpan.textContent=e.p;
+    header.appendChild(headerLeft);header.appendChild(pronSpan);
+    d.appendChild(header);
+    var grid=document.createElement("div");grid.style.cssText="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px";
+    var g1=document.createElement("div");g1.style.cssText="background:white;border-radius:8px;padding:8px 12px;text-align:right";g1.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>المعنى</div><div style='font-weight:700;color:#374151;font-size:.88rem'>"+e.m+"</div>";
+    var g2=document.createElement("div");g2.style.cssText="background:white;border-radius:8px;padding:8px 12px;direction:ltr";g2.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>Formal</div><div style='font-size:.85rem;color:#64748b'>"+e.f+"</div>";
+    grid.appendChild(g1);grid.appendChild(g2);d.appendChild(grid);
+    d.appendChild(makeExRow(e.x,e.xar,e.x));
+    var note=document.createElement("div");note.style.cssText="font-size:.8rem;color:#7c3aed;text-align:right;margin-top:8px";note.textContent="💡 "+e.n;
+    d.appendChild(note);c.appendChild(d);
+  });
+  var h2=document.createElement("p");h2.style.cssText="font-weight:800;color:#0a1628;margin:20px 0 14px;text-align:right";h2.textContent="😎 Slang";c.appendChild(h2);
+  var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:20px";
+  realSlang.forEach(function(s){
+    var d=document.createElement("div");d.className="slang-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";
+    var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkS=document.createElement("button");spkS.className="spksmall";spkS.textContent="🔊";spkS.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkS.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var sWord=document.createElement("span");sWord.style.cssText="font-weight:700;color:#ea580c;font-size:.9rem";sWord.textContent=s.w;
+    titleLeft.appendChild(spkS);titleLeft.appendChild(sWord);
+    var pp=document.createElement("span");pp.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pp.textContent=s.p;
+    titleRow.appendChild(titleLeft);titleRow.appendChild(pp);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    sg.appendChild(d);
+  });
+  c.appendChild(sg);
+  var h3=document.createElement("p");h3.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h3.textContent="💬 Everyday Phrases";c.appendChild(h3);
+  var ev=document.createElement("div");ev.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";
+  realEvery.forEach(function(s){
+    var d=document.createElement("div");d.className="ev-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;direction:ltr";
+    var titleLeft2=document.createElement("div");titleLeft2.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkE=document.createElement("button");spkE.className="spksmall";spkE.textContent="🔊";spkE.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkE.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var titleTxt=document.createElement("span");titleTxt.style.cssText="font-weight:700;color:#15803d;font-size:.9rem";titleTxt.textContent=s.w;
+    titleLeft2.appendChild(spkE);titleLeft2.appendChild(titleTxt);
+    var evPron=document.createElement("span");evPron.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";evPron.textContent=s.p;
+    titleRow.appendChild(titleLeft2);titleRow.appendChild(evPron);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    ev.appendChild(d);
+  });
+  c.appendChild(ev);
+}
+
+
+function buildPhrasal(){
+  var c=document.getElementById("pvBox");
+  if(!c)return;
+  var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";
+  h1.textContent="💬 Phrasal Verbs — اضغط على الجملة لتسمعها وترجمتها";c.appendChild(h1);
+  var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";
+  pvData.forEach(function(pv){
+    var d=document.createElement("div");d.className="slang-card";
+    // Row 1: 🔊 reads WORD only + verb + pronunciation
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";
+    var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";
+    spkBtn.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkBtn.addEventListener("click",(function(word){return function(e){e.stopPropagation();say(word,spd);};})(pv.v));
+    var pvWord=document.createElement("span");pvWord.style.cssText="font-weight:700;color:#7c3aed;font-size:.95rem";pvWord.textContent=pv.v;
+    titleLeft.appendChild(spkBtn);titleLeft.appendChild(pvWord);
+    var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pronSpan.textContent=pv.p||"";
+    titleRow.appendChild(titleLeft);titleRow.appendChild(pronSpan);
+    // Arabic meaning
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:6px";ar.textContent=pv.m;
+    // Example sentence — click to HEAR + show translation
+    var exBox=document.createElement("div");
+    exBox.style.cssText="font-family:'Lora',serif;font-style:italic;color:#1e3a8a;font-size:.88rem;direction:ltr;cursor:pointer;padding:8px 10px;background:#f0f9ff;border-radius:8px;border-left:3px solid #7c3aed";
+    exBox.textContent=pv.ex;
+    var trBox=document.createElement("div");
+    trBox.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding:7px 10px;background:#fffdf7;border-radius:8px;border-right:3px solid #fde68a";
+    trBox.textContent=pv.ar;
+    exBox.addEventListener("click",(function(ex,tb){return function(){
+      say(ex,spd);
+      tb.style.display=tb.style.display==="none"?"block":"none";
+      this.style.background=tb.style.display==="block"?"#dbeafe":"#f0f9ff";
+    };})(pv.ex,trBox));
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(exBox);d.appendChild(trBox);
+    sg.appendChild(d);
+  });
+  c.appendChild(sg);
+}
+
+function buildQuiz(){
+  var c=document.getElementById("quizList");
+  quizQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="18px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:10px;direction:ltr;font-size:.93rem";
+    p.innerHTML="<span style='background:#0a1628;color:white;border-radius:5px;padding:1px 8px;font-size:.76rem;margin-left:8px'>"+(qi+1)+"</span>"+q.q;
+    d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="qopt";b.id="qq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){quizA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("qq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function checkQuiz(){var s=0;quizQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("qq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(quizA[qi]===i)el.classList.add("no");}if(quizA[qi]===q.ans)s++;});var pct=Math.round(s/quizQs.length*100);var r=document.getElementById("quizRes");r.style.display="block";document.getElementById("qEmoji").textContent=pct===100?"🏆":pct>=70?"🎉":pct>=50?"💪":"📚";document.getElementById("qScore").textContent=s+" من "+quizQs.length+" إجابة صحيحة ("+pct+"%)";document.getElementById("qMsg").textContent=pct===100?"مثالي!":pct>=70?"أحسنت!":pct>=50?"راجع Conditionals Type 2.":"راجع الوحدة.";r.style.background=pct>=70?"#f0fdf4":"#fef9f0";r.scrollIntoView({behavior:"smooth",block:"center"});}
+function resetQuiz(){quizA=new Array(quizQs.length).fill(null);document.querySelectorAll(".qopt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("quizRes").style.display="none";}
+
+function show(id,btn){document.querySelectorAll(".sec").forEach(function(s){s.classList.remove("on");});document.getElementById("sec-"+id).classList.add("on");window.scrollTo({top:0,behavior:"smooth"});document.querySelectorAll(".nb").forEach(function(b){b.classList.remove("on");});if(btn){btn.classList.add("on");return;}var map={vocab:0,story:1,reading:2,grammar:3,listening:4,writing:5,speaking:6,realeng:7,pv:8,quiz:9};var btns=document.querySelectorAll(".nb");if(btns[map[id]])btns[map[id]].classList.add("on");}
+
+buildVocab();buildStory();buildReading();buildGrammar();buildListening();buildSpeaking();buildReal();buildPhrasal();buildQuiz();
+</script>
+</body>
+</html>

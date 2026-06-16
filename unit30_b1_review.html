@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath B1 — Unit 30: Review and B1 Certificate</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Tajawal',sans-serif;background:#f0f4fa;direction:rtl;min-height:100vh}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#1e3a8a;border-radius:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(30,58,138,.35)}50%{box-shadow:0 0 0 8px rgba(30,58,138,0)}}
+.nav-bar{background:linear-gradient(135deg,#0a1628,#1e3a8a);padding:10px 12px;display:flex;justify-content:center;gap:4px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.nb{border:none;border-radius:22px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s}
+.nb.on{background:#f0a000;color:#0a1628}
+.nb:not(.on){background:rgba(255,255,255,.1);color:rgba(255,255,255,.85)}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#1e3a8a 55%,#1d4ed8 100%);color:white;padding:32px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(240,160,0,.06)}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04)}
+.b1tag{display:inline-block;background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-size:.72rem;font-weight:900;padding:4px 14px;border-radius:20px;letter-spacing:1.5px;margin-bottom:10px}
+.sec{display:none;max-width:900px;margin:0 auto;padding:32px 16px 80px;animation:fadeUp .4s ease}
+.sec.on{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 3px 20px rgba(0,0,0,.06);margin-bottom:22px;overflow:hidden}
+.ch{background:#0a1628;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.ch h3{font-size:1rem;font-weight:700}
+.ch .sub{font-size:.75rem;color:#93c5fd;margin-top:1px}
+.cb{padding:22px}
+.vocab-card{background:white;border-radius:16px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 14px rgba(10,22,40,.08);border:1px solid #e5ebf8;transition:transform .2s,box-shadow .2s}
+.vocab-card:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(10,22,40,.13)}
+.vhead{background:linear-gradient(135deg,#0a1628,#1e3a8a);display:flex;flex-direction:row-reverse;align-items:center;padding:14px 18px;gap:14px}
+
+
+.vinfo{flex:1;text-align:right}
+.vword{font-family:'Lora',serif;font-size:1.18rem;font-weight:700;color:white;direction:ltr;text-align:left}
+.vpron{font-size:.78rem;font-weight:700;color:#fde68a;margin-top:3px;direction:ltr;text-align:left}
+.var{font-size:.93rem;font-weight:700;color:rgba(255,255,255,.9);margin-top:3px}
+.vspk{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.25);background:transparent;color:white;font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:all .18s;display:flex;align-items:center;justify-content:center}
+.vspk:hover{background:rgba(255,255,255,.2);transform:scale(1.08)}
+.vspk.playing{background:#f0a000;border-color:#f0a000;animation:pulse 1s infinite}
+.vbody{padding:14px 16px 16px}
+.vgrid2{margin-bottom:10px}
+.vrow-pair{display:flex;gap:8px;margin-bottom:8px}
+.vrow-pair .vcell{flex:1;min-width:0}
+.vcell{border-radius:10px;padding:10px 13px;cursor:pointer;transition:all .15s;user-select:none;direction:ltr}
+.vcell:hover{filter:brightness(.96)}
+.vcell:active{transform:scale(.98)}
+.c-syn{background:#f0fdf4;border:1px solid #bbf7d0}
+.c-ant{background:#fff7ed;border:1px solid #fed7aa}
+.c-col{background:#eff6ff;border:1px solid #bfdbfe}
+.c-prep{background:#faf5ff;border:1px solid #ddd6fe}
+.vlbl{font-size:.65rem;font-weight:900;letter-spacing:.7px;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:5px;direction:ltr;justify-content:flex-start}
+.c-syn .vlbl{color:#15803d}.c-ant .vlbl{color:#ea580c}
+.c-col .vlbl{color:#2563eb}.c-prep .vlbl{color:#7c3aed}
+.vlbl::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.c-syn .vlbl::before{background:#15803d}.c-ant .vlbl::before{background:#ea580c}
+.c-col .vlbl::before{background:#2563eb}.c-prep .vlbl::before{background:#7c3aed}
+.vval{font-family:'Lora',serif;font-size:.82rem;color:#374151;direction:ltr;line-height:1.6}
+.vtr{font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px;padding-top:5px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif}
+.vcell.show-tr .vtr{display:block}
+.vex{font-family:'Lora',serif;font-size:.87rem;color:#374151;direction:ltr;font-style:italic;padding:10px 14px;background:#f8faff;border-radius:10px;border-right:3px solid #f0a000;cursor:pointer;user-select:none}
+.vex-tr{font-size:.8rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding-top:6px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif;font-style:normal}
+.vex.show-ex-tr .vex-tr{display:block}
+.sline{font-family:'Lora',serif;font-size:.97rem;line-height:2;padding:5px 8px;border-radius:6px;direction:ltr;transition:background .2s}
+.sline.hl{background:#fef3c7}
+.lline{font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#cbd5e1;padding:3px 6px;border-radius:5px;direction:ltr;transition:background .2s}
+.lline.hl{background:rgba(240,160,0,.18);color:#fde68a}
+.sctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-direction:row-reverse;margin-bottom:16px}
+.pbtn{background:#1e3a8a;color:white;border:none;border-radius:24px;padding:9px 20px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s}
+.pbtn:hover{background:#1d4ed8}
+.spdbtn{padding:5px 12px;border-radius:18px;border:2px solid #cbd5e1;background:white;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;color:#64748b;transition:all .15s}
+.spdbtn.on{border-color:#1e3a8a;background:#1e3a8a;color:white}
+.rtext{font-family:'Lora',serif;font-size:.95rem;line-height:2;color:#374151;direction:ltr;padding:20px;background:#f8faff;border-radius:14px;border:1px solid #e5eaf5;margin-bottom:18px}
+.rtext p{margin-bottom:14px}
+.gbox{background:linear-gradient(135deg,#eff6ff,#e0effe);border:2px solid #bfdbfe;border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.gpat{background:white;border-radius:10px;padding:12px 16px;margin-bottom:10px;border-right:4px solid #2563eb;direction:ltr}
+.geg{font-family:'Lora',serif;font-size:.97rem;color:#0a1628;font-weight:600}
+.geg em{color:#f0a000;font-style:normal;font-weight:800}
+.gar{font-family:'Tajawal',sans-serif;font-size:.85rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px}
+.qopt{padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;font-family:'Lora',serif;font-size:.9rem;direction:ltr;background:white;transition:all .15s;margin-bottom:7px;text-align:left}
+.qopt:hover{border-color:#1e3a8a;background:#eff6ff}
+.qopt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.qopt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.copt{padding:9px 14px;border:2px solid #e5e7eb;border-radius:9px;cursor:pointer;font-family:'Lora',serif;font-size:.87rem;direction:ltr;background:white;transition:all .15s;margin-bottom:6px}
+.copt:hover{border-color:#1e3a8a;background:#eff6ff}
+.copt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.copt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.wq-block{margin-bottom:18px}
+.wq-model{font-family:'Lora',serif;font-size:.8rem;color:#374151;font-style:italic;direction:ltr;padding:10px 14px;background:#f0f9ff;border-radius:8px;border-right:3px solid #bfdbfe;line-height:1.7;display:none;margin-bottom:8px}
+.wq-model.show{display:block}
+.wq-model-btn{background:#dbeafe;border:none;border-radius:20px;padding:4px 14px;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer;margin-bottom:8px;transition:all .15s}
+.wq-model-btn:hover{background:#1e3a8a;color:white}
+.wq-en{font-family:'Lora',serif;font-size:.93rem;font-weight:700;color:#0a1628;direction:ltr;margin-bottom:3px}
+.wq-ar{font-size:.78rem;color:#9ca3af;direction:rtl;text-align:right;margin-bottom:8px;font-family:'Tajawal',sans-serif}
+.winput{width:100%;border:none;border-bottom:2px solid #f0a000;background:transparent;font-family:'Lora',serif;font-size:.95rem;color:#0a1628;outline:none;padding:5px 3px;direction:ltr;margin-bottom:14px}
+.winput:focus{border-color:#1e3a8a}
+.btn{border:none;border-radius:28px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all .18s;padding:10px 24px;font-size:.9rem}
+.btn:hover{opacity:.88;transform:scale(.98)}
+.bd{background:#1e3a8a;color:white}
+.bg{background:#e5e7eb;color:#374151}
+.bgold{background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-weight:900}
+.navrow{display:flex;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.spksmall{width:32px;height:32px;border-radius:50%;border:none;background:#dbeafe;color:#1e3a8a;font-size:.85rem;cursor:pointer;flex-shrink:0;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.spksmall:hover{background:#1e3a8a;color:white}
+.expr-card{background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:16px;margin-bottom:12px}
+.slang-card{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px}
+.ev-card{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px}
+@media(max-width:580px){.vgrid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <button class="nb on"  onclick="show('vocab',this)">📚 المفردات</button>
+  <button class="nb" onclick="show('story',this)">📖 القصة</button>
+  <button class="nb" onclick="show('reading',this)">📰 القراءة</button>
+  <button class="nb" onclick="show('grammar',this)">✏️ القاعدة</button>
+  <button class="nb" onclick="show('listening',this)">🎧 الاستماع</button>
+  <button class="nb" onclick="show('writing',this)">✍️ الكتابة</button>
+  <button class="nb" onclick="show('speaking',this)">💬 المحادثة</button>
+  <button class="nb" onclick="show('realeng',this)">🗣️ Real English</button>
+  <button class="nb" onclick="show('pv',this)">💬 Phrasal Verbs</button>
+  <button class="nb" onclick="show('quiz',this)">✅ الاختبار</button>
+</div>
+<div class="hero">
+  <div class="b1tag">B1 — INTERMEDIATE</div>
+  <div style="font-size:.75rem;letter-spacing:3px;color:rgba(255,255,255,.45);font-weight:700;margin-bottom:8px">UNIT 30</div>
+  <h1 style="font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;margin-bottom:6px"> Review and B1 Certificate</h1>
+  <p style="font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:4px">مراجعة شاملة وشهادة B1</p>
+  <p style="font-size:.82rem;color:rgba(255,255,255,.4)">القاعدة: Mixed Grammar Review — all B1 structures</p>
+  <div style="display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap">
+    <a href="unit29_b1_future.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">← الوحدة ٢٩</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="unit1_b1_work.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">ابدأ من جديد ←</a>
+  </div>
+</div>
+
+<div id="sec-vocab" class="sec on">
+  <div style="text-align:right;color:#64748b;font-size:.88rem;max-width:900px;margin:0 auto 16px;padding:0 16px">💡 اضغط 🔊 للكلمة الرئيسية — اضغط على أي خلية لتسمع نطقها وتظهر ترجمتها</div>
+  <div id="vocabList" style="max-width:900px;margin:0 auto;padding:0 16px"></div>
+  <div class="navrow"><button class="btn bd" onclick="show('story',null)">القصة ←</button></div>
+</div>
+
+<div id="sec-story" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📖</span><div><h3>القصة القصيرة</h3><div class="sub">Yasmin تحكي عن مراجعة شاملة وشهادة B1 — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button id="trBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:22px;padding:7px 16px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+        <button class="pbtn" id="storyBtn" onclick="toggleStory()"><span id="sIcon">▶</span><span id="sTxt">استمع للقصة</span></button>
+        <button class="spdbtn on" onclick="setSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setSpd(0.75,this)">بطيء</button>
+      </div>
+      <div id="storyBox" style="border-right:4px solid #f0a000;padding:16px 20px;background:#fffdf7;border-radius:0 14px 14px 0"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn bd" onclick="show('reading',null)">القراءة ←</button>
+  </div>
+</div>
+
+<div id="sec-reading" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📰</span><div><h3>القراءة المعمّقة</h3><div class="sub">نص 350 كلمة + 5 أسئلة فهم</div></div></div>
+    <div class="cb">
+      <div class="rtext" id="readingText"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الفهم</p>
+      <div id="compList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkComp()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetComp()">↺ إعادة</button>
+      </div>
+      <div id="compRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('story',null)">→ القصة</button>
+    <button class="btn bd" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✏️</span><div><h3>القاعدة</h3><div class="sub">Dependent Prepositions — الحروف الجر المقيّدة</div></div></div>
+    <div class="cb" id="grammarBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('reading',null)">→ القراءة</button>
+    <button class="btn bd" onclick="show('listening',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listening" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🎧</span><div><h3>الاستماع المضمّن</h3><div class="sub">حوار بين Dr. James 👨 و Dr. Sarah 👩 — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button class="pbtn" id="listenBtn" onclick="toggleListen()"><span id="lIcon">▶</span><span id="lTxt">شغّل المونولوج</span></button>
+        <button class="spdbtn on" onclick="setLSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setLSpd(0.75,this)">بطيء</button>
+      </div>
+      <div class="lscript" id="listenScript" style="background:#0f172a;border-radius:14px;padding:18px 20px;margin-bottom:16px"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الاستماع</p>
+      <div id="listenQList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkListen()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetListen()">↺ إعادة</button>
+      </div>
+      <div id="listenRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn bd" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✍️</span><div><h3>الكتابة</h3><div class="sub">اكتب عن مراجعة شاملة وشهادة B1</div></div></div>
+    <div class="cb">
+      <div style="background:#fffdf7;border:2px dashed #f0a000;border-radius:14px;padding:20px;margin-bottom:14px">
+        <div class="wq-block">
+          <div class="wq-en">Reflect on your B1 journey using at least five different grammar structures.</div>
+          <div class="wq-ar">تأمّل رحلة B1 الخاصة بك باستخدام خمسة هياكل قواعدية مختلفة على الأقل.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'Hide':'Show model'">Show model</button>
+          <div class="wq-model">I have been studying English consistently for several months, and never have I felt so aware of my own progress. I wish I had started sooner — if only someone had told me earlier that grammar, although challenging, eventually clicks. It is the speaking practice that has made the biggest difference. By the time I complete this course I will have covered structures I once thought were beyond me. The development of confidence, not just accuracy, has been the real achievement.</div>
+          <input class="winput" id="w1" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">What topic from this course surprised or interested you most?</div>
+          <div class="wq-ar">ما الموضوع الذي فاجأك أو أثار اهتمامك أكثر من هذا الكورس؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'Hide':'Show model'">Show model</button>
+          <div class="wq-model">What surprised me most was the philosophy unit. Never had I expected to discuss whether free will exists in an English course. If only more language teaching used real intellectual content. The evidence tends to suggest that genuine curiosity accelerates acquisition — and I think so strongly after this experience.</div>
+          <input class="winput" id="w2" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">What will you do differently now that you have completed B1?</div>
+          <div class="wq-ar">ما الذي ستفعله بشكل مختلف الآن بعد إتمام B1؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'Hide':'Show model'">Show model</button>
+          <div class="wq-model">By this time next year I will have been studying B2 for several months. I should have started using English for real purposes much earlier. I wish I had been less afraid of making mistakes. Not only will I continue studying but I will also start using English daily outside the course.</div>
+          <input class="winput" id="w3" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Write a letter of advice to someone starting B1 today.</div>
+          <div class="wq-ar">اكتب رسالة نصيحة لشخص يبدأ B1 اليوم.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'Hide':'Show model'">Show model</button>
+          <div class="wq-model">Dear future B1 student — although the early units feel overwhelming, they are building something you cannot see yet. Never give up when a grammar point seems impossible — it will click eventually. What matters most is consistency. By the time you reach unit thirty you will have been building something remarkable, one day at a time.</div>
+          <input class="winput" id="w4" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block" style="margin-bottom:0">
+          <div class="wq-en">Final Writing: What does English mean to you now compared to when you started?</div>
+          <div class="wq-ar">الكتابة النهائية: ما معنى الإنجليزية لك الآن مقارنةً بحين بدأت؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'Hide':'Show model'">Show model</button>
+          <div class="wq-model">When I started, English was a wall. Now it is becoming a window. Never have I felt the gap between what I want to say and what I can say close so noticeably. I wish I had understood from the beginning that every uncomfortable moment of not understanding was the learning itself. The acquisition of a second language is the closest thing to acquiring a second life. By the time I reach fluency I will have become, in some small way, a different person.</div>
+          <input class="winput" id="w5" placeholder="Write your answer here..." oninput="buildW()" style="margin-bottom:0">
+        </div></div>
+      <div id="wOut" style="background:white;border:1px solid #e5eaf5;border-radius:12px;padding:16px;min-height:70px;font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#374151;direction:ltr">
+        <span style="color:#9ca3af;font-style:italic">✨ ستظهر فقرتك هنا...</span>
+      </div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('listening',null)">→ الاستماع</button>
+    <button class="btn bd" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">💬</span><div><h3>المحادثة</h3><div class="sub">Speaking Challenge</div></div></div>
+    <div class="cb" id="speakBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn bd" onclick="show('realeng',null)">Real English ←</button>
+  </div>
+</div>
+
+<div id="sec-realeng" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🗣️</span><div><h3>Real English</h3><div class="sub">اضغط على الجملة لتسمعها وتظهر ترجمتها</div></div></div>
+    <div class="cb" id="realBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn bd" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-pv" class="sec">
+  <div class="card">
+    <div class="card-title">💬 Phrasal Verbs — مراجعة شاملة وشهادة B1</div>
+    <p style="font-size:.82rem;color:#64748b;text-align:right;margin-bottom:16px;font-family:Tajawal,sans-serif">اضغط على الجملة لتسمعها وترى ترجمتها 🔊</p>
+    <div id="pvBox"></div>
+  </div>
+</div>
+
+<div id="sec-quiz" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✅</span><div><h3>اختبار الوحدة</h3><div class="sub">10 أسئلة — مفردات + قواعد + collocations</div></div></div>
+    <div class="cb">
+      <div id="quizList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:18px">
+        <button class="btn bgold" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn bg" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizRes" style="display:none;text-align:center;padding:22px;margin-top:16px;background:#f0fdf4;border-radius:14px">
+        <div id="qEmoji" style="font-size:2.5rem;margin-bottom:8px"></div>
+        <div id="qScore" style="font-weight:800;font-size:1.1rem;color:#0a1628;margin-bottom:4px"></div>
+        <div id="qMsg" style="font-size:.88rem;color:#64748b"></div>
+      </div>
+    </div>
+  </div>
+  <div style="background:linear-gradient(135deg,#0a1628,#1e3a8a);border-radius:18px;padding:28px;text-align:center;margin-top:8px;max-width:900px;margin-left:auto;margin-right:auto">
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:white;margin-bottom:6px">أحسنت! أكملت وحدة مراجعة شاملة وشهادة B1</div>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:16px">الوحدة الأولى من جديد</p>
+    <button class="btn bgold" onclick="location.href='unit1_b1_work.html'">الوحدة الحادية والعشرون ←</button>
+  </div>
+</div>
+
+<script>
+var V=[
+  {w:"present perfect continuous",p:"briznt pirfikt kontinius",a:"فعل مستمر حتى الآن — I have been studying",syn:"ongoing action, recent continuous activity",ant:"completed action, past simple",col:"have been working / have been studying / have been living",prep:"continuous since (time) / for (duration)",ex:"She has been working on this project for three months and still has not finished.",ar_syn:"فعل مستمر حتى الحاضر",ar_ant:"فعل مكتمل، ماضٍ بسيط",ar_col:"كان يعمل/يدرس/يعيش منذ",ar_prep:"مستمر منذ وقت / لمدة",ar_ex:"كانت تعمل على هذا المشروع لثلاثة أشهر ولم تنتهِ بعد."},
+  {w:"reported speech",p:"riportid spiitch",a:"الكلام المنقول — تقرير ما قاله شخص آخر",syn:"indirect speech, quoted speech",ant:"direct speech, exact quotation",col:"use reported speech / tense shift in reported speech",prep:"speech reported (by) / in (writing)",ex:"She said that she had been studying English for two years and that it was changing her life.",ar_syn:"الكلام غير المباشر",ar_ant:"الكلام المباشر الحرفي",ar_col:"يستخدم الكلام المنقول / تحوّل الزمن",ar_prep:"كلام منقول من / في الكتابة",ar_ex:"قالت إنها كانت تدرس الإنجليزية لسنتَين وأنها تغيّر حياتها."},
+  {w:"modal verbs",p:"modl virbz",a:"أفعال المساعدة — can / must / should / might",syn:"auxiliary verbs, helping verbs",ant:"main verbs, full verbs",col:"modal of deduction / obligation / possibility",prep:"modal expressing (certainty/possibility) / in (context)",ex:"She must have worked incredibly hard — she could not have achieved all this otherwise.",ar_syn:"أفعال مساعدة",ar_ant:"أفعال رئيسية",ar_col:"مودال للاستنتاج / الإلزام / الاحتمال",ar_prep:"مودال يعبّر عن اليقين/الاحتمال",ar_ex:"لا بد أنها عملت بجد شديد — لم يكن بإمكانها تحقيق كل هذا وإلا."},
+  {w:"passive voice",p:"pasiv vois",a:"المبني للمجهول — يُبنى / يُصنَع / قُدِّم",syn:"passive construction, agent-less sentence",ant:"active voice, subject-focused",col:"passive with modal / advanced passive / in academic writing",prep:"passive of (verb) / in (context)",ex:"The report was being written when the new information was received.",ar_syn:"بناء المبني للمجهول، جملة بدون فاعل",ar_ant:"المبني للمعلوم",ar_col:"مبني للمجهول مع مودال / متقدم / أكاديمي",ar_prep:"مبني للمجهول للفعل / في السياق",ar_ex:"التقرير كان يُكتَب حين وصلت المعلومات الجديدة."},
+  {w:"conditional sentences",p:"kondishnl sintnsis",a:"الجمل الشرطية — لو / إذا / لو أن",syn:"if-clauses, hypothetical sentences",ant:"direct statements, certain facts",col:"first / second / third / mixed conditional",prep:"condition in (context) / result showing (consequence)",ex:"If she had started earlier she would have finished by now — third conditional.",ar_syn:"جمل الشرط، الجمل الافتراضية",ar_ant:"تصريحات مباشرة، حقائق مؤكدة",ar_col:"شرطي أول / ثانٍ / ثالث / مختلط",ar_prep:"شرط في السياق / نتيجة تظهر العاقبة",ar_ex:"لو بدأت أبكر كانت انتهت الآن — شرطي ثالث."},
+  {w:"relative clauses",p:"relitiv kloziz",a:"جمل الوصل — who / which / that / where",syn:"defining clause, non-defining clause",ant:"simple sentence, no modification",col:"defining / non-defining / relative pronoun",prep:"clause describing (noun) / introduced by (pronoun)",ex:"The woman who had been working there for twenty years was the one whose advice I valued most.",ar_syn:"جملة وصفية، جملة غير محددة",ar_ant:"جملة بسيطة، بدون وصف",ar_col:"جملة وصل تعريفية / غير تعريفية / ضمير وصل",ar_prep:"جملة تصف اسماً / تبدأ بضمير وصل",ar_ex:"المرأة التي كانت تعمل هناك لعشرين عاماً كانت من أقدّر نصيحتها أكثر."},
+  {w:"cleft sentences",p:"kleft sintnsis",a:"الجمل الشقية للتركيز — It is...that / What...is",syn:"emphatic structure, focus construction",ant:"neutral sentence, no emphasis",col:"it-cleft / what-cleft / for emphasis",prep:"cleft emphasising (element) / in (argument)",ex:"It was her dedication not her talent that made the difference.",ar_syn:"بنية التأكيد، بناء التركيز",ar_ant:"جملة محايدة بدون تأكيد",ar_col:"شقية it / شقية what / للتأكيد",ar_prep:"شقية تؤكد عنصراً / في الحجة",ar_ex:"إنه تفانيها لا موهبتها الذي صنع الفرق."},
+  {w:"inversion",p:"invershon",a:"قلب الجملة للتأكيد — Never have I / Rarely does",syn:"inverted structure, emphatic word order",ant:"normal word order, SVO",col:"inversion after never / rarely / not only",prep:"inversion after (negative adverb) / in (formal writing)",ex:"Never have I studied so hard — inversion after never for dramatic emphasis.",ar_syn:"ترتيب مقلوب، ترتيب كلمات مؤكَّد",ar_ant:"ترتيب الكلمات العادي",ar_col:"قلب بعد never / rarely / not only",ar_prep:"قلب بعد ظرف النفي / في الكتابة الرسمية",ar_ex:"لم أدرس بهذا الجد أبداً — قلب بعد never للتأكيد الدرامي."},
+  {w:"hedging language",p:"heijing langwij",a:"لغة التحوّط — tends to / appears to / might suggest",syn:"cautious language, qualified statements",ant:"absolute statements, certain claims",col:"tends to suggest / appears to indicate / might imply",prep:"hedging in (academic writing) / to express (uncertainty)",ex:"The evidence tends to suggest that consistency is the most important factor in language learning.",ar_syn:"لغة حذرة، تصريحات مقيّدة",ar_ant:"تصريحات مطلقة، ادعاءات مؤكدة",ar_col:"tends to suggest / appears to indicate",ar_prep:"تحوّط في الكتابة الأكاديمية",ar_ex:"الأدلة تميل للاقتراح بأن الاستمرارية هي أهم عامل في تعلّم اللغة."},
+  {w:"nominalisation",p:"nominalaizeshon",a:"تحويل الفعل إلى اسم — discuss to discussion",syn:"noun form, abstract noun",ant:"verb form, verbal construction",col:"nominalisation in academic writing",prep:"nominalisation of (verb) / in (formal writing)",ex:"The investigation of the problem is more formal than investigating the problem.",ar_syn:"صيغة الاسم، الاسم المجرد",ar_ant:"صيغة الفعل، التركيب الفعلي",ar_col:"تحويل للاسم في الكتابة الأكاديمية",ar_prep:"تحويل الفعل للاسم / في الكتابة الرسمية",ar_ex:"التحقيق في المشكلة أكثر رسمية من تحقيق المشكلة."},
+  {w:"ellipsis and substitution",p:"elipsis and sabstitiushon",a:"الحذف والإحالة — so do I / neither can she",syn:"anaphoric reference, pro-form",ant:"full repetition, redundant language",col:"so does / neither can / I think so / do so",prep:"ellipsis of (understood element) / in (natural speech)",ex:"She loves learning and so do I — substitution with so to avoid repeating.",ar_syn:"إحالة لفظية، نائب عن العبارة",ar_ant:"تكرار كامل، لغة زائدة",ar_col:"so does / neither can / I think so",ar_prep:"حذف العنصر المفهوم / في الكلام الطبيعي",ar_ex:"هي تحب التعلّم وأنا كذلك — إحالة بـ so لتجنّب التكرار."},
+  {w:"future perfect",p:"fiutshir pirfikt",a:"المستقبل التام — will have done",syn:"completed future action",ant:"future simple, ongoing future",col:"will have finished / will have been working / by the time",prep:"perfect by (future point) / before (event)",ex:"By the time you read this I will have completed all thirty units.",ar_syn:"فعل مستقبلي مكتمل",ar_ant:"مستقبل بسيط، مستقبل مستمر",ar_col:"سيكون قد أنهى / سيكون يعمل / بحلول الوقت",ar_prep:"مكتمل بحلول نقطة مستقبلية / قبل حدث",ar_ex:"بحلول قراءتك لهذا سأكون قد أكملت جميع الثلاثين وحدة."},
+  {w:"wishes and regrets",p:"wishiz and rigrets",a:"الأمنيات والندم — I wish / If only / should have",syn:"hypothetical past, unreal present",ant:"direct statement, factual claim",col:"I wish + past simple / past perfect / If only",prep:"wish about (present/past) / regret about (past)",ex:"I wish I had started learning languages earlier — if only someone had told me.",ar_syn:"الماضي الافتراضي، الحاضر غير الحقيقي",ar_ant:"تصريح مباشر، ادعاء واقعي",ar_col:"أتمنى + ماضٍ بسيط / ماضٍ تام / ليتني",ar_prep:"أمنية عن الحاضر/الماضي / ندم عن الماضي",ar_ex:"أتمنى لو بدأت تعلّم اللغات أبكر — ليتني أخبرني أحد."},
+  {w:"articles",p:"artiklez",a:"حروف التعريف والتنكير — a/an/the/zero",syn:"definite article, indefinite article",ant:"no article error",col:"definite / indefinite / zero article with plural",prep:"article before (noun) / in (context)",ex:"A city needs public transport — indefinite because we mean any city in general.",ar_syn:"أداة تعريف، أداة تنكير",ar_ant:"خطأ في حرف التعريف",ar_col:"حرف التعريف / التنكير / بدون حرف مع الجمع",ar_prep:"حرف قبل الاسم / في السياق",ar_ex:"مدينة تحتاج نقلاً عاماً — حرف التنكير لأننا نقصد أي مدينة بشكل عام."},
+  {w:"concession clauses",p:"konsezhon kloziz",a:"جمل التنازل — although / even though / despite",syn:"contrast clause, concessive clause",ant:"straightforward assertion",col:"although / even though / despite / in spite of",prep:"concession expressing (contrast) / in (argument)",ex:"Although she found grammar challenging she never stopped studying.",ar_syn:"جملة التناقض، جملة التسليم",ar_ant:"تأكيد مباشر",ar_col:"although / even though / despite + اسم",ar_prep:"تنازل يعبّر عن تناقض / في الحجة",ar_ex:"رغم أنها وجدت القواعد صعبة لم تتوقف عن الدراسة أبداً."},
+  {w:"narrative tenses",p:"narativ tensiz",a:"أزمنة السرد — past simple / continuous / perfect",syn:"storytelling tenses, past tenses",ant:"present tenses, future tenses",col:"past simple for events / continuous for background / perfect for earlier events",prep:"narrative in (story) / tense in (context)",ex:"She was walking home when she realised she had left her keys — three narrative tenses.",ar_syn:"أزمنة القصص، أزمنة الماضي",ar_ant:"أزمنة الحاضر، أزمنة المستقبل",ar_col:"ماضٍ بسيط للأحداث / مستمر للخلفية / تام للسابق",ar_prep:"سرد في القصة / زمن في السياق",ar_ex:"كانت تمشي للمنزل حين أدركت أنها نسيت مفاتيحها — ثلاثة أزمنة سرد."},
+  {w:"B1 intermediate",p:"bi-won intirmidit",a:"مستوى B1 — متوسط في الإنجليزية وفق إطار CEFR",syn:"intermediate level, CEFR B1",ant:"A2 elementary, B2 upper-intermediate",col:"reach B1 level / B1 proficiency / CEFR B1",prep:"level according to (CEFR) / on (scale)",ex:"At B1 level you can understand main points of clear standard input on familiar matters.",ar_syn:"مستوى متوسط، B1 في إطار CEFR",ar_ant:"A2 مبتدئ، B2 فوق المتوسط",ar_col:"يصل لمستوى B1 / إتقان B1 / وصف CEFR",ar_prep:"مستوى وفقاً لإطار CEFR / على المقياس",ar_ex:"في مستوى B1 تستطيع فهم النقاط الرئيسية للمحتوى الواضح في مواضيع مألوفة."},
+  {w:"fluency",p:"fluwinsi",a:"الطلاقة — التحدث بسهولة وانسياب دون تردد",syn:"ease of expression, smooth communication",ant:"hesitation, broken speech",col:"achieve fluency / conversational fluency / reading fluency",prep:"fluency in (language) / at (level)",ex:"By completing this course you will have been building fluency consistently for months.",ar_syn:"سهولة التعبير، تواصل سلس",ar_ant:"تردد، كلام متقطع",ar_col:"يحقق الطلاقة / محادثاتية / قراءة",ar_prep:"طلاقة في اللغة / على المستوى",ar_ex:"بإتمامك هذا الكورس ستكون قد بنيت الطلاقة باستمرار لأشهر."},
+  {w:"confidence",p:"konfidins",a:"الثقة بالنفس في استخدام اللغة دون خوف من الخطأ",syn:"self-assurance, certainty, boldness",ant:"hesitation, self-doubt, anxiety",col:"build confidence / speak with confidence / gain confidence",prep:"confidence in (speaking) / about (ability)",ex:"Having completed thirty units you can now speak with genuine confidence about a wide range of topics.",ar_syn:"الاطمئنان لنفسك، يقين، جرأة",ar_ant:"تردد، شك في النفس، قلق",ar_col:"يبني الثقة / يتحدث بثقة / يكتسب",ar_prep:"ثقة في التحدث / بشأن القدرة",ar_ex:"بعد إتمام ثلاثين وحدة تستطيع الآن التحدث بثقة حقيقية عن مواضيع واسعة."},
+  {w:"accuracy",p:"akyurisi",a:"الدقة في استخدام القواعد والمفردات بشكل صحيح",syn:"correctness, precision, grammatical accuracy",ant:"errors, mistakes, inaccuracy",col:"improve accuracy / grammatical accuracy / accuracy vs fluency",prep:"accuracy in (grammar) / of (language)",ex:"At B1 level you have developed both fluency and accuracy — they are equally important.",ar_syn:"صحة، دقة، دقة نحوية",ar_ant:"أخطاء، غلطات، عدم دقة",ar_col:"يحسّن الدقة / نحوية / دقة مقابل طلاقة",ar_prep:"دقة في القواعد / في اللغة",ar_ex:"في مستوى B1 طوّرت كلاً من الطلاقة والدقة — وكلاهما مهم بنفس القدر."},
+  {w:"vocabulary range",p:"vokabyuleri reinj",a:"مدى المفردات — عدد الكلمات التي تعرفها وتستخدمها",syn:"lexical range, word bank, vocabulary breadth",ant:"limited vocabulary, single-word answers",col:"expand vocabulary range / wide vocabulary range",prep:"range covering (topics) / for (level)",ex:"Over thirty units you have built a vocabulary range covering work, media, philosophy, science and more.",ar_syn:"نطاق معجمي، بنك الكلمات",ar_ant:"مفردات محدودة",ar_col:"يوسّع نطاق المفردات / واسع",ar_prep:"نطاق يغطي مواضيع / للمستوى",ar_ex:"عبر ثلاثين وحدة بنيت نطاقاً من المفردات يغطي العمل والإعلام والفلسفة والعلوم وأكثر."},
+];
+var story=[
+  {t:"Adam started learning English because he wanted to understand one song. That was three years ago.",ar:"آدم بدأ تعلّم الإنجليزية لأنه أراد فهم أغنية واحدة. كان ذلك قبل ثلاث سنوات."},
+  {t:"By the time he reached unit ten he had already forgotten why he started — and that was fine.",ar:"بحلول وصوله للوحدة العاشرة كان قد نسي لماذا بدأ — وكان ذلك بخير."},
+  {t:"Layla joined the same course six months later. She had been avoiding English for years because of one bad teacher.",ar:"ليلى انضمت لنفس الكورس بعد ستة أشهر. كانت تتجنّب الإنجليزية لسنوات بسبب معلم واحد سيء."},
+  {t:"Neither of them knew the other existed. Both working through the same units, making the same mistakes, having the same small victories.",ar:"لم يكن أيّ منهما يعلم بوجود الآخر. كلاهما يعمل عبر نفس الوحدات، يرتكب نفس الأخطاء، يحصل على نفس الانتصارات الصغيرة."},
+  {t:"By the time they both reached unit thirty they will have covered grammar that linguists study for years.",ar:"بحلول وصولهما كليهما للوحدة الثلاثين سيكونا قد غطّيا قواعد يدرسها اللغويون لسنوات."},
+  {t:"More importantly — they will have been doing something difficult, consistently, for months.",ar:"والأهم من ذلك — سيكونا قد فعلا شيئاً صعباً، باستمرار، لأشهر."},
+  {t:"That is what B1 really means. Not a list of grammar points. A habit of learning.",ar:"هذا ما يعنيه B1 حقاً. ليس قائمة من نقاط القواعد. بل عادة التعلّم."},
+  {t:"If you are reading this — you are Adam. You are Layla. You made it.",ar:"إذا كنت تقرأ هذا — أنت آدم. أنت ليلى. لقد نجحت."},
+];
+var reading=[
+  "Reaching B1 level in a second language is a genuine intellectual achievement. At this level, according to the Common European Framework of Reference, a learner can understand the main points of clear standard input on familiar matters, can deal with most situations likely to arise while travelling, can produce simple connected text on familiar topics, and can describe experiences, events, dreams, hopes and ambitions.",
+  "The grammar structures you have encountered throughout this course represent the core of intermediate English. The present perfect continuous links past action to present relevance. The passive voice allows focus on events rather than actors. Relative clauses enable description within sentences. Modal verbs of deduction and regret allow nuanced judgement about the past. Conditionals allow sophisticated reasoning about hypothetical situations.",
+  "Vocabulary at B1 level is not simply a list of words. It is a network of words connected through synonym, antonym, collocation, and context. By building vocabulary across thirty topics you have been constructing not just a word bank but a conceptual map of the English-speaking world.",
+  "The speaking exercises throughout this course have been designed with one purpose: to make you uncomfortable in a productive way. Genuine language learning requires output. The skills prompts you have encountered have been preparing you for the kind of English that actually matters in the world.",
+  "What comes after B1? More of the same but harder and more rewarding. At B2 the grammar becomes more subtle. The vocabulary gaps become more specific. The reading becomes genuinely enjoyable. And the speaking begins to feel less like translation from your mother tongue and more like a second form of thought. That is when language learning becomes something extraordinary.",
+];
+var compQs=[
+  {q:"What can a B1 learner do according to CEFR?",opts:["Understand native speakers at full speed","Only read simple texts","Understand main points of clear input and produce connected text","Understand academic lectures"],ans:2},
+  {q:"What do modal verbs of deduction allow?",opts:["Future predictions","Simple present statements","Nuanced judgement about the past","Commands"],ans:2},
+  {q:"What is vocabulary at B1 level described as?",opts:["A list of words","A network connected through synonym antonym collocation and context","Only grammar rules","A set of phrases"],ans:1},
+  {q:"What was the purpose of speaking exercises?",opts:["Practise pronunciation","Make learners uncomfortable in a productive way requiring real output","Test grammar","Prepare for exams"],ans:1},
+  {q:"When does language learning become extraordinary?",opts:["When you pass an exam","When you finish B1","When speaking feels less like translation and more like a second form of thought","When vocabulary is large enough"],ans:3},
+];
+var listenLines=[
+  {speaker:"A",text:"Layla — we made it to unit thirty. How does it feel?"},
+  {speaker:"L",text:"Strange honestly. By the time I started this course I had already given up on English twice. I thought I simply could not do it."},
+  {speaker:"A",text:"I felt the same. I remember thinking in unit five — this grammar is too complicated. I should have started years earlier. If only I had."},
+  {speaker:"L",text:"But that is the thing — if you had started earlier you might not have been ready. I was not ready before. I did not want it enough."},
+  {speaker:"A",text:"What changed?"},
+  {speaker:"L",text:"I realised I wanted to understand things. Not just pass a test. I wanted to read things that had not been translated. Talk to people I could not otherwise reach."},
+  {speaker:"A",text:"By the time I finish this course I will have studied over seven hundred vocabulary items across thirty topics. It has been the most consistent thing I have done in years."},
+  {speaker:"L",text:"Neither of us could have known when we started what it would feel like to finish. And it feels different from what I expected."},
+  {speaker:"A",text:"How so?"},
+  {speaker:"L",text:"Less like an ending. More like a beginning. The language I have been building — it is just starting to feel like mine."},
+  {speaker:"A",text:"That is exactly it. What I wish I had understood from the beginning is that fluency is not a destination. It is what happens when you stop waiting to be ready and just speak."},
+  {speaker:"L",text:"I think so. And the grammar — all of it — serves that. Not the other way around."},
+  {speaker:"A",text:"So does confidence come from accuracy or does accuracy come from confidence?"},
+  {speaker:"L",text:"Neither comes first. They build each other. So do courage and competence I think."},
+  {speaker:"A",text:"If only school had taught us that. It would have changed everything."},
+  {speaker:"L",text:"It might have. But then we would not have the satisfaction of figuring it out ourselves. And that satisfaction — neither a certificate nor a grade can give you that."},
+];
+var listenQs=[
+  {q:"What does Layla say changed her approach to English?",opts:["A good teacher","Needing it for work","Wanting to understand things and reach people she could not otherwise","An exam"],ans:2},
+  {q:"How does Adam describe the course?",opts:["Very difficult","The most consistent thing he has done in years","Too long","Easy"],ans:1},
+  {q:"How does Layla describe finishing?",opts:["A relief","An ending","Less like an ending more like a beginning","Disappointing"],ans:2},
+  {q:"What does Adam say fluency is?",opts:["A destination","A test","What happens when you stop waiting to be ready and just speak","Grammar accuracy"],ans:2},
+  {q:"What can neither a certificate nor a grade give you?",opts:["Grammar knowledge","Vocabulary","The satisfaction of figuring it out yourself","Confidence"],ans:2},
+];
+var speakQs=[
+  {q:"Reflect on your B1 journey using mixed grammar structures.",hint:"I have been studying for... I wish I had started... By the time I finish... Never have I worked so consistently... What I have learned is... If I had given up I would not...",ar:"تأمّل رحلة B1 الخاصة بك باستخدام قواعد مختلطة.",badge:"استخدم 5 هياكل قواعدية مختلفة!"},
+  {q:"Use cleft sentences to say what made the biggest difference in your learning.",hint:"It is consistency that has made... What has helped me most is... It was not grammar but vocabulary that... It is speaking that I wish I had done more of...",ar:"استخدم الجمل الشقية لتقول ما أحدث الفرق الأكبر.",badge:"It is...that / What...is"},
+  {q:"Talk about your regrets and wishes about language learning.",hint:"I wish I had started earlier... If only I had practised speaking more... I should have been more consistent... I wish I were already at B2...",ar:"تحدّث عن ندمك وأمانيك في تعلّم اللغة.",badge:"I wish / If only / should have"},
+  {q:"Use inversion to describe how the course challenged you.",hint:"Never have I studied so consistently... Rarely has grammar felt so logical... Not only have I improved my English but also... Only now do I understand...",ar:"استخدم القلب لوصف كيف تحدّاك الكورس.",badge:"Never have / Rarely has / Not only / Only now"},
+  {q:"Discuss the future of your English learning using Future Perfect.",hint:"By the time I reach B2 I will have... I will have been studying for... By next year I will have covered...",ar:"ناقش مستقبل تعلّمك للإنجليزية.",badge:"will have done + will have been doing"},
+  {q:"Use hedging to talk about what makes a good language learner.",hint:"Consistent practice tends to be... Exposure to authentic language appears to... It might be argued that motivation seems... The evidence would suggest that...",ar:"استخدم لغة التحوّط للحديث عن ما يصنع متعلم لغة جيداً.",badge:"tends to / appears to / might suggest"},
+  {q:"Use nominalisation for an academic paragraph about language learning.",hint:"The acquisition of a second language requires... The development of fluency depends on... The improvement of grammar comes from... The achievement of B1 represents...",ar:"استخدم التحويل للاسم لكتابة فقرة أكاديمية.",badge:"acquisition / development / improvement / achievement"},
+  {q:"Use ellipsis and substitution to compare yourself now to when you started.",hint:"My grammar is much better and so is my vocabulary... I could not do this before and neither could I... I think so when people say consistency is everything...",ar:"استخدم الحذف والإحالة للمقارنة.",badge:"so has / neither can / I think so"},
+  {q:"Give a speech about why language learning matters using advanced grammar.",hint:"What language learning has taught me... It is not grammar but connection that matters... Never have I felt so... I wish more people understood...",ar:"ألقِ خطاباً عن أهمية تعلّم اللغات.",badge:"استخدم 6 هياكل مختلفة!"},
+  {q:"Final Challenge: Ninety-second graduation speech. Use everything you know.",hint:"By completing this course I will have... What I have learned is not just grammar but... Never have I been more aware of... I wish I had understood from the beginning that...",ar:"التحدي النهائي: خطاب تخرج من تسعين ثانية. استخدم كل ما تعلّمته!",badge:"استخدم أكبر عدد ممكن من هياكل B1!"},
+];
+var pvData=[
+  {v:"look back on",p:"look bak on",m:"يستذكر ماضياً بتأمّل",ex:"Looking back on unit one she can barely remember how difficult it once seemed.",ar:"حين تستذكر الوحدة الأولى بالكاد تتذكر كم كانت تبدو صعبة."},
+  {v:"build on",p:"bild on",m:"يبني على ما اكتسبه سابقاً",ex:"Each unit builds on the previous one — you cannot skip the foundation and reach the top.",ar:"كل وحدة تبني على السابقة — لا تستطيع تخطي الأساس والوصول للقمة."},
+  {v:"give up",p:"giv ap",m:"يستسلم ويتوقف",ex:"The fact that you are reading unit thirty means you did not give up — that matters more than talent.",ar:"حقيقة أنك تقرأ الوحدة الثلاثين تعني أنك لم تستسلم — هذا أهم من الموهبة."},
+  {v:"pick up",p:"pik ap",m:"يتعلم شيئاً بشكل طبيعي",ex:"The more you read and listen in English the more naturally you pick up collocations.",ar:"كلما قرأت واستمعت بالإنجليزية كلما التقطت التلازمات بشكل أكثر طبيعية."},
+  {v:"work through",p:"wirk throo",m:"يعمل بصبر عبر مراحل صعبة",ex:"She worked through every unit even when motivation was low — that is what consistency looks like.",ar:"عملت عبر كل وحدة حتى حين كانت الدافعية منخفضة — هذا ما تبدو عليه الاستمرارية."},
+  {v:"move on",p:"muv on",m:"يتقدم لمرحلة جديدة",ex:"Having completed B1 it is time to move on — B2 is waiting and it is even more rewarding.",ar:"بعد إتمام B1 حان وقت التقدم — B2 ينتظرك وهو أكثر إثارة."},
+  {v:"stand out",p:"stand owt",m:"يتميّز عن غيره",ex:"Among all the grammar points the passive and conditionals stand out as most useful.",ar:"من بين كل نقاط القواعد يبرز المبني للمجهول والشرطيات كالأكثر فائدة."},
+  {v:"keep up",p:"kiip ap",m:"يواصل بنفس المستوى",ex:"The challenge now is to keep up the habit of study — consistency after completion is the real test.",ar:"التحدي الآن هو مواصلة عادة الدراسة — الاستمرارية بعد الإتمام هي الاختبار الحقيقي."},
+  {v:"take away",p:"teik awey",m:"يستخلص درساً أو فكرة من تجربة",ex:"The most important thing to take away from this course is not grammar rules but the confidence to try.",ar:"أهم شيء تستخلصه من هذا الكورس ليس قواعد النحو بل الثقة بالمحاولة."},
+  {v:"catch up",p:"kach ap",m:"يلحق بما فاته",ex:"She missed three weeks but worked hard to catch up and never fell behind again.",ar:"فاتتها ثلاثة أسابيع لكنها عملت بجد للحاق ولم تتأخر مرة أخرى."},
+];
+var realExpr=[
+  {e:"Come a long way",p:"kam a long way",m:"قطع شوطاً طويلاً في التطوّر",f:"Have made great progress from where you started.",x:"By the time you finish unit thirty you will have come a long way from unit one.",xar:"بحلول إنهاء الوحدة الثلاثين ستكون قد قطعت شوطاً طويلاً من الوحدة الأولى.",n:"قطع مسافة طويلة = تطوّر كبير من نقطة البداية"},
+  {e:"Practice makes perfect",p:"praktis meiks pirfikt",m:"التدريب المستمر يقود للإتقان",f:"Repeated practice leads to mastery.",x:"You will not have become fluent by understanding only. Practice makes perfect.",xar:"لن تكون قد أصبحت طليقاً بالفهم فقط. التدريب يقود للإتقان.",n:"المثل الأشهر في تعلّم المهارات"},
+  {e:"Every little helps",p:"evri litl helps",m:"كل جهد صغير يضيف ويساهم",f:"Even small efforts contribute to a larger goal.",x:"Every unit studied, every word learned, every sentence spoken — every little helps.",xar:"كل وحدة درستها، كل كلمة تعلّمتها، كل جملة نطقتها — كل شيء صغير يساهم.",n:"حتى الجهود الصغيرة تبني نحو الهدف الكبير"},
+];
+var realSlang=[
+  {w:"Nail it",p:"neil it",i:"تنجزه بشكل مثالي",ex:"By the time you finish the final speaking exercise you will have nailed the B1 structures.",xar:"بحلول إنهائك التمرين النهائي ستكون قد أتقنت هياكل B1.",a:"تنجز شيئاً بشكل مثالي ورائع"},
+  {w:"Level up",p:"levl ap",i:"ترتقي لمستوى أعلى",ex:"Having completed B1 it is time to level up — B2 will have you thinking in English.",xar:"بعد إتمام B1 حان وقت الارتقاء — B2 سيجعلك تفكّر بالإنجليزية.",a:"ترتقي وتتطوّر لمستوى أعلى من المهارة"},
+  {w:"It clicked",p:"it klikt",i:"فهمت شيئاً فجأة بعد محاولات",ex:"She had been struggling with the passive for weeks and then one day it just clicked.",xar:"كانت تكافح مع المبني للمجهول لأسابيع ثم في يوم ما فهمته فجأة.",a:"تفهم شيئاً صعباً فجأة بعد وقت طويل من المحاولة"},
+  {w:"Hit the ground running",p:"hit tha grownd runing",i:"تبدأ بقوة وكفاءة من اللحظة الأولى",ex:"At B2 level you will need to hit the ground running — the pace is faster.",xar:"في مستوى B2 ستحتاج لأن تبدأ بقوة من اللحظة الأولى — الوتيرة أسرع.",a:"تبدأ نشاطاً بكامل طاقتك وكفاءتك فوراً"},
+];
+var realEvery=[
+  {w:"Keep going",p:"kiip going",i:"تواصل رغم الصعوبة",ex:"Every time grammar felt impossible the only answer was to keep going — and here you are.",xar:"كل مرة بدت فيها القواعد مستحيلة كان الجواب الوحيد هو المواصلة — وها أنت.",a:"تواصل رغم الصعوبة ولا تتوقف"},
+  {w:"Well done",p:"wel dan",i:"أحسنت / عمل ممتاز",ex:"You have completed thirty units of B1 English. Well done — and do not stop here.",xar:"أتممت ثلاثين وحدة من B1 الإنجليزية. أحسنت — ولا تتوقف هنا.",a:"تعبير تشجيع لشخص أنجز شيئاً جيداً"},
+  {w:"Take it one step at a time",p:"teik it wan step at a taim",i:"تتقدم بخطوة واحدة في كل مرة",ex:"Thirty units felt overwhelming at first — but taking it one step at a time made it possible.",xar:"ثلاثون وحدة بدت ساحقة في البداية — لكن التقدّم خطوة بخطوة جعلها ممكنة.",a:"تتقدم بتركيزك على خطوة واحدة فقط لا الصورة الكاملة"},
+];
+var quizQs=[
+  {q:"She has been studying English ___ two years now.",opts:["since","for","during","ago"],ans:1},
+  {q:"ما معنى nominalisation؟",opts:["تحويل الاسم لفعل","تحويل الفعل أو الصفة إلى اسم","قلب الجملة","الحذف والإحالة"],ans:1},
+  {q:"If she ___ harder she would have passed.",opts:["studied","had studied","would study","studies"],ans:1},
+  {q:"ما معنى cleft sentence؟",opts:["جملة الشرط","جملة المبني للمجهول","جملة شقية للتأكيد مثل It is...that","جملة التنازل"],ans:2},
+  {q:"Never ___ I felt so confident in English.",opts:["did","have","had","was"],ans:1},
+  {q:"ما الـ phrasal verb: تستخلص درساً من تجربة؟",opts:["build on","give up","take away","move on"],ans:2},
+  {q:"ما معنى hedging language؟",opts:["لغة التحدي","لغة التأكيد القوي","لغة التحوّط كـ tends to / appears to","لغة الشرط"],ans:2},
+  {q:"By next year she ___ have been learning English for three years.",opts:["will","would","shall","had"],ans:0},
+  {q:"ما معنى B1 intermediate؟",opts:["مبتدئ","متقدم","مستوى متوسط في إطار CEFR","خبير"],ans:2},
+  {q:"أكملت كورس B1! ما أهم شيء تعلّمته؟",opts:["القواعد فقط","المفردات فقط","الثقة بالمحاولة والاستمرارية","كيفية النجاح في الامتحانات"],ans:2},
+];
+var spd=1,lspd=1,storyOn=false,listenOn=false;
+var compA=new Array(compQs.length).fill(null);
+var listenA=new Array(listenQs.length).fill(null);
+var quizA=new Array(quizQs.length).fill(null);
+
+function say(text,rate,cb){
+  if(!window.speechSynthesis)return null;
+  window.speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US";u.rate=rate||spd;u.pitch=1.0;
+  var v=getVoice("F");if(v)u.voice=v;
+  if(cb)u.onend=cb;
+  window.speechSynthesis.speak(u);return u;
+}
+
+function buildVocab(){
+  var c=document.getElementById("vocabList");
+  V.forEach(function(v,i){
+    var d=document.createElement("div");d.className="vocab-card";
+    // Build using single-quote innerHTML (Gold Standard from unit2)
+    d.innerHTML=
+            '<div class="vhead">'+
+        '<div style="display:flex;align-items:center;gap:10px;width:100%">'+
+          '<button class="vspk" id="vs'+i+'">🔊</button>'+
+          '<div class="var" style="flex:1;text-align:right">'+v.a+'</div>'+
+          '<div class="vpron" style="direction:ltr;white-space:nowrap">'+v.p+'</div>'+
+          '<div style="display:flex;align-items:center;gap:6px">'+
+            '<div class="vword">'+v.w+'</div>'+
+            '<span style="background:rgba(255,255,255,.18);color:rgba(255,255,255,.85);font-size:.68rem;font-weight:800;padding:2px 7px;border-radius:10px">'+(i+1)+'</span>'+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="vbody">'+
+        '<div class="vgrid2">'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-ant" data-i="'+i+'" data-c="1"><div class="vlbl">Antonym</div><div class="vval">'+v.ant+'</div><div class="vtr">'+v.ar_ant+'</div></div>'+
+            '<div class="vcell c-syn" data-i="'+i+'" data-c="0"><div class="vlbl">Synonym</div><div class="vval">'+v.syn+'</div><div class="vtr">'+v.ar_syn+'</div></div>'+
+          '</div>'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-prep" data-i="'+i+'" data-c="3"><div class="vlbl">Preposition</div><div class="vval">'+v.prep+'</div><div class="vtr">'+v.ar_prep+'</div></div>'+
+            '<div class="vcell c-col" data-i="'+i+'" data-c="2"><div class="vlbl">Collocation</div><div class="vval">'+v.col+'</div><div class="vtr">'+v.ar_col+'</div></div>'+
+          '</div>'+
+        '</div>'+
+        '<div class="vex" id="vex'+i+'">'+v.ex+'<div class="vex-tr">'+v.ar_ex+'</div></div>'+
+      '</div>';
+    d.querySelector('.vspk').addEventListener('click',(function(ii){return function(){
+      document.querySelectorAll('.vspk').forEach(function(b){b.classList.remove('playing');});
+      var btn=document.getElementById('vs'+ii);if(btn)btn.classList.add('playing');
+      var u=say(V[ii].w,spd);if(u)u.onend=function(){if(btn)btn.classList.remove('playing');};
+    };})(i));
+    d.querySelectorAll('.vcell').forEach(function(cell){
+      cell.addEventListener('click',function(){
+        var ii=parseInt(this.getAttribute('data-i'));
+        var cc=parseInt(this.getAttribute('data-c'));
+        say([V[ii].syn,V[ii].ant,V[ii].col,V[ii].prep][cc],0.9);
+        this.classList.toggle('show-tr');
+      });
+    });
+    var vex=d.querySelector('.vex');if(vex)vex.addEventListener('click',function(){this.classList.toggle('show-ex-tr');});
+    c.appendChild(d);
+  });
+}
+function checkComp(){var s=0;compQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("co"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(compA[qi]===i)el.classList.add("no");}if(compA[qi]===q.ans)s++;});var r=document.getElementById("compRes");r.style.display="block";var pct=Math.round(s/compQs.length*100);r.textContent=s+" من "+compQs.length+" إجابة صحيحة ("+pct+"%) "+(pct===100?"🏆":pct>=60?"🎉":"📚 راجع النص");}
+function resetComp(){compA=new Array(compQs.length).fill(null);document.querySelectorAll(".copt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("compRes").style.display="none";}
+
+
+function buildStory(){
+  var b=document.getElementById("storyBox");
+  if(!b)return;
+  b.innerHTML="";
+  story.forEach(function(s,i){
+    var d=document.createElement("div");d.className="sline";d.id="sl"+i;
+    var txt=document.createTextNode(s.t);d.appendChild(txt);
+    var btn=document.createElement("button");
+    btn.style.cssText="background:transparent;border:1px solid #e5e7eb;border-radius:5px;padding:1px 7px;color:#9ca3af;font-size:.7rem;cursor:pointer;font-family:Tajawal,sans-serif;margin-right:6px";
+    btn.textContent="🌐";
+    btn.addEventListener("click",(function(ii){return function(){toggleTr(ii);};})(i));
+    d.appendChild(btn);
+    var tr=document.createElement("div");tr.id="tr"+i;
+    tr.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;font-family:Tajawal,sans-serif;border-right:3px solid #fde68a;padding-right:8px";
+    tr.textContent=s.ar;d.appendChild(tr);b.appendChild(d);
+  });
+}
+var _trAll=false;
+function toggleAllTr(){_trAll=!_trAll;for(var i=0;i<story.length;i++){var e=document.getElementById("tr"+i);if(e)e.style.display=_trAll?"block":"none";}var btn=document.getElementById("trBtn");if(btn)btn.textContent=_trAll?"🙈 أخفِ":"🌐 الترجمة";}
+function toggleTr(i){var e=document.getElementById("tr"+i);if(e)e.style.display=e.style.display==="none"?"block":"none";}
+function setSpd(r,btn){spd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function storySeq(i){if(!storyOn||i>=story.length){stopStory();return;}document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("sl"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(story[i].t);u.lang="en-US";u.rate=spd;u.onend=function(){if(storyOn)setTimeout(function(){storySeq(i+1);},320);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startStory(){storyOn=true;var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="⏹";btn.querySelector("#sTxt").textContent="إيقاف القصة";}storySeq(0);}
+function stopStory(){storyOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="▶";btn.querySelector("#sTxt").textContent="استمع للقصة";}}
+function toggleStory(){storyOn?stopStory():startStory();}
+
+function buildReading(){
+  var t=document.getElementById("readingText");
+  if(!t)return;
+  t.innerHTML="";
+  reading.forEach(function(p){var d=document.createElement("p");d.textContent=p;t.appendChild(d);});
+  var c=document.getElementById("compList");
+  if(!c)return;
+  c.innerHTML="";
+  compQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";
+    p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="co"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){
+        compA[qi]=oi;
+        for(var k=0;k<q.opts.length;k++){var el=document.getElementById("co"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}
+        this.style.borderColor="#0a1628";
+      });
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+
+function buildGrammar(){
+  var c=document.getElementById("grammarBox");
+  var box1=document.createElement("div");box1.className="gbox";
+  var t1=document.createElement("div");t1.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";
+  t1.textContent="\u0645\u0631\u0627\u062c\u0639\u0629 \u0634\u0627\u0645\u0644\u0629 \u2014 \u0643\u0644 \u0647\u064a\u0627\u0643\u0644 B1";box1.appendChild(t1);
+  var structs=[
+    ["Present Perfect Cont.","She has been studying for 2 years.","\u0641\u0639\u0644 \u0645\u0633\u062a\u0645\u0631 \u062d\u062a\u0649 \u0627\u0644\u0622\u0646"],
+    ["Passive Advanced","It was being built when the storm hit.","\u0645\u0628\u0646\u064a \u0644\u0644\u0645\u062c\u0647\u0648\u0644 \u0645\u062a\u0642\u062f\u0651\u0645"],
+    ["Third Conditional","If she had tried, she would have succeeded.","\u0634\u0631\u0637\u064a \u062b\u0627\u0644\u062b"],
+    ["Mixed Conditional","If she had studied harder, she'd be fluent now.","\u0634\u0631\u0637\u064a \u0645\u062e\u062a\u0644\u0637"],
+    ["Cleft Sentence","It is practice that makes the difference.","\u062c\u0645\u0644\u0629 \u0634\u0642\u064a\u0629"],
+    ["Inversion","Never have I worked so hard.","\u0642\u0644\u0628 \u0644\u0644\u062a\u0623\u0643\u064a\u062f"],
+    ["Wishes","I wish I had started earlier.","\u0623\u0645\u0646\u064a\u0629 \u0639\u0646 \u0627\u0644\u0645\u0627\u0636\u064a"],
+    ["Nominalisation","The development of fluency requires time.","\u062a\u062d\u0648\u064a\u0644 \u0644\u0644\u0627\u0633\u0645"],
+    ["Hedging","This tends to suggest that...","\u062a\u062d\u0648\u0651\u0637 \u0623\u0643\u0627\u062f\u064a\u0645\u064a"],
+    ["Future Perfect","By 2030 she will have mastered B2.","\u0645\u0633\u062a\u0642\u0628\u0644 \u062a\u0627\u0645"],
+    ["Ellipsis","She loves English and so do I.","\u062d\u0630\u0641 \u0648\u0625\u062d\u0627\u0644\u0629"],
+    ["Concession","Although it was hard, she never quit.","\u062a\u0646\u0627\u0632\u0644"],
+  ];
+  var grid=document.createElement("div");grid.style.cssText="display:grid;grid-template-columns:1fr 1fr;gap:8px";
+  structs.forEach(function(s){
+    var d=document.createElement("div");d.style.cssText="background:#0a1628;border-radius:8px;padding:10px 12px;direction:ltr";
+    d.innerHTML='<div style="color:#f0c040;font-size:.75rem;font-weight:700;margin-bottom:3px">'+s[0]+'</div><div style="color:rgba(255,255,255,.8);font-size:.76rem;margin-bottom:3px">'+s[1]+'</div><div style="color:#93c5fd;font-size:.72rem;direction:rtl;text-align:right">'+s[2]+'</div>';
+    grid.appendChild(d);
+  });
+  box1.appendChild(grid);c.appendChild(box1);
+  var cert=document.createElement("div");cert.style.cssText="background:linear-gradient(135deg,#f0a000,#f0c040);border-radius:14px;padding:20px;text-align:center;margin-top:8px";
+  cert.innerHTML='<div style="font-size:1.8rem;margin-bottom:6px">&#127891;</div><div style="font-weight:900;font-size:1.1rem;color:#0a1628;margin-bottom:4px">B1 INTERMEDIATE</div><div style="font-size:.85rem;color:#0a1628;opacity:.8">\u0644\u0642\u062f \u0623\u062a\u0645\u0645\u062a 30 \u0648\u062d\u062f\u0629 \u2014 750+ \u0643\u0644\u0645\u0629 \u2014 \u0643\u0644 \u0647\u064a\u0627\u0643\u0644 B1</div>';
+  c.appendChild(cert);
+}
+function buildListening(){
+  var s=document.getElementById("listenScript");
+  listenLines.forEach(function(line,i){
+    var d=document.createElement("div");d.className="lline";d.id="ll"+i;
+    if(typeof line==="object"&&line.speaker){
+      var lbl=document.createElement("span");
+      var isBen=line.speaker==="A";
+      lbl.style.cssText="font-size:.7rem;font-weight:800;padding:1px 7px;border-radius:8px;margin-left:6px;"+(isBen?"background:#dbeafe;color:#1e3a8a":"background:#fce7f3;color:#9d174d");
+      lbl.textContent=line.speaker==="A"?"Adam":"Layla";
+      var txt=document.createElement("span");txt.textContent=line.text;
+      d.appendChild(lbl);d.appendChild(txt);
+    } else {
+      d.appendChild(document.createTextNode(typeof line==="object"?line.text:line));
+    }
+    s.appendChild(d);
+  });
+  var c=document.getElementById("listenQList");
+  listenQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="lq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){listenA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("lq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function setLSpd(r,btn){lspd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function getVoice(gender){
+  var voices=window.speechSynthesis.getVoices();
+  var enVoices=voices.filter(function(v){return v.lang.indexOf("en")===0;});
+  if(gender==="M"){
+    var rishi=enVoices.filter(function(v){return v.name.indexOf("Rishi")>-1;});
+    if(rishi.length)return rishi[0];
+    var male=enVoices.filter(function(v){
+      var n=v.name.toLowerCase();
+      return n.indexOf("male")>-1||n.indexOf("daniel")>-1||n.indexOf("james")>-1||n.indexOf("david")>-1||n.indexOf("mark")>-1||n.indexOf("arthur")>-1;
+    });
+    return male.length?male[0]:(enVoices.length?enVoices[0]:null);
+  } else {
+    var female=enVoices.filter(function(v){
+      var n=v.name.toLowerCase();
+      return n.indexOf("samantha")>-1||n.indexOf("female")>-1||n.indexOf("victoria")>-1||n.indexOf("karen")>-1||n.indexOf("kate")>-1||n.indexOf("fiona")>-1||n.indexOf("moira")>-1;
+    });
+    return female.length?female[0]:(enVoices.length>1?enVoices[1]:enVoices[0]||null);
+  }
+}
+function listenSeq(i){
+  if(!listenOn||i>=listenLines.length){stopListen();return;}
+  document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});
+  var e=document.getElementById("ll"+i);if(e)e.classList.add("hl");
+  var line=listenLines[i];
+  var text=typeof line==="object"?line.text:line;
+  var gender=typeof line==="object"?(line.speaker==="A"?"M":"F"):"M";
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US";u.rate=lspd;
+  var v=getVoice(gender);
+  if(v)u.voice=v;
+  u.pitch=1.0;
+  u.onend=function(){if(listenOn)setTimeout(function(){listenSeq(i+1);},380);};
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+function startListen(){listenOn=true;document.getElementById("lIcon").textContent="⏹";document.getElementById("lTxt").textContent="إيقاف المونولوج";listenSeq(0);}
+function stopListen(){listenOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});document.getElementById("lIcon").textContent="▶";document.getElementById("lTxt").textContent="شغّل المونولوج";}
+function toggleListen(){listenOn?stopListen():startListen();}
+function checkListen(){var s=0;listenQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("lq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(listenA[qi]===i)el.classList.add("no");}if(listenA[qi]===q.ans)s++;});var r=document.getElementById("listenRes");r.style.display="block";var pct=Math.round(s/listenQs.length*100);r.textContent=s+" من "+listenQs.length+" إجابة صحيحة ("+pct+"%) "+(pct>=80?"✅ ممتاز!":pct>=60?"👍 جيد!":"📚 راجع");}
+function resetListen(){listenA=new Array(listenQs.length).fill(null);document.querySelectorAll(".copt[id^='lq']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("listenRes").style.display="none";}
+
+function buildW(){
+  var ids=["w1","w2","w3","w4","w5"];var any=false;
+  for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value.trim())any=true;}
+  if(!any){document.getElementById("wOut").innerHTML="<span style='color:#9ca3af;font-style:italic'>✨ ستظهر فقرتك هنا...</span>";return;}
+  var parts=[];
+  for(var j=0;j<ids.length;j++){var el=document.getElementById(ids[j]);var v=el?el.value.trim():"";if(v)parts.push("<span style='color:#f0a000;font-weight:700'>"+v+"</span>.");}
+  document.getElementById("wOut").innerHTML="<p style='direction:ltr;line-height:2'>"+parts.join(" ")+"</p>";
+}
+
+function buildSpeaking(){
+  var c=document.getElementById("speakBox");
+  speakQs.forEach(function(q){
+    var d=document.createElement("div");d.style.cssText="background:#f8faff;border-right:4px solid #1e3a8a;border-radius:0 12px 12px 0;padding:16px 18px;margin-bottom:14px";
+    var p1=document.createElement("p");p1.style.cssText="font-size:.97rem;color:#0a1628;font-weight:700;direction:ltr;margin-bottom:5px";p1.textContent=q.q;
+    var p2=document.createElement("p");p2.style.cssText="font-size:.82rem;color:#9ca3af;margin-bottom:6px";p2.textContent=q.ar;
+    var p3=document.createElement("p");p3.style.cssText="font-size:.82rem;color:#f0a000;direction:ltr;margin-bottom:8px";p3.textContent="💡 "+q.hint;
+    var badge=document.createElement("span");badge.style.cssText="background:#dbeafe;color:#1e3a8a;padding:4px 12px;border-radius:20px;font-size:.76rem;font-weight:700";badge.textContent=q.badge;
+    d.appendChild(p1);d.appendChild(p2);d.appendChild(p3);d.appendChild(badge);
+    var btn=document.createElement("button");btn.className="spksmall";btn.textContent="🔊";btn.style.marginTop="10px";
+    btn.addEventListener("click",(function(qq){return function(){say(qq,spd);};})(q.q));
+    d.appendChild(btn);c.appendChild(d);
+  });
+}
+
+function makeExRow(text,arabic,spkText){
+  var div=document.createElement("div");
+  div.style.cssText="cursor:pointer;user-select:none;padding:8px 12px;background:white;border-radius:8px;direction:ltr;font-size:.86rem;color:#374151;font-style:italic;margin-top:6px";
+  var span=document.createElement("span");span.textContent=text;
+  var tr=document.createElement("div");
+  tr.style.cssText="font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;padding-top:4px;border-top:1px dashed #e5e7eb;display:none;font-family:Tajawal,sans-serif;font-style:normal";
+  tr.textContent=arabic;
+  div.appendChild(span);div.appendChild(tr);
+  div.addEventListener("click",(function(t,s){return function(){t.style.display=t.style.display==="none"?"block":"none";say(s,spd);};})(tr,spkText));
+  return div;
+}
+
+function buildReal(){
+  var c=document.getElementById("realBox");
+  var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h1.textContent="🔥 Expressions — اضغط على الجملة لتسمعها وترجمتها";c.appendChild(h1);
+  realExpr.forEach(function(e){
+    var d=document.createElement("div");d.className="expr-card";
+    // Visible 🔊 for main expression
+    var header=document.createElement("div");header.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;direction:ltr";
+    var headerLeft=document.createElement("div");headerLeft.style.cssText="display:flex;align-items:center;gap:8px";
+    var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";
+    spkBtn.addEventListener("click",(function(ee){return function(){say(ee,spd);};})(e.e));
+    var titleSpan=document.createElement("span");titleSpan.style.cssText="font-weight:700;color:#4c1d95;font-size:.97rem";titleSpan.textContent=e.e;
+    headerLeft.appendChild(spkBtn);headerLeft.appendChild(titleSpan);
+    var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.78rem;font-weight:700;font-family:Tajawal,sans-serif";pronSpan.textContent=e.p;
+    header.appendChild(headerLeft);header.appendChild(pronSpan);
+    d.appendChild(header);
+    var grid=document.createElement("div");grid.style.cssText="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px";
+    var g1=document.createElement("div");g1.style.cssText="background:white;border-radius:8px;padding:8px 12px;text-align:right";g1.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>المعنى</div><div style='font-weight:700;color:#374151;font-size:.88rem'>"+e.m+"</div>";
+    var g2=document.createElement("div");g2.style.cssText="background:white;border-radius:8px;padding:8px 12px;direction:ltr";g2.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>Formal</div><div style='font-size:.85rem;color:#64748b'>"+e.f+"</div>";
+    grid.appendChild(g1);grid.appendChild(g2);d.appendChild(grid);
+    d.appendChild(makeExRow(e.x,e.xar,e.x));
+    var note=document.createElement("div");note.style.cssText="font-size:.8rem;color:#7c3aed;text-align:right;margin-top:8px";note.textContent="💡 "+e.n;
+    d.appendChild(note);c.appendChild(d);
+  });
+  var h2=document.createElement("p");h2.style.cssText="font-weight:800;color:#0a1628;margin:20px 0 14px;text-align:right";h2.textContent="😎 Slang";c.appendChild(h2);
+  var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:20px";
+  realSlang.forEach(function(s){
+    var d=document.createElement("div");d.className="slang-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";
+    var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkS=document.createElement("button");spkS.className="spksmall";spkS.textContent="🔊";spkS.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkS.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var sWord=document.createElement("span");sWord.style.cssText="font-weight:700;color:#ea580c;font-size:.9rem";sWord.textContent=s.w;
+    titleLeft.appendChild(spkS);titleLeft.appendChild(sWord);
+    var pp=document.createElement("span");pp.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pp.textContent=s.p;
+    titleRow.appendChild(titleLeft);titleRow.appendChild(pp);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    sg.appendChild(d);
+  });
+  c.appendChild(sg);
+  var h3=document.createElement("p");h3.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h3.textContent="💬 Everyday Phrases";c.appendChild(h3);
+  var ev=document.createElement("div");ev.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";
+  realEvery.forEach(function(s){
+    var d=document.createElement("div");d.className="ev-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;direction:ltr";
+    var titleLeft2=document.createElement("div");titleLeft2.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkE=document.createElement("button");spkE.className="spksmall";spkE.textContent="🔊";spkE.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkE.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var titleTxt=document.createElement("span");titleTxt.style.cssText="font-weight:700;color:#15803d;font-size:.9rem";titleTxt.textContent=s.w;
+    titleLeft2.appendChild(spkE);titleLeft2.appendChild(titleTxt);
+    var evPron=document.createElement("span");evPron.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";evPron.textContent=s.p;
+    titleRow.appendChild(titleLeft2);titleRow.appendChild(evPron);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    ev.appendChild(d);
+  });
+  c.appendChild(ev);
+}
+
+
+function buildPhrasal(){
+  var c=document.getElementById("pvBox");
+  if(!c)return;
+  var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";
+  h1.textContent="💬 Phrasal Verbs — اضغط على الجملة لتسمعها وترجمتها";c.appendChild(h1);
+  var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";
+  pvData.forEach(function(pv){
+    var d=document.createElement("div");d.className="slang-card";
+    // Row 1: 🔊 reads WORD only + verb + pronunciation
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";
+    var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";
+    spkBtn.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkBtn.addEventListener("click",(function(word){return function(e){e.stopPropagation();say(word,spd);};})(pv.v));
+    var pvWord=document.createElement("span");pvWord.style.cssText="font-weight:700;color:#7c3aed;font-size:.95rem";pvWord.textContent=pv.v;
+    titleLeft.appendChild(spkBtn);titleLeft.appendChild(pvWord);
+    var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pronSpan.textContent=pv.p||"";
+    titleRow.appendChild(titleLeft);titleRow.appendChild(pronSpan);
+    // Arabic meaning
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:6px";ar.textContent=pv.m;
+    // Example sentence — click to HEAR + show translation
+    var exBox=document.createElement("div");
+    exBox.style.cssText="font-family:'Lora',serif;font-style:italic;color:#1e3a8a;font-size:.88rem;direction:ltr;cursor:pointer;padding:8px 10px;background:#f0f9ff;border-radius:8px;border-left:3px solid #7c3aed";
+    exBox.textContent=pv.ex;
+    var trBox=document.createElement("div");
+    trBox.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding:7px 10px;background:#fffdf7;border-radius:8px;border-right:3px solid #fde68a";
+    trBox.textContent=pv.ar;
+    exBox.addEventListener("click",(function(ex,tb){return function(){
+      say(ex,spd);
+      tb.style.display=tb.style.display==="none"?"block":"none";
+      this.style.background=tb.style.display==="block"?"#dbeafe":"#f0f9ff";
+    };})(pv.ex,trBox));
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(exBox);d.appendChild(trBox);
+    sg.appendChild(d);
+  });
+  c.appendChild(sg);
+}
+
+function buildQuiz(){
+  var c=document.getElementById("quizList");
+  quizQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="18px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:10px;direction:ltr;font-size:.93rem";
+    p.innerHTML="<span style='background:#0a1628;color:white;border-radius:5px;padding:1px 8px;font-size:.76rem;margin-left:8px'>"+(qi+1)+"</span>"+q.q;
+    d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="qopt";b.id="qq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){quizA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("qq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function checkQuiz(){var s=0;quizQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("qq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(quizA[qi]===i)el.classList.add("no");}if(quizA[qi]===q.ans)s++;});var pct=Math.round(s/quizQs.length*100);var r=document.getElementById("quizRes");r.style.display="block";document.getElementById("qEmoji").textContent=pct===100?"🏆":pct>=70?"🎉":pct>=50?"💪":"📚";document.getElementById("qScore").textContent=s+" من "+quizQs.length+" إجابة صحيحة ("+pct+"%)";document.getElementById("qMsg").textContent=pct===100?"مثالي!":pct>=70?"أحسنت!":pct>=50?"راجع Conditionals Type 2.":"راجع الوحدة.";r.style.background=pct>=70?"#f0fdf4":"#fef9f0";r.scrollIntoView({behavior:"smooth",block:"center"});}
+function resetQuiz(){quizA=new Array(quizQs.length).fill(null);document.querySelectorAll(".qopt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("quizRes").style.display="none";}
+
+function show(id,btn){document.querySelectorAll(".sec").forEach(function(s){s.classList.remove("on");});document.getElementById("sec-"+id).classList.add("on");window.scrollTo({top:0,behavior:"smooth"});document.querySelectorAll(".nb").forEach(function(b){b.classList.remove("on");});if(btn){btn.classList.add("on");return;}var map={vocab:0,story:1,reading:2,grammar:3,listening:4,writing:5,speaking:6,realeng:7,pv:8,quiz:9};var btns=document.querySelectorAll(".nb");if(btns[map[id]])btns[map[id]].classList.add("on");}
+
+buildVocab();buildStory();buildReading();buildGrammar();buildListening();buildSpeaking();buildReal();buildPhrasal();buildQuiz();
+</script>
+</body>
+</html>

@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath B1 — Unit 29: Work and the Future</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Tajawal',sans-serif;background:#f0f4fa;direction:rtl;min-height:100vh}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#1e3a8a;border-radius:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(30,58,138,.35)}50%{box-shadow:0 0 0 8px rgba(30,58,138,0)}}
+.nav-bar{background:linear-gradient(135deg,#0a1628,#1e3a8a);padding:10px 12px;display:flex;justify-content:center;gap:4px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.nb{border:none;border-radius:22px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s}
+.nb.on{background:#f0a000;color:#0a1628}
+.nb:not(.on){background:rgba(255,255,255,.1);color:rgba(255,255,255,.85)}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#1e3a8a 55%,#1d4ed8 100%);color:white;padding:32px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(240,160,0,.06)}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04)}
+.b1tag{display:inline-block;background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-size:.72rem;font-weight:900;padding:4px 14px;border-radius:20px;letter-spacing:1.5px;margin-bottom:10px}
+.sec{display:none;max-width:900px;margin:0 auto;padding:32px 16px 80px;animation:fadeUp .4s ease}
+.sec.on{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 3px 20px rgba(0,0,0,.06);margin-bottom:22px;overflow:hidden}
+.ch{background:#0a1628;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.ch h3{font-size:1rem;font-weight:700}
+.ch .sub{font-size:.75rem;color:#93c5fd;margin-top:1px}
+.cb{padding:22px}
+.vocab-card{background:white;border-radius:16px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 14px rgba(10,22,40,.08);border:1px solid #e5ebf8;transition:transform .2s,box-shadow .2s}
+.vocab-card:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(10,22,40,.13)}
+.vhead{background:linear-gradient(135deg,#0a1628,#1e3a8a);display:flex;flex-direction:row-reverse;align-items:center;padding:14px 18px;gap:14px}
+
+
+.vinfo{flex:1;text-align:right}
+.vword{font-family:'Lora',serif;font-size:1.18rem;font-weight:700;color:white;direction:ltr;text-align:left}
+.vpron{font-size:.78rem;font-weight:700;color:#fde68a;margin-top:3px;direction:ltr;text-align:left}
+.var{font-size:.93rem;font-weight:700;color:rgba(255,255,255,.9);margin-top:3px}
+.vspk{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.25);background:transparent;color:white;font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:all .18s;display:flex;align-items:center;justify-content:center}
+.vspk:hover{background:rgba(255,255,255,.2);transform:scale(1.08)}
+.vspk.playing{background:#f0a000;border-color:#f0a000;animation:pulse 1s infinite}
+.vbody{padding:14px 16px 16px}
+.vgrid2{margin-bottom:10px}
+.vrow-pair{display:flex;gap:8px;margin-bottom:8px}
+.vrow-pair .vcell{flex:1;min-width:0}
+.vcell{border-radius:10px;padding:10px 13px;cursor:pointer;transition:all .15s;user-select:none;direction:ltr}
+.vcell:hover{filter:brightness(.96)}
+.vcell:active{transform:scale(.98)}
+.c-syn{background:#f0fdf4;border:1px solid #bbf7d0}
+.c-ant{background:#fff7ed;border:1px solid #fed7aa}
+.c-col{background:#eff6ff;border:1px solid #bfdbfe}
+.c-prep{background:#faf5ff;border:1px solid #ddd6fe}
+.vlbl{font-size:.65rem;font-weight:900;letter-spacing:.7px;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:5px;direction:ltr;justify-content:flex-start}
+.c-syn .vlbl{color:#15803d}.c-ant .vlbl{color:#ea580c}
+.c-col .vlbl{color:#2563eb}.c-prep .vlbl{color:#7c3aed}
+.vlbl::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.c-syn .vlbl::before{background:#15803d}.c-ant .vlbl::before{background:#ea580c}
+.c-col .vlbl::before{background:#2563eb}.c-prep .vlbl::before{background:#7c3aed}
+.vval{font-family:'Lora',serif;font-size:.82rem;color:#374151;direction:ltr;line-height:1.6}
+.vtr{font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px;padding-top:5px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif}
+.vcell.show-tr .vtr{display:block}
+.vex{font-family:'Lora',serif;font-size:.87rem;color:#374151;direction:ltr;font-style:italic;padding:10px 14px;background:#f8faff;border-radius:10px;border-right:3px solid #f0a000;cursor:pointer;user-select:none}
+.vex-tr{font-size:.8rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding-top:6px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif;font-style:normal}
+.vex.show-ex-tr .vex-tr{display:block}
+.sline{font-family:'Lora',serif;font-size:.97rem;line-height:2;padding:5px 8px;border-radius:6px;direction:ltr;transition:background .2s}
+.sline.hl{background:#fef3c7}
+.lline{font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#cbd5e1;padding:3px 6px;border-radius:5px;direction:ltr;transition:background .2s}
+.lline.hl{background:rgba(240,160,0,.18);color:#fde68a}
+.sctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-direction:row-reverse;margin-bottom:16px}
+.pbtn{background:#1e3a8a;color:white;border:none;border-radius:24px;padding:9px 20px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s}
+.pbtn:hover{background:#1d4ed8}
+.spdbtn{padding:5px 12px;border-radius:18px;border:2px solid #cbd5e1;background:white;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;color:#64748b;transition:all .15s}
+.spdbtn.on{border-color:#1e3a8a;background:#1e3a8a;color:white}
+.rtext{font-family:'Lora',serif;font-size:.95rem;line-height:2;color:#374151;direction:ltr;padding:20px;background:#f8faff;border-radius:14px;border:1px solid #e5eaf5;margin-bottom:18px}
+.rtext p{margin-bottom:14px}
+.gbox{background:linear-gradient(135deg,#eff6ff,#e0effe);border:2px solid #bfdbfe;border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.gpat{background:white;border-radius:10px;padding:12px 16px;margin-bottom:10px;border-right:4px solid #2563eb;direction:ltr}
+.geg{font-family:'Lora',serif;font-size:.97rem;color:#0a1628;font-weight:600}
+.geg em{color:#f0a000;font-style:normal;font-weight:800}
+.gar{font-family:'Tajawal',sans-serif;font-size:.85rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px}
+.qopt{padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;font-family:'Lora',serif;font-size:.9rem;direction:ltr;background:white;transition:all .15s;margin-bottom:7px;text-align:left}
+.qopt:hover{border-color:#1e3a8a;background:#eff6ff}
+.qopt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.qopt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.copt{padding:9px 14px;border:2px solid #e5e7eb;border-radius:9px;cursor:pointer;font-family:'Lora',serif;font-size:.87rem;direction:ltr;background:white;transition:all .15s;margin-bottom:6px}
+.copt:hover{border-color:#1e3a8a;background:#eff6ff}
+.copt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.copt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.wq-block{margin-bottom:18px}
+.wq-model{font-family:'Lora',serif;font-size:.8rem;color:#374151;font-style:italic;direction:ltr;padding:10px 14px;background:#f0f9ff;border-radius:8px;border-right:3px solid #bfdbfe;line-height:1.7;display:none;margin-bottom:8px}
+.wq-model.show{display:block}
+.wq-model-btn{background:#dbeafe;border:none;border-radius:20px;padding:4px 14px;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer;margin-bottom:8px;transition:all .15s}
+.wq-model-btn:hover{background:#1e3a8a;color:white}
+.wq-en{font-family:'Lora',serif;font-size:.93rem;font-weight:700;color:#0a1628;direction:ltr;margin-bottom:3px}
+.wq-ar{font-size:.78rem;color:#9ca3af;direction:rtl;text-align:right;margin-bottom:8px;font-family:'Tajawal',sans-serif}
+.winput{width:100%;border:none;border-bottom:2px solid #f0a000;background:transparent;font-family:'Lora',serif;font-size:.95rem;color:#0a1628;outline:none;padding:5px 3px;direction:ltr;margin-bottom:14px}
+.winput:focus{border-color:#1e3a8a}
+.btn{border:none;border-radius:28px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all .18s;padding:10px 24px;font-size:.9rem}
+.btn:hover{opacity:.88;transform:scale(.98)}
+.bd{background:#1e3a8a;color:white}
+.bg{background:#e5e7eb;color:#374151}
+.bgold{background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-weight:900}
+.navrow{display:flex;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.spksmall{width:32px;height:32px;border-radius:50%;border:none;background:#dbeafe;color:#1e3a8a;font-size:.85rem;cursor:pointer;flex-shrink:0;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.spksmall:hover{background:#1e3a8a;color:white}
+.expr-card{background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:16px;margin-bottom:12px}
+.slang-card{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px}
+.ev-card{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px}
+@media(max-width:580px){.vgrid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <button class="nb on"  onclick="show('vocab',this)">📚 المفردات</button>
+  <button class="nb" onclick="show('story',this)">📖 القصة</button>
+  <button class="nb" onclick="show('reading',this)">📰 القراءة</button>
+  <button class="nb" onclick="show('grammar',this)">✏️ القاعدة</button>
+  <button class="nb" onclick="show('listening',this)">🎧 الاستماع</button>
+  <button class="nb" onclick="show('writing',this)">✍️ الكتابة</button>
+  <button class="nb" onclick="show('speaking',this)">💬 المحادثة</button>
+  <button class="nb" onclick="show('realeng',this)">🗣️ Real English</button>
+  <button class="nb" onclick="show('pv',this)">💬 Phrasal Verbs</button>
+  <button class="nb" onclick="show('quiz',this)">✅ الاختبار</button>
+</div>
+<div class="hero">
+  <div class="b1tag">B1 — INTERMEDIATE</div>
+  <div style="font-size:.75rem;letter-spacing:3px;color:rgba(255,255,255,.45);font-weight:700;margin-bottom:8px">UNIT 29</div>
+  <h1 style="font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;margin-bottom:6px"> Work and the Future</h1>
+  <p style="font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:4px">العمل والمستقبل</p>
+  <p style="font-size:.82rem;color:rgba(255,255,255,.4)">القاعدة: Future Perfect and Continuous — will have finished / will be working</p>
+  <div style="display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap">
+    <a href="unit28_b1_family.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">← الوحدة ٢٨</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="unit30_b1_review.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">الوحدة ٣٠ ←</a>
+  </div>
+</div>
+
+<div id="sec-vocab" class="sec on">
+  <div style="text-align:right;color:#64748b;font-size:.88rem;max-width:900px;margin:0 auto 16px;padding:0 16px">💡 اضغط 🔊 للكلمة الرئيسية — اضغط على أي خلية لتسمع نطقها وتظهر ترجمتها</div>
+  <div id="vocabList" style="max-width:900px;margin:0 auto;padding:0 16px"></div>
+  <div class="navrow"><button class="btn bd" onclick="show('story',null)">القصة ←</button></div>
+</div>
+
+<div id="sec-story" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📖</span><div><h3>القصة القصيرة</h3><div class="sub">Yasmin تحكي عن العمل والمستقبل — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button id="trBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:22px;padding:7px 16px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+        <button class="pbtn" id="storyBtn" onclick="toggleStory()"><span id="sIcon">▶</span><span id="sTxt">استمع للقصة</span></button>
+        <button class="spdbtn on" onclick="setSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setSpd(0.75,this)">بطيء</button>
+      </div>
+      <div id="storyBox" style="border-right:4px solid #f0a000;padding:16px 20px;background:#fffdf7;border-radius:0 14px 14px 0"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn bd" onclick="show('reading',null)">القراءة ←</button>
+  </div>
+</div>
+
+<div id="sec-reading" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📰</span><div><h3>القراءة المعمّقة</h3><div class="sub">نص 350 كلمة + 5 أسئلة فهم</div></div></div>
+    <div class="cb">
+      <div class="rtext" id="readingText"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الفهم</p>
+      <div id="compList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkComp()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetComp()">↺ إعادة</button>
+      </div>
+      <div id="compRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('story',null)">→ القصة</button>
+    <button class="btn bd" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✏️</span><div><h3>القاعدة</h3><div class="sub">Dependent Prepositions — الحروف الجر المقيّدة</div></div></div>
+    <div class="cb" id="grammarBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('reading',null)">→ القراءة</button>
+    <button class="btn bd" onclick="show('listening',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listening" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🎧</span><div><h3>الاستماع المضمّن</h3><div class="sub">حوار بين Dr. James 👨 و Dr. Sarah 👩 — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button class="pbtn" id="listenBtn" onclick="toggleListen()"><span id="lIcon">▶</span><span id="lTxt">شغّل المونولوج</span></button>
+        <button class="spdbtn on" onclick="setLSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setLSpd(0.75,this)">بطيء</button>
+      </div>
+      <div class="lscript" id="listenScript" style="background:#0f172a;border-radius:14px;padding:18px 20px;margin-bottom:16px"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الاستماع</p>
+      <div id="listenQList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkListen()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetListen()">↺ إعادة</button>
+      </div>
+      <div id="listenRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn bd" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✍️</span><div><h3>الكتابة</h3><div class="sub">اكتب عن العمل والمستقبل</div></div></div>
+    <div class="cb">
+      <div style="background:#fffdf7;border:2px dashed #f0a000;border-radius:14px;padding:20px;margin-bottom:14px">
+        <div class="wq-block">
+          <div class="wq-en">What will you have achieved in your career by the time you are forty?</div>
+          <div class="wq-ar">ما الذي ستكون قد حققته في مسيرتك بحلول بلوغك الأربعين؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">By the time I am forty I will have completed my English qualification and will have been working in my chosen field for at least ten years. I hope I will have built enough experience to be working independently. By that point I will have learned far more from failures than from successes — and I think that will have been the most valuable education of all.</div>
+          <input class="winput" id="w1" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">How will AI have changed your industry by 2035?</div>
+          <div class="wq-ar">كيف سيكون الذكاء الاصطناعي قد غيّر صناعتك بحلول 2035؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">By 2035 AI will have automated most of the routine tasks in my field, which means workers will need to have developed skills that machines cannot replicate — creativity, judgment, and empathy. Those who will have invested in continuous learning will be in the strongest position. The workers who will have ignored reskilling will have found themselves in a very difficult situation.</div>
+          <input class="winput" id="w2" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">What will work look like by the time the next generation retires?</div>
+          <div class="wq-ar">كيف سيبدو العمل بحلول تقاعد الجيل القادم؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">By the time the next generation retires they will have experienced multiple complete career changes. They will have been reskilling continuously for decades. The concept of a single employer for life will have disappeared entirely. Most people will have spent significant portions of their careers in the gig economy. Whether this will have made work more fulfilling or more precarious — I genuinely do not know.</div>
+          <input class="winput" id="w3" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Describe your English learning journey using Future Perfect.</div>
+          <div class="wq-ar">صف رحلة تعلّمك للإنجليزية باستخدام المستقبل التام.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">By the time I finish this B1 course I will have studied English seriously for over a year. I will have been building my vocabulary every single day. By the time I reach B2 level I will have read hundreds of texts in English and will have produced thousands of sentences. The progress will have been gradual but by that point it will have been genuinely transformative.</div>
+          <input class="winput" id="w4" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block" style="margin-bottom:0">
+          <div class="wq-en">Do you think the four-day working week will have been widely adopted by 2035?</div>
+          <div class="wq-ar">هل تعتقد أن أسبوع العمل من أربعة أيام سيكون قد انتشر بحلول 2035؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">By 2035 I believe the four-day week will have been adopted in many progressive companies, particularly in the technology sector. By that point researchers will have been studying its effects for over fifteen years and will have produced convincing evidence about productivity and wellbeing. However, many industries will not have changed — the resistance to reform in traditional sectors will have proven stubborn.</div>
+          <input class="winput" id="w5" placeholder="Write your answer here..." oninput="buildW()" style="margin-bottom:0">
+        </div></div>
+      <div id="wOut" style="background:white;border:1px solid #e5eaf5;border-radius:12px;padding:16px;min-height:70px;font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#374151;direction:ltr">
+        <span style="color:#9ca3af;font-style:italic">✨ ستظهر فقرتك هنا...</span>
+      </div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('listening',null)">→ الاستماع</button>
+    <button class="btn bd" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">💬</span><div><h3>المحادثة</h3><div class="sub">Speaking Challenge</div></div></div>
+    <div class="cb" id="speakBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn bd" onclick="show('realeng',null)">Real English ←</button>
+  </div>
+</div>
+
+<div id="sec-realeng" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🗣️</span><div><h3>Real English</h3><div class="sub">اضغط على الجملة لتسمعها وتظهر ترجمتها</div></div></div>
+    <div class="cb" id="realBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn bd" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-pv" class="sec">
+  <div class="card">
+    <div class="card-title">💬 Phrasal Verbs — العمل والمستقبل</div>
+    <p style="font-size:.82rem;color:#64748b;text-align:right;margin-bottom:16px;font-family:Tajawal,sans-serif">اضغط على الجملة لتسمعها وترى ترجمتها 🔊</p>
+    <div id="pvBox"></div>
+  </div>
+</div>
+
+<div id="sec-quiz" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✅</span><div><h3>اختبار الوحدة</h3><div class="sub">10 أسئلة — مفردات + قواعد + collocations</div></div></div>
+    <div class="cb">
+      <div id="quizList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:18px">
+        <button class="btn bgold" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn bg" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizRes" style="display:none;text-align:center;padding:22px;margin-top:16px;background:#f0fdf4;border-radius:14px">
+        <div id="qEmoji" style="font-size:2.5rem;margin-bottom:8px"></div>
+        <div id="qScore" style="font-weight:800;font-size:1.1rem;color:#0a1628;margin-bottom:4px"></div>
+        <div id="qMsg" style="font-size:.88rem;color:#64748b"></div>
+      </div>
+    </div>
+  </div>
+  <div style="background:linear-gradient(135deg,#0a1628,#1e3a8a);border-radius:18px;padding:28px;text-align:center;margin-top:8px;max-width:900px;margin-left:auto;margin-right:auto">
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:white;margin-bottom:6px">أحسنت! أكملت وحدة العمل والمستقبل</div>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:16px">الوحدة الثلاثون: Review</p>
+    <button class="btn bgold" onclick="location.href='unit30_b1_review.html'">الوحدة الحادية والعشرون ←</button>
+  </div>
+</div>
+
+<script>
+var V=[
+  {w:"automation",p:"أوتوميشن",a:"الأتمتة — استبدال عمل الإنسان بالآلات",syn:"mechanisation, robotics, computerisation",ant:"manual work, human labour",col:"workplace automation / automation of jobs / threat of automation",prep:"automation of (task) / in (industry)",ex:"By 2035, many routine jobs will have been replaced by automation completely.",ar_syn:"ميكنة، روبوتات، حوسبة",ar_ant:"عمل يدوي، عمل الإنسان",ar_col:"أتمتة مكان العمل / للوظائف / خطر",ar_prep:"أتمتة مهمة / في الصناعة",ar_ex:"بحلول 2035 ستكون كثير من الوظائف الروتينية قد استُبدلت بالأتمتة بالكامل."},
+  {w:"remote work",p:"ريموت ويرك",a:"العمل عن بُعد من المنزل أو أي مكان",syn:"working from home, telecommuting, flexible work",ant:"office work, on-site work",col:"shift to remote work / remote work policy / permanent remote work",prep:"work from (home) / across (time zones)",ex:"By next year, millions more employees will have been working remotely for over five years.",ar_syn:"العمل من المنزل، العمل عبر الإنترنت",ar_ant:"عمل في المكتب، حضور ميداني",ar_col:"التحول للعمل عن بُعد / سياسة / دائم",ar_prep:"عمل من المنزل / عبر المناطق الزمنية",ar_ex:"بحلول العام القادم سيكون ملايين الموظفين قد عملوا عن بُعد لأكثر من خمس سنوات."},
+  {w:"gig economy",p:"غيغ إيكونومي",a:"اقتصاد العمل المؤقت والمستقل بلا عقد ثابت",syn:"freelance economy, platform economy",ant:"permanent employment, traditional jobs",col:"growth of gig economy / gig economy worker / gig economy platform",prep:"economy of (short-term work) / through (platforms)",ex:"By the time pension age arrives, many gig workers will have been working without job security for decades.",ar_syn:"اقتصاد العمل الحر، اقتصاد المنصات",ar_ant:"توظيف دائم، وظائف تقليدية",ar_col:"نمو اقتصاد المؤقت / عامل / منصة",ar_prep:"اقتصاد من العمل القصير / عبر المنصات",ar_ex:"بحلول سن التقاعد سيكون كثير من عمال المؤقت قد عملوا بدون أمان وظيفي لعقود."},
+  {w:"artificial intelligence",p:"آرتفشل إنتيليجنس",a:"الذكاء الاصطناعي — قدرة الكمبيوتر على التفكير",syn:"AI, machine learning, neural networks",ant:"human intelligence, manual thinking",col:"rise of AI / AI in the workplace / AI replacing jobs",prep:"AI in (industry) / across (sectors)",ex:"By 2030, AI will have transformed nearly every industry that currently employs large numbers of people.",ar_syn:"الذكاء الآلي، التعلم الآلي، الشبكات العصبية",ar_ant:"الذكاء البشري، التفكير اليدوي",ar_col:"صعود الذكاء الاصطناعي / في مكان العمل / يستبدل الوظائف",ar_prep:"الذكاء الاصطناعي في الصناعة / عبر القطاعات",ar_ex:"بحلول 2030 سيكون الذكاء الاصطناعي قد حوّل تقريباً كل صناعة تُوظّف أعداداً كبيرة حالياً."},
+  {w:"upskilling",p:"أب-سكيلينغ",a:"تطوير مهاراتك الحالية لتواكب سوق العمل",syn:"retraining, skills development, professional development",ant:"deskilling, stagnation, skills gap",col:"invest in upskilling / upskilling programme / need for upskilling",prep:"upskilling of (workers) / through (training)",ex:"By the end of the decade, companies will have invested heavily in upskilling their entire workforce.",ar_syn:"إعادة تدريب، تطوير المهارات",ar_ant:"تراجع المهارات، الجمود، فجوة المهارات",ar_col:"يستثمر في تطوير المهارات / برنامج / حاجة",ar_prep:"تطوير مهارات العمال / من خلال التدريب",ar_ex:"بنهاية العقد ستكون الشركات قد استثمرت بكثافة في تطوير مهارات قوتها العاملة كاملاً."},
+  {w:"career change",p:"كارير تشينج",a:"تغيير مسار عملك بالكامل لمجال مختلف",syn:"career switch, profession change",ant:"career continuity, staying in field",col:"make a career change / midlife career change / career change challenge",prep:"change from (profession) / to (new field)",ex:"By the time she retires, she will have made three complete career changes — something her parents never expected.",ar_syn:"تحويل المسار المهني",ar_ant:"الاستمرار في نفس المجال",ar_col:"يُحدث تغييراً مهنياً / في منتصف العمر / تحدي",ar_prep:"تغيير من مهنة / إلى مجال جديد",ar_ex:"بحلول تقاعدها ستكون قد غيّرت مسارها المهني ثلاث مرات كاملة — شيء لم يتوقعه والداها أبداً."},
+  {w:"job security",p:"جوب سيكيوريتي",a:"الاستقرار الوظيفي — ضمان بقاء عملك",syn:"employment stability, secure employment",ant:"precarious work, unemployment risk",col:"lack of job security / job security concerns / guarantee job security",prep:"security in (job) / for (workers)",ex:"By the time the next generation enters the workforce, traditional job security will have largely disappeared.",ar_syn:"استقرار التوظيف، عمل ثابت",ar_ant:"عمل غير مستقر، خطر البطالة",ar_col:"غياب الاستقرار الوظيفي / مخاوف / يضمن",ar_prep:"أمان في الوظيفة / للعمال",ar_ex:"بحلول دخول الجيل القادم لسوق العمل سيكون الاستقرار الوظيفي التقليدي قد اختفى إلى حد كبير."},
+  {w:"entrepreneurship",p:"إنتريبرينيورشب",a:"ريادة الأعمال — إنشاء مشروعك التجاري الخاص",syn:"self-employment, starting a business, innovation",ant:"employment, working for others",col:"encourage entrepreneurship / spirit of entrepreneurship / entrepreneurship training",prep:"entrepreneurship in (sector) / among (young people)",ex:"By the time the course ends, half the students will have launched their own entrepreneurial projects.",ar_syn:"العمل الحر، تأسيس مشروع، ابتكار",ar_ant:"التوظيف، العمل لدى الغير",ar_col:"يشجع ريادة الأعمال / روح / تدريب",ar_prep:"ريادة الأعمال في القطاع / بين الشباب",ar_ex:"بحلول انتهاء الدورة سيكون نصف الطلاب قد أطلقوا مشاريعهم الريادية الخاصة."},
+  {w:"work-life balance",p:"ويرك-لايف بالنس",a:"التوازن بين وقت العمل ووقت الحياة الشخصية",syn:"life balance, wellbeing at work",ant:"overwork, burnout, workaholism",col:"achieve work-life balance / improve work-life balance / poor work-life balance",prep:"balance between (work and life) / in (career)",ex:"By retirement, many people will have spent their entire careers trying unsuccessfully to achieve work-life balance.",ar_syn:"توازن الحياة، الرفاهية في العمل",ar_ant:"الإفراط في العمل، الإرهاق",ar_col:"يحقق التوازن / يُحسّن / ضعيف",ar_prep:"توازن بين العمل والحياة / في المسيرة",ar_ex:"بحلول التقاعد سيكون كثير من الناس قد قضوا مسيرتهم المهنية كاملةً يحاولون بدون نجاح تحقيق التوازن."},
+  {w:"redundancy",p:"ريداندنسي",a:"فقدان الوظيفة لأن الشركة لا تحتاجك بعد الآن",syn:"layoff, job loss, dismissal",ant:"job retention, promotion, hiring",col:"face redundancy / voluntary redundancy / redundancy package",prep:"redundancy from (company) / due to (restructuring)",ex:"By the time the restructuring is complete, thousands of workers will have been made redundant.",ar_syn:"تسريح من العمل، خسارة الوظيفة",ar_ant:"الاحتفاظ بالوظيفة، ترقية، توظيف",ar_col:"يواجه التسريح / طوعي / حزمة تعويض",ar_prep:"تسريح من الشركة / بسبب إعادة الهيكلة",ar_ex:"بحلول اكتمال إعادة الهيكلة سيكون آلاف العمال قد سُرّحوا من وظائفهم."},
+  {w:"pension",p:"بينشن",a:"المعاش / مبلغ شهري تتلقاه بعد تقاعدك",syn:"retirement fund, superannuation",ant:"salary, active income",col:"pension fund / state pension / pension crisis",prep:"pension from (employer) / in (retirement)",ex:"By the time today's young workers retire, the pension system will have undergone complete transformation.",ar_syn:"صندوق التقاعد، مدخرات التقاعد",ar_ant:"راتب، دخل نشط",ar_col:"صندوق المعاش / حكومي / أزمة",ar_prep:"معاش من جهة العمل / في التقاعد",ar_ex:"بحلول تقاعد العمال الشباب اليوم سيكون نظام المعاشات قد خضع لتحوّل كامل."},
+  {w:"burnout",p:"بيرن-أوت",a:"الإرهاق الشديد من العمل لدرجة عدم القدرة على الاستمرار",syn:"exhaustion, overwork, work stress",ant:"motivation, energy, engagement",col:"experience burnout / prevent burnout / burnout crisis",prep:"burnout from (work) / due to (overload)",ex:"By the end of the project, the entire team will have been working non-stop for six months and burnout will have set in.",ar_syn:"إرهاق شديد، عمل زائد، ضغط",ar_ant:"دافعية، طاقة، انخراط",ar_col:"يعاني الإرهاق / يمنع / أزمة",ar_prep:"إرهاق من العمل / بسبب زيادة الحمل",ar_ex:"بنهاية المشروع سيكون الفريق كله قد عمل بدون توقف لستة أشهر وسيكون الإرهاق قد حلّ."},
+  {w:"minimum wage",p:"منيمم ويج",a:"أقل راتب مسموح به قانونياً في البلد",syn:"living wage, wage floor",ant:"maximum earnings, uncapped pay",col:"raise minimum wage / minimum wage increase / below minimum wage",prep:"wage in (country) / for (workers)",ex:"By the time the law changes, campaigners will have been fighting for a higher minimum wage for over a decade.",ar_syn:"الحد الأدنى للمعيشة، أرضية الأجور",ar_ant:"أعلى الأرباح، راتب غير محدود",ar_col:"يرفع الحد الأدنى / زيادة / أقل من",ar_prep:"الأجر في البلد / للعمال",ar_ex:"بحلول تغيير القانون سيكون المتظاهرون قد ناضلوا من أجل رفع الحد الأدنى للأجور لأكثر من عقد."},
+  {w:"freelance",p:"فريلانس",a:"العمل المستقل بدون صاحب عمل ثابت",syn:"independent work, self-employed, contract work",ant:"permanent employment, salaried work",col:"go freelance / freelance career / freelance platform",prep:"freelance in (field) / for (clients)",ex:"By next year, she will have been freelancing for ten years and will have worked with clients on six continents.",ar_syn:"عمل مستقل، عمل ذاتي، عمل بعقود",ar_ant:"توظيف دائم، عمل براتب",ar_col:"يتحول للعمل المستقل / مسيرة / منصة",ar_prep:"عمل مستقل في مجال / لعملاء",ar_ex:"بحلول العام القادم ستكون قد عملت مستقلة لعشر سنوات وستكون قد عملت مع عملاء في ست قارات."},
+  {w:"apprenticeship",p:"أبرنتسشب",a:"برنامج تعلّم مهنة بالتطبيق العملي مع راتب صغير",syn:"vocational training, on-the-job training",ant:"university degree, theoretical study",col:"complete an apprenticeship / apprenticeship programme / apprenticeship scheme",prep:"apprenticeship in (trade) / with (company)",ex:"By the time she completes her apprenticeship, she will have gained more practical experience than most graduates.",ar_syn:"تدريب مهني، تعلّم أثناء العمل",ar_ant:"شهادة جامعية، دراسة نظرية",ar_col:"يكمل التدريب المهني / برنامج / خطة",ar_prep:"تدريب في مهنة / مع شركة",ar_ex:"بحلول إكمالها التدريب المهني ستكون قد اكتسبت خبرة عملية أكثر من معظم الخريجين."},
+  {w:"productivity",p:"بروداكتفتي",a:"مقدار العمل المُنجز في وقت معين",syn:"efficiency, output, performance",ant:"inefficiency, idleness, underperformance",col:"improve productivity / productivity gap / productivity loss",prep:"productivity of (worker) / in (sector)",ex:"By the end of the quarter, the new system will have improved productivity by thirty percent.",ar_syn:"كفاءة، إنتاج، أداء",ar_ant:"عدم الكفاءة، كسل، أداء ضعيف",ar_col:"يُحسّن الإنتاجية / فجوة / خسارة",ar_prep:"إنتاجية العامل / في القطاع",ar_ex:"بنهاية الربع سيكون النظام الجديد قد حسّن الإنتاجية بنسبة ثلاثين بالمئة."},
+  {w:"inequality",p:"إنإكواليتي",a:"عدم المساواة في الثروة أو الفرص بين الناس",syn:"disparity, wealth gap, unfairness",ant:"equality, fairness, equal opportunity",col:"growing inequality / income inequality / tackle inequality",prep:"inequality between (groups) / in (society)",ex:"By the time policies change, the wealth gap will have widened to its greatest level in recorded history.",ar_syn:"فجوة الثروة، تفاوت، عدم إنصاف",ar_ant:"مساواة، عدالة، تكافؤ الفرص",ar_col:"عدم مساواة متزايد / في الدخل / يعالج",ar_prep:"عدم مساواة بين الفئات / في المجتمع",ar_ex:"بحلول تغيير السياسات ستكون الفجوة في الثروة قد اتسعت لأكبر مستوى في التاريخ المسجّل."},
+  {w:"globalisation",p:"غلوبلايزيشن",a:"تكامل اقتصادات وثقافات العالم مع بعضها",syn:"global integration, internationalisation",ant:"protectionism, isolationism, local economy",col:"effects of globalisation / resist globalisation / globalisation of economy",prep:"globalisation of (trade) / across (countries)",ex:"By the time the next generation enters work, globalisation will have reshaped every major industry.",ar_syn:"التكامل العالمي، التدويل",ar_ant:"الحمائية، الانعزالية، الاقتصاد المحلي",ar_col:"آثار العولمة / يقاوم / للاقتصاد",ar_prep:"عولمة التجارة / عبر الدول",ar_ex:"بحلول دخول الجيل القادم لسوق العمل ستكون العولمة قد أعادت تشكيل كل صناعة كبرى."},
+  {w:"mental health at work",p:"منتل هيلث أت ويرك",a:"صحتك النفسية في بيئة العمل",syn:"workplace wellbeing, psychological safety",ant:"work stress, toxic workplace",col:"prioritise mental health / mental health day / mental health support at work",prep:"health in (workplace) / for (employees)",ex:"By the end of the decade, companies will have completely transformed how they approach mental health at work.",ar_syn:"صحة نفسية في العمل، السلامة النفسية",ar_ant:"ضغط العمل، بيئة سامة",ar_col:"يُعطي أولوية للصحة النفسية / يوم / دعم",ar_prep:"الصحة في مكان العمل / للموظفين",ar_ex:"بنهاية العقد ستكون الشركات قد حوّلت كلياً طريقة تعاملها مع الصحة النفسية في العمل."},
+  {w:"four-day week",p:"فور-داي ويك",a:"أسبوع عمل من أربعة أيام بدل خمسة",syn:"reduced working week, flexible hours",ant:"five-day week, long working hours",col:"trial four-day week / adopt four-day week / benefits of four-day week",prep:"week of (four days) / in (country)",ex:"By 2030, millions of workers will have been enjoying a four-day week for years while maintaining full productivity.",ar_syn:"أسبوع عمل مُقلَّص، ساعات مرنة",ar_ant:"أسبوع خمسة أيام، ساعات عمل طويلة",ar_col:"يُجرّب / يتبنى / فوائد أسبوع أربعة أيام",ar_prep:"أسبوع من أربعة أيام / في البلد",ar_ex:"بحلول 2030 سيكون ملايين العمال قد استمتعوا بأسبوع عمل من أربعة أيام لسنوات مع الحفاظ على الإنتاجية الكاملة."},
+  {w:"skills gap",p:"سكيلز غاب",a:"الفجوة بين المهارات المطلوبة في السوق والمهارات المتوفرة",syn:"talent shortage, workforce mismatch",ant:"skills surplus, well-trained workforce",col:"address skills gap / growing skills gap / skills gap in technology",prep:"gap in (sector) / between (supply and demand)",ex:"By the time graduates enter the market, the skills gap will have grown so large that many cannot find relevant work.",ar_syn:"نقص المواهب، عدم التوافق في القوى العاملة",ar_ant:"وفرة المهارات، قوى عاملة مدرّبة",ar_col:"يُعالج الفجوة / متزايدة / في التقنية",ar_prep:"فجوة في القطاع / بين العرض والطلب",ar_ex:"بحلول دخول الخريجين السوق ستكون فجوة المهارات قد كبرت لدرجة أن كثيرين لا يجدون عملاً مناسباً."},
+  {w:"remote collaboration",p:"ريموت كولابوريشن",a:"التعاون مع زملاء العمل عبر الإنترنت من أماكن مختلفة",syn:"virtual teamwork, online collaboration",ant:"in-person teamwork, co-located work",col:"tools for remote collaboration / improve remote collaboration",prep:"collaboration across (time zones) / through (technology)",ex:"By next year, the team will have been collaborating remotely across five countries for three years.",ar_syn:"العمل الجماعي الافتراضي، التعاون الإلكتروني",ar_ant:"عمل جماعي حضوري",ar_col:"أدوات التعاون عن بُعد / يُحسّن",ar_prep:"تعاون عبر المناطق الزمنية / من خلال التقنية",ar_ex:"بحلول العام القادم سيكون الفريق قد تعاون عن بُعد عبر خمس دول لثلاث سنوات."},
+  {w:"toxic workplace",p:"توكسك ويركبليس",a:"بيئة عمل سلبية تضر بصحتك النفسية",syn:"hostile environment, unhealthy culture",ant:"positive workplace, supportive culture",col:"leave a toxic workplace / toxic workplace culture / recognise toxic workplace",prep:"workplace that (harms wellbeing) / in (organisation)",ex:"By the time she resigned, she will have endured a toxic workplace for two years too long.",ar_syn:"بيئة عدائية، ثقافة غير صحية",ar_ant:"مكان عمل إيجابي، ثقافة داعمة",ar_col:"يترك بيئة سامة / ثقافة / يتعرف على",ar_prep:"مكان عمل يضر / في المنظمة",ar_ex:"بحلول استقالتها ستكون قد تحمّلت بيئة عمل سامة لسنتَين أكثر مما يجب."},
+  {w:"universal basic income",p:"يونفيرسل بيسك إنكام",a:"مبلغ شهري تعطيه الحكومة لكل مواطن بغض النظر عن عمله",syn:"UBI, guaranteed income, basic income",ant:"means-tested benefits, welfare dependency",col:"introduce universal basic income / pilot universal basic income / debate UBI",prep:"income for (all citizens) / regardless of (employment)",ex:"By 2040, several countries will have implemented universal basic income in response to automation.",ar_syn:"دخل أساسي مضمون",ar_ant:"مزايا مشروطة، اعتماد على الرعاية",ar_col:"يُطبّق الدخل الأساسي الكوني / تجريبي / يناقش",ar_prep:"دخل لجميع المواطنين / بغض النظر عن التوظيف",ar_ex:"بحلول 2040 ستكون عدة دول قد طبّقت الدخل الأساسي الكوني استجابةً للأتمتة."},
+  {w:"workplace diversity",p:"ويركبليس دايفيرستي",a:"تنوع الموظفين من حيث الجنس والعرق والخلفية",syn:"inclusion, diverse workforce, representation",ant:"homogeneous workforce, discrimination",col:"promote workplace diversity / workplace diversity policy / benefit from diversity",prep:"diversity in (organisation) / across (team)",ex:"By the time the policy takes effect, the company will have been working to improve workplace diversity for five years.",ar_syn:"الشمولية، قوى عاملة متنوعة، تمثيل",ar_ant:"قوى عاملة متجانسة، تمييز",ar_col:"يعزز التنوع / سياسة / يستفيد من",ar_prep:"تنوع في المنظمة / عبر الفريق",ar_ex:"بحلول نفاذ السياسة ستكون الشركة قد عملت على تحسين تنوع مكان العمل لخمس سنوات."},
+  {w:"networking",p:"نيتويركينغ",a:"بناء علاقات مهنية تساعدك في مسيرتك",syn:"professional connections, relationship building",ant:"isolation, lack of contacts",col:"professional networking / networking event / expand network",prep:"networking in (industry) / through (events)",ex:"By the time she lands the job, she will have been networking strategically for two years.",ar_syn:"بناء العلاقات المهنية، التواصل",ar_ant:"عزلة، غياب الشبكة المهنية",ar_col:"تواصل مهني / فعالية / توسيع الشبكة",ar_prep:"تواصل في الصناعة / من خلال الفعاليات",ar_ex:"بحلول حصولها على الوظيفة ستكون قد بنت شبكة علاقاتها باستراتيجية لمدة سنتَين."},
+  {w:"reskilling",p:"ري-سكيلينغ",a:"تعلّم مهارات جديدة كلياً لتغيير مجال عملك",syn:"retraining, career pivot, new skills",ant:"staying in current field, skills stagnation",col:"invest in reskilling / reskilling programme / need for reskilling",prep:"reskilling of (workers) / for (new industry)",ex:"By 2035, millions of displaced workers will have been reskilling continuously just to stay employable.",ar_syn:"إعادة التدريب، تحويل المسار، مهارات جديدة",ar_ant:"البقاء في المجال الحالي",ar_col:"يستثمر في إعادة التأهيل / برنامج / حاجة",ar_prep:"إعادة تأهيل العمال / لصناعة جديدة",ar_ex:"بحلول 2035 سيكون ملايين العمال المُهجَّرين قد أعادوا تأهيل مهاراتهم باستمرار فقط للبقاء قابلَين للتوظيف."},
+];
+var story=[
+  {t:"Ethan had been working in finance for twelve years when the algorithm replaced his entire team in a single afternoon.",ar:"إيثان كان يعمل في المجال المالي لاثني عشر عاماً حين استبدل الخوارزمي فريقه كاملاً في فترة واحدة بعد الظهر."},
+  {t:"By the time he realised what had happened, his colleagues will have scattered to a dozen different industries.",ar:"بحلول إدراكه ما حدث، سيكون زملاؤه قد تفرقوا في اثنتَي عشرة صناعة مختلفة."},
+  {t:"He spent six months asking the wrong question: who took my job? The right question was different.",ar:"قضى ستة أشهر يطرح السؤال الخطأ: من أخذ وظيفتي؟ السؤال الصحيح كان مختلفاً."},
+  {t:"By this time next year, he told himself, I will have built something new. I don't know what yet. But I will have started.",ar:"بهذا الوقت من العام القادم، قال لنفسه، سأكون قد بنيت شيئاً جديداً. لا أعرف ماذا بعد. لكن سأكون قد بدأت."},
+  {t:"He enrolled in a reskilling programme. Within three months he will have been learning data science for longer than most of his new classmates had been working.",ar:"التحق ببرنامج إعادة تأهيل. في غضون ثلاثة أشهر سيكون قد تعلّم علم البيانات لفترة أطول مما عمل معظم زملائه الجدد."},
+  {t:"Priya, his instructor, told him: by the time you graduate, the field will have changed again. That's the point.",ar:"بريا، مدرّسته، أخبرته: بحلول تخرجك سيكون المجال قد تغيّر مرة أخرى. هذه هي الفكرة."},
+  {t:"He didn't understand at first. Then he did. The skill is not the content. The skill is the learning.",ar:"لم يفهم في البداية. ثم فهم. المهارة ليست المحتوى. المهارة هي التعلّم نفسه."},
+  {t:"By the time he retires, he will have reinvented himself more times than his parents ever changed jobs.",ar:"بحلول تقاعده سيكون قد أعاد اختراع نفسه أكثر من المرات التي غيّر فيها والداه وظائفهما."},
+];
+var reading=[
+  "The nature of work is changing faster than at any point since the Industrial Revolution. Automation, artificial intelligence, and globalisation are transforming every sector of the economy simultaneously. By the time today's students enter the workforce, many of the jobs that currently exist will have disappeared, and many of the jobs they will hold will not have been invented yet. This is not unprecedented — each major technological revolution has destroyed old work and created new work — but the current pace of change is historically exceptional.",
+  "The future perfect tense — will have done — describes actions that will be completed before a specific point in the future. By 2030, AI will have replaced most routine cognitive tasks. By the time she retires, she will have worked in five different industries. The future perfect continuous — will have been doing — emphasises the duration of an action continuing up to a future point: By next year, he will have been freelancing for a decade. These tenses are particularly useful when discussing technological and economic change, which unfolds over specific time horizons.",
+  "The rise of the gig economy represents a fundamental shift in the employment relationship. Platform companies have created a system in which workers bear the risks that employers once bore — variable income, no job security, no pension contributions, no sick pay. By the time regulation catches up, millions of workers will have been operating in this legal grey area for years. The question of whether gig workers should be classified as employees is one of the most contested in contemporary labour law.",
+  "Artificial intelligence is disrupting not just manual labour but highly skilled professional work. Legal research, medical diagnosis, financial analysis, and even creative work are all being transformed by AI tools. By 2035, it is estimated that AI will have automated significant portions of tasks in most professional occupations. The jobs that will remain will be those requiring human judgement, empathy, creativity, and social skills — capabilities that AI, despite rapid progress, will not have replicated meaningfully.",
+  "The psychological dimension of work is receiving increasing attention. By the end of this decade, burnout will have been recognised as one of the leading public health challenges in developed economies. The erosion of boundaries between work and personal life — accelerated by remote work technology — means that many workers will have been effectively always on for years before the consequences become apparent. Addressing this requires not individual resilience but structural change in how organisations design work.",
+];
+var compQs=[
+  {q:"What does the text say is unprecedented about the current change?",opts:["The types of jobs changing","The fact that jobs are disappearing","The current pace of change is historically exceptional","The role of technology"],ans:2},
+  {q:"What does future perfect continuous emphasise?",opts:["Completed past actions","The duration of an action continuing up to a future point","Present habits","Future plans"],ans:1},
+  {q:"What risks do gig workers bear according to the text?",opts:["Too much work","Variable income no job security no pension no sick pay","High taxes","Long commutes"],ans:1},
+  {q:"What jobs will remain according to the text after AI automation?",opts:["Manual labour","Data analysis","Those requiring human judgement empathy creativity and social skills","Programming jobs"],ans:2},
+  {q:"What does addressing burnout require according to the text?",opts:["Individual resilience only","Better technology","Longer holidays","Structural change in how organisations design work"],ans:3},
+];
+var listenLines=[
+  {speaker:"E",text:"Priya, I want to ask you something. By the time our students graduate, what skills will they actually need? Because I'm not sure we're teaching the right things."},
+  {speaker:"P",text:"That's the central question, isn't it. By the time they enter the workforce, everything we're teaching them about specific tools will have been obsolete for years."},
+  {speaker:"E",text:"So what do we teach instead?"},
+  {speaker:"P",text:"How to learn. How to adapt. How to work with people who think differently. By 2035, AI will have taken care of most of the technical content. What it won't have developed is judgment."},
+  {speaker:"E",text:"What about the gig economy? By the time these students are thirty, will they have had a single stable employer? I doubt it."},
+  {speaker:"P",text:"Neither do I. By that point, they will probably have been managing portfolio careers for years — multiple income streams, constant reskilling, no pension."},
+  {speaker:"E",text:"That terrifies me honestly. By the time the regulation catches up, the damage will have been done."},
+  {speaker:"P",text:"Perhaps. But I think the generation entering work now will have grown up expecting this. They won't have the same relationship with job security that we did."},
+  {speaker:"E",text:"Is that better or worse?"},
+  {speaker:"P",text:"Different. By the time we know the answer, we will have been debating it for decades. What I do know is that the four-day week experiments that are running now — by the time we have the data, it will have been trialled in over twenty countries."},
+  {speaker:"E",text:"And the mental health crisis. By the end of this decade, companies that ignored wellbeing will have paid for it in productivity and talent loss."},
+  {speaker:"P",text:"Exactly. The organisations that will have thrived by 2035 are the ones investing in their people now — not just in automation."},
+  {speaker:"E",text:"I hope you're right. By the time we find out, we will both have retired."},
+  {speaker:"P",text:"Which is exactly why we should make sure the next generation is ready. They won't have the luxury of waiting to see how it turns out."},
+];
+var listenQs=[
+  {q:"What does Priya say will have been obsolete by the time students enter the workforce?",opts:["Their degrees","Everything taught about specific tools","Social skills","Languages"],ans:1},
+  {q:"What does Priya say AI will not have developed by 2035?",opts:["Technical skills","Data processing","Judgment","Speed"],ans:2},
+  {q:"What does Priya predict students will have been managing by age thirty?",opts:["Large companies","Portfolio careers with multiple income streams","Government jobs","Traditional careers"],ans:1},
+  {q:"What does Priya say about four-day week experiments?",opts:["They have failed","They are too expensive","By the time data is available it will have been trialled in over twenty countries","They only work in small companies"],ans:2},
+  {q:"What does Priya say organisations investing in people will have achieved by 2035?",opts:["Saved money on salaries","Avoided regulation","Thrived — unlike those that ignored wellbeing","Automated everything"],ans:2},
+];
+var speakQs=[
+  {q:"Talk about your future career using Future Perfect and Future Perfect Continuous.",hint:"By this time next year I will have... By the time I am thirty I will have been working... By 2030 I will have completed... By the time I retire I will have...",ar:"تحدّث عن مسيرتك المهنية المستقبلية باستخدام المستقبل التام.",badge:"🎯 will have done + will have been doing"},
+  {q:"Discuss how AI will change work by 2035.",hint:"By 2035 AI will have replaced... By that point many workers will have been reskilling for years... Companies will have invested heavily in... The jobs that will have survived are those requiring...",ar:"ناقش كيف سيغير الذكاء الاصطناعي العمل بحلول 2035.",badge:"🎯 will have + will have been في كل نقطة"},
+  {q:"Describe the changes automation will have caused by 2040.",hint:"By 2040 automation will have transformed... Millions of workers will have been displaced... New industries will have emerged... Governments will have been struggling with... Society will have changed...",ar:"صف التغييرات التي ستكون الأتمتة قد أحدثتها بحلول 2040.",badge:"🎯 will have done / will have been doing"},
+  {q:"Talk about the gig economy and its future using Future Perfect.",hint:"By the time regulation arrives gig workers will have been operating without protection for... Platform companies will have profited while workers will have borne all the risk... Millions will have worked their entire careers without a pension...",ar:"تحدّث عن اقتصاد العمل المؤقت ومستقبله.",badge:"🎯 will have been doing للمدة / will have done للنتيجة"},
+  {q:"Discuss work-life balance in the future using Future Perfect.",hint:"By the end of the decade companies that ignored wellbeing will have paid for it... Workers will have been suffering burnout for years before... The four-day week will have been adopted in many countries by...",ar:"ناقش التوازن بين العمل والحياة في المستقبل.",badge:"🎯 will have + will have been في كل ادعاء"},
+  {q:"What skills will you have developed by the time you finish learning English?",hint:"By the time I complete this course I will have learned... I will have been studying for... My speaking will have improved significantly... I will have developed the ability to... By that point I will have...",ar:"ما المهارات التي ستكون قد طوّرتها بحلول انتهاء تعلّمك للإنجليزية؟",badge:"🎯 will have + will have been studying"},
+  {q:"Talk about the future of remote work using Future Perfect.",hint:"By 2030 millions of workers will have been working remotely for a decade... The office will have become optional for many... Companies will have discovered that productivity... Workers will have saved years of commuting time...",ar:"تحدّث عن مستقبل العمل عن بُعد.",badge:"🎯 will have been doing للمدة المستمرة"},
+  {q:"Discuss universal basic income — will it have been implemented widely by 2040?",hint:"By 2040 several countries will have implemented UBI... Others will have been piloting it for years... Workers displaced by automation will have needed it... Governments will have debated it for decades...",ar:"ناقش الدخل الأساسي الكوني — هل سيكون قد طُبّق بحلول 2040؟",badge:"🎯 will have + will have been في كل نقطة"},
+  {q:"What will the workplace look like by the time you retire?",hint:"By the time I retire AI will have transformed... Remote work will have become the norm... The gig economy will have either been regulated or will have grown further... Workers will have been adapting continuously for...",ar:"كيف سيبدو مكان العمل بحلول تقاعدك؟",badge:"🎯 will have done في كل تنبؤ"},
+  {q:"Deliver a ninety-second vision of the future of work.",hint:"By 2030 AI will have... By 2035 workers will have been reskilling for... By the time today's students retire they will have... Companies that invest now will have... The skills that will have proven most valuable are...",ar:"قدّم رؤية من تسعين ثانية لمستقبل العمل.",badge:"🎯 استخدم will have و will have been 6 مرات على الأقل!"},
+];
+var pvData=[
+  {v:"take on",p:"تيك أون",m:"يقبل مهمة أو مسؤولية جديدة",ex:"By the time the project ends she will have taken on more responsibility than any junior employee before her.",ar:"بحلول نهاية المشروع ستكون قد تحمّلت مسؤولية أكبر من أي موظف مبتدئ قبلها."},
+  {v:"burn out",p:"بيرن أوت",m:"يُرهق نفسه لدرجة عدم القدرة على الاستمرار",ex:"By the end of the year he will have been working eighty-hour weeks for months and will have burned out completely.",ar:"بنهاية العام سيكون قد عمل ثمانين ساعة أسبوعياً لأشهر وسيكون قد أرهق نفسه كلياً."},
+  {v:"move up",p:"موف أب",m:"يترقى في مسيرته المهنية",ex:"By the time she is thirty-five she will have moved up to a senior management position.",ar:"بحلول بلوغها الخامسة والثلاثين ستكون قد ترقّت لمنصب إدارة عليا."},
+  {v:"step down",p:"ستيب داون",m:"يتنازل عن منصبه",ex:"By next year the CEO will have stepped down and the company will have been searching for a replacement for months.",ar:"بحلول العام القادم سيكون المدير التنفيذي قد تنازل عن منصبه وستكون الشركة قد بحثت عن بديل لأشهر."},
+  {v:"set up",p:"ست أب",m:"يُأسّس شركة أو مشروعاً",ex:"By the time she is forty she will have set up three businesses and will have learned from each failure.",ar:"بحلول بلوغها الأربعين ستكون قد أسّست ثلاثة مشاريع وستكون قد تعلّمت من كل فشل."},
+  {v:"phase out",p:"فيز أوت",m:"يُنهي شيئاً تدريجياً",ex:"By 2030 many companies will have phased out traditional offices completely in favour of flexible working.",ar:"بحلول 2030 ستكون كثير من الشركات قد أنهت تدريجياً المكاتب التقليدية كلياً لصالح العمل المرن."},
+  {v:"take over",p:"تيك أوفر",m:"يستولي / يتولى المسؤولية",ex:"By 2035 AI tools will have taken over most of the routine analysis that junior employees currently do.",ar:"بحلول 2035 ستكون أدوات الذكاء الاصطناعي قد استولت على معظم التحليل الروتيني الذي يقوم به الموظفون المبتدئون حالياً."},
+  {v:"lay off",p:"ليي أوف",m:"يُسرّح موظفين",ex:"By the end of the restructuring the company will have laid off thirty percent of its workforce.",ar:"بنهاية إعادة الهيكلة ستكون الشركة قد سرّحت ثلاثين بالمئة من قوتها العاملة."},
+  {v:"work towards",p:"ويرك توردز",m:"يعمل نحو تحقيق هدف",ex:"By the time she graduates she will have been working towards this qualification for four years.",ar:"بحلول تخرجها ستكون قد عملت نحو هذه المؤهلات لأربع سنوات."},
+  {v:"give up",p:"غيف أب",m:"يتخلى عن هدف أو وظيفة",ex:"By the time he found the right path he will have given up three careers that were not right for him.",ar:"بحلول إيجاده المسار الصحيح سيكون قد تخلّى عن ثلاث مسيرات لم تكن مناسبة له."},
+];
+var realExpr=[
+  {e:"Climb the ladder",p:"كلايم ذا لادر",m:"يترقى في سلّم العمل",f:"Progress upward through career ranks.",x:"By the time he retires he will have been climbing the corporate ladder for forty years.",xar:"بحلول تقاعده سيكون قد تسلّق السلّم الوظيفي لأربعين عاماً.",n:"السلّم = مراحل الترقي في المسيرة المهنية"},
+  {e:"Get your foot in the door",p:"غيت يور فوت إن ذا دور",m:"تحصل على فرصتك الأولى في المجال",f:"Get a first opportunity in a field or company.",x:"By taking this unpaid internship she will have gotten her foot in the door at one of the top firms.",xar:"بقبول هذا التدريب غير المدفوع ستكون قد حصلت على فرصتها الأولى في أحد أفضل الشركات.",n:"قدمك في الباب = أول خطوة للدخول قبل الفرصة الكاملة"},
+  {e:"Burning the midnight oil",p:"بيرنينغ ذا ميدنايت أويل",m:"يعمل حتى ساعات متأخرة من الليل",f:"Working very late into the night.",x:"By the time the project is done the team will have been burning the midnight oil for weeks.",xar:"بحلول انتهاء المشروع سيكون الفريق قد عمل حتى ساعات متأخرة من الليل لأسابيع.",n:"حرق زيت منتصف الليل = الاستيقاظ والعمل وقت كان الناس ينامون"},
+];
+var realSlang=[
+  {w:"Dead-end job",p:"ديد-إند جوب",i:"وظيفة بلا مستقبل أو ترقي",ex:"By the time he realised it was a dead-end job he will have wasted three years of his career.",xar:"بحلول إدراكه أنها وظيفة بلا مستقبل سيكون قد أضاع ثلاث سنوات من مسيرته.",a:"وظيفة لا تقودك لأي مكان ولا يوجد فيها أي تطور"},
+  {w:"Golden handshake",p:"غولدن هاندشيك",m:"مبلغ مالي كبير يُعطى عند إنهاء الخدمة",i:"a large financial payment given when leaving a company",ex:"By the time he leaves the company he will have negotiated a generous golden handshake.",xar:"بحلول مغادرته الشركة سيكون قد تفاوض على مبلغ إنهاء خدمة سخي.",a:"مكافأة نهاية خدمة سخية تُعطى للمديرين الكبار"},
+  {w:"Networking",p:"نيتويركينغ",i:"بناء علاقات مهنية لتساعدك في عملك",ex:"By the time she lands her dream job she will have been networking seriously for two years.",xar:"بحلول حصولها على وظيفة أحلامها ستكون قد بنت شبكة علاقاتها بجدية لسنتَين.",a:"بناء شبكة من العلاقات المهنية التي تفيدك في مسيرتك"},
+  {w:"Clockwatcher",p:"كلوك-ووتشر",i:"موظف يراقب الساعة في انتظار نهاية الدوام",ex:"By the time the project ends even the most committed team members will have become clockwatchers.",xar:"بحلول نهاية المشروع حتى أكثر أعضاء الفريق التزاماً سيكونون قد أصبحوا يراقبون الساعة.",a:"موظف لا يهتم بالعمل وينتظر فقط وقت الانصراف"},
+];
+var realEvery=[
+  {w:"Work your way up",p:"ويرك يور وي أب",i:"تترقى من خلال العمل الجاد لا الحظ",ex:"By the time she becomes CEO she will have worked her way up from the very bottom.",xar:"بحلول أن تصبح مديرة تنفيذية ستكون قد ترقّت من الصفر بالجهد الحقيقي.",a:"تترقى تدريجياً من خلال الجهد والعمل الجاد"},
+  {w:"Keep your options open",p:"كيب يور أوبشنز أوبن",i:"لا تُغلق باب الفرص الأخرى",ex:"By taking a flexible role she will have been keeping her options open while gaining experience.",xar:"بقبول دور مرن ستكون قد أبقت خياراتها مفتوحة مع اكتساب الخبرة.",a:"تبقي خياراتك متاحة دون الالتزام بمسار واحد"},
+  {w:"Think outside the box",p:"ثينك أوتسايد ذا بوكس",i:"تفكّر بطرق غير تقليدية",ex:"By the time automation replaces routine work the workers who thrive will have been thinking outside the box for years.",xar:"بحلول استبدال الأتمتة للعمل الروتيني سيكون العمال الذين ينجحون قد فكّروا بطرق غير تقليدية لسنوات.",a:"تفكّر خارج الأطر المعتادة لإيجاد حلول مبتكرة"},
+];
+var quizQs=[
+  {q:"By 2035, AI ___ have replaced most routine cognitive tasks.",opts:["will","would","shall","should"],ans:0},
+  {q:"ما معنى automation؟",opts:["العمل عن بُعد","بناء العلاقات المهنية","استبدال عمل الإنسان بالآلات","فجوة المهارات"],ans:2},
+  {q:"By next year she ___ have been freelancing for a decade.",opts:["will","would","shall","should"],ans:0},
+  {q:"ما معنى gig economy؟",opts:["اقتصاد المعاشات","اقتصاد العمل المؤقت والمستقل بلا عقد ثابت","اقتصاد الدول الكبرى","اقتصاد التوظيف الدائم"],ans:1},
+  {q:"By the time she retires she ___ have worked in five industries.",opts:["will","would","had","has"],ans:0},
+  {q:"ما الـ phrasal verb: يُسرّح موظفين من الشركة؟",opts:["take on","move up","lay off","phase out"],ans:2},
+  {q:"ما معنى burnout؟",opts:["الترقي الوظيفي","الإرهاق الشديد من العمل لدرجة عدم القدرة على الاستمرار","الاستقرار الوظيفي","فقدان الوظيفة"],ans:1},
+  {q:"By 2030 they ___ have been working remotely for ten years.",opts:["will","would","had","have"],ans:0},
+  {q:"ما معنى upskilling؟",opts:["فقدان الوظيفة","الدخل الأساسي الكوني","تطوير مهاراتك الحالية لتواكب سوق العمل","اقتصاد العمل المؤقت"],ans:2},
+  {q:"ما معنى skills gap؟",opts:["فجوة الثروة","فجوة بين المهارات المطلوبة في السوق والمهارات المتوفرة","فجوة بين الأجيال","فجوة الرواتب"],ans:1},
+];
+var spd=1,lspd=1,storyOn=false,listenOn=false;
+var compA=new Array(compQs.length).fill(null);
+var listenA=new Array(listenQs.length).fill(null);
+var quizA=new Array(quizQs.length).fill(null);
+
+function say(text,rate,cb){
+  if(!window.speechSynthesis)return null;
+  window.speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US";u.rate=rate||spd;u.pitch=1.0;
+  var v=getVoice("F");if(v)u.voice=v;
+  if(cb)u.onend=cb;
+  window.speechSynthesis.speak(u);return u;
+}
+
+function buildVocab(){
+  var c=document.getElementById("vocabList");
+  V.forEach(function(v,i){
+    var d=document.createElement("div");d.className="vocab-card";
+    // Build using single-quote innerHTML (Gold Standard from unit2)
+    d.innerHTML=
+            '<div class="vhead">'+
+        '<div style="display:flex;align-items:center;gap:10px;width:100%">'+
+          '<button class="vspk" id="vs'+i+'">🔊</button>'+
+          '<div class="var" style="flex:1;text-align:right">'+v.a+'</div>'+
+          '<div class="vpron" style="direction:ltr;white-space:nowrap">'+v.p+'</div>'+
+          '<div style="display:flex;align-items:center;gap:6px">'+
+            '<div class="vword">'+v.w+'</div>'+
+            '<span style="background:rgba(255,255,255,.18);color:rgba(255,255,255,.85);font-size:.68rem;font-weight:800;padding:2px 7px;border-radius:10px">'+(i+1)+'</span>'+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="vbody">'+
+        '<div class="vgrid2">'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-ant" data-i="'+i+'" data-c="1"><div class="vlbl">Antonym</div><div class="vval">'+v.ant+'</div><div class="vtr">'+v.ar_ant+'</div></div>'+
+            '<div class="vcell c-syn" data-i="'+i+'" data-c="0"><div class="vlbl">Synonym</div><div class="vval">'+v.syn+'</div><div class="vtr">'+v.ar_syn+'</div></div>'+
+          '</div>'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-prep" data-i="'+i+'" data-c="3"><div class="vlbl">Preposition</div><div class="vval">'+v.prep+'</div><div class="vtr">'+v.ar_prep+'</div></div>'+
+            '<div class="vcell c-col" data-i="'+i+'" data-c="2"><div class="vlbl">Collocation</div><div class="vval">'+v.col+'</div><div class="vtr">'+v.ar_col+'</div></div>'+
+          '</div>'+
+        '</div>'+
+        '<div class="vex" id="vex'+i+'">'+v.ex+'<div class="vex-tr">'+v.ar_ex+'</div></div>'+
+      '</div>';
+    d.querySelector('.vspk').addEventListener('click',(function(ii){return function(){
+      document.querySelectorAll('.vspk').forEach(function(b){b.classList.remove('playing');});
+      var btn=document.getElementById('vs'+ii);if(btn)btn.classList.add('playing');
+      var u=say(V[ii].w,spd);if(u)u.onend=function(){if(btn)btn.classList.remove('playing');};
+    };})(i));
+    d.querySelectorAll('.vcell').forEach(function(cell){
+      cell.addEventListener('click',function(){
+        var ii=parseInt(this.getAttribute('data-i'));
+        var cc=parseInt(this.getAttribute('data-c'));
+        say([V[ii].syn,V[ii].ant,V[ii].col,V[ii].prep][cc],0.9);
+        this.classList.toggle('show-tr');
+      });
+    });
+    var vex=d.querySelector('.vex');if(vex)vex.addEventListener('click',function(){this.classList.toggle('show-ex-tr');});
+    c.appendChild(d);
+  });
+}
+function checkComp(){var s=0;compQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("co"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(compA[qi]===i)el.classList.add("no");}if(compA[qi]===q.ans)s++;});var r=document.getElementById("compRes");r.style.display="block";var pct=Math.round(s/compQs.length*100);r.textContent=s+" من "+compQs.length+" إجابة صحيحة ("+pct+"%) "+(pct===100?"🏆":pct>=60?"🎉":"📚 راجع النص");}
+function resetComp(){compA=new Array(compQs.length).fill(null);document.querySelectorAll(".copt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("compRes").style.display="none";}
+
+
+function buildStory(){
+  var b=document.getElementById("storyBox");
+  if(!b)return;
+  b.innerHTML="";
+  story.forEach(function(s,i){
+    var d=document.createElement("div");d.className="sline";d.id="sl"+i;
+    var txt=document.createTextNode(s.t);d.appendChild(txt);
+    var btn=document.createElement("button");
+    btn.style.cssText="background:transparent;border:1px solid #e5e7eb;border-radius:5px;padding:1px 7px;color:#9ca3af;font-size:.7rem;cursor:pointer;font-family:Tajawal,sans-serif;margin-right:6px";
+    btn.textContent="🌐";
+    btn.addEventListener("click",(function(ii){return function(){toggleTr(ii);};})(i));
+    d.appendChild(btn);
+    var tr=document.createElement("div");tr.id="tr"+i;
+    tr.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;font-family:Tajawal,sans-serif;border-right:3px solid #fde68a;padding-right:8px";
+    tr.textContent=s.ar;d.appendChild(tr);b.appendChild(d);
+  });
+}
+var _trAll=false;
+function toggleAllTr(){_trAll=!_trAll;for(var i=0;i<story.length;i++){var e=document.getElementById("tr"+i);if(e)e.style.display=_trAll?"block":"none";}var btn=document.getElementById("trBtn");if(btn)btn.textContent=_trAll?"🙈 أخفِ":"🌐 الترجمة";}
+function toggleTr(i){var e=document.getElementById("tr"+i);if(e)e.style.display=e.style.display==="none"?"block":"none";}
+function setSpd(r,btn){spd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function storySeq(i){if(!storyOn||i>=story.length){stopStory();return;}document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("sl"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(story[i].t);u.lang="en-US";u.rate=spd;u.onend=function(){if(storyOn)setTimeout(function(){storySeq(i+1);},320);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startStory(){storyOn=true;var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="⏹";btn.querySelector("#sTxt").textContent="إيقاف القصة";}storySeq(0);}
+function stopStory(){storyOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="▶";btn.querySelector("#sTxt").textContent="استمع للقصة";}}
+function toggleStory(){storyOn?stopStory():startStory();}
+
+function buildReading(){
+  var t=document.getElementById("readingText");
+  if(!t)return;
+  t.innerHTML="";
+  reading.forEach(function(p){var d=document.createElement("p");d.textContent=p;t.appendChild(d);});
+  var c=document.getElementById("compList");
+  if(!c)return;
+  c.innerHTML="";
+  compQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";
+    p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="co"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){
+        compA[qi]=oi;
+        for(var k=0;k<q.opts.length;k++){var el=document.getElementById("co"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}
+        this.style.borderColor="#0a1628";
+      });
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+
+function buildGrammar(){
+  var c=document.getElementById("grammarBox");
+  var box1=document.createElement("div");box1.className="gbox";
+  var t1=document.createElement("div");t1.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";
+  t1.textContent="١ — Future Perfect vs Future Perfect Continuous";box1.appendChild(t1);
+  var tbl=document.createElement("div");tbl.style.cssText="background:#0a1628;border-radius:10px;padding:14px 18px;margin-bottom:14px;direction:ltr";
+  var rows=[["Tense","Form","Use","Example"],["Future Perfect","will have + past participle","Action completed before future point","By 2030, AI will have replaced most jobs."],["Future Perfect Cont.","will have been + -ing","Duration up to a future point","By then, she will have been freelancing for 10 years."]];
+  var table=document.createElement("table");table.style.cssText="width:100%;border-collapse:collapse;font-size:.82rem";
+  rows.forEach(function(row,ri){var tr=document.createElement("tr");if(ri>0)tr.style.borderTop="1px solid rgba(255,255,255,.1)";row.forEach(function(cell,ci){var td=document.createElement(ri===0?"th":"td");td.textContent=cell;td.style.cssText="padding:5px 7px;text-align:left;color:"+(ri===0?"#fde68a":ci===0?"#f0c040":ci===1?"#93c5fd":ci===2?"rgba(255,255,255,.6)":"rgba(255,255,255,.85)");tr.appendChild(td);});table.appendChild(tr);});
+  tbl.appendChild(table);box1.appendChild(tbl);c.appendChild(box1);
+  var box2=document.createElement("div");box2.className="gbox";
+  var t2=document.createElement("div");t2.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";t2.textContent="٢ — الكلمات التي تُشير لهذين الزمنَين";box2.appendChild(t2);
+  var triggers=["by + time (by 2030 / by next year / by the time she retires)","by then / by that point","before + future event","when + future event"];
+  triggers.forEach(function(t){var d=document.createElement("div");d.style.cssText="background:#f8fafc;border-radius:8px;padding:8px 12px;margin-bottom:6px;direction:ltr;font-size:.88rem;color:#0a1628;border-right:3px solid #f0a000";d.textContent="▸ "+t;box2.appendChild(d);});
+  c.appendChild(box2);
+  var box3=document.createElement("div");box3.className="gbox";
+  var t3=document.createElement("div");t3.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:10px;text-align:right";t3.textContent="٣ — مقارنة";box3.appendChild(t3);
+  var pairs=[["Completed (what):","By 2035, he will have changed careers twice.","بحلول 2035 سيكون قد غيّر مساره مرتَين."],["Duration (how long):","By 2035, he will have been working in tech for 15 years.","بحلول 2035 سيكون قد عمل في التقنية 15 سنة."]];
+  pairs.forEach(function(p){var pat=document.createElement("div");pat.className="gpat";var d1=document.createElement("div");d1.style.cssText="font-size:.78rem;color:#f0a000;font-weight:700;direction:ltr;margin-bottom:2px";d1.textContent=p[0];var d2=document.createElement("div");d2.style.cssText="font-size:.88rem;color:#0a1628;direction:ltr;margin-bottom:3px";d2.textContent=p[1];var d3=document.createElement("div");d3.style.cssText="font-size:.8rem;color:#64748b;direction:rtl;text-align:right";d3.textContent=p[2];pat.appendChild(d1);pat.appendChild(d2);pat.appendChild(d3);box3.appendChild(pat);});
+  c.appendChild(box3);
+  var wrong=document.createElement("div");wrong.style.cssText="background:#fef2f2;border-radius:10px;padding:13px 16px;margin-bottom:8px;border-right:4px solid #dc2626;direction:ltr";
+  wrong.innerHTML='<span style="color:#dc2626;font-weight:700">✗ </span>By 2030 she will finish her degree. <span style="font-size:.8rem;color:#dc2626">← يحتاج will have finished لأنه مكتمل قبل نقطة مستقبلية</span>';
+  var right=document.createElement("div");right.style.cssText="background:#f0fdf4;border-radius:10px;padding:13px 16px;border-right:4px solid #059669;direction:ltr";
+  right.innerHTML='<span style="color:#059669;font-weight:700">✓ </span>By 2030 she <strong>will have finished</strong> her degree. <span style="font-size:.8rem;color:#059669">✅</span>';
+  c.appendChild(wrong);c.appendChild(right);
+}
+function buildListening(){
+  var s=document.getElementById("listenScript");
+  listenLines.forEach(function(line,i){
+    var d=document.createElement("div");d.className="lline";d.id="ll"+i;
+    if(typeof line==="object"&&line.speaker){
+      var lbl=document.createElement("span");
+      var isBen=line.speaker==="E";
+      lbl.style.cssText="font-size:.7rem;font-weight:800;padding:1px 7px;border-radius:8px;margin-left:6px;"+(isBen?"background:#dbeafe;color:#1e3a8a":"background:#fce7f3;color:#9d174d");
+      lbl.textContent=line.speaker==="E"?"Ethan":"Priya";
+      var txt=document.createElement("span");txt.textContent=line.text;
+      d.appendChild(lbl);d.appendChild(txt);
+    } else {
+      d.appendChild(document.createTextNode(typeof line==="object"?line.text:line));
+    }
+    s.appendChild(d);
+  });
+  var c=document.getElementById("listenQList");
+  listenQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="lq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){listenA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("lq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function setLSpd(r,btn){lspd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function getVoice(gender){
+  var voices=window.speechSynthesis.getVoices();
+  var enVoices=voices.filter(function(v){return v.lang.indexOf("en")===0;});
+  if(gender==="M"){
+    var rishi=enVoices.filter(function(v){return v.name.indexOf("Rishi")>-1;});
+    if(rishi.length)return rishi[0];
+    var male=enVoices.filter(function(v){
+      var n=v.name.toLowerCase();
+      return n.indexOf("male")>-1||n.indexOf("daniel")>-1||n.indexOf("james")>-1||n.indexOf("david")>-1||n.indexOf("mark")>-1||n.indexOf("arthur")>-1;
+    });
+    return male.length?male[0]:(enVoices.length?enVoices[0]:null);
+  } else {
+    var female=enVoices.filter(function(v){
+      var n=v.name.toLowerCase();
+      return n.indexOf("samantha")>-1||n.indexOf("female")>-1||n.indexOf("victoria")>-1||n.indexOf("karen")>-1||n.indexOf("kate")>-1||n.indexOf("fiona")>-1||n.indexOf("moira")>-1;
+    });
+    return female.length?female[0]:(enVoices.length>1?enVoices[1]:enVoices[0]||null);
+  }
+}
+function listenSeq(i){
+  if(!listenOn||i>=listenLines.length){stopListen();return;}
+  document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});
+  var e=document.getElementById("ll"+i);if(e)e.classList.add("hl");
+  var line=listenLines[i];
+  var text=typeof line==="object"?line.text:line;
+  var gender=typeof line==="object"?(line.speaker==="E"?"M":"F"):"M";
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US";u.rate=lspd;
+  var v=getVoice(gender);
+  if(v)u.voice=v;
+  u.pitch=1.0;
+  u.onend=function(){if(listenOn)setTimeout(function(){listenSeq(i+1);},380);};
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+function startListen(){listenOn=true;document.getElementById("lIcon").textContent="⏹";document.getElementById("lTxt").textContent="إيقاف المونولوج";listenSeq(0);}
+function stopListen(){listenOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});document.getElementById("lIcon").textContent="▶";document.getElementById("lTxt").textContent="شغّل المونولوج";}
+function toggleListen(){listenOn?stopListen():startListen();}
+function checkListen(){var s=0;listenQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("lq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(listenA[qi]===i)el.classList.add("no");}if(listenA[qi]===q.ans)s++;});var r=document.getElementById("listenRes");r.style.display="block";var pct=Math.round(s/listenQs.length*100);r.textContent=s+" من "+listenQs.length+" إجابة صحيحة ("+pct+"%) "+(pct>=80?"✅ ممتاز!":pct>=60?"👍 جيد!":"📚 راجع");}
+function resetListen(){listenA=new Array(listenQs.length).fill(null);document.querySelectorAll(".copt[id^='lq']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("listenRes").style.display="none";}
+
+function buildW(){
+  var ids=["w1","w2","w3","w4","w5"];var any=false;
+  for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value.trim())any=true;}
+  if(!any){document.getElementById("wOut").innerHTML="<span style='color:#9ca3af;font-style:italic'>✨ ستظهر فقرتك هنا...</span>";return;}
+  var parts=[];
+  for(var j=0;j<ids.length;j++){var el=document.getElementById(ids[j]);var v=el?el.value.trim():"";if(v)parts.push("<span style='color:#f0a000;font-weight:700'>"+v+"</span>.");}
+  document.getElementById("wOut").innerHTML="<p style='direction:ltr;line-height:2'>"+parts.join(" ")+"</p>";
+}
+
+function buildSpeaking(){
+  var c=document.getElementById("speakBox");
+  speakQs.forEach(function(q){
+    var d=document.createElement("div");d.style.cssText="background:#f8faff;border-right:4px solid #1e3a8a;border-radius:0 12px 12px 0;padding:16px 18px;margin-bottom:14px";
+    var p1=document.createElement("p");p1.style.cssText="font-size:.97rem;color:#0a1628;font-weight:700;direction:ltr;margin-bottom:5px";p1.textContent=q.q;
+    var p2=document.createElement("p");p2.style.cssText="font-size:.82rem;color:#9ca3af;margin-bottom:6px";p2.textContent=q.ar;
+    var p3=document.createElement("p");p3.style.cssText="font-size:.82rem;color:#f0a000;direction:ltr;margin-bottom:8px";p3.textContent="💡 "+q.hint;
+    var badge=document.createElement("span");badge.style.cssText="background:#dbeafe;color:#1e3a8a;padding:4px 12px;border-radius:20px;font-size:.76rem;font-weight:700";badge.textContent=q.badge;
+    d.appendChild(p1);d.appendChild(p2);d.appendChild(p3);d.appendChild(badge);
+    var btn=document.createElement("button");btn.className="spksmall";btn.textContent="🔊";btn.style.marginTop="10px";
+    btn.addEventListener("click",(function(qq){return function(){say(qq,spd);};})(q.q));
+    d.appendChild(btn);c.appendChild(d);
+  });
+}
+
+function makeExRow(text,arabic,spkText){
+  var div=document.createElement("div");
+  div.style.cssText="cursor:pointer;user-select:none;padding:8px 12px;background:white;border-radius:8px;direction:ltr;font-size:.86rem;color:#374151;font-style:italic;margin-top:6px";
+  var span=document.createElement("span");span.textContent=text;
+  var tr=document.createElement("div");
+  tr.style.cssText="font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;padding-top:4px;border-top:1px dashed #e5e7eb;display:none;font-family:Tajawal,sans-serif;font-style:normal";
+  tr.textContent=arabic;
+  div.appendChild(span);div.appendChild(tr);
+  div.addEventListener("click",(function(t,s){return function(){t.style.display=t.style.display==="none"?"block":"none";say(s,spd);};})(tr,spkText));
+  return div;
+}
+
+function buildReal(){
+  var c=document.getElementById("realBox");
+  var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h1.textContent="🔥 Expressions — اضغط على الجملة لتسمعها وترجمتها";c.appendChild(h1);
+  realExpr.forEach(function(e){
+    var d=document.createElement("div");d.className="expr-card";
+    // Visible 🔊 for main expression
+    var header=document.createElement("div");header.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;direction:ltr";
+    var headerLeft=document.createElement("div");headerLeft.style.cssText="display:flex;align-items:center;gap:8px";
+    var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";
+    spkBtn.addEventListener("click",(function(ee){return function(){say(ee,spd);};})(e.e));
+    var titleSpan=document.createElement("span");titleSpan.style.cssText="font-weight:700;color:#4c1d95;font-size:.97rem";titleSpan.textContent=e.e;
+    headerLeft.appendChild(spkBtn);headerLeft.appendChild(titleSpan);
+    var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.78rem;font-weight:700;font-family:Tajawal,sans-serif";pronSpan.textContent=e.p;
+    header.appendChild(headerLeft);header.appendChild(pronSpan);
+    d.appendChild(header);
+    var grid=document.createElement("div");grid.style.cssText="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px";
+    var g1=document.createElement("div");g1.style.cssText="background:white;border-radius:8px;padding:8px 12px;text-align:right";g1.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>المعنى</div><div style='font-weight:700;color:#374151;font-size:.88rem'>"+e.m+"</div>";
+    var g2=document.createElement("div");g2.style.cssText="background:white;border-radius:8px;padding:8px 12px;direction:ltr";g2.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>Formal</div><div style='font-size:.85rem;color:#64748b'>"+e.f+"</div>";
+    grid.appendChild(g1);grid.appendChild(g2);d.appendChild(grid);
+    d.appendChild(makeExRow(e.x,e.xar,e.x));
+    var note=document.createElement("div");note.style.cssText="font-size:.8rem;color:#7c3aed;text-align:right;margin-top:8px";note.textContent="💡 "+e.n;
+    d.appendChild(note);c.appendChild(d);
+  });
+  var h2=document.createElement("p");h2.style.cssText="font-weight:800;color:#0a1628;margin:20px 0 14px;text-align:right";h2.textContent="😎 Slang";c.appendChild(h2);
+  var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:20px";
+  realSlang.forEach(function(s){
+    var d=document.createElement("div");d.className="slang-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";
+    var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkS=document.createElement("button");spkS.className="spksmall";spkS.textContent="🔊";spkS.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkS.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var sWord=document.createElement("span");sWord.style.cssText="font-weight:700;color:#ea580c;font-size:.9rem";sWord.textContent=s.w;
+    titleLeft.appendChild(spkS);titleLeft.appendChild(sWord);
+    var pp=document.createElement("span");pp.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pp.textContent=s.p;
+    titleRow.appendChild(titleLeft);titleRow.appendChild(pp);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    sg.appendChild(d);
+  });
+  c.appendChild(sg);
+  var h3=document.createElement("p");h3.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h3.textContent="💬 Everyday Phrases";c.appendChild(h3);
+  var ev=document.createElement("div");ev.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";
+  realEvery.forEach(function(s){
+    var d=document.createElement("div");d.className="ev-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;direction:ltr";
+    var titleLeft2=document.createElement("div");titleLeft2.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkE=document.createElement("button");spkE.className="spksmall";spkE.textContent="🔊";spkE.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkE.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var titleTxt=document.createElement("span");titleTxt.style.cssText="font-weight:700;color:#15803d;font-size:.9rem";titleTxt.textContent=s.w;
+    titleLeft2.appendChild(spkE);titleLeft2.appendChild(titleTxt);
+    var evPron=document.createElement("span");evPron.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";evPron.textContent=s.p;
+    titleRow.appendChild(titleLeft2);titleRow.appendChild(evPron);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    ev.appendChild(d);
+  });
+  c.appendChild(ev);
+}
+
+
+function buildPhrasal(){
+  var c=document.getElementById("pvBox");
+  if(!c)return;
+  var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";
+  h1.textContent="💬 Phrasal Verbs — اضغط على الجملة لتسمعها وترجمتها";c.appendChild(h1);
+  var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";
+  pvData.forEach(function(pv){
+    var d=document.createElement("div");d.className="slang-card";
+    // Row 1: 🔊 reads WORD only + verb + pronunciation
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";
+    var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";
+    spkBtn.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkBtn.addEventListener("click",(function(word){return function(e){e.stopPropagation();say(word,spd);};})(pv.v));
+    var pvWord=document.createElement("span");pvWord.style.cssText="font-weight:700;color:#7c3aed;font-size:.95rem";pvWord.textContent=pv.v;
+    titleLeft.appendChild(spkBtn);titleLeft.appendChild(pvWord);
+    var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pronSpan.textContent=pv.p||"";
+    titleRow.appendChild(titleLeft);titleRow.appendChild(pronSpan);
+    // Arabic meaning
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:6px";ar.textContent=pv.m;
+    // Example sentence — click to HEAR + show translation
+    var exBox=document.createElement("div");
+    exBox.style.cssText="font-family:'Lora',serif;font-style:italic;color:#1e3a8a;font-size:.88rem;direction:ltr;cursor:pointer;padding:8px 10px;background:#f0f9ff;border-radius:8px;border-left:3px solid #7c3aed";
+    exBox.textContent=pv.ex;
+    var trBox=document.createElement("div");
+    trBox.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding:7px 10px;background:#fffdf7;border-radius:8px;border-right:3px solid #fde68a";
+    trBox.textContent=pv.ar;
+    exBox.addEventListener("click",(function(ex,tb){return function(){
+      say(ex,spd);
+      tb.style.display=tb.style.display==="none"?"block":"none";
+      this.style.background=tb.style.display==="block"?"#dbeafe":"#f0f9ff";
+    };})(pv.ex,trBox));
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(exBox);d.appendChild(trBox);
+    sg.appendChild(d);
+  });
+  c.appendChild(sg);
+}
+
+function buildQuiz(){
+  var c=document.getElementById("quizList");
+  quizQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="18px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:10px;direction:ltr;font-size:.93rem";
+    p.innerHTML="<span style='background:#0a1628;color:white;border-radius:5px;padding:1px 8px;font-size:.76rem;margin-left:8px'>"+(qi+1)+"</span>"+q.q;
+    d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="qopt";b.id="qq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){quizA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("qq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function checkQuiz(){var s=0;quizQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("qq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(quizA[qi]===i)el.classList.add("no");}if(quizA[qi]===q.ans)s++;});var pct=Math.round(s/quizQs.length*100);var r=document.getElementById("quizRes");r.style.display="block";document.getElementById("qEmoji").textContent=pct===100?"🏆":pct>=70?"🎉":pct>=50?"💪":"📚";document.getElementById("qScore").textContent=s+" من "+quizQs.length+" إجابة صحيحة ("+pct+"%)";document.getElementById("qMsg").textContent=pct===100?"مثالي!":pct>=70?"أحسنت!":pct>=50?"راجع Conditionals Type 2.":"راجع الوحدة.";r.style.background=pct>=70?"#f0fdf4":"#fef9f0";r.scrollIntoView({behavior:"smooth",block:"center"});}
+function resetQuiz(){quizA=new Array(quizQs.length).fill(null);document.querySelectorAll(".qopt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("quizRes").style.display="none";}
+
+function show(id,btn){document.querySelectorAll(".sec").forEach(function(s){s.classList.remove("on");});document.getElementById("sec-"+id).classList.add("on");window.scrollTo({top:0,behavior:"smooth"});document.querySelectorAll(".nb").forEach(function(b){b.classList.remove("on");});if(btn){btn.classList.add("on");return;}var map={vocab:0,story:1,reading:2,grammar:3,listening:4,writing:5,speaking:6,realeng:7,pv:8,quiz:9};var btns=document.querySelectorAll(".nb");if(btns[map[id]])btns[map[id]].classList.add("on");}
+
+buildVocab();buildStory();buildReading();buildGrammar();buildListening();buildSpeaking();buildReal();buildPhrasal();buildQuiz();
+</script>
+</body>
+</html>

@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath B1 — Unit 22: Education and Learning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Tajawal',sans-serif;background:#f0f4fa;direction:rtl;min-height:100vh}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#1e3a8a;border-radius:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(30,58,138,.35)}50%{box-shadow:0 0 0 8px rgba(30,58,138,0)}}
+.nav-bar{background:linear-gradient(135deg,#0a1628,#1e3a8a);padding:10px 12px;display:flex;justify-content:center;gap:4px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.nb{border:none;border-radius:22px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s}
+.nb.on{background:#f0a000;color:#0a1628}
+.nb:not(.on){background:rgba(255,255,255,.1);color:rgba(255,255,255,.85)}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#1e3a8a 55%,#1d4ed8 100%);color:white;padding:32px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(240,160,0,.06)}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04)}
+.b1tag{display:inline-block;background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-size:.72rem;font-weight:900;padding:4px 14px;border-radius:20px;letter-spacing:1.5px;margin-bottom:10px}
+.sec{display:none;max-width:900px;margin:0 auto;padding:32px 16px 80px;animation:fadeUp .4s ease}
+.sec.on{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 3px 20px rgba(0,0,0,.06);margin-bottom:22px;overflow:hidden}
+.ch{background:#0a1628;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.ch h3{font-size:1rem;font-weight:700}
+.ch .sub{font-size:.75rem;color:#93c5fd;margin-top:1px}
+.cb{padding:22px}
+.vocab-card{background:white;border-radius:16px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 14px rgba(10,22,40,.08);border:1px solid #e5ebf8;transition:transform .2s,box-shadow .2s}
+.vocab-card:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(10,22,40,.13)}
+.vhead{background:linear-gradient(135deg,#0a1628,#1e3a8a);display:flex;flex-direction:row-reverse;align-items:center;padding:14px 18px;gap:14px}
+
+
+.vinfo{flex:1;text-align:right}
+.vword{font-family:'Lora',serif;font-size:1.18rem;font-weight:700;color:white;direction:ltr;text-align:left}
+.vpron{font-size:.78rem;font-weight:700;color:#fde68a;margin-top:3px;direction:ltr;text-align:left}
+.var{font-size:.93rem;font-weight:700;color:rgba(255,255,255,.9);margin-top:3px}
+.vspk{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.25);background:transparent;color:white;font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:all .18s;display:flex;align-items:center;justify-content:center}
+.vspk:hover{background:rgba(255,255,255,.2);transform:scale(1.08)}
+.vspk.playing{background:#f0a000;border-color:#f0a000;animation:pulse 1s infinite}
+.vbody{padding:14px 16px 16px}
+.vgrid2{margin-bottom:10px}
+.vrow-pair{display:flex;gap:8px;margin-bottom:8px}
+.vrow-pair .vcell{flex:1;min-width:0}
+.vcell{border-radius:10px;padding:10px 13px;cursor:pointer;transition:all .15s;user-select:none;direction:ltr}
+.vcell:hover{filter:brightness(.96)}
+.vcell:active{transform:scale(.98)}
+.c-syn{background:#f0fdf4;border:1px solid #bbf7d0}
+.c-ant{background:#fff7ed;border:1px solid #fed7aa}
+.c-col{background:#eff6ff;border:1px solid #bfdbfe}
+.c-prep{background:#faf5ff;border:1px solid #ddd6fe}
+.vlbl{font-size:.65rem;font-weight:900;letter-spacing:.7px;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:5px;direction:ltr;justify-content:flex-start}
+.c-syn .vlbl{color:#15803d}.c-ant .vlbl{color:#ea580c}
+.c-col .vlbl{color:#2563eb}.c-prep .vlbl{color:#7c3aed}
+.vlbl::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.c-syn .vlbl::before{background:#15803d}.c-ant .vlbl::before{background:#ea580c}
+.c-col .vlbl::before{background:#2563eb}.c-prep .vlbl::before{background:#7c3aed}
+.vval{font-family:'Lora',serif;font-size:.82rem;color:#374151;direction:ltr;line-height:1.6}
+.vtr{font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px;padding-top:5px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif}
+.vcell.show-tr .vtr{display:block}
+.vex{font-family:'Lora',serif;font-size:.87rem;color:#374151;direction:ltr;font-style:italic;padding:10px 14px;background:#f8faff;border-radius:10px;border-right:3px solid #f0a000;cursor:pointer;user-select:none}
+.vex-tr{font-size:.8rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding-top:6px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif;font-style:normal}
+.vex.show-ex-tr .vex-tr{display:block}
+.sline{font-family:'Lora',serif;font-size:.97rem;line-height:2;padding:5px 8px;border-radius:6px;direction:ltr;transition:background .2s}
+.sline.hl{background:#fef3c7}
+.lline{font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#cbd5e1;padding:3px 6px;border-radius:5px;direction:ltr;transition:background .2s}
+.lline.hl{background:rgba(240,160,0,.18);color:#fde68a}
+.sctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-direction:row-reverse;margin-bottom:16px}
+.pbtn{background:#1e3a8a;color:white;border:none;border-radius:24px;padding:9px 20px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s}
+.pbtn:hover{background:#1d4ed8}
+.spdbtn{padding:5px 12px;border-radius:18px;border:2px solid #cbd5e1;background:white;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;color:#64748b;transition:all .15s}
+.spdbtn.on{border-color:#1e3a8a;background:#1e3a8a;color:white}
+.rtext{font-family:'Lora',serif;font-size:.95rem;line-height:2;color:#374151;direction:ltr;padding:20px;background:#f8faff;border-radius:14px;border:1px solid #e5eaf5;margin-bottom:18px}
+.rtext p{margin-bottom:14px}
+.gbox{background:linear-gradient(135deg,#eff6ff,#e0effe);border:2px solid #bfdbfe;border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.gpat{background:white;border-radius:10px;padding:12px 16px;margin-bottom:10px;border-right:4px solid #2563eb;direction:ltr}
+.geg{font-family:'Lora',serif;font-size:.97rem;color:#0a1628;font-weight:600}
+.geg em{color:#f0a000;font-style:normal;font-weight:800}
+.gar{font-family:'Tajawal',sans-serif;font-size:.85rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px}
+.qopt{padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;font-family:'Lora',serif;font-size:.9rem;direction:ltr;background:white;transition:all .15s;margin-bottom:7px;text-align:left}
+.qopt:hover{border-color:#1e3a8a;background:#eff6ff}
+.qopt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.qopt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.copt{padding:9px 14px;border:2px solid #e5e7eb;border-radius:9px;cursor:pointer;font-family:'Lora',serif;font-size:.87rem;direction:ltr;background:white;transition:all .15s;margin-bottom:6px}
+.copt:hover{border-color:#1e3a8a;background:#eff6ff}
+.copt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.copt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.wq-block{margin-bottom:18px}
+.wq-model{font-family:'Lora',serif;font-size:.8rem;color:#374151;font-style:italic;direction:ltr;padding:10px 14px;background:#f0f9ff;border-radius:8px;border-right:3px solid #bfdbfe;line-height:1.7;display:none;margin-bottom:8px}
+.wq-model.show{display:block}
+.wq-model-btn{background:#dbeafe;border:none;border-radius:20px;padding:4px 14px;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer;margin-bottom:8px;transition:all .15s}
+.wq-model-btn:hover{background:#1e3a8a;color:white}
+.wq-en{font-family:'Lora',serif;font-size:.93rem;font-weight:700;color:#0a1628;direction:ltr;margin-bottom:3px}
+.wq-ar{font-size:.78rem;color:#9ca3af;direction:rtl;text-align:right;margin-bottom:8px;font-family:'Tajawal',sans-serif}
+.winput{width:100%;border:none;border-bottom:2px solid #f0a000;background:transparent;font-family:'Lora',serif;font-size:.95rem;color:#0a1628;outline:none;padding:5px 3px;direction:ltr;margin-bottom:14px}
+.winput:focus{border-color:#1e3a8a}
+.btn{border:none;border-radius:28px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all .18s;padding:10px 24px;font-size:.9rem}
+.btn:hover{opacity:.88;transform:scale(.98)}
+.bd{background:#1e3a8a;color:white}
+.bg{background:#e5e7eb;color:#374151}
+.bgold{background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-weight:900}
+.navrow{display:flex;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.spksmall{width:32px;height:32px;border-radius:50%;border:none;background:#dbeafe;color:#1e3a8a;font-size:.85rem;cursor:pointer;flex-shrink:0;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.spksmall:hover{background:#1e3a8a;color:white}
+.expr-card{background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:16px;margin-bottom:12px}
+.slang-card{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px}
+.ev-card{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px}
+@media(max-width:580px){.vgrid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <button class="nb on"  onclick="show('vocab',this)">📚 المفردات</button>
+  <button class="nb" onclick="show('story',this)">📖 القصة</button>
+  <button class="nb" onclick="show('reading',this)">📰 القراءة</button>
+  <button class="nb" onclick="show('grammar',this)">✏️ القاعدة</button>
+  <button class="nb" onclick="show('listening',this)">🎧 الاستماع</button>
+  <button class="nb" onclick="show('writing',this)">✍️ الكتابة</button>
+  <button class="nb" onclick="show('speaking',this)">💬 المحادثة</button>
+  <button class="nb" onclick="show('realeng',this)">🗣️ Real English</button>
+  <button class="nb" onclick="show('pv',this)">💬 Phrasal Verbs</button>
+  <button class="nb" onclick="show('quiz',this)">✅ الاختبار</button>
+</div>
+<div class="hero">
+  <div class="b1tag">B1 — INTERMEDIATE</div>
+  <div style="font-size:.75rem;letter-spacing:3px;color:rgba(255,255,255,.45);font-weight:700;margin-bottom:8px">UNIT 22</div>
+  <h1 style="font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;margin-bottom:6px"> Culture and Society</h1>
+  <p style="font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:4px">التعليم والتعلّم</p>
+  <p style="font-size:.82rem;color:rgba(255,255,255,.4)">القاعدة: Wishes and Regrets — I wish / If only / I should have</p>
+  <div style="display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap">
+    <a href="unit21_b1_media.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">← الوحدة ٢١</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="unit23_b1_politics.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">الوحدة ٢٣ ←</a>
+  </div>
+</div>
+
+<div id="sec-vocab" class="sec on">
+  <div style="text-align:right;color:#64748b;font-size:.88rem;max-width:900px;margin:0 auto 16px;padding:0 16px">💡 اضغط 🔊 للكلمة الرئيسية — اضغط على أي خلية لتسمع نطقها وتظهر ترجمتها</div>
+  <div id="vocabList" style="max-width:900px;margin:0 auto;padding:0 16px"></div>
+  <div class="navrow"><button class="btn bd" onclick="show('story',null)">القصة ←</button></div>
+</div>
+
+<div id="sec-story" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📖</span><div><h3>القصة القصيرة</h3><div class="sub">Yasmin تحكي عن التعليم والتعلّم — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button id="trBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:22px;padding:7px 16px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+        <button class="pbtn" id="storyBtn" onclick="toggleStory()"><span id="sIcon">▶</span><span id="sTxt">استمع للقصة</span></button>
+        <button class="spdbtn on" onclick="setSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setSpd(0.75,this)">بطيء</button>
+      </div>
+      <div id="storyBox" style="border-right:4px solid #f0a000;padding:16px 20px;background:#fffdf7;border-radius:0 14px 14px 0"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn bd" onclick="show('reading',null)">القراءة ←</button>
+  </div>
+</div>
+
+<div id="sec-reading" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📰</span><div><h3>القراءة المعمّقة</h3><div class="sub">نص 350 كلمة + 5 أسئلة فهم</div></div></div>
+    <div class="cb">
+      <div class="rtext" id="readingText"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الفهم</p>
+      <div id="compList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkComp()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetComp()">↺ إعادة</button>
+      </div>
+      <div id="compRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('story',null)">→ القصة</button>
+    <button class="btn bd" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✏️</span><div><h3>القاعدة</h3><div class="sub">Dependent Prepositions — الحروف الجر المقيّدة</div></div></div>
+    <div class="cb" id="grammarBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('reading',null)">→ القراءة</button>
+    <button class="btn bd" onclick="show('listening',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listening" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🎧</span><div><h3>الاستماع المضمّن</h3><div class="sub">حوار بين Dr. James 👨 و Dr. Sarah 👩 — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button class="pbtn" id="listenBtn" onclick="toggleListen()"><span id="lIcon">▶</span><span id="lTxt">شغّل المونولوج</span></button>
+        <button class="spdbtn on" onclick="setLSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setLSpd(0.75,this)">بطيء</button>
+      </div>
+      <div class="lscript" id="listenScript" style="background:#0f172a;border-radius:14px;padding:18px 20px;margin-bottom:16px"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الاستماع</p>
+      <div id="listenQList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkListen()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetListen()">↺ إعادة</button>
+      </div>
+      <div id="listenRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn bd" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✍️</span><div><h3>الكتابة</h3><div class="sub">اكتب عن التعليم والتعلّم</div></div></div>
+    <div class="cb">
+      <div style="background:#fffdf7;border:2px dashed #f0a000;border-radius:14px;padding:20px;margin-bottom:14px">
+        <div class="wq-block">
+          <div class="wq-en">Write about something you wish you had learned earlier in life.</div>
+          <div class="wq-ar">اكتب عن شيء تمنيت لو تعلّمته في وقت أبكر من حياتك.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">I wish I had been taught financial literacy at school. If only I had understood compound interest and investment principles in my twenties, I would have made very different decisions. I should have sought this knowledge independently rather than assuming school would provide it. Now I wish the curriculum were designed to prepare students for real adult life.</div>
+          <input class="winput" id="w1" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Describe your ideal learning environment. What would it include?</div>
+          <div class="wq-ar">صف بيئة التعلّم المثالية. ماذا ستتضمن؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">I wish my school had offered more project-based learning. If only teachers had been allowed more freedom to design their own curricula rather than following rigid syllabuses. I should have pushed for more discussion-based classes. Ideally, I wish every student were assessed on skills development rather than memory retention alone.</div>
+          <input class="winput" id="w2" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Should university education be free? Argue your position.</div>
+          <div class="wq-ar">هل يجب أن يكون التعليم الجامعي مجانياً؟ دافع عن موقفك.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">I wish access to higher education were not determined by financial means. If only governments had invested more heavily in university funding decades ago, we would not be facing the current debt crisis. I should not have had to choose my degree based on future earning potential. Education should be a right, not a financial transaction.</div>
+          <input class="winput" id="w3" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">What is the most important skill schools should teach that they currently do not?</div>
+          <div class="wq-ar">ما أهم مهارة يجب أن تُعلّمها المدارس وهي لا تفعل ذلك حالياً؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">I wish critical thinking had been treated as a core subject rather than an incidental skill. If only schools had devoted time to teaching students how to evaluate evidence and identify logical fallacies, public discourse would be healthier. I should have been challenged more rigorously to question my assumptions. I wish the system were built around curiosity rather than compliance.</div>
+          <input class="winput" id="w4" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block" style="margin-bottom:0">
+          <div class="wq-en">Describe a teacher who had a significant impact on you.</div>
+          <div class="wq-ar">صف معلماً كان له تأثير كبير عليك.</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">I wish I had told her how much she changed my life before she retired. If only I had understood at sixteen what I understand now about how rare genuine teaching is. She made me wish I were a better thinker every single lesson. I should have worked harder to deserve her belief in me.</div>
+          <input class="winput" id="w5" placeholder="Write your answer here..." oninput="buildW()" style="margin-bottom:0">
+        </div></div>
+      <div id="wOut" style="background:white;border:1px solid #e5eaf5;border-radius:12px;padding:16px;min-height:70px;font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#374151;direction:ltr">
+        <span style="color:#9ca3af;font-style:italic">✨ ستظهر فقرتك هنا...</span>
+      </div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('listening',null)">→ الاستماع</button>
+    <button class="btn bd" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">💬</span><div><h3>المحادثة</h3><div class="sub">Speaking Challenge</div></div></div>
+    <div class="cb" id="speakBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn bd" onclick="show('realeng',null)">Real English ←</button>
+  </div>
+</div>
+
+<div id="sec-realeng" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🗣️</span><div><h3>Real English</h3><div class="sub">اضغط على الجملة لتسمعها وتظهر ترجمتها</div></div></div>
+    <div class="cb" id="realBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn bd" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-pv" class="sec">
+  <div class="card">
+    <div class="card-title">💬 Phrasal Verbs — التعليم والتعلّم</div>
+    <p style="font-size:.82rem;color:#64748b;text-align:right;margin-bottom:16px;font-family:Tajawal,sans-serif">اضغط على الجملة لتسمعها وترى ترجمتها 🔊</p>
+    <div id="pvBox"></div>
+  </div>
+</div>
+
+<div id="sec-quiz" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✅</span><div><h3>اختبار الوحدة</h3><div class="sub">10 أسئلة — مفردات + قواعد + collocations</div></div></div>
+    <div class="cb">
+      <div id="quizList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:18px">
+        <button class="btn bgold" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn bg" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizRes" style="display:none;text-align:center;padding:22px;margin-top:16px;background:#f0fdf4;border-radius:14px">
+        <div id="qEmoji" style="font-size:2.5rem;margin-bottom:8px"></div>
+        <div id="qScore" style="font-weight:800;font-size:1.1rem;color:#0a1628;margin-bottom:4px"></div>
+        <div id="qMsg" style="font-size:.88rem;color:#64748b"></div>
+      </div>
+    </div>
+  </div>
+  <div style="background:linear-gradient(135deg,#0a1628,#1e3a8a);border-radius:18px;padding:28px;text-align:center;margin-top:8px;max-width:900px;margin-left:auto;margin-right:auto">
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:white;margin-bottom:6px">أحسنت! أكملت وحدة التعليم والتعلّم</div>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:16px">الوحدة الثالثة والعشرون: Politics</p>
+    <button class="btn bgold" onclick="location.href='unit23_b1_politics.html'">الوحدة الحادية والعشرون ←</button>
+  </div>
+</div>
+
+<script>
+var V=[
+  {w:"curriculum",p:"كوريكيولم",a:"المنهج الدراسي",syn:"syllabus, programme of study",ant:"extracurricular, informal learning",col:"design curriculum / national curriculum / rigid curriculum",prep:"curriculum for (subject) / across (schools)",ex:"I wish the curriculum had included more practical life skills alongside academic subjects.",ar_syn:"مقرر دراسي، برنامج تعليمي",ar_ant:"أنشطة خارج المنهج، تعلم غير رسمي",ar_col:"يصمم المنهج / وطني / صارم",ar_prep:"منهج لمادة / عبر المدارس",ar_ex:"أتمنى لو كان المنهج قد تضمن مهارات حياتية عملية إلى جانب المواد الأكاديمية."},
+  {w:"pedagogy",p:"بيداغوجي",a:"علم التربية / طرق التدريس",syn:"teaching method, educational approach",ant:"passive learning, rote memorisation",col:"progressive pedagogy / modern pedagogy / pedagogy of questioning",prep:"pedagogy of (subject) / in (classroom)",ex:"If only our pedagogy had shifted from memorisation to critical thinking decades earlier.",ar_syn:"طريقة تدريس، نهج تعليمي",ar_ant:"تعلم سلبي، حفظ عن ظهر قلب",ar_col:"تربية تقدمية / حديثة / السؤال",ar_prep:"طريقة تدريس المادة / في الفصل",ar_ex:"أتمنى لو كانت طرق التدريس قد تحولت من الحفظ للتفكير النقدي منذ عقود."},
+  {w:"literacy",p:"ليتراسي",a:"محو الأمية / القدرة على القراءة والكتابة",syn:"reading ability, written competence",ant:"illiteracy, functional illiteracy",col:"financial literacy / digital literacy / promote literacy",prep:"literacy in (subject) / among (population)",ex:"I wish financial literacy had been taught in school — I should have understood debt much earlier.",ar_syn:"قدرة قراءة، كفاءة كتابية",ar_ant:"أمية، أمية وظيفية",ar_col:"محو أمية مالية / رقمية / يعزز",ar_prep:"محو أمية في مجال / بين السكان",ar_ex:"أتمنى لو درّست محو الأمية المالية في المدرسة — كان يجب أن أفهم الديون أبكر بكثير."},
+  {w:"rote learning",p:"روت ليرنينغ",a:"التعلم عن ظهر قلب / الحفظ",syn:"memorisation, drilling, repetition",ant:"critical thinking, understanding, application",col:"rely on rote learning / criticise rote learning / beyond rote learning",prep:"rote learning in (system) / without (understanding)",ex:"If only we had been taught to understand rather than rely on rote learning for every exam.",ar_syn:"حفظ، تكرار، إعادة",ar_ant:"تفكير نقدي، فهم، تطبيق",ar_col:"يعتمد على الحفظ / ينتقد / ما وراء الحفظ",ar_prep:"حفظ في النظام / بدون فهم",ar_ex:"أتمنى لو علّمونا الفهم بدلاً من الاعتماد على الحفظ في كل امتحان."},
+  {w:"critical thinking",p:"كريتكل ثينكينغ",a:"التفكير النقدي",syn:"analytical thinking, evaluation, reasoning",ant:"passive acceptance, uncritical belief",col:"develop critical thinking / critical thinking skills / promote critical thinking",prep:"thinking about (evidence) / in (education)",ex:"I wish critical thinking had been a core subject rather than an afterthought in education.",ar_syn:"تفكير تحليلي، تقييم، استدلال",ar_ant:"قبول سلبي، إيمان غير ناقد",ar_col:"يطور التفكير النقدي / مهارات / يعزز",ar_prep:"تفكير في الأدلة / في التعليم",ar_ex:"أتمنى لو كان التفكير النقدي مادة أساسية لا فكرة لاحقة في التعليم."},
+  {w:"assessment",p:"أسيسمنت",a:"التقييم",syn:"evaluation, examination, appraisal",ant:"no feedback, unassessed",col:"continuous assessment / standardised assessment / assessment criteria",prep:"assessment of (student) / through (examination)",ex:"If only assessment had measured creativity and collaboration rather than memory alone.",ar_syn:"تقييم، امتحان، تقدير",ar_ant:"بدون تغذية راجعة، غير مُقيَّم",ar_col:"تقييم مستمر / معياري / معايير",ar_prep:"تقييم الطالب / من خلال الامتحان",ar_ex:"أتمنى لو كان التقييم يقيس الإبداع والتعاون بدلاً من الذاكرة وحدها."},
+  {w:"scholarship",p:"سكولارشب",a:"المنحة الدراسية",syn:"grant, bursary, fellowship",ant:"self-funded, loan-based",col:"award a scholarship / merit scholarship / scholarship programme",prep:"scholarship for (study) / from (institution)",ex:"I wish scholarships were available to all talented students regardless of financial background.",ar_syn:"منحة، مكافأة دراسية",ar_ant:"تمويل ذاتي، قائم على القرض",ar_col:"يمنح منحة / جدارة / برنامج",ar_prep:"منحة للدراسة / من مؤسسة",ar_ex:"أتمنى لو كانت المنح الدراسية متاحة لجميع الطلاب الموهوبين بصرف النظر عن خلفيتهم المالية."},
+  {w:"peer learning",p:"بير ليرنينغ",a:"التعلم من الأقران",syn:"collaborative learning, group study",ant:"isolated study, individual learning",col:"encourage peer learning / benefit from peer learning / peer-to-peer",prep:"learning among (peers) / through (collaboration)",ex:"If only we had been encouraged to learn from each other rather than compete against each other.",ar_syn:"تعلم تعاوني، دراسة جماعية",ar_ant:"دراسة منعزلة، تعلم فردي",ar_col:"يشجع تعلم الأقران / يستفيد / نظير لنظير",ar_prep:"تعلم بين الأقران / من خلال التعاون",ar_ex:"أتمنى لو شُجّعنا على التعلم من بعضنا بدلاً من التنافس ضد بعضنا."},
+  {w:"mentorship",p:"منتورشب",a:"الإرشاد / التوجيه",syn:"guidance, coaching, sponsorship",ant:"isolation, self-taught without support",col:"find a mentor / provide mentorship / mentorship programme",prep:"mentorship from (person) / in (career)",ex:"I wish I had found a mentor earlier — if only someone had guided me in those first critical years.",ar_syn:"توجيه، تدريب، رعاية",ar_ant:"عزلة، تعلم ذاتي بدون دعم",ar_col:"يجد مرشداً / يوفر / برنامج إرشاد",ar_prep:"إرشاد من شخص / في المسيرة",ar_ex:"أتمنى لو وجدت مرشداً أبكر — ليتني وجد شخص يرشدني في تلك السنوات الأولى الحرجة."},
+  {w:"standardised testing",p:"ستاندردايزد تيستينغ",a:"الاختبارات المعيارية",syn:"standardised exams, uniform testing",ant:"portfolio assessment, project-based",col:"rely on standardised testing / criticise standardised testing / standardised test scores",prep:"testing across (schools) / results of (test)",ex:"If only schools had not been reduced to preparing students for standardised testing above all else.",ar_syn:"امتحانات موحدة، اختبار موحد",ar_ant:"تقييم المحفظة، قائم على المشاريع",ar_col:"يعتمد على الاختبارات المعيارية / ينتقد / درجات",ar_prep:"اختبار عبر المدارس / نتائج الاختبار",ar_ex:"أتمنى لو لم تُختزل المدارس في إعداد الطلاب للاختبارات المعيارية فوق كل شيء آخر."},
+  {w:"lifelong learning",p:"لايف-لونغ ليرنينغ",a:"التعلم مدى الحياة",syn:"continuous education, ongoing development",ant:"end of formal education, fixed knowledge",col:"commit to lifelong learning / value of lifelong learning / culture of lifelong learning",prep:"learning throughout (life) / beyond (school)",ex:"I wish I had been taught that education does not end with graduation — if only I had embraced lifelong learning sooner.",ar_syn:"تعليم مستمر، تطوير مستمر",ar_ant:"نهاية التعليم الرسمي، معرفة ثابتة",ar_col:"يلتزم بالتعلم / قيمة / ثقافة",ar_prep:"تعلم طوال الحياة / ما بعد المدرسة",ar_ex:"أتمنى لو علّموني أن التعليم لا ينتهي بالتخرج — ليتني تبنيت التعلم مدى الحياة أبكر."},
+  {w:"autonomy",p:"أوتونومي",a:"الاستقلالية / الحكم الذاتي",syn:"independence, self-direction, freedom",ant:"dependency, control, spoon-feeding",col:"student autonomy / develop autonomy / encourage autonomy",prep:"autonomy in (learning) / over (choices)",ex:"I wish students were given more autonomy over what and how they learn from an early age.",ar_syn:"استقلالية، توجيه ذاتي، حرية",ar_ant:"تبعية، سيطرة، تلقين",ar_col:"استقلالية الطالب / يطور / يشجع",ar_prep:"استقلالية في التعلم / على الخيارات",ar_ex:"أتمنى لو أُعطي الطلاب استقلالية أكبر في ما وكيف يتعلمون منذ سن مبكرة."},
+  {w:"vocational training",p:"فوكيشنل تريننغ",a:"التدريب المهني",syn:"technical training, skills education, apprenticeship",ant:"academic education, theoretical study",col:"vocational training programme / value vocational training / vocational qualification",prep:"training in (trade) / through (apprenticeship)",ex:"If only vocational training had been given the same status as academic education — it should have been.",ar_syn:"تدريب تقني، تعليم مهاري، تدريب مهني",ar_ant:"تعليم أكاديمي، دراسة نظرية",ar_col:"برنامج تدريب مهني / يقدّر / مؤهل",ar_prep:"تدريب في مهنة / من خلال تدريب مهني",ar_ex:"أتمنى لو أُعطي التدريب المهني نفس مكانة التعليم الأكاديمي — كان يجب أن يكون كذلك."},
+  {w:"inclusive education",p:"إنكلوسف إيجوكيشن",a:"التعليم الشامل",syn:"integrated education, equitable education",ant:"exclusion, segregation, elitist education",col:"promote inclusive education / inclusive classroom / barriers to inclusion",prep:"inclusion in (schools) / for (all students)",ex:"I wish inclusive education had been practised genuinely rather than just stated as a policy.",ar_syn:"تعليم متكامل، تعليم عادل",ar_ant:"إقصاء، فصل، تعليم نخبوي",ar_col:"يعزز التعليم الشامل / فصل شامل / عوائق",ar_prep:"شمول في المدارس / لجميع الطلاب",ar_ex:"أتمنى لو كان التعليم الشامل ممارَساً حقاً لا مجرد سياسة مُعلَنة."},
+  {w:"growth mindset",p:"غروث مايندست",a:"عقلية النمو",syn:"learning orientation, open mindset",ant:"fixed mindset, defeatist attitude",col:"develop growth mindset / foster growth mindset / growth mindset approach",prep:"mindset towards (challenges) / in (learning)",ex:"If only we had been taught a growth mindset rather than associating failure with shame.",ar_syn:"توجه التعلم، عقلية منفتحة",ar_ant:"عقلية ثابتة، موقف هزيمي",ar_col:"يطور عقلية النمو / يعزز / نهج",ar_prep:"عقلية تجاه التحديات / في التعلم",ar_ex:"أتمنى لو علّمونا عقلية النمو بدلاً من ربط الفشل بالعار."},
+  {w:"blended learning",p:"بليندد ليرنينغ",a:"التعلم المدمج",syn:"hybrid learning, online and offline combination",ant:"traditional classroom only, purely online",col:"adopt blended learning / blended learning model / shift to blended",prep:"learning through (combination) / across (platforms)",ex:"I wish blended learning had been introduced in schools before the pandemic forced it.",ar_syn:"تعلم هجين، مزيج إلكتروني وحضوري",ar_ant:"فصل تقليدي فقط، إلكتروني بحت",ar_col:"يتبنى التعلم المدمج / نموذج / ينتقل إلى",ar_prep:"تعلم عبر مزيج / عبر منصات",ar_ex:"أتمنى لو قُدّم التعلم المدمج في المدارس قبل أن تفرضه الجائحة."},
+  {w:"extracurricular",p:"إكسترا-كوريكيولر",a:"خارج المنهج / الأنشطة اللامنهجية",syn:"co-curricular, after-school activities",ant:"core curriculum, compulsory subjects",col:"extracurricular activities / participate in extracurricular / value extracurricular",prep:"activities outside (curriculum) / beyond (classroom)",ex:"If only extracurricular activities had been treated as equally valuable as exam results.",ar_syn:"أنشطة مشتركة، أنشطة بعد المدرسة",ar_ant:"المنهج الأساسي، المواد الإلزامية",ar_col:"أنشطة لامنهجية / يشارك / يقدّر",ar_prep:"أنشطة خارج المنهج / ما وراء الفصل",ar_ex:"أتمنى لو عُوملت الأنشطة اللامنهجية باعتبارها قيّمة بالقدر ذاته كنتائج الامتحانات."},
+  {w:"dropout",p:"دروب-أوت",a:"التسرب المدرسي / الانقطاع",syn:"school leaver, early school leaving",ant:"graduation, completion",col:"school dropout / dropout rate / prevent dropouts",prep:"dropout from (school) / due to (poverty)",ex:"I wish the system had identified the reasons for dropouts earlier rather than simply recording them.",ar_syn:"تارك المدرسة، مغادرة مبكرة",ar_ant:"تخرج، إكمال",ar_col:"تسرب مدرسي / معدل / يمنع",ar_prep:"تسرب من المدرسة / بسبب الفقر",ar_ex:"أتمنى لو رصد النظام أسباب التسرب أبكر بدلاً من مجرد تسجيله."},
+  {w:"inquiry-based learning",p:"إنكوايري-بيسد ليرنينغ",a:"التعلم القائم على الاستفسار",syn:"discovery learning, problem-based learning",ant:"rote learning, direct instruction",col:"adopt inquiry-based learning / inquiry-based approach / shift to inquiry",prep:"learning through (questioning) / in (science)",ex:"If only students had been taught through inquiry-based learning rather than passive reception.",ar_syn:"تعلم اكتشافي، تعلم قائم على المشكلات",ar_ant:"حفظ، تدريس مباشر",ar_col:"يتبنى التعلم الاستفساري / نهج / ينتقل إلى",ar_prep:"تعلم من خلال السؤال / في العلوم",ar_ex:"أتمنى لو علّمنا الطلاب من خلال التعلم الاستفساري بدلاً من الاستقبال السلبي."},
+  {w:"equity in education",p:"إيكويتي إن إيجوكيشن",a:"العدالة في التعليم",syn:"educational fairness, equal opportunity",ant:"inequality, privilege, disparity",col:"promote equity / equity in access / educational equity gap",prep:"equity across (schools) / for (all students)",ex:"I wish educational equity were a reality rather than merely an aspiration for most systems.",ar_syn:"عدالة تعليمية، تكافؤ الفرص",ar_ant:"لامساواة، امتياز، تفاوت",ar_col:"يعزز العدالة / في الوصول / فجوة",ar_prep:"عدالة عبر المدارس / لجميع الطلاب",ar_ex:"أتمنى لو كانت العدالة التعليمية واقعاً لا مجرد تطلع لمعظم الأنظمة."},
+  {w:"feedback",p:"فيدباك",a:"التغذية الراجعة",syn:"response, evaluation, critique",ant:"silence, no response, ignoring",col:"constructive feedback / timely feedback / act on feedback",prep:"feedback on (work) / from (teacher)",ex:"I wish teachers had given more specific feedback rather than just grades without explanation.",ar_syn:"استجابة، تقييم، نقد",ar_ant:"صمت، لا استجابة، تجاهل",ar_col:"تغذية راجعة بنّاءة / في الوقت المناسب / يتصرف بناءً عليها",ar_prep:"تغذية راجعة على عمل / من المعلم",ar_ex:"أتمنى لو قدّم المعلمون تغذية راجعة أكثر تحديداً بدلاً من درجات فقط بدون تفسير."},
+  {w:"competency",p:"كومبيتنسي",a:"الكفاءة / المهارة المكتسبة",syn:"skill, ability, proficiency",ant:"incompetence, lack of skill",col:"develop competency / core competency / competency-based education",prep:"competency in (area) / across (skills)",ex:"If only education had focused on developing genuine competencies rather than certificates.",ar_syn:"مهارة، قدرة، كفاءة",ar_ant:"عدم الكفاءة، غياب المهارة",ar_col:"يطور الكفاءة / أساسية / تعليم قائم على الكفاءة",ar_prep:"كفاءة في مجال / عبر المهارات",ar_ex:"أتمنى لو ركّز التعليم على تطوير كفاءات حقيقية بدلاً من الشهادات."},
+  {w:"tuition",p:"تيوشن",a:"الرسوم الدراسية / الدروس الخصوصية",syn:"fees, private lessons, instruction",ant:"free education, no-cost schooling",col:"tuition fees / private tuition / tuition-free",prep:"tuition at (university) / for (subject)",ex:"I wish tuition fees had not risen so dramatically — students should not have been burdened with such debt.",ar_syn:"رسوم، دروس خاصة، تعليم",ar_ant:"تعليم مجاني، تعليم بلا رسوم",ar_col:"رسوم دراسية / خاصة / بلا رسوم",ar_prep:"رسوم في الجامعة / لمادة",ar_ex:"أتمنى لو لم ترتفع الرسوم الدراسية بهذا الشكل الدرامي — لم يكن ينبغي تحميل الطلاب هذا الدين."},
+  {w:"academic integrity",p:"أكاديميك إنتيغريتي",a:"النزاهة الأكاديمية",syn:"honesty, intellectual honesty, originality",ant:"plagiarism, cheating, academic fraud",col:"uphold academic integrity / breach academic integrity / academic integrity policy",prep:"integrity in (work) / within (institution)",ex:"I wish academic integrity had been taught as a value rather than simply enforced as a rule.",ar_syn:"صدق، أمانة فكرية، أصالة",ar_ant:"سرقة أدبية، غش، احتيال أكاديمي",ar_col:"يدعم النزاهة / ينتهك / سياسة",ar_prep:"نزاهة في العمل / داخل المؤسسة",ar_ex:"أتمنى لو عُلّمت النزاهة الأكاديمية كقيمة بدلاً من مجرد تطبيقها كقاعدة."},
+  {w:"dropout prevention",p:"دروب-أوت بريفنشن",a:"منع التسرب المدرسي",syn:"retention programme, early intervention",ant:"neglect, exclusion, punitive approach",col:"dropout prevention programme / invest in prevention / early dropout prevention",prep:"prevention of (dropout) / for (at-risk students)",ex:"If only dropout prevention had been prioritised over test score improvement in policy discussions.",ar_syn:"برنامج احتفاظ، تدخل مبكر",ar_ant:"إهمال، إقصاء، نهج عقابي",ar_col:"برنامج منع التسرب / يستثمر / مبكر",ar_prep:"منع التسرب / للطلاب المعرضين للخطر",ar_ex:"أتمنى لو أُولي منع التسرب الأولوية على تحسين درجات الاختبار في نقاشات السياسة."},
+  {w:"higher education",p:"هاير إيجوكيشن",a:"التعليم العالي",syn:"university education, tertiary education",ant:"primary education, secondary school",col:"access to higher education / expand higher education / higher education institution",prep:"education at (university level) / beyond (secondary)",ex:"I wish access to higher education were not so closely tied to financial privilege.",ar_syn:"تعليم جامعي، تعليم عالٍ",ar_ant:"تعليم ابتدائي، مدرسة ثانوية",ar_col:"الوصول إلى التعليم العالي / يوسّع / مؤسسة",ar_prep:"تعليم على المستوى الجامعي / ما بعد الثانوي",ar_ex:"أتمنى لو لم يكن الوصول للتعليم العالي مرتبطاً هكذا بالامتياز المالي."},
+  {w:"learning disability",p:"ليرنينغ ديسابيلتي",a:"صعوبات التعلم",syn:"learning difficulty, educational challenge",ant:"typical learner, no learning barrier",col:"identify learning disability / support learning disabilities / learning disability diagnosis",prep:"disability in (reading/maths) / for (student)",ex:"I wish learning disabilities had been identified earlier — if only the signs had been recognised at six.",ar_syn:"صعوبة تعلم، تحدي تعليمي",ar_ant:"متعلم نموذجي، بلا عوائق تعلم",ar_col:"يحدد صعوبات التعلم / يدعم / تشخيص",ar_prep:"صعوبة في القراءة/الرياضيات / للطالب",ar_ex:"أتمنى لو تم تحديد صعوبات التعلم أبكر — ليتهم أدركوا العلامات عند سن السادسة."},
+  {w:"tenure",p:"تينيور",a:"التثبيت الوظيفي / الحيازة",syn:"permanent position, job security",ant:"temporary contract, precarious employment",col:"academic tenure / grant tenure / tenure track",prep:"tenure at (university) / for (professor)",ex:"I wish junior academics had not been so dependent on tenure decisions that stifled independent research.",ar_syn:"منصب دائم، أمان وظيفي",ar_ant:"عقد مؤقت، توظيف غير مستقر",ar_col:"تثبيت أكاديمي / يمنح / مسار التثبيت",ar_prep:"تثبيت في الجامعة / للأستاذ",ar_ex:"أتمنى لو لم يكن الأكاديميون الشباب مرتبطين هكذا بقرارات التثبيت التي تخنق البحث المستقل."},
+  {w:"epistemology",p:"إبستيمولوجي",a:"نظرية المعرفة",syn:"theory of knowledge, knowledge philosophy",ant:"ignorance, unreflective belief",col:"study epistemology / epistemological question / epistemological approach",prep:"epistemology of (science) / in (philosophy)",ex:"If only epistemology were taught at school — understanding how we know what we know changes everything.",ar_syn:"نظرية المعرفة، فلسفة المعرفة",ar_ant:"جهل، إيمان غير تأملي",ar_col:"يدرس نظرية المعرفة / سؤال / نهج",ar_prep:"نظرية معرفة العلوم / في الفلسفة",ar_ex:"أتمنى لو دُرّست نظرية المعرفة في المدرسة — فهم كيف نعرف ما نعرفه يغير كل شيء."},
+  {w:"differentiated instruction",p:"ديفرنشييتد إنستراكشن",a:"التدريس المتمايز",syn:"personalised teaching, adaptive instruction",ant:"one-size-fits-all teaching",col:"implement differentiated instruction / differentiated approach / differentiated classroom",prep:"instruction for (different learners) / within (classroom)",ex:"I wish differentiated instruction had been standard practice — if only all teachers had been trained in it.",ar_syn:"تدريس شخصي، تعليم تكيّفي",ar_ant:"تدريس موحد للجميع",ar_col:"يطبق التدريس المتمايز / نهج / فصل متمايز",ar_prep:"تدريس للمتعلمين المختلفين / داخل الفصل",ar_ex:"أتمنى لو كان التدريس المتمايز ممارسة معيارية — ليت جميع المعلمين كانوا مدربين عليه."},
+];
+
+var story=[
+  {t:"Yuna failed her first university entrance exam at eighteen. She sat on the steps of the examination hall and cried.",ar:"يونا رسبت في أول امتحان قبول جامعي لها في سن الثامنة عشرة. جلست على درج قاعة الامتحان وبكت."},
+  {t:"If only she had studied differently — not more, but better. She had been memorising without understanding.",ar:"ليتها درست بشكل مختلف — ليس أكثر، بل أفضل. كانت تحفظ دون فهم."},
+  {t:"A teacher she met that afternoon changed everything. He told her: I wish someone had told me this at your age.",ar:"معلم قابلته بعد ظهر ذلك اليوم غيّر كل شيء. قال لها: أتمنى لو أخبرني أحد بهذا في سنك."},
+  {t:"He wished the school system were designed for curious minds, not compliant ones.",ar:"تمنى لو كان النظام المدرسي مصمماً للعقول الفضولية لا الامتثالية."},
+  {t:"She retook the exam and passed. But more importantly, she had learned how to learn.",ar:"أعادت الامتحان واجتازته. لكن الأهم أنها تعلّمت كيف تتعلم."},
+  {t:"Now a teacher herself, she often says: I wish I could tell every failing student — this is not the end of your story.",ar:"الآن وهي معلمة بنفسها، كثيراً ما تقول: أتمنى لو أستطيع أن أقول لكل طالب راسب — هذه ليست نهاية قصتك."},
+  {t:"If only education systems could see potential rather than measure past performance.",ar:"ليت أنظمة التعليم تستطيع رؤية الإمكانات بدلاً من قياس الأداء السابق."},
+  {t:"She should have failed that exam. Without it, she would never have learned what she needed most.",ar:"كان يجب أن ترسب في ذلك الامتحان. بدونه لم تكن لتتعلم ما احتاجته أكثر من أي شيء."},
+];
+
+var reading=[
+  "The purpose of education is one of the most contested questions in public policy. Is schooling designed to produce productive workers, informed citizens, fulfilled human beings, or all three simultaneously? Different societies have answered this question in different ways, producing radically different educational systems with correspondingly different outcomes. What is consistent across almost all systems, however, is the tension between the demands of standardisation and the needs of individual learners.",
+  "The traditional model of education — a teacher delivering content to passive students who memorise and reproduce it in examinations — has been criticised extensively for over a century. Progressive educators from John Dewey onwards have argued that genuine education must be active, inquiry-based, and connected to real experience. If only these insights had been adopted systematically rather than remaining the practice of individual inspiring teachers, educational outcomes globally would look very different.",
+  "The relationship between education and social mobility is complex and contested. In theory, education should be the great equaliser — the institution through which talent overcomes disadvantage. In practice, research consistently shows that educational outcomes are strongly predicted by socioeconomic background. Children who are raised in book-rich environments, whose parents speak to them extensively, and who attend well-resourced schools consistently outperform those who do not, regardless of innate ability. I wish equity in education were a reality rather than merely a stated aspiration.",
+  "The rise of digital technology has profoundly disrupted traditional educational models. Online learning platforms, AI tutoring systems, and open educational resources have made high-quality content available to anyone with an internet connection. If only access were universal, this could represent the most significant democratisation of knowledge in human history. However, the digital divide remains substantial, and the evidence on the effectiveness of purely online learning remains mixed, particularly for younger students.",
+  "The concept of a growth mindset, developed by psychologist Carol Dweck, has become one of the most influential ideas in contemporary education. Dweck's research found that students who believe intelligence is fixed — that they are simply clever or not — perform significantly worse than those who believe abilities can be developed through effort. If only all students had been taught from the beginning that struggle is not a sign of inadequacy but the necessary path to mastery, educational experiences would be transformed.",
+];
+
+var compQs=[
+  {q:"What tension does the text identify in almost all educational systems?",opts:["Between teachers and parents","Between standardisation and individual learner needs","Between funding and outcomes","Between maths and arts"],ans:1},
+  {q:"What did progressive educators like John Dewey argue education should be?",opts:["More examination focused","Active inquiry-based and connected to real experience","Based on national standards","Technology driven"],ans:1},
+  {q:"What does research show about educational outcomes?",opts:["They are equally distributed","They are strongly predicted by socioeconomic background","They depend mainly on teacher quality","They are improving globally"],ans:1},
+  {q:"What could digital technology represent if access were universal?",opts:["End of traditional schools","Most significant democratisation of knowledge in history","Better examination results","Cheaper education"],ans:1},
+  {q:"What did Carol Dweck's research find about fixed versus growth mindsets?",opts:["Fixed mindset students work harder","There is no difference","Growth mindset students perform significantly better","Mindset does not affect learning"],ans:2},
+];
+
+var listenLines=[
+  {speaker:"J",text:"Yuna, I want to ask you something that I've been thinking about for a while. Do you wish you had been educated differently?"},
+  {speaker:"Y",text:"Almost every day. If only we had been taught how to think rather than what to think. The content I memorised has mostly been forgotten. The thinking skills I eventually developed — those stayed."},
+  {speaker:"J",text:"That's exactly it. I wish critical thinking had been a core subject. I should have been challenged to question my assumptions from the age of ten."},
+  {speaker:"Y",text:"And I wish failure had been treated as part of learning rather than something to be ashamed of. If only I hadn't spent years avoiding difficulty because I was afraid of being seen as stupid."},
+  {speaker:"J",text:"Growth mindset — Carol Dweck's idea. I wish every teacher had been trained in it. The difference it makes when students believe they can improve..."},
+  {speaker:"Y",text:"It changes everything. I wish I had been taught that intelligence is not fixed. If only someone had told me that at sixteen instead of at thirty."},
+  {speaker:"J",text:"What about the system more broadly? Do you wish university had been free when you studied?"},
+  {speaker:"Y",text:"Yes, deeply. I should have been able to study philosophy rather than choosing something more financially safe. If only the decision hadn't been about debt management."},
+  {speaker:"J",text:"I wish vocational training had been given equal status to academic education in this country. So many talented people are being pushed toward degrees they don't need or want."},
+  {speaker:"Y",text:"Completely. I wish parents hadn't been made to feel that university was the only respectable path. If only we had celebrated all kinds of skill and intelligence equally."},
+  {speaker:"J",text:"What would your ideal school look like?"},
+  {speaker:"Y",text:"Project-based, multiage, with long blocks of time for deep inquiry. I wish assessment measured genuine development rather than just exam performance."},
+  {speaker:"J",text:"I should have been a teacher from the start rather than spending fifteen years in finance first."},
+  {speaker:"Y",text:"But if you hadn't, you wouldn't have had those fifteen years of real-world experience to bring to your students. I wish I had understood earlier that regret is not always a sign you made the wrong choice."},
+];
+
+var listenQs=[
+  {q:"What does Yuna say about the content she memorised at school?",opts:["She uses it every day","It has mostly been forgotten","It was very useful","It helped her career"],ans:1},
+  {q:"What does Yuna say failure was treated as at school?",opts:["A natural part of learning","Something to be celebrated","Something to be ashamed of","An opportunity"],ans:2},
+  {q:"What does James wish vocational training had been given?",opts:["More funding","Equal status to academic education","More government support","Better teachers"],ans:1},
+  {q:"What would Yuna's ideal school look like?",opts:["Traditional with strict discipline","Technology focused","Project-based multiage with deep inquiry blocks","Exam focused with clear standards"],ans:2},
+  {q:"What does Yuna say about James's regret of not teaching earlier?",opts:["He made the wrong choice","His experience in finance was wasted","His real-world experience is valuable for students","He should change careers now"],ans:2},
+];
+
+var speakQs=[
+  {q:"Use I wish, If only, and should have to talk about your own education.",hint:"I wish I had been taught... If only the curriculum had included... I should have studied... I wish teachers had been given... If only assessment had measured...",ar:"استخدم I wish و If only و should have للحديث عن تعليمك.",badge:"🎯 استخدم الثلاثة في كل فقرة"},
+  {q:"Talk about a time you learned something important outside of school.",hint:"I wish school had taught me this... If only I had discovered it earlier... I should have sought this knowledge sooner... I wish the education system were designed to...",ar:"تحدّث عن شيء مهم تعلّمته خارج المدرسة.",badge:"🎯 استخدم I wish / If only للمقارنة مع نظام التعليم"},
+  {q:"If you could redesign the education system, what would you change?",hint:"I wish students were assessed on... If only teachers had more freedom... I should have been given more autonomy... I wish the system focused on... If only failure were treated as...",ar:"لو استطعت إعادة تصميم نظام التعليم ماذا ستغير؟",badge:"🎯 استخدم I wish + were / had been في كل نقطة"},
+  {q:"Discuss whether university education is worth its cost.",hint:"I wish tuition had not risen so dramatically... If only I had studied something more personally meaningful... I should have considered alternatives... I wish a degree were not required for so many jobs... If only vocational training had equal status...",ar:"ناقش ما إذا كان التعليم الجامعي يستحق تكلفته.",badge:"🎯 wishes وندم مرتبط بالتعليم العالي"},
+  {q:"Talk about a teacher who influenced you significantly.",hint:"I wish I had told her... If only I had worked harder to deserve her belief... I should have listened more carefully... I wish more teachers had her approach... If only education produced more like her...",ar:"تحدّث عن معلم أثّر فيك بشكل ملحوظ.",badge:"🎯 استخدم wishes وندم في وصف التأثير"},
+  {q:"Do you wish you had studied something different at school or university?",hint:"I wish I had studied... If only I had known then what I know now... I should have followed my genuine interest rather than... I wish the pressure to study something practical had not been so strong... If only career guidance had been better...",ar:"هل تتمنى لو درست شيئاً مختلفاً في المدرسة أو الجامعة؟",badge:"🎯 I wish + past perfect للندم الحقيقي"},
+  {q:"Talk about the relationship between education and social mobility.",hint:"I wish educational equity were a genuine reality... If only family background did not predict outcomes so strongly... Students should have equal access to... I wish the system were not structured in ways that advantage the already privileged... If only talent alone determined opportunity...",ar:"تحدّث عن العلاقة بين التعليم والحراك الاجتماعي.",badge:"🎯 استخدم I wish + were/had been"},
+  {q:"Discuss what skills you wish you had been taught at school.",hint:"I wish financial literacy had been taught... If only critical thinking had been a core subject... I should have been taught how to fail well... I wish emotional intelligence were given the same weight as academic performance... If only schools had prepared us for real adult life...",ar:"ناقش المهارات التي تمنيت لو علّمتها المدرسة.",badge:"🎯 wishes وندم عن مهارات محددة"},
+  {q:"Is standardised testing harmful or helpful? Use wishes and regrets.",hint:"I wish examinations measured real understanding... If only assessment had been more holistic... I should not have been defined by my results at sixteen... I wish the system were not so high-stakes at such a young age... If only teachers had been freed from teaching to the test...",ar:"هل الاختبارات المعيارية ضارة أم مفيدة؟ استخدم الأمنيات والندم.",badge:"🎯 I wish / If only / should have في كل حجة"},
+  {q:"Deliver a ninety-second reflection on your education using wishes and regrets throughout.",hint:"I wish I had been taught how to think not what to think... If only failure had not been treated as shameful... I should have asked more questions... I wish the system were built around curiosity... If only I had understood earlier that learning never stops...",ar:"قدّم تأملاً من تسعين ثانية في تعليمك باستخدام الأمنيات والندم.",badge:"🎯 استخدم I wish / If only / should have / wish + were!"},
+];
+
+var pvData=[
+  {v:"catch up",p:"كاتش أب",m:"يلحق / يعوض ما فاته",ex:"I wish I had caught up on mathematics earlier rather than falling further behind each year.",ar:"أتمنى لو لحقت بالرياضيات أبكر بدلاً من التخلف أكثر كل عام."},
+  {v:"fall behind",p:"فول بيهايند",m:"يتأخر / يتخلف عن الركب",ex:"If only support had been provided before students fell behind rather than after.",ar:"ليت الدعم قُدّم قبل تخلف الطلاب لا بعده."},
+  {v:"drop out",p:"دروب أوت",m:"يترك المدرسة / يتسرب",ex:"I wish the system had identified why she dropped out rather than simply recording it.",ar:"أتمنى لو تعرّف النظام على سبب تركها للمدرسة بدلاً من مجرد تسجيله."},
+  {v:"pick up",p:"بيك أب",m:"يتعلم بسهولة / يلتقط",ex:"If only languages had been introduced earlier — children pick them up so naturally.",ar:"ليت اللغات قُدّمت أبكر — الأطفال يتقنونها بشكل طبيعي جداً."},
+  {v:"brush up on",p:"براش أب أون",m:"يُجدد / يُحسّن مهارة متروكة",ex:"I should have brushed up on my science before the interview rather than assuming I remembered.",ar:"كان يجب أن أُجدّد معلوماتي العلمية قبل المقابلة بدلاً من الافتراض أنني أتذكر."},
+  {v:"take in",p:"تيك إن",m:"يستوعب / يفهم",ex:"If only the lesson had been explained more clearly — I couldn't take in what was being said.",ar:"ليت الدرس شُرح بوضوح أكبر — لم أستطع استيعاب ما كان يُقال."},
+  {v:"look up to",p:"لوك أب تو",m:"يحترم / يتطلع إلى كشخصية ملهمة",ex:"I wish I had told the teacher I looked up to her before she retired.",ar:"أتمنى لو أخبرت المعلمة التي كنت أحترمها ذلك قبل تقاعدها."},
+  {v:"hand in",p:"هاند إن",m:"يُسلّم واجباً / ورقة",ex:"I should have handed in my work on time rather than always asking for extensions.",ar:"كان يجب أن أُسلّم عملي في الوقت المحدد بدلاً من طلب التمديد دائماً."},
+  {v:"keep up with",p:"كيب أب ويذ",m:"يواكب / يجاري",ex:"If only the pace had been more manageable — many students couldn't keep up with the workload.",ar:"ليت الوتيرة كانت أكثر سهولة — كثير من الطلاب لم يستطيعوا مجاراة عبء العمل."},
+  {v:"make up for",p:"ميك أب فور",m:"يعوّض / يتدارك",ex:"I wish I could make up for the years I spent passively sitting in classes without engaging.",ar:"أتمنى لو استطعت تعويض السنوات التي قضيتها جالساً بشكل سلبي في الفصول دون مشاركة."},
+];
+
+var realExpr=[
+  {e:"The school of hard knocks",p:"ذا سكول أوف هارد نوكس",m:"مدرسة الحياة / التعلم من التجارب الصعبة",f:"Learning from difficult real-life experiences rather than formal education.",x:"I wish I had learned this in a classroom rather than in the school of hard knocks.",xar:"أتمنى لو تعلّمت هذا في الفصل بدلاً من مدرسة الحياة الصعبة.",n:"التجربة الصعبة في الحياة تُعلّم ما لا تُعلّمه الكتب"},
+  {e:"Live and learn",p:"ليف أند ليرن",m:"تعيش وتتعلم / الخبرة خير معلم",f:"Accepting that making mistakes is part of the learning process.",x:"I should have known better, but — live and learn. I wish I hadn't waited so long to understand.",xar:"كان يجب أن أعرف أفضل، لكن — تعيش وتتعلم. أتمنى لو لم أنتظر هذا الوقت لأفهم.",n:"مقولة تعني قبول أن الأخطاء جزء طبيعي من التطور والنضج"},
+  {e:"You can lead a horse to water",p:"يو كان ليد أ هورس تو ووتر",m:"تستطيع تقديم الفرصة لكن لا تستطيع إجبار أحد على الاستفادة",f:"You can provide opportunity but cannot force someone to use it.",x:"I wish I had used the opportunities given to me. You can lead a horse to water.",xar:"أتمنى لو استثمرت الفرص المُعطاة لي. تستطيع قيادة الحصان للماء.",n:"المثل الكامل: تستطيع قيادة الحصان للماء لكن لا تستطيع إجباره على الشرب"},
+];
+var realSlang=[
+  {w:"Swot",p:"سووت",i:"someone who studies very hard (British slang)",ex:"I wish I had been a swot — I should have studied harder rather than being embarrassed by effort.",xar:"أتمنى لو كنت مذاكراً — كان يجب أن أدرس بجدية بدلاً من الإحراج من بذل الجهد.",a:"مذاكر / شخص يدرس بجد (مصطلح بريطاني)"},
+  {w:"Cram",p:"كرام",i:"study intensively just before an exam",ex:"If only I hadn't cramped the night before — I should have distributed my study throughout the term.",xar:"ليتني لم أحشو المعلومات ليلة الامتحان — كان يجب أن أوزع دراستي على الفصل.",a:"يحشو المعلومات في فترة قصيرة قبل الامتحان"},
+  {w:"Teacher's pet",p:"تيتشرز بيت",i:"the student who is the teacher's favourite",ex:"I wish I hadn't cared about being called a teacher's pet — if only I had focused on learning.",xar:"أتمنى لو لم أهتم بوصفي بالمحبوب لدى المعلم — ليتني ركزت على التعلم.",a:"الطالب المحبوب لدى المعلم"},
+  {w:"Hit the books",p:"هيت ذا بوكس",i:"start studying seriously",ex:"I should have hit the books months earlier rather than panicking before exams.",xar:"كان يجب أن أبدأ الدراسة بجدية قبل أشهر بدلاً من الهلع قبل الامتحانات.",a:"يبدأ الدراسة بجدية"},
+];
+var realEvery=[
+  {w:"Take something on board",p:"تيك سامثينغ أون بورد",i:"accept and act on information or advice",ex:"I wish I had taken my teacher's advice on board earlier rather than dismissing it.",xar:"أتمنى لو أخذت نصيحة معلمي على محمل الجد أبكر بدلاً من تجاهلها.",a:"يأخذ المعلومة أو النصيحة على محمل الجد ويتصرف بناءً عليها"},
+  {w:"Put your mind to something",p:"بوت يور مايند تو سامثينغ",i:"decide to focus seriously on something",ex:"I wish I had put my mind to learning languages earlier — if only I had tried.",xar:"أتمنى لو ركزت بجدية على تعلم اللغات أبكر — ليتني حاولت.",a:"يُركّز بجدية وعزم على تحقيق شيء ما"},
+  {w:"Learn the hard way",p:"ليرن ذا هارد وي",i:"learn through mistakes and difficult experience",ex:"I should have listened to advice. Instead I learned the hard way — if only I had been less stubborn.",xar:"كان يجب أن أستمع للنصيحة. بدلاً من ذلك تعلّمت من الطريق الصعب — ليتني كنت أقل عناداً.",a:"يتعلم من الأخطاء والتجارب الصعبة"},
+];
+
+var quizQs=[
+  {q:"I wish I ___ studied more languages at school.",opts:["had","have","would","should"],ans:0},
+  {q:"ما معنى rote learning؟",opts:["التعلم القائم على الاستفسار","التعليم الشامل","التعلم بالحفظ دون فهم","التدريس المتمايز"],ans:2},
+  {q:"If only the curriculum ___ more practical life skills.",opts:["include","included","had included","includes"],ans:2},
+  {q:"ما معنى growth mindset؟",opts:["الاعتقاد بأن الذكاء ثابت","التعلم المدمج","الاعتقاد بأن القدرات تُطوَّر بالجهد","التقييم المعياري"],ans:2},
+  {q:"I should ___ asked more questions in class instead of staying silent.",opts:["to have","have","having","had"],ans:1},
+  {q:"ما الـ phrasal verb: يواكب ويجاري وتيرة الآخرين؟",opts:["fall behind","drop out","keep up with","catch up"],ans:2},
+  {q:"ما معنى pedagogy؟",opts:["المنهج الدراسي","علم التربية وطرق التدريس","منع التسرب","الرسوم الدراسية"],ans:1},
+  {q:"I wish education ___ designed around curiosity rather than compliance.",opts:["is","was","were","had been"],ans:2},
+  {q:"ما معنى vocational training؟",opts:["التعليم الجامعي","التقييم المستمر","التدريب المهني والتقني","الاستقلالية في التعلم"],ans:2},
+  {q:"ما معنى lifelong learning؟",opts:["التسرب المدرسي","التعلم المدى الحياة المستمر","منحة دراسية","نظرية المعرفة"],ans:1},
+];
+var spd=1,lspd=1,storyOn=false,listenOn=false;
+var compA=new Array(compQs.length).fill(null);
+var listenA=new Array(listenQs.length).fill(null);
+var quizA=new Array(quizQs.length).fill(null);
+
+function say(text,rate,cb){
+  if(!window.speechSynthesis)return null;
+  window.speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US";u.rate=rate||spd;u.pitch=1.0;
+  var v=getVoice("F");if(v)u.voice=v;
+  if(cb)u.onend=cb;
+  window.speechSynthesis.speak(u);return u;
+}
+
+function buildVocab(){
+  var c=document.getElementById("vocabList");
+  V.forEach(function(v,i){
+    var d=document.createElement("div");d.className="vocab-card";
+    // Build using single-quote innerHTML (Gold Standard from unit2)
+    d.innerHTML=
+            '<div class="vhead">'+
+        '<div style="display:flex;align-items:center;gap:10px;width:100%">'+
+          '<button class="vspk" id="vs'+i+'">🔊</button>'+
+          '<div class="var" style="flex:1;text-align:right">'+v.a+'</div>'+
+          '<div class="vpron" style="direction:ltr;white-space:nowrap">'+v.p+'</div>'+
+          '<div style="display:flex;align-items:center;gap:6px">'+
+            '<div class="vword">'+v.w+'</div>'+
+            '<span style="background:rgba(255,255,255,.18);color:rgba(255,255,255,.85);font-size:.68rem;font-weight:800;padding:2px 7px;border-radius:10px">'+(i+1)+'</span>'+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="vbody">'+
+        '<div class="vgrid2">'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-ant" data-i="'+i+'" data-c="1"><div class="vlbl">Antonym</div><div class="vval">'+v.ant+'</div><div class="vtr">'+v.ar_ant+'</div></div>'+
+            '<div class="vcell c-syn" data-i="'+i+'" data-c="0"><div class="vlbl">Synonym</div><div class="vval">'+v.syn+'</div><div class="vtr">'+v.ar_syn+'</div></div>'+
+          '</div>'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-prep" data-i="'+i+'" data-c="3"><div class="vlbl">Preposition</div><div class="vval">'+v.prep+'</div><div class="vtr">'+v.ar_prep+'</div></div>'+
+            '<div class="vcell c-col" data-i="'+i+'" data-c="2"><div class="vlbl">Collocation</div><div class="vval">'+v.col+'</div><div class="vtr">'+v.ar_col+'</div></div>'+
+          '</div>'+
+        '</div>'+
+        '<div class="vex" id="vex'+i+'">'+v.ex+'<div class="vex-tr">'+v.ar_ex+'</div></div>'+
+      '</div>';
+    d.querySelector('.vspk').addEventListener('click',(function(ii){return function(){
+      document.querySelectorAll('.vspk').forEach(function(b){b.classList.remove('playing');});
+      var btn=document.getElementById('vs'+ii);if(btn)btn.classList.add('playing');
+      var u=say(V[ii].w,spd);if(u)u.onend=function(){if(btn)btn.classList.remove('playing');};
+    };})(i));
+    d.querySelectorAll('.vcell').forEach(function(cell){
+      cell.addEventListener('click',function(){
+        var ii=parseInt(this.getAttribute('data-i'));
+        var cc=parseInt(this.getAttribute('data-c'));
+        say([V[ii].syn,V[ii].ant,V[ii].col,V[ii].prep][cc],0.9);
+        this.classList.toggle('show-tr');
+      });
+    });
+    var vex=d.querySelector('.vex');if(vex)vex.addEventListener('click',function(){this.classList.toggle('show-ex-tr');});
+    c.appendChild(d);
+  });
+}
+function checkComp(){var s=0;compQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("co"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(compA[qi]===i)el.classList.add("no");}if(compA[qi]===q.ans)s++;});var r=document.getElementById("compRes");r.style.display="block";var pct=Math.round(s/compQs.length*100);r.textContent=s+" من "+compQs.length+" إجابة صحيحة ("+pct+"%) "+(pct===100?"🏆":pct>=60?"🎉":"📚 راجع النص");}
+function resetComp(){compA=new Array(compQs.length).fill(null);document.querySelectorAll(".copt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("compRes").style.display="none";}
+
+
+function buildStory(){
+  var b=document.getElementById("storyBox");
+  if(!b)return;
+  b.innerHTML="";
+  story.forEach(function(s,i){
+    var d=document.createElement("div");d.className="sline";d.id="sl"+i;
+    var txt=document.createTextNode(s.t);d.appendChild(txt);
+    var btn=document.createElement("button");
+    btn.style.cssText="background:transparent;border:1px solid #e5e7eb;border-radius:5px;padding:1px 7px;color:#9ca3af;font-size:.7rem;cursor:pointer;font-family:Tajawal,sans-serif;margin-right:6px";
+    btn.textContent="🌐";
+    btn.addEventListener("click",(function(ii){return function(){toggleTr(ii);};})(i));
+    d.appendChild(btn);
+    var tr=document.createElement("div");tr.id="tr"+i;
+    tr.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;font-family:Tajawal,sans-serif;border-right:3px solid #fde68a;padding-right:8px";
+    tr.textContent=s.ar;d.appendChild(tr);b.appendChild(d);
+  });
+}
+var _trAll=false;
+function toggleAllTr(){_trAll=!_trAll;for(var i=0;i<story.length;i++){var e=document.getElementById("tr"+i);if(e)e.style.display=_trAll?"block":"none";}var btn=document.getElementById("trBtn");if(btn)btn.textContent=_trAll?"🙈 أخفِ":"🌐 الترجمة";}
+function toggleTr(i){var e=document.getElementById("tr"+i);if(e)e.style.display=e.style.display==="none"?"block":"none";}
+function setSpd(r,btn){spd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function storySeq(i){if(!storyOn||i>=story.length){stopStory();return;}document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("sl"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(story[i].t);u.lang="en-US";u.rate=spd;u.onend=function(){if(storyOn)setTimeout(function(){storySeq(i+1);},320);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startStory(){storyOn=true;var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="⏹";btn.querySelector("#sTxt").textContent="إيقاف القصة";}storySeq(0);}
+function stopStory(){storyOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="▶";btn.querySelector("#sTxt").textContent="استمع للقصة";}}
+function toggleStory(){storyOn?stopStory():startStory();}
+
+function buildReading(){
+  var t=document.getElementById("readingText");
+  if(!t)return;
+  t.innerHTML="";
+  reading.forEach(function(p){var d=document.createElement("p");d.textContent=p;t.appendChild(d);});
+  var c=document.getElementById("compList");
+  if(!c)return;
+  c.innerHTML="";
+  compQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";
+    p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="co"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){
+        compA[qi]=oi;
+        for(var k=0;k<q.opts.length;k++){var el=document.getElementById("co"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}
+        this.style.borderColor="#0a1628";
+      });
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+
+function buildGrammar(){
+  var c=document.getElementById("grammarBox");
+  var box1=document.createElement("div");box1.className="gbox";
+  var t1=document.createElement("div");t1.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";
+  t1.textContent="١ — Wishes and Regrets: ثلاثة هياكل";box1.appendChild(t1);
+  var tbl=document.createElement("div");tbl.style.cssText="background:#0a1628;border-radius:10px;padding:14px 18px;margin-bottom:14px;direction:ltr";
+  var rows=[["Structure","Use","Example"],["I wish + past simple","wish about present","I wish I knew the answer."],["I wish + past perfect","regret about past","I wish I had studied harder."],["If only + past perfect","stronger regret","If only I had listened to her."],["I should have + past part.","past obligation","I should have worked harder."],["I wish + were","unreal present","I wish education were free."]];
+  var table=document.createElement("table");table.style.cssText="width:100%;border-collapse:collapse;font-size:.82rem";
+  rows.forEach(function(row,ri){var tr=document.createElement("tr");if(ri>0)tr.style.borderTop="1px solid rgba(255,255,255,.1)";row.forEach(function(cell,ci){var td=document.createElement(ri===0?"th":"td");td.textContent=cell;td.style.cssText="padding:5px 7px;text-align:left;color:"+(ri===0?"#fde68a":ci===0?"#f0c040":ci===1?"#93c5fd":"rgba(255,255,255,.8)");tr.appendChild(td);});table.appendChild(tr);});
+  tbl.appendChild(table);box1.appendChild(tbl);c.appendChild(box1);
+  var box2=document.createElement("div");box2.className="gbox";
+  var t2=document.createElement("div");t2.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";t2.textContent="٢ — أمثلة في سياق التعليم";box2.appendChild(t2);
+  var examples=[
+    ["Present wish:","I wish the curriculum were more practical. (were not was!)","أتمنى لو كان المنهج أكثر عملية."],
+    ["Past regret:","I wish I had studied languages — if only I had started earlier.","أتمنى لو درست اللغات — ليتني بدأت أبكر."],
+    ["Should have:","I should have asked more questions instead of staying silent.","كان يجب أن أطرح أسئلة أكثر بدلاً من البقاء صامتاً."],
+  ];
+  examples.forEach(function(ex){var pat=document.createElement("div");pat.className="gpat";var d1=document.createElement("div");d1.style.cssText="font-size:.78rem;color:#f0a000;font-weight:700;direction:ltr;margin-bottom:2px";d1.textContent=ex[0];var d2=document.createElement("div");d2.style.cssText="font-size:.88rem;color:#0a1628;font-weight:600;direction:ltr;margin-bottom:3px";d2.textContent=ex[1];var d3=document.createElement("div");d3.style.cssText="font-size:.8rem;color:#64748b;direction:rtl;text-align:right";d3.textContent=ex[2];pat.appendChild(d1);pat.appendChild(d2);pat.appendChild(d3);box2.appendChild(pat);});
+  c.appendChild(box2);
+  var wrong=document.createElement("div");wrong.style.cssText="background:#fef2f2;border-radius:10px;padding:13px 16px;margin-bottom:8px;border-right:4px solid #dc2626;direction:ltr";
+  wrong.innerHTML='<span style="color:#dc2626;font-weight:700">✗ </span>I wish the system <u>is</u> better. / I wish I <u>studied</u> more (about now). <span style="font-size:.8rem;color:#dc2626">← present wish = past tense / were</span>';
+  var right=document.createElement("div");right.style.cssText="background:#f0fdf4;border-radius:10px;padding:13px 16px;border-right:4px solid #059669;direction:ltr";
+  right.innerHTML='<span style="color:#059669;font-weight:700">✓ </span>I wish the system <strong>were</strong> better. / I wish I <strong>had studied</strong> more [past regret]. <span style="font-size:.8rem;color:#059669">✅</span>';
+  c.appendChild(wrong);c.appendChild(right);
+}
+function buildListening(){
+  var s=document.getElementById("listenScript");
+  listenLines.forEach(function(line,i){
+    var d=document.createElement("div");d.className="lline";d.id="ll"+i;
+    if(typeof line==="object"&&line.speaker){
+      var lbl=document.createElement("span");
+      var isBen=line.speaker==="J";
+      lbl.style.cssText="font-size:.7rem;font-weight:800;padding:1px 7px;border-radius:8px;margin-left:6px;"+(isBen?"background:#dbeafe;color:#1e3a8a":"background:#fce7f3;color:#9d174d");
+      lbl.textContent=line.speaker==="J"?"James":"Yuna";
+      var txt=document.createElement("span");txt.textContent=line.text;
+      d.appendChild(lbl);d.appendChild(txt);
+    } else {
+      d.appendChild(document.createTextNode(typeof line==="object"?line.text:line));
+    }
+    s.appendChild(d);
+  });
+  var c=document.getElementById("listenQList");
+  listenQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="lq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){listenA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("lq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function setLSpd(r,btn){lspd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function getVoice(gender){
+  var voices=window.speechSynthesis.getVoices();
+  var enVoices=voices.filter(function(v){return v.lang.indexOf("en")===0;});
+  if(gender==="M"){
+    var rishi=enVoices.filter(function(v){return v.name.indexOf("Rishi")>-1;});
+    if(rishi.length)return rishi[0];
+    var male=enVoices.filter(function(v){
+      var n=v.name.toLowerCase();
+      return n.indexOf("male")>-1||n.indexOf("daniel")>-1||n.indexOf("james")>-1||n.indexOf("david")>-1||n.indexOf("mark")>-1||n.indexOf("arthur")>-1;
+    });
+    return male.length?male[0]:(enVoices.length?enVoices[0]:null);
+  } else {
+    var female=enVoices.filter(function(v){
+      var n=v.name.toLowerCase();
+      return n.indexOf("samantha")>-1||n.indexOf("female")>-1||n.indexOf("victoria")>-1||n.indexOf("karen")>-1||n.indexOf("kate")>-1||n.indexOf("fiona")>-1||n.indexOf("moira")>-1;
+    });
+    return female.length?female[0]:(enVoices.length>1?enVoices[1]:enVoices[0]||null);
+  }
+}
+function listenSeq(i){
+  if(!listenOn||i>=listenLines.length){stopListen();return;}
+  document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});
+  var e=document.getElementById("ll"+i);if(e)e.classList.add("hl");
+  var line=listenLines[i];
+  var text=typeof line==="object"?line.text:line;
+  var gender=typeof line==="object"?(line.speaker==="J"?"M":"F"):"M";
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US";u.rate=lspd;
+  var v=getVoice(gender);
+  if(v)u.voice=v;
+  u.pitch=1.0;
+  u.onend=function(){if(listenOn)setTimeout(function(){listenSeq(i+1);},380);};
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+function startListen(){listenOn=true;document.getElementById("lIcon").textContent="⏹";document.getElementById("lTxt").textContent="إيقاف المونولوج";listenSeq(0);}
+function stopListen(){listenOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});document.getElementById("lIcon").textContent="▶";document.getElementById("lTxt").textContent="شغّل المونولوج";}
+function toggleListen(){listenOn?stopListen():startListen();}
+function checkListen(){var s=0;listenQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("lq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(listenA[qi]===i)el.classList.add("no");}if(listenA[qi]===q.ans)s++;});var r=document.getElementById("listenRes");r.style.display="block";var pct=Math.round(s/listenQs.length*100);r.textContent=s+" من "+listenQs.length+" إجابة صحيحة ("+pct+"%) "+(pct>=80?"✅ ممتاز!":pct>=60?"👍 جيد!":"📚 راجع");}
+function resetListen(){listenA=new Array(listenQs.length).fill(null);document.querySelectorAll(".copt[id^='lq']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("listenRes").style.display="none";}
+
+function buildW(){
+  var ids=["w1","w2","w3","w4","w5"];var any=false;
+  for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value.trim())any=true;}
+  if(!any){document.getElementById("wOut").innerHTML="<span style='color:#9ca3af;font-style:italic'>✨ ستظهر فقرتك هنا...</span>";return;}
+  var parts=[];
+  for(var j=0;j<ids.length;j++){var el=document.getElementById(ids[j]);var v=el?el.value.trim():"";if(v)parts.push("<span style='color:#f0a000;font-weight:700'>"+v+"</span>.");}
+  document.getElementById("wOut").innerHTML="<p style='direction:ltr;line-height:2'>"+parts.join(" ")+"</p>";
+}
+
+function buildSpeaking(){
+  var c=document.getElementById("speakBox");
+  speakQs.forEach(function(q){
+    var d=document.createElement("div");d.style.cssText="background:#f8faff;border-right:4px solid #1e3a8a;border-radius:0 12px 12px 0;padding:16px 18px;margin-bottom:14px";
+    var p1=document.createElement("p");p1.style.cssText="font-size:.97rem;color:#0a1628;font-weight:700;direction:ltr;margin-bottom:5px";p1.textContent=q.q;
+    var p2=document.createElement("p");p2.style.cssText="font-size:.82rem;color:#9ca3af;margin-bottom:6px";p2.textContent=q.ar;
+    var p3=document.createElement("p");p3.style.cssText="font-size:.82rem;color:#f0a000;direction:ltr;margin-bottom:8px";p3.textContent="💡 "+q.hint;
+    var badge=document.createElement("span");badge.style.cssText="background:#dbeafe;color:#1e3a8a;padding:4px 12px;border-radius:20px;font-size:.76rem;font-weight:700";badge.textContent=q.badge;
+    d.appendChild(p1);d.appendChild(p2);d.appendChild(p3);d.appendChild(badge);
+    var btn=document.createElement("button");btn.className="spksmall";btn.textContent="🔊";btn.style.marginTop="10px";
+    btn.addEventListener("click",(function(qq){return function(){say(qq,spd);};})(q.q));
+    d.appendChild(btn);c.appendChild(d);
+  });
+}
+
+function makeExRow(text,arabic,spkText){
+  var div=document.createElement("div");
+  div.style.cssText="cursor:pointer;user-select:none;padding:8px 12px;background:white;border-radius:8px;direction:ltr;font-size:.86rem;color:#374151;font-style:italic;margin-top:6px";
+  var span=document.createElement("span");span.textContent=text;
+  var tr=document.createElement("div");
+  tr.style.cssText="font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;padding-top:4px;border-top:1px dashed #e5e7eb;display:none;font-family:Tajawal,sans-serif;font-style:normal";
+  tr.textContent=arabic;
+  div.appendChild(span);div.appendChild(tr);
+  div.addEventListener("click",(function(t,s){return function(){t.style.display=t.style.display==="none"?"block":"none";say(s,spd);};})(tr,spkText));
+  return div;
+}
+
+function buildReal(){
+  var c=document.getElementById("realBox");
+  var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h1.textContent="🔥 Expressions — اضغط على الجملة لتسمعها وترجمتها";c.appendChild(h1);
+  realExpr.forEach(function(e){
+    var d=document.createElement("div");d.className="expr-card";
+    // Visible 🔊 for main expression
+    var header=document.createElement("div");header.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;direction:ltr";
+    var headerLeft=document.createElement("div");headerLeft.style.cssText="display:flex;align-items:center;gap:8px";
+    var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";
+    spkBtn.addEventListener("click",(function(ee){return function(){say(ee,spd);};})(e.e));
+    var titleSpan=document.createElement("span");titleSpan.style.cssText="font-weight:700;color:#4c1d95;font-size:.97rem";titleSpan.textContent=e.e;
+    headerLeft.appendChild(spkBtn);headerLeft.appendChild(titleSpan);
+    var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.78rem;font-weight:700;font-family:Tajawal,sans-serif";pronSpan.textContent=e.p;
+    header.appendChild(headerLeft);header.appendChild(pronSpan);
+    d.appendChild(header);
+    var grid=document.createElement("div");grid.style.cssText="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px";
+    var g1=document.createElement("div");g1.style.cssText="background:white;border-radius:8px;padding:8px 12px;text-align:right";g1.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>المعنى</div><div style='font-weight:700;color:#374151;font-size:.88rem'>"+e.m+"</div>";
+    var g2=document.createElement("div");g2.style.cssText="background:white;border-radius:8px;padding:8px 12px;direction:ltr";g2.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>Formal</div><div style='font-size:.85rem;color:#64748b'>"+e.f+"</div>";
+    grid.appendChild(g1);grid.appendChild(g2);d.appendChild(grid);
+    d.appendChild(makeExRow(e.x,e.xar,e.x));
+    var note=document.createElement("div");note.style.cssText="font-size:.8rem;color:#7c3aed;text-align:right;margin-top:8px";note.textContent="💡 "+e.n;
+    d.appendChild(note);c.appendChild(d);
+  });
+  var h2=document.createElement("p");h2.style.cssText="font-weight:800;color:#0a1628;margin:20px 0 14px;text-align:right";h2.textContent="😎 Slang";c.appendChild(h2);
+  var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:20px";
+  realSlang.forEach(function(s){
+    var d=document.createElement("div");d.className="slang-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";
+    var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkS=document.createElement("button");spkS.className="spksmall";spkS.textContent="🔊";spkS.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkS.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var sWord=document.createElement("span");sWord.style.cssText="font-weight:700;color:#ea580c;font-size:.9rem";sWord.textContent=s.w;
+    titleLeft.appendChild(spkS);titleLeft.appendChild(sWord);
+    var pp=document.createElement("span");pp.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pp.textContent=s.p;
+    titleRow.appendChild(titleLeft);titleRow.appendChild(pp);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    sg.appendChild(d);
+  });
+  c.appendChild(sg);
+  var h3=document.createElement("p");h3.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h3.textContent="💬 Everyday Phrases";c.appendChild(h3);
+  var ev=document.createElement("div");ev.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";
+  realEvery.forEach(function(s){
+    var d=document.createElement("div");d.className="ev-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;direction:ltr";
+    var titleLeft2=document.createElement("div");titleLeft2.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkE=document.createElement("button");spkE.className="spksmall";spkE.textContent="🔊";spkE.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkE.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var titleTxt=document.createElement("span");titleTxt.style.cssText="font-weight:700;color:#15803d;font-size:.9rem";titleTxt.textContent=s.w;
+    titleLeft2.appendChild(spkE);titleLeft2.appendChild(titleTxt);
+    var evPron=document.createElement("span");evPron.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";evPron.textContent=s.p;
+    titleRow.appendChild(titleLeft2);titleRow.appendChild(evPron);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    ev.appendChild(d);
+  });
+  c.appendChild(ev);
+}
+
+
+function buildPhrasal(){
+  var c=document.getElementById("pvBox");
+  if(!c)return;
+  var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";
+  h1.textContent="💬 Phrasal Verbs — اضغط على الجملة لتسمعها وترجمتها";c.appendChild(h1);
+  var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";
+  pvData.forEach(function(pv){
+    var d=document.createElement("div");d.className="slang-card";
+    // Row 1: 🔊 reads WORD only + verb + pronunciation
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";
+    var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";
+    spkBtn.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkBtn.addEventListener("click",(function(word){return function(e){e.stopPropagation();say(word,spd);};})(pv.v));
+    var pvWord=document.createElement("span");pvWord.style.cssText="font-weight:700;color:#7c3aed;font-size:.95rem";pvWord.textContent=pv.v;
+    titleLeft.appendChild(spkBtn);titleLeft.appendChild(pvWord);
+    var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pronSpan.textContent=pv.p||"";
+    titleRow.appendChild(titleLeft);titleRow.appendChild(pronSpan);
+    // Arabic meaning
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:6px";ar.textContent=pv.m;
+    // Example sentence — click to HEAR + show translation
+    var exBox=document.createElement("div");
+    exBox.style.cssText="font-family:'Lora',serif;font-style:italic;color:#1e3a8a;font-size:.88rem;direction:ltr;cursor:pointer;padding:8px 10px;background:#f0f9ff;border-radius:8px;border-left:3px solid #7c3aed";
+    exBox.textContent=pv.ex;
+    var trBox=document.createElement("div");
+    trBox.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding:7px 10px;background:#fffdf7;border-radius:8px;border-right:3px solid #fde68a";
+    trBox.textContent=pv.ar;
+    exBox.addEventListener("click",(function(ex,tb){return function(){
+      say(ex,spd);
+      tb.style.display=tb.style.display==="none"?"block":"none";
+      this.style.background=tb.style.display==="block"?"#dbeafe":"#f0f9ff";
+    };})(pv.ex,trBox));
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(exBox);d.appendChild(trBox);
+    sg.appendChild(d);
+  });
+  c.appendChild(sg);
+}
+
+function buildQuiz(){
+  var c=document.getElementById("quizList");
+  quizQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="18px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:10px;direction:ltr;font-size:.93rem";
+    p.innerHTML="<span style='background:#0a1628;color:white;border-radius:5px;padding:1px 8px;font-size:.76rem;margin-left:8px'>"+(qi+1)+"</span>"+q.q;
+    d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="qopt";b.id="qq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){quizA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("qq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function checkQuiz(){var s=0;quizQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("qq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(quizA[qi]===i)el.classList.add("no");}if(quizA[qi]===q.ans)s++;});var pct=Math.round(s/quizQs.length*100);var r=document.getElementById("quizRes");r.style.display="block";document.getElementById("qEmoji").textContent=pct===100?"🏆":pct>=70?"🎉":pct>=50?"💪":"📚";document.getElementById("qScore").textContent=s+" من "+quizQs.length+" إجابة صحيحة ("+pct+"%)";document.getElementById("qMsg").textContent=pct===100?"مثالي!":pct>=70?"أحسنت!":pct>=50?"راجع Conditionals Type 2.":"راجع الوحدة.";r.style.background=pct>=70?"#f0fdf4":"#fef9f0";r.scrollIntoView({behavior:"smooth",block:"center"});}
+function resetQuiz(){quizA=new Array(quizQs.length).fill(null);document.querySelectorAll(".qopt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("quizRes").style.display="none";}
+
+function show(id,btn){document.querySelectorAll(".sec").forEach(function(s){s.classList.remove("on");});document.getElementById("sec-"+id).classList.add("on");window.scrollTo({top:0,behavior:"smooth"});document.querySelectorAll(".nb").forEach(function(b){b.classList.remove("on");});if(btn){btn.classList.add("on");return;}var map={vocab:0,story:1,reading:2,grammar:3,listening:4,writing:5,speaking:6,realeng:7,pv:8,quiz:9};var btns=document.querySelectorAll(".nb");if(btns[map[id]])btns[map[id]].classList.add("on");}
+
+buildVocab();buildStory();buildReading();buildGrammar();buildListening();buildSpeaking();buildReal();buildPhrasal();buildQuiz();
+</script>
+</body>
+</html>

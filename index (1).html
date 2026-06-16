@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath — مرحباً بك في رحلة التعلم</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-thumb{background:#d4a017;border-radius:3px}
+body{font-family:'Tajawal',sans-serif;background:#f7f3ed;color:#0c1e3c;direction:rtl;overflow-x:hidden}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shimmer{0%{background-position:200%}100%{background-position:-200%}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes glow{0%,100%{box-shadow:0 0 20px rgba(212,160,23,0.2)}50%{box-shadow:0 0 40px rgba(212,160,23,0.5)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+@keyframes lineGrow{from{width:0}to{width:100%}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1)}
+.reveal.show{opacity:1;transform:translateY(0)}
+
+/* ══ HERO ══ */
+.hero{
+  background:linear-gradient(135deg,#0c1e3c 0%,#1a3a6b 55%,#0e2850 100%);
+  color:white;min-height:100vh;
+  display:flex;flex-direction:column;
+  position:relative;overflow:hidden;
+}
+.blob{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px)}
+.hero-dots{
+  position:absolute;inset:0;
+  background-image:radial-gradient(rgba(212,160,23,0.08) 1px,transparent 1px);
+  background-size:32px 32px;
+}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px 5%;position:relative;z-index:10;
+}
+.logo{font-family:'Lora',serif;font-size:1.5rem;font-weight:700;color:white;direction:ltr}
+.logo span{color:#d4a017}
+.nav-btns{display:flex;gap:8px}
+.nbtn{
+  font-family:'Tajawal',sans-serif;font-size:0.82rem;font-weight:700;
+  padding:7px 18px;border-radius:30px;border:1.5px solid rgba(255,255,255,0.2);
+  background:transparent;color:rgba(255,255,255,0.8);
+  cursor:pointer;transition:all 0.2s;text-decoration:none;display:inline-block;
+}
+.nbtn:hover{border-color:rgba(255,255,255,0.5);color:white}
+.nbtn.gold{background:#d4a017;color:#0c1e3c;border-color:#d4a017;font-weight:800}
+.nbtn.gold:hover{background:#f5c842}
+
+.hero-body{
+  flex:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:40px 5%;text-align:center;
+  position:relative;z-index:2;
+}
+.h-badge{
+  display:inline-block;
+  background:rgba(212,160,23,0.12);border:1px solid rgba(212,160,23,0.3);
+  color:#d4a017;font-size:0.78rem;font-weight:700;
+  padding:7px 22px;border-radius:30px;margin-bottom:28px;
+  letter-spacing:1px;animation:fadeUp 0.5s ease both;
+}
+.h-title{
+  font-family:'Lora',serif;
+  font-size:clamp(2.2rem,6vw,4rem);
+  font-weight:700;line-height:1.15;
+  margin-bottom:10px;direction:ltr;
+  animation:fadeUp 0.5s 0.1s ease both;
+}
+.h-title .sh{
+  background:linear-gradient(90deg,#d4a017,#f5c842,#fff9e6,#f5c842,#d4a017);
+  background-size:300% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;animation:shimmer 4s linear infinite;
+}
+.h-sub{
+  font-family:'Lora',serif;font-size:1.1rem;font-style:italic;
+  color:rgba(255,255,255,0.5);margin-bottom:24px;
+  animation:fadeUp 0.5s 0.15s ease both;
+}
+.h-desc{
+  font-size:1rem;color:rgba(255,255,255,0.65);
+  max-width:580px;line-height:2;margin-bottom:38px;
+  animation:fadeUp 0.5s 0.2s ease both;font-weight:300;
+}
+.h-desc strong{color:rgba(255,255,255,0.9);font-weight:700}
+.h-cta{
+  display:flex;gap:12px;flex-wrap:wrap;justify-content:center;
+  animation:fadeUp 0.5s 0.28s ease both;
+}
+.btn-main{
+  background:linear-gradient(135deg,#d4a017,#f5c842);
+  color:#0c1e3c;font-family:'Tajawal',sans-serif;
+  font-weight:800;font-size:1rem;padding:14px 40px;
+  border-radius:32px;border:none;cursor:pointer;
+  transition:all 0.25s;text-decoration:none;display:inline-block;
+  animation:glow 3s ease-in-out infinite;
+}
+.btn-main:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(212,160,23,0.4)}
+.btn-sec{
+  background:rgba(255,255,255,0.08);color:white;
+  font-family:'Tajawal',sans-serif;font-weight:700;font-size:1rem;
+  padding:14px 40px;border-radius:32px;
+  border:1.5px solid rgba(255,255,255,0.2);
+  cursor:pointer;transition:all 0.25s;text-decoration:none;display:inline-block;
+}
+.btn-sec:hover{background:rgba(255,255,255,0.15);transform:translateY(-2px)}
+
+.h-stats{
+  display:flex;background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:18px;overflow:hidden;
+  margin-top:52px;animation:fadeUp 0.5s 0.35s ease both;
+}
+.hs{padding:18px 28px;text-align:center;position:relative}
+.hs+.hs::before{content:'';position:absolute;right:0;top:22%;height:56%;width:1px;background:rgba(255,255,255,0.1)}
+.hs-n{font-family:'Lora',serif;font-size:1.8rem;font-weight:700;color:#d4a017}
+.hs-l{font-size:0.72rem;color:rgba(255,255,255,0.4);margin-top:3px;letter-spacing:0.5px}
+.wave{display:block;width:100%;margin-bottom:-2px}
+
+/* ══ SECTIONS ══ */
+.stag{
+  font-size:0.72rem;font-weight:700;letter-spacing:3px;
+  color:#d4a017;text-transform:uppercase;margin-bottom:12px;
+  display:flex;align-items:center;gap:12px;
+}
+.stag::after{content:'';flex:1;height:1px;background:rgba(12,30,60,0.1)}
+.stitle{
+  font-family:'Lora',serif;
+  font-size:clamp(1.6rem,3.5vw,2.4rem);
+  font-weight:700;color:#0c1e3c;
+  line-height:1.2;margin-bottom:14px;
+}
+.ssub{font-size:0.95rem;color:#6b7280;line-height:1.9;max-width:560px}
+
+/* ══ HOW ══ */
+.how-section{background:#0c1e3c;padding:80px 5%}
+.how-inner{max-width:1060px;margin:0 auto}
+.how-section .stag{color:#d4a017}
+.how-section .stag::after{background:rgba(255,255,255,0.08)}
+.how-section .stitle{color:white}
+.how-section .ssub{color:rgba(255,255,255,0.45)}
+.steps-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1px;background:rgba(255,255,255,0.07);
+  margin-top:48px;border-radius:4px;overflow:hidden;
+}
+.step-card{
+  background:#0e2040;padding:32px 24px;
+  position:relative;transition:background 0.25s;
+}
+.step-card:hover{background:#112650}
+.step-card::after{
+  content:'';position:absolute;top:0;right:0;left:0;
+  height:2px;background:linear-gradient(90deg,transparent,#d4a017,transparent);
+  opacity:0;transition:opacity 0.25s;
+}
+.step-card:hover::after{opacity:1}
+.step-num{
+  font-family:'Lora',serif;font-size:3.5rem;font-weight:700;
+  color:rgba(212,160,23,0.1);line-height:1;margin-bottom:16px;direction:ltr;
+}
+.step-emoji{font-size:1.8rem;margin-bottom:12px}
+.step-title{font-weight:800;font-size:0.97rem;color:white;margin-bottom:8px}
+.step-desc{font-size:0.83rem;color:rgba(255,255,255,0.38);line-height:1.75}
+
+/* ══ LANGUAGES ══ */
+.langs-section{padding:80px 5%;background:#f7f3ed}
+.langs-inner{max-width:1060px;margin:0 auto}
+.langs-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:14px;margin-top:48px;
+}
+.lang-card{
+  background:white;border:1.5px solid #e8e4dc;
+  border-radius:18px;padding:28px 20px;text-align:center;
+  transition:all 0.25s;cursor:pointer;
+  text-decoration:none;display:block;color:inherit;
+  position:relative;overflow:hidden;
+}
+.lang-card::before{
+  content:'';position:absolute;bottom:0;right:0;left:0;
+  height:3px;transform:scaleX(0);transform-origin:right;
+  transition:transform 0.3s;
+}
+.lang-card:hover{transform:translateY(-5px);box-shadow:0 10px 36px rgba(12,30,60,0.1);border-color:transparent}
+.lang-card:hover::before{transform:scaleX(1);transform-origin:left}
+.lang-card.en::before{background:#1a56b0}
+.lang-card.de::before{background:#1a1a1a}
+.lang-card.fr::before{background:#c0392b}
+.lang-card.tr::before{background:#c0392b}
+.lang-card.ja::before{background:#8b1a1a}
+.lang-flag{font-size:2.8rem;margin-bottom:12px}
+.lang-name{font-family:'Lora',serif;font-size:1.1rem;font-weight:700;color:#0c1e3c;margin-bottom:8px}
+.lang-badge{
+  display:inline-block;font-size:0.68rem;font-weight:700;
+  padding:3px 12px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;
+}
+.badge-live{background:#059669;color:white}
+.badge-new{background:#d4a017;color:#0c1e3c}
+.badge-soon{background:#e8e4dc;color:#9ca3af}
+.lang-info{font-size:0.8rem;color:#9ca3af;margin-top:8px;line-height:1.5}
+
+/* ══ GUIDE ══ */
+.guide-section{padding:80px 5%;background:white}
+.guide-inner{max-width:1060px;margin:0 auto}
+.guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:48px}
+.guide-steps{display:flex;flex-direction:column;gap:0}
+.g-step{
+  display:flex;align-items:flex-start;gap:18px;
+  padding:22px 0;border-bottom:1px solid #f0ece6;
+  flex-direction:row-reverse;text-align:right;
+  transition:all 0.2s;
+}
+.g-step:last-child{border:none}
+.g-step-num{
+  width:42px;height:42px;border-radius:50%;flex-shrink:0;
+  background:#f7f3ed;border:2px solid #e8e4dc;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Lora',serif;font-weight:700;color:#0c1e3c;font-size:0.95rem;
+  transition:all 0.2s;
+}
+.g-step:hover .g-step-num{background:#0c1e3c;color:#d4a017;border-color:#0c1e3c}
+.g-step h4{font-weight:800;color:#0c1e3c;margin-bottom:5px;font-size:0.95rem}
+.g-step p{font-size:0.83rem;color:#6b7280;line-height:1.7}
+.unit-box{
+  background:#0c1e3c;border-radius:18px;padding:28px;
+  position:sticky;top:28px;
+}
+.unit-box-title{
+  font-size:0.7rem;color:rgba(255,255,255,0.3);
+  letter-spacing:2px;text-transform:uppercase;font-weight:700;
+  margin-bottom:18px;
+}
+.u-tab{
+  display:flex;align-items:center;gap:12px;
+  padding:11px 14px;border-radius:10px;
+  border:1px solid rgba(255,255,255,0.06);
+  margin-bottom:6px;cursor:pointer;transition:all 0.2s;
+  flex-direction:row-reverse;text-align:right;
+}
+.u-tab.active,.u-tab:hover{background:rgba(212,160,23,0.1);border-color:rgba(212,160,23,0.2)}
+.u-tab-i{font-size:1rem;flex-shrink:0}
+.u-tab-name{font-size:0.82rem;font-weight:700;color:rgba(255,255,255,0.7)}
+.u-tab-desc{font-size:0.68rem;color:rgba(255,255,255,0.28);margin-top:1px}
+.u-tab.active .u-tab-name{color:#d4a017}
+
+/* ══ SUBJECTS ══ */
+.subjects-section{padding:80px 5%;background:#0c1e3c}
+.subjects-inner{max-width:1060px;margin:0 auto}
+.subjects-section .stag{color:#d4a017}
+.subjects-section .stag::after{background:rgba(255,255,255,0.07)}
+.subjects-section .stitle{color:white}
+.subjects-section .ssub{color:rgba(255,255,255,0.38)}
+.subj-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:14px;margin-top:48px;
+}
+.subj-card{
+  border:1px solid rgba(255,255,255,0.07);border-radius:16px;
+  padding:26px 22px;background:rgba(255,255,255,0.02);
+  transition:all 0.25s;position:relative;
+}
+.subj-card:hover{background:rgba(255,255,255,0.05);border-color:rgba(212,160,23,0.2);transform:translateY(-3px)}
+.subj-icon{font-size:2rem;margin-bottom:12px}
+.subj-title{font-weight:800;font-size:0.95rem;color:white;margin-bottom:7px}
+.subj-desc{font-size:0.82rem;color:rgba(255,255,255,0.32);line-height:1.7}
+.subj-status{
+  position:absolute;top:16px;left:18px;
+  font-size:0.62rem;font-weight:700;
+  padding:3px 9px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;
+}
+.s-live{background:rgba(5,150,105,0.2);color:#6ee7a0}
+.s-soon{background:rgba(212,160,23,0.15);color:#d4a017}
+.s-plan{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.25)}
+
+/* ══ QUOTE ══ */
+.quote-section{
+  background:linear-gradient(135deg,#1a3a6b,#0c1e3c);
+  padding:100px 5%;text-align:center;position:relative;overflow:hidden;
+}
+.q-mark{
+  position:absolute;font-family:'Lora',serif;
+  font-size:25rem;font-weight:700;
+  color:rgba(255,255,255,0.02);
+  top:-80px;right:-20px;line-height:1;pointer-events:none;
+}
+.q-text{
+  font-family:'Lora',serif;
+  font-size:clamp(1.4rem,3.5vw,2.4rem);
+  font-weight:700;font-style:italic;
+  color:white;line-height:1.6;
+  max-width:760px;margin:0 auto 28px;
+  position:relative;z-index:1;
+}
+.q-text span{color:#d4a017}
+.q-author{font-size:0.82rem;color:rgba(255,255,255,0.3);letter-spacing:3px;text-transform:uppercase;font-weight:600}
+
+/* ══ FOOTER ══ */
+footer{background:#0a1628;padding:56px 5% 32px;border-top:1px solid rgba(255,255,255,0.05)}
+.footer-inner{max-width:1060px;margin:0 auto}
+.footer-top{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  gap:40px;flex-wrap:wrap;margin-bottom:40px;
+  padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.05);
+}
+.f-brand .flogo{font-family:'Lora',serif;font-size:1.3rem;font-weight:700;color:white;direction:ltr;margin-bottom:10px}
+.f-brand .flogo span{color:#d4a017}
+.f-brand p{font-size:0.82rem;color:rgba(255,255,255,0.28);line-height:1.8;max-width:260px}
+.f-links{display:flex;gap:44px;flex-wrap:wrap}
+.f-col h4{font-size:0.68rem;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}
+.f-col a{display:block;font-size:0.83rem;color:rgba(255,255,255,0.28);text-decoration:none;margin-bottom:7px;transition:color 0.15s;cursor:pointer}
+.f-col a:hover{color:#d4a017}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.f-copy{font-size:0.72rem;color:rgba(255,255,255,0.15)}
+
+@media(max-width:700px){
+  .h-stats{flex-wrap:wrap}
+  .hs{flex:1;min-width:90px}
+  .hs+.hs::before{display:none}
+  .guide-grid{grid-template-columns:1fr}
+  .unit-box{display:none}
+  .footer-top{flex-direction:column}
+}
+
+/* ══ LANG PANEL (modal style like screenshot) ══ */
+.lang-panel-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(12,30,60,0.45);backdrop-filter:blur(3px);
+  z-index:200;align-items:flex-end;justify-content:center;
+}
+.lang-panel-overlay.open{display:flex;animation:fadeUp 0.25s ease}
+.lang-panel{
+  background:#f7f3ed;border-radius:24px 24px 0 0;
+  width:100%;max-width:540px;
+  max-height:88vh;overflow-y:auto;
+  padding:0 0 32px;
+}
+.lp-handle{width:40px;height:4px;background:#d1cfc9;border-radius:4px;margin:14px auto 18px}
+.lp-header{
+  display:flex;align-items:center;gap:12px;
+  padding:0 22px 16px;border-bottom:1px solid #e8e4dc;
+  flex-direction:row-reverse;
+}
+.lp-flag{font-size:2rem}
+.lp-title{font-family:'Lora',serif;font-size:1.2rem;font-weight:700;color:#0c1e3c;flex:1;text-align:right}
+.lp-close{
+  width:32px;height:32px;border-radius:50%;background:#e8e4dc;
+  border:none;cursor:pointer;font-size:1rem;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:background 0.15s;
+}
+.lp-close:hover{background:#d1cfc9}
+
+/* Level rows */
+.lp-levels{padding:12px 16px 0}
+.lp-level{
+  background:white;border-radius:16px;margin-bottom:10px;
+  border:1.5px solid #e8e4dc;overflow:hidden;
+  transition:border-color 0.2s;
+}
+.lp-level.active{border-color:#1a56b0}
+.lp-level-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 16px;cursor:pointer;
+  flex-direction:row-reverse;
+}
+.lp-lh-right{display:flex;align-items:center;gap:12px;flex-direction:row-reverse}
+.lp-level-badge{
+  width:42px;height:42px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Lora',serif;font-size:1rem;font-weight:800;
+  flex-shrink:0;
+}
+.badge-a1-bg{background:#eff6ff;color:#1a56b0}
+.badge-a2-bg{background:#f0fdf4;color:#059669}
+.badge-b1-bg{background:#fef9c3;color:#854d0e}
+.badge-b2-bg{background:#dbeafe;color:#1e40af}
+.badge-b2-bg{background:#dbeafe;color:#1e40af}
+.badge-c1-bg{background:#fef2f2;color:#dc2626}
+.badge-locked-bg{background:#f3f4f6;color:#9ca3af}
+.lp-lh-text{}
+.lp-lh-name{font-weight:800;font-size:0.92rem;color:#0c1e3c;direction:ltr;text-align:right}
+.lp-lh-desc{font-size:0.75rem;color:#9ca3af;margin-top:2px;text-align:right}
+.lp-lh-desc .pill{
+  display:inline-block;font-size:0.65rem;font-weight:700;
+  padding:2px 8px;border-radius:10px;margin-right:4px;
+}
+.pill-live{background:#d1fae5;color:#059669}
+.pill-building{background:#fef9c3;color:#b45309}
+.pill-soon{background:#f3f4f6;color:#9ca3af}
+.lp-chevron{
+  font-size:0.7rem;color:#9ca3af;
+  transition:transform 0.22s;flex-shrink:0;
+}
+.lp-level.open .lp-chevron{transform:rotate(180deg)}
+.lp-level.open .lp-level-header{border-bottom:1px solid #f0ece6}
+
+/* Units list */
+.lp-units{display:none;padding:8px 10px 10px}
+.lp-level.open .lp-units{display:block}
+.lp-unit{
+  display:flex;align-items:center;gap:10px;
+  padding:8px 10px;border-radius:10px;
+  text-decoration:none;color:#374151;
+  font-size:0.82rem;font-weight:600;
+  transition:all 0.15s;flex-direction:row-reverse;
+  border:1px solid transparent;margin-bottom:4px;
+}
+.lp-unit:hover{background:#f0f7ff;color:#1a56b0;border-color:#dbeafe}
+.lp-unit-num{
+  font-size:0.68rem;padding:2px 8px;border-radius:8px;
+  font-weight:800;flex-shrink:0;
+}
+.num-a1{background:#eff6ff;color:#1a56b0}
+.num-a2{background:#f0fdf4;color:#059669}
+.num-b1{background:#faf5ff;color:#7c3aed}
+.num-locked{background:#f3f4f6;color:#9ca3af}
+.lp-unit-icon{font-size:0.95rem;flex-shrink:0}
+.lp-unit-name{flex:1;text-align:right}
+.lp-unit-grammar{display:block;font-size:.65rem;color:#93c5fd;font-family:'Lora',serif;margin-top:2px;font-style:italic;opacity:.85}
+.lp-unit.locked{opacity:0.4;pointer-events:none}
+.lp-unit.star{background:#fffdf7;border-color:#fde68a}
+.lp-unit.star:hover{background:#fef9e7;color:#b45309;border-color:#fbbf24}
+.lp-unit.star .lp-unit-num{background:#fef9e7;color:#b45309}
+
+/* Active lang card styling */
+.lang-card.lc-active{
+  background:#0c1e3c;border-color:#0c1e3c;
+  transform:translateY(-3px);
+}
+.lang-card.lc-active .lang-name{color:white}
+.lang-card.lc-active .lang-info{color:rgba(255,255,255,0.5)}
+.lang-card.lc-active .lang-badge{background:rgba(212,160,23,0.2);color:#d4a017}
+
+@media(min-width:541px){
+  .lang-panel{border-radius:24px;margin:auto;max-height:85vh}
+  .lang-panel-overlay{align-items:center}
+}
+
+
+.num-b2{background:linear-gradient(135deg,#003865,#0066cc);color:white}
+.badge-b2-bg{background:#dbeafe;color:#1e40af}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="blob" style="width:500px;height:500px;background:rgba(212,160,23,0.07);top:-150px;right:-150px"></div>
+  <div class="blob" style="width:380px;height:380px;background:rgba(59,130,246,0.06);bottom:-100px;left:-100px"></div>
+  <div class="hero-dots"></div>
+
+  <nav class="nav">
+    <div class="logo">Lingua<span>Path</span></div>
+    <div class="nav-btns">
+      <a href="index.html" class="nbtn">الرئيسية</a>
+      <a href="#languages" class="nbtn">اللغات</a>
+      <a href="#subjects" class="nbtn">التخصصات</a>
+      <a href="unit1_family.html" class="nbtn gold">ابدأ الآن</a>
+    </div>
+  </nav>
+
+  <div class="hero-body">
+    <div class="h-badge">🌍 منصة التعلم الشاملة للمتعلم العربي</div>
+    <h1 class="h-title">Lingua<span class="sh">Path</span></h1>
+    <p class="h-sub">طريقك نحو الإتقان الحقيقي</p>
+    <p class="h-desc">
+      منصة تعليمية شاملة تأخذك من الصفر إلى الاحتراف —
+      <strong>لغات · علوم · طب · دين · سياسة · إدارة.</strong>
+      محتوى تفاعلي مبني خصيصاً للمتعلم العربي الطموح.
+    </p>
+    <div class="h-cta">
+      <a href="unit1_family.html" class="btn-main">ابدأ رحلتك الآن ←</a>
+      <a href="#how" class="btn-sec">كيف تعمل المنصة؟</a>
+    </div>
+    <div class="h-stats">
+      <div class="hs"><div class="hs-n">5+</div><div class="hs-l">لغات عالمية</div></div>
+      <div class="hs"><div class="hs-n">36+</div><div class="hs-l">وحدة جاهزة</div></div>
+      <div class="hs"><div class="hs-n">8</div><div class="hs-l">تخصصات</div></div>
+      <div class="hs"><div class="hs-n">AI</div><div class="hs-l">محادثة ذكية</div></div>
+    </div>
+  </div>
+
+  <svg class="wave" viewBox="0 0 1440 55" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,35 C360,70 1080,0 1440,35 L1440,55 L0,55 Z" fill="#f7f3ed"/>
+  </svg>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="how-inner">
+    <div class="stag reveal">كيف تعمل كل وحدة</div>
+    <h2 class="stitle reveal">٨ أقسام في كل وحدة —<br>تجربة تعلم لا تُنسى</h2>
+    <p class="ssub reveal">كل وحدة في LinguaPath مبنية بنفس الهيكل المدروس. اتبع الترتيب — كل قسم يُعدّك للذي يليه.</p>
+    <div class="steps-grid reveal">
+      <div class="step-card"><div class="step-num">01</div><div class="step-emoji">📚</div><div class="step-title">المفردات</div><div class="step-desc">بطاقات تفاعلية مع صوت حقيقي وجمل أمثلة لكل كلمة.</div></div>
+      <div class="step-card"><div class="step-num">02</div><div class="step-emoji">📖</div><div class="step-title">الحوار والقصة</div><div class="step-desc">حوار حقيقي بالصوت مع ترجمة مخفية تظهر عند الطلب.</div></div>
+      <div class="step-card"><div class="step-num">03</div><div class="step-emoji">✏️</div><div class="step-title">القاعدة</div><div class="step-desc">شرح مبسط وعملي مع أمثلة تفاعلية ومقارنات واضحة.</div></div>
+      <div class="step-card"><div class="step-num">04</div><div class="step-emoji">🎧</div><div class="step-title">الاستماع</div><div class="step-desc">روابط مباشرة من BC و Goethe و DW — مصادر رسمية معتمدة.</div></div>
+      <div class="step-card"><div class="step-num">05</div><div class="step-emoji">✍️</div><div class="step-title">الكتابة</div><div class="step-desc">تدريب كتابي تفاعلي — اكتب وشاهد جملتك تتشكل لحظياً.</div></div>
+      <div class="step-card"><div class="step-num">06</div><div class="step-emoji">💬</div><div class="step-title">المحادثة</div><div class="step-desc">أسئلة حقيقية مع إجابات مقترحة وصوت للتمرين.</div></div>
+      <div class="step-card"><div class="step-num">07</div><div class="step-emoji">🗣️</div><div class="step-title">Real Language</div><div class="step-desc">تعابير وslang يستخدمها الناطقون — ما تجده في الكتب فقط.</div></div>
+      <div class="step-card" style="background:rgba(212,160,23,0.08);border:1px solid rgba(212,160,23,0.15)">
+        <div class="step-num" style="color:rgba(212,160,23,0.3)">08</div>
+        <div class="step-emoji">🤖</div>
+        <div class="step-title" style="color:#d4a017">محادثة AI</div>
+        <div class="step-desc" style="color:rgba(255,255,255,0.5)">تحدث مع ذكاء اصطناعي يستخدم مفردات وحدتك فقط — يصحح ويشجع.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section class="langs-section" id="languages">
+  <div class="langs-inner">
+    <div class="stag reveal">اللغات المتاحة</div>
+    <h2 class="stitle reveal">تعلّم أي لغة —<br>من الصفر حتى الإتقان</h2>
+    <p class="ssub reveal">كل لغة كورس مستقل كامل بنفس الجودة. نبدأ من A1 ونصل للمستوى المتقدم خطوة بخطوة.</p>
+    <div class="langs-grid reveal">
+
+      <!-- ENGLISH -->
+      <div class="lang-card en" onclick="openPanel('en')" style="cursor:pointer">
+        <div class="lang-flag">🇬🇧</div>
+        <div class="lang-name">English</div>
+        <span class="lang-badge badge-live">A1 ✅ · A2 🔜</span>
+        <div class="lang-info">١٨ وحدة · اضغط للمستويات ▾</div>
+      </div>
+
+      <!-- DEUTSCH -->
+      <div class="lang-card de" onclick="openPanel('de')" style="cursor:pointer">
+        <div class="lang-flag">🇩🇪</div>
+        <div class="lang-name">Deutsch</div>
+        <span class="lang-badge badge-new">A1 🆕</span>
+        <div class="lang-info">١٣+ وحدة · اضغط للمستويات ▾</div>
+      </div>
+
+      <!-- FRANÇAIS -->
+      <div class="lang-card fr" onclick="openPanel('fr')" style="cursor:pointer">
+        <div class="lang-flag">🇫🇷</div>
+        <div class="lang-name">Français</div>
+        <span class="lang-badge badge-soon">قريباً</span>
+        <div class="lang-info">الفرنسية · اضغط للتفاصيل ▾</div>
+      </div>
+
+      <!-- TÜRKÇE -->
+      <div class="lang-card tr" onclick="openPanel('tr')" style="cursor:pointer">
+        <div class="lang-flag">🇹🇷</div>
+        <div class="lang-name">Türkçe</div>
+        <span class="lang-badge badge-soon">قريباً</span>
+        <div class="lang-info">التركية · اضغط للتفاصيل ▾</div>
+      </div>
+
+      <!-- 日本語 -->
+      <div class="lang-card ja" onclick="openPanel('ja')" style="cursor:pointer">
+        <div class="lang-flag">🇯🇵</div>
+        <div class="lang-name">日本語</div>
+        <span class="lang-badge badge-soon">قريباً</span>
+        <div class="lang-info">اليابانية · اضغط للتفاصيل ▾</div>
+      </div>
+
+    </div>
+
+    <!-- PANELS: auto-built from COURSES object below -->
+    <div id="panelsContainer"></div>
+
+</section>
+
+<script>
+var COURSES = {
+  en: {
+    label:"English", flag:"🇬🇧",
+    levels: [
+      {
+        id:"en-a1", badge:"A1", badgeClass:"badge-a1-bg", numClass:"num-a1",
+        label:"A1 - Beginner",
+        pill:"pill-live", pillText:"18 وحدة - جاهزة الآن",
+        open:true,
+        units: [
+          { num:"١",  icon:"👨‍👩‍👧‍👦", name:"Family - العائلة",       file:"unit1_family.html" },
+          { num:"٢",  icon:"👋",      name:"Greetings - التحيات",    file:"unit2_greetings.html" },
+          { num:"٣",  icon:"🔢",      name:"Numbers - الأرقام",      file:"unit3_numbers.html" },
+          { num:"٤",  icon:"🎨",      name:"Colours - الألوان",      file:"unit4_colors.html" },
+          { num:"٥",  icon:"🏠",      name:"Home - البيت",           file:"unit5_home.html" },
+          { num:"٦",  icon:"🍽️",     name:"Food - الطعام",          file:"unit6_food.html" },
+          { num:"٧",  icon:"🫀",      name:"Body - الجسم",           file:"unit7_body.html" },
+          { num:"٨",  icon:"👗",      name:"Clothes - الملابس",      file:"unit8_clothes.html" },
+          { num:"٩",  icon:"🕐",      name:"Time - الوقت",           file:"unit9_time.html" },
+          { num:"١٠", icon:"🌤️",     name:"Weather - الطقس",        file:"unit10_weather.html" },
+          { num:"١١", icon:"💼",      name:"Jobs - المهن",           file:"unit11_jobs.html" },
+          { num:"١٢", icon:"🛍️",     name:"Shopping - التسوق",      file:"unit12_shopping.html" },
+          { num:"١٣", icon:"🚌",      name:"Transport - المواصلات",  file:"unit13_transport.html" },
+          { num:"١٤", icon:"🏙️",     name:"City - المدينة",         file:"unit14_city.html" },
+          { num:"١٥", icon:"😊",      name:"Feelings - المشاعر",     file:"unit15_feelings.html" },
+          { num:"١٦", icon:"🎨",      name:"Hobbies - الهوايات",     file:"unit16_hobbies.html" },
+          { num:"١٧", icon:"✈️",      name:"Travel - السفر",         file:"unit17_travel.html" },
+          { num:"١٨", icon:"🏆",      name:"Review + شهادة A1",      file:"unit18_review.html", star:true }
+        ]
+      },
+      {
+        id:"en-a2", badge:"A2", badgeClass:"badge-a2-bg", numClass:"num-a2",
+        label:"A2 - Elementary",
+        pill:"pill-live", pillText:"١٨ وحدة - جاهزة الآن ✅",
+        open:false,
+        units: [
+          { num:"١",     icon:"⏰",  name:"Daily Routine - الروتين",       file:"unit1_a2_routine.html" },
+          { num:"٢",     icon:"🍽️", name:"Restaurants - المطاعم",         file:"unit2_a2_restaurant.html" },
+          { num:"٣",     icon:"🛒",  name:"Shopping - التسوق",             file:"unit3_a2_shopping.html" },
+          { num:"٤",     icon:"🏥",  name:"Health - الصحة",                file:"unit4_a2_health.html" },
+          { num:"٥",     icon:"📅",  name:"Past Simple - الماضي",          file:"unit5_a2_past_simple.html" },
+          { num:"٦",     icon:"⚡",  name:"Irregular Verbs - الأفعال الشاذة", file:"unit6_a2_irregular.html" },
+          { num:"٧",     icon:"🚀",  name:"The Future - المستقبل",          file:"unit7_a2_future.html" },
+          { num:"٨",     icon:"🏠",  name:"Home and Furniture - البيت",     file:"unit8_a2_home.html" },
+          { num:"٩",     icon:"👥",  name:"People - الناس",                 file:"unit9_a2_people.html" },
+          { num:"١٠",    icon:"🌦️", name:"Weather - الطقس",               file:"unit10_a2_weather.html" },
+          { num:"١١", icon:"🎓",  name:"Education - التعليم",       file:"unit11_a2_education.html" },
+          { num:"١٢", icon:"💻",  name:"Technology - التكنولوجيا",   file:"unit12_a2_technology.html" },
+          { num:"١٣", icon:"💪",  name:"Health and Fitness - الصحة", file:"unit13_a2_fitness.html" },
+          { num:"١٤", icon:"✈️",  name:"Travel Experiences - السفر", file:"unit14_a2_travel.html" },
+          { num:"١٥", icon:"💬",  name:"Feelings and Opinions - الآراء", file:"unit15_a2_opinions.html" },
+          { num:"١٦", icon:"📰",  name:"News and Events - الأخبار",  file:"unit16_a2_news.html" },
+          { num:"١٧", icon:"🌟",  name:"Dreams and Ambitions - الأحلام", file:"unit17_a2_ambitions.html" },
+          { num:"١٨", icon:"🏆",  name:"Review + شهادة A2",          file:"unit18_a2_review.html", star:true }
+        ]
+      },
+      {
+        id:"en-b1", badge:"B1", badgeClass:"badge-b1-bg", numClass:"num-b1",
+        label:"B1 - Intermediate",
+        pill:"pill-progress", pillText:"30 وحدة", open:true,
+        units:[
+          { num:"01", icon:"💼", name:"Work and Career",        file:"unit1_b1_work.html",        grammar:"Present Perfect Continuous" },
+          { num:"02", icon:"⏰", name:"Daily Routines",         file:"unit2_b1_routines.html",    grammar:"Frequency Adverbs Advanced" },
+          { num:"03", icon:"🏥", name:"Health and Medicine",    file:"unit3_b1_health.html",      grammar:"Modal Verbs Deduction" },
+          { num:"04", icon:"🤖", name:"Technology and AI",      file:"unit4_b1_tech.html",        grammar:"Reported Speech" },
+          { num:"05", icon:"💰", name:"Money and Finance",      file:"unit5_b1_finance.html",     grammar:"Conditionals Type 1" },
+          { num:"06", icon:"🌍", name:"Culture and Society",    file:"unit6_b1_culture.html",     grammar:"Conditionals Type 2" },
+          { num:"07", icon:"⚖️", name:"Crime and Justice",      file:"unit7_b1_crime.html",       grammar:"Relative Clauses" },
+          { num:"08", icon:"💼", name:"Business English",       file:"unit8_b1_business.html",    grammar:"Formal vs Informal" },
+          { num:"09", icon:"🥗", name:"Food and Nutrition",     file:"unit9_b1_food.html",        grammar:"Quantifiers Advanced" },
+          { num:"10", icon:"🌱", name:"Environment",            file:"unit10_b1_environment.html",grammar:"Causative Have/Get" },
+          { num:"11", icon:"✈️", name:"Travel and Tourism",     file:"unit11_b1_travel.html",     grammar:"Gerunds vs Infinitives" },
+          { num:"12", icon:"🔬", name:"Science and Discovery",  file:"unit12_b1_science.html",    grammar:"Mixed Conditionals" },
+          { num:"13", icon:"🌐", name:"Global Issues",          file:"unit13_b1_globalissues.html",grammar:"Emphatic Structures" },
+          { num:"14", icon:"🎨", name:"Art and Creativity",     file:"unit14_b1_art.html",        grammar:"Dependent Prepositions" },
+          { num:"15", icon:"🧠", name:"Personality and Psychology",   file:"unit15_b1_personality.html",  grammar:"Linkers and Connectors" },
+          { num:"16", icon:"🎭", name:"Culture and Identity",           file:"unit16_b1_culture.html",       grammar:"Participle Clauses" },
+          { num:"17", icon:"🧬", name:"Science and Discovery",          file:"unit17_b1_science.html",       grammar:"Emphasis Structures" },
+          { num:"18", icon:"🌐", name:"Global Challenges",              file:"unit18_b1_global.html",        grammar:"Mixed Conditionals Advanced" },
+          { num:"19", icon:"🎬", name:"Entertainment and Media",        file:"unit19_b1_entertainment.html", grammar:"Concession Clauses" },
+          { num:"20", icon:"📖", name:"Storytelling",                   file:"unit20_b1_storytelling.html",  grammar:"Narrative Tenses Advanced" },
+          { num:"21", icon:"📡", name:"Media and Journalism",           file:"unit21_b1_media.html",         grammar:"Passive Voice Advanced" },
+          { num:"22", icon:"🎓", name:"Education and Learning",         file:"unit22_b1_education.html",     grammar:"Wishes and Regrets" },
+          { num:"23", icon:"🏛️", name:"Politics and Democracy",        file:"unit23_b1_politics.html",      grammar:"Cleft Sentences" },
+          { num:"24", icon:"🏆", name:"Sport and Competition",          file:"unit24_b1_sport.html",         grammar:"Modal Verbs Advanced" },
+          { num:"25", icon:"🗣️", name:"Language and Linguistics",      file:"unit25_b1_language.html",      grammar:"Nominalisation" },
+          { num:"26", icon:"🧠", name:"Philosophy and Ethics",          file:"unit26_b1_philosophy.html",    grammar:"Hedging Language" },
+          { num:"27", icon:"🏙️", name:"Urban Life and City Planning",  file:"unit27_b1_urban.html",         grammar:"Articles Advanced" },
+          { num:"28", icon:"👨‍👩‍👧", name:"Family and Society",      file:"unit28_b1_family.html",         grammar:"Ellipsis and Substitution" },
+          { num:"29", icon:"💼", name:"Work and the Future",            file:"unit29_b1_future.html",        grammar:"Future Perfect" },
+          { num:"30", icon:"🎓", name:"Review and B1 Certificate",      file:"unit30_b1_review.html",        grammar:"Mixed Grammar Review" }
+        ]
+      },
+      {
+        id:"en-b2", badge:"B2", badgeClass:"badge-b2-bg", numClass:"num-b2",
+        label:"B2 - Upper Intermediate",
+        pill:"pill-progress", pillText:"30 وحدة ✅", open:false,
+        units:[
+          { num:"1",  icon:"🔬", name:"Science and Innovation",      file:"unit1_b2_science.html",       grammar:"Impersonal Structures" },
+          { num:"2",  icon:"📈", name:"Economics and Markets",        file:"unit2_b2_economics.html",     grammar:"Inversion Advanced" },
+          { num:"3",  icon:"🧠", name:"Psychology and Behaviour",     file:"unit3_b2_psychology.html",    grammar:"Subjunctive Mood" },
+          { num:"4",  icon:"🌍", name:"Environment and Climate",      file:"unit4_b2_environment.html",   grammar:"Fronting and Emphasis" },
+          { num:"5",  icon:"🏛️", name:"Politics and Power",          file:"unit5_b2_politics.html",      grammar:"Complex Relative Clauses" },
+          { num:"6",  icon:"💊", name:"Health and Medicine",          file:"unit6_b2_health.html",        grammar:"Discourse Markers Advanced" },
+          { num:"7",  icon:"🏺", name:"History and Civilisation",     file:"unit7_b2_history.html",       grammar:"Narrative Distance" },
+          { num:"8",  icon:"🧩", name:"Philosophy of Mind",           file:"unit8_b2_philosophy.html",    grammar:"Comment Clauses" },
+          { num:"9",  icon:"⚖️", name:"Law and Justice",              file:"unit9_b2_law.html",           grammar:"Nominative Absolutes" },
+          { num:"10", icon:"🎓", name:"Education Reform",             file:"unit10_b2_education.html",    grammar:"Stance Adverbials" },
+          { num:"11", icon:"📰", name:"Media and Influence",          file:"unit11_b2_media.html",        grammar:"Reduced Relative Clauses" },
+          { num:"12", icon:"💻", name:"Technology and Society",       file:"unit12_b2_technology.html",   grammar:"Abstract Noun Phrases" },
+          { num:"13", icon:"🎭", name:"Culture and Identity",         file:"unit13_b2_culture.html",      grammar:"Hedging Advanced" },
+          { num:"14", icon:"💼", name:"Business and Globalisation",   file:"unit14_b2_business.html",     grammar:"Concessive Structures" },
+          { num:"15", icon:"🌐", name:"Ethics in the Modern World",   file:"unit15_b2_ethics.html",       grammar:"Cleft Advanced" },
+          { num:"16", icon:"🏙️", name:"Urban Development",           file:"unit16_b2_urban.html",        grammar:"Conditional Inversions" },
+          { num:"17", icon:"✈️", name:"Migration and Belonging",      file:"unit17_b2_migration.html",    grammar:"Wish + Would Advanced" },
+          { num:"18", icon:"🎨", name:"Art and Literature",           file:"unit18_b2_art.html",          grammar:"Ellipsis Advanced" },
+          { num:"19", icon:"⚽", name:"Sport and Society",            file:"unit19_b2_sport.html",        grammar:"Mixed Discourse Patterns" },
+          { num:"20", icon:"🌾", name:"Food Systems",                 file:"unit20_b2_food.html",         grammar:"Register Shift" },
+          { num:"21", icon:"⚡", name:"Inequality and Justice",       file:"unit21_b2_inequality.html",   grammar:"Appositives" },
+          { num:"22", icon:"🔐", name:"Digital Privacy",              file:"unit22_b2_privacy.html",      grammar:"Passive Reporting Advanced" },
+          { num:"23", icon:"🧬", name:"Neuroscience and Memory",      file:"unit23_b2_neuroscience.html", grammar:"Complex Conditionals" },
+          { num:"24", icon:"⚡", name:"Energy and the Future",        file:"unit24_b2_energy.html",       grammar:"Participle Phrases Advanced" },
+          { num:"25", icon:"🗣️", name:"Language and Power",          file:"unit25_b2_language.html",     grammar:"Abstract Patterns" },
+          { num:"26", icon:"🤖", name:"Artificial Intelligence",      file:"unit26_b2_ai.html",           grammar:"Mixed Structures" },
+          { num:"27", icon:"🏥", name:"Global Health",                file:"unit27_b2_globalhealth.html", grammar:"Academic Discourse" },
+          { num:"28", icon:"🚀", name:"Space and Exploration",        file:"unit28_b2_space.html",        grammar:"Register Mastery" },
+          { num:"29", icon:"🗳️", name:"Democracy in Crisis",         file:"unit29_b2_democracy.html",    grammar:"Full Autonomy" },
+          { num:"30", icon:"🎓", name:"B2 Review and Certificate",    file:"unit30_b2_review.html",       grammar:"Mixed Mastery" }
+        ]
+      },
+      {
+        id:"en-c1", badge:"C1", badgeClass:"badge-c1-bg", numClass:"num-locked",
+        label:"C1 - Advanced",
+        pill:"pill-soon", pillText:"قريباً", open:false,
+        units:[ { num:"—", icon:"🔒", name:"أكمل B2 أولاً", locked:true } ]
+      }
+    ]
+  },
+  de: {
+    label:"Deutsch", flag:"🇩🇪",
+    levels: [
+      {
+        id:"de-a1", badge:"A1", badgeClass:"badge-a1-bg", numClass:"num-a1",
+        label:"A1 - Anfänger",
+        pill:"pill-progress", pillText:"30 وحدة ✅", open:true,
+        units:[
+          { num:"1",  icon:"👋", name:"Grüße & Vorstellung — التحيات",       file:"de_unit1_greetings_new.html",  grammar:"فعل sein" },
+          { num:"2",  icon:"👨‍👩‍👧", name:"Die Familie — الأسرة",          file:"de_unit2_family.html",          grammar:"mein / meine / dein" },
+          { num:"3",  icon:"🔢", name:"Zahlen & Datum — الأرقام",            file:"de_unit3_numbers.html",         grammar:"الأرقام 1-100" },
+          { num:"4",  icon:"🎨", name:"Farben & Kleidung — الألوان",         file:"de_unit4_colors.html",          grammar:"فعل tragen" },
+          { num:"5",  icon:"🍽️", name:"Essen & Trinken — الطعام",           file:"de_unit5_food.html",            grammar:"mögen / möchten" },
+          { num:"6",  icon:"🏠", name:"Wohnung & Zimmer — البيت",            file:"de_unit6_home.html",            grammar:"in / an / auf" },
+          { num:"7",  icon:"⏰", name:"Alltag & Routinen — الروتين",         file:"de_unit7_daily.html",           grammar:"الأفعال المنتظمة" },
+          { num:"8",  icon:"🕐", name:"Uhrzeit & Tage — الوقت",             file:"de_unit8_time.html",            grammar:"Wann / Um wie viel Uhr" },
+          { num:"9",  icon:"⛅", name:"Das Wetter — الطقس",                 file:"de_unit9_weather.html",         grammar:"Es ist + Adjektiv" },
+          { num:"10", icon:"🛍️", name:"Einkaufen — التسوق",                file:"de_unit10_shopping.html",       grammar:"dieser / diese / dieses" },
+          { num:"11", icon:"🚌", name:"Verkehr & Reisen — المواصلات",        file:"de_unit11_transport.html",      grammar:"mit / zu / nach" },
+          { num:"12", icon:"🏥", name:"Körper & Gesundheit — الصحة",         file:"de_unit12_body.html",           grammar:"Ich habe Schmerzen" },
+          { num:"13", icon:"💼", name:"Berufe & Arbeit — المهن",             file:"de_unit13_jobs.html",           grammar:"Ich bin + Beruf" },
+          { num:"14", icon:"🎮", name:"Hobbys & Freizeit — الهوايات",        file:"de_unit14_hobbies.html",        grammar:"gern / nicht gern" },
+          { num:"15", icon:"🏙️", name:"Stadt & Orientierung — المدينة",     file:"de_unit15_city.html",           grammar:"Akkusativ" },
+          { num:"16", icon:"📚", name:"Schule & Lernen — المدرسة",           file:"de_unit16_school.html",         grammar:"الأفعال المنفصلة" },
+          { num:"17", icon:"🐶", name:"Tiere & Natur — الحيوانات",           file:"de_unit17_animals.html",        grammar:"der / die / das" },
+          { num:"18", icon:"😊", name:"Gefühle & Emotionen — المشاعر",       file:"de_unit18_feelings.html",       grammar:"Ich fühle mich" },
+          { num:"19", icon:"🍴", name:"Im Restaurant — في المطعم",           file:"de_unit19_restaurant.html",     grammar:"Ich hätte gern" },
+          { num:"20", icon:"🛋️", name:"Haus & Möbel — المنزل والأثاث",     file:"de_unit20_house.html",          grammar:"es gibt + Akkusativ" },
+          { num:"21", icon:"👨‍⚕️", name:"Beim Arzt — عند الطبيب",         file:"de_unit21_doctor.html",         grammar:"Seit wann + Präsens" },
+          { num:"22", icon:"📱", name:"Telefon & Internet — الهاتف",         file:"de_unit22_phone.html",          grammar:"können / müssen" },
+          { num:"23", icon:"💰", name:"Geld & Bank — المال",                file:"de_unit23_money.html",          grammar:"الأرقام الكبيرة" },
+          { num:"24", icon:"🌸", name:"Jahreszeiten — الفصول",              file:"de_unit24_seasons.html",        grammar:"war / hatte" },
+          { num:"25", icon:"✈️", name:"Urlaub & Reisen — السفر",            file:"de_unit25_travel.html",         grammar:"Perfekt" },
+          { num:"26", icon:"🍳", name:"Kochen & Rezepte — الطبخ",           file:"de_unit26_food2.html",          grammar:"Imperativ" },
+          { num:"27", icon:"👗", name:"Kleidung & Mode — الملابس",           file:"de_unit27_clothes.html",        grammar:"Adjektivdeklination" },
+          { num:"28", icon:"⚽", name:"Sport & Fitness — الرياضة",           file:"de_unit28_sport.html",          grammar:"wollen / dürfen / sollen" },
+          { num:"29", icon:"🔮", name:"Pläne & Zukunft — الخطط",            file:"de_unit29_future.html",         grammar:"werden + Infinitiv" },
+          { num:"30", icon:"🎓", name:"Wiederholung & Zertifikat — مراجعة", file:"de_unit30_review.html",         grammar:"Mixed A1 Mastery" }
+        ]
+      },
+      {
+        id:"de-a2", badge:"A2", badgeClass:"badge-a2-bg", numClass:"num-locked",
+        label:"A2 - Elementary",
+        pill:"pill-soon", pillText:"قريباً", open:false,
+        units:[ { num:"—", icon:"🔒", name:"أكمل A1 أولاً", locked:true } ]
+      },
+      {
+        id:"de-b1", badge:"B1", badgeClass:"badge-b1-bg", numClass:"num-locked",
+        label:"B1 - Intermediate",
+        pill:"pill-soon", pillText:"قريباً", open:false,
+        units:[ { num:"—", icon:"🔒", name:"أكمل A2 أولاً", locked:true } ]
+      }
+    ]
+  },
+  fr: {
+    label:"Francais", flag:"🇫🇷",
+    levels: [
+      { id:"fr-a1", badge:"A1", badgeClass:"badge-a1-bg", numClass:"num-locked", label:"A1 - Beginner", pill:"pill-soon", pillText:"قريباً", open:false, units:[ { num:"—", icon:"🔒", name:"قريباً", locked:true } ] },
+      { id:"fr-a2", badge:"A2", badgeClass:"badge-a2-bg", numClass:"num-locked", label:"A2 - Elementary", pill:"pill-soon", pillText:"قريباً", open:false, units:[ { num:"—", icon:"🔒", name:"قريباً", locked:true } ] },
+      { id:"fr-b1", badge:"B1", badgeClass:"badge-b1-bg", numClass:"num-locked", label:"B1 - Intermediate", pill:"pill-soon", pillText:"قريباً", open:false, units:[ { num:"—", icon:"🔒", name:"قريباً", locked:true } ] }
+    ]
+  },
+  tr: {
+    label:"Turkce", flag:"🇹🇷",
+    levels: [
+      { id:"tr-a1", badge:"A1", badgeClass:"badge-a1-bg", numClass:"num-locked", label:"A1 - Beginner", pill:"pill-soon", pillText:"قريباً", open:false, units:[ { num:"—", icon:"🔒", name:"قريباً", locked:true } ] },
+      { id:"tr-a2", badge:"A2", badgeClass:"badge-a2-bg", numClass:"num-locked", label:"A2 - Elementary", pill:"pill-soon", pillText:"قريباً", open:false, units:[ { num:"—", icon:"🔒", name:"قريباً", locked:true } ] },
+      { id:"tr-b1", badge:"B1", badgeClass:"badge-b1-bg", numClass:"num-locked", label:"B1 - Intermediate", pill:"pill-soon", pillText:"قريباً", open:false, units:[ { num:"—", icon:"🔒", name:"قريباً", locked:true } ] }
+    ]
+  },
+  ja: {
+    label:"Japanese", flag:"🇯🇵",
+    levels: [
+      { id:"ja-n5", badge:"N5", badgeClass:"badge-a1-bg", numClass:"num-locked", label:"N5 - Beginner", pill:"pill-soon", pillText:"قريباً", open:false, units:[ { num:"—", icon:"🔒", name:"قريباً", locked:true } ] },
+      { id:"ja-n4", badge:"N4", badgeClass:"badge-a2-bg", numClass:"num-locked", label:"N4 - Elementary", pill:"pill-soon", pillText:"قريباً", open:false, units:[ { num:"—", icon:"🔒", name:"قريباً", locked:true } ] },
+      { id:"ja-n3", badge:"N3", badgeClass:"badge-b1-bg", numClass:"num-locked", label:"N3 - Intermediate", pill:"pill-soon", pillText:"قريباً", open:false, units:[ { num:"—", icon:"🔒", name:"قريباً", locked:true } ] }
+    ]
+  }
+};
+
+(function() {
+  var container = document.getElementById("panelsContainer");
+  var langKeys = Object.keys(COURSES);
+  langKeys.forEach(function(langId) {
+    var lang = COURSES[langId];
+    var levelsHtml = "";
+    lang.levels.forEach(function(lvl) {
+      var unitsHtml = "";
+      lvl.units.forEach(function(u) {
+        if (u.locked) {
+          unitsHtml += "<div class=\"lp-unit locked\"><span class=\"lp-unit-num num-locked\">" + u.num + "</span><span class=\"lp-unit-icon\">" + u.icon + "</span><span class=\"lp-unit-name\">" + u.name + "</span></div>";
+        } else {
+          var sc = u.star ? " star" : "";
+          var grammarTag = u.grammar ? "<span class=\"lp-unit-grammar\">" + u.grammar + "</span>" : "";
+          unitsHtml += "<a href=\"" + u.file + "\" class=\"lp-unit" + sc + "\"><span class=\"lp-unit-num " + lvl.numClass + "\">" + u.num + "</span><span class=\"lp-unit-icon\">" + u.icon + "</span><span class=\"lp-unit-name\">" + u.name + grammarTag + "</span></a>";
+        }
+      });
+      var oc = lvl.open ? " open active" : "";
+      levelsHtml += "<div class=\"lp-level" + oc + "\" id=\"" + lvl.id + "\"><div class=\"lp-level-header\" onclick=\"toggleLevel('" + lvl.id + "')\"><span class=\"lp-chevron\">\u25bc</span><div class=\"lp-lh-right\"><div class=\"lp-lh-text\"><div class=\"lp-lh-name\">" + lvl.label + "</div><div class=\"lp-lh-desc\"><span class=\"pill " + lvl.pill + "\">" + lvl.pillText + "</span></div></div><div class=\"lp-level-badge " + lvl.badgeClass + "\">" + lvl.badge + "</div></div></div><div class=\"lp-units\">" + unitsHtml + "</div></div>";
+    });
+    container.insertAdjacentHTML("beforeend", "<div class=\"lang-panel-overlay\" id=\"panel-" + langId + "\" onclick=\"closePanel('" + langId + "')\"><div class=\"lang-panel\" onclick=\"event.stopPropagation()\"><div class=\"lp-handle\"></div><div class=\"lp-header\"><button class=\"lp-close\" onclick=\"closePanel('" + langId + "')\">&#x2715;</button><div class=\"lp-title\">" + lang.label + " " + lang.flag + "</div><div class=\"lp-flag\">" + lang.flag + "</div></div><div class=\"lp-levels\">" + levelsHtml + "</div></div></div>");
+  });
+})();
+
+function openPanel(lang) {
+  document.querySelectorAll(".lang-card").forEach(function(el){ el.classList.remove("lc-active"); });
+  var card = document.querySelector(".lang-card." + lang);
+  if(card) card.classList.add("lc-active");
+  var panel = document.getElementById("panel-" + lang);
+  if(panel){ panel.classList.add("open"); document.body.style.overflow="hidden"; }
+}
+function closePanel(lang) {
+  var panel = document.getElementById("panel-" + lang);
+  if(panel) panel.classList.remove("open");
+  document.querySelectorAll(".lang-card").forEach(function(el){ el.classList.remove("lc-active"); });
+  document.body.style.overflow="";
+}
+function toggleLevel(id) {
+  var el = document.getElementById(id);
+  if(!el) return;
+  el.classList.toggle("open");
+  el.classList.toggle("active");
+}
+document.addEventListener("keydown", function(e){
+  if(e.key==="Escape"){
+    document.querySelectorAll(".lang-panel-overlay.open").forEach(function(p){ p.classList.remove("open"); });
+    document.querySelectorAll(".lang-card").forEach(function(el){ el.classList.remove("lc-active"); });
+    document.body.style.overflow="";
+  }
+});
+</script>
+
+
+<!-- GUIDE -->
+<section class="guide-section" id="guide">
+  <div class="guide-inner">
+    <div class="stag reveal">دليل الاستخدام</div>
+    <h2 class="stitle reveal">كيف تستخدم المنصة<br>بشكل صحيح؟</h2>
+    <div class="guide-grid">
+      <div class="guide-steps reveal">
+        <div class="g-step">
+          <div class="g-step-num">١</div>
+          <div><h4>ابدأ من الوحدة الأولى دائماً</h4><p>لا تتخطى الوحدات — كل وحدة أساس للتي بعدها. حتى لو تعرف بعض الكلمات، ابدأ من البداية لأساس قوي.</p></div>
+        </div>
+        <div class="g-step">
+          <div class="g-step-num">٢</div>
+          <div><h4>اتبع الترتيب داخل كل وحدة</h4><p>المفردات ← الحوار ← القاعدة ← الاستماع ← الكتابة ← المحادثة ← Real Language ← AI. الترتيب مدروس.</p></div>
+        </div>
+        <div class="g-step">
+          <div class="g-step-num">٣</div>
+          <div><h4>اضغط كل كلمة واسمعها بصوت عالٍ</h4><p>النطق الصحيح يأتي من التكرار السمعي. استمع وكرر بصوت عالٍ — لا تكتفِ بالقراءة فقط.</p></div>
+        </div>
+        <div class="g-step">
+          <div class="g-step-num">٤</div>
+          <div><h4>تحدث مع AI في نهاية كل وحدة</h4><p>الذكاء الاصطناعي سيحادثك بمفردات الوحدة فقط — هذا يثبت المعلومة بشكل لا يُنسى.</p></div>
+        </div>
+        <div class="g-step">
+          <div class="g-step-num">٥</div>
+          <div><h4>لا تنتقل قبل ٨٠٪ في الاختبار</h4><p>إذا حصلت على أقل من ٨ من ١٠ — راجع الوحدة مرة أخرى. الجودة أهم من السرعة.</p></div>
+        </div>
+        <div class="g-step">
+          <div class="g-step-num">٦</div>
+          <div><h4>٣٠ دقيقة يومياً = نتائج مضمونة</h4><p>الاستمرارية أهم من الكثافة. ٣٠ دقيقة يومياً لمدة ٣ أشهر = تحول حقيقي في مستواك.</p></div>
+        </div>
+      </div>
+      <div class="unit-box reveal">
+        <p class="unit-box-title">هيكل الوحدة</p>
+        <div class="u-tab active"><div class="u-tab-i">📚</div><div><div class="u-tab-name">المفردات</div><div class="u-tab-desc">بطاقات + صوت + جمل مثال</div></div></div>
+        <div class="u-tab"><div class="u-tab-i">📖</div><div><div class="u-tab-name">الحوار</div><div class="u-tab-desc">قصة + ترجمة مخفية</div></div></div>
+        <div class="u-tab"><div class="u-tab-i">✏️</div><div><div class="u-tab-name">القاعدة</div><div class="u-tab-desc">شرح + أمثلة تفاعلية</div></div></div>
+        <div class="u-tab"><div class="u-tab-i">🎧</div><div><div class="u-tab-name">الاستماع</div><div class="u-tab-desc">BC / Goethe / DW</div></div></div>
+        <div class="u-tab"><div class="u-tab-i">✍️</div><div><div class="u-tab-name">الكتابة</div><div class="u-tab-desc">تدريب تفاعلي</div></div></div>
+        <div class="u-tab"><div class="u-tab-i">🗣️</div><div><div class="u-tab-name">Real Language</div><div class="u-tab-desc">slang + تعابير حقيقية</div></div></div>
+        <div class="u-tab" style="border-color:rgba(212,160,23,0.2);background:rgba(212,160,23,0.05)">
+          <div class="u-tab-i">🤖</div>
+          <div><div class="u-tab-name" style="color:#d4a017">محادثة AI</div><div class="u-tab-desc">تحدث مع الذكاء الاصطناعي</div></div>
+        </div>
+        <div class="u-tab"><div class="u-tab-i">✅</div><div><div class="u-tab-name">الاختبار</div><div class="u-tab-desc">١٠ أسئلة + تصحيح فوري</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBJECTS -->
+<section class="subjects-section" id="subjects">
+  <div class="subjects-inner">
+    <div class="stag reveal">خارطة طريق المنصة</div>
+    <h2 class="stitle reveal">منصة شاملة —<br>كل ما تحتاجه في مكان واحد</h2>
+    <p class="ssub reveal">LinguaPath ليست فقط للغات — هي منصة معرفية شاملة للمتعلم العربي الطموح.</p>
+    <div class="subj-grid reveal">
+      <div class="subj-card"><span class="subj-status s-live">متاح</span><div class="subj-icon">🌍</div><div class="subj-title">اللغات</div><div class="subj-desc">إنجليزي · ألماني · فرنسي · تركي · ياباني — من A1 للمتقدم</div></div>
+      <div class="subj-card"><span class="subj-status s-soon">قريباً</span><div class="subj-icon">🕌</div><div class="subj-title">الديانات</div><div class="subj-desc">مصطلحات دينية بالإنجليزية — الإسلام · المسيحية · اليهودية · البوذية</div></div>
+      <div class="subj-card"><span class="subj-status s-soon">قريباً</span><div class="subj-icon">🏛️</div><div class="subj-title">السياسة</div><div class="subj-desc">المصطلحات السياسية · الحكم · العلاقات الدولية · القانون</div></div>
+      <div class="subj-card"><span class="subj-status s-plan">مخطط</span><div class="subj-icon">⚗️</div><div class="subj-title">العلوم</div><div class="subj-desc">كيمياء · فيزياء · أحياء · رياضيات — مصطلحات علمية باللغات</div></div>
+      <div class="subj-card"><span class="subj-status s-plan">مخطط</span><div class="subj-icon">🏥</div><div class="subj-title">الطب</div><div class="subj-desc">عيون · هضمي · تنفسي · تناسلي · كسور — للأطباء والمرضى</div></div>
+      <div class="subj-card"><span class="subj-status s-plan">مخطط</span><div class="subj-icon">📊</div><div class="subj-title">الإدارة والأعمال</div><div class="subj-desc">إدارة · تسويق · محاسبة · ريادة أعمال بالمصطلحات الدولية</div></div>
+      <div class="subj-card"><span class="subj-status s-plan">مخطط</span><div class="subj-icon">⚖️</div><div class="subj-title">القانون</div><div class="subj-desc">المصطلحات القانونية · حقوق الإنسان · القانون التجاري</div></div>
+      <div class="subj-card"><span class="subj-status s-plan">مخطط</span><div class="subj-icon">💻</div><div class="subj-title">التكنولوجيا</div><div class="subj-desc">برمجة · ذكاء اصطناعي · أمن سيبراني بالمصطلحات الدولية</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <div class="q-mark">"</div>
+  <p class="q-text reveal">
+    "التعلم ليس وجهة —
+    هو <span>رحلة لا تنتهي.</span>
+    LinguaPath بُنيت
+    لتكون رفيقك في كل خطوة."
+  </p>
+  <p class="q-author reveal">LinguaPath · Shahad Al-Bayati · 2025</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="f-brand">
+        <div class="flogo">Lingua<span>Path</span></div>
+        <p>منصة تعليمية شاملة للمتعلم العربي — لغات، علوم، طب، وأكثر.</p>
+      </div>
+      <div class="f-links">
+        <div class="f-col">
+          <h4>اللغات</h4>
+          <a href="unit1_family.html">English A1-A2</a>
+          <a href="de_unit1_greetings.html">Deutsch A1</a>
+          <a>Français (قريباً)</a>
+          <a>Türkçe (قريباً)</a>
+          <a>日本語 (قريباً)</a>
+        </div>
+        <div class="f-col">
+          <h4>التخصصات</h4>
+          <a>الديانات</a>
+          <a>السياسة</a>
+          <a>الطب</a>
+          <a>الإدارة</a>
+          <a>العلوم</a>
+        </div>
+        <div class="f-col">
+          <h4>المنصة</h4>
+          <a href="introduction.html">المقدمة</a>
+          <a href="linguapath_resources.html">مركز الموارد</a>
+          <a href="index.html">الصفحة الرئيسية</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="f-copy">© 2025 LinguaPath · إعداد المحتوى: Shahad Al-Bayati · جميع الحقوق محفوظة</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('show');obs.unobserve(e.target);}
+  });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+document.querySelectorAll('.u-tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.u-tab').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>

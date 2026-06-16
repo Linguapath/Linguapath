@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath B1 — Unit 21: Media and Journalism</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Tajawal',sans-serif;background:#f0f4fa;direction:rtl;min-height:100vh}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#1e3a8a;border-radius:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(30,58,138,.35)}50%{box-shadow:0 0 0 8px rgba(30,58,138,0)}}
+.nav-bar{background:linear-gradient(135deg,#0a1628,#1e3a8a);padding:10px 12px;display:flex;justify-content:center;gap:4px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.nb{border:none;border-radius:22px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s}
+.nb.on{background:#f0a000;color:#0a1628}
+.nb:not(.on){background:rgba(255,255,255,.1);color:rgba(255,255,255,.85)}
+.hero{background:linear-gradient(135deg,#0a1628 0%,#1e3a8a 55%,#1d4ed8 100%);color:white;padding:32px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(240,160,0,.06)}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04)}
+.b1tag{display:inline-block;background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-size:.72rem;font-weight:900;padding:4px 14px;border-radius:20px;letter-spacing:1.5px;margin-bottom:10px}
+.sec{display:none;max-width:900px;margin:0 auto;padding:32px 16px 80px;animation:fadeUp .4s ease}
+.sec.on{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 3px 20px rgba(0,0,0,.06);margin-bottom:22px;overflow:hidden}
+.ch{background:#0a1628;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.ch h3{font-size:1rem;font-weight:700}
+.ch .sub{font-size:.75rem;color:#93c5fd;margin-top:1px}
+.cb{padding:22px}
+.vocab-card{background:white;border-radius:16px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 14px rgba(10,22,40,.08);border:1px solid #e5ebf8;transition:transform .2s,box-shadow .2s}
+.vocab-card:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(10,22,40,.13)}
+.vhead{background:linear-gradient(135deg,#0a1628,#1e3a8a);display:flex;flex-direction:row-reverse;align-items:center;padding:14px 18px;gap:14px}
+
+
+.vinfo{flex:1;text-align:right}
+.vword{font-family:'Lora',serif;font-size:1.18rem;font-weight:700;color:white;direction:ltr;text-align:left}
+.vpron{font-size:.78rem;font-weight:700;color:#fde68a;margin-top:3px;direction:ltr;text-align:left}
+.var{font-size:.93rem;font-weight:700;color:rgba(255,255,255,.9);margin-top:3px}
+.vspk{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.25);background:transparent;color:white;font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:all .18s;display:flex;align-items:center;justify-content:center}
+.vspk:hover{background:rgba(255,255,255,.2);transform:scale(1.08)}
+.vspk.playing{background:#f0a000;border-color:#f0a000;animation:pulse 1s infinite}
+.vbody{padding:14px 16px 16px}
+.vgrid2{margin-bottom:10px}
+.vrow-pair{display:flex;gap:8px;margin-bottom:8px}
+.vrow-pair .vcell{flex:1;min-width:0}
+.vcell{border-radius:10px;padding:10px 13px;cursor:pointer;transition:all .15s;user-select:none;direction:ltr}
+.vcell:hover{filter:brightness(.96)}
+.vcell:active{transform:scale(.98)}
+.c-syn{background:#f0fdf4;border:1px solid #bbf7d0}
+.c-ant{background:#fff7ed;border:1px solid #fed7aa}
+.c-col{background:#eff6ff;border:1px solid #bfdbfe}
+.c-prep{background:#faf5ff;border:1px solid #ddd6fe}
+.vlbl{font-size:.65rem;font-weight:900;letter-spacing:.7px;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:5px;direction:ltr;justify-content:flex-start}
+.c-syn .vlbl{color:#15803d}.c-ant .vlbl{color:#ea580c}
+.c-col .vlbl{color:#2563eb}.c-prep .vlbl{color:#7c3aed}
+.vlbl::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.c-syn .vlbl::before{background:#15803d}.c-ant .vlbl::before{background:#ea580c}
+.c-col .vlbl::before{background:#2563eb}.c-prep .vlbl::before{background:#7c3aed}
+.vval{font-family:'Lora',serif;font-size:.82rem;color:#374151;direction:ltr;line-height:1.6}
+.vtr{font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px;padding-top:5px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif}
+.vcell.show-tr .vtr{display:block}
+.vex{font-family:'Lora',serif;font-size:.87rem;color:#374151;direction:ltr;font-style:italic;padding:10px 14px;background:#f8faff;border-radius:10px;border-right:3px solid #f0a000;cursor:pointer;user-select:none}
+.vex-tr{font-size:.8rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding-top:6px;border-top:1px dashed #e5e7eb;display:none;font-family:'Tajawal',sans-serif;font-style:normal}
+.vex.show-ex-tr .vex-tr{display:block}
+.sline{font-family:'Lora',serif;font-size:.97rem;line-height:2;padding:5px 8px;border-radius:6px;direction:ltr;transition:background .2s}
+.sline.hl{background:#fef3c7}
+.lline{font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#cbd5e1;padding:3px 6px;border-radius:5px;direction:ltr;transition:background .2s}
+.lline.hl{background:rgba(240,160,0,.18);color:#fde68a}
+.sctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-direction:row-reverse;margin-bottom:16px}
+.pbtn{background:#1e3a8a;color:white;border:none;border-radius:24px;padding:9px 20px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s}
+.pbtn:hover{background:#1d4ed8}
+.spdbtn{padding:5px 12px;border-radius:18px;border:2px solid #cbd5e1;background:white;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;color:#64748b;transition:all .15s}
+.spdbtn.on{border-color:#1e3a8a;background:#1e3a8a;color:white}
+.rtext{font-family:'Lora',serif;font-size:.95rem;line-height:2;color:#374151;direction:ltr;padding:20px;background:#f8faff;border-radius:14px;border:1px solid #e5eaf5;margin-bottom:18px}
+.rtext p{margin-bottom:14px}
+.gbox{background:linear-gradient(135deg,#eff6ff,#e0effe);border:2px solid #bfdbfe;border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.gpat{background:white;border-radius:10px;padding:12px 16px;margin-bottom:10px;border-right:4px solid #2563eb;direction:ltr}
+.geg{font-family:'Lora',serif;font-size:.97rem;color:#0a1628;font-weight:600}
+.geg em{color:#f0a000;font-style:normal;font-weight:800}
+.gar{font-family:'Tajawal',sans-serif;font-size:.85rem;color:#64748b;direction:rtl;text-align:right;margin-top:5px}
+.qopt{padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;font-family:'Lora',serif;font-size:.9rem;direction:ltr;background:white;transition:all .15s;margin-bottom:7px;text-align:left}
+.qopt:hover{border-color:#1e3a8a;background:#eff6ff}
+.qopt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.qopt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.copt{padding:9px 14px;border:2px solid #e5e7eb;border-radius:9px;cursor:pointer;font-family:'Lora',serif;font-size:.87rem;direction:ltr;background:white;transition:all .15s;margin-bottom:6px}
+.copt:hover{border-color:#1e3a8a;background:#eff6ff}
+.copt.ok{border-color:#059669;background:#ecfdf5;color:#059669}
+.copt.no{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+.wq-block{margin-bottom:18px}
+.wq-model{font-family:'Lora',serif;font-size:.8rem;color:#374151;font-style:italic;direction:ltr;padding:10px 14px;background:#f0f9ff;border-radius:8px;border-right:3px solid #bfdbfe;line-height:1.7;display:none;margin-bottom:8px}
+.wq-model.show{display:block}
+.wq-model-btn{background:#dbeafe;border:none;border-radius:20px;padding:4px 14px;font-family:'Tajawal',sans-serif;font-size:.76rem;font-weight:700;color:#1e3a8a;cursor:pointer;margin-bottom:8px;transition:all .15s}
+.wq-model-btn:hover{background:#1e3a8a;color:white}
+.wq-en{font-family:'Lora',serif;font-size:.93rem;font-weight:700;color:#0a1628;direction:ltr;margin-bottom:3px}
+.wq-ar{font-size:.78rem;color:#9ca3af;direction:rtl;text-align:right;margin-bottom:8px;font-family:'Tajawal',sans-serif}
+.winput{width:100%;border:none;border-bottom:2px solid #f0a000;background:transparent;font-family:'Lora',serif;font-size:.95rem;color:#0a1628;outline:none;padding:5px 3px;direction:ltr;margin-bottom:14px}
+.winput:focus{border-color:#1e3a8a}
+.btn{border:none;border-radius:28px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all .18s;padding:10px 24px;font-size:.9rem}
+.btn:hover{opacity:.88;transform:scale(.98)}
+.bd{background:#1e3a8a;color:white}
+.bg{background:#e5e7eb;color:#374151}
+.bgold{background:linear-gradient(135deg,#f0a000,#f0c040);color:#0a1628;font-weight:900}
+.navrow{display:flex;justify-content:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.spksmall{width:32px;height:32px;border-radius:50%;border:none;background:#dbeafe;color:#1e3a8a;font-size:.85rem;cursor:pointer;flex-shrink:0;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.spksmall:hover{background:#1e3a8a;color:white}
+.expr-card{background:#f5f3ff;border:1px solid #ddd6fe;border-radius:12px;padding:16px;margin-bottom:12px}
+.slang-card{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px}
+.ev-card{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px}
+@media(max-width:580px){.vgrid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="nav-bar">
+  <button class="nb on"  onclick="show('vocab',this)">📚 المفردات</button>
+  <button class="nb" onclick="show('story',this)">📖 القصة</button>
+  <button class="nb" onclick="show('reading',this)">📰 القراءة</button>
+  <button class="nb" onclick="show('grammar',this)">✏️ القاعدة</button>
+  <button class="nb" onclick="show('listening',this)">🎧 الاستماع</button>
+  <button class="nb" onclick="show('writing',this)">✍️ الكتابة</button>
+  <button class="nb" onclick="show('speaking',this)">💬 المحادثة</button>
+  <button class="nb" onclick="show('realeng',this)">🗣️ Real English</button>
+  <button class="nb" onclick="show('pv',this)">💬 Phrasal Verbs</button>
+  <button class="nb" onclick="show('quiz',this)">✅ الاختبار</button>
+</div>
+<div class="hero">
+  <div class="b1tag">B1 — INTERMEDIATE</div>
+  <div style="font-size:.75rem;letter-spacing:3px;color:rgba(255,255,255,.45);font-weight:700;margin-bottom:8px">UNIT 21</div>
+  <h1 style="font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;margin-bottom:6px"> Culture and Society</h1>
+  <p style="font-size:1rem;color:rgba(255,255,255,.65);margin-bottom:4px">الإعلام والصحافة</p>
+  <p style="font-size:.82rem;color:rgba(255,255,255,.4)">القاعدة: Passive Voice Advanced — is being reported / had been leaked</p>
+  <div style="display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap">
+    <a href="unit20_b1_storytelling.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">← الوحدة ٢٠</a>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <a href="unit22_b1_education.html" style="color:rgba(255,255,255,.5);font-size:.82rem;text-decoration:none">الوحدة ٢٢ ←</a>
+  </div>
+</div>
+
+<div id="sec-vocab" class="sec on">
+  <div style="text-align:right;color:#64748b;font-size:.88rem;max-width:900px;margin:0 auto 16px;padding:0 16px">💡 اضغط 🔊 للكلمة الرئيسية — اضغط على أي خلية لتسمع نطقها وتظهر ترجمتها</div>
+  <div id="vocabList" style="max-width:900px;margin:0 auto;padding:0 16px"></div>
+  <div class="navrow"><button class="btn bd" onclick="show('story',null)">القصة ←</button></div>
+</div>
+
+<div id="sec-story" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📖</span><div><h3>القصة القصيرة</h3><div class="sub">Yasmin تحكي عن الإعلام والصحافة — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button id="trBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:22px;padding:7px 16px;font-family:'Tajawal',sans-serif;font-size:.8rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+        <button class="pbtn" id="storyBtn" onclick="toggleStory()"><span id="sIcon">▶</span><span id="sTxt">استمع للقصة</span></button>
+        <button class="spdbtn on" onclick="setSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setSpd(0.75,this)">بطيء</button>
+      </div>
+      <div id="storyBox" style="border-right:4px solid #f0a000;padding:16px 20px;background:#fffdf7;border-radius:0 14px 14px 0"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn bd" onclick="show('reading',null)">القراءة ←</button>
+  </div>
+</div>
+
+<div id="sec-reading" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">📰</span><div><h3>القراءة المعمّقة</h3><div class="sub">نص 350 كلمة + 5 أسئلة فهم</div></div></div>
+    <div class="cb">
+      <div class="rtext" id="readingText"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الفهم</p>
+      <div id="compList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkComp()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetComp()">↺ إعادة</button>
+      </div>
+      <div id="compRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('story',null)">→ القصة</button>
+    <button class="btn bd" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✏️</span><div><h3>القاعدة</h3><div class="sub">Dependent Prepositions — الحروف الجر المقيّدة</div></div></div>
+    <div class="cb" id="grammarBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('reading',null)">→ القراءة</button>
+    <button class="btn bd" onclick="show('listening',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listening" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🎧</span><div><h3>الاستماع المضمّن</h3><div class="sub">حوار بين Dr. James 👨 و Dr. Sarah 👩 — اضغط ▶</div></div></div>
+    <div class="cb">
+      <div class="sctrl">
+        <button class="pbtn" id="listenBtn" onclick="toggleListen()"><span id="lIcon">▶</span><span id="lTxt">شغّل المونولوج</span></button>
+        <button class="spdbtn on" onclick="setLSpd(1,this)">عادي</button>
+        <button class="spdbtn" onclick="setLSpd(0.75,this)">بطيء</button>
+      </div>
+      <div class="lscript" id="listenScript" style="background:#0f172a;border-radius:14px;padding:18px 20px;margin-bottom:16px"></div>
+      <p style="font-weight:800;color:#0a1628;margin-bottom:12px;text-align:right">📝 أسئلة الاستماع</p>
+      <div id="listenQList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button class="btn bd" onclick="checkListen()">✔ تحقق</button>
+        <button class="btn bg" onclick="resetListen()">↺ إعادة</button>
+      </div>
+      <div id="listenRes" style="display:none;text-align:center;padding:14px;margin-top:12px;background:#f0fdf4;border-radius:12px;font-weight:800;color:#0a1628"></div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn bd" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✍️</span><div><h3>الكتابة</h3><div class="sub">اكتب عن الإعلام والصحافة</div></div></div>
+    <div class="cb">
+      <div style="background:#fffdf7;border:2px dashed #f0a000;border-radius:14px;padding:20px;margin-bottom:14px">
+        <div class="wq-block">
+          <div class="wq-en">What makes a news story trustworthy? How do you evaluate sources?</div>
+          <div class="wq-ar">ما الذي يجعل خبراً جديراً بالثقة؟ كيف تقيّم المصادر؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">A trustworthy news story is one in which multiple independent sources have been cited, claims have been verified, and corrections are published when errors are made. The journalist's identity and the outlet's editorial standards should be transparent. When a story is being reported by several credible organisations simultaneously, its reliability is significantly increased.</div>
+          <input class="winput" id="w1" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">How has social media changed journalism and the way news is consumed?</div>
+          <div class="wq-ar">كيف غيّرت وسائل التواصل الاجتماعي الصحافة وطريقة استهلاك الأخبار؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">News is now being consumed in real-time, which has dramatically accelerated the publication cycle. Stories are being shared before they have been properly verified, and corrections are rarely seen by those who viewed the original error. The traditional gatekeeping role of editors has been largely bypassed by social media algorithms.</div>
+          <input class="winput" id="w2" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">Is complete journalistic objectivity possible? Should journalists express opinions?</div>
+          <div class="wq-ar">هل الموضوعية الصحفية الكاملة ممكنة؟ هل يجب على الصحفيين التعبير عن آرائهم؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">Complete objectivity cannot be achieved, as every editorial decision involves a degree of judgment. However, news reporting should be clearly distinguished from opinion journalism. Opinions should be labelled transparently so that readers can assess the information they are being given with appropriate critical awareness.</div>
+          <input class="winput" id="w3" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block">
+          <div class="wq-en">What are the dangers of disinformation and how can it be countered?</div>
+          <div class="wq-ar">ما مخاطر التضليل الإعلامي وكيف يمكن مواجهته؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">Disinformation is being spread faster than corrections can be issued, which makes it extraordinarily dangerous to democratic processes. False narratives, once established, are extremely difficult to displace. Media literacy education needs to be prioritised, and platforms should be required to take greater responsibility for the content being published on them.</div>
+          <input class="winput" id="w4" placeholder="Write your answer here..." oninput="buildW()">
+        </div>
+        <div class="wq-block" style="margin-bottom:0">
+          <div class="wq-en">Should freedom of the press ever be limited? Under what circumstances?</div>
+          <div class="wq-ar">هل يجب أن تُقيَّد حرية الصحافة أحياناً؟ في أي ظروف؟</div>
+          <button class="wq-model-btn" onclick="var m=this.nextElementSibling;m.classList.toggle('show');this.textContent=m.classList.contains('show')?'🙈 إخفاء النموذج':'✏️ نموذج للإجابة'">✏️ نموذج للإجابة</button>
+          <div class="wq-model">A free press is regarded as essential to democracy and should be protected vigorously. Limitations can be justified only in narrow circumstances — when national security is genuinely threatened or when privacy rights are being violated without public interest justification. Governments should never be permitted to restrict journalism merely because criticism is being directed at those in power.</div>
+          <input class="winput" id="w5" placeholder="Write your answer here..." oninput="buildW()" style="margin-bottom:0">
+        </div></div>
+      <div id="wOut" style="background:white;border:1px solid #e5eaf5;border-radius:12px;padding:16px;min-height:70px;font-family:'Lora',serif;font-size:.93rem;line-height:2;color:#374151;direction:ltr">
+        <span style="color:#9ca3af;font-style:italic">✨ ستظهر فقرتك هنا...</span>
+      </div>
+    </div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('listening',null)">→ الاستماع</button>
+    <button class="btn bd" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">💬</span><div><h3>المحادثة</h3><div class="sub">Speaking Challenge</div></div></div>
+    <div class="cb" id="speakBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn bd" onclick="show('realeng',null)">Real English ←</button>
+  </div>
+</div>
+
+<div id="sec-realeng" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">🗣️</span><div><h3>Real English</h3><div class="sub">اضغط على الجملة لتسمعها وتظهر ترجمتها</div></div></div>
+    <div class="cb" id="realBox"></div>
+  </div>
+  <div class="navrow">
+    <button class="btn bg" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn bd" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-pv" class="sec">
+  <div class="card">
+    <div class="card-title">💬 Phrasal Verbs — الإعلام والصحافة</div>
+    <p style="font-size:.82rem;color:#64748b;text-align:right;margin-bottom:16px;font-family:Tajawal,sans-serif">اضغط على الجملة لتسمعها وترى ترجمتها 🔊</p>
+    <div id="pvBox"></div>
+  </div>
+</div>
+
+<div id="sec-quiz" class="sec">
+  <div class="card">
+    <div class="ch"><span style="font-size:1.3rem">✅</span><div><h3>اختبار الوحدة</h3><div class="sub">10 أسئلة — مفردات + قواعد + collocations</div></div></div>
+    <div class="cb">
+      <div id="quizList"></div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:18px">
+        <button class="btn bgold" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn bg" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizRes" style="display:none;text-align:center;padding:22px;margin-top:16px;background:#f0fdf4;border-radius:14px">
+        <div id="qEmoji" style="font-size:2.5rem;margin-bottom:8px"></div>
+        <div id="qScore" style="font-weight:800;font-size:1.1rem;color:#0a1628;margin-bottom:4px"></div>
+        <div id="qMsg" style="font-size:.88rem;color:#64748b"></div>
+      </div>
+    </div>
+  </div>
+  <div style="background:linear-gradient(135deg,#0a1628,#1e3a8a);border-radius:18px;padding:28px;text-align:center;margin-top:8px;max-width:900px;margin-left:auto;margin-right:auto">
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:white;margin-bottom:6px">أحسنت! أكملت وحدة الإعلام والصحافة</div>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:16px">الوحدة الثانية والعشرون: Education</p>
+    <button class="btn bgold" onclick="location.href='unit22_b1_education.html'">الوحدة الحادية والعشرون ←</button>
+  </div>
+</div>
+
+<script>
+var V=[
+  {w:"investigative journalism",p:"إنفيستيغيتف جيرنليزم",a:"الصحافة الاستقصائية",syn:"in-depth reporting, watchdog journalism",ant:"surface reporting, press release journalism",col:"investigative journalism piece / practise investigative journalism",prep:"investigation into (scandal) / by (journalist)",ex:"The corruption had been concealed for years before it was exposed by investigative journalism.",ar_syn:"صحافة عميقة، صحافة رقابية",ar_ant:"تقارير سطحية",ar_col:"قطعة استقصائية / يمارس الصحافة الاستقصائية",ar_prep:"تحقيق في فضيحة / من قِبل الصحفي",ar_ex:"الفساد كان مخفياً لسنوات قبل أن تكشفه الصحافة الاستقصائية."},
+  {w:"source",p:"سورس",a:"المصدر",syn:"informant, contact, reference",ant:"unverified claim, rumour",col:"reliable source / confidential source / cite a source",prep:"source of (information) / according to (source)",ex:"The document had been leaked by an anonymous source who had not been identified.",ar_syn:"مخبر، جهة اتصال، مرجع",ar_ant:"ادعاء غير موثق، إشاعة",ar_col:"مصدر موثوق / سري / يستشهد بمصدر",ar_prep:"مصدر المعلومة / وفقاً للمصدر",ar_ex:"الوثيقة كانت قد سرّبها مصدر مجهول لم يُكشف عنه."},
+  {w:"breaking news",p:"بريكينغ نيوز",a:"الأخبار العاجلة",syn:"latest news, live update, developing story",ant:"old news, archived story",col:"breaking news alert / cover breaking news / report breaking news",prep:"breaking news on (event) / across (channels)",ex:"The story was being reported as breaking news across all major networks simultaneously.",ar_syn:"آخر الأخبار، تحديث مباشر",ar_ant:"أخبار قديمة، قصة مؤرشفة",ar_col:"تنبيه عاجل / يغطي / يُبلّغ",ar_prep:"أخبار عاجلة عن حدث / عبر القنوات",ar_ex:"القصة كانت تُبلَّغ عنها كخبر عاجل عبر جميع الشبكات الكبرى في آن واحد."},
+  {w:"press freedom",p:"بريس فريدم",a:"حرية الصحافة",syn:"media freedom, journalistic independence",ant:"censorship, state control, suppression",col:"defend press freedom / press freedom index / undermine press freedom",prep:"freedom of (press) / freedom in (country)",ex:"Press freedom has been eroded significantly in several countries over the past decade.",ar_syn:"حرية الإعلام، استقلالية صحفية",ar_ant:"رقابة، سيطرة الدولة، قمع",ar_col:"يدافع عن حرية الصحافة / مؤشر / يُقوّض",ar_prep:"حرية الصحافة / في البلد",ar_ex:"حرية الصحافة تآكلت بشكل ملحوظ في عدة دول على مدى العقد الماضي."},
+  {w:"editorial",p:"إديتوريال",a:"المقال الافتتاحي / التحريري",syn:"opinion piece, leader, commentary",ant:"news report, factual article",col:"editorial board / write an editorial / editorial policy",prep:"editorial on (issue) / in (newspaper)",ex:"An editorial had been published criticising the government's handling of the crisis.",ar_syn:"مقال رأي، تعليق",ar_ant:"تقرير إخباري، مقال واقعي",ar_col:"مجلس تحريري / يكتب / سياسة تحريرية",ar_prep:"افتتاحية حول قضية / في الصحيفة",ar_ex:"افتتاحية كانت قد نُشرت تنتقد تعامل الحكومة مع الأزمة."},
+  {w:"whistleblower",p:"ويسل-بلوير",a:"المُبلِّغ عن المخالفات",syn:"informant, leaker, truth-teller",ant:"cover-up participant, complicit employee",col:"whistleblower protection / act as whistleblower / whistleblower leak",prep:"whistleblower in (organisation) / protection of (whistleblower)",ex:"The scandal would never have been exposed had the whistleblower not taken extraordinary personal risk.",ar_syn:"مُخبر، مُسرِّب، قائل الحق",ar_ant:"متستر، موظف متواطئ",ar_col:"حماية المُبلِّغ / يتصرف كمُبلِّغ / تسريب",ar_prep:"مُبلِّغ في المنظمة / حماية المُبلِّغ",ar_ex:"الفضيحة لما كانت ستُكشف لولا أن المُبلِّغ تحمّل مخاطرة شخصية استثنائية."},
+  {w:"bias",p:"بايس",a:"التحيز الإعلامي",syn:"slant, partiality, prejudice",ant:"objectivity, balance, fairness",col:"media bias / political bias / unconscious bias",prep:"bias towards (party) / bias in (coverage)",ex:"The coverage was being criticised for its clear political bias toward one candidate.",ar_syn:"انحياز، تحيز، ميل",ar_ant:"موضوعية، توازن، عدالة",ar_col:"تحيز إعلامي / سياسي / لا واعٍ",ar_prep:"تحيز نحو طرف / في التغطية",ar_ex:"التغطية كانت تُنتقد لتحيزها السياسي الواضح نحو مرشح واحد."},
+  {w:"circulation",p:"سيركيوليشن",a:"التوزيع / عدد النسخ",syn:"readership, distribution, reach",ant:"low readership, limited distribution",col:"newspaper circulation / circulation figures / declining circulation",prep:"circulation of (publication) / among (readers)",ex:"Print circulation had been declining steadily for fifteen years as readers moved online.",ar_syn:"قراء، توزيع، وصول",ar_ant:"قراءة منخفضة، توزيع محدود",ar_col:"توزيع الصحيفة / أرقام / متراجع",ar_prep:"توزيع المطبوعة / بين القراء",ar_ex:"توزيع الطباعة كان ينخفض باستمرار لخمس عشرة سنة مع انتقال القراء للإنترنت."},
+  {w:"propaganda",p:"بروباغاندا",a:"الدعاية / البروباغاندا",syn:"disinformation, manipulation, spin",ant:"objective reporting, balanced coverage",col:"spread propaganda / state propaganda / propaganda campaign",prep:"propaganda by (regime) / against (population)",ex:"State-controlled media had been used to spread propaganda for decades without accountability.",ar_syn:"تضليل، تلاعب، دعاية",ar_ant:"تقرير موضوعي، تغطية متوازنة",ar_col:"ينشر دعاية / دولة / حملة",ar_prep:"دعاية من النظام / ضد السكان",ar_ex:"الإعلام الخاضع للدولة كان يُستخدم لنشر الدعاية لعقود دون محاسبة."},
+  {w:"byline",p:"باي-لاين",a:"اسم الصحفي / التوقيع",syn:"credit, author attribution",ant:"anonymous, unsigned",col:"journalist's byline / appear under a byline / byline story",prep:"byline of (journalist) / under (byline)",ex:"The article had been published without a byline, raising questions about the reporter's identity.",ar_syn:"نسب المؤلف، توقيع الصحفي",ar_ant:"مجهول، غير موقّع",ar_col:"توقيع الصحفي / يظهر بتوقيع / قصة بتوقيع",ar_prep:"توقيع الصحفي / تحت التوقيع",ar_ex:"المقال كان قد نُشر بدون توقيع مثيراً تساؤلات حول هوية المراسل."},
+  {w:"scoop",p:"سكوب",a:"السبق الصحفي",syn:"exclusive, first report, breaking story",ant:"press release, shared story",col:"get a scoop / major scoop / publish a scoop",prep:"scoop on (story) / ahead of (competition)",ex:"She had been investigating the story for months before publishing the scoop that changed everything.",ar_syn:"انفراد، تقرير أول",ar_ant:"بيان صحفي، قصة مشتركة",ar_col:"يحصل على سبق / كبير / ينشر",ar_prep:"سبق حول قصة / قبل المنافسة",ar_ex:"كانت تحقق في القصة لأشهر قبل نشر السبق الذي غيّر كل شيء."},
+  {w:"retraction",p:"ريتراكشن",a:"التراجع / سحب الخبر",syn:"correction, withdrawal, apology",ant:"confirmation, defence of story",col:"publish a retraction / demand a retraction / issue retraction",prep:"retraction of (story) / from (outlet)",ex:"A retraction had been published after the story was found to be based on fabricated evidence.",ar_syn:"تصحيح، سحب، اعتذار",ar_ant:"تأكيد، دفاع عن القصة",ar_col:"ينشر تراجعاً / يطالب / يصدر",ar_prep:"تراجع عن قصة / من المنفذ",ar_ex:"تراجع كان قد نُشر بعد اكتشاف أن القصة كانت مبنية على أدلة ملفّقة."},
+  {w:"media literacy",p:"ميديا ليتراسي",a:"محو الأمية الإعلامية",syn:"critical media skills, information literacy",ant:"media naivety, uncritical consumption",col:"develop media literacy / media literacy education / lack of media literacy",prep:"literacy in (media) / among (population)",ex:"Media literacy is being taught in some schools, but it has not yet been made compulsory.",ar_syn:"مهارات إعلامية نقدية، محو أمية المعلومات",ar_ant:"سذاجة إعلامية، استهلاك غير نقدي",ar_col:"يطور محو الأمية / تعليم / غياب",ar_prep:"محو أمية في الإعلام / بين السكان",ar_ex:"محو الأمية الإعلامية يُدرَّس في بعض المدارس لكن لم يصبح إلزامياً بعد."},
+  {w:"paywall",p:"بيي-وول",a:"جدار الدفع / الاشتراك المدفوع",syn:"subscription barrier, paid access",ant:"free access, open journalism",col:"behind a paywall / remove paywall / hard paywall",prep:"paywall for (content) / behind (paywall)",ex:"Quality journalism is increasingly being placed behind paywalls, raising access concerns.",ar_syn:"حاجز الاشتراك، الوصول المدفوع",ar_ant:"وصول مجاني، صحافة مفتوحة",ar_col:"خلف جدار دفع / يُزيل / صارم",ar_prep:"جدار دفع للمحتوى / خلف الجدار",ar_ex:"الصحافة عالية الجودة تُوضع بشكل متزايد خلف جدران الدفع مثيرةً مخاوف الوصول."},
+  {w:"embedded journalist",p:"إمبيدد جيرنليست",a:"الصحفي المرافق للقوات",syn:"war correspondent, attached reporter",ant:"independent journalist, freelancer",col:"embedded journalist in (conflict) / report as embedded",prep:"embedded with (military) / in (war zone)",ex:"The story had been filed by an embedded journalist who had been travelling with the troops for weeks.",ar_syn:"مراسل حرب، صحفي مرفق",ar_ant:"صحفي مستقل، عمل حر",ar_col:"صحفي مرافق في النزاع / يُبلّغ كمرافق",ar_prep:"مرافق للجيش / في منطقة الحرب",ar_ex:"القصة كانت قد أُرسلت من صحفي مرافق كان يسافر مع القوات لأسابيع."},
+  {w:"clickbait",p:"كليك-بيت",a:"الطعم الإلكتروني / عنوان مضلل",syn:"sensationalism, misleading headline",ant:"factual headline, informative title",col:"clickbait headline / accused of clickbait / avoid clickbait",prep:"clickbait in (media) / designed for (engagement)",ex:"The headline had been designed as clickbait — the actual story contained none of what was promised.",ar_syn:"إثارة، عنوان مضلل",ar_ant:"عنوان واقعي، عنوان مفيد",ar_col:"عنوان طعم / متهم بـ / يتجنب",ar_prep:"طعم في الإعلام / مصمم للتفاعل",ar_ex:"العنوان كان مصمماً كطعم إلكتروني — القصة الفعلية لم تحتوِ على أي مما وُعد به."},
+  {w:"agenda setting",p:"أجيندا ستينغ",a:"تحديد الأجندة الإعلامية",syn:"framing, issue prioritisation",ant:"balanced coverage, audience-led",col:"media agenda setting / agenda-setting power / set the agenda",prep:"agenda set by (media) / for (public)",ex:"The story had not been covered until the newspaper decided to set the agenda on the issue.",ar_syn:"تأطير، تحديد الأولويات",ar_ant:"تغطية متوازنة، قائمة على الجمهور",ar_col:"تحديد أجندة إعلامية / قوة / يحدد الأجندة",ar_prep:"أجندة تحددها وسائل الإعلام / للجمهور",ar_ex:"القصة لم تُغطَّ حتى قررت الصحيفة تحديد الأجندة بشأن القضية."},
+  {w:"op-ed",p:"أوب-إيد",a:"مقال الرأي / العمود",syn:"opinion piece, commentary, column",ant:"news report, factual story",col:"write an op-ed / publish op-ed / op-ed page",prep:"op-ed on (topic) / in (publication)",ex:"An op-ed had been commissioned arguing for a complete overhaul of media regulation.",ar_syn:"مقال رأي، تعليق، عمود",ar_ant:"تقرير إخباري، قصة واقعية",ar_col:"يكتب مقال رأي / ينشر / صفحة",ar_prep:"مقال رأي حول موضوع / في المطبوعة",ar_ex:"مقال رأي كان قد طُلب يدعو لإصلاح شامل لتنظيم الإعلام."},
+  {w:"fourth estate",p:"فورث إستيت",a:"السلطة الرابعة / الصحافة",syn:"the press, media institution",ant:"government, state control",col:"role of the fourth estate / fourth estate responsibility",prep:"fourth estate in (democracy) / as (watchdog)",ex:"The press has long been called the fourth estate because it holds governments accountable.",ar_syn:"الصحافة، مؤسسة الإعلام",ar_ant:"الحكومة، سيطرة الدولة",ar_col:"دور السلطة الرابعة / مسؤولية",ar_prep:"السلطة الرابعة في الديمقراطية / كرقيب",ar_ex:"الصحافة طُوّقت منذ زمن طويل بمسمى السلطة الرابعة لأنها تُحاسب الحكومات."},
+  {w:"spin",p:"سبين",a:"التلاعب بالمعلومات",syn:"manipulation, framing, PR strategy",ant:"straight reporting, factual account",col:"put a spin on / media spin / spin doctor",prep:"spin on (story) / by (PR team)",ex:"The government's response had been crafted as pure spin — no actual policy was being proposed.",ar_syn:"تلاعب، تأطير، استراتيجية علاقات عامة",ar_ant:"تقرير مباشر، رواية واقعية",ar_col:"يُضفي تلاعباً / إعلامي / خبير تلاعب",ar_prep:"تلاعب بقصة / من فريق العلاقات العامة",ar_ex:"رد الحكومة كان قد صيغ كتلاعب بحت — لم تكن تُقترح أي سياسة فعلية."},
+  {w:"24-hour news cycle",p:"توينتي فور آور نيوز سايكل",a:"دورة الأخبار على مدار الساعة",syn:"rolling news, constant coverage",ant:"daily newspaper, periodic reporting",col:"driven by 24-hour cycle / pressures of news cycle / break the news cycle",prep:"cycle of (coverage) / across (networks)",ex:"Accuracy had been sacrificed to meet the demands of the relentless 24-hour news cycle.",ar_syn:"أخبار متدحرجة، تغطية مستمرة",ar_ant:"صحيفة يومية، تقارير دورية",ar_col:"مدفوع بدورة الأخبار / ضغوط / يكسر الدورة",ar_prep:"دورة التغطية / عبر الشبكات",ar_ex:"الدقة كانت قد ضُحّي بها لتلبية متطلبات دورة الأخبار الدؤوبة على مدار الساعة."},
+  {w:"fact-checking",p:"فاكت-تشيكينغ",a:"التحقق من الوقائع",syn:"verification, truth-testing",ant:"unverified reporting, misinformation",col:"rigorous fact-checking / fact-checking organisation / submit to fact-checking",prep:"fact-checking of (claim) / by (organisation)",ex:"The claims had not been subjected to any fact-checking before being published widely.",ar_syn:"التحقق، اختبار الحقيقة",ar_ant:"تقارير غير موثقة، معلومات مضللة",ar_col:"تحقق دقيق / منظمة تحقق / يخضع للتحقق",ar_prep:"تحقق من ادعاء / من قِبل منظمة",ar_ex:"الادعاءات لم تكن قد خضعت لأي تحقق من الوقائع قبل نشرها على نطاق واسع."},
+  {w:"anonymous source",p:"أنونيموس سورس",a:"المصدر المجهول",syn:"unnamed contact, off-the-record source",ant:"named source, on-record statement",col:"rely on anonymous source / quote anonymous source / protect anonymous source",prep:"anonymous source within (organisation) / for (story)",ex:"The story had been based largely on anonymous sources whose identities had been protected.",ar_syn:"جهة اتصال مجهولة، مصدر خارج السجل",ar_ant:"مصدر مُسمّى، تصريح رسمي",ar_col:"يعتمد على مصدر مجهول / يقتبس / يحمي",ar_prep:"مصدر مجهول داخل المنظمة / للقصة",ar_ex:"القصة كانت قد اعتمدت في معظمها على مصادر مجهولة حُميت هوياتها."},
+  {w:"libel",p:"لايبل",a:"التشهير المكتوب / القذف",syn:"defamation, slander (spoken), false accusation",ant:"truthful reporting, accurate statement",col:"sue for libel / libel case / libel claim",prep:"libel against (person) / in (article)",ex:"The newspaper had been sued for libel after publishing claims that had not been verified.",ar_syn:"تشهير، قذف، اتهام كاذب",ar_ant:"تقرير صادق، بيان دقيق",ar_col:"يقاضي على التشهير / قضية / ادعاء",ar_prep:"تشهير ضد شخص / في مقال",ar_ex:"الصحيفة كانت قد قوضيت بتهمة التشهير بعد نشر ادعاءات لم تكن قد تحققت منها."},
+  {w:"leak",p:"ليك",a:"التسريب",syn:"disclosure, reveal, exposure",ant:"cover-up, secrecy, suppression",col:"document leak / information leak / orchestrate a leak",prep:"leak from (source) / to (journalist)",ex:"Classified documents had been leaked to the journalist by an insider who had grown disillusioned.",ex:"وثائق سرية كانت قد سُرِّبت للصحفي من شخص داخلي خاب أمله.",ar_syn:"إفصاح، كشف، فضح",ar_ant:"تستر، سرية، قمع",ar_col:"تسريب وثيقة / معلومات / يُنسّق تسريباً",ar_prep:"تسريب من مصدر / لصحفي",ar_ex:"وثائق سرية كانت قد سُرِّبت للصحفي من شخص داخلي خاب أمله."},
+  {w:"masthead",p:"ماستهيد",a:"رأس الصحيفة / ترويستها",syn:"newspaper banner, title block, nameplate",ant:"anonymous publication",col:"newspaper masthead / appear on masthead / masthead editorial",prep:"masthead of (publication) / at (top of page)",ex:"The journalists had been named on the masthead despite the story being published anonymously.",ar_syn:"بانر الصحيفة، لوحة العنوان",ar_ant:"منشور مجهول",ar_col:"ترويسة الصحيفة / يظهر على / افتتاحية الترويسة",ar_prep:"ترويسة المطبوعة / في أعلى الصفحة",ar_ex:"الصحفيون كانوا قد ذُكروا في ترويسة الصحيفة رغم نشر القصة بشكل مجهول."},
+  {w:"broadsheet",p:"برودشيت",a:"الصحيفة الكبيرة / الصحافة الجادة",syn:"quality newspaper, serious press",ant:"tabloid, sensationalist press",col:"broadsheet newspaper / quality broadsheet / read a broadsheet",prep:"broadsheet in (country) / vs (tabloid)",ex:"The story had first been reported in a broadsheet before being picked up by tabloids.",ar_syn:"صحيفة عالية الجودة، الصحافة الجادة",ar_ant:"تابلويد، صحافة إثارة",ar_col:"صحيفة جادة / عالية الجودة / يقرأ",ar_prep:"صحيفة جادة في البلد / مقابل التابلويد",ar_ex:"القصة كانت قد بُلِّغ عنها أولاً في صحيفة جادة قبل أن تلتقطها الصحف المثيرة."},
+  {w:"tabloid",p:"تابلويد",a:"صحيفة التابلويد / الصحافة الشعبية",syn:"popular press, sensationalist paper",ant:"broadsheet, quality journalism",col:"tabloid press / tabloid headline / tabloid journalism",prep:"tabloid in (country) / vs (broadsheet)",ex:"The politician's private life had been exposed by the tabloid press without any public interest justification.",ar_syn:"الصحافة الشعبية، الصحافة المثيرة",ar_ant:"صحيفة جادة، صحافة عالية الجودة",ar_col:"صحافة التابلويد / عنوان / صحافة",ar_prep:"تابلويد في البلد / مقابل الصحيفة الجادة",ar_ex:"الحياة الخاصة للسياسي كانت قد فُضحت من قِبل الصحافة الشعبية بلا أي مبرر مصلحة عامة."},
+  {w:"newsworthiness",p:"نيوز-ويرثينس",a:"قيمة الخبر / قابليته للنشر",syn:"news value, significance, relevance",ant:"trivial, unimportant, private matter",col:"question newsworthiness / assess newsworthiness / newsworthiness criteria",prep:"newsworthiness of (story) / based on (criteria)",ex:"The editor had questioned the newsworthiness of the story before it had been published.",ar_syn:"قيمة الخبر، أهمية، ملاءمة",ar_ant:"تافه، غير مهم، أمر خاص",ar_col:"يتساءل عن قيمة الخبر / يقيّم / معايير",ar_prep:"قيمة قصة إخبارية / بناءً على معايير",ar_ex:"المحرر كان قد تساءل عن قيمة القصة كخبر قبل أن تُنشر."},
+];
+
+var story=[
+  {t:"Tom had been working as a foreign correspondent for twelve years when he realised he had lost his objectivity.",ar:"كان توم يعمل مراسلاً خارجياً لاثني عشر عاماً حين أدرك أنه فقد موضوعيته."},
+  {t:"It happened gradually — the stories he had been covering had started to feel personal.",ar:"حدث تدريجياً — القصص التي كان يغطيها بدأت تبدو شخصية."},
+  {t:"He had been embedded with refugees for three weeks when the story shifted from journalism to something else.",ar:"كان مرافقاً للاجئين لثلاثة أسابيع حين تحولت القصة من صحافة إلى شيء آخر."},
+  {t:"The report was being filed from a tent. Outside, families had been waiting for days without food.",ar:"التقرير كان يُرسَل من خيمة. في الخارج، كانت عائلات تنتظر لأيام بدون طعام."},
+  {t:"He wrote the story. It was published. Nothing changed.",ar:"كتب القصة. نُشرت. لم يتغير شيء."},
+  {t:"That was the moment he understood what journalism could and could not do.",ar:"تلك كانت اللحظة التي فهم فيها ما تستطيع الصحافة وما لا تستطيع فعله."},
+  {t:"It cannot save anyone. But it can ensure that what happens is not happening in darkness.",ar:"لا تستطيع إنقاذ أحد. لكنها تستطيع أن تضمن ألا يحدث ما يحدث في الظلام."},
+  {t:"He has been writing ever since — with less certainty and, he thinks, more truth.",ar:"لا يزال يكتب منذ ذلك الحين — بيقين أقل وبحقيقة أكثر، كما يعتقد."},
+];
+
+var reading=[
+  "Journalism performs a function that no other institution in democratic society is designed to perform: it gathers information that those in power would prefer remain hidden and places it in the public domain where it can be assessed, debated, and acted upon. This is why press freedom is regarded not merely as a professional privilege but as a fundamental pillar of democratic governance.",
+  "The passive voice is particularly prevalent in media language, and for good reason. News stories are being shaped by passive constructions throughout — sources need to be protected, institutions are being held accountable rather than individuals, and the focus is placed on events rather than actors. When a politician says mistakes were made, the passive is being used deliberately to avoid accountability. When a journalist writes a document has been leaked, the passive protects a source who might be endangered by attribution.",
+  "The rise of digital media has fundamentally transformed the economics of journalism. Classified advertising, which had been the primary revenue source for newspapers for over a century, was destroyed by the internet within a decade. Subscriptions and paywalls have been introduced as replacement models, but with mixed success. The result is that quality investigative journalism — which is expensive to produce — is being produced by fewer and fewer organisations.",
+  "Disinformation represents perhaps the most serious threat to the functioning of democratic society that has been identified in the digital era. False stories are being shared at speeds that corrections cannot match. Once a misleading narrative has been embedded in the public consciousness, it is extraordinarily difficult to dislodge even when it has been clearly refuted. The damage is being done before the facts have even been established.",
+  "The relationship between journalism and its sources is one of the most ethically complex in professional practice. Journalists are regularly being approached by people who have witnessed wrongdoing and want it exposed. These whistleblowers are taking enormous personal risks, and the journalist to whom they have spoken carries a genuine obligation of protection. The story should not be published without verification, but the source must be protected absolutely — even if the journalist is being ordered by a court to reveal their identity.",
+];
+
+var compQs=[
+  {q:"What unique function does journalism perform according to the text?",opts:["Entertain the public","Gather hidden information and place it in public domain","Advise governments","Train politicians"],ans:1},
+  {q:"Why is passive voice prevalent in news language?",opts:["It sounds more formal","It makes stories longer","Sources are protected and focus is on events not actors","It is easier to write"],ans:2},
+  {q:"What destroyed newspaper classified advertising?",opts:["Television","Social media","The internet within a decade","Declining literacy"],ans:2},
+  {q:"Why is disinformation so hard to combat?",opts:["People do not read corrections","False stories spread faster than corrections and embed before facts are established","Governments control media","Journalists are biased"],ans:1},
+  {q:"What obligation does a journalist have towards a whistleblower source?",opts:["Publish immediately","Verify the story but protect the source absolutely","Report them to authorities","Only publish if the source agrees"],ans:1},
+];
+
+var listenLines=[
+  {speaker:"T",text:"Ana, I want to talk about something that's been bothering me. Do you think journalism is in crisis?"},
+  {speaker:"A",text:"Honestly? Yes. The business model has been destroyed, trust has been eroded, and disinformation is spreading faster than corrections can be issued."},
+  {speaker:"T",text:"But I'd argue quality journalism is still being produced. It's being produced by fewer people with fewer resources — but it exists."},
+  {speaker:"A",text:"True. And it's more important than ever precisely because of the disinformation problem. When everything is being questioned, verified journalism becomes more valuable."},
+  {speaker:"T",text:"What worries me most is the 24-hour news cycle. Stories are being published before they've been properly checked."},
+  {speaker:"A",text:"That's a structural problem. When a story is being broken online in real time, editors face enormous pressure to publish immediately or be seen as slow."},
+  {speaker:"T",text:"And then corrections are issued quietly while the original false version has already been shared by millions."},
+  {speaker:"A",text:"The damage has been done before the facts have even been established. That's the core problem with the current media environment."},
+  {speaker:"T",text:"What about the paywall debate? I know quality journalism needs to be funded somehow, but information being locked behind paywalls worries me."},
+  {speaker:"A",text:"It's a real tension. Public interest journalism should ideally be freely accessible. But if journalists aren't being paid, it won't be produced at all."},
+  {speaker:"T",text:"I keep coming back to media literacy as the most important intervention. If people were being taught how to evaluate sources from a young age..."},
+  {speaker:"A",text:"Absolutely. The problem is that it hasn't been made compulsory in most educational systems. It's being treated as optional when it should be fundamental."},
+  {speaker:"T",text:"Do you think the public still trusts journalists?"},
+  {speaker:"A",text:"Some journalists. The problem is that trust in institutions is being eroded across the board — not just media. And that's a much harder problem to solve."},
+  {speaker:"T",text:"Maybe that's the story we should be investigating — why trust has been systematically undermined, and who benefits from that."},
+];
+
+var listenQs=[
+  {q:"What three problems does Ana identify at the start?",opts:["Too many journalists bad writing poor editing","Business model destroyed trust eroded disinformation spreading","Paywall problems political bias low salaries","Social media competition lack of readers"],ans:1},
+  {q:"What structural problem does Ana describe about breaking news?",opts:["Journalists are lazy","Editors face pressure to publish before proper checking","Paywalls prevent access","Sources refuse to speak"],ans:1},
+  {q:"What happens to corrections according to Tom?",opts:["They are widely read","They are published immediately","They are issued quietly while the false version has been shared by millions","They are never issued"],ans:2},
+  {q:"What does Tom suggest as the most important intervention?",opts:["More journalists","Government regulation","Media literacy education from a young age","Banning social media"],ans:2},
+  {q:"What bigger problem does Ana identify beyond just media trust?",opts:["Declining literacy","Trust in institutions is being eroded across the board","Journalists are biased","Paywalls are unfair"],ans:1},
+];
+
+var speakQs=[
+  {q:"Discuss the role of journalism in democracy using passive voice.",hint:"Information is gathered by journalists... Governments are held accountable... Stories are being investigated... Documents had been leaked... Corrections should be published...",ar:"ناقش دور الصحافة في الديمقراطية باستخدام المبني للمجهول.",badge:"🎯 استخدم passive في كل جملة رئيسية"},
+  {q:"Describe how a news story is produced from investigation to publication.",hint:"Tips are received... Sources are contacted... Documents are verified... The story is being written... An editor is consulted... The article is published... Corrections are issued if...",ar:"صف كيف تُنتَج قصة إخبارية من التحقيق للنشر.",badge:"🎯 passive للعملية كلها"},
+  {q:"How has digital technology changed the way news is consumed and trusted?",hint:"News is being consumed in real time... Stories are shared before they have been verified... Trust has been eroded... Algorithms are being used to... Quality journalism is being produced by fewer...",ar:"كيف غيّرت التكنولوجيا الرقمية استهلاك الأخبار والثقة بها؟",badge:"🎯 استخدم present passive و past passive"},
+  {q:"Should journalists be required to reveal their sources? Argue both sides.",hint:"Sources must be protected absolutely... Journalists have been imprisoned for protecting sources... National security arguments have been used to... The right to protect sources should be guaranteed... However, this right has sometimes been abused...",ar:"هل يجب إلزام الصحفيين بالكشف عن مصادرهم؟ ناقش الجانبين.",badge:"🎯 passive للحجج"},
+  {q:"Describe a news story that affected you. Use passive voice throughout.",hint:"The story was reported on... Allegations had been made against... Evidence was presented... The accused was questioned... A decision was made to... Corrections were later issued...",ar:"صف قصة إخبارية أثّرت فيك. استخدم المبني للمجهول.",badge:"🎯 passive في كل حدث"},
+  {q:"Discuss the dangers of disinformation using passive voice.",hint:"False stories are being created and shared... Corrections are rarely seen... Narratives have been embedded before facts were established... Trust is being systematically undermined... People are being misled...",ar:"ناقش مخاطر التضليل الإعلامي باستخدام المبني للمجهول.",badge:"🎯 استخدم present continuous passive و past perfect passive"},
+  {q:"Is citizen journalism a threat or benefit to professional journalism?",hint:"News is now being gathered by ordinary citizens... Events are being filmed and uploaded before journalists arrive... Standards are sometimes not being maintained... However, stories have been broken by citizen journalists that were being ignored by mainstream media...",ar:"هل الصحافة الإلكترونية الشعبية تهديد أم فائدة للصحافة المهنية؟",badge:"🎯 passive للمقارنة"},
+  {q:"Should social media platforms be held responsible for disinformation on their sites?",hint:"False content is being hosted by platforms... Algorithms have been designed to maximise engagement... Regulations have been proposed but not implemented... Responsibility should be shared between... Users should be educated...",ar:"هل يجب أن تُحمَّل منصات التواصل الاجتماعي مسؤولية التضليل؟",badge:"🎯 passive للمسؤولية"},
+  {q:"What reforms would you propose to improve journalism standards?",hint:"Media literacy should be taught... Journalists should be required to... Sources must be protected... A code of conduct should be established... Paywalls should be removed for public interest journalism... Corrections should be given equal prominence...",ar:"ما الإصلاحات التي ستقترحها لتحسين معايير الصحافة؟",badge:"🎯 استخدم should be / must be / ought to be"},
+  {q:"Deliver a ninety-second analysis of media trust using passive voice throughout.",hint:"Trust has been eroded... Information is being consumed... Stories are being published without verification... The public is being misled... However, quality journalism is still being produced... Disinformation must be countered...",ar:"قدّم تحليلاً من تسعين ثانية لثقة الجمهور بالإعلام باستخدام المبني للمجهول.",badge:"🎯 passive في كل جملة!"},
+];
+
+var pvData=[
+  {v:"follow up",p:"فولو أب",m:"يتابع / يتحقق من تطورات",ex:"The story had been followed up three weeks later when new evidence was released.",ar:"القصة كانت قد تُتُبّعت بعد ثلاثة أسابيع حين صدرت أدلة جديدة."},
+  {v:"dig up",p:"ديغ أب",m:"يكشف / يستخرج معلومات مخفية",ex:"The journalist had been digging up documents for months before publishing.",ar:"الصحفي كان يستخرج وثائق لأشهر قبل النشر."},
+  {v:"cover up",p:"كافر أب",m:"يُخفي / يتستر على",ex:"The scandal had been covered up for years before being exposed.",ar:"الفضيحة كانت قد تُستّر عليها لسنوات قبل الكشف عنها."},
+  {v:"tip off",p:"تيب أوف",m:"يُخبر / يُبلّغ سراً",ex:"The journalist had been tipped off by an insider who had witnessed the corruption.",ar:"الصحفي كان قد أُبلّغ سراً من شخص داخلي شهد الفساد."},
+  {v:"come out",p:"كام أوت",m:"يُكشف / يظهر للعلن",ex:"The truth had not come out until a whistleblower decided to speak.",ar:"الحقيقة لم تكن قد ظهرت حتى قرر مُبلِّغ الكلام."},
+  {v:"run with",p:"ران ويذ",m:"يمضي بالقصة / ينشرها",ex:"The editor decided to run with the story despite pressure from advertisers.",ar:"المحرر قرر المضي بالقصة رغم الضغط من المعلنين."},
+  {v:"stand by",p:"ستاند باي",m:"يتمسك بالقصة / يدافع عنها",ex:"The newspaper stood by its story even after legal threats had been received.",ar:"الصحيفة تمسكت بقصتها حتى بعد تلقّي تهديدات قانونية."},
+  {v:"break a story",p:"بريك أ ستوري",m:"ينفرد بخبر / يكشفه أولاً",ex:"She had been working for six months to break the story that changed the election.",ar:"كانت تعمل لستة أشهر لكشف القصة التي غيّرت الانتخابات."},
+  {v:"pull a story",p:"بول أ ستوري",m:"يسحب قصة من النشر",ex:"The article had been pulled at the last minute after a legal threat was issued.",ar:"المقال كان قد سُحب في اللحظة الأخيرة بعد صدور تهديد قانوني."},
+  {v:"spin a story",p:"سبين أ ستوري",m:"يُلاعب رواية الخبر",ex:"The PR team had been spinning the story to minimise damage to the company.",ar:"فريق العلاقات العامة كان يُلاعب رواية القصة لتقليل الضرر على الشركة."},
+];
+
+var realExpr=[
+  {e:"Off the record",p:"أوف ذا ريكورد",m:"خارج نطاق التسجيل / سري",f:"Information shared that cannot be published or attributed.",x:"The minister had spoken off the record but the journalist published it anyway.",xar:"الوزير تحدث خارج السجل لكن الصحفي نشره رغم ذلك.",n:"مصطلح صحفي — ما يُقال خارج السجل لا يُنشر ولا يُعزى"},
+  {e:"On the record",p:"أون ذا ريكورد",m:"رسمي / قابل للنشر والنسب",f:"A statement that can be published and attributed to the speaker.",x:"The official agreed to speak on the record after the story had been verified.",xar:"المسؤول وافق على الحديث رسمياً بعد التحقق من القصة.",n:"كل ما يُقال رسمياً يمكن نشره مع اسم المتحدث"},
+  {e:"The pen is mightier than the sword",p:"ذا بين إز مايتير ذان ذا سورد",m:"الكلمة أقوى من السلاح",f:"Writing and communication have more power than physical force.",x:"Governments that restrict the press prove that the pen is mightier than the sword.",xar:"الحكومات التي تقيّد الصحافة تثبت أن القلم أقوى من السيف.",n:"من ادوارد بولور-ليتون 1839 — القوة الحقيقية تكمن في الكلمة لا القوة العسكرية"},
+];
+var realSlang=[
+  {w:"Doorstepping",p:"دور-ستيبينغ",i:"waiting at someone's door to get a comment",ex:"The politician had been doorstepped by journalists who had been waiting for three hours.",xar:"السياسي كان قد تعرّض لانتظار الصحفيين لثلاث ساعات أمام بابه.",a:"انتظار شخص أمام داره للحصول على تعليق"},
+  {w:"Gotcha journalism",p:"غوتشا جيرنليزم",i:"journalism focused on catching people out rather than informing",ex:"The interview had been criticised as gotcha journalism with no substantive questions.",xar:"المقابلة انتُقدت باعتبارها صحافة إيقاع بلا أسئلة جوهرية.",a:"صحافة تهدف لإيقاع الأشخاص لا إعلام الجمهور"},
+  {w:"Churnalism",p:"تشيرنليزم",i:"journalism that simply recycles press releases without investigation",ex:"Much online content had been produced as churnalism — press releases repackaged as news.",xar:"كثير من المحتوى الإلكتروني كان قد أُنتج كصحافة إعادة تدوير — بيانات صحفية مُعاد تغليفها كأخبار.",a:"صحافة تعيد تدوير البيانات الصحفية بدون تحقيق أو إضافة"},
+  {w:"Bury the lede",p:"بيري ذا ليد",i:"fail to put the most important information first",ex:"The article had buried the lede — the most shocking fact appeared in paragraph seven.",xar:"المقال كان قد دفن المعلومة الأهم — الحقيقة الأكثر صدمة ظهرت في الفقرة السابعة.",a:"وضع المعلومة الأهم في منتصف المقال بدلاً من البداية"},
+];
+var realEvery=[
+  {w:"Break the news",p:"بريك ذا نيوز",i:"be the first to report something or to tell someone difficult information",ex:"She had been chosen to break the news to the family before it was published.",xar:"كانت قد اختيرت لإخبار العائلة قبل النشر.",a:"ينفرد بنشر خبر أو يُخبر شخصاً بخبر صعب"},
+  {w:"Make headlines",p:"ميك هيدلاينز",i:"become major news that attracts wide attention",ex:"The leak had made headlines across the world within hours of being published.",xar:"التسريب كان قد صنع عناوين أخبار حول العالم في غضون ساعات من نشره.",a:"يصبح خبراً رئيسياً يجذب اهتماماً واسعاً"},
+  {w:"Put on the spot",p:"بوت أون ذا سبوت",i:"ask a difficult question requiring an immediate answer",ex:"The journalist had been put on the spot when asked to reveal her source.",xar:"الصحفية كانت قد وُضعت في موقف حرج حين طُلب منها الكشف عن مصدرها.",a:"يضع شخصاً في موقف محرج يتطلب إجابة فورية"},
+];
+
+var quizQs=[
+  {q:"The report ___ being prepared when the new information arrived.",opts:["is","was","has","had"],ans:1},
+  {q:"ما معنى whistleblower؟",opts:["الصحفي المرافق للقوات","المُبلِّغ عن المخالفات","مصدر مجهول","محرر صحفي"],ans:1},
+  {q:"Several documents had ___ leaked before the story was published.",opts:["be","been","being","to be"],ans:1},
+  {q:"ما معنى clickbait؟",opts:["السبق الصحفي","التراجع عن الخبر","العنوان المصمم لاستقطاب النقرات","المصدر الموثوق"],ans:2},
+  {q:"The politician's statement ___ not been verified at the time of publication.",opts:["had","has","was","is"],ans:0},
+  {q:"ما الـ phrasal verb: ينفرد بكشف خبر أولاً؟",opts:["cover up","pull a story","break a story","spin a story"],ans:2},
+  {q:"ما معنى press freedom؟",opts:["التوزيع الصحفي","السبق الصحفي","حرية الصحافة والإعلام","التحقق من الوقائع"],ans:2},
+  {q:"The error ___ being corrected but the damage had already been done.",opts:["is","was","had","has"],ans:1},
+  {q:"ما معنى retraction؟",opts:["السبق الصحفي","التحقق","التراجع وسحب الخبر","البثّ المباشر"],ans:2},
+  {q:"ما معنى fourth estate؟",opts:["الصحافة كسلطة رابعة في الديمقراطية","السلطة القضائية","الحكومة المنتخبة","المعارضة السياسية"],ans:0},
+];
+var spd=1,lspd=1,storyOn=false,listenOn=false;
+var compA=new Array(compQs.length).fill(null);
+var listenA=new Array(listenQs.length).fill(null);
+var quizA=new Array(quizQs.length).fill(null);
+
+function say(text,rate,cb){
+  if(!window.speechSynthesis)return null;
+  window.speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US";u.rate=rate||spd;u.pitch=1.0;
+  var v=getVoice("F");if(v)u.voice=v;
+  if(cb)u.onend=cb;
+  window.speechSynthesis.speak(u);return u;
+}
+
+function buildVocab(){
+  var c=document.getElementById("vocabList");
+  V.forEach(function(v,i){
+    var d=document.createElement("div");d.className="vocab-card";
+    // Build using single-quote innerHTML (Gold Standard from unit2)
+    d.innerHTML=
+            '<div class="vhead">'+
+        '<div style="display:flex;align-items:center;gap:10px;width:100%">'+
+          '<button class="vspk" id="vs'+i+'">🔊</button>'+
+          '<div class="var" style="flex:1;text-align:right">'+v.a+'</div>'+
+          '<div class="vpron" style="direction:ltr;white-space:nowrap">'+v.p+'</div>'+
+          '<div style="display:flex;align-items:center;gap:6px">'+
+            '<div class="vword">'+v.w+'</div>'+
+            '<span style="background:rgba(255,255,255,.18);color:rgba(255,255,255,.85);font-size:.68rem;font-weight:800;padding:2px 7px;border-radius:10px">'+(i+1)+'</span>'+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="vbody">'+
+        '<div class="vgrid2">'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-ant" data-i="'+i+'" data-c="1"><div class="vlbl">Antonym</div><div class="vval">'+v.ant+'</div><div class="vtr">'+v.ar_ant+'</div></div>'+
+            '<div class="vcell c-syn" data-i="'+i+'" data-c="0"><div class="vlbl">Synonym</div><div class="vval">'+v.syn+'</div><div class="vtr">'+v.ar_syn+'</div></div>'+
+          '</div>'+
+          '<div class="vrow-pair">'+
+            '<div class="vcell c-prep" data-i="'+i+'" data-c="3"><div class="vlbl">Preposition</div><div class="vval">'+v.prep+'</div><div class="vtr">'+v.ar_prep+'</div></div>'+
+            '<div class="vcell c-col" data-i="'+i+'" data-c="2"><div class="vlbl">Collocation</div><div class="vval">'+v.col+'</div><div class="vtr">'+v.ar_col+'</div></div>'+
+          '</div>'+
+        '</div>'+
+        '<div class="vex" id="vex'+i+'">'+v.ex+'<div class="vex-tr">'+v.ar_ex+'</div></div>'+
+      '</div>';
+    d.querySelector('.vspk').addEventListener('click',(function(ii){return function(){
+      document.querySelectorAll('.vspk').forEach(function(b){b.classList.remove('playing');});
+      var btn=document.getElementById('vs'+ii);if(btn)btn.classList.add('playing');
+      var u=say(V[ii].w,spd);if(u)u.onend=function(){if(btn)btn.classList.remove('playing');};
+    };})(i));
+    d.querySelectorAll('.vcell').forEach(function(cell){
+      cell.addEventListener('click',function(){
+        var ii=parseInt(this.getAttribute('data-i'));
+        var cc=parseInt(this.getAttribute('data-c'));
+        say([V[ii].syn,V[ii].ant,V[ii].col,V[ii].prep][cc],0.9);
+        this.classList.toggle('show-tr');
+      });
+    });
+    var vex=d.querySelector('.vex');if(vex)vex.addEventListener('click',function(){this.classList.toggle('show-ex-tr');});
+    c.appendChild(d);
+  });
+}
+function checkComp(){var s=0;compQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("co"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(compA[qi]===i)el.classList.add("no");}if(compA[qi]===q.ans)s++;});var r=document.getElementById("compRes");r.style.display="block";var pct=Math.round(s/compQs.length*100);r.textContent=s+" من "+compQs.length+" إجابة صحيحة ("+pct+"%) "+(pct===100?"🏆":pct>=60?"🎉":"📚 راجع النص");}
+function resetComp(){compA=new Array(compQs.length).fill(null);document.querySelectorAll(".copt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("compRes").style.display="none";}
+
+
+function buildStory(){
+  var b=document.getElementById("storyBox");
+  if(!b)return;
+  b.innerHTML="";
+  story.forEach(function(s,i){
+    var d=document.createElement("div");d.className="sline";d.id="sl"+i;
+    var txt=document.createTextNode(s.t);d.appendChild(txt);
+    var btn=document.createElement("button");
+    btn.style.cssText="background:transparent;border:1px solid #e5e7eb;border-radius:5px;padding:1px 7px;color:#9ca3af;font-size:.7rem;cursor:pointer;font-family:Tajawal,sans-serif;margin-right:6px";
+    btn.textContent="🌐";
+    btn.addEventListener("click",(function(ii){return function(){toggleTr(ii);};})(i));
+    d.appendChild(btn);
+    var tr=document.createElement("div");tr.id="tr"+i;
+    tr.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;font-family:Tajawal,sans-serif;border-right:3px solid #fde68a;padding-right:8px";
+    tr.textContent=s.ar;d.appendChild(tr);b.appendChild(d);
+  });
+}
+var _trAll=false;
+function toggleAllTr(){_trAll=!_trAll;for(var i=0;i<story.length;i++){var e=document.getElementById("tr"+i);if(e)e.style.display=_trAll?"block":"none";}var btn=document.getElementById("trBtn");if(btn)btn.textContent=_trAll?"🙈 أخفِ":"🌐 الترجمة";}
+function toggleTr(i){var e=document.getElementById("tr"+i);if(e)e.style.display=e.style.display==="none"?"block":"none";}
+function setSpd(r,btn){spd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function storySeq(i){if(!storyOn||i>=story.length){stopStory();return;}document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var e=document.getElementById("sl"+i);if(e)e.classList.add("hl");var u=new SpeechSynthesisUtterance(story[i].t);u.lang="en-US";u.rate=spd;u.onend=function(){if(storyOn)setTimeout(function(){storySeq(i+1);},320);};window.speechSynthesis.cancel();window.speechSynthesis.speak(u);}
+function startStory(){storyOn=true;var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="⏹";btn.querySelector("#sTxt").textContent="إيقاف القصة";}storySeq(0);}
+function stopStory(){storyOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".sline").forEach(function(l){l.classList.remove("hl");});var btn=document.getElementById("storyBtn");if(btn){btn.querySelector("#sIcon").textContent="▶";btn.querySelector("#sTxt").textContent="استمع للقصة";}}
+function toggleStory(){storyOn?stopStory():startStory();}
+
+function buildReading(){
+  var t=document.getElementById("readingText");
+  if(!t)return;
+  t.innerHTML="";
+  reading.forEach(function(p){var d=document.createElement("p");d.textContent=p;t.appendChild(d);});
+  var c=document.getElementById("compList");
+  if(!c)return;
+  c.innerHTML="";
+  compQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";
+    p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="co"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){
+        compA[qi]=oi;
+        for(var k=0;k<q.opts.length;k++){var el=document.getElementById("co"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}
+        this.style.borderColor="#0a1628";
+      });
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+
+function buildGrammar(){
+  var c=document.getElementById("grammarBox");
+  var box1=document.createElement("div");box1.className="gbox";
+  var t1=document.createElement("div");t1.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";
+  t1.textContent="١ — Advanced Passive: ثمانية أشكال";box1.appendChild(t1);
+  var tbl=document.createElement("div");tbl.style.cssText="background:#0a1628;border-radius:10px;padding:14px 18px;margin-bottom:14px;direction:ltr";
+  var rows=[["Tense","Form","Example"],["Present Simple","is/are + past participle","The story is published daily."],["Present Continuous","is/are being + pp","The report is being written now."],["Past Simple","was/were + pp","The leak was discovered."],["Past Continuous","was/were being + pp","The story was being investigated."],["Present Perfect","has/have been + pp","Evidence has been found."],["Past Perfect","had been + pp","Documents had been leaked before."],["Future","will be + pp","The story will be published."],["Modal","should/must be + pp","Sources must be protected."]];
+  var table=document.createElement("table");table.style.cssText="width:100%;border-collapse:collapse;font-size:.78rem";
+  rows.forEach(function(row,ri){var tr=document.createElement("tr");if(ri>0)tr.style.borderTop="1px solid rgba(255,255,255,.1)";row.forEach(function(cell,ci){var td=document.createElement(ri===0?"th":"td");td.textContent=cell;td.style.cssText="padding:5px 6px;text-align:left;color:"+(ri===0?"#fde68a":ci===0?"#f0c040":ci===1?"#93c5fd":"rgba(255,255,255,.8)");tr.appendChild(td);});table.appendChild(tr);});
+  tbl.appendChild(table);box1.appendChild(tbl);c.appendChild(box1);
+  var box2=document.createElement("div");box2.className="gbox";
+  var t2=document.createElement("div");t2.style.cssText="font-weight:800;color:#0a1628;font-size:.97rem;margin-bottom:12px;text-align:right";t2.textContent="٢ — في سياق الإعلام";box2.appendChild(t2);
+  var examples=[
+    ["Past Perfect:","Documents had been leaked before the story was published.","الوثائق كانت قد سُرِّبت قبل نشر القصة."],
+    ["Past Continuous:","The journalist was being followed by government agents.","الصحفي كان يُتابَع من قِبل عملاء الحكومة."],
+    ["Present Continuous:","Corrections are being issued but damage has been done.","التصحيحات تُصدَر لكن الضرر حدث."],
+  ];
+  examples.forEach(function(ex){var pat=document.createElement("div");pat.className="gpat";var d1=document.createElement("div");d1.style.cssText="font-size:.78rem;color:#f0a000;font-weight:700;direction:ltr;margin-bottom:2px";d1.textContent=ex[0];var d2=document.createElement("div");d2.style.cssText="font-size:.88rem;color:#0a1628;font-weight:600;direction:ltr;margin-bottom:3px";d2.textContent=ex[1];var d3=document.createElement("div");d3.style.cssText="font-size:.8rem;color:#64748b;direction:rtl;text-align:right";d3.textContent=ex[2];pat.appendChild(d1);pat.appendChild(d2);pat.appendChild(d3);box2.appendChild(pat);});
+  c.appendChild(box2);
+  var wrong=document.createElement("div");wrong.style.cssText="background:#fef2f2;border-radius:10px;padding:13px 16px;margin-bottom:8px;border-right:4px solid #dc2626;direction:ltr";
+  wrong.innerHTML='<span style="color:#dc2626;font-weight:700">✗ </span>The story was been published yesterday. <span style="font-size:.8rem;color:#dc2626">← was been خطأ — past simple passive = was published</span>';
+  var right=document.createElement("div");right.style.cssText="background:#f0fdf4;border-radius:10px;padding:13px 16px;border-right:4px solid #059669;direction:ltr";
+  right.innerHTML='<span style="color:#059669;font-weight:700">✓ </span>The story <strong>was published</strong> yesterday. / The story <strong>has been published</strong> today. <span style="font-size:.8rem;color:#059669">✅</span>';
+  c.appendChild(wrong);c.appendChild(right);
+}
+function buildListening(){
+  var s=document.getElementById("listenScript");
+  listenLines.forEach(function(line,i){
+    var d=document.createElement("div");d.className="lline";d.id="ll"+i;
+    if(typeof line==="object"&&line.speaker){
+      var lbl=document.createElement("span");
+      var isBen=line.speaker==="T";
+      lbl.style.cssText="font-size:.7rem;font-weight:800;padding:1px 7px;border-radius:8px;margin-left:6px;"+(isBen?"background:#dbeafe;color:#1e3a8a":"background:#fce7f3;color:#9d174d");
+      lbl.textContent=line.speaker==="T"?"Tom":"Ana";
+      var txt=document.createElement("span");txt.textContent=line.text;
+      d.appendChild(lbl);d.appendChild(txt);
+    } else {
+      d.appendChild(document.createTextNode(typeof line==="object"?line.text:line));
+    }
+    s.appendChild(d);
+  });
+  var c=document.getElementById("listenQList");
+  listenQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="14px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:8px;direction:ltr;font-size:.93rem";p.textContent=(qi+1)+". "+q.q;d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="copt";b.id="lq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){listenA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("lq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function setLSpd(r,btn){lspd=r;document.querySelectorAll(".spdbtn").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");}
+function getVoice(gender){
+  var voices=window.speechSynthesis.getVoices();
+  var enVoices=voices.filter(function(v){return v.lang.indexOf("en")===0;});
+  if(gender==="M"){
+    var rishi=enVoices.filter(function(v){return v.name.indexOf("Rishi")>-1;});
+    if(rishi.length)return rishi[0];
+    var male=enVoices.filter(function(v){
+      var n=v.name.toLowerCase();
+      return n.indexOf("male")>-1||n.indexOf("daniel")>-1||n.indexOf("james")>-1||n.indexOf("david")>-1||n.indexOf("mark")>-1||n.indexOf("arthur")>-1;
+    });
+    return male.length?male[0]:(enVoices.length?enVoices[0]:null);
+  } else {
+    var female=enVoices.filter(function(v){
+      var n=v.name.toLowerCase();
+      return n.indexOf("samantha")>-1||n.indexOf("female")>-1||n.indexOf("victoria")>-1||n.indexOf("karen")>-1||n.indexOf("kate")>-1||n.indexOf("fiona")>-1||n.indexOf("moira")>-1;
+    });
+    return female.length?female[0]:(enVoices.length>1?enVoices[1]:enVoices[0]||null);
+  }
+}
+function listenSeq(i){
+  if(!listenOn||i>=listenLines.length){stopListen();return;}
+  document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});
+  var e=document.getElementById("ll"+i);if(e)e.classList.add("hl");
+  var line=listenLines[i];
+  var text=typeof line==="object"?line.text:line;
+  var gender=typeof line==="object"?(line.speaker==="T"?"M":"F"):"M";
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US";u.rate=lspd;
+  var v=getVoice(gender);
+  if(v)u.voice=v;
+  u.pitch=1.0;
+  u.onend=function(){if(listenOn)setTimeout(function(){listenSeq(i+1);},380);};
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+function startListen(){listenOn=true;document.getElementById("lIcon").textContent="⏹";document.getElementById("lTxt").textContent="إيقاف المونولوج";listenSeq(0);}
+function stopListen(){listenOn=false;if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".lline").forEach(function(l){l.classList.remove("hl");});document.getElementById("lIcon").textContent="▶";document.getElementById("lTxt").textContent="شغّل المونولوج";}
+function toggleListen(){listenOn?stopListen():startListen();}
+function checkListen(){var s=0;listenQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("lq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(listenA[qi]===i)el.classList.add("no");}if(listenA[qi]===q.ans)s++;});var r=document.getElementById("listenRes");r.style.display="block";var pct=Math.round(s/listenQs.length*100);r.textContent=s+" من "+listenQs.length+" إجابة صحيحة ("+pct+"%) "+(pct>=80?"✅ ممتاز!":pct>=60?"👍 جيد!":"📚 راجع");}
+function resetListen(){listenA=new Array(listenQs.length).fill(null);document.querySelectorAll(".copt[id^='lq']").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("listenRes").style.display="none";}
+
+function buildW(){
+  var ids=["w1","w2","w3","w4","w5"];var any=false;
+  for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value.trim())any=true;}
+  if(!any){document.getElementById("wOut").innerHTML="<span style='color:#9ca3af;font-style:italic'>✨ ستظهر فقرتك هنا...</span>";return;}
+  var parts=[];
+  for(var j=0;j<ids.length;j++){var el=document.getElementById(ids[j]);var v=el?el.value.trim():"";if(v)parts.push("<span style='color:#f0a000;font-weight:700'>"+v+"</span>.");}
+  document.getElementById("wOut").innerHTML="<p style='direction:ltr;line-height:2'>"+parts.join(" ")+"</p>";
+}
+
+function buildSpeaking(){
+  var c=document.getElementById("speakBox");
+  speakQs.forEach(function(q){
+    var d=document.createElement("div");d.style.cssText="background:#f8faff;border-right:4px solid #1e3a8a;border-radius:0 12px 12px 0;padding:16px 18px;margin-bottom:14px";
+    var p1=document.createElement("p");p1.style.cssText="font-size:.97rem;color:#0a1628;font-weight:700;direction:ltr;margin-bottom:5px";p1.textContent=q.q;
+    var p2=document.createElement("p");p2.style.cssText="font-size:.82rem;color:#9ca3af;margin-bottom:6px";p2.textContent=q.ar;
+    var p3=document.createElement("p");p3.style.cssText="font-size:.82rem;color:#f0a000;direction:ltr;margin-bottom:8px";p3.textContent="💡 "+q.hint;
+    var badge=document.createElement("span");badge.style.cssText="background:#dbeafe;color:#1e3a8a;padding:4px 12px;border-radius:20px;font-size:.76rem;font-weight:700";badge.textContent=q.badge;
+    d.appendChild(p1);d.appendChild(p2);d.appendChild(p3);d.appendChild(badge);
+    var btn=document.createElement("button");btn.className="spksmall";btn.textContent="🔊";btn.style.marginTop="10px";
+    btn.addEventListener("click",(function(qq){return function(){say(qq,spd);};})(q.q));
+    d.appendChild(btn);c.appendChild(d);
+  });
+}
+
+function makeExRow(text,arabic,spkText){
+  var div=document.createElement("div");
+  div.style.cssText="cursor:pointer;user-select:none;padding:8px 12px;background:white;border-radius:8px;direction:ltr;font-size:.86rem;color:#374151;font-style:italic;margin-top:6px";
+  var span=document.createElement("span");span.textContent=text;
+  var tr=document.createElement("div");
+  tr.style.cssText="font-size:.78rem;color:#64748b;direction:rtl;text-align:right;margin-top:4px;padding-top:4px;border-top:1px dashed #e5e7eb;display:none;font-family:Tajawal,sans-serif;font-style:normal";
+  tr.textContent=arabic;
+  div.appendChild(span);div.appendChild(tr);
+  div.addEventListener("click",(function(t,s){return function(){t.style.display=t.style.display==="none"?"block":"none";say(s,spd);};})(tr,spkText));
+  return div;
+}
+
+function buildReal(){
+  var c=document.getElementById("realBox");
+  var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h1.textContent="🔥 Expressions — اضغط على الجملة لتسمعها وترجمتها";c.appendChild(h1);
+  realExpr.forEach(function(e){
+    var d=document.createElement("div");d.className="expr-card";
+    // Visible 🔊 for main expression
+    var header=document.createElement("div");header.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;direction:ltr";
+    var headerLeft=document.createElement("div");headerLeft.style.cssText="display:flex;align-items:center;gap:8px";
+    var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";
+    spkBtn.addEventListener("click",(function(ee){return function(){say(ee,spd);};})(e.e));
+    var titleSpan=document.createElement("span");titleSpan.style.cssText="font-weight:700;color:#4c1d95;font-size:.97rem";titleSpan.textContent=e.e;
+    headerLeft.appendChild(spkBtn);headerLeft.appendChild(titleSpan);
+    var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.78rem;font-weight:700;font-family:Tajawal,sans-serif";pronSpan.textContent=e.p;
+    header.appendChild(headerLeft);header.appendChild(pronSpan);
+    d.appendChild(header);
+    var grid=document.createElement("div");grid.style.cssText="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px";
+    var g1=document.createElement("div");g1.style.cssText="background:white;border-radius:8px;padding:8px 12px;text-align:right";g1.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>المعنى</div><div style='font-weight:700;color:#374151;font-size:.88rem'>"+e.m+"</div>";
+    var g2=document.createElement("div");g2.style.cssText="background:white;border-radius:8px;padding:8px 12px;direction:ltr";g2.innerHTML="<div style='font-size:.68rem;color:#9ca3af;margin-bottom:2px'>Formal</div><div style='font-size:.85rem;color:#64748b'>"+e.f+"</div>";
+    grid.appendChild(g1);grid.appendChild(g2);d.appendChild(grid);
+    d.appendChild(makeExRow(e.x,e.xar,e.x));
+    var note=document.createElement("div");note.style.cssText="font-size:.8rem;color:#7c3aed;text-align:right;margin-top:8px";note.textContent="💡 "+e.n;
+    d.appendChild(note);c.appendChild(d);
+  });
+  var h2=document.createElement("p");h2.style.cssText="font-weight:800;color:#0a1628;margin:20px 0 14px;text-align:right";h2.textContent="😎 Slang";c.appendChild(h2);
+  var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:20px";
+  realSlang.forEach(function(s){
+    var d=document.createElement("div");d.className="slang-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";
+    var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkS=document.createElement("button");spkS.className="spksmall";spkS.textContent="🔊";spkS.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkS.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var sWord=document.createElement("span");sWord.style.cssText="font-weight:700;color:#ea580c;font-size:.9rem";sWord.textContent=s.w;
+    titleLeft.appendChild(spkS);titleLeft.appendChild(sWord);
+    var pp=document.createElement("span");pp.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pp.textContent=s.p;
+    titleRow.appendChild(titleLeft);titleRow.appendChild(pp);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    sg.appendChild(d);
+  });
+  c.appendChild(sg);
+  var h3=document.createElement("p");h3.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";h3.textContent="💬 Everyday Phrases";c.appendChild(h3);
+  var ev=document.createElement("div");ev.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";
+  realEvery.forEach(function(s){
+    var d=document.createElement("div");d.className="ev-card";
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;direction:ltr";
+    var titleLeft2=document.createElement("div");titleLeft2.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkE=document.createElement("button");spkE.className="spksmall";spkE.textContent="🔊";spkE.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkE.addEventListener("click",(function(sw){return function(){say(sw,spd);};})(s.w));
+    var titleTxt=document.createElement("span");titleTxt.style.cssText="font-weight:700;color:#15803d;font-size:.9rem";titleTxt.textContent=s.w;
+    titleLeft2.appendChild(spkE);titleLeft2.appendChild(titleTxt);
+    var evPron=document.createElement("span");evPron.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";evPron.textContent=s.p;
+    titleRow.appendChild(titleLeft2);titleRow.appendChild(evPron);
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:3px";ar.textContent=s.a;
+    var instead=document.createElement("div");instead.style.cssText="font-size:.8rem;color:#64748b;text-align:right;margin-bottom:6px";instead.textContent="Instead of: "+s.i;
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(instead);
+    d.appendChild(makeExRow(s.x,s.xar,s.x));
+    ev.appendChild(d);
+  });
+  c.appendChild(ev);
+}
+
+
+function buildPhrasal(){
+  var c=document.getElementById("pvBox");
+  if(!c)return;
+  var h1=document.createElement("p");h1.style.cssText="font-weight:800;color:#0a1628;margin-bottom:14px;text-align:right";
+  h1.textContent="💬 Phrasal Verbs — اضغط على الجملة لتسمعها وترجمتها";c.appendChild(h1);
+  var sg=document.createElement("div");sg.style.cssText="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px";
+  pvData.forEach(function(pv){
+    var d=document.createElement("div");d.className="slang-card";
+    // Row 1: 🔊 reads WORD only + verb + pronunciation
+    var titleRow=document.createElement("div");titleRow.style.cssText="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;direction:ltr";
+    var titleLeft=document.createElement("div");titleLeft.style.cssText="display:flex;align-items:center;gap:6px";
+    var spkBtn=document.createElement("button");spkBtn.className="spksmall";spkBtn.textContent="🔊";
+    spkBtn.style.cssText="width:28px;height:28px;font-size:.8rem";
+    spkBtn.addEventListener("click",(function(word){return function(e){e.stopPropagation();say(word,spd);};})(pv.v));
+    var pvWord=document.createElement("span");pvWord.style.cssText="font-weight:700;color:#7c3aed;font-size:.95rem";pvWord.textContent=pv.v;
+    titleLeft.appendChild(spkBtn);titleLeft.appendChild(pvWord);
+    var pronSpan=document.createElement("span");pronSpan.style.cssText="color:#f0a000;font-size:.76rem;font-family:Tajawal,sans-serif";pronSpan.textContent=pv.p||"";
+    titleRow.appendChild(titleLeft);titleRow.appendChild(pronSpan);
+    // Arabic meaning
+    var ar=document.createElement("div");ar.style.cssText="font-size:.86rem;font-weight:700;color:#374151;text-align:right;margin-bottom:6px";ar.textContent=pv.m;
+    // Example sentence — click to HEAR + show translation
+    var exBox=document.createElement("div");
+    exBox.style.cssText="font-family:'Lora',serif;font-style:italic;color:#1e3a8a;font-size:.88rem;direction:ltr;cursor:pointer;padding:8px 10px;background:#f0f9ff;border-radius:8px;border-left:3px solid #7c3aed";
+    exBox.textContent=pv.ex;
+    var trBox=document.createElement("div");
+    trBox.style.cssText="display:none;font-size:.82rem;color:#64748b;direction:rtl;text-align:right;margin-top:6px;padding:7px 10px;background:#fffdf7;border-radius:8px;border-right:3px solid #fde68a";
+    trBox.textContent=pv.ar;
+    exBox.addEventListener("click",(function(ex,tb){return function(){
+      say(ex,spd);
+      tb.style.display=tb.style.display==="none"?"block":"none";
+      this.style.background=tb.style.display==="block"?"#dbeafe":"#f0f9ff";
+    };})(pv.ex,trBox));
+    d.appendChild(titleRow);d.appendChild(ar);d.appendChild(exBox);d.appendChild(trBox);
+    sg.appendChild(d);
+  });
+  c.appendChild(sg);
+}
+
+function buildQuiz(){
+  var c=document.getElementById("quizList");
+  quizQs.forEach(function(q,qi){
+    var d=document.createElement("div");d.style.marginBottom="18px";
+    var p=document.createElement("p");p.style.cssText="font-weight:700;color:#0a1628;margin-bottom:10px;direction:ltr;font-size:.93rem";
+    p.innerHTML="<span style='background:#0a1628;color:white;border-radius:5px;padding:1px 8px;font-size:.76rem;margin-left:8px'>"+(qi+1)+"</span>"+q.q;
+    d.appendChild(p);
+    q.opts.forEach(function(opt,oi){
+      var b=document.createElement("div");b.className="qopt";b.id="qq"+qi+"-"+oi;b.textContent=opt;
+      b.addEventListener("click",function(){quizA[qi]=oi;for(var k=0;k<q.opts.length;k++){var el=document.getElementById("qq"+qi+"-"+k);if(el){el.classList.remove("ok","no");el.style.borderColor="";}}this.style.borderColor="#0a1628";});
+      d.appendChild(b);
+    });
+    c.appendChild(d);
+  });
+}
+function checkQuiz(){var s=0;quizQs.forEach(function(q,qi){for(var i=0;i<q.opts.length;i++){var el=document.getElementById("qq"+qi+"-"+i);if(!el)continue;el.classList.remove("ok","no");if(i===q.ans)el.classList.add("ok");else if(quizA[qi]===i)el.classList.add("no");}if(quizA[qi]===q.ans)s++;});var pct=Math.round(s/quizQs.length*100);var r=document.getElementById("quizRes");r.style.display="block";document.getElementById("qEmoji").textContent=pct===100?"🏆":pct>=70?"🎉":pct>=50?"💪":"📚";document.getElementById("qScore").textContent=s+" من "+quizQs.length+" إجابة صحيحة ("+pct+"%)";document.getElementById("qMsg").textContent=pct===100?"مثالي!":pct>=70?"أحسنت!":pct>=50?"راجع Conditionals Type 2.":"راجع الوحدة.";r.style.background=pct>=70?"#f0fdf4":"#fef9f0";r.scrollIntoView({behavior:"smooth",block:"center"});}
+function resetQuiz(){quizA=new Array(quizQs.length).fill(null);document.querySelectorAll(".qopt").forEach(function(el){el.classList.remove("ok","no");el.style.borderColor="";});document.getElementById("quizRes").style.display="none";}
+
+function show(id,btn){document.querySelectorAll(".sec").forEach(function(s){s.classList.remove("on");});document.getElementById("sec-"+id).classList.add("on");window.scrollTo({top:0,behavior:"smooth"});document.querySelectorAll(".nb").forEach(function(b){b.classList.remove("on");});if(btn){btn.classList.add("on");return;}var map={vocab:0,story:1,reading:2,grammar:3,listening:4,writing:5,speaking:6,realeng:7,pv:8,quiz:9};var btns=document.querySelectorAll(".nb");if(btns[map[id]])btns[map[id]].classList.add("on");}
+
+buildVocab();buildStory();buildReading();buildGrammar();buildListening();buildSpeaking();buildReal();buildPhrasal();buildQuiz();
+</script>
+</body>
+</html>
