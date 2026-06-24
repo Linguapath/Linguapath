@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath Deutsch — الوحدة ٦: البيت والغرف</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-thumb{background:#c0392b;border-radius:3px}
+body{font-family:'Tajawal',sans-serif;background:#f4f1ec;min-height:100vh;direction:rtl}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,100,60,0.4)}50%{box-shadow:0 0 0 8px rgba(0,100,60,0)}}
+.fade-up{animation:fadeUp 0.45s ease forwards}
+.nav-btn{transition:all 0.2s;border:none;cursor:pointer;font-family:'Tajawal',sans-serif;border-radius:30px;padding:7px 16px;font-size:0.82rem;font-weight:600}
+.nav-btn.active{background:#e8a000;color:#1a1a1a;font-weight:800}
+.nav-btn:not(.active){background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.85)}
+.section-content{display:none;max-width:880px;margin:0 auto;padding:36px 16px 80px}
+.section-content.active{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 4px 28px rgba(0,0,0,0.07);margin-bottom:24px;overflow:hidden}
+.card-header{background:#1a1a1a;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.card-header h3{font-size:1.05rem;font-weight:700}
+.card-header .sub{font-size:0.78rem;color:#fcd34d;margin-top:1px}
+.card-body{padding:24px}
+
+/* VOCAB with always-visible example */
+.vocab-block{border:1px solid #e5eaf5;border-radius:12px;margin-bottom:8px;overflow:hidden}
+.vocab-row{display:grid;grid-template-columns:1fr 1fr 1fr 42px;align-items:center;gap:10px;padding:11px 16px}
+.vocab-row.even{background:#fafafa}
+.vocab-row.odd{background:#fff}
+.vocab-header{background:#1a1a1a !important;border-radius:12px}
+.v-de{font-family:Lora,serif;font-weight:700;font-size:1rem;color:#1a1a1a;direction:ltr;text-align:left}
+.v-pron{font-size:0.88rem;color:#e8a000;font-weight:700;direction:rtl;text-align:right}
+.v-ar{font-size:0.97rem;font-weight:700;color:#374151;text-align:right}
+.vocab-header .v-de,.vocab-header .v-pron,.vocab-header .v-ar{color:white;font-family:'Tajawal',sans-serif;font-weight:700}
+.ex-row{padding:10px 16px;background:#fafafa;border-top:1px dashed #e5e7eb;display:flex;align-items:center;gap:8px}
+.ex-icon{font-size:0.9rem;flex-shrink:0;color:#9ca3af}
+.ex-text-wrap{flex:1}
+.ex-de{font-family:Lora,serif;font-size:0.9rem;color:#1a1a1a;direction:ltr;font-style:italic;margin-bottom:3px}
+.ex-ar{font-size:0.82rem;color:#9ca3af;text-align:right}
+
+.play-btn{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.18s;flex-shrink:0}
+.play-btn.idle{background:#e8f0fe;color:#1a56b0}
+.play-btn.idle:hover{background:#1a56b0;color:white;transform:scale(1.1)}
+.play-btn.playing{background:#00643c;color:white;animation:pulse 1s infinite}
+.mini-btn{width:26px;height:26px;border-radius:7px;border:1.5px solid #e5e7eb;background:white;cursor:pointer;font-size:0.72rem;display:flex;align-items:center;justify-content:center;color:#9ca3af;flex-shrink:0}
+.mini-btn:hover{border-color:#1a56b0;background:#f0f7ff;color:#1a56b0}
+
+.story-controls{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap;flex-direction:row-reverse}
+.story-main-btn{display:flex;align-items:center;gap:8px;border:none;border-radius:25px;padding:10px 22px;font-family:'Tajawal',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.2s;flex-direction:row-reverse}
+.speed-wrap{display:flex;align-items:center;gap:6px;flex-direction:row-reverse}
+.speed-wrap label{font-size:0.82rem;color:#6b7280;font-weight:600}
+.spd{padding:5px 11px;border-radius:20px;border:2px solid #d1d5db;background:white;font-family:'Tajawal',sans-serif;font-size:0.78rem;font-weight:700;cursor:pointer;color:#6b7280;transition:all 0.15s}
+.spd.active{border-color:#1a1a1a;background:#1a1a1a;color:white}
+.story-box{border-right:4px solid #e8a000;padding:16px 20px;background:#fffdf7;border-radius:0 12px 12px 0}
+.dialog-line{padding:10px 6px;border-bottom:1px solid #f5f5f5;transition:background 0.18s}
+.dialog-line:last-child{border-bottom:none}
+.dialog-line.hl{background:#fef3c7;border-radius:8px}
+.dl-main{display:flex;align-items:flex-start;gap:8px;direction:ltr}
+.speaker-badge{font-family:'Tajawal',sans-serif;font-size:0.72rem;font-weight:800;padding:3px 10px;border-radius:20px;flex-shrink:0;margin-top:3px;white-space:nowrap}
+.speaker-F .speaker-badge{background:#1a1a1a;color:#e8a000}
+.speaker-L .speaker-badge{background:#c0392b;color:white}
+.dialog-text{font-family:Lora,serif;font-size:0.95rem;line-height:1.8;color:#1a1a1a;flex:1;direction:ltr}
+.dl-btns{display:flex;gap:5px;flex-shrink:0;margin-top:2px}
+.dl-btn{width:28px;height:28px;border-radius:7px;border:1.5px solid #e5e7eb;background:white;cursor:pointer;font-size:0.78rem;display:flex;align-items:center;justify-content:center;transition:all 0.15s;color:#9ca3af}
+.dl-btn:hover{border-color:#1a56b0;background:#f0f7ff;color:#1a56b0}
+.dl-tr-btn:hover{border-color:#e8a000;background:#fef9e7;color:#b45309}
+.dl-ar{display:none;font-family:'Tajawal',sans-serif;font-size:0.87rem;color:#9ca3af;direction:rtl;text-align:right;padding:5px 52px 2px 0;line-height:1.6}
+
+.konj-table{width:100%;border-collapse:collapse;direction:ltr;margin-bottom:16px;font-family:Lora,serif}
+.konj-table th{background:#1a1a1a;color:white;padding:10px 14px;text-align:left;font-size:0.88rem}
+.konj-table td{padding:10px 14px;border-bottom:1px solid #f0f0f0;font-size:0.92rem}
+.konj-table tr:nth-child(even) td{background:#fafafa}
+
+.listen-card{display:flex;align-items:center;gap:14px;background:#f0f7ff;border:1px solid #bfdbfe;border-radius:12px;padding:14px 18px;margin-bottom:10px;flex-direction:row-reverse}
+.listen-link{background:#1a1a1a;color:white;border:none;border-radius:8px;padding:8px 16px;font-family:'Tajawal',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.2s;flex-shrink:0}
+.listen-link:hover{background:#c0392b}
+
+.writing-line{display:flex;align-items:center;gap:10px;margin-bottom:14px;direction:ltr;flex-wrap:wrap}
+.writing-line label{font-family:'Tajawal',sans-serif;font-size:0.88rem;color:#6b7280;direction:rtl;min-width:110px;text-align:right}
+.w-input{border:none;border-bottom:2px solid #e8a000;background:transparent;font-family:Lora,serif;font-size:1rem;color:#1a1a1a;outline:none;padding:3px 6px;min-width:100px;transition:border-color 0.2s}
+.w-input:focus{border-color:#1a1a1a}
+.w-fixed{font-family:Lora,serif;font-size:1rem;color:#1a1a1a;font-weight:600}
+
+.speaking-q{background:#f8faff;border-right:4px solid #1a56b0;border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:12px}
+.sq-row{display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px}
+.sq-model{margin-top:10px;padding-top:10px;border-top:1px dashed #c7d6f5;display:flex;align-items:center;gap:8px}
+.sq-model-de{font-family:Lora,serif;font-size:0.88rem;color:#1a56b0;direction:ltr;flex:1}
+
+/* WRITING — hidden model per question */
+.wf-model-btn{background:#dbeafe;color:#1e40af;border:none;border-radius:20px;padding:7px 18px;font-family:'Tajawal',sans-serif;font-size:0.82rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin:8px 0 4px}
+.wf-model-btn:hover{background:#bfdbfe}
+.wf-model-box{display:none;background:#f8faff;border-radius:10px;padding:10px 14px;margin-bottom:10px}
+.wf-model-de{font-family:Lora,serif;font-size:0.9rem;color:#1a1a1a;direction:ltr;margin-bottom:4px}
+.wf-model-ar{font-size:0.82rem;color:#6b7280;text-align:right}
+
+/* REAL DEUTSCH — example always visible, only translation hidden */
+.rd-card{background:#fafafa;border:1px solid #e5eaf5;border-radius:12px;padding:16px 18px;margin-bottom:12px}
+.rd-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-direction:row-reverse}
+.rd-expr-wrap{display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.rd-expr{font-family:Lora,serif;font-size:1.05rem;font-weight:700;color:#c0392b;direction:ltr}
+.rd-pron{color:#e8a000;font-weight:700;font-size:0.82rem}
+.rd-meaning{font-size:0.9rem;color:#374151;text-align:right;margin-bottom:12px;line-height:1.7}
+.rd-ex-row{display:flex;align-items:center;gap:6px;direction:ltr;background:white;border-radius:8px;padding:8px 12px}
+.rd-ex-de{font-family:Lora,serif;font-size:0.92rem;color:#1a1a1a;font-style:italic;flex:1}
+.rd-ex-ar{display:none;font-size:0.85rem;color:#9ca3af;text-align:right;margin-top:6px;padding:6px 12px;background:white;border-radius:8px}
+.rd-note{font-size:0.82rem;color:#c0392b;text-align:right;margin-top:8px}
+
+.quiz-q{margin-bottom:20px}
+.quiz-q p{font-size:0.97rem;font-weight:700;color:#1a1a1a;margin-bottom:10px;direction:ltr;font-family:Lora,serif}
+.quiz-opts{display:flex;flex-direction:column;gap:8px}
+.quiz-opt{display:flex;align-items:center;gap:10px;padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;transition:all 0.18s;flex-direction:row-reverse;text-align:right;background:white}
+.quiz-opt:hover{border-color:#1a56b0;background:#f0f7ff}
+.quiz-opt.correct{border-color:#00643c;background:#ecfdf5;color:#00643c}
+.quiz-opt.wrong{border-color:#c0392b;background:#fef2f2;color:#c0392b}
+.btn{border:none;border-radius:30px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all 0.2s;padding:11px 28px;font-size:0.95rem}
+.btn:hover{opacity:0.88;transform:scale(0.98)}
+.btn-dark{background:#1a1a1a;color:white}
+.btn-gray{background:#e5e7eb;color:#374151}
+.btn-gold{background:#e8a000;color:#1a1a1a}
+.flag-strip{height:5px;background:linear-gradient(90deg,#1a1a1a 33%,#c0392b 33% 66%,#e8a000 66%)}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(90px);background:#1a1a1a;color:white;padding:12px 28px;border-radius:30px;font-size:0.95rem;font-weight:700;transition:transform 0.4s ease;z-index:999;pointer-events:none;white-space:nowrap}
+@media(max-width:580px){
+  .vocab-row{grid-template-columns:1fr 1fr 38px}
+  .v-pron{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="flag-strip"></div>
+
+<div style="background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 60%,#1a1a1a 100%);color:white;position:relative;overflow:hidden">
+  <div style="position:absolute;top:-60px;left:-60px;width:280px;height:280px;border-radius:50%;background:rgba(232,160,0,0.07);pointer-events:none"></div>
+  <div style="position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(192,57,43,0.07);pointer-events:none"></div>
+  <div style="max-width:880px;margin:0 auto;padding:14px 20px 0;display:flex;justify-content:space-between;align-items:center">
+    <a href="index_de.html" style="color:rgba(255,255,255,0.55);font-size:0.82rem;text-decoration:none;font-family:'Tajawal',sans-serif">← Deutsch A1</a>
+    <div style="font-family:Lora,serif;font-size:0.9rem;color:#e8a000;direction:ltr">LinguaPath 🇩🇪</div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:5px;padding:10px 16px 0;flex-wrap:wrap">
+    <button class="nav-btn active" onclick="show('vocab',this)">📚 المفردات</button>
+    <button class="nav-btn" onclick="show('story',this)">📖 الحوار</button>
+    <button class="nav-btn" onclick="show('grammar',this)">✏️ القاعدة</button>
+    <button class="nav-btn" onclick="show('listen',this)">🎧 الاستماع</button>
+    <button class="nav-btn" onclick="show('writing',this)">✍️ الكتابة</button>
+    <button class="nav-btn" onclick="show('speaking',this)">💬 المحادثة</button>
+    <button class="nav-btn" onclick="show('realde',this)">🗣️ Real Deutsch</button>
+    <button class="nav-btn" onclick="show('quiz',this)">✅ الاختبار</button>
+  </div>
+  <div style="max-width:880px;margin:0 auto;padding:32px 24px 44px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px">
+    <div>
+      <div style="font-size:0.78rem;letter-spacing:3px;color:#e8a000;font-weight:700;margin-bottom:8px">EINHEIT 6 — A1 🇩🇪</div>
+      <h1 style="font-family:Lora,serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;line-height:1.2;margin-bottom:8px;direction:ltr">Wohnung &amp; Zimmer</h1>
+      <p style="font-size:1.1rem;color:rgba(255,255,255,0.75);margin-bottom:6px">البيت والغرف</p>
+      <p style="font-size:0.88rem;color:rgba(255,255,255,0.5)">القاعدة: حروف الجر in / an / auf — أين تقع الأشياء؟</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;text-align:center">
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:10px 18px">
+        <div style="font-family:Lora,serif;font-size:1.4rem;font-weight:700;color:#e8a000">20</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.5)">كلمة جديدة</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:10px 18px">
+        <div style="font-family:Lora,serif;font-size:1.4rem;font-weight:700;color:#e8a000">8</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.5)">أقسام</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flag-strip"></div>
+
+<div id="sec-vocab" class="section-content active fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">🏠</span>
+      <div><h3>البيت والغرف — Wohnung und Zimmer</h3><div class="sub">اضغط 🔊 للنطق</div></div>
+    </div>
+    <div class="card-body">
+      <div class="vocab-row vocab-header" style="margin-bottom:8px">
+        <span class="v-de" style="font-family:'Tajawal',sans-serif;color:white">الكلمة الألمانية</span>
+        <span class="v-pron" style="font-family:'Tajawal',sans-serif;color:white">النطق</span>
+        <span class="v-ar">المعنى</span>
+        <span></span>
+
+      </div>
+      <div id="vocabGrid"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center">
+    <button class="btn btn-dark" onclick="show('story',null)">انتقل للحوار ←</button>
+  </div>
+</div>
+
+<div id="sec-story" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">📖</span>
+      <div><h3>الحوار — Dialog</h3><div class="sub">Lena besucht Felix in seiner neuen Wohnung — لينا تزور شقة فيليكس الجديدة</div></div>
+    </div>
+    <div class="card-body">
+      <div style="display:flex;gap:12px;margin-bottom:16px;flex-direction:row-reverse;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:6px;flex-direction:row-reverse">
+          <span style="background:#1a1a1a;color:#e8a000;font-size:0.72rem;font-weight:800;padding:2px 10px;border-radius:20px;font-family:'Tajawal',sans-serif">Felix</span>
+          <span style="font-size:0.82rem;color:#6b7280">ذكر — Mann 🇩🇪</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;flex-direction:row-reverse">
+          <span style="background:#c0392b;color:white;font-size:0.72rem;font-weight:800;padding:2px 10px;border-radius:20px;font-family:'Tajawal',sans-serif">Lena</span>
+          <span style="font-size:0.82rem;color:#6b7280">أنثى — Frau 🌍</span>
+        </div>
+      </div>
+      <div class="story-controls">
+        <button class="story-main-btn" id="storyBtn" onclick="toggleStory()" style="background:#1a56b0;color:white">
+          <span id="sBtnIcon">▶</span><span id="sBtnTxt">استمع للحوار كاملاً</span>
+        </button>
+        <div class="speed-wrap">
+          <label>السرعة:</label>
+          <button class="spd" onclick="setSpd(0.65,this)">🐢</button>
+          <button class="spd active" onclick="setSpd(0.9,this)">🚶</button>
+          <button class="spd" onclick="setSpd(1.2,this)">🏃</button>
+        </div>
+        <button id="trAllBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:25px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:0.82rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+      </div>
+      <div class="story-box" id="storyBox"></div>
+      <p style="margin-top:14px;font-size:0.85rem;color:#9ca3af;text-align:right">📌 اضغط 🌐 لترجمة الجملة · 🔊 للاستماع</p>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn btn-dark" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">✏️</span>
+      <div><h3>القاعدة — Grammatik</h3><div class="sub">حروف الجر in / an / auf — أين تقع الأشياء في الغرفة؟</div></div>
+    </div>
+    <div class="card-body">
+      <p style="text-align:right;font-size:0.97rem;line-height:1.9;color:#374151;margin-bottom:20px">
+        هذه الحروف تُسمى <strong>Wechselpräpositionen</strong> — تُستخدم مع <strong style="color:#00643c">Dativ</strong> عند السؤال "أين؟" (Wo?) بدون حركة.
+      </p>
+      <h4 style="font-weight:800;color:#1a1a1a;margin-bottom:12px;text-align:right">📋 الاختصارات الشائعة</h4>
+      <div style="overflow-x:auto;margin-bottom:20px">
+        <table class="konj-table">
+          <thead><tr><th>الحرف + dem</th><th>الاختصار</th><th>مثال</th><th>المعنى</th></tr></thead>
+          <tbody id="praepTable"></tbody>
+        </table>
+      </div>
+      <div style="background:#f0fdf4;border-right:4px solid #00643c;border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:20px">
+        <p style="font-weight:800;color:#1a1a1a;margin-bottom:10px;text-align:right">🔑 متى نستخدم كل حرف؟</p>
+        <div style="direction:ltr;font-family:Lora,serif;font-size:0.92rem;display:flex;flex-direction:column;gap:6px;color:#1a1a1a">
+          <div><strong style="color:#1a56b0">in</strong> — داخل شيء: <em>im Zimmer, im Schrank</em></div>
+          <div><strong style="color:#c0392b">an</strong> — ملاصق لسطح عمودي: <em>an der Wand, am Fenster</em></div>
+          <div><strong style="color:#00643c">auf</strong> — على سطح أفقي: <em>auf dem Tisch, auf dem Sofa</em></div>
+        </div>
+      </div>
+      <h4 style="font-weight:800;color:#1a1a1a;margin-bottom:14px;text-align:right">❓ أسئلة عن موقع الأشياء</h4>
+      <div id="ortFragen" style="display:flex;flex-direction:column;gap:8px"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('story',null)">→ الحوار</button>
+    <button class="btn btn-dark" onclick="show('listen',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listen" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">🎧</span>
+      <div><h3>الاستماع — Hören</h3><div class="sub">4 مصادر متنوعة — مفردات + قاعدة in/an/auf + قصة</div></div>
+    </div>
+    <div class="card-body">
+      <div style="background:linear-gradient(135deg,#fef9f0,#fef3c7);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:16px 20px;margin-bottom:20px;display:flex;gap:12px;flex-direction:row-reverse;align-items:flex-start">
+        <span style="font-size:1.5rem">🎯</span>
+        <div style="text-align:right">
+          <p style="font-weight:700;color:#1a1a1a;margin-bottom:4px">نصيحة للاستماع</p>
+          <p style="font-size:0.9rem;color:#6b7280;line-height:1.8">ابدأ بفيديو المفردات، ثم فيديو القاعدة لفهم in/an/auf جيداً قبل القصة.</p>
+        </div>
+      </div>
+      <div id="listenCards"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn btn-dark" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">✍️</span>
+      <div><h3>الكتابة — Schreiben</h3><div class="sub">صِف بيتك بالألمانية</div></div>
+    </div>
+    <div class="card-body">
+      <p style="text-align:right;font-size:0.97rem;line-height:1.9;color:#374151;margin-bottom:20px">أكمل الجمل — سيظهر النص الكامل أسفل النموذج.</p>
+      <div style="background:#fffdf7;border:2px dashed #e8a000;border-radius:14px;padding:22px;margin-bottom:16px">
+        <div id="writingForm"></div>
+        <div style="margin-top:20px;padding:16px 20px;background:white;border-radius:12px;border:1px solid #e5e7eb;min-height:90px;border-right:4px solid #e8a000" id="writingPreview">
+          <p style="color:#9ca3af;font-size:0.88rem;text-align:center;margin-top:10px">✨ سيظهر نصك هنا...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('listen',null)">→ الاستماع</button>
+    <button class="btn btn-dark" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">💬</span>
+      <div><h3>المحادثة — Sprechen</h3><div class="sub">أجب بصوت عالٍ عن بيتك وغرفك</div></div>
+    </div>
+    <div class="card-body">
+      <div style="background:#eff6ff;border-radius:12px;padding:16px 20px;margin-bottom:20px;display:flex;gap:12px;flex-direction:row-reverse;align-items:flex-start">
+        <span style="font-size:1.5rem">🎤</span>
+        <div style="text-align:right">
+          <p style="font-weight:700;color:#1a1a1a;margin-bottom:4px">تذكّر!</p>
+          <p style="font-size:0.9rem;color:#6b7280;line-height:1.8">استخدم <span style="font-family:Lora,serif;direction:ltr;display:inline-block">im / am / auf dem</span> عند وصف موقع الأشياء.</p>
+        </div>
+      </div>
+      <div id="speakingQs"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn btn-gold" onclick="show('realde',null)">Real Deutsch ←</button>
+  </div>
+</div>
+
+<div id="sec-realde" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header" style="background:linear-gradient(135deg,#c0392b,#a93226)">
+      <span style="font-size:1.4rem">🗣️</span>
+      <div><h3>Real Deutsch</h3><div class="sub">اضغط "مثال" لرؤية جملة حقيقية وترجمتها مع الصوت</div></div>
+    </div>
+    <div class="card-body">
+      <div id="realDeContainer"></div>
+      <div style="margin-top:20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-direction:row-reverse">
+          <span style="font-size:1.2rem">💡</span>
+          <h4 style="font-weight:800;font-size:1rem;color:#e8a000">هل تعلم؟</h4>
+        </div>
+        <div id="didYouKnow"></div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn btn-gold" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-quiz" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">✅</span>
+      <div><h3>الاختبار — Quiz</h3><div class="sub">١٠ أسئلة عن البيت وin/an/auf</div></div>
+    </div>
+    <div class="card-body">
+      <div id="quizContainer"></div>
+      <div style="display:flex;justify-content:center;gap:12px;margin-top:20px">
+        <button class="btn btn-dark" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn btn-gray" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizResult" style="display:none;text-align:center;padding:20px;margin-top:16px;border-radius:14px">
+        <div style="font-size:2.5rem;margin-bottom:8px" id="quizEmoji">🎉</div>
+        <div style="font-weight:800;font-size:1.1rem;color:#1a1a1a;margin-bottom:4px" id="quizScore"></div>
+        <div style="font-size:0.9rem;color:#6b7280" id="quizMsg"></div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:28px;background:white;border-radius:18px;box-shadow:0 4px 24px rgba(0,0,0,0.07)">
+    <div class="flag-strip" style="height:4px;margin:-28px -28px 20px;border-radius:18px 18px 0 0"></div>
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:#1a1a1a;margin-bottom:6px">Ausgezeichnet! أكملت الوحدة السادسة!</div>
+    <p style="font-size:0.9rem;color:#6b7280;margin-bottom:16px">الوحدة السابعة: الروتين اليومي — Alltag &amp; Routinen</p>
+    <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+      <a href="de_unit5_food.html" class="btn btn-gray" style="text-decoration:none;display:inline-block">← الوحدة الخامسة</a>
+      <a href="de_unit7_daily.html" class="btn btn-dark" style="text-decoration:none;display:inline-block">الوحدة السابعة ←</a>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var vocab = [
+  {de:"die Wohnung",     pron:"دى فونونغ",      ar:"الشقة", ex:"Meine Wohnung ist klein, aber gemuetlich.", exShow:"Meine Wohnung ist klein, aber gemütlich.", exAr:"شقتي صغيرة لكنها مريحة."},
+  {de:"das Haus",        pron:"داس هاوس",        ar:"البيت", ex:"Das Haus hat zwei Stockwerke.", exShow:"Das Haus hat zwei Stockwerke.", exAr:"البيت له طابقان."},
+  {de:"das Zimmer",      pron:"داس تسيمِر",      ar:"الغرفة", ex:"Mein Zimmer ist im ersten Stock.", exShow:"Mein Zimmer ist im ersten Stock.", exAr:"غرفتي في الطابق الأول."},
+  {de:"die Küche",      pron:"دى كوشه",         ar:"المطبخ", ex:"Ich koche jeden Tag in der Kueche.", exShow:"Ich koche jeden Tag in der Küche.", exAr:"أطبخ كل يوم في المطبخ."},
+  {de:"das Bad",         pron:"داس بات",         ar:"الحمام", ex:"Das Handtuch haengt im Bad.", exShow:"Das Handtuch hängt im Bad.", exAr:"المنشفة معلّقة في الحمام."},
+  {de:"das Schlafzimmer",pron:"داس شلافتسيمِر",  ar:"غرفة النوم", ex:"Das Bett steht im Schlafzimmer.", exShow:"Das Bett steht im Schlafzimmer.", exAr:"السرير في غرفة النوم."},
+  {de:"das Wohnzimmer",  pron:"داس فونتسيمِر",   ar:"غرفة المعيشة", ex:"Wir sitzen abends im Wohnzimmer.", exShow:"Wir sitzen abends im Wohnzimmer.", exAr:"نجلس مساءً في غرفة المعيشة."},
+  {de:"der Flur",        pron:"در فلور",         ar:"الممر", ex:"Die Schuhe stehen im Flur.", exShow:"Die Schuhe stehen im Flur.", exAr:"الأحذية في الممر."},
+  {de:"der Balkon",      pron:"در بالكون",        ar:"البلكون", ex:"Im Sommer sitzen wir auf dem Balkon.", exShow:"Im Sommer sitzen wir auf dem Balkon.", exAr:"في الصيف نجلس على البلكون."},
+  {de:"die Tür",        pron:"دى توير",          ar:"الباب", ex:"Die Tuer ist offen.", exShow:"Die Tür ist offen.", exAr:"الباب مفتوح."},
+  {de:"das Fenster",     pron:"داس فِنستِر",      ar:"النافذة", ex:"Das Bild haengt am Fenster.", exShow:"Das Bild hängt am Fenster.", exAr:"الصورة معلّقة عند النافذة."},
+  {de:"der Tisch",       pron:"در تيش",           ar:"الطاولة", ex:"Das Buch liegt auf dem Tisch.", exShow:"Das Buch liegt auf dem Tisch.", exAr:"الكتاب على الطاولة."},
+  {de:"der Stuhl",       pron:"در شتول",          ar:"الكرسي", ex:"Die Jacke haengt am Stuhl.", exShow:"Die Jacke hängt am Stuhl.", exAr:"الجاكيت معلّق على الكرسي."},
+  {de:"das Bett",        pron:"داس بِت",          ar:"السرير", ex:"Die Katze schlaeft im Bett.", exShow:"Die Katze schläft im Bett.", exAr:"القطة نائمة في السرير."},
+  {de:"der Schrank",     pron:"در شرانك",         ar:"الخزانة", ex:"Meine Kleidung ist im Schrank.", exShow:"Meine Kleidung ist im Schrank.", exAr:"ملابسي في الخزانة."},
+  {de:"das Sofa",        pron:"داس زوفا",         ar:"الكنبة", ex:"Wir liegen gern auf dem Sofa.", exShow:"Wir liegen gern auf dem Sofa.", exAr:"نحب الاستلقاء على الكنبة."},
+  {de:"die Lampe",       pron:"دى لامبه",         ar:"المصباح", ex:"Die Lampe steht auf dem Tisch.", exShow:"Die Lampe steht auf dem Tisch.", exAr:"المصباح على الطاولة."},
+  {de:"der Teppich",     pron:"در تِپيش",         ar:"السجادة", ex:"Der Teppich liegt im Wohnzimmer.", exShow:"Der Teppich liegt im Wohnzimmer.", exAr:"السجادة في غرفة المعيشة."},
+  {de:"wohnen",          pron:"فونِن",            ar:"يسكن", ex:"Ich wohne im dritten Stock.", exShow:"Ich wohne im dritten Stock.", exAr:"أسكن في الطابق الثالث."},
+  {de:"der Stock",       pron:"در شتوك",          ar:"الطابق", ex:"Wir wohnen im zweiten Stock.", exShow:"Wir wohnen im zweiten Stock.", exAr:"نسكن في الطابق الثاني."}
+];
+
+var praepData = [
+  {full:"in + dem", short:"im", example:"Das Buch ist im Regal.", ar:"الكتاب في الرف."},
+  {full:"an + dem", short:"am", example:"Die Uhr haengt am Fenster.", show:"Die Uhr hängt am Fenster.", ar:"الساعة معلّقة عند النافذة."},
+  {full:"auf + dem", short:"auf dem", example:"Die Tasse steht auf dem Tisch.", ar:"الكوب على الطاولة."},
+  {full:"an + der", short:"an der", example:"Das Poster ist an der Wand.", ar:"البوستر على الحائط."}
+];
+
+var ortFragen = [
+  {q:"Wo ist das Buch?", hint:"Es ist auf dem Tisch / im Regal.", pron:"فو إست داس بوخ", ar:"أين الكتاب؟"},
+  {q:"Wo ist die Lampe?", hint:"Sie ist auf dem Tisch.", pron:"فو إست دى لامبه", ar:"أين المصباح؟"},
+  {q:"Wo haengt das Bild?", show:"Wo hängt das Bild?", hint:"Es haengt an der Wand.", showHint:"Es hängt an der Wand.", pron:"فو هينغت داس بيلت", ar:"أين تتعلّق الصورة؟"}
+];
+
+var storyData = [
+  {spk:"L", de:"Felix, deine Wohnung ist wirklich schoen!", display:"Felix, deine Wohnung ist wirklich schön!", ar:"فيليكس، شقتك جميلة جداً فعلاً!"},
+  {spk:"F", de:"Danke! Komm, ich zeige dir alles.", display:"Danke! Komm, ich zeige dir alles.", ar:"شكراً! تعالي، سأريك كل شيء."},
+  {spk:"L", de:"Was ist das fuer ein Zimmer?", display:"Was ist das für ein Zimmer?", ar:"ما هذه الغرفة؟"},
+  {spk:"F", de:"Das ist mein Wohnzimmer. Das Sofa ist neu.", display:"Das ist mein Wohnzimmer. Das Sofa ist neu.", ar:"هذه غرفة المعيشة. الكنبة جديدة."},
+  {spk:"L", de:"Schoen! Und wo ist die Kueche?", display:"Schön! Und wo ist die Küche?", ar:"جميلة! وأين المطبخ؟"},
+  {spk:"F", de:"Die Kueche ist hier, neben dem Flur.", display:"Die Küche ist hier, neben dem Flur.", ar:"المطبخ هنا، بجانب الممر."},
+  {spk:"L", de:"Was steht auf dem Tisch in der Kueche?", display:"Was steht auf dem Tisch in der Küche?", ar:"ما الذي على الطاولة في المطبخ؟"},
+  {spk:"F", de:"Da steht eine Vase mit Blumen.", display:"Da steht eine Vase mit Blumen.", ar:"يوجد إناء فيه ورود."},
+  {spk:"L", de:"Und wo ist dein Schlafzimmer?", display:"Und wo ist dein Schlafzimmer?", ar:"وأين غرفة نومك؟"},
+  {spk:"F", de:"Es ist im zweiten Stock, am Ende des Flurs.", display:"Es ist im zweiten Stock, am Ende des Flurs.", ar:"هي في الطابق الثاني، في نهاية الممر."},
+  {spk:"L", de:"Hast du auch einen Balkon?", display:"Hast du auch einen Balkon?", ar:"هل لديك أيضاً بلكون؟"},
+  {spk:"F", de:"Ja! Im Sommer sitze ich gern auf dem Balkon.", display:"Ja! Im Sommer sitze ich gern auf dem Balkon.", ar:"نعم! في الصيف أحب الجلوس على البلكون."},
+  {spk:"L", de:"Deine Wohnung gefaellt mir sehr.", display:"Deine Wohnung gefällt mir sehr.", ar:"شقتك تعجبني كثيراً."}
+];
+
+var listenData = [
+  {icon:"🏠", name:"Deutsch fuer Anfaenger A1 — Meine Wohnung", channel:"German for Beginners A1", desc:"مفردات شاملة عن البيت والغرف مع جمل أساسية لمستوى A1", url:"https://www.youtube.com/watch?v=V3sCvknF3Io", tag:"مفردات A1"},
+  {icon:"🛋️", name:"In der Wohnung — Wortschatz Moebel", channel:"Deutsch lernen — Möbel", desc:"مفردات الأثاث وقطع الغرف المختلفة بالتفصيل", url:"https://www.youtube.com/watch?v=eprfwz67Kvo", tag:"أثاث"},
+  {icon:"📍", name:"Nicos Weg A1 — Wo ist der Aufzug?", channel:"Deutsche Welle (DW) — رسمي وموثوق", desc:"حلقة من سلسلة DW الرسمية تشرح أسئلة الموقع وحروف الجر بطريقة قصصية بسيطة لمستوى A1", url:"https://www.youtube.com/watch?v=ymE5ZON70C0", tag:"قاعدة in/an/auf"},
+  {icon:"📖", name:"Wohnung mieten — Geschichte und Wortschatz", channel:"Deutsch lernen — قصة", desc:"قصة قصيرة عن استئجار شقة — لتدريب الاستماع على سياق حقيقي", url:"https://www.youtube.com/watch?v=2aVmxVFKvKA", tag:"قصة"}
+];
+
+var writingFields = [
+  {id:"wtype",  prefix:"Ich wohne in einer",   suffix:".", label:"شقة أم بيت", modelDe:"Ich wohne in einer Wohnung.", modelAr:"أسكن في شقة."},
+  {id:"wrooms", prefix:"Meine Wohnung hat",    suffix:"Zimmer.", label:"عدد الغرف", modelDe:"Meine Wohnung hat drei Zimmer.", modelAr:"شقتي فيها ثلاث غرف."},
+  {id:"wfav",   prefix:"Mein Lieblingszimmer ist", suffix:".", label:"غرفتي المفضلة", modelDe:"Mein Lieblingszimmer ist das Wohnzimmer.", modelAr:"غرفتي المفضلة هي غرفة المعيشة."},
+  {id:"wfurn",  prefix:"In meinem Zimmer steht ein", suffix:".", label:"أثاث في غرفتي", modelDe:"In meinem Zimmer steht ein Bett.", modelAr:"في غرفتي يوجد سرير."},
+  {id:"wfloor", prefix:"Ich wohne im",         suffix:"Stock.", label:"طابقي", modelDe:"Ich wohne im ersten Stock.", modelAr:"أسكن في الطابق الأول."}
+];
+
+var speakingQs = [
+  {q:"Wo wohnst du?", display:"Wo wohnst du?", model:"Ich wohne in einer Wohnung im zweiten Stock.", ar:"أين تسكن؟"},
+  {q:"Wie viele Zimmer hat deine Wohnung?", display:"Wie viele Zimmer hat deine Wohnung?", model:"Meine Wohnung hat drei Zimmer.", ar:"كم غرفة في شقتك؟"},
+  {q:"Was steht in deinem Zimmer?", display:"Was steht in deinem Zimmer?", model:"In meinem Zimmer stehen ein Bett und ein Schrank.", ar:"ما الذي يوجد في غرفتك؟"},
+  {q:"Hast du einen Balkon?", display:"Hast du einen Balkon?", model:"Ja, ich habe einen kleinen Balkon.", ar:"هل لديك بلكون؟"},
+  {q:"In welchem Stock wohnst du?", display:"In welchem Stock wohnst du?", model:"Ich wohne im ersten Stock.", ar:"في أي طابق تسكن؟"},
+  {q:"Was ist dein Lieblingszimmer?", display:"Was ist dein Lieblingszimmer?", model:"Mein Lieblingszimmer ist das Wohnzimmer.", ar:"ما غرفتك المفضلة؟"}
+];
+
+var realDE = [
+  {expr:"Fuehl dich wie zuhause!", show:"Fühl dich wie zuhause!", pron:"فول ديش في تسوهاوزه", meaning:"اعتبر نفسك في بيتك!", example:"Komm rein, fuehl dich wie zuhause!", exampleShow:"Komm rein, fühl dich wie zuhause!", exampleAr:"تعال، اعتبر نفسك في بيتك!", note:"تُقال للضيوف دائماً عند دخولهم البيت — جملة ترحيب أساسية"},
+  {expr:"Ich raeume nur auf.", show:"Ich räume nur auf.", pron:"إخ رويمه نور آوف", meaning:"أنا فقط أرتّب / أنظّف.", example:"Eine Minute, ich raeume nur auf!", exampleShow:"Eine Minute, ich räume nur auf!", exampleAr:"دقيقة واحدة، أنا فقط أرتّب!", note:"جملة شائعة عند الاستعداد لاستقبال ضيوف على عجل"},
+  {expr:"Mach es dir bequem.", pron:"ماخ إس ديا بِكفيم", meaning:"اجعل نفسك مرتاحاً / استرخِ.", example:"Setz dich aufs Sofa und mach es dir bequem.", exampleAr:"اجلس على الكنبة واسترخِ.", note:"تعبير ودود يُستخدم لجعل الضيف يشعر بالراحة في البيت"}
+];
+
+var didYouKnow = [
+  {flag:"🇩🇪", fact:"في ألمانيا، الطابق الأرضي يُسمى <strong>Erdgeschoss</strong> وليس <strong>der erste Stock</strong> — الطابق الأول (erster Stock) هو ما يعادل الطابق الثاني في بعض البلدان!"},
+  {flag:"🏢", fact:"الألمان يحبون <strong>الترتيب والنظام</strong> في بيوتهم — حتى تقسيم القمامة له نظام دقيق: Papier (ورق)، Glas (زجاج)، Restmüll (نفايات عامة)."},
+  {flag:"🔑", fact:"كلمة <strong>WG</strong> (Wohngemeinschaft) تعني شقة مشتركة بين عدة أشخاص — منتشرة جداً بين الطلاب الألمان لتوفير الإيجار."}
+];
+
+var quizData = [
+  {q:"ما معنى 'die Kueche' بالعربية؟", opts:["الحمام","المطبخ","الغرفة","البلكون"], ans:1},
+  {q:"'Das Buch ist ___ Regal.' (in + dem)", opts:["am","im","auf dem","an der"], ans:1},
+  {q:"أي حرف نستخدم مع سطح أفقي مثل الطاولة؟", opts:["in","an","auf","zu"], ans:2},
+  {q:"'Die Lampe steht auf dem Tisch.' تعني ___", opts:["المصباح تحت الطاولة","المصباح على الطاولة","المصباح بجانب الطاولة","لا يوجد مصباح"], ans:1},
+  {q:"كيف تقول 'غرفة النوم' بالألمانية؟", opts:["das Wohnzimmer","das Schlafzimmer","das Bad","der Flur"], ans:1},
+  {q:"'an + dem' تُختصر إلى ___", opts:["im","am","auf","beim"], ans:1},
+  {q:"أي حرف نستخدم مع شيء ملاصق لسطح عمودي كالحائط؟", opts:["in","an","auf","unter"], ans:1},
+  {q:"ما معنى 'Fuehl dich wie zuhause!'؟", opts:["تعال إلى بيتي","اعتبر نفسك في بيتك","أين بيتك؟","البيت بعيد"], ans:1},
+  {q:"كيف تقول 'الطابق' بالألمانية؟", opts:["der Flur","der Stock","das Haus","die Tuer"], ans:1},
+  {q:"'Ich wohne im dritten Stock.' تعني ___", opts:["أسكن في بيت كبير","أسكن في الطابق الثالث","أسكن قريباً منك","أسكن بمفردي"], ans:1}
+];
+
+var spdRate = 0.9;
+var storyRef = {on:false, spd:0.9};
+
+function speak(text, rate, lang) {
+  if (!window.speechSynthesis) return null;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = lang || "de-DE";
+  u.rate = rate || spdRate;
+  window.speechSynthesis.speak(u);
+  return u;
+}
+function setSpd(r, btn) {
+  spdRate = r; storyRef.spd = r;
+  var spds = document.querySelectorAll(".spd");
+  for (var i=0;i<spds.length;i++) spds[i].classList.remove("active");
+  btn.classList.add("active");
+  if (storyRef.on) { stopStory(); setTimeout(startStory, 80); }
+}
+
+function buildVocab() {
+  var h = [];
+  for (var i=0;i<vocab.length;i++) {
+    var v = vocab[i];
+    h.push('<div class="vocab-block">' +
+      '<div class="vocab-row ' + (i%2===0?"even":"odd") + '">' +
+        '<span class="v-de">' + v.de + "</span>" +
+        '<span class="v-pron">' + v.pron + "</span>" +
+        '<span class="v-ar">' + v.ar + "</span>" +
+        '<button class="play-btn idle" id="vb' + i + '" onclick="playVocab(' + i + ')">🔊</button>' +
+      "</div>" +
+      '<div class="ex-row">' +
+        '<span class="ex-icon">💬</span>' +
+        '<div class="ex-text-wrap">' +
+          '<div class="ex-de">' + v.exShow + "</div>" +
+          '<div class="ex-ar">' + v.exAr + "</div>" +
+        "</div>" +
+        '<button class="mini-btn" onclick="playExample(' + i + ')">🔊</button>' +
+      "</div>" +
+    "</div>");
+  }
+  document.getElementById("vocabGrid").innerHTML = h.join("");
+}
+function playVocab(idx) {
+  var btns = document.querySelectorAll(".play-btn");
+  for (var i=0;i<btns.length;i++){ btns[i].className="play-btn idle"; btns[i].textContent="🔊"; }
+  var btn = document.getElementById("vb" + idx);
+  if (btn) { btn.className = "play-btn playing"; btn.textContent = "⏸"; }
+  var u = speak(vocab[idx].de, spdRate, "de-DE");
+  if (u) u.onend = function(){ if (btn){ btn.className="play-btn idle"; btn.textContent="🔊"; } };
+}
+function playExample(idx) { speak(vocab[idx].exShow, spdRate, "de-DE"); }
+
+function buildPraep() {
+  var h = [];
+  for (var i=0;i<praepData.length;i++) {
+    var p = praepData[i];
+    var ex = p.show || p.example;
+    h.push("<tr><td style=\"direction:ltr;font-weight:700;color:#374151\">" + p.full + "</td><td><span class=\"konj-verb\" style=\"color:#00643c;font-weight:700\">" + p.short + "</span></td><td style=\"direction:ltr;color:#1a1a1a;font-family:Lora,serif\">" + ex + "</td><td style=\"font-size:0.85rem;color:#6b7280\">" + p.ar + "</td></tr>");
+  }
+  document.getElementById("praepTable").innerHTML = h.join("");
+}
+
+function buildOrtFragen() {
+  var h = [];
+  for (var i=0;i<ortFragen.length;i++) {
+    var w = ortFragen[i];
+    var q = w.show || w.q;
+    var hint = w.showHint || w.hint;
+    h.push('<div style="background:#f8faff;border-radius:10px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px">' +
+      '<div style="text-align:right;flex:1">' +
+        '<div style="font-family:Lora,serif;font-weight:700;color:#1a1a1a;direction:ltr;margin-bottom:3px">' + q + "</div>" +
+        '<div style="font-size:0.78rem;color:#e8a000;font-weight:700;margin-bottom:2px">' + w.pron + "</div>" +
+        '<div style="font-size:0.82rem;color:#6b7280">' + w.ar + ' ← <span style="font-family:Lora,serif;color:#00643c">' + hint + "</span></div>" +
+      "</div>" +
+      '<button class="play-btn idle" onclick="playOrtFrage(' + i + ')">🔊</button>' +
+    "</div>");
+  }
+  document.getElementById("ortFragen").innerHTML = h.join("");
+}
+function playOrtFrage(idx) { var w = ortFragen[idx]; speak(w.show || w.q, spdRate, "de-DE"); }
+
+function buildStory() {
+  var h = [];
+  for (var i=0;i<storyData.length;i++) {
+    var line = storyData[i];
+    var name = line.spk === "F" ? "Felix" : "Lena";
+    h.push('<div class="dialog-line speaker-' + line.spk + '" id="sl' + i + '">' +
+      '<div class="dl-main">' +
+        '<span class="speaker-badge">' + name + "</span>" +
+        '<span class="dialog-text">' + line.display + "</span>" +
+        '<div class="dl-btns">' +
+          '<button class="dl-btn" onclick="playLine(' + i + ')" title="استمع">🔊</button>' +
+          '<button class="dl-btn dl-tr-btn" onclick="toggleTr(' + i + ')" title="الترجمة">🌐</button>' +
+        "</div>" +
+      "</div>" +
+      '<div id="tr' + i + '" class="dl-ar">' + line.ar + "</div>" +
+    "</div>");
+  }
+  document.getElementById("storyBox").innerHTML = h.join("");
+}
+function playLine(i) {
+  stopStory(); hlLine(i);
+  var u = speak(storyData[i].display, spdRate, "de-DE");
+  if (u) u.onend = function(){ hlLine(-1); };
+}
+function hlLine(i) {
+  var lines = document.querySelectorAll(".dialog-line");
+  for (var j=0;j<lines.length;j++) lines[j].classList.remove("hl");
+  if (i >= 0) { var el = document.getElementById("sl" + i); if (el) el.classList.add("hl"); }
+}
+function toggleTr(i) {
+  var el = document.getElementById("tr" + i);
+  if (el) el.style.display = el.style.display === "block" ? "none" : "block";
+}
+var _trAll = false;
+function toggleAllTr() {
+  _trAll = !_trAll;
+  for (var i=0;i<storyData.length;i++) {
+    var el = document.getElementById("tr" + i);
+    if (el) el.style.display = _trAll ? "block" : "none";
+  }
+  var btn = document.getElementById("trAllBtn");
+  if (btn) btn.textContent = _trAll ? "🙈 أخفِ الكل" : "🌐 الترجمة";
+}
+function startStory() {
+  storyRef.on = true;
+  document.getElementById("storyBtn").style.background = "#059669";
+  document.getElementById("sBtnIcon").textContent = "⏹";
+  document.getElementById("sBtnTxt").textContent = "إيقاف الحوار";
+  playSeq(0);
+}
+function stopStory() {
+  storyRef.on = false;
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
+  hlLine(-1);
+  var btn = document.getElementById("storyBtn");
+  if (btn) {
+    btn.style.background = "#1a56b0";
+    document.getElementById("sBtnIcon").textContent = "▶";
+    document.getElementById("sBtnTxt").textContent = "استمع للحوار كاملاً";
+  }
+}
+function playSeq(i) {
+  if (!storyRef.on || i >= storyData.length) { stopStory(); return; }
+  hlLine(i);
+  var u = new SpeechSynthesisUtterance(storyData[i].display);
+  u.lang = "de-DE"; u.rate = storyRef.spd;
+  u.onend = function(){ if (storyRef.on) setTimeout(function(){ playSeq(i+1); }, 380); };
+  if (window.speechSynthesis) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(u); }
+}
+function toggleStory(){ storyRef.on ? stopStory() : startStory(); }
+
+function buildListening() {
+  var h = [];
+  for (var i=0;i<listenData.length;i++) {
+    var r = listenData[i];
+    h.push('<div class="listen-card"><span style="font-size:1.8rem;flex-shrink:0">' + r.icon + '</span><div style="flex:1;text-align:right"><div style="font-weight:700;font-size:0.95rem;color:#1a1a1a">' + r.name + '</div><div style="font-size:0.75rem;color:#e8a000;font-weight:700">' + r.channel + '</div><div style="font-size:0.82rem;color:#6b7280">' + r.desc + '</div></div><span style="background:#fef3c7;color:#92400e;font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap">' + r.tag + '</span><a class="listen-link" href="' + r.url + '" target="_blank" rel="noopener noreferrer">▶ افتح</a></div>');
+  }
+  document.getElementById("listenCards").innerHTML = h.join("");
+}
+
+function buildWriting() {
+  var h = [];
+  for (var i=0;i<writingFields.length;i++) {
+    var f = writingFields[i];
+    h.push('<div class="writing-line"><label>' + f.label + ':</label><span class="w-fixed" style="font-size:0.95rem;color:#6b7280">' + f.prefix + '</span><input class="w-input" id="' + f.id + '" placeholder="اكتب هنا..." oninput="updatePreview()"><span class="w-fixed" style="color:#6b7280">' + f.suffix + "</span></div>");
+    h.push('<button class="wf-model-btn" onclick="toggleWModel(' + i + ')">📝 <span id="wfLabel' + i + '">نموذج للإجابة</span></button>');
+    h.push('<div class="wf-model-box" id="wfModel' + i + '"><div class="wf-model-de">' + f.modelDe + '</div><div class="wf-model-ar">' + f.modelAr + "</div></div>");
+  }
+  document.getElementById("writingForm").innerHTML = h.join("");
+}
+function toggleWModel(idx) {
+  var box = document.getElementById("wfModel" + idx);
+  var label = document.getElementById("wfLabel" + idx);
+  if (!box) return;
+  var isOpen = box.style.display === "block";
+  box.style.display = isOpen ? "none" : "block";
+  if (label) label.textContent = isOpen ? "نموذج للإجابة" : "أخفِ النموذج";
+}
+function updatePreview() {
+  var lines = [];
+  for (var i=0;i<writingFields.length;i++) {
+    var f = writingFields[i];
+    var inp = document.getElementById(f.id);
+    var val = inp ? inp.value.trim() : "";
+    if (val) lines.push(f.prefix + " <strong>" + val + "</strong> " + f.suffix);
+  }
+  document.getElementById("writingPreview").innerHTML = lines.length
+    ? '<div style="font-family:Lora,serif;font-size:1rem;line-height:2.4;direction:ltr;color:#1a1a1a">' + lines.join("<br>") + "</div>"
+    : '<p style="color:#9ca3af;font-size:0.88rem;text-align:center;margin-top:10px">✨ سيظهر نصك هنا...</p>';
+}
+
+function buildSpeaking() {
+  var h = [];
+  for (var i=0;i<speakingQs.length;i++) {
+    var q = speakingQs[i];
+    h.push('<div class="speaking-q">' +
+      '<div class="sq-row">' +
+        '<div style="flex:1;text-align:right">' +
+          '<div style="font-size:0.78rem;color:#9ca3af;margin-bottom:4px">' + q.ar + '</div>' +
+          '<p style="font-family:Lora,serif;direction:ltr;font-weight:600;font-size:1rem;margin:0">' + (i+1) + ". " + q.display + '</p>' +
+        '</div>' +
+        '<button class="play-btn idle" style="flex-shrink:0" onclick="playSpeakingQ(' + i + ')">🔊</button>' +
+      '</div>' +
+      '<div class="sq-model">' +
+        '<span style="font-size:0.78rem;color:#9ca3af;flex-shrink:0">✅ نموذج:</span>' +
+        '<span class="sq-model-de">' + q.model + '</span>' +
+        '<button class="mini-btn" onclick="playSpeakingModel(' + i + ')">🔊</button>' +
+      '</div>' +
+    '</div>');
+  }
+  document.getElementById("speakingQs").innerHTML = h.join("");
+}
+function playSpeakingQ(idx) { speak(speakingQs[idx].display, spdRate, "de-DE"); }
+function playSpeakingModel(idx) { speak(speakingQs[idx].model, spdRate, "de-DE"); }
+
+function buildRealDE() {
+  var h = [];
+  for (var i=0;i<realDE.length;i++) {
+    var e = realDE[i];
+    var exDe = e.exampleShow || e.example;
+    h.push('<div class="rd-card">' +
+      '<div class="rd-head">' +
+        '<div class="rd-expr-wrap">' +
+          '<span class="rd-expr">' + (e.show || e.expr) + "</span>" +
+          '<span class="rd-pron">' + e.pron + "</span>" +
+        "</div>" +
+        '<button class="play-btn idle" style="width:32px;height:32px;font-size:0.85rem;flex-shrink:0" onclick="playRealDE(' + i + ')">🔊</button>' +
+      "</div>" +
+      '<div class="rd-meaning">' + e.meaning + "</div>" +
+      '<div class="rd-ex-row">' +
+        '<span class="rd-ex-de">' + exDe + "</span>" +
+        '<button class="mini-btn" onclick="playRdExample(' + i + ')">🔊</button>' +
+        '<button class="mini-btn" onclick="toggleRdEx(' + i + ')">🌐</button>' +
+      "</div>" +
+      '<div class="rd-ex-ar" id="rdExBox' + i + '">' + e.exampleAr + "</div>" +
+      '<div class="rd-note">💡 ' + e.note + "</div>" +
+    "</div>");
+  }
+  document.getElementById("realDeContainer").innerHTML = h.join("");
+
+  var dy = [];
+  for (var k=0;k<didYouKnow.length;k++) {
+    var f = didYouKnow[k];
+    dy.push('<div style="display:flex;align-items:flex-start;gap:12px;background:linear-gradient(135deg,#fffdf0,#fef3c7);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:14px 18px;margin-bottom:10px;flex-direction:row-reverse">' +
+      '<span style="font-size:1.4rem;flex-shrink:0">' + f.flag + "</span>" +
+      '<p style="font-size:0.92rem;line-height:1.8;color:#374151;text-align:right">' + f.fact + "</p>" +
+    "</div>");
+  }
+  document.getElementById("didYouKnow").innerHTML = dy.join("");
+}
+function playRealDE(idx) { speak(realDE[idx].show || realDE[idx].expr, spdRate, "de-DE"); }
+function playRdExample(idx) { var e = realDE[idx]; speak(e.exampleShow || e.example, spdRate, "de-DE"); }
+function toggleRdEx(idx) {
+  var box = document.getElementById("rdExBox" + idx);
+  if (!box) return;
+  box.style.display = box.style.display === "block" ? "none" : "block";
+}
+
+var quizAnswers = new Array(quizData.length).fill(null);
+function buildQuiz() {
+  var h = [];
+  for (var qi=0;qi<quizData.length;qi++) {
+    var q = quizData[qi];
+    var opts = "";
+    for (var oi=0;oi<q.opts.length;oi++) {
+      var opt = q.opts[oi];
+      var dir = /[\u0600-\u06FF]/.test(opt) ? "rtl" : "ltr";
+      opts += '<div class="quiz-opt" id="qo' + qi + "-" + oi + '" onclick="selectOpt(' + qi + "," + oi + ')"><span style="font-family:Lora,serif;font-size:0.95rem;direction:' + dir + '">' + opt + "</span></div>";
+    }
+    var qDir = /[\u0600-\u06FF]/.test(q.q) ? "rtl" : "ltr";
+    h.push('<div class="quiz-q"><p style="direction:' + qDir + '">' + (qi+1) + ". " + q.q + '</p><div class="quiz-opts">' + opts + "</div></div>");
+  }
+  document.getElementById("quizContainer").innerHTML = h.join("");
+}
+function selectOpt(qi, oi) {
+  quizAnswers[qi] = oi;
+  for (var i=0;i<quizData[qi].opts.length;i++) {
+    var el = document.getElementById("qo" + qi + "-" + i);
+    if (el) { el.classList.remove("correct","wrong"); el.style.borderColor = ""; }
+  }
+  var sel = document.getElementById("qo" + qi + "-" + oi);
+  if (sel) sel.style.borderColor = "#1a1a1a";
+}
+function checkQuiz() {
+  var score = 0;
+  for (var qi=0;qi<quizData.length;qi++) {
+    var q = quizData[qi];
+    for (var i=0;i<q.opts.length;i++) {
+      var el = document.getElementById("qo" + qi + "-" + i);
+      if (!el) continue;
+      el.classList.remove("correct","wrong");
+      if (i === q.ans) el.classList.add("correct");
+      else if (quizAnswers[qi] === i) el.classList.add("wrong");
+    }
+    if (quizAnswers[qi] === q.ans) score++;
+  }
+  var res = document.getElementById("quizResult");
+  var pct = Math.round(score / quizData.length * 100);
+  res.style.display = "block";
+  document.getElementById("quizEmoji").textContent = pct===100?"🏆":pct>=75?"🎉":pct>=50?"💪":"📚";
+  document.getElementById("quizScore").textContent = score + " من " + quizData.length + " (" + pct + "%)";
+  document.getElementById("quizMsg").textContent = pct===100 ? "Ausgezeichnet! جاهز/ة للوحدة السابعة!" : pct>=75 ? "Sehr gut! راجع الخاطئة." : pct>=50 ? "Gut! راجع in/an/auf مرة أخرى." : "Noch einmal! راجع الوحدة كاملة.";
+  res.style.background = pct >= 75 ? "#f0fdf4" : "#fef9f0";
+  res.scrollIntoView({behavior:"smooth", block:"center"});
+}
+function resetQuiz() {
+  quizAnswers = new Array(quizData.length).fill(null);
+  var opts = document.querySelectorAll(".quiz-opt");
+  for (var i=0;i<opts.length;i++){ opts[i].classList.remove("correct","wrong"); opts[i].style.borderColor=""; }
+  document.getElementById("quizResult").style.display = "none";
+}
+
+function show(id, clickedBtn) {
+  var secs = document.querySelectorAll(".section-content");
+  for (var i=0;i<secs.length;i++) secs[i].classList.remove("active","fade-up");
+  var target = document.getElementById("sec-" + id);
+  target.classList.add("active");
+  setTimeout(function(){ target.classList.add("fade-up"); }, 10);
+  window.scrollTo({top:0, behavior:"smooth"});
+  var btns = document.querySelectorAll(".nav-btn");
+  for (var j=0;j<btns.length;j++) btns[j].classList.remove("active");
+  if (clickedBtn) { clickedBtn.classList.add("active"); return; }
+  var map = {vocab:0, story:1, grammar:2, listen:3, writing:4, speaking:5, realde:6, quiz:7};
+  if (btns[map[id]] !== undefined) btns[map[id]].classList.add("active");
+}
+
+buildVocab();
+buildPraep();
+buildOrtFragen();
+buildStory();
+buildListening();
+buildWriting();
+buildSpeaking();
+buildRealDE();
+buildQuiz();
+</script>
+</body>
+</html>

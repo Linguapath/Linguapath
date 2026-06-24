@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath Deutsch — الوحدة ٣٥: المراجعة النهائية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-thumb{background:#c0392b;border-radius:3px}
+body{font-family:'Tajawal',sans-serif;background:#f4f1ec;min-height:100vh;direction:rtl}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,100,60,0.4)}50%{box-shadow:0 0 0 8px rgba(0,100,60,0)}}
+.fade-up{animation:fadeUp 0.45s ease forwards}
+.nav-btn{transition:all 0.2s;border:none;cursor:pointer;font-family:'Tajawal',sans-serif;border-radius:30px;padding:7px 16px;font-size:0.82rem;font-weight:600}
+.nav-btn.active{background:#e8a000;color:#1a1a1a;font-weight:800}
+.nav-btn:not(.active){background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.85)}
+.section-content{display:none;max-width:880px;margin:0 auto;padding:36px 16px 80px}
+.section-content.active{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 4px 28px rgba(0,0,0,0.07);margin-bottom:24px;overflow:hidden}
+.card-header{background:#1a1a1a;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.card-header h3{font-size:1.05rem;font-weight:700}
+.card-header .sub{font-size:0.78rem;color:#fcd34d;margin-top:1px}
+.card-body{padding:24px}
+
+.journey-stat{background:linear-gradient(135deg,#fffdf0,#fef3c7);border:1px solid rgba(232,160,0,0.3);border-radius:14px;padding:18px;text-align:center}
+.journey-stat .num{font-family:Lora,serif;font-size:2rem;font-weight:700;color:#c0392b}
+.journey-stat .lbl{font-size:0.82rem;color:#6b7280;margin-top:4px}
+
+.gram-review-card{background:#f8faff;border-radius:14px;padding:18px 20px;margin-bottom:14px;border-right:4px solid #1a56b0}
+.gram-review-title{font-weight:800;color:#1a1a1a;font-size:0.98rem;margin-bottom:6px;text-align:right;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse}
+.gram-review-unit{font-size:0.74rem;color:#1a56b0;background:#dbeafe;padding:2px 10px;border-radius:20px;font-weight:700}
+.gram-review-ex{font-family:Lora,serif;direction:ltr;font-size:0.95rem;color:#1a1a1a;margin:8px 0;display:flex;align-items:center;justify-content:space-between;gap:10px}
+
+.mini-btn{width:26px;height:26px;border-radius:7px;border:1.5px solid #e5e7eb;background:white;cursor:pointer;font-size:0.72rem;display:flex;align-items:center;justify-content:center;color:#9ca3af;flex-shrink:0}
+.mini-btn:hover{border-color:#1a56b0;background:#f0f7ff;color:#1a56b0}
+.play-btn{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.18s;flex-shrink:0}
+.play-btn.idle{background:#e8f0fe;color:#1a56b0}
+.play-btn.idle:hover{background:#1a56b0;color:white;transform:scale(1.1)}
+
+.favorites-card{display:flex;align-items:center;gap:14px;background:#f0f7ff;border:1px solid #bfdbfe;border-radius:12px;padding:14px 18px;margin-bottom:10px;flex-direction:row-reverse}
+.listen-link{background:#1a1a1a;color:white;border:none;border-radius:8px;padding:8px 16px;font-family:'Tajawal',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.2s;flex-shrink:0}
+.listen-link:hover{background:#c0392b}
+
+.writing-line{display:flex;align-items:center;gap:10px;margin-bottom:10px;direction:ltr;flex-wrap:wrap}
+.writing-line label{font-family:'Tajawal',sans-serif;font-size:0.88rem;color:#6b7280;direction:rtl;min-width:110px;text-align:right}
+.w-input{border:none;border-bottom:2px solid #e8a000;background:transparent;font-family:Lora,serif;font-size:1rem;color:#1a1a1a;outline:none;padding:3px 6px;min-width:100px;transition:border-color 0.2s}
+.w-input:focus{border-color:#1a1a1a}
+.w-fixed{font-family:Lora,serif;font-size:1rem;color:#1a1a1a;font-weight:600}
+
+.speaking-block{margin-bottom:18px}
+.sq-question{background:#f8faff;border-right:4px solid #1a56b0;border-radius:10px 10px 0 0;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px}
+.sq-ar{font-size:0.78rem;color:#9ca3af;margin-bottom:4px}
+.sq-de{font-family:Lora,serif;direction:ltr;font-weight:600;font-size:1rem}
+.sq-model-box{background:#ecfdf5;border-right:4px solid #00643c;border-radius:0 0 10px 10px;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px}
+.sq-model-label{font-size:0.76rem;color:#00643c;font-weight:800;margin-bottom:3px}
+.sq-model-de{font-family:Lora,serif;direction:ltr;font-size:0.95rem;color:#1a1a1a}
+.sq-model-ar{font-size:0.78rem;color:#9ca3af;text-align:right;margin-top:4px}
+
+.rd-card{background:#fafafa;border:1px solid #e5eaf5;border-radius:12px;padding:16px 18px;margin-bottom:12px}
+.rd-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-direction:row-reverse}
+.rd-expr-wrap{display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.rd-expr{font-family:Lora,serif;font-size:1.05rem;font-weight:700;color:#c0392b;direction:ltr}
+.rd-pron{color:#e8a000;font-weight:700;font-size:0.82rem}
+.rd-meaning{font-size:0.9rem;color:#374151;text-align:right;margin-bottom:12px;line-height:1.7}
+.rd-ex-row{display:flex;align-items:center;gap:6px;direction:ltr;background:white;border-radius:8px;padding:8px 12px}
+.rd-ex-de{font-family:Lora,serif;font-size:0.92rem;color:#1a1a1a;font-style:italic;flex:1}
+.rd-ex-ar{display:none;font-size:0.85rem;color:#9ca3af;text-align:right;margin-top:6px;padding:6px 12px;background:white;border-radius:8px}
+
+.quiz-q{margin-bottom:20px}
+.quiz-q p{font-size:0.97rem;font-weight:700;color:#1a1a1a;margin-bottom:10px;direction:ltr;font-family:Lora,serif}
+.quiz-unit-tag{font-size:0.72rem;color:#1a56b0;background:#dbeafe;padding:1px 8px;border-radius:14px;margin-right:8px}
+.quiz-opts{display:flex;flex-direction:column;gap:8px}
+.quiz-opt{display:flex;align-items:center;gap:10px;padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;transition:all 0.18s;flex-direction:row-reverse;text-align:right;background:white}
+.quiz-opt:hover{border-color:#1a56b0;background:#f0f7ff}
+.quiz-opt.correct{border-color:#00643c;background:#ecfdf5;color:#00643c}
+.quiz-opt.wrong{border-color:#c0392b;background:#fef2f2;color:#c0392b}
+.btn{border:none;border-radius:30px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all 0.2s;padding:11px 28px;font-size:0.95rem}
+.btn:hover{opacity:0.88;transform:scale(0.98)}
+.btn-dark{background:#1a1a1a;color:white}
+.btn-gray{background:#e5e7eb;color:#374151}
+.btn-gold{background:#e8a000;color:#1a1a1a}
+.flag-strip{height:5px;background:linear-gradient(90deg,#1a1a1a 33%,#c0392b 33% 66%,#e8a000 66%)}
+@media(max-width:580px){
+  .journey-stat .num{font-size:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<div class="flag-strip"></div>
+
+<div style="background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 60%,#1a1a1a 100%);color:white;position:relative;overflow:hidden">
+  <div style="position:absolute;top:-60px;left:-60px;width:280px;height:280px;border-radius:50%;background:rgba(232,160,0,0.07);pointer-events:none"></div>
+  <div style="position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(192,57,43,0.07);pointer-events:none"></div>
+  <div style="max-width:880px;margin:0 auto;padding:14px 20px 0;display:flex;justify-content:space-between;align-items:center">
+    <a href="index_de.html" style="color:rgba(255,255,255,0.55);font-size:0.82rem;text-decoration:none;font-family:'Tajawal',sans-serif">← Deutsch A1</a>
+    <div style="font-family:Lora,serif;font-size:0.9rem;color:#e8a000;direction:ltr">LinguaPath 🇩🇪</div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:5px;padding:10px 16px 0;flex-wrap:wrap">
+    <button class="nav-btn active" onclick="show('journey',this)">🏆 رحلتك</button>
+    <button class="nav-btn" onclick="show('grammar',this)">✏️ كل القواعد</button>
+    <button class="nav-btn" onclick="show('listen',this)">🎧 أفضل المحتوى</button>
+    <button class="nav-btn" onclick="show('writing',this)">✍️ قصتك</button>
+    <button class="nav-btn" onclick="show('speaking',this)">💬 محادثة شاملة</button>
+    <button class="nav-btn" onclick="show('realde',this)">🗣️ أهم التعابير</button>
+    <button class="nav-btn" onclick="show('quiz',this)">✅ الاختبار الكبير</button>
+  </div>
+  <div style="max-width:880px;margin:0 auto;padding:32px 24px 44px;text-align:center">
+    <div style="font-size:0.78rem;letter-spacing:3px;color:#e8a000;font-weight:700;margin-bottom:8px">EINHEIT 35 — A1/A2 🇩🇪</div>
+    <h1 style="font-family:Lora,serif;font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;line-height:1.2;margin-bottom:10px">🎉 Du hast es geschafft! 🎉</h1>
+    <p style="font-size:1.2rem;color:rgba(255,255,255,0.8);margin-bottom:8px">لقد أنجزتِ كورس LinguaPath Deutsch كاملاً!</p>
+    <p style="font-size:0.92rem;color:rgba(255,255,255,0.55)">٣٠ وحدة · من Hallo إلى Futur I · مبروك! 👏</p>
+  </div>
+</div>
+<div class="flag-strip"></div>
+
+<div id="sec-journey" class="section-content active fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">🏆</span>
+      <div><h3>رحلتك في تعلّم الألمانية</h3><div class="sub">نظرة على ما أنجزته</div></div>
+    </div>
+    <div class="card-body">
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:24px">
+        <div class="journey-stat"><div class="num">30</div><div class="lbl">وحدة كاملة</div></div>
+        <div class="journey-stat"><div class="num">~520</div><div class="lbl">كلمة ومفردة جديدة</div></div>
+        <div class="journey-stat"><div class="num">12</div><div class="lbl">قاعدة نحوية رئيسية</div></div>
+        <div class="journey-stat"><div class="num">A1→A2</div><div class="lbl">المستوى المُحقَّق</div></div>
+      </div>
+      <h4 style="font-weight:800;color:#1a1a1a;margin-bottom:14px;text-align:right">📚 مسارك الكامل</h4>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:20px" id="unitTimeline"></div>
+      <div style="background:linear-gradient(135deg,#fffdf0,#fef3c7);border:1px solid rgba(232,160,0,0.3);border-radius:14px;padding:18px;text-align:center">
+        <p style="font-size:0.95rem;color:#374151;line-height:1.9">بدأتِ بـ "<strong style="font-family:Lora,serif;color:#1a1a1a">Hallo, wie geht's?</strong>" — والآن تستطيعين بناء جمل كاملة بالمستقبل، والجمل الموصولة، وKonjunktiv II! هذا إنجاز حقيقي يستحق الفخر. 🌟</p>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center">
+    <button class="btn btn-dark" onclick="show('grammar',null)">راجعي كل القواعد ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">✏️</span>
+      <div><h3>كل القواعد الرئيسية — في صفحة واحدة</h3><div class="sub">مرجع سريع لأهم ١٤ قاعدة تعلّمتها</div></div>
+    </div>
+    <div class="card-body">
+      <div id="grammarReview"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('journey',null)">→ رحلتك</button>
+    <button class="btn btn-dark" onclick="show('listen',null)">أفضل المحتوى ←</button>
+  </div>
+</div>
+
+<div id="sec-listen" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">🎧</span>
+      <div><h3>أفضل أغانٍ وحلقات من رحلتك</h3><div class="sub">استمعي إليها مرة أخرى — ستلاحظين كم تطوّرتِ!</div></div>
+    </div>
+    <div class="card-body">
+      <p style="text-align:right;font-size:0.92rem;color:#6b7280;margin-bottom:18px;line-height:1.8">إليك مختارات من أفضل المحتوى الذي استمعتِ إليه طوال الكورس — استمعي إليها الآن وستجدين أنك تفهمين أكثر بكثير من المرة الأولى!</p>
+      <div id="favoritesCards"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('grammar',null)">→ كل القواعد</button>
+    <button class="btn btn-dark" onclick="show('writing',null)">قصتك ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">✍️</span>
+      <div><h3>قصتك مع الألمانية</h3><div class="sub">اكتبي ملخّصاً عن رحلتك — استخدمي كل ما تعلّمتيه!</div></div>
+    </div>
+    <div class="card-body">
+      <p style="text-align:right;font-size:0.97rem;line-height:1.9;color:#374151;margin-bottom:20px">أكملي الجمل — هذه فرصتك لاستخدام القواعد المختلفة (الماضي، المستقبل، المقارنة) في نص واحد متكامل عن رحلتك!</p>
+      <div style="background:#fffdf7;border:2px dashed #e8a000;border-radius:14px;padding:22px;margin-bottom:16px">
+        <div id="writingForm"></div>
+        <div style="margin-top:20px;padding:16px 20px;background:white;border-radius:12px;border:1px solid #e5e7eb;min-height:90px;border-right:4px solid #e8a000" id="writingPreview">
+          <p style="color:#9ca3af;font-size:0.88rem;text-align:center;margin-top:10px">✨ سيظهر نصك هنا...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('listen',null)">→ أفضل المحتوى</button>
+    <button class="btn btn-dark" onclick="show('speaking',null)">محادثة شاملة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">💬</span>
+      <div><h3>محادثة شاملة — اختبار شفهي نهائي</h3><div class="sub">أسئلة تجمع كل القواعد التي تعلّمتيها</div></div>
+    </div>
+    <div class="card-body">
+      <div id="speakingQs"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('writing',null)">→ قصتك</button>
+    <button class="btn btn-gold" onclick="show('realde',null)">أهم التعابير ←</button>
+  </div>
+</div>
+
+<div id="sec-realde" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header" style="background:linear-gradient(135deg,#c0392b,#a93226)">
+      <span style="font-size:1.4rem">🗣️</span>
+      <div><h3>أهم ٦ تعابير من كل الكورس</h3><div class="sub">احفظيها — ستستخدمينها كثيراً في الحياة الحقيقية</div></div>
+    </div>
+    <div class="card-body">
+      <div id="realDeContainer"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('speaking',null)">→ محادثة شاملة</button>
+    <button class="btn btn-gold" onclick="show('quiz',null)">الاختبار الكبير ←</button>
+  </div>
+</div>
+
+<div id="sec-quiz" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">✅</span>
+      <div><h3>الاختبار الكبير النهائي</h3><div class="sub">٢٠ سؤالاً من جميع وحدات الكورس — هذا اختبار حقيقي لمستواك!</div></div>
+    </div>
+    <div class="card-body">
+      <div id="quizContainer"></div>
+      <div style="display:flex;justify-content:center;gap:12px;margin-top:20px">
+        <button class="btn btn-dark" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn btn-gray" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizResult" style="display:none;text-align:center;padding:24px;margin-top:16px;border-radius:14px">
+        <div style="font-size:3rem;margin-bottom:8px" id="quizEmoji">🎉</div>
+        <div style="font-weight:800;font-size:1.3rem;color:#1a1a1a;margin-bottom:6px" id="quizScore"></div>
+        <div style="font-size:0.95rem;color:#6b7280" id="quizMsg"></div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:32px;background:linear-gradient(135deg,#1a1a1a,#2d2d2d);border-radius:18px;box-shadow:0 4px 24px rgba(0,0,0,0.2);color:white">
+    <div class="flag-strip" style="height:4px;margin:-32px -32px 24px;border-radius:18px 18px 0 0"></div>
+    <div style="font-size:3rem;margin-bottom:12px">🎓🇩🇪</div>
+    <div style="font-weight:900;font-size:1.4rem;margin-bottom:8px">Herzlichen Glückwunsch!</div>
+    <p style="font-size:1rem;color:rgba(255,255,255,0.8);margin-bottom:6px">أكملتِ كورس LinguaPath Deutsch بالكامل — ٣٠ وحدة من A1 إلى A2!</p>
+    <p style="font-size:0.88rem;color:rgba(255,255,255,0.5);margin-bottom:20px">الخطوة التالية: B1 — استمري في الممارسة اليومية، واستمعي للألمانية كل يوم حتى لو لدقائق قليلة!</p>
+    <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+      <a href="de_unit34_praeteritum.html" class="btn btn-gray" style="text-decoration:none;display:inline-block">← الوحدة الرابعة والثلاثون</a>
+      <a href="index_de.html" class="btn btn-gold" style="text-decoration:none;display:inline-block">🏠 العودة لقائمة الوحدات</a>
+    </div>
+  </div>
+</div>
+
+<script>
+var unitTimeline = [
+  {n:"1-7", title:"الأساسيات", topic:"التحيات، العائلة، الأرقام، الألوان، الطعام، البيت، الحياة اليومية"},
+  {n:"8-13", title:"الحياة اليومية", topic:"الوقت، الطقس، التسوّق، النقل، الجسم، المهن"},
+  {n:"14-20", title:"التوسّع", topic:"الهوايات، المدينة، المدرسة، الحيوانات، المشاعر، المطعم، البيت والأثاث"},
+  {n:"21-26", title:"قواعد A2 المتقدمة", topic:"الأفعال الناقصة، Perfekt، المقارنة، الفصول، الأعياد، التكنولوجيا"},
+  {n:"27-30", title:"الإتمام", topic:"البيئة، العلاقات، السفر، والمراجعة النهائية"}
+];
+
+var grammarReview = [
+  {unit:"و3-7", title:"الأساسيات: sein/haben + الجنس", example:"Ich bin Lehrerin. / Das ist mein Bruder."},
+  {unit:"و8-13", title:"الأفعال المنفصلة (trennbare Verben)", example:"Ich stehe um sieben Uhr auf."},
+  {unit:"و17", title:"أدوات التعريف der/die/das", example:"der Hund, die Katze, das Pferd"},
+  {unit:"و19", title:"الطلب المهذّب: hätte gern / möchte", example:"Ich hätte gern eine Pizza, bitte."},
+  {unit:"و20", title:"es gibt + Akkusativ", example:"Es gibt einen Tisch im Zimmer."},
+  {unit:"و21", title:"الأفعال الناقصة الخمسة", example:"Ich kann gut schwimmen. Du musst lernen."},
+  {unit:"و22", title:"الماضي Perfekt: haben/sein + Partizip II", example:"Ich bin ins Kino gegangen."},
+  {unit:"و23", title:"المقارنة والتفضيل", example:"Berlin ist größer als München."},
+  {unit:"و24", title:"im + الشهر/الفصل", example:"Mein Geburtstag ist im Mai."},
+  {unit:"و25", title:"أفعال Dativ: gratulieren/schenken", example:"Ich gratuliere dir! Ich schenke ihr Blumen."},
+  {unit:"و26", title:"جمل dass", example:"Ich glaube, dass das Internet wichtig ist."},
+  {unit:"و27", title:"الجمل الموصولة der/die/das", example:"Der Müll, der hier liegt, ist schlecht."},
+  {unit:"و28", title:"Konjunktiv II: würde/könnte/wäre", example:"Ich würde gern mehr Zeit verbringen."},
+  {unit:"و29", title:"المستقبل Futur I: werden + Infinitiv", example:"Ich werde nach Berlin fahren."}
+];
+
+var favoritesData = [
+  {icon:"🎵", name:"Munich Supercrew — Perfekt mit dir", desc:"الأغنية الأشهر في رحلتك — راجعي الماضي معها", url:"https://www.youtube.com/watch?v=oHeIVBv3z3U"},
+  {icon:"🎵", name:"Wie schön, dass du geboren bist", desc:"أغنية عيد الميلاد الألمانية الكلاسيكية", url:"https://www.youtube.com/watch?v=LbcVZaJOItY"},
+  {icon:"🎵", name:"Mein bester Freund — Die Prinzen", desc:"أغنية الصداقة الكلاسيكية", url:"https://www.youtube.com/watch?v=A1I4GStK3Cw"},
+  {icon:"📺", name:"Nicos Weg — الفيلم الكامل", desc:"شاهدي كل حلقات نيكو متتالية الآن وستفهمين أكثر بكثير!", url:"https://www.youtube.com/watch?v=Lg5P2w_Ro1c"}
+];
+
+var writingFields = [
+  {id:"wstart", prefix:"Ich habe Deutsch",      suffix:"gelernt.", label:"كيف بدأت رحلتك (الماضي)", modelDe:"Ich habe Deutsch mit LinguaPath gelernt.", modelAr:"تعلّمت الألمانية مع LinguaPath."},
+  {id:"whard",  prefix:"Am schwierigsten für mich war", suffix:".", label:"أصعب شيء بالنسبة لك", modelDe:"Am schwierigsten für mich war der Konjunktiv.", modelAr:"الأصعب بالنسبة لي كان Konjunktiv."},
+  {id:"wnow",   prefix:"Jetzt kann ich",         suffix:".",  label:"ما تستطيعين فعله الآن", modelDe:"Jetzt kann ich einfache Gespräche führen.", modelAr:"الآن أستطيع إجراء محادثات بسيطة."},
+  {id:"wfuture",prefix:"In der Zukunft werde ich",suffix:".", label:"خطتك القادمة (المستقبل)", modelDe:"In der Zukunft werde ich weiter Deutsch lernen.", modelAr:"في المستقبل سأستمر بتعلّم الألمانية."}
+];
+
+var speakingQs = [
+  {q:"Was hast du in diesem Kurs gelernt?", model:"Ich habe viel über Grammatik und Wortschatz gelernt.", modelAr:"تعلّمت كثيراً عن القواعد والمفردات.", ar:"ماذا تعلّمتِ في هذا الكورس؟ (Perfekt)"},
+  {q:"Was würdest du als Nächstes lernen wollen?", model:"Ich würde gern mehr über Konjunktiv lernen.", modelAr:"أحب أن أتعلّم أكثر عن Konjunktiv.", ar:"ماذا تحبين تعلّمه بعد ذلك؟ (Konjunktiv II)"},
+  {q:"Was wirst du tun, um weiter Deutsch zu lernen?", model:"Ich werde jeden Tag ein bisschen Deutsch hören.", modelAr:"سأستمع للألمانية قليلاً كل يوم.", ar:"ماذا ستفعلين لمواصلة تعلّم الألمانية؟ (Futur I)"},
+  {q:"Findest du Deutsch schwieriger als Englisch?", model:"Ich finde Deutsch interessanter als Englisch.", modelAr:"أجد الألمانية أكثر تشويقاً من الإنجليزية.", ar:"هل تجدين الألمانية أصعب من الإنجليزية؟ (Komparativ)"}
+];
+
+var realDE = [
+  {expr:"Übung macht den Meister.", pron:"أوبونغ ماخت دين مايستِر", meaning:"التمرين يصنع المعلّم (المهارة تأتي بالممارسة)", example:"Sprich jeden Tag ein bisschen Deutsch — Übung macht den Meister!", exampleAr:"تحدثي قليلاً بالألمانية كل يوم — التمرين يصنع المعلّم!"},
+  {expr:"Aller Anfang ist schwer.", pron:"آلِر آنفانغ إست شفير", meaning:"كل بداية صعبة", example:"Am Anfang war Deutsch schwer, aber aller Anfang ist schwer.", exampleAr:"في البداية كانت الألمانية صعبة، لكن كل بداية صعبة."},
+  {expr:"Das kann doch nicht wahr sein!", pron:"داس كان دوخ نيشت فار زاين", meaning:"هذا لا يمكن أن يكون صحيحاً! (استغراب)", example:"Du hast den Kurs schon beendet? Das kann doch nicht wahr sein!", exampleAr:"أنهيتِ الكورس بالفعل؟ لا يمكن أن يكون هذا صحيحاً!"},
+  {expr:"Weiter so!", pron:"فايتِر زو", meaning:"استمري على هذا النحو!", example:"Du machst tolle Fortschritte, weiter so!", exampleAr:"تحقّقين تقدّماً رائعاً، استمري على هذا النحو!"},
+  {expr:"Das ist Schnee von gestern!", pron:"داس إست شنيه فون غِستِرن", meaning:"هذا أمر قديم وانتهى!", example:"Die schwierigen Anfänge? Das ist Schnee von gestern!", exampleAr:"البدايات الصعبة؟ هذا أمر قديم وانتهى!"},
+  {expr:"Du hast es geschafft!", pron:"دو هاست إس غِشافت", meaning:"لقد نجحتِ في تحقيقه!", example:"30 Einheiten — du hast es geschafft!", exampleAr:"٣٠ وحدة — لقد نجحتِ في تحقيقه!"}
+];
+
+var quizData = [
+  {unit:"و3", q:"كيف تقول 'أنا معلّمة' بالألمانية؟", opts:["Ich bin eine Lehrerin","Ich bin Lehrerin","Ich habe Lehrerin","Ich werde Lehrerin"], ans:1},
+  {unit:"و7", q:"'Ich stehe um sieben Uhr ___.' (الفعل المنفصل)", opts:["auf","an","ab","aus"], ans:0},
+  {unit:"و12", q:"كيف تقول 'لدي صداع' بالألمانية؟", opts:["Ich bin Kopfschmerzen","Ich habe Kopfschmerzen","Ich mache Kopfschmerzen","Ich fühle Kopfschmerzen"], ans:1},
+  {unit:"و17", q:"ما أداة تعريف 'Hund' (الكلب)؟", opts:["die","das","der","den"], ans:2},
+  {unit:"و19", q:"كيف تطلبين بأدب 'بيتزا'؟", opts:["Ich will Pizza","Ich hätte gern eine Pizza","Gib mir Pizza","Pizza jetzt"], ans:1},
+  {unit:"و20", q:"'Es gibt ___ Tisch.' (مذكر، Akkusativ)", opts:["ein","eine","einen","der"], ans:2},
+  {unit:"و21", q:"'Ich ___ gut schwimmen.' (القدرة)", opts:["muss","kann","soll","darf"], ans:1},
+  {unit:"و22", q:"'Ich ___ ins Kino gegangen.' (الفعل المساعد)", opts:["habe","bin","hat","war"], ans:1},
+  {unit:"و23", q:"'Berlin ist größer ___ München.'", opts:["wie","als","so","und"], ans:1},
+  {unit:"و24", q:"كيف تقول 'في يناير' بالألمانية؟", opts:["in Januar","im Januar","am Januar","zu Januar"], ans:1},
+  {unit:"و25", q:"'Ich gratuliere ___.' (لك، Dativ)", opts:["du","dich","dir","dein"], ans:2},
+  {unit:"و26", q:"'Ich glaube, dass das Internet wichtig ___.' (الفعل أين؟)", opts:["ist wichtig","ist","wichtig ist und","لا فعل"], ans:1},
+  {unit:"و27", q:"الضمير الموصول لكلمة 'der Müll' هو ___", opts:["die","das","der","den"], ans:2},
+  {unit:"و28", q:"كيف تقول 'سأحب أن' بصيغة مهذّبة؟", opts:["Ich will","Ich würde gern","Ich muss","Ich soll"], ans:1},
+  {unit:"و29", q:"كيف تقول 'سأسافر' بالألمانية (Futur I)؟", opts:["Ich fahre","Ich werde fahren","Ich bin gefahren","Ich fuhr"], ans:1},
+  {unit:"و5", q:"كيف تقول 'أحب القهوة' بالألمانية؟", opts:["Ich mag Kaffee","Ich bin Kaffee","Ich habe Kaffee mag","Kaffee ich mag"], ans:0},
+  {unit:"و9", q:"كيف تصف الطقس البارد؟", opts:["Es ist kalt","Es hat kalt","Es macht kalt","Es kalt ist"], ans:0},
+  {unit:"و14", q:"'Ich schwimme ___.' (بسرور)", opts:["gut","gern","viel","nicht"], ans:1},
+  {unit:"و18", q:"'Wie fühlst ___ dich?' (الضمير المنعكس)", opts:["ich","du","er","wir"], ans:1},
+  {unit:"و4", q:"كيف تقول 'قميص أحمر' بالألمانية؟", opts:["ein rot Hemd","ein rotes Hemd","eine rote Hemd","rot ein Hemd"], ans:1}
+];
+
+var spdRate = 0.9;
+function speak(text, rate, lang) {
+  if (!window.speechSynthesis) return null;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = lang || "de-DE"; u.rate = rate || spdRate;
+  window.speechSynthesis.speak(u); return u;
+}
+
+function buildUnitTimeline() {
+  var h = [];
+  for (var i=0;i<unitTimeline.length;i++) {
+    var u = unitTimeline[i];
+    h.push('<div style="display:flex;align-items:center;gap:12px;background:#fafafa;border-radius:10px;padding:10px 16px;flex-direction:row-reverse">' +
+      '<span style="background:#1a1a1a;color:#e8a000;font-size:0.72rem;font-weight:800;padding:4px 12px;border-radius:20px;flex-shrink:0;font-family:Lora,serif;direction:ltr">' + u.n + "</span>" +
+      '<div style="text-align:right;flex:1">' +
+        '<div style="font-weight:700;color:#1a1a1a;font-size:0.92rem">' + u.title + "</div>" +
+        '<div style="font-size:0.8rem;color:#6b7280">' + u.topic + "</div>" +
+      "</div>" +
+    "</div>");
+  }
+  document.getElementById("unitTimeline").innerHTML = h.join("");
+}
+
+function buildGrammarReview() {
+  var h = [];
+  for (var i=0;i<grammarReview.length;i++) {
+    var g = grammarReview[i];
+    h.push('<div class="gram-review-card">' +
+      '<div class="gram-review-title"><span class="gram-review-unit">' + g.unit + '</span><span>' + g.title + "</span></div>" +
+      '<div class="gram-review-ex"><button class="mini-btn" onclick="speak(\'' + g.example.replace(/'/g,"\\'") + '\',spdRate,\'de-DE\')">🔊</button><span style="flex:1;text-align:left">' + g.example + "</span></div>" +
+    "</div>");
+  }
+  document.getElementById("grammarReview").innerHTML = h.join("");
+}
+
+function buildFavorites() {
+  var h = [];
+  for (var i=0;i<favoritesData.length;i++) {
+    var f = favoritesData[i];
+    h.push('<div class="favorites-card"><span style="font-size:1.8rem;flex-shrink:0">' + f.icon + '</span><div style="flex:1;text-align:right"><div style="font-weight:700;font-size:0.95rem;color:#1a1a1a">' + f.name + '</div><div style="font-size:0.82rem;color:#6b7280">' + f.desc + '</div></div><a class="listen-link" href="' + f.url + '" target="_blank" rel="noopener noreferrer">▶ افتح</a></div>');
+  }
+  document.getElementById("favoritesCards").innerHTML = h.join("");
+}
+
+function buildWriting() {
+  var h = [];
+  for (var i=0;i<writingFields.length;i++) {
+    var f = writingFields[i];
+    h.push('<div class="writing-line"><label>' + f.label + ':</label><span class="w-fixed" style="font-size:0.95rem;color:#6b7280">' + f.prefix + '</span><input class="w-input" id="' + f.id + '" placeholder="اكتب هنا..." oninput="updatePreview()"><span class="w-fixed" style="color:#6b7280">' + f.suffix + "</span></div>");
+    h.push('<div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-direction:row-reverse"><button class="mini-btn" onclick="speak(\'' + f.modelDe.replace(/'/g,"\\'") + '\',spdRate,\'de-DE\')">🔊</button><span style="font-size:0.82rem;color:#9ca3af;direction:ltr">' + f.modelDe + ' <span style="color:#c0c7cf">— ' + f.modelAr + '</span></span></div>');
+  }
+  document.getElementById("writingForm").innerHTML = h.join("");
+}
+function updatePreview() {
+  var lines = [];
+  for (var i=0;i<writingFields.length;i++) {
+    var f = writingFields[i];
+    var inp = document.getElementById(f.id);
+    var val = inp ? inp.value.trim() : "";
+    if (val) lines.push(f.prefix + " <strong>" + val + "</strong> " + f.suffix);
+  }
+  document.getElementById("writingPreview").innerHTML = lines.length
+    ? '<div style="font-family:Lora,serif;font-size:1rem;line-height:2.4;direction:ltr;color:#1a1a1a">' + lines.join("<br>") + "</div>"
+    : '<p style="color:#9ca3af;font-size:0.88rem;text-align:center;margin-top:10px">✨ سيظهر نصك هنا...</p>';
+}
+
+function buildSpeaking() {
+  var h = [];
+  for (var i=0;i<speakingQs.length;i++) {
+    var q = speakingQs[i];
+    h.push('<div class="speaking-block">' +
+      '<div class="sq-question">' +
+        '<div>' +
+          '<div class="sq-ar">' + (i+1) + ". " + q.ar + '</div>' +
+          '<div class="sq-de">' + q.q + '</div>' +
+        '</div>' +
+        '<button class="play-btn idle" style="flex-shrink:0" onclick="playSpeakingQ(' + i + ')">🔊</button>' +
+      '</div>' +
+      '<div class="sq-model-box">' +
+        '<div>' +
+          '<div class="sq-model-label">✅ نموذج الإجابة</div>' +
+          '<div class="sq-model-de">' + q.model + '</div>' +
+          '<div class="sq-model-ar">' + q.modelAr + '</div>' +
+        '</div>' +
+        '<button class="mini-btn" onclick="playSpeakingModel(' + i + ')">🔊</button>' +
+      '</div>' +
+    '</div>');
+  }
+  document.getElementById("speakingQs").innerHTML = h.join("");
+}
+function playSpeakingQ(idx) { speak(speakingQs[idx].q, spdRate, "de-DE"); }
+function playSpeakingModel(idx) { speak(speakingQs[idx].model, spdRate, "de-DE"); }
+
+function buildRealDE() {
+  var h = [];
+  for (var i=0;i<realDE.length;i++) {
+    var e = realDE[i];
+    h.push('<div class="rd-card">' +
+      '<div class="rd-head">' +
+        '<div class="rd-expr-wrap">' +
+          '<span class="rd-expr">' + e.expr + "</span>" +
+          '<span class="rd-pron">' + e.pron + "</span>" +
+        "</div>" +
+        '<button class="play-btn idle" style="width:32px;height:32px;font-size:0.85rem;flex-shrink:0" onclick="playRealDE(' + i + ')">🔊</button>' +
+      "</div>" +
+      '<div class="rd-meaning">' + e.meaning + "</div>" +
+      '<div class="rd-ex-row">' +
+        '<span class="rd-ex-de">' + e.example + "</span>" +
+        '<button class="mini-btn" onclick="playRealDE(' + i + ')">🔊</button>' +
+        '<button class="mini-btn" onclick="toggleRdEx(' + i + ')">🌐</button>' +
+      "</div>" +
+      '<div class="rd-ex-ar" id="rdExBox' + i + '">' + e.exampleAr + "</div>" +
+    "</div>");
+  }
+  document.getElementById("realDeContainer").innerHTML = h.join("");
+}
+function playRealDE(idx) { speak(realDE[idx].expr, spdRate, "de-DE"); }
+function toggleRdEx(idx) {
+  var box = document.getElementById("rdExBox" + idx);
+  if (!box) return;
+  box.style.display = box.style.display === "block" ? "none" : "block";
+}
+
+var quizAnswers = new Array(quizData.length).fill(null);
+function buildQuiz() {
+  var h = [];
+  for (var qi=0;qi<quizData.length;qi++) {
+    var q = quizData[qi];
+    var opts = "";
+    for (var oi=0;oi<q.opts.length;oi++) {
+      var opt = q.opts[oi];
+      var dir = /[\u0600-\u06FF]/.test(opt) ? "rtl" : "ltr";
+      opts += '<div class="quiz-opt" id="qo' + qi + "-" + oi + '" onclick="selectOpt(' + qi + "," + oi + ')"><span style="font-family:Lora,serif;font-size:0.95rem;direction:' + dir + '">' + opt + "</span></div>";
+    }
+    var qDir = /[\u0600-\u06FF]/.test(q.q) ? "rtl" : "ltr";
+    h.push('<div class="quiz-q"><p style="direction:' + qDir + '"><span class="quiz-unit-tag">' + q.unit + '</span>' + (qi+1) + ". " + q.q + '</p><div class="quiz-opts">' + opts + "</div></div>");
+  }
+  document.getElementById("quizContainer").innerHTML = h.join("");
+}
+function selectOpt(qi, oi) {
+  quizAnswers[qi] = oi;
+  for (var i=0;i<quizData[qi].opts.length;i++) {
+    var el = document.getElementById("qo" + qi + "-" + i);
+    if (el) { el.classList.remove("correct","wrong"); el.style.borderColor = ""; }
+  }
+  var sel = document.getElementById("qo" + qi + "-" + oi);
+  if (sel) sel.style.borderColor = "#1a1a1a";
+}
+function checkQuiz() {
+  var score = 0;
+  for (var qi=0;qi<quizData.length;qi++) {
+    var q = quizData[qi];
+    for (var i=0;i<q.opts.length;i++) {
+      var el = document.getElementById("qo" + qi + "-" + i);
+      if (!el) continue;
+      el.classList.remove("correct","wrong");
+      if (i === q.ans) el.classList.add("correct");
+      else if (quizAnswers[qi] === i) el.classList.add("wrong");
+    }
+    if (quizAnswers[qi] === q.ans) score++;
+  }
+  var res = document.getElementById("quizResult");
+  var pct = Math.round(score / quizData.length * 100);
+  res.style.display = "block";
+  document.getElementById("quizEmoji").textContent = pct===100?"🏆":pct>=80?"🎉":pct>=60?"💪":"📚";
+  document.getElementById("quizScore").textContent = score + " من " + quizData.length + " (" + pct + "%)";
+  document.getElementById("quizMsg").textContent = pct===100 ? "مستوى A2 مكتمل بامتياز! أنتِ جاهزة لـ B1!" : pct>=80 ? "ممتاز جداً! مستواك قوي في A2." : pct>=60 ? "جيد! راجعي الوحدات التي أخطأتِ فيها." : "راجعي الوحدات الأساسية مرة أخرى — لا بأس، التكرار مفيد!";
+  res.style.background = pct >= 80 ? "#f0fdf4" : "#fef9f0";
+  res.scrollIntoView({behavior:"smooth", block:"center"});
+}
+function resetQuiz() {
+  quizAnswers = new Array(quizData.length).fill(null);
+  document.querySelectorAll(".quiz-opt").forEach(function(el){ el.classList.remove("correct","wrong"); el.style.borderColor=""; });
+  document.getElementById("quizResult").style.display = "none";
+}
+
+function show(id, clickedBtn) {
+  document.querySelectorAll(".section-content").forEach(function(s){ s.classList.remove("active","fade-up"); });
+  var target = document.getElementById("sec-" + id);
+  target.classList.add("active");
+  setTimeout(function(){ target.classList.add("fade-up"); }, 10);
+  window.scrollTo({top:0, behavior:"smooth"});
+  document.querySelectorAll(".nav-btn").forEach(function(b){ b.classList.remove("active"); });
+  if (clickedBtn) { clickedBtn.classList.add("active"); return; }
+  var map = {journey:0, grammar:1, listen:2, writing:3, speaking:4, realde:5, quiz:6};
+  var btns = document.querySelectorAll(".nav-btn");
+  if (btns[map[id]] !== undefined) btns[map[id]].classList.add("active");
+}
+
+buildUnitTimeline();
+buildGrammarReview();
+buildFavorites();
+buildWriting();
+buildSpeaking();
+buildRealDE();
+buildQuiz();
+</script>
+</body>
+</html>

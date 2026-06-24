@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath Deutsch — الوحدة ٨: الوقت والأيام</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-thumb{background:#c0392b;border-radius:3px}
+body{font-family:'Tajawal',sans-serif;background:#f4f1ec;min-height:100vh;direction:rtl}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,100,60,0.4)}50%{box-shadow:0 0 0 8px rgba(0,100,60,0)}}
+.fade-up{animation:fadeUp 0.45s ease forwards}
+.nav-btn{transition:all 0.2s;border:none;cursor:pointer;font-family:'Tajawal',sans-serif;border-radius:30px;padding:7px 16px;font-size:0.82rem;font-weight:600}
+.nav-btn.active{background:#e8a000;color:#1a1a1a;font-weight:800}
+.nav-btn:not(.active){background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.85)}
+.section-content{display:none;max-width:880px;margin:0 auto;padding:36px 16px 80px}
+.section-content.active{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 4px 28px rgba(0,0,0,0.07);margin-bottom:24px;overflow:hidden}
+.card-header{background:#1a1a1a;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.card-header h3{font-size:1.05rem;font-weight:700}
+.card-header .sub{font-size:0.78rem;color:#fcd34d;margin-top:1px}
+.card-body{padding:24px}
+
+.vocab-block{border:1px solid #e5eaf5;border-radius:12px;margin-bottom:8px;overflow:hidden}
+.vocab-row{display:grid;grid-template-columns:1fr 1fr 1fr 42px;align-items:center;gap:10px;padding:11px 16px}
+.vocab-row.even{background:#fafafa}
+.vocab-row.odd{background:#fff}
+.vocab-header{background:#1a1a1a !important;border-radius:12px}
+.v-de{font-family:Lora,serif;font-weight:700;font-size:1rem;color:#1a1a1a;direction:ltr;text-align:left}
+.v-pron{font-size:0.88rem;color:#e8a000;font-weight:700;direction:rtl;text-align:right}
+.v-ar{font-size:0.97rem;font-weight:700;color:#374151;text-align:right}
+.vocab-header .v-de,.vocab-header .v-pron,.vocab-header .v-ar{color:white;font-family:'Tajawal',sans-serif;font-weight:700}
+.ex-row{padding:10px 16px;background:#fafafa;border-top:1px dashed #e5e7eb;display:flex;align-items:center;gap:8px}
+.ex-icon{font-size:0.9rem;flex-shrink:0;color:#9ca3af}
+.ex-text-wrap{flex:1}
+.ex-de{font-family:Lora,serif;font-size:0.9rem;color:#1a1a1a;direction:ltr;font-style:italic;margin-bottom:3px}
+.ex-ar{font-size:0.82rem;color:#9ca3af;text-align:right}
+.mini-btn{width:26px;height:26px;border-radius:7px;border:1.5px solid #e5e7eb;background:white;cursor:pointer;font-size:0.72rem;display:flex;align-items:center;justify-content:center;color:#9ca3af;flex-shrink:0}
+.mini-btn:hover{border-color:#1a56b0;background:#f0f7ff;color:#1a56b0}
+
+.play-btn{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.18s;flex-shrink:0}
+.play-btn.idle{background:#e8f0fe;color:#1a56b0}
+.play-btn.idle:hover{background:#1a56b0;color:white;transform:scale(1.1)}
+.play-btn.playing{background:#00643c;color:white;animation:pulse 1s infinite}
+
+.story-controls{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap;flex-direction:row-reverse}
+.story-main-btn{display:flex;align-items:center;gap:8px;border:none;border-radius:25px;padding:10px 22px;font-family:'Tajawal',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.2s;flex-direction:row-reverse}
+.speed-wrap{display:flex;align-items:center;gap:6px;flex-direction:row-reverse}
+.speed-wrap label{font-size:0.82rem;color:#6b7280;font-weight:600}
+.spd{padding:5px 11px;border-radius:20px;border:2px solid #d1d5db;background:white;font-family:'Tajawal',sans-serif;font-size:0.78rem;font-weight:700;cursor:pointer;color:#6b7280;transition:all 0.15s}
+.spd.active{border-color:#1a1a1a;background:#1a1a1a;color:white}
+.story-box{border-right:4px solid #e8a000;padding:16px 20px;background:#fffdf7;border-radius:0 12px 12px 0}
+.dialog-line{padding:10px 6px;border-bottom:1px solid #f5f5f5;transition:background 0.18s}
+.dialog-line:last-child{border-bottom:none}
+.dialog-line.hl{background:#fef3c7;border-radius:8px}
+.dl-main{display:flex;align-items:flex-start;gap:8px;direction:ltr}
+.speaker-badge{font-family:'Tajawal',sans-serif;font-size:0.72rem;font-weight:800;padding:3px 10px;border-radius:20px;flex-shrink:0;margin-top:3px;white-space:nowrap}
+.speaker-F .speaker-badge{background:#1a1a1a;color:#e8a000}
+.speaker-L .speaker-badge{background:#c0392b;color:white}
+.dialog-text{font-family:Lora,serif;font-size:0.95rem;line-height:1.8;color:#1a1a1a;flex:1;direction:ltr}
+.dl-btns{display:flex;gap:5px;flex-shrink:0;margin-top:2px}
+.dl-btn{width:28px;height:28px;border-radius:7px;border:1.5px solid #e5e7eb;background:white;cursor:pointer;font-size:0.78rem;display:flex;align-items:center;justify-content:center;transition:all 0.15s;color:#9ca3af}
+.dl-btn:hover{border-color:#1a56b0;background:#f0f7ff;color:#1a56b0}
+.dl-tr-btn:hover{border-color:#e8a000;background:#fef9e7;color:#b45309}
+.dl-ar{display:none;font-family:'Tajawal',sans-serif;font-size:0.87rem;color:#9ca3af;direction:rtl;text-align:right;padding:5px 52px 2px 0;line-height:1.6}
+
+.konj-table{width:100%;border-collapse:collapse;direction:ltr;margin-bottom:16px;font-family:Lora,serif}
+.konj-table th{background:#1a1a1a;color:white;padding:10px 14px;text-align:left;font-size:0.88rem}
+.konj-table td{padding:10px 14px;border-bottom:1px solid #f0f0f0;font-size:0.92rem}
+.konj-table tr:nth-child(even) td{background:#fafafa}
+.clock-time{color:#c0392b;font-weight:700}
+
+.listen-card{display:flex;align-items:center;gap:14px;background:#f0f7ff;border:1px solid #bfdbfe;border-radius:12px;padding:14px 18px;margin-bottom:10px;flex-direction:row-reverse}
+.listen-link{background:#1a1a1a;color:white;border:none;border-radius:8px;padding:8px 16px;font-family:'Tajawal',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.2s;flex-shrink:0}
+.listen-link:hover{background:#c0392b}
+
+.writing-line{display:flex;align-items:center;gap:10px;margin-bottom:14px;direction:ltr;flex-wrap:wrap}
+.writing-line label{font-family:'Tajawal',sans-serif;font-size:0.88rem;color:#6b7280;direction:rtl;min-width:110px;text-align:right}
+.w-input{border:none;border-bottom:2px solid #e8a000;background:transparent;font-family:Lora,serif;font-size:1rem;color:#1a1a1a;outline:none;padding:3px 6px;min-width:100px;transition:border-color 0.2s}
+.w-input:focus{border-color:#1a1a1a}
+.w-fixed{font-family:Lora,serif;font-size:1rem;color:#1a1a1a;font-weight:600}
+
+.speaking-block{margin-bottom:18px}
+.sq-question{background:#f8faff;border-right:4px solid #1a56b0;border-radius:10px 10px 0 0;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px}
+.sq-ar{font-size:0.78rem;color:#9ca3af;margin-bottom:4px}
+.sq-de{font-family:Lora,serif;direction:ltr;font-weight:600;font-size:1rem}
+.sq-model-box{background:#ecfdf5;border-right:4px solid #00643c;border-radius:0 0 10px 10px;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px}
+.sq-model-label{font-size:0.76rem;color:#00643c;font-weight:800;margin-bottom:3px}
+.sq-model-de{font-family:Lora,serif;direction:ltr;font-size:0.95rem;color:#1a1a1a}
+.sq-model-ar{font-size:0.78rem;color:#9ca3af;text-align:right;margin-top:4px}
+
+.wf-model-btn{background:#dbeafe;color:#1e40af;border:none;border-radius:20px;padding:7px 18px;font-family:'Tajawal',sans-serif;font-size:0.82rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin:8px 0 4px}
+.wf-model-btn:hover{background:#bfdbfe}
+.wf-model-box{display:none;background:#f8faff;border-radius:10px;padding:10px 14px;margin-bottom:10px}
+.wf-model-de{font-family:Lora,serif;font-size:0.9rem;color:#1a1a1a;direction:ltr;margin-bottom:4px}
+.wf-model-ar{font-size:0.82rem;color:#6b7280;text-align:right}
+
+.rd-card{background:#fafafa;border:1px solid #e5eaf5;border-radius:12px;padding:16px 18px;margin-bottom:12px}
+.rd-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-direction:row-reverse}
+.rd-expr-wrap{display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.rd-expr{font-family:Lora,serif;font-size:1.05rem;font-weight:700;color:#c0392b;direction:ltr}
+.rd-pron{color:#e8a000;font-weight:700;font-size:0.82rem}
+.rd-meaning{font-size:0.9rem;color:#374151;text-align:right;margin-bottom:12px;line-height:1.7}
+.rd-ex-row{display:flex;align-items:center;gap:6px;direction:ltr;background:white;border-radius:8px;padding:8px 12px}
+.rd-ex-de{font-family:Lora,serif;font-size:0.92rem;color:#1a1a1a;font-style:italic;flex:1}
+.rd-ex-ar{display:none;font-size:0.85rem;color:#9ca3af;text-align:right;margin-top:6px;padding:6px 12px;background:white;border-radius:8px}
+.rd-note{font-size:0.82rem;color:#c0392b;text-align:right;margin-top:8px}
+
+.quiz-q{margin-bottom:20px}
+.quiz-q p{font-size:0.97rem;font-weight:700;color:#1a1a1a;margin-bottom:10px;direction:ltr;font-family:Lora,serif}
+.quiz-opts{display:flex;flex-direction:column;gap:8px}
+.quiz-opt{display:flex;align-items:center;gap:10px;padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;transition:all 0.18s;flex-direction:row-reverse;text-align:right;background:white}
+.quiz-opt:hover{border-color:#1a56b0;background:#f0f7ff}
+.quiz-opt.correct{border-color:#00643c;background:#ecfdf5;color:#00643c}
+.quiz-opt.wrong{border-color:#c0392b;background:#fef2f2;color:#c0392b}
+.btn{border:none;border-radius:30px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all 0.2s;padding:11px 28px;font-size:0.95rem}
+.btn:hover{opacity:0.88;transform:scale(0.98)}
+.btn-dark{background:#1a1a1a;color:white}
+.btn-gray{background:#e5e7eb;color:#374151}
+.btn-gold{background:#e8a000;color:#1a1a1a}
+.flag-strip{height:5px;background:linear-gradient(90deg,#1a1a1a 33%,#c0392b 33% 66%,#e8a000 66%)}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(90px);background:#1a1a1a;color:white;padding:12px 28px;border-radius:30px;font-size:0.95rem;font-weight:700;transition:transform 0.4s ease;z-index:999;pointer-events:none;white-space:nowrap}
+@media(max-width:580px){
+  .vocab-row{grid-template-columns:1fr 1fr 38px}
+  .v-pron{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="flag-strip"></div>
+
+<div style="background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 60%,#1a1a1a 100%);color:white;position:relative;overflow:hidden">
+  <div style="position:absolute;top:-60px;left:-60px;width:280px;height:280px;border-radius:50%;background:rgba(232,160,0,0.07);pointer-events:none"></div>
+  <div style="position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(192,57,43,0.07);pointer-events:none"></div>
+  <div style="max-width:880px;margin:0 auto;padding:14px 20px 0;display:flex;justify-content:space-between;align-items:center">
+    <a href="index_de.html" style="color:rgba(255,255,255,0.55);font-size:0.82rem;text-decoration:none;font-family:'Tajawal',sans-serif">← Deutsch A1</a>
+    <div style="font-family:Lora,serif;font-size:0.9rem;color:#e8a000;direction:ltr">LinguaPath 🇩🇪</div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:5px;padding:10px 16px 0;flex-wrap:wrap">
+    <button class="nav-btn active" onclick="show('vocab',this)">📚 المفردات</button>
+    <button class="nav-btn" onclick="show('story',this)">📖 الحوار</button>
+    <button class="nav-btn" onclick="show('grammar',this)">✏️ القاعدة</button>
+    <button class="nav-btn" onclick="show('listen',this)">🎧 الاستماع</button>
+    <button class="nav-btn" onclick="show('writing',this)">✍️ الكتابة</button>
+    <button class="nav-btn" onclick="show('speaking',this)">💬 المحادثة</button>
+    <button class="nav-btn" onclick="show('realde',this)">🗣️ Real Deutsch</button>
+    <button class="nav-btn" onclick="show('quiz',this)">✅ الاختبار</button>
+  </div>
+  <div style="max-width:880px;margin:0 auto;padding:32px 24px 44px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px">
+    <div>
+      <div style="font-size:0.78rem;letter-spacing:3px;color:#e8a000;font-weight:700;margin-bottom:8px">EINHEIT 8 — A1 🇩🇪</div>
+      <h1 style="font-family:Lora,serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;line-height:1.2;margin-bottom:8px;direction:ltr">Uhrzeit &amp; Tage</h1>
+      <p style="font-size:1.1rem;color:rgba(255,255,255,0.75);margin-bottom:6px">الوقت والأيام</p>
+      <p style="font-size:0.88rem;color:rgba(255,255,255,0.5)">القاعدة: أسئلة Wann / Um wie viel Uhr</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;text-align:center">
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:10px 18px">
+        <div style="font-family:Lora,serif;font-size:1.4rem;font-weight:700;color:#e8a000">20</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.5)">كلمة جديدة</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:10px 18px">
+        <div style="font-family:Lora,serif;font-size:1.4rem;font-weight:700;color:#e8a000">8</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.5)">أقسام</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flag-strip"></div>
+
+<div id="sec-vocab" class="section-content active fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">🕐</span>
+      <div><h3>الوقت والأيام — Uhrzeit und Tage</h3><div class="sub">اضغط 🔊 للنطق</div></div>
+    </div>
+    <div class="card-body">
+      <div class="vocab-row vocab-header" style="margin-bottom:8px">
+        <span class="v-de" style="font-family:'Tajawal',sans-serif;color:white">الكلمة الألمانية</span>
+        <span class="v-pron" style="font-family:'Tajawal',sans-serif;color:white">النطق</span>
+        <span class="v-ar">المعنى</span>
+        <span></span>
+      </div>
+      <div id="vocabGrid"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center">
+    <button class="btn btn-dark" onclick="show('story',null)">انتقل للحوار ←</button>
+  </div>
+</div>
+
+<div id="sec-story" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">📖</span>
+      <div><h3>الحوار — Dialog</h3><div class="sub">Felix und Lena vereinbaren einen Termin — يحددان موعداً</div></div>
+    </div>
+    <div class="card-body">
+      <div style="display:flex;gap:12px;margin-bottom:16px;flex-direction:row-reverse;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:6px;flex-direction:row-reverse">
+          <span style="background:#1a1a1a;color:#e8a000;font-size:0.72rem;font-weight:800;padding:2px 10px;border-radius:20px;font-family:'Tajawal',sans-serif">Felix</span>
+          <span style="font-size:0.82rem;color:#6b7280">ذكر — Mann 🇩🇪</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;flex-direction:row-reverse">
+          <span style="background:#c0392b;color:white;font-size:0.72rem;font-weight:800;padding:2px 10px;border-radius:20px;font-family:'Tajawal',sans-serif">Lena</span>
+          <span style="font-size:0.82rem;color:#6b7280">أنثى — Frau 🌍</span>
+        </div>
+      </div>
+      <div class="story-controls">
+        <button class="story-main-btn" id="storyBtn" onclick="toggleStory()" style="background:#1a56b0;color:white">
+          <span id="sBtnIcon">▶</span><span id="sBtnTxt">استمع للحوار كاملاً</span>
+        </button>
+        <div class="speed-wrap">
+          <label>السرعة:</label>
+          <button class="spd" onclick="setSpd(0.65,this)">🐢</button>
+          <button class="spd active" onclick="setSpd(0.9,this)">🚶</button>
+          <button class="spd" onclick="setSpd(1.2,this)">🏃</button>
+        </div>
+        <button id="trAllBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:25px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:0.82rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+      </div>
+      <div class="story-box" id="storyBox"></div>
+      <p style="margin-top:14px;font-size:0.85rem;color:#9ca3af;text-align:right">📌 اضغط 🌐 لترجمة الجملة · 🔊 للاستماع</p>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn btn-dark" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">✏️</span>
+      <div><h3>القاعدة — Grammatik</h3><div class="sub">كيف تسأل وتجيب عن الوقت — Wie viel Uhr ist es؟</div></div>
+    </div>
+    <div class="card-body">
+      <p style="text-align:right;font-size:0.97rem;line-height:1.9;color:#374151;margin-bottom:20px">
+        السؤال الرسمي هو <strong style="color:#c0392b;font-family:Lora,serif">Wie viel Uhr ist es?</strong> أو بشكل عامي <strong style="color:#00643c;font-family:Lora,serif">Wie spät ist es?</strong> — كلاهما يعني "كم الساعة؟"
+      </p>
+      <h4 style="font-weight:800;color:#1a1a1a;margin-bottom:12px;text-align:right">📋 كيف تقول الوقت</h4>
+      <div style="overflow-x:auto;margin-bottom:20px">
+        <table class="konj-table">
+          <thead><tr><th>الساعة</th><th>بالألمانية</th><th>المعنى</th></tr></thead>
+          <tbody id="clockTable"></tbody>
+        </table>
+      </div>
+      <div style="background:#f0fdf4;border-right:4px solid #00643c;border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:20px">
+        <p style="font-weight:800;color:#1a1a1a;margin-bottom:10px;text-align:right">🔑 السؤال عن وقت حدث — Um wie viel Uhr؟</p>
+        <div style="direction:ltr;font-family:Lora,serif;font-size:0.92rem;display:flex;flex-direction:column;gap:6px;color:#1a1a1a">
+          <div>Um wie viel Uhr <strong>fängt</strong> der Film an? <span style="color:#9ca3af;font-size:0.82rem">(في أي ساعة يبدأ الفيلم؟)</span></div>
+          <div>Der Film fängt <strong class="clock-time">um acht Uhr</strong> an. <span style="color:#9ca3af;font-size:0.82rem">(يبدأ في الساعة الثامنة)</span></div>
+        </div>
+      </div>
+      <h4 style="font-weight:800;color:#1a1a1a;margin-bottom:14px;text-align:right">❓ أسئلة عن الموعد</h4>
+      <div id="terminFragen" style="display:flex;flex-direction:column;gap:8px"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('story',null)">→ الحوار</button>
+    <button class="btn btn-dark" onclick="show('listen',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listen" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">🎧</span>
+      <div><h3>الاستماع — Hören</h3><div class="sub">4 مصادر متنوعة عن الوقت والأيام</div></div>
+    </div>
+    <div class="card-body">
+      <div style="background:linear-gradient(135deg,#fef9f0,#fef3c7);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:16px 20px;margin-bottom:20px;display:flex;gap:12px;flex-direction:row-reverse;align-items:flex-start">
+        <span style="font-size:1.5rem">🎯</span>
+        <div style="text-align:right">
+          <p style="font-weight:700;color:#1a1a1a;margin-bottom:4px">نصيحة للاستماع</p>
+          <p style="font-size:0.9rem;color:#6b7280;line-height:1.8">ابدأ بفيديو Nicos Weg من DW — قصة قصيرة وواضحة جداً عن السؤال عن الوقت.</p>
+        </div>
+      </div>
+      <div id="listenCards"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn btn-dark" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">✍️</span>
+      <div><h3>الكتابة — Schreiben</h3><div class="sub">اكتب عن مواعيدك وأيامك المفضلة</div></div>
+    </div>
+    <div class="card-body">
+      <p style="text-align:right;font-size:0.97rem;line-height:1.9;color:#374151;margin-bottom:20px">أكمل الجمل — اضغط "📝 نموذج للإجابة" تحت كل سؤال إذا احتجتِ مساعدة.</p>
+      <div style="background:#fffdf7;border:2px dashed #e8a000;border-radius:14px;padding:22px;margin-bottom:16px">
+        <div id="writingForm"></div>
+        <div style="margin-top:20px;padding:16px 20px;background:white;border-radius:12px;border:1px solid #e5e7eb;min-height:90px;border-right:4px solid #e8a000" id="writingPreview">
+          <p style="color:#9ca3af;font-size:0.88rem;text-align:center;margin-top:10px">✨ سيظهر نصك هنا...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('listen',null)">→ الاستماع</button>
+    <button class="btn btn-dark" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">💬</span>
+      <div><h3>المحادثة — Sprechen</h3><div class="sub">السؤال أولاً، وتحته نموذج الإجابة في صندوق منفصل</div></div>
+    </div>
+    <div class="card-body">
+      <div id="speakingQs"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn btn-gold" onclick="show('realde',null)">Real Deutsch ←</button>
+  </div>
+</div>
+
+<div id="sec-realde" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header" style="background:linear-gradient(135deg,#c0392b,#a93226)">
+      <span style="font-size:1.4rem">🗣️</span>
+      <div><h3>Real Deutsch</h3><div class="sub">تعابير حقيقية عن المواعيد والوقت</div></div>
+    </div>
+    <div class="card-body">
+      <div id="realDeContainer"></div>
+      <div style="margin-top:20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-direction:row-reverse">
+          <span style="font-size:1.2rem">💡</span>
+          <h4 style="font-weight:800;font-size:1rem;color:#e8a000">هل تعلم؟</h4>
+        </div>
+        <div id="didYouKnow"></div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn btn-gold" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-quiz" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">✅</span>
+      <div><h3>الاختبار — Quiz</h3><div class="sub">١٠ أسئلة عن الوقت والأيام</div></div>
+    </div>
+    <div class="card-body">
+      <div id="quizContainer"></div>
+      <div style="display:flex;justify-content:center;gap:12px;margin-top:20px">
+        <button class="btn btn-dark" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn btn-gray" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizResult" style="display:none;text-align:center;padding:20px;margin-top:16px;border-radius:14px">
+        <div style="font-size:2.5rem;margin-bottom:8px" id="quizEmoji">🎉</div>
+        <div style="font-weight:800;font-size:1.1rem;color:#1a1a1a;margin-bottom:4px" id="quizScore"></div>
+        <div style="font-size:0.9rem;color:#6b7280" id="quizMsg"></div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:28px;background:white;border-radius:18px;box-shadow:0 4px 24px rgba(0,0,0,0.07)">
+    <div class="flag-strip" style="height:4px;margin:-28px -28px 20px;border-radius:18px 18px 0 0"></div>
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:#1a1a1a;margin-bottom:6px">Ausgezeichnet! أكملت الوحدة الثامنة!</div>
+    <p style="font-size:0.9rem;color:#6b7280;margin-bottom:16px">الوحدة التاسعة: الطقس — Das Wetter</p>
+    <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+      <a href="de_unit7_daily.html" class="btn btn-gray" style="text-decoration:none;display:inline-block">← الوحدة السابعة</a>
+      <a href="de_unit9_weather.html" class="btn btn-dark" style="text-decoration:none;display:inline-block">الوحدة التاسعة ←</a>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var vocab = [
+  {de:"die Uhrzeit",   pron:"دى أورتسايت",   ar:"الوقت / الساعة", exShow:"Wie ist die Uhrzeit?", exAr:"كم الوقت؟"},
+  {de:"die Uhr",       pron:"دى أور",        ar:"الساعة (الجهاز)", exShow:"Die Uhr zeigt drei Uhr.", exAr:"الساعة تشير إلى الثالثة."},
+  {de:"die Minute",    pron:"دى مينوته",     ar:"الدقيقة", exShow:"Ich komme in fünf Minuten.", exAr:"سآتي بعد خمس دقائق."},
+  {de:"die Stunde",    pron:"دى شتونده",     ar:"الساعة (مدة زمنية)", exShow:"Der Film dauert zwei Stunden.", exAr:"الفيلم يستمر ساعتين."},
+  {de:"die Sekunde",   pron:"دى زيكونده",    ar:"الثانية", exShow:"Eine Minute hat sechzig Sekunden.", exAr:"الدقيقة فيها ستون ثانية."},
+  {de:"Montag",        pron:"مونتاغ",        ar:"الإثنين", exShow:"Am Montag arbeite ich.", exAr:"يوم الإثنين أعمل."},
+  {de:"Dienstag",      pron:"دينستاغ",       ar:"الثلاثاء", exShow:"Dienstag ist mein freier Tag.", exAr:"الثلاثاء يومي الحر."},
+  {de:"Mittwoch",      pron:"ميتفوخ",        ar:"الأربعاء", exShow:"Mittwoch ist die Mitte der Woche.", exAr:"الأربعاء هو وسط الأسبوع."},
+  {de:"Donnerstag",    pron:"دونرستاغ",      ar:"الخميس", exShow:"Donnerstag treffe ich Freunde.", exAr:"الخميس ألتقي بأصدقاء."},
+  {de:"Freitag",       pron:"فرايتاغ",       ar:"الجمعة", exShow:"Freitag ist der letzte Arbeitstag.", exAr:"الجمعة هو آخر يوم عمل."},
+  {de:"Samstag",       pron:"زامستاغ",       ar:"السبت", exShow:"Am Samstag schlafe ich lange.", exAr:"السبت أنام طويلاً."},
+  {de:"Sonntag",       pron:"زونتاغ",        ar:"الأحد", exShow:"Sonntag ist ein Ruhetag.", exAr:"الأحد يوم راحة."},
+  {de:"das Wochenende",pron:"داس فوخنإنده",  ar:"عطلة الأسبوع", exShow:"Was machst du am Wochenende?", exAr:"ماذا تفعل في عطلة الأسبوع؟"},
+  {de:"frueh",         pron:"فروه",          ar:"باكراً", exShow:"Ich komme heute früh.", exAr:"سآتي باكراً اليوم."},
+  {de:"puenktlich",    pron:"بونكتليش",      ar:"في الوقت المحدد", exShow:"Sei bitte pünktlich!", exAr:"كن في الوقت المحدد من فضلك!"},
+  {de:"der Termin",    pron:"در تيرمين",     ar:"الموعد", exShow:"Ich habe einen Termin um drei Uhr.", exAr:"لدي موعد في الساعة الثالثة."},
+  {de:"dauern",        pron:"داورن",         ar:"يستمر / يدوم", exShow:"Die Pause dauert eine Stunde.", exAr:"الاستراحة تدوم ساعة."},
+  {de:"die Verspaetung",pron:"دى فِرشپيتونغ", ar:"التأخير", exShow:"Der Zug hat Verspätung.", exAr:"القطار متأخر."},
+  {de:"der Kalender",  pron:"در كالِندِر",    ar:"التقويم", exShow:"Ich schreibe es in meinen Kalender.", exAr:"أكتبه في تقويمي."},
+  {de:"die Woche",     pron:"دى فوخه",       ar:"الأسبوع", exShow:"Diese Woche bin ich beschäftigt.", exAr:"هذا الأسبوع أنا مشغول."}
+];
+
+var clockData = [
+  {time:"1:00", de:"Es ist ein Uhr.", ar:"الساعة الواحدة."},
+  {time:"3:15", de:"Es ist viertel nach drei.", ar:"الثالثة وربع."},
+  {time:"3:30", de:"Es ist halb vier.", ar:"الثالثة والنصف."},
+  {time:"3:45", de:"Es ist viertel vor vier.", ar:"الرابعة إلا ربع."},
+  {time:"8:00", de:"Es ist acht Uhr.", ar:"الساعة الثامنة."}
+];
+
+var terminFragen = [
+  {q:"Um wie viel Uhr fängt der Film an?", model:"Der Film fängt um acht Uhr an.", pron:"أوم في فيل أور فِنغت در فيلم آن", ar:"في أي ساعة يبدأ الفيلم؟"},
+  {q:"Wann hast du Zeit?", model:"Ich habe am Freitag Zeit.", pron:"فان هاست دو تسايت", ar:"متى لديك وقت؟"},
+  {q:"Wie lange dauert die Pause?", model:"Die Pause dauert eine Stunde.", pron:"في لانغه داورت دى پاوزه", ar:"كم تدوم الاستراحة؟"}
+];
+
+var storyData = [
+  {spk:"F", de:"Lena, hast du am Freitag Zeit?", display:"Lena, hast du am Freitag Zeit?", ar:"لينا، هل لديك وقت يوم الجمعة؟"},
+  {spk:"L", de:"Ja, ich habe Zeit. Um wie viel Uhr?", display:"Ja, ich habe Zeit. Um wie viel Uhr?", ar:"نعم، لدي وقت. في أي ساعة؟"},
+  {spk:"F", de:"Wie wäre es um sieben Uhr abends?", display:"Wie wäre es um sieben Uhr abends?", ar:"ما رأيك في السابعة مساءً؟"},
+  {spk:"L", de:"Perfekt! Wo treffen wir uns?", display:"Perfekt! Wo treffen wir uns?", ar:"ممتاز! أين نتقابل؟"},
+  {spk:"F", de:"Im Café, das du magst. Bitte sei pünktlich!", display:"Im Café, das du magst. Bitte sei pünktlich!", ar:"في المقهى الذي تحبينه. كوني في الوقت المحدد من فضلك!"},
+  {spk:"L", de:"Keine Sorge, ich bin nie spät.", display:"Keine Sorge, ich bin nie spät.", ar:"لا تقلق، أنا لا أتأخر أبداً."},
+  {spk:"F", de:"Gut. Und wie lange bleiben wir dort?", display:"Gut. Und wie lange bleiben wir dort?", ar:"جيد. وكم سنبقى هناك؟"},
+  {spk:"L", de:"Vielleicht zwei Stunden. Dann muss ich nach Hause.", display:"Vielleicht zwei Stunden. Dann muss ich nach Hause.", ar:"ساعتين تقريباً. ثم يجب أن أذهب للبيت."},
+  {spk:"F", de:"Kein Problem. Was machst du am Wochenende?", display:"Kein Problem. Was machst du am Wochenende?", ar:"لا مشكلة. ماذا ستفعلين في عطلة الأسبوع؟"},
+  {spk:"L", de:"Am Samstag schlafe ich lange, am Sonntag besuche ich meine Familie.", display:"Am Samstag schlafe ich lange, am Sonntag besuche ich meine Familie.", ar:"السبت أنام طويلاً، الأحد أزور عائلتي."},
+  {spk:"F", de:"Schön! Also bis Freitag um sieben.", display:"Schön! Also bis Freitag um sieben.", ar:"جميل! إذن إلى الجمعة في السابعة."},
+  {spk:"L", de:"Bis dann, Felix!", display:"Bis dann, Felix!", ar:"إلى ذلك الحين يا فيليكس!"}
+];
+
+var listenData = [
+  {icon:"🕐", name:"Nicos Weg A1 Folge 33 — Wie spät ist es?", channel:"Deutsche Welle (DW) — رسمي وموثوق", desc:"قصة قصيرة رسمية من DW تشرح كيف تسأل عن الوقت — أكثر مصدر موثوق", url:"https://www.youtube.com/watch?v=SEV3kmyQCII", tag:"DW رسمي"},
+  {icon:"📅", name:"Die Wochentage — Wortschatz thematisch", channel:"Deutsch lernen A1-A2", desc:"شرح كامل لأيام الأسبوع مع أمثلة استخدام واضحة", url:"https://www.youtube.com/watch?v=1JatcvKN0e4", tag:"أيام الأسبوع"},
+  {icon:"💬", name:"Wann? Uhrzeit, Tageszeit, Wochentage", channel:"Hallo Deutschschule", desc:"حوار قصير وسريع يجمع الوقت وأيام الأسبوع معاً بصيغة عملية", url:"https://www.youtube.com/watch?v=Fv71qpiFfL0", tag:"حوار سريع"},
+  {icon:"🍂", name:"Monate und Jahreszeiten — Wortschatz A1", channel:"Deutsch für Anfänger", desc:"الأشهر والفصول بالألمانية — يكمل موضوع الوقت بشكل موسّع", url:"https://www.youtube.com/watch?v=3Br5I6JsT6w", tag:"أشهر وفصول"}
+];
+
+var writingFields = [
+  {id:"wwake",  prefix:"Ich stehe um",        suffix:"Uhr auf.", label:"وقت استيقاظي", modelDe:"Ich stehe um sieben Uhr auf.", modelAr:"أستيقظ في الساعة السابعة."},
+  {id:"wday",   prefix:"Mein Lieblingstag ist", suffix:".",       label:"يومي المفضل", modelDe:"Mein Lieblingstag ist Freitag.", modelAr:"يومي المفضل هو الجمعة."},
+  {id:"wfree",  prefix:"Am Wochenende",        suffix:"ich.",     label:"نشاطي بعطلة الأسبوع", modelDe:"Am Wochenende entspanne ich.", modelAr:"في عطلة الأسبوع أرتاح."},
+  {id:"wterm",  prefix:"Mein Termin ist um",   suffix:"Uhr.",     label:"وقت موعدي", modelDe:"Mein Termin ist um vier Uhr.", modelAr:"موعدي في الساعة الرابعة."}
+];
+
+var speakingQs = [
+  {q:"Wie viel Uhr ist es jetzt?", model:"Es ist drei Uhr.", modelAr:"الساعة الثالثة الآن.", ar:"كم الساعة الآن؟"},
+  {q:"Um wie viel Uhr stehst du auf?", model:"Ich stehe um sieben Uhr auf.", modelAr:"أستيقظ في الساعة السابعة.", ar:"في أي ساعة تستيقظ؟"},
+  {q:"Was ist dein Lieblingstag?", model:"Mein Lieblingstag ist Freitag.", modelAr:"يومي المفضل هو الجمعة.", ar:"ما يومك المفضل؟"},
+  {q:"Was machst du am Wochenende?", model:"Am Wochenende treffe ich Freunde.", modelAr:"في عطلة الأسبوع ألتقي بأصدقاء.", ar:"ماذا تفعل في عطلة الأسبوع؟"},
+  {q:"Bist du immer pünktlich?", model:"Ja, ich bin meistens pünktlich.", modelAr:"نعم، أنا في الوقت المحدد غالباً.", ar:"هل أنت دائماً في الوقت المحدد؟"}
+];
+
+var realDE = [
+  {expr:"Ich bin spät dran.", pron:"إخ بين شپيت دران", meaning:"أنا متأخر.", formal:"Ich habe mich verspätet.", example:"Tut mir leid, ich bin spät dran!", exampleAr:"آسف، أنا متأخر!", note:"تعبير يومي شائع جداً عند الوصول متأخراً لموعد أو لقاء"},
+  {expr:"Hast du kurz Zeit?", pron:"هاست دو كورتس تسايت", meaning:"هل لديك دقيقة من وقتك؟", formal:"Haben Sie einen Moment Zeit?", example:"Hast du kurz Zeit für mich?", exampleAr:"هل لديك دقيقة من وقتك لأجلي؟", note:"طريقة ودودة لطلب وقت قصير من شخص دون إحراجه"},
+  {expr:"Das hat noch Zeit.", pron:"داس هات نوخ تسايت", meaning:"هذا ليس عاجلاً / في وقته متّسع.", formal:"Das ist nicht dringend.", example:"Mach dir keine Sorgen, das hat noch Zeit.", exampleAr:"لا تقلق، هذا ليس عاجلاً.", note:"جملة مريحة لتقليل الضغط عن شيء غير عاجل"}
+];
+
+var didYouKnow = [
+  {flag:"🇩🇪", fact:"الألمان يستخدمون <strong>نظام الـ24 ساعة</strong> رسمياً (مثل 14:00 بدل 2 PM) في الجداول والمواعيد الرسمية، بينما يستخدمون نظام الـ12 ساعة في الحديث اليومي."},
+  {flag:"⏰", fact:"تعبير <strong>halb vier</strong> يعني الساعة 3:30 (نصف الطريق إلى الرابعة) — وهذا يُلخّص فكرة مختلفة تماماً عن العربية، فالألمان يحسبون الوقت بالنسبة للساعة القادمة لا الماضية!"},
+  {flag:"📆", fact:"في ألمانيا، الأسبوع يبدأ من <strong>الإثنين (Montag)</strong> وليس الأحد — وهذا يظهر في كل التقاويم والجداول الرسمية."}
+];
+
+var quizData = [
+  {q:"كيف تسأل 'كم الساعة؟' بشكل رسمي؟", opts:["Wie spät ist es?","Wie viel Uhr ist es?","Wann ist es?","Was ist die Zeit?"], ans:1},
+  {q:"'Es ist halb vier.' تعني ___", opts:["الرابعة تماماً","الثالثة والنصف","الرابعة والنصف","الثالثة وربع"], ans:1},
+  {q:"ما هو أول يوم في الأسبوع الألماني؟", opts:["Sonntag","Montag","Samstag","Freitag"], ans:1},
+  {q:"كيف تقول 'الجمعة' بالألمانية؟", opts:["Donnerstag","Freitag","Samstag","Mittwoch"], ans:1},
+  {q:"'Um wie viel Uhr...?' تُستخدم للسؤال عن ___", opts:["مكان حدث","سبب حدث","وقت حدث","شخص"], ans:2},
+  {q:"ما معنى 'pünktlich'؟", opts:["متأخر","في الوقت المحدد","سريع","بطيء"], ans:1},
+  {q:"كيف تقول 'الأسبوع' بالألمانية؟", opts:["der Tag","die Woche","der Monat","das Jahr"], ans:1},
+  {q:"'Ich bin spät dran.' معناها ___", opts:["أنا في الوقت المحدد","أنا متأخر","أنا مبكر","لدي وقت"], ans:1},
+  {q:"'das Wochenende' تعني ___", opts:["بداية الأسبوع","وسط الأسبوع","عطلة الأسبوع","نهاية الشهر"], ans:2},
+  {q:"كم ثانية في الدقيقة؟", opts:["30","100","60","12"], ans:2}
+];
+
+var spdRate = 0.9;
+var storyRef = {on:false, spd:0.9};
+function speak(text, rate, lang) {
+  if (!window.speechSynthesis) return null;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = lang || "de-DE"; u.rate = rate || spdRate;
+  window.speechSynthesis.speak(u); return u;
+}
+function setSpd(r, btn) {
+  spdRate = r; storyRef.spd = r;
+  var spds = document.querySelectorAll(".spd");
+  for (var i=0;i<spds.length;i++) spds[i].classList.remove("active");
+  btn.classList.add("active");
+  if (storyRef.on) { stopStory(); setTimeout(startStory, 80); }
+}
+
+function buildVocab() {
+  var h = [];
+  for (var i=0;i<vocab.length;i++) {
+    var v = vocab[i];
+    h.push('<div class="vocab-block">' +
+      '<div class="vocab-row ' + (i%2===0?"even":"odd") + '">' +
+        '<span class="v-de">' + v.de + "</span>" +
+        '<span class="v-pron">' + v.pron + "</span>" +
+        '<span class="v-ar">' + v.ar + "</span>" +
+        '<button class="play-btn idle" id="vb' + i + '" onclick="playVocab(' + i + ')">🔊</button>' +
+      "</div>" +
+      '<div class="ex-row">' +
+        '<span class="ex-icon">💬</span>' +
+        '<div class="ex-text-wrap">' +
+          '<div class="ex-de">' + v.exShow + "</div>" +
+          '<div class="ex-ar">' + v.exAr + "</div>" +
+        "</div>" +
+        '<button class="mini-btn" onclick="playExample(' + i + ')">🔊</button>' +
+      "</div>" +
+    "</div>");
+  }
+  document.getElementById("vocabGrid").innerHTML = h.join("");
+}
+function playVocab(idx) {
+  document.querySelectorAll(".play-btn").forEach(function(b){ b.className="play-btn idle"; b.textContent="🔊"; });
+  var btn = document.getElementById("vb" + idx);
+  if (btn) { btn.className = "play-btn playing"; btn.textContent = "⏸"; }
+  var u = speak(vocab[idx].de, spdRate, "de-DE");
+  if (u) u.onend = function(){ if (btn){ btn.className="play-btn idle"; btn.textContent="🔊"; } };
+}
+function playExample(idx) { speak(vocab[idx].exShow, spdRate, "de-DE"); }
+
+function buildClockTable() {
+  var h = [];
+  for (var i=0;i<clockData.length;i++) {
+    var c = clockData[i];
+    h.push("<tr><td><span class=\"clock-time\">" + c.time + "</span></td><td style=\"direction:ltr;font-family:Lora,serif\">" + c.de + "</td><td style=\"font-size:0.85rem;color:#6b7280\">" + c.ar + "</td></tr>");
+  }
+  document.getElementById("clockTable").innerHTML = h.join("");
+}
+
+function buildTerminFragen() {
+  var h = [];
+  for (var i=0;i<terminFragen.length;i++) {
+    var w = terminFragen[i];
+    h.push('<div style="background:#f8faff;border-radius:10px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px">' +
+      '<div style="text-align:right;flex:1">' +
+        '<div style="font-family:Lora,serif;font-weight:700;color:#1a1a1a;direction:ltr;margin-bottom:3px">' + w.q + "</div>" +
+        '<div style="font-size:0.78rem;color:#e8a000;font-weight:700;margin-bottom:2px">' + w.pron + "</div>" +
+        '<div style="font-size:0.82rem;color:#6b7280">' + w.ar + ' ← <span style="font-family:Lora,serif;color:#00643c">' + w.model + "</span></div>" +
+      "</div>" +
+      '<button class="play-btn idle" onclick="playTerminFrage(' + i + ')">🔊</button>' +
+    "</div>");
+  }
+  document.getElementById("terminFragen").innerHTML = h.join("");
+}
+function playTerminFrage(idx) { speak(terminFragen[idx].q, spdRate, "de-DE"); }
+
+function buildStory() {
+  var h = [];
+  for (var i=0;i<storyData.length;i++) {
+    var line = storyData[i];
+    var name = line.spk === "F" ? "Felix" : "Lena";
+    h.push('<div class="dialog-line speaker-' + line.spk + '" id="sl' + i + '">' +
+      '<div class="dl-main">' +
+        '<span class="speaker-badge">' + name + "</span>" +
+        '<span class="dialog-text">' + line.display + "</span>" +
+        '<div class="dl-btns">' +
+          '<button class="dl-btn" onclick="playLine(' + i + ')" title="استمع">🔊</button>' +
+          '<button class="dl-btn dl-tr-btn" onclick="toggleTr(' + i + ')" title="الترجمة">🌐</button>' +
+        "</div>" +
+      "</div>" +
+      '<div id="tr' + i + '" class="dl-ar">' + line.ar + "</div>" +
+    "</div>");
+  }
+  document.getElementById("storyBox").innerHTML = h.join("");
+}
+function playLine(i) {
+  stopStory(); hlLine(i);
+  var u = speak(storyData[i].display, spdRate, "de-DE");
+  if (u) u.onend = function(){ hlLine(-1); };
+}
+function hlLine(i) {
+  document.querySelectorAll(".dialog-line").forEach(function(l){ l.classList.remove("hl"); });
+  if (i>=0) { var el=document.getElementById("sl"+i); if(el) el.classList.add("hl"); }
+}
+function toggleTr(i) {
+  var el = document.getElementById("tr"+i);
+  if (el) el.style.display = el.style.display==="block"?"none":"block";
+}
+var _trAll = false;
+function toggleAllTr() {
+  _trAll = !_trAll;
+  for (var i=0;i<storyData.length;i++) {
+    var el=document.getElementById("tr"+i);
+    if(el) el.style.display=_trAll?"block":"none";
+  }
+  var btn=document.getElementById("trAllBtn");
+  if(btn) btn.textContent=_trAll?"🙈 أخفِ الكل":"🌐 الترجمة";
+}
+function startStory() {
+  storyRef.on=true;
+  document.getElementById("storyBtn").style.background="#059669";
+  document.getElementById("sBtnIcon").textContent="⏹";
+  document.getElementById("sBtnTxt").textContent="إيقاف الحوار";
+  playSeq(0);
+}
+function stopStory() {
+  storyRef.on=false;
+  if(window.speechSynthesis) window.speechSynthesis.cancel();
+  hlLine(-1);
+  var btn=document.getElementById("storyBtn");
+  if(btn){ btn.style.background="#1a56b0";
+    document.getElementById("sBtnIcon").textContent="▶";
+    document.getElementById("sBtnTxt").textContent="استمع للحوار كاملاً"; }
+}
+function playSeq(i) {
+  if(!storyRef.on||i>=storyData.length){ stopStory(); return; }
+  hlLine(i);
+  var u=new SpeechSynthesisUtterance(storyData[i].display);
+  u.lang="de-DE"; u.rate=storyRef.spd;
+  u.onend=function(){ if(storyRef.on) setTimeout(function(){ playSeq(i+1); },380); };
+  if(window.speechSynthesis){ window.speechSynthesis.cancel(); window.speechSynthesis.speak(u); }
+}
+function toggleStory(){ storyRef.on?stopStory():startStory(); }
+
+function buildListening() {
+  var h = [];
+  for (var i=0;i<listenData.length;i++) {
+    var r = listenData[i];
+    h.push('<div class="listen-card"><span style="font-size:1.8rem;flex-shrink:0">' + r.icon + '</span><div style="flex:1;text-align:right"><div style="font-weight:700;font-size:0.95rem;color:#1a1a1a">' + r.name + '</div><div style="font-size:0.75rem;color:#e8a000;font-weight:700">' + r.channel + '</div><div style="font-size:0.82rem;color:#6b7280">' + r.desc + '</div></div><span style="background:#fef3c7;color:#92400e;font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap">' + r.tag + '</span><a class="listen-link" href="' + r.url + '" target="_blank" rel="noopener noreferrer">▶ افتح</a></div>');
+  }
+  document.getElementById("listenCards").innerHTML = h.join("");
+}
+
+function buildWriting() {
+  var h = [];
+  for (var i=0;i<writingFields.length;i++) {
+    var f = writingFields[i];
+    h.push('<div class="writing-line"><label>' + f.label + ':</label><span class="w-fixed" style="font-size:0.95rem;color:#6b7280">' + f.prefix + '</span><input class="w-input" id="' + f.id + '" placeholder="اكتب هنا..." oninput="updatePreview()"><span class="w-fixed" style="color:#6b7280">' + f.suffix + "</span></div>");
+    h.push('<button class="wf-model-btn" onclick="toggleWModel(' + i + ')">📝 <span id="wfLabel' + i + '">نموذج للإجابة</span></button>');
+    h.push('<div class="wf-model-box" id="wfModel' + i + '"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-direction:row-reverse"><div class="wf-model-de" style="margin-bottom:0">' + f.modelDe + '</div><button class="mini-btn" onclick="playWModel(' + i + ')">🔊</button></div><div class="wf-model-ar">' + f.modelAr + "</div></div>");
+  }
+  document.getElementById("writingForm").innerHTML = h.join("");
+}
+function playWModel(idx) { speak(writingFields[idx].modelDe, spdRate, "de-DE"); }
+function toggleWModel(idx) {
+  var box = document.getElementById("wfModel" + idx);
+  var label = document.getElementById("wfLabel" + idx);
+  if (!box) return;
+  var isOpen = box.style.display === "block";
+  box.style.display = isOpen ? "none" : "block";
+  if (label) label.textContent = isOpen ? "نموذج للإجابة" : "أخفِ النموذج";
+}
+function updatePreview() {
+  var lines = [];
+  for (var i=0;i<writingFields.length;i++) {
+    var f = writingFields[i];
+    var inp = document.getElementById(f.id);
+    var val = inp ? inp.value.trim() : "";
+    if (val) lines.push(f.prefix + " <strong>" + val + "</strong> " + f.suffix);
+  }
+  document.getElementById("writingPreview").innerHTML = lines.length
+    ? '<div style="font-family:Lora,serif;font-size:1rem;line-height:2.4;direction:ltr;color:#1a1a1a">' + lines.join("<br>") + "</div>"
+    : '<p style="color:#9ca3af;font-size:0.88rem;text-align:center;margin-top:10px">✨ سيظهر نصك هنا...</p>';
+}
+
+function buildSpeaking() {
+  var h = [];
+  for (var i=0;i<speakingQs.length;i++) {
+    var q = speakingQs[i];
+    h.push('<div class="speaking-block">' +
+      '<div class="sq-question">' +
+        '<div>' +
+          '<div class="sq-ar">' + (i+1) + ". " + q.ar + '</div>' +
+          '<div class="sq-de">' + q.q + '</div>' +
+        '</div>' +
+        '<button class="play-btn idle" style="flex-shrink:0" onclick="playSpeakingQ(' + i + ')">🔊</button>' +
+      '</div>' +
+      '<div class="sq-model-box">' +
+        '<div>' +
+          '<div class="sq-model-label">✅ نموذج الإجابة</div>' +
+          '<div class="sq-model-de">' + q.model + '</div>' +
+          '<div class="sq-model-ar">' + q.modelAr + '</div>' +
+        '</div>' +
+        '<button class="mini-btn" onclick="playSpeakingModel(' + i + ')">🔊</button>' +
+      '</div>' +
+    '</div>');
+  }
+  document.getElementById("speakingQs").innerHTML = h.join("");
+}
+function playSpeakingQ(idx) { speak(speakingQs[idx].q, spdRate, "de-DE"); }
+function playSpeakingModel(idx) { speak(speakingQs[idx].model, spdRate, "de-DE"); }
+
+function buildRealDE() {
+  var h = [];
+  for (var i=0;i<realDE.length;i++) {
+    var e = realDE[i];
+    h.push('<div class="rd-card">' +
+      '<div class="rd-head">' +
+        '<div class="rd-expr-wrap">' +
+          '<span class="rd-expr">' + e.expr + "</span>" +
+          '<span class="rd-pron">' + e.pron + "</span>" +
+        "</div>" +
+        '<button class="play-btn idle" style="width:32px;height:32px;font-size:0.85rem;flex-shrink:0" onclick="playRealDE(' + i + ')">🔊</button>' +
+      "</div>" +
+      '<div class="rd-meaning">' + e.meaning + "</div>" +
+      '<div class="rd-ex-row">' +
+        '<span class="rd-ex-de">' + e.example + "</span>" +
+        '<button class="mini-btn" onclick="playRealDE(' + i + ')">🔊</button>' +
+        '<button class="mini-btn" onclick="toggleRdEx(' + i + ')">🌐</button>' +
+      "</div>" +
+      '<div class="rd-ex-ar" id="rdExBox' + i + '">' + e.exampleAr + "</div>" +
+      '<div class="rd-note">💡 ' + e.note + "</div>" +
+    "</div>");
+  }
+  document.getElementById("realDeContainer").innerHTML = h.join("");
+  var dy = [];
+  for (var k=0;k<didYouKnow.length;k++) {
+    var f = didYouKnow[k];
+    dy.push('<div style="display:flex;align-items:flex-start;gap:12px;background:linear-gradient(135deg,#fffdf0,#fef3c7);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:14px 18px;margin-bottom:10px;flex-direction:row-reverse">' +
+      '<span style="font-size:1.4rem;flex-shrink:0">' + f.flag + "</span>" +
+      '<p style="font-size:0.92rem;line-height:1.8;color:#374151;text-align:right">' + f.fact + "</p>" +
+    "</div>");
+  }
+  document.getElementById("didYouKnow").innerHTML = dy.join("");
+}
+function playRealDE(idx) { speak(realDE[idx].expr, spdRate, "de-DE"); }
+function toggleRdEx(idx) {
+  var box = document.getElementById("rdExBox" + idx);
+  if (!box) return;
+  box.style.display = box.style.display === "block" ? "none" : "block";
+}
+
+var quizAnswers = new Array(quizData.length).fill(null);
+function buildQuiz() {
+  var h = [];
+  for (var qi=0;qi<quizData.length;qi++) {
+    var q = quizData[qi];
+    var opts = "";
+    for (var oi=0;oi<q.opts.length;oi++) {
+      var opt = q.opts[oi];
+      var dir = /[\u0600-\u06FF]/.test(opt) ? "rtl" : "ltr";
+      opts += '<div class="quiz-opt" id="qo' + qi + "-" + oi + '" onclick="selectOpt(' + qi + "," + oi + ')"><span style="font-family:Lora,serif;font-size:0.95rem;direction:' + dir + '">' + opt + "</span></div>";
+    }
+    var qDir = /[\u0600-\u06FF]/.test(q.q) ? "rtl" : "ltr";
+    h.push('<div class="quiz-q"><p style="direction:' + qDir + '">' + (qi+1) + ". " + q.q + '</p><div class="quiz-opts">' + opts + "</div></div>");
+  }
+  document.getElementById("quizContainer").innerHTML = h.join("");
+}
+function selectOpt(qi, oi) {
+  quizAnswers[qi] = oi;
+  for (var i=0;i<quizData[qi].opts.length;i++) {
+    var el = document.getElementById("qo" + qi + "-" + i);
+    if (el) { el.classList.remove("correct","wrong"); el.style.borderColor = ""; }
+  }
+  var sel = document.getElementById("qo" + qi + "-" + oi);
+  if (sel) sel.style.borderColor = "#1a1a1a";
+}
+function checkQuiz() {
+  var score = 0;
+  for (var qi=0;qi<quizData.length;qi++) {
+    var q = quizData[qi];
+    for (var i=0;i<q.opts.length;i++) {
+      var el = document.getElementById("qo" + qi + "-" + i);
+      if (!el) continue;
+      el.classList.remove("correct","wrong");
+      if (i === q.ans) el.classList.add("correct");
+      else if (quizAnswers[qi] === i) el.classList.add("wrong");
+    }
+    if (quizAnswers[qi] === q.ans) score++;
+  }
+  var res = document.getElementById("quizResult");
+  var pct = Math.round(score / quizData.length * 100);
+  res.style.display = "block";
+  document.getElementById("quizEmoji").textContent = pct===100?"🏆":pct>=75?"🎉":pct>=50?"💪":"📚";
+  document.getElementById("quizScore").textContent = score + " من " + quizData.length + " (" + pct + "%)";
+  document.getElementById("quizMsg").textContent = pct===100 ? "Ausgezeichnet! جاهز/ة للوحدة التاسعة!" : pct>=75 ? "Sehr gut! راجع الخاطئة." : pct>=50 ? "Gut! راجع كيف تقول الوقت." : "Noch einmal! راجع الوحدة كاملة.";
+  res.style.background = pct >= 75 ? "#f0fdf4" : "#fef9f0";
+  res.scrollIntoView({behavior:"smooth", block:"center"});
+}
+function resetQuiz() {
+  quizAnswers = new Array(quizData.length).fill(null);
+  document.querySelectorAll(".quiz-opt").forEach(function(el){ el.classList.remove("correct","wrong"); el.style.borderColor=""; });
+  document.getElementById("quizResult").style.display = "none";
+}
+
+function show(id, clickedBtn) {
+  document.querySelectorAll(".section-content").forEach(function(s){ s.classList.remove("active","fade-up"); });
+  var target = document.getElementById("sec-" + id);
+  target.classList.add("active");
+  setTimeout(function(){ target.classList.add("fade-up"); }, 10);
+  window.scrollTo({top:0, behavior:"smooth"});
+  document.querySelectorAll(".nav-btn").forEach(function(b){ b.classList.remove("active"); });
+  if (clickedBtn) { clickedBtn.classList.add("active"); return; }
+  var map = {vocab:0, story:1, grammar:2, listen:3, writing:4, speaking:5, realde:6, quiz:7};
+  var btns = document.querySelectorAll(".nav-btn");
+  if (btns[map[id]] !== undefined) btns[map[id]].classList.add("active");
+}
+
+buildVocab();
+buildClockTable();
+buildTerminFragen();
+buildStory();
+buildListening();
+buildWriting();
+buildSpeaking();
+buildRealDE();
+buildQuiz();
+</script>
+</body>
+</html>

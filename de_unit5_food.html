@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath Deutsch — الوحدة ٥: الأكل والشرب</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-thumb{background:#c0392b;border-radius:3px}
+body{font-family:'Tajawal',sans-serif;background:#f4f1ec;min-height:100vh;direction:rtl}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,100,60,0.4)}50%{box-shadow:0 0 0 8px rgba(0,100,60,0)}}
+.fade-up{animation:fadeUp 0.45s ease forwards}
+.nav-btn{transition:all 0.2s;border:none;cursor:pointer;font-family:'Tajawal',sans-serif;border-radius:30px;padding:7px 16px;font-size:0.82rem;font-weight:600}
+.nav-btn.active{background:#e8a000;color:#1a1a1a;font-weight:800}
+.nav-btn:not(.active){background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.85)}
+.section-content{display:none;max-width:880px;margin:0 auto;padding:36px 16px 80px}
+.section-content.active{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 4px 28px rgba(0,0,0,0.07);margin-bottom:24px;overflow:hidden}
+.card-header{background:#1a1a1a;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.card-header h3{font-size:1.05rem;font-weight:700}
+.card-header .sub{font-size:0.78rem;color:#fcd34d;margin-top:1px}
+.card-body{padding:24px}
+.vocab-grid{display:flex;flex-direction:column;gap:8px}
+.vocab-row{display:grid;grid-template-columns:1fr 1fr 1fr 42px;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;border:1px solid #e5eaf5;transition:all 0.18s}
+.vocab-row:hover{transform:translateX(-3px);box-shadow:0 2px 12px rgba(0,0,0,0.1)}
+.vocab-row.even{background:#fafafa}
+.vocab-row.odd{background:#fff}
+.vocab-header{background:#1a1a1a !important;border:none !important;transform:none !important;box-shadow:none !important}
+.v-de{font-family:Lora,serif;font-weight:700;font-size:1rem;color:#1a1a1a;direction:ltr;text-align:left}
+.v-pron{font-size:0.88rem;color:#e8a000;font-weight:700;direction:rtl;text-align:right}
+.v-ar{font-size:0.97rem;font-weight:700;color:#374151;text-align:right}
+.vocab-header .v-de,.vocab-header .v-pron,.vocab-header .v-ar{color:white;font-family:'Tajawal',sans-serif;font-weight:700}
+.play-btn{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.18s;flex-shrink:0}
+.play-btn.idle{background:#e8f0fe;color:#1a56b0}
+.play-btn.idle:hover{background:#1a56b0;color:white;transform:scale(1.1)}
+.play-btn.playing{background:#00643c;color:white;animation:pulse 1s infinite}
+.story-controls{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap;flex-direction:row-reverse}
+.story-main-btn{display:flex;align-items:center;gap:8px;border:none;border-radius:25px;padding:10px 22px;font-family:'Tajawal',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.2s;flex-direction:row-reverse}
+.speed-wrap{display:flex;align-items:center;gap:6px;flex-direction:row-reverse}
+.speed-wrap label{font-size:0.82rem;color:#6b7280;font-weight:600}
+.spd{padding:5px 11px;border-radius:20px;border:2px solid #d1d5db;background:white;font-family:'Tajawal',sans-serif;font-size:0.78rem;font-weight:700;cursor:pointer;color:#6b7280;transition:all 0.15s}
+.spd.active{border-color:#1a1a1a;background:#1a1a1a;color:white}
+.story-box{border-right:4px solid #e8a000;padding:16px 20px;background:#fffdf7;border-radius:0 12px 12px 0}
+.dialog-line{padding:10px 6px;border-bottom:1px solid #f5f5f5;transition:background 0.18s}
+.dialog-line:last-child{border-bottom:none}
+.dialog-line.hl{background:#fef3c7;border-radius:8px}
+.dl-main{display:flex;align-items:flex-start;gap:8px;direction:ltr}
+.speaker-badge{font-family:'Tajawal',sans-serif;font-size:0.72rem;font-weight:800;padding:3px 10px;border-radius:20px;flex-shrink:0;margin-top:3px;white-space:nowrap}
+.speaker-F .speaker-badge{background:#1a1a1a;color:#e8a000}
+.speaker-L .speaker-badge{background:#c0392b;color:white}
+.dialog-text{font-family:Lora,serif;font-size:0.95rem;line-height:1.8;color:#1a1a1a;flex:1;direction:ltr}
+.dl-btns{display:flex;gap:5px;flex-shrink:0;margin-top:2px}
+.dl-btn{width:28px;height:28px;border-radius:7px;border:1.5px solid #e5e7eb;background:white;cursor:pointer;font-size:0.78rem;display:flex;align-items:center;justify-content:center;transition:all 0.15s;color:#9ca3af}
+.dl-btn:hover{border-color:#1a56b0;background:#f0f7ff;color:#1a56b0}
+.dl-tr-btn:hover{border-color:#e8a000;background:#fef9e7;color:#b45309}
+.dl-ar{display:none;font-family:'Tajawal',sans-serif;font-size:0.87rem;color:#9ca3af;direction:rtl;text-align:right;padding:5px 52px 2px 0;line-height:1.6}
+.konj-table{width:100%;border-collapse:collapse;direction:ltr;margin-bottom:16px;font-family:Lora,serif}
+.konj-table th{background:#1a1a1a;color:white;padding:10px 14px;text-align:left;font-size:0.88rem}
+.konj-table td{padding:10px 14px;border-bottom:1px solid #f0f0f0;font-size:0.92rem}
+.konj-table tr:nth-child(even) td{background:#fafafa}
+.konj-pronoun{color:#c0392b;font-weight:700}
+.konj-verb{color:#00643c;font-weight:700}
+.listen-card{display:flex;align-items:center;gap:14px;background:#f0f7ff;border:1px solid #bfdbfe;border-radius:12px;padding:14px 18px;margin-bottom:10px;flex-direction:row-reverse}
+.listen-link{background:#1a1a1a;color:white;border:none;border-radius:8px;padding:8px 16px;font-family:'Tajawal',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.2s;flex-shrink:0}
+.listen-link:hover{background:#c0392b}
+.writing-line{display:flex;align-items:center;gap:10px;margin-bottom:14px;direction:ltr;flex-wrap:wrap}
+.writing-line label{font-family:'Tajawal',sans-serif;font-size:0.88rem;color:#6b7280;direction:rtl;min-width:110px;text-align:right}
+.w-input{border:none;border-bottom:2px solid #e8a000;background:transparent;font-family:Lora,serif;font-size:1rem;color:#1a1a1a;outline:none;padding:3px 6px;min-width:100px;transition:border-color 0.2s}
+.w-input:focus{border-color:#1a1a1a}
+.w-fixed{font-family:Lora,serif;font-size:1rem;color:#1a1a1a;font-weight:600}
+.speaking-q{background:#f8faff;border-right:4px solid #1a56b0;border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px}
+.quiz-q{margin-bottom:20px}
+.quiz-q p{font-size:0.97rem;font-weight:700;color:#1a1a1a;margin-bottom:10px;direction:ltr;font-family:Lora,serif}
+.quiz-opts{display:flex;flex-direction:column;gap:8px}
+.quiz-opt{display:flex;align-items:center;gap:10px;padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;transition:all 0.18s;flex-direction:row-reverse;text-align:right;background:white}
+.quiz-opt:hover{border-color:#1a56b0;background:#f0f7ff}
+.quiz-opt.correct{border-color:#00643c;background:#ecfdf5;color:#00643c}
+.quiz-opt.wrong{border-color:#c0392b;background:#fef2f2;color:#c0392b}
+.btn{border:none;border-radius:30px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all 0.2s;padding:11px 28px;font-size:0.95rem}
+.btn:hover{opacity:0.88;transform:scale(0.98)}
+.btn-dark{background:#1a1a1a;color:white}
+.btn-gray{background:#e5e7eb;color:#374151}
+.btn-gold{background:#e8a000;color:#1a1a1a}
+.flag-strip{height:5px;background:linear-gradient(90deg,#1a1a1a 33%,#c0392b 33% 66%,#e8a000 66%)}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(90px);background:#1a1a1a;color:white;padding:12px 28px;border-radius:30px;font-size:0.95rem;font-weight:700;transition:transform 0.4s ease;z-index:999;pointer-events:none;white-space:nowrap}
+@media(max-width:580px){
+  .vocab-row{grid-template-columns:1fr 1fr 38px}
+  .v-pron{display:none}
+}
+
+.vocab-block{border:1px solid #e5eaf5;border-radius:12px;margin-bottom:8px;overflow:hidden}
+.ex-row{padding:10px 16px;background:#fafafa;border-top:1px dashed #e5e7eb;display:flex;align-items:center;gap:8px}
+.ex-icon{font-size:0.9rem;flex-shrink:0;color:#9ca3af}
+.ex-text-wrap{flex:1}
+.ex-de{font-family:Lora,serif;font-size:0.9rem;color:#1a1a1a;direction:ltr;font-style:italic;margin-bottom:3px}
+.ex-ar{font-size:0.82rem;color:#9ca3af;text-align:right}
+.mini-btn{width:26px;height:26px;border-radius:7px;border:1.5px solid #e5e7eb;background:white;cursor:pointer;font-size:0.72rem;display:flex;align-items:center;justify-content:center;color:#9ca3af;flex-shrink:0}
+.mini-btn:hover{border-color:#1a56b0;background:#f0f7ff;color:#1a56b0}
+.rd-card{background:#fafafa;border:1px solid #e5eaf5;border-radius:12px;padding:16px 18px;margin-bottom:12px}
+.rd-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-direction:row-reverse}
+.rd-expr-wrap{display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.rd-expr{font-family:Lora,serif;font-size:1.05rem;font-weight:700;color:#c0392b;direction:ltr}
+.rd-pron{color:#e8a000;font-weight:700;font-size:0.82rem}
+.rd-meaning{font-size:0.9rem;color:#374151;text-align:right;margin-bottom:12px;line-height:1.7}
+.rd-ex-row{display:flex;align-items:center;gap:6px;direction:ltr;background:white;border-radius:8px;padding:8px 12px}
+.rd-ex-de{font-family:Lora,serif;font-size:0.92rem;color:#1a1a1a;font-style:italic;flex:1}
+.rd-ex-ar{display:none;font-size:0.85rem;color:#9ca3af;text-align:right;margin-top:6px;padding:6px 12px;background:white;border-radius:8px}
+.rd-note{font-size:0.82rem;color:#c0392b;text-align:right;margin-top:8px}
+.sq-row{display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px}
+.sq-model{margin-top:10px;padding-top:10px;border-top:1px dashed #c7d6f5;display:flex;align-items:center;gap:8px}
+.sq-model-de{font-family:Lora,serif;font-size:0.88rem;color:#1a56b0;direction:ltr;flex:1}
+.wf-model-btn{background:#dbeafe;color:#1e40af;border:none;border-radius:20px;padding:7px 18px;font-family:'Tajawal',sans-serif;font-size:0.82rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin:8px 0 4px}
+.wf-model-btn:hover{background:#bfdbfe}
+.wf-model-box{display:none;background:#f8faff;border-radius:10px;padding:10px 14px;margin-bottom:10px}
+.wf-model-de{font-family:Lora,serif;font-size:0.9rem;color:#1a1a1a;direction:ltr;margin-bottom:4px}
+.wf-model-ar{font-size:0.82rem;color:#6b7280;text-align:right}
+</style>
+</head>
+<body>
+
+<div class="flag-strip"></div>
+
+<div style="background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 60%,#1a1a1a 100%);color:white;position:relative;overflow:hidden">
+  <div style="position:absolute;top:-60px;left:-60px;width:280px;height:280px;border-radius:50%;background:rgba(232,160,0,0.07);pointer-events:none"></div>
+  <div style="position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(192,57,43,0.07);pointer-events:none"></div>
+  <div style="max-width:880px;margin:0 auto;padding:14px 20px 0;display:flex;justify-content:space-between;align-items:center">
+    <a href="index_de.html" style="color:rgba(255,255,255,0.55);font-size:0.82rem;text-decoration:none;font-family:'Tajawal',sans-serif">← Deutsch A1</a>
+    <div style="font-family:Lora,serif;font-size:0.9rem;color:#e8a000;direction:ltr">LinguaPath 🇩🇪</div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:5px;padding:10px 16px 0;flex-wrap:wrap">
+    <button class="nav-btn active" onclick="show('vocab',this)">📚 المفردات</button>
+    <button class="nav-btn" onclick="show('story',this)">📖 الحوار</button>
+    <button class="nav-btn" onclick="show('grammar',this)">✏️ القاعدة</button>
+    <button class="nav-btn" onclick="show('listen',this)">🎧 الاستماع</button>
+    <button class="nav-btn" onclick="show('writing',this)">✍️ الكتابة</button>
+    <button class="nav-btn" onclick="show('speaking',this)">💬 المحادثة</button>
+    <button class="nav-btn" onclick="show('realde',this)">🗣️ Real Deutsch</button>
+    <button class="nav-btn" onclick="show('quiz',this)">✅ الاختبار</button>
+  </div>
+  <div style="max-width:880px;margin:0 auto;padding:32px 24px 44px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px">
+    <div>
+      <div style="font-size:0.78rem;letter-spacing:3px;color:#e8a000;font-weight:700;margin-bottom:8px">EINHEIT 5 — A1 🇩🇪</div>
+      <h1 style="font-family:Lora,serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;line-height:1.2;margin-bottom:8px;direction:ltr">Essen &amp; Trinken</h1>
+      <p style="font-size:1.1rem;color:rgba(255,255,255,0.75);margin-bottom:6px">الأكل والشرب</p>
+      <p style="font-size:0.88rem;color:rgba(255,255,255,0.5)">القاعدة: أفعال mögen / möchten — يحب / يريد</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;text-align:center">
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:10px 18px">
+        <div style="font-family:Lora,serif;font-size:1.4rem;font-weight:700;color:#e8a000">20</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.5)">كلمة جديدة</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:10px 18px">
+        <div style="font-family:Lora,serif;font-size:1.4rem;font-weight:700;color:#e8a000">8</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.5)">أقسام</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flag-strip"></div>
+
+<div id="sec-vocab" class="section-content active fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">🍽️</span>
+      <div><h3>الأكل والشرب — Essen und Trinken</h3><div class="sub">اضغط 🔊 لتسمع النطق الألماني</div></div>
+    </div>
+    <div class="card-body">
+      <div style="background:linear-gradient(135deg,#fffdf0,#fef3c7);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:14px 18px;margin-bottom:18px;display:flex;gap:12px;flex-direction:row-reverse;align-items:flex-start">
+        <span style="font-size:1.4rem">💡</span>
+        <div style="text-align:right">
+          <p style="font-weight:700;color:#1a1a1a;margin-bottom:4px">كلمة مفيدة</p>
+          <p style="font-size:0.88rem;color:#6b7280;line-height:1.7">معظم أسماء الطعام في الألمانية <strong style="color:#1a56b0">das</strong> (محايد) أو <strong style="color:#00643c">die</strong> (مؤنث) — احفظها مع التعريف من البداية!</p>
+        </div>
+      </div>
+      <div class="vocab-grid" id="vocabGrid">
+        <div class="vocab-row vocab-header">
+          <span class="v-de" style="font-family:'Tajawal',sans-serif;color:white">الكلمة الألمانية</span>
+          <span class="v-pron" style="font-family:'Tajawal',sans-serif;color:white">النطق</span>
+          <span class="v-ar">المعنى</span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center">
+    <button class="btn btn-dark" onclick="show('story',null)">انتقل للحوار ←</button>
+  </div>
+</div>
+
+<div id="sec-story" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">📖</span>
+      <div><h3>الحوار — Dialog</h3><div class="sub">Felix und Lena im Café — يطلبان الطعام والشراب في المقهى</div></div>
+    </div>
+    <div class="card-body">
+      <div style="display:flex;gap:12px;margin-bottom:16px;flex-direction:row-reverse;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:6px;flex-direction:row-reverse">
+          <span style="background:#1a1a1a;color:#e8a000;font-size:0.72rem;font-weight:800;padding:2px 10px;border-radius:20px;font-family:'Tajawal',sans-serif">Felix</span>
+          <span style="font-size:0.82rem;color:#6b7280">ذكر — Mann 🇩🇪</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;flex-direction:row-reverse">
+          <span style="background:#c0392b;color:white;font-size:0.72rem;font-weight:800;padding:2px 10px;border-radius:20px;font-family:'Tajawal',sans-serif">Lena</span>
+          <span style="font-size:0.82rem;color:#6b7280">أنثى — Frau 🌍</span>
+        </div>
+      </div>
+      <div class="story-controls">
+        <button class="story-main-btn" id="storyBtn" onclick="toggleStory()" style="background:#1a56b0;color:white">
+          <span id="sBtnIcon">▶</span><span id="sBtnTxt">استمع للحوار كاملاً</span>
+        </button>
+        <div class="speed-wrap">
+          <label>السرعة:</label>
+          <button class="spd" onclick="setSpd(0.65,this)">🐢</button>
+          <button class="spd active" onclick="setSpd(0.9,this)">🚶</button>
+          <button class="spd" onclick="setSpd(1.2,this)">🏃</button>
+        </div>
+        <button id="trAllBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:25px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:0.82rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+      </div>
+      <div class="story-box" id="storyBox"></div>
+      <p style="margin-top:14px;font-size:0.85rem;color:#9ca3af;text-align:right">📌 اضغط 🌐 لترجمة الجملة · 🔊 للاستماع</p>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn btn-dark" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">✏️</span>
+      <div><h3>القاعدة — Grammatik</h3><div class="sub">أفعال mögen (يحب) و möchten (يريد) — أهم فعلين للطلب</div></div>
+    </div>
+    <div class="card-body">
+      <p style="text-align:right;font-size:0.97rem;line-height:1.9;color:#374151;margin-bottom:20px">
+        <strong style="color:#00643c;font-family:Lora,serif">mögen</strong> تعني "يحب" بشكل عام، بينما <strong style="color:#c0392b;font-family:Lora,serif">möchten</strong> تعني "يريد" — وهي أكثر تهذيباً من <em>wollen</em> عند الطلب.
+      </p>
+      <h4 style="font-weight:800;color:#1a1a1a;margin-bottom:12px;text-align:right">📋 تصريف mögen</h4>
+      <div style="overflow-x:auto;margin-bottom:20px">
+        <table class="konj-table">
+          <thead><tr><th>الضمير</th><th>الفعل</th><th>النطق</th><th>المعنى</th></tr></thead>
+          <tbody id="moegenTable"></tbody>
+        </table>
+      </div>
+      <h4 style="font-weight:800;color:#1a1a1a;margin-bottom:12px;text-align:right">📋 تصريف möchten (للطلب المهذّب)</h4>
+      <div style="overflow-x:auto;margin-bottom:20px">
+        <table class="konj-table">
+          <thead><tr><th>الضمير</th><th>الفعل</th><th>النطق</th><th>المعنى</th></tr></thead>
+          <tbody id="moechtenTable"></tbody>
+        </table>
+      </div>
+      <div style="background:#f0fdf4;border-right:4px solid #00643c;border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:20px">
+        <p style="font-weight:800;color:#1a1a1a;margin-bottom:10px;text-align:right">🔑 الفرق بين mögen و möchten</p>
+        <div style="direction:ltr;font-family:Lora,serif;font-size:0.92rem;display:flex;flex-direction:column;gap:6px;color:#1a1a1a">
+          <div>Ich <strong>mag</strong> Kaffee. <span style="color:#9ca3af;font-size:0.82rem">(أحب القهوة بشكل عام)</span></div>
+          <div>Ich <strong>möchte</strong> einen Kaffee, bitte. <span style="color:#9ca3af;font-size:0.82rem">(أريد قهوة الآن — طلب)</span></div>
+        </div>
+      </div>
+      <h4 style="font-weight:800;color:#1a1a1a;margin-bottom:14px;text-align:right">❓ جمل الطلب في المطعم</h4>
+      <div id="bestellenFragen" style="display:flex;flex-direction:column;gap:8px"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('story',null)">→ الحوار</button>
+    <button class="btn btn-dark" onclick="show('listen',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listen" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">🎧</span>
+      <div><h3>الاستماع — Hören</h3><div class="sub">4 مصادر متنوعة — مطعم + مفردات + فطور + قواعد</div></div>
+    </div>
+    <div class="card-body">
+      <div style="background:linear-gradient(135deg,#fef9f0,#fef3c7);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:16px 20px;margin-bottom:20px;display:flex;gap:12px;flex-direction:row-reverse;align-items:flex-start">
+        <span style="font-size:1.5rem">🎯</span>
+        <div style="text-align:right">
+          <p style="font-weight:700;color:#1a1a1a;margin-bottom:4px">نصيحة للاستماع</p>
+          <p style="font-size:0.9rem;color:#6b7280;line-height:1.8">ابدأ بمفردات الفطور لأنها أبسط، ثم انتقل لفيديو المطعم لتتعلم جمل الطلب الكاملة.</p>
+        </div>
+      </div>
+      <div id="listenCards"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn btn-dark" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">✍️</span>
+      <div><h3>الكتابة — Schreiben</h3><div class="sub">اكتب عن طعامك المفضل وما تطلبه</div></div>
+    </div>
+    <div class="card-body">
+      <p style="text-align:right;font-size:0.97rem;line-height:1.9;color:#374151;margin-bottom:20px">أكمل الجمل — سيظهر النص الكامل أسفل النموذج.</p>
+      <div style="background:#fffdf7;border:2px dashed #e8a000;border-radius:14px;padding:22px;margin-bottom:16px">
+        <div id="writingForm"></div>
+        <div style="margin-top:20px;padding:16px 20px;background:white;border-radius:12px;border:1px solid #e5e7eb;min-height:90px;border-right:4px solid #e8a000" id="writingPreview">
+          <p style="color:#9ca3af;font-size:0.88rem;text-align:center;margin-top:10px">✨ سيظهر نصك هنا...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('listen',null)">→ الاستماع</button>
+    <button class="btn btn-dark" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">💬</span>
+      <div><h3>المحادثة — Sprechen</h3><div class="sub">أجب بصوت عالٍ — تخيّل أنك في مطعم ألماني</div></div>
+    </div>
+    <div class="card-body">
+      <div style="background:#eff6ff;border-radius:12px;padding:16px 20px;margin-bottom:20px;display:flex;gap:12px;flex-direction:row-reverse;align-items:flex-start">
+        <span style="font-size:1.5rem">🎤</span>
+        <div style="text-align:right">
+          <p style="font-weight:700;color:#1a1a1a;margin-bottom:4px">تذكّر!</p>
+          <p style="font-size:0.9rem;color:#6b7280;line-height:1.8">استخدم <span style="font-family:Lora,serif;direction:ltr;display:inline-block">Ich möchte... bitte</span> عند الطلب — أكثر تهذيباً.</p>
+        </div>
+      </div>
+      <div id="speakingQs"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn btn-gold" onclick="show('realde',null)">Real Deutsch ←</button>
+  </div>
+</div>
+
+<div id="sec-realde" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header" style="background:linear-gradient(135deg,#c0392b,#a93226)">
+      <span style="font-size:1.4rem">🗣️</span>
+      <div><h3>Real Deutsch</h3><div class="sub">تعابير حقيقية في المقاهي والمطاعم الألمانية</div></div>
+    </div>
+    <div class="card-body">
+      <div id="realDeContainer"></div>
+      <div style="margin-top:20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-direction:row-reverse">
+          <span style="font-size:1.2rem">💡</span>
+          <h4 style="font-weight:800;font-size:1rem;color:#e8a000">هل تعلم؟</h4>
+        </div>
+        <div id="didYouKnow"></div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn btn-gold" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-quiz" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">✅</span>
+      <div><h3>الاختبار — Quiz</h3><div class="sub">١٠ أسئلة عن الأكل والشرب</div></div>
+    </div>
+    <div class="card-body">
+      <div id="quizContainer"></div>
+      <div style="display:flex;justify-content:center;gap:12px;margin-top:20px">
+        <button class="btn btn-dark" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn btn-gray" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizResult" style="display:none;text-align:center;padding:20px;margin-top:16px;border-radius:14px">
+        <div style="font-size:2.5rem;margin-bottom:8px" id="quizEmoji">🎉</div>
+        <div style="font-weight:800;font-size:1.1rem;color:#1a1a1a;margin-bottom:4px" id="quizScore"></div>
+        <div style="font-size:0.9rem;color:#6b7280" id="quizMsg"></div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:28px;background:white;border-radius:18px;box-shadow:0 4px 24px rgba(0,0,0,0.07)">
+    <div class="flag-strip" style="height:4px;margin:-28px -28px 20px;border-radius:18px 18px 0 0"></div>
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:#1a1a1a;margin-bottom:6px">Ausgezeichnet! أكملت الوحدة الخامسة!</div>
+    <p style="font-size:0.9rem;color:#6b7280;margin-bottom:16px">الوحدة السادسة: البيت والغرف — Wohnung &amp; Zimmer</p>
+    <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+      <a href="de_unit4_colors.html" class="btn btn-gray" style="text-decoration:none;display:inline-block">← الوحدة الرابعة</a>
+      <a href="de_unit6_home.html" class="btn btn-dark" style="text-decoration:none;display:inline-block">الوحدة السادسة ←</a>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var vocab = [
+  {de:"das Brot",       pron:"داس بروت",        ar:"الخبز", exShow:"Ich esse gern frisches Brot.", exAr:"أحب أكل الخبز الطري."},
+  {de:"das Wasser",     pron:"داس فاسِر",       ar:"الماء", exShow:"Ich trinke viel Wasser.", exAr:"أشرب الكثير من الماء."},
+  {de:"der Kaffee",     pron:"در كافيه",        ar:"القهوة", exShow:"Der Kaffee ist sehr heiß.", exAr:"القهوة حارة جداً."},
+  {de:"der Tee",        pron:"در تيه",          ar:"الشاي", exShow:"Möchtest du einen Tee?", exAr:"هل تريد شاياً؟"},
+  {de:"die Milch",      pron:"دى ميلش",         ar:"الحليب", exShow:"Ich trinke Kaffee mit Milch.", exAr:"أشرب القهوة بالحليب."},
+  {de:"der Saft",       pron:"در زافت",         ar:"العصير", exShow:"Der Orangensaft ist frisch.", exAr:"عصير البرتقال طازج."},
+  {de:"das Obst",       pron:"داس أوبست",       ar:"الفاكهة", exShow:"Obst ist gesund.", exAr:"الفاكهة صحية."},
+  {de:"das Gemuese",    pron:"داس غموزه",       ar:"الخضار", display:"das Gemüse", exShow:"Ich esse jeden Tag Gemüse.", exAr:"أتناول الخضار كل يوم."},
+  {de:"das Fleisch",    pron:"داس فلايش",       ar:"اللحم", exShow:"Ich esse selten Fleisch.", exAr:"أتناول اللحم قليلاً."},
+  {de:"der Fisch",      pron:"در فيش",          ar:"السمك", exShow:"Der Fisch schmeckt sehr gut.", exAr:"السمك طعمه جيد جداً."},
+  {de:"der Reis",       pron:"در رايس",         ar:"الأرز", exShow:"Wir essen oft Reis mit Hähnchen.", exAr:"نأكل الأرز مع الدجاج كثيراً."},
+  {de:"die Suppe",      pron:"دى زوبه",         ar:"الشوربة", exShow:"Die Suppe ist noch heiß.", exAr:"الشوربة لا تزال حارة."},
+  {de:"der Kuchen",     pron:"در كوخن",         ar:"الكيك", exShow:"Der Kuchen ist köstlich.", exAr:"الكيك لذيذ."},
+  {de:"das Fruehstueck",pron:"داس فروشتوك",     ar:"الفطور", display:"das Frühstück", exShow:"Ich esse jeden Morgen Frühstück.", exAr:"آكل الفطور كل صباح."},
+  {de:"das Mittagessen",pron:"داس ميتاغإسن",    ar:"الغداء", exShow:"Was gibt es zum Mittagessen?", exAr:"ماذا يوجد للغداء؟"},
+  {de:"das Abendessen", pron:"داس آبِنتإسن",    ar:"العشاء", exShow:"Das Abendessen ist um sieben Uhr.", exAr:"العشاء في الساعة السابعة."},
+  {de:"essen",          pron:"إسِن",            ar:"يأكل", exShow:"Wir essen jetzt zusammen.", exAr:"نأكل معاً الآن."},
+  {de:"trinken",        pron:"ترينكِن",          ar:"يشرب", exShow:"Was möchtest du trinken?", exAr:"ماذا تريد أن تشرب؟"},
+  {de:"hungrig",        pron:"هونغريخ",          ar:"جائع", exShow:"Ich bin sehr hungrig.", exAr:"أنا جائع جداً."},
+  {de:"durstig",        pron:"دورستيخ",          ar:"عطشان", exShow:"Bist du durstig?", exAr:"هل أنت عطشان؟"}
+];
+
+var moegenData = [
+  {pr:"ich",       de:"mag",    pron:"ماغ",     ar:"أنا"},
+  {pr:"du",        de:"magst",  pron:"ماغست",   ar:"أنت"},
+  {pr:"er/sie/es", de:"mag",    pron:"ماغ",     ar:"هو / هي"},
+  {pr:"wir",       de:"moegen", pron:"موغن",    ar:"نحن", display:"mögen"},
+  {pr:"ihr",       de:"moegt",  pron:"موغت",    ar:"أنتم", display:"mögt"},
+  {pr:"sie / Sie", de:"moegen", pron:"موغن",    ar:"هم / حضرتك", display:"mögen"}
+];
+
+var moechtenData = [
+  {pr:"ich",       de:"moechte",   pron:"موشته",    ar:"أنا", display:"möchte"},
+  {pr:"du",        de:"moechtest", pron:"موشتست",   ar:"أنت", display:"möchtest"},
+  {pr:"er/sie/es", de:"moechte",   pron:"موشته",    ar:"هو / هي", display:"möchte"},
+  {pr:"wir",       de:"moechten",  pron:"موشتن",    ar:"نحن", display:"möchten"},
+  {pr:"ihr",       de:"moechtet",  pron:"موشتت",    ar:"أنتم", display:"möchtet"},
+  {pr:"sie / Sie", de:"moechten",  pron:"موشتن",    ar:"هم / حضرتك", display:"möchten"}
+];
+
+var bestellenFragen = [
+  {display:"Was moechten Sie trinken?", show:"Was möchten Sie trinken?", pron:"فاس موشتن زي ترينكِن", ar:"ماذا تريد أن تشرب؟", ans:"Ich möchte einen Kaffee, bitte."},
+  {display:"Moechten Sie noch etwas?", show:"Möchten Sie noch etwas?", pron:"موشتن زي نوخ إتفاس", ar:"هل تريد شيئاً آخر؟", ans:"Nein danke, das ist alles."},
+  {display:"Die Rechnung, bitte.", show:"Die Rechnung, bitte.", pron:"دى رِشنونغ بيته", ar:"الفاتورة من فضلك.", ans:"Sofort! Das macht fünfzehn Euro."}
+];
+
+var storyData = [
+  {spk:"F", de:"Lena, was moechtest du trinken?", display:"Lena, was möchtest du trinken?", ar:"لينا، ماذا تريدين أن تشربي؟"},
+  {spk:"L", de:"Ich moechte einen Tee, bitte. Und du?", display:"Ich möchte einen Tee, bitte. Und du?", ar:"أريد شاياً من فضلك. وأنت؟"},
+  {spk:"F", de:"Ich moechte einen Kaffee mit Milch.", display:"Ich möchte einen Kaffee mit Milch.", ar:"أريد قهوة بالحليب."},
+  {spk:"L", de:"Magst du auch etwas essen?", display:"Magst du auch etwas essen?", ar:"هل تحب أن تأكل شيئاً أيضاً؟"},
+  {spk:"F", de:"Ja, ich bin hungrig. Ich moechte ein Stueck Kuchen.", display:"Ja, ich bin hungrig. Ich möchte ein Stück Kuchen.", ar:"نعم، أنا جائع. أريد قطعة كيك."},
+  {spk:"L", de:"Gute Idee! Ich mag den Apfelkuchen hier sehr.", display:"Gute Idee! Ich mag den Apfelkuchen hier sehr.", ar:"فكرة جيدة! أحب كيك التفاح هنا كثيراً."},
+  {spk:"F", de:"Entschuldigung! Wir moechten bestellen, bitte.", display:"Entschuldigung! Wir möchten bestellen, bitte.", ar:"عفواً! نريد أن نطلب من فضلك."},
+  {spk:"L", de:"Einen Tee und einen Kaffee mit Milch, bitte.", display:"Einen Tee und einen Kaffee mit Milch, bitte.", ar:"شاي وقهوة بالحليب من فضلك."},
+  {spk:"F", de:"Und ein Stueck Apfelkuchen fuer mich.", display:"Und ein Stück Apfelkuchen für mich.", ar:"وقطعة كيك تفاح لي."},
+  {spk:"L", de:"Moechtest du auch Zucker im Kaffee?", display:"Möchtest du auch Zucker im Kaffee?", ar:"هل تريد أيضاً سكراً في القهوة؟"},
+  {spk:"F", de:"Nein danke, ich mag Kaffee ohne Zucker.", display:"Nein danke, ich mag Kaffee ohne Zucker.", ar:"لا شكراً، أحب القهوة بدون سكر."},
+  {spk:"L", de:"Das schmeckt bestimmt sehr gut hier!", display:"Das schmeckt bestimmt sehr gut hier!", ar:"هذا بالتأكيد لذيذ جداً هنا!"},
+  {spk:"F", de:"Ja, dieses Cafe ist mein Lieblingsort.", display:"Ja, dieses Café ist mein Lieblingsort.", ar:"نعم، هذا المقهى مكاني المفضل."}
+];
+
+var listenData = [
+  {icon:"🍴", name:"Deutsch lernen A1: Im Restaurant bestellen und bezahlen", channel:"Deutsch A1 — مطعم", desc:"كيف تطلب وتدفع في المطعم بالألمانية — حوارات كاملة لمستوى A1", url:"https://www.youtube.com/watch?v=uKlYGiHS6Fo", tag:"مطعم"},
+  {icon:"🥐", name:"Deutsch lernen A1: Essen und Getraenke bestellen", channel:"German lesson — food and drinks", desc:"مفردات الفطور والغداء والعشاء بالصور — مستوى A1 بسيط وواضح", url:"https://www.youtube.com/watch?v=BgMv1Vy74nc", tag:"مفردات A1"},
+  {icon:"🔤", name:"Goethe Zertifikat A1 — Wortschatz: Essen und Trinken", channel:"Goethe A1 Wortschatz", desc:"مفردات رسمية من منهج Goethe Zertifikat A1 عن الأكل والشرب", url:"https://www.youtube.com/watch?v=5Izw8Uxl3bQ", tag:"Goethe A1"},
+  {icon:"📖", name:"Essen & Trinken — Verben moechten, A1", channel:"Deutsch für Anfänger", desc:"شرح خاص لفعل möchten ضمن سياق الأكل والشرب — يربط القاعدة بالمفردات", url:"https://www.youtube.com/watch?v=kccz54yRSqk", tag:"قواعد möchten"}
+];
+
+var writingFields = [
+  {id:"wlike",  prefix:"Ich mag",              suffix:"sehr.",   label:"أحب (طعام)", modelDe:"Ich mag Kaffee sehr.", modelAr:"أحب القهوة كثيراً."},
+  {id:"wdrink", prefix:"Ich moechte",           suffix:"trinken.", label:"أريد أن أشرب", modelDe:"Ich möchte Tee trinken.", modelAr:"أريد أن أشرب شاياً."},
+  {id:"weat",   prefix:"Zum Fruehstueck esse ich", suffix:".",    label:"في الفطور آكل", modelDe:"Zum Frühstück esse ich Brot.", modelAr:"في الفطور آكل خبزاً."},
+  {id:"wdislike",prefix:"Ich mag",              suffix:"nicht.",  label:"لا أحب (طعام)", modelDe:"Ich mag Fisch nicht.", modelAr:"لا أحب السمك."},
+  {id:"wfav",   prefix:"Mein Lieblingsessen ist", suffix:".",     label:"طعامي المفضل", modelDe:"Mein Lieblingsessen ist Reis mit Hähnchen.", modelAr:"طعامي المفضل هو الأرز مع الدجاج."}
+];
+
+var speakingQs = [
+  {q:"Was moechtest du trinken?", display:"Was möchtest du trinken?", model:"Ich möchte einen Kaffee, bitte.", ar:"ماذا تريد أن تشرب؟"},
+  {q:"Magst du Kaffee oder Tee?", display:"Magst du Kaffee oder Tee?", model:"Ich mag Tee mehr.", ar:"هل تحب القهوة أم الشاي؟"},
+  {q:"Was isst du zum Fruehstueck?", display:"Was isst du zum Frühstück?", model:"Zum Frühstück esse ich Brot mit Käse.", ar:"ماذا تأكل في الفطور؟"},
+  {q:"Bist du hungrig oder durstig?", display:"Bist du hungrig oder durstig?", model:"Ich bin hungrig.", ar:"هل أنت جائع أم عطشان؟"},
+  {q:"Magst du Fleisch oder Fisch?", display:"Magst du Fleisch oder Fisch?", model:"Ich mag Fisch mehr.", ar:"هل تحب اللحم أم السمك؟"},
+  {q:"Moechtest du noch etwas essen?", display:"Möchtest du noch etwas essen?", model:"Nein danke, ich bin satt.", ar:"هل تريد أن تأكل شيئاً آخر؟"}
+];
+
+var realDE = [
+  {expr:"Guten Appetit!", pron:"غوتن آپِتيت", meaning:"بالعافية! / شهية طيبة!", formal:"Ich wünsche Ihnen einen guten Appetit.", example:"Das Essen ist fertig! Guten Appetit!", exampleAr:"الطعام جاهز! بالعافية!", note:"تُقال دائماً قبل بدء الأكل في ألمانيا — عادة لا غنى عنها على الطاولة"},
+  {expr:"Das schmeckt super!", pron:"داس شميكت زوبِر", meaning:"هذا طعمه رائع!", formal:"Das ist sehr lecker.", example:"Wow, das schmeckt super! Wer hat das gekocht?", exampleAr:"واو، طعمه رائع! من طبخ هذا؟", note:"طريقة عفوية وحماسية للتعبير عن استحسان الطعام بين الأصدقاء"},
+  {expr:"Ich bin satt.", pron:"إخ بين زات", meaning:"أنا شبعت.", formal:"Ich habe genug gegessen.", example:"Möchtest du noch etwas? — Nein danke, ich bin satt.", exampleAr:"هل تريد شيئاً آخر؟ — لا شكراً، أنا شبعت.", note:"جملة أساسية لرفض المزيد من الطعام بطريقة مهذبة"}
+];
+
+var didYouKnow = [
+  {flag:"🇩🇪", fact:"الألمان يقولون <strong>Guten Appetit</strong> دائماً قبل الأكل — حتى مع الغرباء في المطعم! تجاهل هذه العادة قد يبدو غير مهذب قليلاً."},
+  {flag:"☕", fact:"كلمة <strong>Kaffee</strong> في ألمانيا لا تعني فقط القهوة بل أيضاً وقت اجتماعي بعد الظهر يُسمى <strong>Kaffee und Kuchen</strong> (قهوة وكيك) — تقليد أصيل جداً."},
+  {flag:"🍞", fact:"الخبز الألماني <strong>Brot</strong> له أكثر من ٣٠٠ نوع مختلف رسمياً مسجل — ألمانيا من أكثر بلدان العالم تنوعاً في أنواع الخبز."}
+];
+
+var quizData = [
+  {q:"ما معنى 'das Wasser' بالعربية؟", opts:["الحليب","الماء","العصير","الشاي"], ans:1},
+  {q:"Ich ___ Kaffee. (تصريف mögen)", opts:["mag","magst","moegt","moegen"], ans:0},
+  {q:"'Ich moechte einen Tee, bitte.' تعني ___", opts:["أحب الشاي عموماً","أريد شاياً من فضلك","لا أحب الشاي","الشاي جاهز"], ans:1},
+  {q:"كيف تقول 'جائع' بالألمانية؟", opts:["durstig","hungrig","satt","muede"], ans:1},
+  {q:"Du ___ Tee. (تصريف mögen مع du)", opts:["mag","magst","moechte","moegen"], ans:1},
+  {q:"'Guten Appetit!' تُقال ___", opts:["بعد الأكل","قبل الأكل","عند الدفع","عند الطلب"], ans:1},
+  {q:"ما معنى 'das Gemuese'؟", opts:["اللحم","السمك","الفاكهة","الخضار"], ans:3},
+  {q:"'Ich bin satt.' تعني ___", opts:["أنا جائع","أنا عطشان","أنا شبعت","أنا أحب الأكل"], ans:2},
+  {q:"الفعل الأكثر تهذيباً للطلب هو ___", opts:["wollen","moechten","mogen","essen"], ans:1},
+  {q:"كيف تقول 'الفطور' بالألمانية؟", opts:["das Abendessen","das Mittagessen","das Fruehstueck","die Suppe"], ans:2}
+];
+
+var spdRate = 0.9;
+var storyRef = {on:false, spd:0.9};
+
+function speak(text, rate, lang) {
+  if (!window.speechSynthesis) return null;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = lang || "de-DE";
+  u.rate = rate || spdRate;
+  window.speechSynthesis.speak(u);
+  return u;
+}
+function setSpd(r, btn) {
+  spdRate = r; storyRef.spd = r;
+  var spds = document.querySelectorAll(".spd");
+  for (var i=0;i<spds.length;i++) spds[i].classList.remove("active");
+  btn.classList.add("active");
+  if (storyRef.on) { stopStory(); setTimeout(startStory, 80); }
+}
+
+function buildVocab() {
+  var h = [];
+  for (var i=0;i<vocab.length;i++) {
+    var v = vocab[i];
+    var shown = v.display || v.de;
+    h.push('<div class="vocab-block">' +
+      '<div class="vocab-row ' + (i%2===0?"even":"odd") + '">' +
+        '<span class="v-de">' + shown + "</span>" +
+        '<span class="v-pron">' + v.pron + "</span>" +
+        '<span class="v-ar">' + v.ar + "</span>" +
+        '<button class="play-btn idle" id="vb' + i + '" onclick="playVocab(' + i + ')">🔊</button>' +
+      "</div>" +
+      '<div class="ex-row">' +
+        '<span class="ex-icon">💬</span>' +
+        '<div class="ex-text-wrap">' +
+          '<div class="ex-de">' + v.exShow + "</div>" +
+          '<div class="ex-ar">' + v.exAr + "</div>" +
+        "</div>" +
+        '<button class="mini-btn" onclick="playExample(' + i + ')">🔊</button>' +
+      "</div>" +
+    "</div>");
+  }
+  document.getElementById("vocabGrid").innerHTML += h.join("");
+}
+function playVocab(idx) {
+  var btns = document.querySelectorAll(".play-btn");
+  for (var i=0;i<btns.length;i++){ btns[i].className="play-btn idle"; btns[i].textContent="🔊"; }
+  var btn = document.getElementById("vb" + idx);
+  if (btn) { btn.className = "play-btn playing"; btn.textContent = "⏸"; }
+  var v = vocab[idx];
+  var u = speak(v.display || v.de, spdRate, "de-DE");
+  if (u) u.onend = function(){ if (btn){ btn.className="play-btn idle"; btn.textContent="🔊"; } };
+}
+function playExample(idx) { speak(vocab[idx].exShow, spdRate, "de-DE"); }
+
+function buildMoegen() {
+  var h = [];
+  for (var i=0;i<moegenData.length;i++) {
+    var r = moegenData[i];
+    var shown = r.display || r.de;
+    h.push("<tr><td><span class=\"konj-pronoun\">" + r.pr + "</span></td><td><span class=\"konj-verb\">" + shown + "</span></td><td style=\"color:#e8a000;font-weight:700\">" + r.pron + "</td><td style=\"color:#6b7280;font-size:0.85rem\">" + r.ar + "</td></tr>");
+  }
+  document.getElementById("moegenTable").innerHTML = h.join("");
+}
+function buildMoechten() {
+  var h = [];
+  for (var i=0;i<moechtenData.length;i++) {
+    var r = moechtenData[i];
+    var shown = r.display || r.de;
+    h.push("<tr><td><span class=\"konj-pronoun\">" + r.pr + "</span></td><td><span class=\"konj-verb\">" + shown + "</span></td><td style=\"color:#e8a000;font-weight:700\">" + r.pron + "</td><td style=\"color:#6b7280;font-size:0.85rem\">" + r.ar + "</td></tr>");
+  }
+  document.getElementById("moechtenTable").innerHTML = h.join("");
+}
+
+function buildBestellenFragen() {
+  var h = [];
+  for (var i=0;i<bestellenFragen.length;i++) {
+    var w = bestellenFragen[i];
+    h.push('<div style="background:#f8faff;border-radius:10px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px">' +
+      '<div style="text-align:right;flex:1">' +
+        '<div style="font-family:Lora,serif;font-weight:700;color:#1a1a1a;direction:ltr;margin-bottom:3px">' + w.show + "</div>" +
+        '<div style="font-size:0.78rem;color:#e8a000;font-weight:700;margin-bottom:2px">' + w.pron + "</div>" +
+        '<div style="font-size:0.82rem;color:#6b7280">' + w.ar + ' ← <span style="font-family:Lora,serif;color:#00643c">' + w.ans + "</span></div>" +
+      "</div>" +
+      '<button class="play-btn idle" onclick="playBestellen(' + i + ')">🔊</button>' +
+    "</div>");
+  }
+  document.getElementById("bestellenFragen").innerHTML = h.join("");
+}
+function playBestellen(idx) { speak(bestellenFragen[idx].show, spdRate, "de-DE"); }
+
+function buildStory() {
+  var h = [];
+  for (var i=0;i<storyData.length;i++) {
+    var line = storyData[i];
+    var name = line.spk === "F" ? "Felix" : "Lena";
+    h.push('<div class="dialog-line speaker-' + line.spk + '" id="sl' + i + '">' +
+      '<div class="dl-main">' +
+        '<span class="speaker-badge">' + name + "</span>" +
+        '<span class="dialog-text">' + line.display + "</span>" +
+        '<div class="dl-btns">' +
+          '<button class="dl-btn" onclick="playLine(' + i + ')" title="استمع">🔊</button>' +
+          '<button class="dl-btn dl-tr-btn" onclick="toggleTr(' + i + ')" title="الترجمة">🌐</button>' +
+        "</div>" +
+      "</div>" +
+      '<div id="tr' + i + '" class="dl-ar">' + line.ar + "</div>" +
+    "</div>");
+  }
+  document.getElementById("storyBox").innerHTML = h.join("");
+}
+function playLine(i) {
+  stopStory(); hlLine(i);
+  var u = speak(storyData[i].display, spdRate, "de-DE");
+  if (u) u.onend = function(){ hlLine(-1); };
+}
+function hlLine(i) {
+  var lines = document.querySelectorAll(".dialog-line");
+  for (var j=0;j<lines.length;j++) lines[j].classList.remove("hl");
+  if (i >= 0) { var el = document.getElementById("sl" + i); if (el) el.classList.add("hl"); }
+}
+function toggleTr(i) {
+  var el = document.getElementById("tr" + i);
+  if (el) el.style.display = el.style.display === "block" ? "none" : "block";
+}
+var _trAll = false;
+function toggleAllTr() {
+  _trAll = !_trAll;
+  for (var i=0;i<storyData.length;i++) {
+    var el = document.getElementById("tr" + i);
+    if (el) el.style.display = _trAll ? "block" : "none";
+  }
+  var btn = document.getElementById("trAllBtn");
+  if (btn) btn.textContent = _trAll ? "🙈 أخفِ الكل" : "🌐 الترجمة";
+}
+function startStory() {
+  storyRef.on = true;
+  document.getElementById("storyBtn").style.background = "#059669";
+  document.getElementById("sBtnIcon").textContent = "⏹";
+  document.getElementById("sBtnTxt").textContent = "إيقاف الحوار";
+  playSeq(0);
+}
+function stopStory() {
+  storyRef.on = false;
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
+  hlLine(-1);
+  var btn = document.getElementById("storyBtn");
+  if (btn) {
+    btn.style.background = "#1a56b0";
+    document.getElementById("sBtnIcon").textContent = "▶";
+    document.getElementById("sBtnTxt").textContent = "استمع للحوار كاملاً";
+  }
+}
+function playSeq(i) {
+  if (!storyRef.on || i >= storyData.length) { stopStory(); return; }
+  hlLine(i);
+  var u = new SpeechSynthesisUtterance(storyData[i].display);
+  u.lang = "de-DE"; u.rate = storyRef.spd;
+  u.onend = function(){ if (storyRef.on) setTimeout(function(){ playSeq(i+1); }, 380); };
+  if (window.speechSynthesis) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(u); }
+}
+function toggleStory(){ storyRef.on ? stopStory() : startStory(); }
+
+function buildListening() {
+  var h = [];
+  for (var i=0;i<listenData.length;i++) {
+    var r = listenData[i];
+    h.push('<div class="listen-card"><span style="font-size:1.8rem;flex-shrink:0">' + r.icon + '</span><div style="flex:1;text-align:right"><div style="font-weight:700;font-size:0.95rem;color:#1a1a1a">' + r.name + '</div><div style="font-size:0.75rem;color:#e8a000;font-weight:700">' + r.channel + '</div><div style="font-size:0.82rem;color:#6b7280">' + r.desc + '</div></div><span style="background:#fef3c7;color:#92400e;font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap">' + r.tag + '</span><a class="listen-link" href="' + r.url + '" target="_blank" rel="noopener noreferrer">▶ افتح</a></div>');
+  }
+  document.getElementById("listenCards").innerHTML = h.join("");
+}
+
+function buildWriting() {
+  var h = [];
+  for (var i=0;i<writingFields.length;i++) {
+    var f = writingFields[i];
+    h.push('<div class="writing-line"><label>' + f.label + ':</label><span class="w-fixed" style="font-size:0.95rem;color:#6b7280">' + f.prefix + '</span><input class="w-input" id="' + f.id + '" placeholder="اكتب هنا..." oninput="updatePreview()"><span class="w-fixed" style="color:#6b7280">' + f.suffix + "</span></div>");
+    h.push('<button class="wf-model-btn" onclick="toggleWModel(' + i + ')">📝 <span id="wfLabel' + i + '">نموذج للإجابة</span></button>');
+    h.push('<div class="wf-model-box" id="wfModel' + i + '"><div class="wf-model-de">' + f.modelDe + '</div><div class="wf-model-ar">' + f.modelAr + "</div></div>");
+  }
+  document.getElementById("writingForm").innerHTML = h.join("");
+}
+function toggleWModel(idx) {
+  var box = document.getElementById("wfModel" + idx);
+  var label = document.getElementById("wfLabel" + idx);
+  if (!box) return;
+  var isOpen = box.style.display === "block";
+  box.style.display = isOpen ? "none" : "block";
+  if (label) label.textContent = isOpen ? "نموذج للإجابة" : "أخفِ النموذج";
+}
+function updatePreview() {
+  var lines = [];
+  for (var i=0;i<writingFields.length;i++) {
+    var f = writingFields[i];
+    var inp = document.getElementById(f.id);
+    var val = inp ? inp.value.trim() : "";
+    if (val) lines.push(f.prefix + " <strong>" + val + "</strong> " + f.suffix);
+  }
+  document.getElementById("writingPreview").innerHTML = lines.length
+    ? '<div style="font-family:Lora,serif;font-size:1rem;line-height:2.4;direction:ltr;color:#1a1a1a">' + lines.join("<br>") + "</div>"
+    : '<p style="color:#9ca3af;font-size:0.88rem;text-align:center;margin-top:10px">✨ سيظهر نصك هنا...</p>';
+}
+
+function buildSpeaking() {
+  var h = [];
+  for (var i=0;i<speakingQs.length;i++) {
+    var q = speakingQs[i];
+    h.push('<div class="speaking-q">'+
+      '<div class="sq-row">'+
+        '<div style="flex:1;text-align:right">'+
+          '<div style="font-size:0.78rem;color:#9ca3af;margin-bottom:4px">' + q.ar + '</div>'+
+          '<p style="font-family:Lora,serif;direction:ltr;font-weight:600;font-size:1rem;margin:0">' + (i+1) + ". " + q.display + '</p>'+
+        '</div>'+
+        '<button class="play-btn idle" style="flex-shrink:0" onclick="playSpeakingQ(' + i + ')">🔊</button>'+
+      '</div>'+
+      '<div class="sq-model">'+
+        '<span style="font-size:0.78rem;color:#9ca3af;flex-shrink:0">✅ نموذج:</span>'+
+        '<span class="sq-model-de">' + q.model + '</span>'+
+        '<button class="mini-btn" onclick="playSpeakingModel(' + i + ')">🔊</button>'+
+      '</div>'+
+    '</div>');
+  }
+  document.getElementById("speakingQs").innerHTML = h.join("");
+}
+function playSpeakingQ(idx) { speak(speakingQs[idx].display, spdRate, "de-DE"); }
+function playSpeakingModel(idx) { speak(speakingQs[idx].model, spdRate, "de-DE"); }
+
+function buildRealDE() {
+  var h = [];
+  for (var i=0;i<realDE.length;i++) {
+    var e = realDE[i];
+    h.push('<div class="rd-card">' +
+      '<div class="rd-head">' +
+        '<div class="rd-expr-wrap">' +
+          '<span class="rd-expr">' + e.expr + "</span>" +
+          '<span class="rd-pron">' + e.pron + "</span>" +
+        "</div>" +
+        '<button class="play-btn idle" style="width:32px;height:32px;font-size:0.85rem;flex-shrink:0" onclick="playRealDE(' + i + ')">🔊</button>' +
+      "</div>" +
+      '<div class="rd-meaning">' + e.meaning + "</div>" +
+      '<div class="rd-ex-row">' +
+        '<span class="rd-ex-de">' + e.example + "</span>" +
+        '<button class="mini-btn" onclick="playRealDE(' + i + ')">🔊</button>' +
+        '<button class="mini-btn" onclick="toggleRdEx(' + i + ')">🌐</button>' +
+      "</div>" +
+      '<div class="rd-ex-ar" id="rdExBox' + i + '">' + e.exampleAr + "</div>" +
+      '<div class="rd-note">💡 ' + e.note + "</div>" +
+    "</div>");
+  }
+  document.getElementById("realDeContainer").innerHTML = h.join("");
+  var dy = [];
+  for (var k=0;k<didYouKnow.length;k++) {
+    var f = didYouKnow[k];
+    dy.push('<div style="display:flex;align-items:flex-start;gap:12px;background:linear-gradient(135deg,#fffdf0,#fef3c7);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:14px 18px;margin-bottom:10px;flex-direction:row-reverse">' +
+      '<span style="font-size:1.4rem;flex-shrink:0">' + f.flag + "</span>" +
+      '<p style="font-size:0.92rem;line-height:1.8;color:#374151;text-align:right">' + f.fact + "</p>" +
+    "</div>");
+  }
+  document.getElementById("didYouKnow").innerHTML = dy.join("");
+}
+function playRealDE(idx) { speak(realDE[idx].expr, spdRate, "de-DE"); }
+function toggleRdEx(idx) {
+  var box = document.getElementById("rdExBox" + idx);
+  if (!box) return;
+  box.style.display = box.style.display === "block" ? "none" : "block";
+}
+
+var quizAnswers = new Array(quizData.length).fill(null);
+function buildQuiz() {
+  var h = [];
+  for (var qi=0;qi<quizData.length;qi++) {
+    var q = quizData[qi];
+    var opts = "";
+    for (var oi=0;oi<q.opts.length;oi++) {
+      var opt = q.opts[oi];
+      var dir = /[\u0600-\u06FF]/.test(opt) ? "rtl" : "ltr";
+      opts += '<div class="quiz-opt" id="qo' + qi + "-" + oi + '" onclick="selectOpt(' + qi + "," + oi + ')"><span style="font-family:Lora,serif;font-size:0.95rem;direction:' + dir + '">' + opt + "</span></div>";
+    }
+    var qDir = /[\u0600-\u06FF]/.test(q.q) ? "rtl" : "ltr";
+    h.push('<div class="quiz-q"><p style="direction:' + qDir + '">' + (qi+1) + ". " + q.q + '</p><div class="quiz-opts">' + opts + "</div></div>");
+  }
+  document.getElementById("quizContainer").innerHTML = h.join("");
+}
+function selectOpt(qi, oi) {
+  quizAnswers[qi] = oi;
+  for (var i=0;i<quizData[qi].opts.length;i++) {
+    var el = document.getElementById("qo" + qi + "-" + i);
+    if (el) { el.classList.remove("correct","wrong"); el.style.borderColor = ""; }
+  }
+  var sel = document.getElementById("qo" + qi + "-" + oi);
+  if (sel) sel.style.borderColor = "#1a1a1a";
+}
+function checkQuiz() {
+  var score = 0;
+  for (var qi=0;qi<quizData.length;qi++) {
+    var q = quizData[qi];
+    for (var i=0;i<q.opts.length;i++) {
+      var el = document.getElementById("qo" + qi + "-" + i);
+      if (!el) continue;
+      el.classList.remove("correct","wrong");
+      if (i === q.ans) el.classList.add("correct");
+      else if (quizAnswers[qi] === i) el.classList.add("wrong");
+    }
+    if (quizAnswers[qi] === q.ans) score++;
+  }
+  var res = document.getElementById("quizResult");
+  var pct = Math.round(score / quizData.length * 100);
+  res.style.display = "block";
+  document.getElementById("quizEmoji").textContent = pct===100?"🏆":pct>=75?"🎉":pct>=50?"💪":"📚";
+  document.getElementById("quizScore").textContent = score + " من " + quizData.length + " (" + pct + "%)";
+  document.getElementById("quizMsg").textContent = pct===100 ? "Ausgezeichnet! جاهز/ة للوحدة السادسة!" : pct>=75 ? "Sehr gut! راجع الخاطئة." : pct>=50 ? "Gut! راجع mögen/möchten." : "Noch einmal! راجع الوحدة كاملة.";
+  res.style.background = pct >= 75 ? "#f0fdf4" : "#fef9f0";
+  res.scrollIntoView({behavior:"smooth", block:"center"});
+}
+function resetQuiz() {
+  quizAnswers = new Array(quizData.length).fill(null);
+  var opts = document.querySelectorAll(".quiz-opt");
+  for (var i=0;i<opts.length;i++){ opts[i].classList.remove("correct","wrong"); opts[i].style.borderColor=""; }
+  document.getElementById("quizResult").style.display = "none";
+}
+
+function show(id, clickedBtn) {
+  var secs = document.querySelectorAll(".section-content");
+  for (var i=0;i<secs.length;i++) secs[i].classList.remove("active","fade-up");
+  var target = document.getElementById("sec-" + id);
+  target.classList.add("active");
+  setTimeout(function(){ target.classList.add("fade-up"); }, 10);
+  window.scrollTo({top:0, behavior:"smooth"});
+  var btns = document.querySelectorAll(".nav-btn");
+  for (var j=0;j<btns.length;j++) btns[j].classList.remove("active");
+  if (clickedBtn) { clickedBtn.classList.add("active"); return; }
+  var map = {vocab:0, story:1, grammar:2, listen:3, writing:4, speaking:5, realde:6, quiz:7};
+  if (btns[map[id]] !== undefined) btns[map[id]].classList.add("active");
+}
+
+buildVocab();
+buildMoegen();
+buildMoechten();
+buildBestellenFragen();
+buildStory();
+buildListening();
+buildWriting();
+buildSpeaking();
+buildRealDE();
+buildQuiz();
+</script>
+</body>
+</html>

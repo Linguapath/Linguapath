@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath Deutsch — الوحدة ٢٦: التكنولوجيا والإنترنت</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-thumb{background:#c0392b;border-radius:3px}
+body{font-family:'Tajawal',sans-serif;background:#f4f1ec;min-height:100vh;direction:rtl}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,100,60,0.4)}50%{box-shadow:0 0 0 8px rgba(0,100,60,0)}}
+.fade-up{animation:fadeUp 0.45s ease forwards}
+.nav-btn{transition:all 0.2s;border:none;cursor:pointer;font-family:'Tajawal',sans-serif;border-radius:30px;padding:7px 16px;font-size:0.82rem;font-weight:600}
+.nav-btn.active{background:#e8a000;color:#1a1a1a;font-weight:800}
+.nav-btn:not(.active){background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.85)}
+.section-content{display:none;max-width:880px;margin:0 auto;padding:36px 16px 80px}
+.section-content.active{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 4px 28px rgba(0,0,0,0.07);margin-bottom:24px;overflow:hidden}
+.card-header{background:#1a1a1a;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.card-header h3{font-size:1.05rem;font-weight:700}
+.card-header .sub{font-size:0.78rem;color:#fcd34d;margin-top:1px}
+.card-body{padding:24px}
+
+.vocab-block{border:1px solid #e5eaf5;border-radius:12px;margin-bottom:8px;overflow:hidden}
+.vocab-row{display:grid;grid-template-columns:1fr 1fr 1fr 42px;align-items:center;gap:10px;padding:11px 16px}
+.vocab-row.even{background:#fafafa}
+.vocab-row.odd{background:#fff}
+.vocab-header{background:#1a1a1a !important;border-radius:12px}
+.v-de{font-family:Lora,serif;font-weight:700;font-size:1rem;color:#1a1a1a;direction:ltr;text-align:left}
+.v-pron{font-size:0.88rem;color:#e8a000;font-weight:700;direction:rtl;text-align:right}
+.v-ar{font-size:0.97rem;font-weight:700;color:#374151;text-align:right}
+.vocab-header .v-de,.vocab-header .v-pron,.vocab-header .v-ar{color:white;font-family:'Tajawal',sans-serif;font-weight:700}
+.ex-row{padding:10px 16px;background:#fafafa;border-top:1px dashed #e5e7eb;display:flex;align-items:center;gap:8px}
+.ex-icon{font-size:0.9rem;flex-shrink:0;color:#9ca3af}
+.ex-text-wrap{flex:1}
+.ex-de{font-family:Lora,serif;font-size:0.9rem;color:#1a1a1a;direction:ltr;font-style:italic;margin-bottom:3px}
+.ex-ar{font-size:0.82rem;color:#9ca3af;text-align:right}
+.mini-btn{width:26px;height:26px;border-radius:7px;border:1.5px solid #e5e7eb;background:white;cursor:pointer;font-size:0.72rem;display:flex;align-items:center;justify-content:center;color:#9ca3af;flex-shrink:0}
+.mini-btn:hover{border-color:#1a56b0;background:#f0f7ff;color:#1a56b0}
+
+.play-btn{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.18s;flex-shrink:0}
+.play-btn.idle{background:#e8f0fe;color:#1a56b0}
+.play-btn.idle:hover{background:#1a56b0;color:white;transform:scale(1.1)}
+.play-btn.playing{background:#00643c;color:white;animation:pulse 1s infinite}
+
+.story-controls{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap;flex-direction:row-reverse}
+.story-main-btn{display:flex;align-items:center;gap:8px;border:none;border-radius:25px;padding:10px 22px;font-family:'Tajawal',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.2s;flex-direction:row-reverse}
+.speed-wrap{display:flex;align-items:center;gap:6px;flex-direction:row-reverse}
+.speed-wrap label{font-size:0.82rem;color:#6b7280;font-weight:600}
+.spd{padding:5px 11px;border-radius:20px;border:2px solid #d1d5db;background:white;font-family:'Tajawal',sans-serif;font-size:0.78rem;font-weight:700;cursor:pointer;color:#6b7280;transition:all 0.15s}
+.spd.active{border-color:#1a1a1a;background:#1a1a1a;color:white}
+.story-box{border-right:4px solid #e8a000;padding:16px 20px;background:#fffdf7;border-radius:0 12px 12px 0}
+.dialog-line{padding:10px 6px;border-bottom:1px solid #f5f5f5;transition:background 0.18s}
+.dialog-line:last-child{border-bottom:none}
+.dialog-line.hl{background:#fef3c7;border-radius:8px}
+.dl-main{display:flex;align-items:flex-start;gap:8px;direction:ltr}
+.speaker-badge{font-family:'Tajawal',sans-serif;font-size:0.72rem;font-weight:800;padding:3px 10px;border-radius:20px;flex-shrink:0;margin-top:3px;white-space:nowrap}
+.speaker-F .speaker-badge{background:#1a1a1a;color:#e8a000}
+.speaker-L .speaker-badge{background:#c0392b;color:white}
+.dialog-text{font-family:Lora,serif;font-size:0.95rem;line-height:1.8;color:#1a1a1a;flex:1;direction:ltr}
+.dl-btns{display:flex;gap:5px;flex-shrink:0;margin-top:2px}
+.dl-btn{width:28px;height:28px;border-radius:7px;border:1.5px solid #e5e7eb;background:white;cursor:pointer;font-size:0.78rem;display:flex;align-items:center;justify-content:center;transition:all 0.15s;color:#9ca3af}
+.dl-btn:hover{border-color:#1a56b0;background:#f0f7ff;color:#1a56b0}
+.dl-tr-btn:hover{border-color:#e8a000;background:#fef9e7;color:#b45309}
+.dl-ar{display:none;font-family:'Tajawal',sans-serif;font-size:0.87rem;color:#9ca3af;direction:rtl;text-align:right;padding:5px 52px 2px 0;line-height:1.6}
+
+.konj-table{width:100%;border-collapse:collapse;direction:ltr;margin-bottom:16px;font-family:Lora,serif}
+.konj-table th{background:#1a1a1a;color:white;padding:10px 14px;text-align:left;font-size:0.88rem}
+.konj-table td{padding:10px 14px;border-bottom:1px solid #f0f0f0;font-size:0.92rem}
+.dass-word{color:#c0392b;font-weight:800}
+.verb-end{color:#00643c;font-weight:700}
+
+.gram-intro{background:#fffdf7;border-right:4px solid #e8a000;border-radius:0 12px 12px 0;padding:16px 20px;margin-bottom:22px}
+.gram-intro p{font-size:0.95rem;line-height:1.95;color:#374151;text-align:right}
+.gram-intro .ar-vs-de{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.gram-intro .lang-line{display:flex;align-items:center;gap:10px;background:white;border-radius:8px;padding:8px 14px;flex-direction:row-reverse}
+.lang-tag{font-size:0.72rem;font-weight:800;padding:2px 10px;border-radius:6px;flex-shrink:0}
+.lang-tag.ar{background:#fef3c7;color:#92400e}
+.lang-tag.de{background:#dbeafe;color:#1e40af}
+.lang-line .txt{font-family:Lora,serif;font-size:0.9rem;color:#1a1a1a}
+
+.step-builder{margin-bottom:24px}
+.step-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-direction:row-reverse}
+.step-num{width:26px;height:26px;border-radius:50%;background:#1a1a1a;color:white;font-size:0.78rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-piece{font-family:Lora,serif;font-size:1rem;font-weight:700;padding:6px 14px;border-radius:8px;direction:ltr}
+.step-piece.pronoun{background:#fef3c7;color:#92400e}
+.step-piece.verb{background:#d1fae5;color:#065f46}
+.step-piece.reflexive{background:#fce7f3;color:#9d174d}
+.step-piece.adj{background:#dbeafe;color:#1e40af}
+.step-label{font-size:0.82rem;color:#6b7280}
+.step-result{background:#1a1a1a;color:white;border-radius:10px;padding:12px 18px;margin-top:10px;font-family:Lora,serif;font-size:1.05rem;direction:ltr;text-align:center;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px}
+
+.mini-quiz{background:#f0f7ff;border-radius:12px;padding:16px 18px;margin-top:10px}
+.mini-quiz-title{font-weight:800;color:#1a56b0;font-size:0.92rem;margin-bottom:12px;text-align:right}
+.mq-item{margin-bottom:14px}
+.mq-q{font-family:Lora,serif;font-size:0.92rem;color:#1a1a1a;direction:ltr;margin-bottom:8px}
+.mq-opts{display:flex;gap:8px;flex-wrap:wrap;flex-direction:row-reverse}
+.mq-opt{background:white;border:2px solid #e5e7eb;border-radius:8px;padding:6px 16px;font-family:Lora,serif;font-size:0.88rem;cursor:pointer;transition:all 0.15s;direction:ltr}
+.mq-opt:hover{border-color:#1a56b0}
+.mq-opt.correct{border-color:#00643c;background:#ecfdf5;color:#00643c;font-weight:700}
+.mq-opt.wrong{border-color:#c0392b;background:#fef2f2;color:#c0392b}
+.mq-fb{font-size:0.82rem;margin-top:6px;text-align:right;display:none}
+.mq-fb.show{display:block}
+
+.mistakes-box{background:#fef3c7;border-right:4px solid #e8a000;border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:20px}
+.mistakes-box .title{font-weight:800;color:#1a1a1a;margin-bottom:10px;text-align:right}
+.mistake-line{display:flex;flex-direction:column;gap:4px;margin-bottom:10px;direction:ltr;font-family:Lora,serif;font-size:0.9rem}
+
+.example-row{background:#f8faff;border-radius:10px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px;margin-bottom:10px}
+
+.listen-card{display:flex;align-items:center;gap:14px;background:#f0f7ff;border:1px solid #bfdbfe;border-radius:12px;padding:14px 18px;margin-bottom:10px;flex-direction:row-reverse}
+.listen-link{background:#1a1a1a;color:white;border:none;border-radius:8px;padding:8px 16px;font-family:'Tajawal',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.2s;flex-shrink:0}
+.listen-link:hover{background:#c0392b}
+
+.writing-line{display:flex;align-items:center;gap:10px;margin-bottom:14px;direction:ltr;flex-wrap:wrap}
+.writing-line label{font-family:'Tajawal',sans-serif;font-size:0.88rem;color:#6b7280;direction:rtl;min-width:110px;text-align:right}
+.w-input{border:none;border-bottom:2px solid #e8a000;background:transparent;font-family:Lora,serif;font-size:1rem;color:#1a1a1a;outline:none;padding:3px 6px;min-width:100px;transition:border-color 0.2s}
+.w-input:focus{border-color:#1a1a1a}
+.w-fixed{font-family:Lora,serif;font-size:1rem;color:#1a1a1a;font-weight:600}
+
+.speaking-block{margin-bottom:18px}
+.sq-question{background:#f8faff;border-right:4px solid #1a56b0;border-radius:10px 10px 0 0;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px}
+.sq-ar{font-size:0.78rem;color:#9ca3af;margin-bottom:4px}
+.sq-de{font-family:Lora,serif;direction:ltr;font-weight:600;font-size:1rem}
+.sq-model-box{background:#ecfdf5;border-right:4px solid #00643c;border-radius:0 0 10px 10px;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px}
+.sq-model-label{font-size:0.76rem;color:#00643c;font-weight:800;margin-bottom:3px}
+.sq-model-de{font-family:Lora,serif;direction:ltr;font-size:0.95rem;color:#1a1a1a}
+.sq-model-ar{font-size:0.78rem;color:#9ca3af;text-align:right;margin-top:4px}
+
+.wf-model-btn{background:#dbeafe;color:#1e40af;border:none;border-radius:20px;padding:7px 18px;font-family:'Tajawal',sans-serif;font-size:0.82rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin:8px 0 4px}
+.wf-model-btn:hover{background:#bfdbfe}
+.wf-model-box{display:none;background:#f8faff;border-radius:10px;padding:10px 14px;margin-bottom:10px}
+.wf-model-de{font-family:Lora,serif;font-size:0.9rem;color:#1a1a1a;direction:ltr;margin-bottom:4px}
+.wf-model-ar{font-size:0.82rem;color:#6b7280;text-align:right}
+
+.rd-card{background:#fafafa;border:1px solid #e5eaf5;border-radius:12px;padding:16px 18px;margin-bottom:12px}
+.rd-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-direction:row-reverse}
+.rd-expr-wrap{display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.rd-expr{font-family:Lora,serif;font-size:1.05rem;font-weight:700;color:#c0392b;direction:ltr}
+.rd-pron{color:#e8a000;font-weight:700;font-size:0.82rem}
+.rd-meaning{font-size:0.9rem;color:#374151;text-align:right;margin-bottom:12px;line-height:1.7}
+.rd-ex-row{display:flex;align-items:center;gap:6px;direction:ltr;background:white;border-radius:8px;padding:8px 12px}
+.rd-ex-de{font-family:Lora,serif;font-size:0.92rem;color:#1a1a1a;font-style:italic;flex:1}
+.rd-ex-ar{display:none;font-size:0.85rem;color:#9ca3af;text-align:right;margin-top:6px;padding:6px 12px;background:white;border-radius:8px}
+.rd-note{font-size:0.82rem;color:#c0392b;text-align:right;margin-top:8px}
+
+.quiz-q{margin-bottom:20px}
+.quiz-q p{font-size:0.97rem;font-weight:700;color:#1a1a1a;margin-bottom:10px;direction:ltr;font-family:Lora,serif}
+.quiz-opts{display:flex;flex-direction:column;gap:8px}
+.quiz-opt{display:flex;align-items:center;gap:10px;padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;transition:all 0.18s;flex-direction:row-reverse;text-align:right;background:white}
+.quiz-opt:hover{border-color:#1a56b0;background:#f0f7ff}
+.quiz-opt.correct{border-color:#00643c;background:#ecfdf5;color:#00643c}
+.quiz-opt.wrong{border-color:#c0392b;background:#fef2f2;color:#c0392b}
+.btn{border:none;border-radius:30px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all 0.2s;padding:11px 28px;font-size:0.95rem}
+.btn:hover{opacity:0.88;transform:scale(0.98)}
+.btn-dark{background:#1a1a1a;color:white}
+.btn-gray{background:#e5e7eb;color:#374151}
+.btn-gold{background:#e8a000;color:#1a1a1a}
+.flag-strip{height:5px;background:linear-gradient(90deg,#1a1a1a 33%,#c0392b 33% 66%,#e8a000 66%)}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(90px);background:#1a1a1a;color:white;padding:12px 28px;border-radius:30px;font-size:0.95rem;font-weight:700;transition:transform 0.4s ease;z-index:999;pointer-events:none;white-space:nowrap}
+@media(max-width:580px){
+  .vocab-row{grid-template-columns:1fr 1fr 38px}
+  .v-pron{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="flag-strip"></div>
+
+<div style="background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 60%,#1a1a1a 100%);color:white;position:relative;overflow:hidden">
+  <div style="position:absolute;top:-60px;left:-60px;width:280px;height:280px;border-radius:50%;background:rgba(232,160,0,0.07);pointer-events:none"></div>
+  <div style="position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(192,57,43,0.07);pointer-events:none"></div>
+  <div style="max-width:880px;margin:0 auto;padding:14px 20px 0;display:flex;justify-content:space-between;align-items:center">
+    <a href="index_de.html" style="color:rgba(255,255,255,0.55);font-size:0.82rem;text-decoration:none;font-family:'Tajawal',sans-serif">← Deutsch A1</a>
+    <div style="font-family:Lora,serif;font-size:0.9rem;color:#e8a000;direction:ltr">LinguaPath 🇩🇪</div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:5px;padding:10px 16px 0;flex-wrap:wrap">
+    <button class="nav-btn active" onclick="show('vocab',this)">📚 المفردات</button>
+    <button class="nav-btn" onclick="show('story',this)">📖 الحوار</button>
+    <button class="nav-btn" onclick="show('grammar',this)">✏️ القاعدة</button>
+    <button class="nav-btn" onclick="show('listen',this)">🎧 الاستماع</button>
+    <button class="nav-btn" onclick="show('writing',this)">✍️ الكتابة</button>
+    <button class="nav-btn" onclick="show('speaking',this)">💬 المحادثة</button>
+    <button class="nav-btn" onclick="show('realde',this)">🗣️ Real Deutsch</button>
+    <button class="nav-btn" onclick="show('quiz',this)">✅ الاختبار</button>
+  </div>
+  <div style="max-width:880px;margin:0 auto;padding:32px 24px 44px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px">
+    <div>
+      <div style="font-size:0.78rem;letter-spacing:3px;color:#e8a000;font-weight:700;margin-bottom:8px">EINHEIT 26 — A2 🇩🇪</div>
+      <h1 style="font-family:Lora,serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;line-height:1.2;margin-bottom:8px;direction:ltr">Technologie &amp; Internet</h1>
+      <p style="font-size:1.1rem;color:rgba(255,255,255,0.75);margin-bottom:6px">التكنولوجيا والإنترنت</p>
+      <p style="font-size:0.88rem;color:rgba(255,255,255,0.5)">القاعدة: جمل dass — Ich glaube, dass...</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;text-align:center">
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:10px 18px">
+        <div style="font-family:Lora,serif;font-size:1.4rem;font-weight:700;color:#e8a000">20</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.5)">كلمة جديدة</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:10px 18px">
+        <div style="font-family:Lora,serif;font-size:1.4rem;font-weight:700;color:#e8a000">8</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.5)">أقسام</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flag-strip"></div>
+
+<div id="sec-vocab" class="section-content active fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">💻</span>
+      <div><h3>التكنولوجيا والإنترنت — Technologie und Internet</h3><div class="sub">اضغط 🔊 للنطق</div></div>
+    </div>
+    <div class="card-body">
+      <div class="vocab-row vocab-header" style="margin-bottom:8px">
+        <span class="v-de" style="font-family:'Tajawal',sans-serif;color:white">الكلمة الألمانية</span>
+        <span class="v-pron" style="font-family:'Tajawal',sans-serif;color:white">النطق</span>
+        <span class="v-ar">المعنى</span>
+        <span></span>
+      </div>
+      <div id="vocabGrid"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center">
+    <button class="btn btn-dark" onclick="show('story',null)">انتقل للحوار ←</button>
+  </div>
+</div>
+
+<div id="sec-story" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">📖</span>
+      <div><h3>الحوار — Dialog</h3><div class="sub">Felix und Lena sprechen über das Internet — يتحدثان عن الإنترنت</div></div>
+    </div>
+    <div class="card-body">
+      <div style="display:flex;gap:12px;margin-bottom:16px;flex-direction:row-reverse;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:6px;flex-direction:row-reverse">
+          <span style="background:#1a1a1a;color:#e8a000;font-size:0.72rem;font-weight:800;padding:2px 10px;border-radius:20px;font-family:'Tajawal',sans-serif">Felix</span>
+          <span style="font-size:0.82rem;color:#6b7280">ذكر — Mann 🇩🇪</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;flex-direction:row-reverse">
+          <span style="background:#c0392b;color:white;font-size:0.72rem;font-weight:800;padding:2px 10px;border-radius:20px;font-family:'Tajawal',sans-serif">Lena</span>
+          <span style="font-size:0.82rem;color:#6b7280">أنثى — Frau 🌍</span>
+        </div>
+      </div>
+      <div class="story-controls">
+        <button class="story-main-btn" id="storyBtn" onclick="toggleStory()" style="background:#1a56b0;color:white">
+          <span id="sBtnIcon">▶</span><span id="sBtnTxt">استمع للحوار كاملاً</span>
+        </button>
+        <div class="speed-wrap">
+          <label>السرعة:</label>
+          <button class="spd" onclick="setSpd(0.65,this)">🐢</button>
+          <button class="spd active" onclick="setSpd(0.9,this)">🚶</button>
+          <button class="spd" onclick="setSpd(1.2,this)">🏃</button>
+        </div>
+        <button id="trAllBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:25px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:0.82rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+      </div>
+      <div class="story-box" id="storyBox"></div>
+      <p style="margin-top:14px;font-size:0.85rem;color:#9ca3af;text-align:right">📌 اضغط 🌐 لترجمة الجملة · 🔊 للاستماع</p>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn btn-dark" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">✏️</span>
+      <div><h3>القاعدة — Grammatik</h3><div class="sub">جمل dass — للتعبير عن الرأي</div></div>
+    </div>
+    <div class="card-body">
+      <div class="gram-intro">
+        <p>بالعربية نقول "أعتقد أن الإنترنت مهم" والفعل يبقى في مكانه الطبيعي. بالألمانية، عندما نستخدم <strong style="color:#c0392b;font-family:Lora,serif">dass</strong> (أن)، القاعدة تتغيّر كلياً: الفعل المُصرَّف <strong>ينتقل لآخر الجملة</strong>!</p>
+        <div class="ar-vs-de">
+          <div class="lang-line"><span class="lang-tag ar">عربي</span><span class="txt">أعتقد أن الإنترنت مهم ← الفعل "مهم" في مكانه الطبيعي</span></div>
+          <div class="lang-line"><span class="lang-tag de">ألماني</span><span class="txt">Ich glaube, dass das Internet wichtig <strong>ist</strong>. ← الفعل "ist" انتقل لآخر الجملة!</span></div>
+        </div>
+      </div>
+
+      <h4 style="font-weight:800;color:#1a1a1a;margin-bottom:14px;text-align:right">🔨 نبني الجملة معاً خطوة بخطوة</h4>
+      <div class="step-builder">
+        <div class="step-row"><span class="step-num">1</span><span class="step-piece pronoun">Ich glaube,</span><span class="step-label">← الجملة الرئيسية (رأيي)</span></div>
+        <div class="step-row"><span class="step-num">2</span><span class="step-piece verb">dass</span><span class="step-label">← كلمة "أن" التي تبدأ الجملة الفرعية</span></div>
+        <div class="step-row"><span class="step-num">3</span><span class="step-piece adj">das Internet wichtig</span><span class="step-label">← باقي الجملة الفرعية (الفاعل + الصفة)</span></div>
+        <div class="step-row"><span class="step-num">4</span><span class="step-piece reflexive">ist</span><span class="step-label">← الفعل المُصرَّف، انتقل لآخر الجملة!</span></div>
+        <div class="step-result"><span>Ich glaube, dass das Internet wichtig ist. = أعتقد أن الإنترنت مهم.</span><button class="mini-btn" style="background:white" onclick="speak('Ich glaube, dass das Internet wichtig ist.',spdRate,'de-DE')">🔊</button></div>
+      </div>
+
+      <h4 style="font-weight:800;color:#1a1a1a;margin-bottom:12px;text-align:right">📋 أفعال شائعة قبل dass</h4>
+      <div style="overflow-x:auto;margin-bottom:10px">
+        <table class="konj-table">
+          <thead><tr><th>الفعل</th><th>المعنى</th><th>مثال</th></tr></thead>
+          <tbody id="dassTable"></tbody>
+        </table>
+      </div>
+      <p style="font-size:0.82rem;color:#6b7280;text-align:right;margin-bottom:22px">💡 القاعدة تنطبق على كل هذه الأفعال بدون استثناء: الفعل المُصرَّف في الجملة الفرعية يذهب دائماً لآخر الجملة.</p>
+
+      <h4 style="font-weight:800;color:#1a1a1a;margin-bottom:14px;text-align:right">📈 أمثلة تتصاعد في التعقيد</h4>
+      <div id="dassExamples"></div>
+
+      <div class="mistakes-box">
+        <div class="title">⚠️ أخطاء شائعة جداً</div>
+        <div class="mistake-line">
+          <span>❌ Ich glaube, dass das Internet ist wichtig. <span style="color:#9ca3af;font-size:0.8rem">(الفعل ليس في النهاية — خطأ!)</span></span>
+          <span>✅ Ich glaube, dass das Internet wichtig <strong>ist</strong>. <span style="color:#9ca3af;font-size:0.8rem">(الفعل في آخر الجملة)</span></span>
+        </div>
+        <div class="mistake-line">
+          <span>❌ Ich glaube das Internet ist wichtig. (بدون فاصلة وdass) <span style="color:#9ca3af;font-size:0.8rem">(جملتان منفصلتان وليست جملة dass)</span></span>
+          <span>✅ Ich glaube, <strong>dass</strong> das Internet wichtig ist. <span style="color:#9ca3af;font-size:0.8rem">(فاصلة + dass تربطان الجملتين)</span></span>
+        </div>
+      </div>
+
+      <div class="mini-quiz">
+        <div class="mini-quiz-title">✏️ تأكدي من فهمك — أين يذهب الفعل؟</div>
+        <div id="miniQuiz"></div>
+      </div>
+
+      <h4 style="font-weight:800;color:#1a1a1a;margin:24px 0 14px;text-align:right">❓ أسئلة عن التكنولوجيا</h4>
+      <div id="techFragen" style="display:flex;flex-direction:column;gap:8px"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('story',null)">→ الحوار</button>
+    <button class="btn btn-dark" onclick="show('listen',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listen" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">🎧</span>
+      <div><h3>الاستماع — Hören</h3><div class="sub">حلقتا DW رسميتان + فيديوهات مفردات (لم نجد أغنية موثوقة لهذا الموضوع)</div></div>
+    </div>
+    <div class="card-body">
+      <div style="background:linear-gradient(135deg,#fef9f0,#fef3c7);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:16px 20px;margin-bottom:20px;display:flex;gap:12px;flex-direction:row-reverse;align-items:flex-start">
+        <span style="font-size:1.5rem">🎯</span>
+        <div style="text-align:right">
+          <p style="font-weight:700;color:#1a1a1a;margin-bottom:4px">نصيحة للاستماع</p>
+          <p style="font-size:0.9rem;color:#6b7280;line-height:1.8">حلقتا DW متتاليتان من وحدة "Digitales Leben" — استمعي بالترتيب لمتابعة القصة.</p>
+        </div>
+      </div>
+      <div id="listenCards"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn btn-dark" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">✍️</span>
+      <div><h3>الكتابة — Schreiben</h3><div class="sub">اكتب رأيك عن التكنولوجيا بالألمانية</div></div>
+    </div>
+    <div class="card-body">
+      <p style="text-align:right;font-size:0.97rem;line-height:1.9;color:#374151;margin-bottom:20px">أكمل الجمل — اضغط "📝 نموذج للإجابة" تحت كل سؤال إذا احتجتِ مساعدة.</p>
+      <div style="background:#fffdf7;border:2px dashed #e8a000;border-radius:14px;padding:22px;margin-bottom:16px">
+        <div id="writingForm"></div>
+        <div style="margin-top:20px;padding:16px 20px;background:white;border-radius:12px;border:1px solid #e5e7eb;min-height:90px;border-right:4px solid #e8a000" id="writingPreview">
+          <p style="color:#9ca3af;font-size:0.88rem;text-align:center;margin-top:10px">✨ سيظهر نصك هنا...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('listen',null)">→ الاستماع</button>
+    <button class="btn btn-dark" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">💬</span>
+      <div><h3>المحادثة — Sprechen</h3><div class="sub">السؤال أولاً، وتحته نموذج الإجابة في صندوق منفصل</div></div>
+    </div>
+    <div class="card-body">
+      <div id="speakingQs"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn btn-gold" onclick="show('realde',null)">Real Deutsch ←</button>
+  </div>
+</div>
+
+<div id="sec-realde" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header" style="background:linear-gradient(135deg,#c0392b,#a93226)">
+      <span style="font-size:1.4rem">🗣️</span>
+      <div><h3>Real Deutsch</h3><div class="sub">تعابير حقيقية عن التكنولوجيا</div></div>
+    </div>
+    <div class="card-body">
+      <div id="realDeContainer"></div>
+      <div style="margin-top:20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-direction:row-reverse">
+          <span style="font-size:1.2rem">💡</span>
+          <h4 style="font-weight:800;font-size:1rem;color:#e8a000">هل تعلم؟</h4>
+        </div>
+        <div id="didYouKnow"></div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn btn-gold" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-quiz" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">✅</span>
+      <div><h3>الاختبار — Quiz</h3><div class="sub">١٠ أسئلة عن التكنولوجيا وجمل dass</div></div>
+    </div>
+    <div class="card-body">
+      <div id="quizContainer"></div>
+      <div style="display:flex;justify-content:center;gap:12px;margin-top:20px">
+        <button class="btn btn-dark" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn btn-gray" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizResult" style="display:none;text-align:center;padding:20px;margin-top:16px;border-radius:14px">
+        <div style="font-size:2.5rem;margin-bottom:8px" id="quizEmoji">🎉</div>
+        <div style="font-weight:800;font-size:1.1rem;color:#1a1a1a;margin-bottom:4px" id="quizScore"></div>
+        <div style="font-size:0.9rem;color:#6b7280" id="quizMsg"></div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:28px;background:white;border-radius:18px;box-shadow:0 4px 24px rgba(0,0,0,0.07)">
+    <div class="flag-strip" style="height:4px;margin:-28px -28px 20px;border-radius:18px 18px 0 0"></div>
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:#1a1a1a;margin-bottom:6px">Ausgezeichnet! أكملت الوحدة السادسة والعشرين!</div>
+    <p style="font-size:0.9rem;color:#6b7280;margin-bottom:16px">الوحدة السابعة والعشرون: البيئة والاستدامة — Umwelt &amp; Nachhaltigkeit</p>
+    <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+      <a href="de_unit25_feste.html" class="btn btn-gray" style="text-decoration:none;display:inline-block">← الوحدة الخامسة والعشرون</a>
+      <a href="de_unit27_umwelt.html" class="btn btn-dark" style="text-decoration:none;display:inline-block">الوحدة السابعة والعشرون ←</a>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var vocab = [
+  {de:"der Computer",   pron:"در كومپيوتِر",   ar:"الحاسوب", exShow:"Mein Computer ist sehr schnell.", exAr:"حاسوبي سريع جداً."},
+  {de:"das Handy",      pron:"داس هِندي",       ar:"الموبايل", exShow:"Ich benutze mein Handy oft.", exAr:"أستخدم موبايلي كثيراً."},
+  {de:"das Internet",   pron:"داس إنتِرنِت",    ar:"الإنترنت", exShow:"Das Internet ist sehr nützlich.", exAr:"الإنترنت مفيد جداً."},
+  {de:"die E-Mail",     pron:"دى إي-ميل",       ar:"البريد الإلكتروني", exShow:"Ich schreibe eine E-Mail.", exAr:"أكتب رسالة إلكترونية."},
+  {de:"die Webseite",   pron:"دى ويب-زايته",    ar:"الموقع الإلكتروني", exShow:"Diese Webseite ist sehr informativ.", exAr:"هذا الموقع غني بالمعلومات."},
+  {de:"herunterladen",  pron:"هيرونتِر-لادِن",   ar:"يحمّل (تنزيل)", exShow:"Ich lade eine App herunter.", exAr:"أنزّل تطبيقاً."},
+  {de:"hochladen",      pron:"هوخ-لادِن",       ar:"يحمّل (رفع)", exShow:"Sie lädt Fotos hoch.", exAr:"هي ترفع صوراً."},
+  {de:"die App",        pron:"دى آپ",           ar:"التطبيق", exShow:"Diese App ist sehr praktisch.", exAr:"هذا التطبيق عملي جداً."},
+  {de:"das Passwort",   pron:"داس پاسوورت",     ar:"كلمة السر", exShow:"Ich habe mein Passwort vergessen.", exAr:"نسيت كلمة السر."},
+  {de:"das WLAN",       pron:"داس فيلان",       ar:"الواي فاي", exShow:"Das WLAN funktioniert nicht.", exAr:"الواي فاي لا يعمل."},
+  {de:"der Akku",       pron:"در آكو",          ar:"البطارية", exShow:"Mein Akku ist fast leer.", exAr:"بطاريتي شبه فارغة."},
+  {de:"aufladen",       pron:"آوف-لادِن",       ar:"يشحن", exShow:"Ich muss mein Handy aufladen.", exAr:"يجب أن أشحن موبايلي."},
+  {de:"anrufen",        pron:"آن-روفِن",        ar:"يتصل", exShow:"Kannst du mich später anrufen?", exAr:"هل يمكنك الاتصال بي لاحقاً؟"},
+  {de:"die Nachricht",  pron:"دى ناخريشت",      ar:"الرسالة", exShow:"Ich habe eine neue Nachricht.", exAr:"لدي رسالة جديدة."},
+  {de:"das soziale Netzwerk", pron:"داس زوتسياله نِتسفِرك", ar:"الشبكة الاجتماعية", exShow:"Ich benutze viele soziale Netzwerke.", exAr:"أستخدم شبكات اجتماعية كثيرة."},
+  {de:"teilen",         pron:"تايلِن",          ar:"يشارك", exShow:"Ich teile das Foto mit Freunden.", exAr:"أشارك الصورة مع الأصدقاء."},
+  {de:"speichern",      pron:"شپايشِرن",        ar:"يحفظ", exShow:"Hast du die Datei gespeichert?", exAr:"هل حفظت الملف؟"},
+  {de:"loeschen",       pron:"لوشِن",           ar:"يحذف", display:"löschen", exShow:"Ich lösche alte Nachrichten.", exAr:"أحذف الرسائل القديمة."},
+  {de:"das Foto",       pron:"داس فوتو",        ar:"الصورة", exShow:"Das Foto ist sehr schön.", exAr:"الصورة جميلة جداً."},
+  {de:"surfen",         pron:"زورفِن",          ar:"يتصفّح", exShow:"Ich surfe gern im Internet.", exAr:"أحب التصفّح في الإنترنت."}
+];
+
+var dassData = [
+  {verb:"glauben", meaning:"يعتقد", example:"Ich glaube, dass...ist."},
+  {verb:"denken", meaning:"يفكّر / يظن", example:"Ich denke, dass...gut ist."},
+  {verb:"finden", meaning:"يجد / يرى", example:"Ich finde, dass...wichtig ist."},
+  {verb:"hoffen", meaning:"يأمل", example:"Ich hoffe, dass...funktioniert."},
+  {verb:"wissen", meaning:"يعرف", example:"Ich weiß, dass...stimmt."}
+];
+
+var dassExamples = [
+  {num:"1️⃣", de:"Ich glaube, dass das Internet wichtig ist.", note:"جملة بسيطة — رأي واحد"},
+  {num:"2️⃣", de:"Ich finde, dass Handys zu viel Zeit nehmen.", note:"رأي بفعل آخر (finden)"},
+  {num:"3️⃣", de:"Ich denke, dass Technologie nützlich ist, aber ich glaube, dass man eine Pause braucht.", note:"جملة كاملة برأيين متناقضين معاً"}
+];
+
+var techFragen = [
+  {q:"Was machst du oft im Internet?", model:"Ich surfe oft im Internet und schreibe E-Mails.", pron:"فاس ماخست دو أوفت إم إنتِرنِت", ar:"ماذا تفعل كثيراً في الإنترنت؟"},
+  {q:"Glaubst du, dass Technologie wichtig ist?", model:"Ja, ich glaube, dass Technologie sehr wichtig ist.", pron:"غلاوبست دو داس تيشنولوجي فيشتيغ إست", ar:"هل تعتقد أن التكنولوجيا مهمة؟"},
+  {q:"Wie oft lädst du dein Handy auf?", model:"Ich lade mein Handy jeden Tag auf.", pron:"في أوفت لادست دو داين هِندي آوف", ar:"كم مرة تشحن موبايلك؟"}
+];
+
+var storyData = [
+  {spk:"F", de:"Lena, glaubst du, dass das Internet unser Leben einfacher macht?", display:"Lena, glaubst du, dass das Internet unser Leben einfacher macht?", ar:"لينا، هل تعتقدين أن الإنترنت يجعل حياتنا أسهل؟"},
+  {spk:"L", de:"Ja, ich glaube, dass das Internet sehr hilfreich ist.", display:"Ja, ich glaube, dass das Internet sehr hilfreich ist.", ar:"نعم، أعتقد أن الإنترنت مفيد جداً."},
+  {spk:"F", de:"Ich denke auch, dass man viel lernen kann.", display:"Ich denke auch, dass man viel lernen kann.", ar:"أنا أيضاً أظن أن المرء يمكنه تعلّم كثير."},
+  {spk:"L", de:"Genau! Ich finde, dass Apps zum Deutschlernen super sind.", display:"Genau! Ich finde, dass Apps zum Deutschlernen super sind.", ar:"بالضبط! أرى أن تطبيقات تعلّم الألمانية رائعة."},
+  {spk:"F", de:"Aber ich glaube, dass wir auch Pausen brauchen.", display:"Aber ich glaube, dass wir auch Pausen brauchen.", ar:"لكني أعتقد أننا نحتاج أيضاً للاستراحة."},
+  {spk:"L", de:"Stimmt! Ich finde, dass zu viel Handy nicht gut ist.", display:"Stimmt! Ich finde, dass zu viel Handy nicht gut ist.", ar:"صحيح! أرى أن كثرة الموبايل ليست جيدة."},
+  {spk:"F", de:"Wie oft surfst du im Internet?", display:"Wie oft surfst du im Internet?", ar:"كم مرة تتصفحين الإنترنت؟"},
+  {spk:"L", de:"Ich surfe jeden Tag, aber nicht zu lange.", display:"Ich surfe jeden Tag, aber nicht zu lange.", ar:"أتصفح كل يوم، لكن ليس طويلاً."},
+  {spk:"F", de:"Ich hoffe, dass mein Handy bald aufgeladen ist.", display:"Ich hoffe, dass mein Handy bald aufgeladen ist.", ar:"آمل أن موبايلي مشحون قريباً."},
+  {spk:"L", de:"Hast du eine Powerbank dabei?", display:"Hast du eine Powerbank dabei?", ar:"هل لديك شاحن محمول معك؟"},
+  {spk:"F", de:"Nein, aber ich weiß, dass es hier eine Steckdose gibt.", display:"Nein, aber ich weiß, dass es hier eine Steckdose gibt.", ar:"لا، لكني أعرف أن هناك مقبساً هنا."},
+  {spk:"L", de:"Perfekt! Dann können wir weiter surfen.", display:"Perfekt! Dann können wir weiter surfen.", ar:"ممتاز! إذن يمكننا الاستمرار في التصفّح."}
+];
+
+var listenData = [
+  {icon:"📱", name:"Nicos Weg A2 Folge 29 — Immer und überall", channel:"Deutsche Welle (DW) — رسمي", desc:"حلقة DW رسمية من وحدة 'الحياة الرقمية' عن استخدام الهاتف", url:"https://www.youtube.com/watch?v=YMUUh71lMb0", tag:"DW رسمي"},
+  {icon:"🌐", name:"Nicos Weg A2 Folge 30 — Das Internet", channel:"Deutsche Welle (DW)", desc:"حلقة DW عن الإنترنت في الحياة اليومية", url:"https://www.youtube.com/watch?v=xuVnMMMztx0", tag:"DW الإنترنت"},
+  {icon:"💻", name:"Deutsch lernen: Computer / digitale Kommunikation / Internet", channel:"Deutsch lernen — مفردات", desc:"مفردات شاملة عن الحاسوب والتواصل الرقمي بأمثلة جمل", url:"https://www.youtube.com/watch?v=twBStoKFvFc", tag:"مفردات شاملة"},
+  {icon:"⌨️", name:"Computerwortschatz — Deutsch lernen A1-B1", channel:"Deutsch lernen — Computer", desc:"مفردات الحاسوب المتخصصة لمستويات A1 إلى B1", url:"https://www.youtube.com/watch?v=8b8hKHyd83Y", tag:"مفردات A1-B1"}
+];
+
+var writingFields = [
+  {id:"wuse",   prefix:"Ich glaube, dass Technologie", suffix:".", label:"رأيي بالتكنولوجيا", modelDe:"Ich glaube, dass Technologie sehr nützlich ist.", modelAr:"أعتقد أن التكنولوجيا مفيدة جداً."},
+  {id:"wapp",   prefix:"Meine Lieblingsapp ist",  suffix:".",   label:"تطبيقي المفضل", modelDe:"Meine Lieblingsapp ist eine Lern-App.", modelAr:"تطبيقي المفضل هو تطبيق تعلّم."},
+  {id:"woften", prefix:"Ich benutze mein Handy",  suffix:"Stunden am Tag.", label:"كم ساعة أستخدم موبايلي", modelDe:"Ich benutze mein Handy drei Stunden am Tag.", modelAr:"أستخدم موبايلي ثلاث ساعات باليوم."},
+  {id:"wfind",  prefix:"Ich finde, dass das Internet", suffix:".", label:"رأيي بالإنترنت", modelDe:"Ich finde, dass das Internet wichtig ist.", modelAr:"أرى أن الإنترنت مهم."}
+];
+
+var speakingQs = [
+  {q:"Glaubst du, dass das Internet wichtig ist?", model:"Ja, ich glaube, dass das Internet sehr wichtig ist.", modelAr:"نعم، أعتقد أن الإنترنت مهم جداً.", ar:"هل تعتقد أن الإنترنت مهم؟"},
+  {q:"Wie viele Stunden benutzt du dein Handy?", model:"Ich benutze mein Handy etwa drei Stunden.", modelAr:"أستخدم موبايلي حوالي ثلاث ساعات.", ar:"كم ساعة تستخدم موبايلك؟"},
+  {q:"Was machst du am liebsten im Internet?", model:"Ich surfe am liebsten und schreibe E-Mails.", modelAr:"أحب التصفّح وكتابة الرسائل أكثر.", ar:"ماذا تحب أن تفعل في الإنترنت أكثر؟"},
+  {q:"Findest du, dass Apps nützlich sind?", model:"Ja, ich finde, dass Apps sehr nützlich sind.", modelAr:"نعم، أرى أن التطبيقات مفيدة جداً.", ar:"هل تجد أن التطبيقات مفيدة؟"},
+  {q:"Hast du oft Probleme mit dem WLAN?", model:"Manchmal, aber nicht oft.", modelAr:"أحياناً، لكن ليس كثيراً.", ar:"هل تواجه مشاكل مع الواي فاي كثيراً؟"}
+];
+
+var realDE = [
+  {expr:"Ich habe keinen Akku mehr!", pron:"إخ هابه كاينِن آكو مير", meaning:"بطاريتي ماتت! / لا بطارية لدي!", formal:"Mein Akku ist leer.", example:"Sorry, ich habe keinen Akku mehr, ich rufe später an!", exampleAr:"عذراً، بطاريتي ماتت، سأتصل لاحقاً!", note:"جملة يومية شائعة جداً عند انتهاء شحن الهاتف"},
+  {expr:"Das geht viral!", pron:"داس غيت فايرال", meaning:"هذا ينتشر بسرعة! (مستعار من الإنجليزية)", formal:"Das verbreitet sich sehr schnell online.", example:"Dieses Video geht total viral!", exampleAr:"هذا الفيديو ينتشر بسرعة كبيرة!", note:"تعبير حديث ومستعار يستخدمه الشباب الألماني كثيراً على الإنترنت"},
+  {expr:"Ich bin offline.", pron:"إخ بين أوفلاين", meaning:"أنا غير متصل بالإنترنت / لست متاحاً.", formal:"Ich habe keine Internetverbindung.", example:"Sorry, ich war den ganzen Tag offline.", exampleAr:"عذراً، كنت غير متصل طوال اليوم.", note:"كلمة إنجليزية مستعارة شائعة جداً بالألمانية اليومية"}
+];
+
+var didYouKnow = [
+  {flag:"🇩🇪", fact:"الألمان معروفون بحساسيتهم الشديدة حول <strong>حماية البيانات (Datenschutz)</strong> — قوانين الخصوصية في ألمانيا من الأكثر صرامة في العالم."},
+  {flag:"📶", fact:"بعض المناطق الريفية في ألمانيا لا تزال تعاني من <strong>ضعف تغطية الإنترنت</strong> — مفاجأة لكثيرين يتوقعون تقنية متطورة في كل مكان."},
+  {flag:"💬", fact:"الألمان يستخدمون كلمات إنجليزية كثيرة جداً في مجال التكنولوجيا (<strong>downloaden, chillen, liken</strong>) — ظاهرة لغوية تسمى Denglisch (دمج الألمانية والإنجليزية)."}
+];
+
+var quizData = [
+  {q:"بعد 'dass'، الفعل المُصرَّف يذهب إلى ___", opts:["أول الجملة","وسط الجملة","آخر الجملة","لا يتغيّر"], ans:2},
+  {q:"'Ich glaube, dass das Internet wichtig ___.' (الفعل المفقود)", opts:["ist gut","ist","gut ist","wichtig"], ans:1},
+  {q:"ما معنى 'herunterladen'؟", opts:["يرفع","يحذف","يحمّل (تنزيل)","يحفظ"], ans:2},
+  {q:"كيف تقول 'كلمة السر' بالألمانية؟", opts:["das WLAN","das Passwort","der Akku","die App"], ans:1},
+  {q:"'Ich habe keinen Akku mehr!' تعني ___", opts:["بطاريتي ممتازة","بطاريتي ماتت!","لا أملك هاتفاً","أحب البطارية"], ans:1},
+  {q:"كيف تقول 'يتصفّح' بالألمانية؟", opts:["speichern","löschen","surfen","teilen"], ans:2},
+  {q:"أي فعل من هذه لا يأخذ dass؟", opts:["glauben","denken","finden","gehen"], ans:3},
+  {q:"'Das geht viral!' معناها ___", opts:["هذا ممل","هذا ينتشر بسرعة!","هذا بطيء","هذا قديم"], ans:1},
+  {q:"كيف تقول 'يشارك' بالألمانية؟", opts:["teilen","löschen","speichern","surfen"], ans:0},
+  {q:"كلمة 'Denglisch' تشير إلى ___", opts:["لغة دنماركية","دمج الألمانية والإنجليزية","لهجة قديمة","برمجة"], ans:1}
+];
+
+var spdRate = 0.9;
+var storyRef = {on:false, spd:0.9};
+function speak(text, rate, lang) {
+  if (!window.speechSynthesis) return null;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = lang || "de-DE"; u.rate = rate || spdRate;
+  window.speechSynthesis.speak(u); return u;
+}
+function setSpd(r, btn) {
+  spdRate = r; storyRef.spd = r;
+  var spds = document.querySelectorAll(".spd");
+  for (var i=0;i<spds.length;i++) spds[i].classList.remove("active");
+  btn.classList.add("active");
+  if (storyRef.on) { stopStory(); setTimeout(startStory, 80); }
+}
+
+function buildVocab() {
+  var h = [];
+  for (var i=0;i<vocab.length;i++) {
+    var v = vocab[i];
+    var shown = v.display || v.de;
+    h.push('<div class="vocab-block">' +
+      '<div class="vocab-row ' + (i%2===0?"even":"odd") + '">' +
+        '<span class="v-de">' + shown + "</span>" +
+        '<span class="v-pron">' + v.pron + "</span>" +
+        '<span class="v-ar">' + v.ar + "</span>" +
+        '<button class="play-btn idle" id="vb' + i + '" onclick="playVocab(' + i + ')">🔊</button>' +
+      "</div>" +
+      '<div class="ex-row">' +
+        '<span class="ex-icon">💬</span>' +
+        '<div class="ex-text-wrap">' +
+          '<div class="ex-de">' + v.exShow + "</div>" +
+          '<div class="ex-ar">' + v.exAr + "</div>" +
+        "</div>" +
+        '<button class="mini-btn" onclick="playExample(' + i + ')">🔊</button>' +
+      "</div>" +
+    "</div>");
+  }
+  document.getElementById("vocabGrid").innerHTML = h.join("");
+}
+function playVocab(idx) {
+  document.querySelectorAll(".play-btn").forEach(function(b){ b.className="play-btn idle"; b.textContent="🔊"; });
+  var btn = document.getElementById("vb" + idx);
+  if (btn) { btn.className = "play-btn playing"; btn.textContent = "⏸"; }
+  var v = vocab[idx];
+  var u = speak(v.display || v.de, spdRate, "de-DE");
+  if (u) u.onend = function(){ if (btn){ btn.className="play-btn idle"; btn.textContent="🔊"; } };
+}
+function playExample(idx) { speak(vocab[idx].exShow, spdRate, "de-DE"); }
+
+function buildDassTable() {
+  var h = [];
+  for (var i=0;i<dassData.length;i++) {
+    var d = dassData[i];
+    h.push("<tr><td style=\"font-weight:700;color:#1a56b0\">" + d.verb + "</td><td style=\"font-size:0.85rem;color:#6b7280\">" + d.meaning + "</td><td style=\"direction:ltr;font-family:Lora,serif;font-size:0.88rem\">" + d.example + "</td></tr>");
+  }
+  document.getElementById("dassTable").innerHTML = h.join("");
+}
+
+function buildDassExamples() {
+  var h = [];
+  for (var i=0;i<dassExamples.length;i++) {
+    var ex = dassExamples[i];
+    h.push('<div class="example-row">' +
+      '<div style="flex:1">' +
+        '<div style="font-family:Lora,serif;direction:ltr;font-size:0.92rem;color:#1a1a1a;margin-bottom:4px">' + ex.num + " " + ex.de + "</div>" +
+        '<div style="font-size:0.82rem;color:#6b7280;text-align:right">' + ex.note + "</div>" +
+      "</div>" +
+      '<button class="mini-btn" onclick="speak(\'' + ex.de.replace(/'/g,"\\'") + '\',spdRate,\'de-DE\')">🔊</button>' +
+    "</div>");
+  }
+  document.getElementById("dassExamples").innerHTML = h.join("");
+}
+
+function buildMiniQuiz() {
+  var h = [];
+  for (var i=0;i<miniQuizData.length;i++) {
+    var m = miniQuizData[i];
+    var opts = "";
+    for (var j=0;j<m.opts.length;j++) {
+      opts += '<button class="mq-opt" id="mqo' + i + "-" + j + '" onclick="checkMiniQuiz(' + i + "," + j + ')">' + m.opts[j] + "</button>";
+    }
+    h.push('<div class="mq-item">' +
+      '<div class="mq-q">' + (i+1) + ". " + m.sentence + "</div>" +
+      '<div class="mq-opts">' + opts + "</div>" +
+      '<div class="mq-fb" id="mqfb' + i + '"></div>' +
+    "</div>");
+  }
+  document.getElementById("miniQuiz").innerHTML = h.join("");
+}
+function checkMiniQuiz(qIdx, optIdx) {
+  var m = miniQuizData[qIdx];
+  var chosen = m.opts[optIdx];
+  for (var j=0;j<m.opts.length;j++) {
+    document.getElementById("mqo" + qIdx + "-" + j).classList.remove("correct","wrong");
+  }
+  var fb = document.getElementById("mqfb" + qIdx);
+  if (chosen === m.correct) {
+    document.getElementById("mqo" + qIdx + "-" + optIdx).classList.add("correct");
+    fb.textContent = "✅ صحيح! " + m.sentence.replace("___", m.correct);
+    fb.style.color = "#00643c";
+  } else {
+    document.getElementById("mqo" + qIdx + "-" + optIdx).classList.add("wrong");
+    var correctIdx = m.opts.indexOf(m.correct);
+    document.getElementById("mqo" + qIdx + "-" + correctIdx).classList.add("correct");
+    fb.textContent = "❌ خطأ — الصحيح: " + m.sentence.replace("___", m.correct);
+    fb.style.color = "#c0392b";
+  }
+  fb.classList.add("show");
+}
+
+function buildTechFragen() {
+  var h = [];
+  for (var i=0;i<techFragen.length;i++) {
+    var w = techFragen[i];
+    h.push('<div style="background:#f8faff;border-radius:10px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px">' +
+      '<div style="text-align:right;flex:1">' +
+        '<div style="font-family:Lora,serif;font-weight:700;color:#1a1a1a;direction:ltr;margin-bottom:3px">' + w.q + "</div>" +
+        '<div style="font-size:0.78rem;color:#e8a000;font-weight:700;margin-bottom:2px">' + w.pron + "</div>" +
+        '<div style="font-size:0.82rem;color:#6b7280">' + w.ar + ' ← <span style="font-family:Lora,serif;color:#00643c">' + w.model + "</span></div>" +
+      "</div>" +
+      '<button class="play-btn idle" onclick="playTechFrage(' + i + ')">🔊</button>' +
+    "</div>");
+  }
+  document.getElementById("techFragen").innerHTML = h.join("");
+}
+function playTechFrage(idx) { speak(techFragen[idx].q, spdRate, "de-DE"); }
+
+function buildStory() {
+  var h = [];
+  for (var i=0;i<storyData.length;i++) {
+    var line = storyData[i];
+    var name = line.spk === "F" ? "Felix" : "Lena";
+    h.push('<div class="dialog-line speaker-' + line.spk + '" id="sl' + i + '">' +
+      '<div class="dl-main">' +
+        '<span class="speaker-badge">' + name + "</span>" +
+        '<span class="dialog-text">' + line.display + "</span>" +
+        '<div class="dl-btns">' +
+          '<button class="dl-btn" onclick="playLine(' + i + ')" title="استمع">🔊</button>' +
+          '<button class="dl-btn dl-tr-btn" onclick="toggleTr(' + i + ')" title="الترجمة">🌐</button>' +
+        "</div>" +
+      "</div>" +
+      '<div id="tr' + i + '" class="dl-ar">' + line.ar + "</div>" +
+    "</div>");
+  }
+  document.getElementById("storyBox").innerHTML = h.join("");
+}
+function playLine(i) {
+  stopStory(); hlLine(i);
+  var u = speak(storyData[i].display, spdRate, "de-DE");
+  if (u) u.onend = function(){ hlLine(-1); };
+}
+function hlLine(i) {
+  document.querySelectorAll(".dialog-line").forEach(function(l){ l.classList.remove("hl"); });
+  if (i>=0) { var el=document.getElementById("sl"+i); if(el) el.classList.add("hl"); }
+}
+function toggleTr(i) {
+  var el = document.getElementById("tr"+i);
+  if (el) el.style.display = el.style.display==="block"?"none":"block";
+}
+var _trAll = false;
+function toggleAllTr() {
+  _trAll = !_trAll;
+  for (var i=0;i<storyData.length;i++) {
+    var el=document.getElementById("tr"+i);
+    if(el) el.style.display=_trAll?"block":"none";
+  }
+  var btn=document.getElementById("trAllBtn");
+  if(btn) btn.textContent=_trAll?"🙈 أخفِ الكل":"🌐 الترجمة";
+}
+function startStory() {
+  storyRef.on=true;
+  document.getElementById("storyBtn").style.background="#059669";
+  document.getElementById("sBtnIcon").textContent="⏹";
+  document.getElementById("sBtnTxt").textContent="إيقاف الحوار";
+  playSeq(0);
+}
+function stopStory() {
+  storyRef.on=false;
+  if(window.speechSynthesis) window.speechSynthesis.cancel();
+  hlLine(-1);
+  var btn=document.getElementById("storyBtn");
+  if(btn){ btn.style.background="#1a56b0";
+    document.getElementById("sBtnIcon").textContent="▶";
+    document.getElementById("sBtnTxt").textContent="استمع للحوار كاملاً"; }
+}
+function playSeq(i) {
+  if(!storyRef.on||i>=storyData.length){ stopStory(); return; }
+  hlLine(i);
+  var u=new SpeechSynthesisUtterance(storyData[i].display);
+  u.lang="de-DE"; u.rate=storyRef.spd;
+  u.onend=function(){ if(storyRef.on) setTimeout(function(){ playSeq(i+1); },380); };
+  if(window.speechSynthesis){ window.speechSynthesis.cancel(); window.speechSynthesis.speak(u); }
+}
+function toggleStory(){ storyRef.on?stopStory():startStory(); }
+
+function buildListening() {
+  var h = [];
+  for (var i=0;i<listenData.length;i++) {
+    var r = listenData[i];
+    h.push('<div class="listen-card"><span style="font-size:1.8rem;flex-shrink:0">' + r.icon + '</span><div style="flex:1;text-align:right"><div style="font-weight:700;font-size:0.95rem;color:#1a1a1a">' + r.name + '</div><div style="font-size:0.75rem;color:#e8a000;font-weight:700">' + r.channel + '</div><div style="font-size:0.82rem;color:#6b7280">' + r.desc + '</div></div><span style="background:#fef3c7;color:#92400e;font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap">' + r.tag + '</span><a class="listen-link" href="' + r.url + '" target="_blank" rel="noopener noreferrer">▶ افتح</a></div>');
+  }
+  document.getElementById("listenCards").innerHTML = h.join("");
+}
+
+function buildWriting() {
+  var h = [];
+  for (var i=0;i<writingFields.length;i++) {
+    var f = writingFields[i];
+    h.push('<div class="writing-line"><label>' + f.label + ':</label><span class="w-fixed" style="font-size:0.95rem;color:#6b7280">' + f.prefix + '</span><input class="w-input" id="' + f.id + '" placeholder="اكتب هنا..." oninput="updatePreview()"><span class="w-fixed" style="color:#6b7280">' + f.suffix + "</span></div>");
+    h.push('<button class="wf-model-btn" onclick="toggleWModel(' + i + ')">📝 <span id="wfLabel' + i + '">نموذج للإجابة</span></button>');
+    h.push('<div class="wf-model-box" id="wfModel' + i + '"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-direction:row-reverse"><div class="wf-model-de" style="margin-bottom:0">' + f.modelDe + '</div><button class="mini-btn" onclick="playWModel(' + i + ')">🔊</button></div><div class="wf-model-ar">' + f.modelAr + "</div></div>");
+  }
+  document.getElementById("writingForm").innerHTML = h.join("");
+}
+function playWModel(idx) { speak(writingFields[idx].modelDe, spdRate, "de-DE"); }
+function toggleWModel(idx) {
+  var box = document.getElementById("wfModel" + idx);
+  var label = document.getElementById("wfLabel" + idx);
+  if (!box) return;
+  var isOpen = box.style.display === "block";
+  box.style.display = isOpen ? "none" : "block";
+  if (label) label.textContent = isOpen ? "نموذج للإجابة" : "أخفِ النموذج";
+}
+function updatePreview() {
+  var lines = [];
+  for (var i=0;i<writingFields.length;i++) {
+    var f = writingFields[i];
+    var inp = document.getElementById(f.id);
+    var val = inp ? inp.value.trim() : "";
+    if (val) lines.push(f.prefix + " <strong>" + val + "</strong> " + f.suffix);
+  }
+  document.getElementById("writingPreview").innerHTML = lines.length
+    ? '<div style="font-family:Lora,serif;font-size:1rem;line-height:2.4;direction:ltr;color:#1a1a1a">' + lines.join("<br>") + "</div>"
+    : '<p style="color:#9ca3af;font-size:0.88rem;text-align:center;margin-top:10px">✨ سيظهر نصك هنا...</p>';
+}
+
+function buildSpeaking() {
+  var h = [];
+  for (var i=0;i<speakingQs.length;i++) {
+    var q = speakingQs[i];
+    h.push('<div class="speaking-block">' +
+      '<div class="sq-question">' +
+        '<div>' +
+          '<div class="sq-ar">' + (i+1) + ". " + q.ar + '</div>' +
+          '<div class="sq-de">' + q.q + '</div>' +
+        '</div>' +
+        '<button class="play-btn idle" style="flex-shrink:0" onclick="playSpeakingQ(' + i + ')">🔊</button>' +
+      '</div>' +
+      '<div class="sq-model-box">' +
+        '<div>' +
+          '<div class="sq-model-label">✅ نموذج الإجابة</div>' +
+          '<div class="sq-model-de">' + q.model + '</div>' +
+          '<div class="sq-model-ar">' + q.modelAr + '</div>' +
+        '</div>' +
+        '<button class="mini-btn" onclick="playSpeakingModel(' + i + ')">🔊</button>' +
+      '</div>' +
+    '</div>');
+  }
+  document.getElementById("speakingQs").innerHTML = h.join("");
+}
+function playSpeakingQ(idx) { speak(speakingQs[idx].q, spdRate, "de-DE"); }
+function playSpeakingModel(idx) { speak(speakingQs[idx].model, spdRate, "de-DE"); }
+
+function buildRealDE() {
+  var h = [];
+  for (var i=0;i<realDE.length;i++) {
+    var e = realDE[i];
+    h.push('<div class="rd-card">' +
+      '<div class="rd-head">' +
+        '<div class="rd-expr-wrap">' +
+          '<span class="rd-expr">' + e.expr + "</span>" +
+          '<span class="rd-pron">' + e.pron + "</span>" +
+        "</div>" +
+        '<button class="play-btn idle" style="width:32px;height:32px;font-size:0.85rem;flex-shrink:0" onclick="playRealDE(' + i + ')">🔊</button>' +
+      "</div>" +
+      '<div class="rd-meaning">' + e.meaning + "</div>" +
+      '<div class="rd-ex-row">' +
+        '<span class="rd-ex-de">' + e.example + "</span>" +
+        '<button class="mini-btn" onclick="playRealDE(' + i + ')">🔊</button>' +
+        '<button class="mini-btn" onclick="toggleRdEx(' + i + ')">🌐</button>' +
+      "</div>" +
+      '<div class="rd-ex-ar" id="rdExBox' + i + '">' + e.exampleAr + "</div>" +
+      '<div class="rd-note">💡 ' + e.note + "</div>" +
+    "</div>");
+  }
+  document.getElementById("realDeContainer").innerHTML = h.join("");
+  var dy = [];
+  for (var k=0;k<didYouKnow.length;k++) {
+    var f = didYouKnow[k];
+    dy.push('<div style="display:flex;align-items:flex-start;gap:12px;background:linear-gradient(135deg,#fffdf0,#fef3c7);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:14px 18px;margin-bottom:10px;flex-direction:row-reverse">' +
+      '<span style="font-size:1.4rem;flex-shrink:0">' + f.flag + "</span>" +
+      '<p style="font-size:0.92rem;line-height:1.8;color:#374151;text-align:right">' + f.fact + "</p>" +
+    "</div>");
+  }
+  document.getElementById("didYouKnow").innerHTML = dy.join("");
+}
+function playRealDE(idx) { speak(realDE[idx].expr, spdRate, "de-DE"); }
+function toggleRdEx(idx) {
+  var box = document.getElementById("rdExBox" + idx);
+  if (!box) return;
+  box.style.display = box.style.display === "block" ? "none" : "block";
+}
+
+var quizAnswers = new Array(quizData.length).fill(null);
+function buildQuiz() {
+  var h = [];
+  for (var qi=0;qi<quizData.length;qi++) {
+    var q = quizData[qi];
+    var opts = "";
+    for (var oi=0;oi<q.opts.length;oi++) {
+      var opt = q.opts[oi];
+      var dir = /[\u0600-\u06FF]/.test(opt) ? "rtl" : "ltr";
+      opts += '<div class="quiz-opt" id="qo' + qi + "-" + oi + '" onclick="selectOpt(' + qi + "," + oi + ')"><span style="font-family:Lora,serif;font-size:0.95rem;direction:' + dir + '">' + opt + "</span></div>";
+    }
+    var qDir = /[\u0600-\u06FF]/.test(q.q) ? "rtl" : "ltr";
+    h.push('<div class="quiz-q"><p style="direction:' + qDir + '">' + (qi+1) + ". " + q.q + '</p><div class="quiz-opts">' + opts + "</div></div>");
+  }
+  document.getElementById("quizContainer").innerHTML = h.join("");
+}
+function selectOpt(qi, oi) {
+  quizAnswers[qi] = oi;
+  for (var i=0;i<quizData[qi].opts.length;i++) {
+    var el = document.getElementById("qo" + qi + "-" + i);
+    if (el) { el.classList.remove("correct","wrong"); el.style.borderColor = ""; }
+  }
+  var sel = document.getElementById("qo" + qi + "-" + oi);
+  if (sel) sel.style.borderColor = "#1a1a1a";
+}
+function checkQuiz() {
+  var score = 0;
+  for (var qi=0;qi<quizData.length;qi++) {
+    var q = quizData[qi];
+    for (var i=0;i<q.opts.length;i++) {
+      var el = document.getElementById("qo" + qi + "-" + i);
+      if (!el) continue;
+      el.classList.remove("correct","wrong");
+      if (i === q.ans) el.classList.add("correct");
+      else if (quizAnswers[qi] === i) el.classList.add("wrong");
+    }
+    if (quizAnswers[qi] === q.ans) score++;
+  }
+  var res = document.getElementById("quizResult");
+  var pct = Math.round(score / quizData.length * 100);
+  res.style.display = "block";
+  document.getElementById("quizEmoji").textContent = pct===100?"🏆":pct>=75?"🎉":pct>=50?"💪":"📚";
+  document.getElementById("quizScore").textContent = score + " من " + quizData.length + " (" + pct + "%)";
+  document.getElementById("quizMsg").textContent = pct===100 ? "Ausgezeichnet! جاهز/ة للوحدة السابعة والعشرين!" : pct>=75 ? "Sehr gut! راجع الخاطئة." : pct>=50 ? "Gut! راجع ترتيب الفعل بعد dass." : "Noch einmal! راجع الوحدة كاملة.";
+  res.style.background = pct >= 75 ? "#f0fdf4" : "#fef9f0";
+  res.scrollIntoView({behavior:"smooth", block:"center"});
+}
+function resetQuiz() {
+  quizAnswers = new Array(quizData.length).fill(null);
+  document.querySelectorAll(".quiz-opt").forEach(function(el){ el.classList.remove("correct","wrong"); el.style.borderColor=""; });
+  document.getElementById("quizResult").style.display = "none";
+}
+
+function show(id, clickedBtn) {
+  document.querySelectorAll(".section-content").forEach(function(s){ s.classList.remove("active","fade-up"); });
+  var target = document.getElementById("sec-" + id);
+  target.classList.add("active");
+  setTimeout(function(){ target.classList.add("fade-up"); }, 10);
+  window.scrollTo({top:0, behavior:"smooth"});
+  document.querySelectorAll(".nav-btn").forEach(function(b){ b.classList.remove("active"); });
+  if (clickedBtn) { clickedBtn.classList.add("active"); return; }
+  var map = {vocab:0, story:1, grammar:2, listen:3, writing:4, speaking:5, realde:6, quiz:7};
+  var btns = document.querySelectorAll(".nav-btn");
+  if (btns[map[id]] !== undefined) btns[map[id]].classList.add("active");
+}
+
+var miniQuizData = [
+  {sentence:"Ich glaube, dass das Internet wichtig ___. (الفعل أين؟)", correct:"ist", opts:["ist wichtig","wichtig","ist","ist gut"]},
+  {sentence:"Ich finde, dass Handys nützlich ___.", correct:"sind", opts:["sind","ist","sein","wird"]},
+  {sentence:"Ich denke, dass die App gut ___.", correct:"funktioniert", opts:["funktioniert gut","funktioniert","gut funktioniert","ist funktioniert"]}
+];
+
+buildVocab();
+buildDassTable();
+buildDassExamples();
+buildMiniQuiz();
+buildTechFragen();
+buildStory();
+buildListening();
+buildWriting();
+buildSpeaking();
+buildRealDE();
+buildQuiz();
+</script>
+</body>
+</html>

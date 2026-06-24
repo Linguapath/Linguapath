@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaPath Deutsch — الوحدة ٢٩: التخطيط للسفر</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-thumb{background:#c0392b;border-radius:3px}
+body{font-family:'Tajawal',sans-serif;background:#f4f1ec;min-height:100vh;direction:rtl}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,100,60,0.4)}50%{box-shadow:0 0 0 8px rgba(0,100,60,0)}}
+.fade-up{animation:fadeUp 0.45s ease forwards}
+.nav-btn{transition:all 0.2s;border:none;cursor:pointer;font-family:'Tajawal',sans-serif;border-radius:30px;padding:7px 16px;font-size:0.82rem;font-weight:600}
+.nav-btn.active{background:#e8a000;color:#1a1a1a;font-weight:800}
+.nav-btn:not(.active){background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.85)}
+.section-content{display:none;max-width:880px;margin:0 auto;padding:36px 16px 80px}
+.section-content.active{display:block}
+.card{background:white;border-radius:18px;box-shadow:0 4px 28px rgba(0,0,0,0.07);margin-bottom:24px;overflow:hidden}
+.card-header{background:#1a1a1a;color:white;padding:14px 22px;display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.card-header h3{font-size:1.05rem;font-weight:700}
+.card-header .sub{font-size:0.78rem;color:#fcd34d;margin-top:1px}
+.card-body{padding:24px}
+
+.vocab-block{border:1px solid #e5eaf5;border-radius:12px;margin-bottom:8px;overflow:hidden}
+.vocab-row{display:grid;grid-template-columns:1fr 1fr 1fr 42px;align-items:center;gap:10px;padding:11px 16px}
+.vocab-row.even{background:#fafafa}
+.vocab-row.odd{background:#fff}
+.vocab-header{background:#1a1a1a !important;border-radius:12px}
+.v-de{font-family:Lora,serif;font-weight:700;font-size:1rem;color:#1a1a1a;direction:ltr;text-align:left}
+.v-pron{font-size:0.88rem;color:#e8a000;font-weight:700;direction:rtl;text-align:right}
+.v-ar{font-size:0.97rem;font-weight:700;color:#374151;text-align:right}
+.vocab-header .v-de,.vocab-header .v-pron,.vocab-header .v-ar{color:white;font-family:'Tajawal',sans-serif;font-weight:700}
+.ex-row{padding:10px 16px;background:#fafafa;border-top:1px dashed #e5e7eb;display:flex;align-items:center;gap:8px}
+.ex-icon{font-size:0.9rem;flex-shrink:0;color:#9ca3af}
+.ex-text-wrap{flex:1}
+.ex-de{font-family:Lora,serif;font-size:0.9rem;color:#1a1a1a;direction:ltr;font-style:italic;margin-bottom:3px}
+.ex-ar{font-size:0.82rem;color:#9ca3af;text-align:right}
+.mini-btn{width:26px;height:26px;border-radius:7px;border:1.5px solid #e5e7eb;background:white;cursor:pointer;font-size:0.72rem;display:flex;align-items:center;justify-content:center;color:#9ca3af;flex-shrink:0}
+.mini-btn:hover{border-color:#1a56b0;background:#f0f7ff;color:#1a56b0}
+
+.play-btn{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.18s;flex-shrink:0}
+.play-btn.idle{background:#e8f0fe;color:#1a56b0}
+.play-btn.idle:hover{background:#1a56b0;color:white;transform:scale(1.1)}
+.play-btn.playing{background:#00643c;color:white;animation:pulse 1s infinite}
+
+.story-controls{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap;flex-direction:row-reverse}
+.story-main-btn{display:flex;align-items:center;gap:8px;border:none;border-radius:25px;padding:10px 22px;font-family:'Tajawal',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.2s;flex-direction:row-reverse}
+.speed-wrap{display:flex;align-items:center;gap:6px;flex-direction:row-reverse}
+.speed-wrap label{font-size:0.82rem;color:#6b7280;font-weight:600}
+.spd{padding:5px 11px;border-radius:20px;border:2px solid #d1d5db;background:white;font-family:'Tajawal',sans-serif;font-size:0.78rem;font-weight:700;cursor:pointer;color:#6b7280;transition:all 0.15s}
+.spd.active{border-color:#1a1a1a;background:#1a1a1a;color:white}
+.story-box{border-right:4px solid #e8a000;padding:16px 20px;background:#fffdf7;border-radius:0 12px 12px 0}
+.dialog-line{padding:10px 6px;border-bottom:1px solid #f5f5f5;transition:background 0.18s}
+.dialog-line:last-child{border-bottom:none}
+.dialog-line.hl{background:#fef3c7;border-radius:8px}
+.dl-main{display:flex;align-items:flex-start;gap:8px;direction:ltr}
+.speaker-badge{font-family:'Tajawal',sans-serif;font-size:0.72rem;font-weight:800;padding:3px 10px;border-radius:20px;flex-shrink:0;margin-top:3px;white-space:nowrap}
+.speaker-F .speaker-badge{background:#1a1a1a;color:#e8a000}
+.speaker-L .speaker-badge{background:#c0392b;color:white}
+.dialog-text{font-family:Lora,serif;font-size:0.95rem;line-height:1.8;color:#1a1a1a;flex:1;direction:ltr}
+.dl-btns{display:flex;gap:5px;flex-shrink:0;margin-top:2px}
+.dl-btn{width:28px;height:28px;border-radius:7px;border:1.5px solid #e5e7eb;background:white;cursor:pointer;font-size:0.78rem;display:flex;align-items:center;justify-content:center;transition:all 0.15s;color:#9ca3af}
+.dl-btn:hover{border-color:#1a56b0;background:#f0f7ff;color:#1a56b0}
+.dl-tr-btn:hover{border-color:#e8a000;background:#fef9e7;color:#b45309}
+.dl-ar{display:none;font-family:'Tajawal',sans-serif;font-size:0.87rem;color:#9ca3af;direction:rtl;text-align:right;padding:5px 52px 2px 0;line-height:1.6}
+
+.konj-table{width:100%;border-collapse:collapse;direction:ltr;margin-bottom:16px;font-family:Lora,serif}
+.konj-table th{background:#1a1a1a;color:white;padding:10px 14px;text-align:left;font-size:0.88rem}
+.konj-table td{padding:10px 14px;border-bottom:1px solid #f0f0f0;font-size:0.92rem}
+.konj-pronoun{color:#c0392b;font-weight:700}
+
+.gram-intro{background:#fffdf7;border-right:4px solid #e8a000;border-radius:0 12px 12px 0;padding:16px 20px;margin-bottom:22px}
+.gram-intro p{font-size:0.95rem;line-height:1.95;color:#374151;text-align:right}
+.gram-intro .ar-vs-de{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.gram-intro .lang-line{display:flex;align-items:center;gap:10px;background:white;border-radius:8px;padding:8px 14px;flex-direction:row-reverse}
+.lang-tag{font-size:0.72rem;font-weight:800;padding:2px 10px;border-radius:6px;flex-shrink:0}
+.lang-tag.ar{background:#fef3c7;color:#92400e}
+.lang-tag.de{background:#dbeafe;color:#1e40af}
+.lang-line .txt{font-family:Lora,serif;font-size:0.9rem;color:#1a1a1a}
+
+.step-builder{margin-bottom:24px}
+.step-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-direction:row-reverse}
+.step-num{width:26px;height:26px;border-radius:50%;background:#1a1a1a;color:white;font-size:0.78rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-piece{font-family:Lora,serif;font-size:1rem;font-weight:700;padding:6px 14px;border-radius:8px;direction:ltr}
+.step-piece.pronoun{background:#fef3c7;color:#92400e}
+.step-piece.verb{background:#d1fae5;color:#065f46}
+.step-piece.reflexive{background:#fce7f3;color:#9d174d}
+.step-piece.adj{background:#dbeafe;color:#1e40af}
+.step-label{font-size:0.82rem;color:#6b7280}
+.step-result{background:#1a1a1a;color:white;border-radius:10px;padding:12px 18px;margin-top:10px;font-family:Lora,serif;font-size:1.05rem;direction:ltr;text-align:center;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px}
+
+.mini-quiz{background:#f0f7ff;border-radius:12px;padding:16px 18px;margin-top:10px}
+.mini-quiz-title{font-weight:800;color:#1a56b0;font-size:0.92rem;margin-bottom:12px;text-align:right}
+.mq-item{margin-bottom:14px}
+.mq-q{font-family:Lora,serif;font-size:0.92rem;color:#1a1a1a;direction:ltr;margin-bottom:8px}
+.mq-opts{display:flex;gap:8px;flex-wrap:wrap;flex-direction:row-reverse}
+.mq-opt{background:white;border:2px solid #e5e7eb;border-radius:8px;padding:6px 16px;font-family:Lora,serif;font-size:0.88rem;cursor:pointer;transition:all 0.15s;direction:ltr}
+.mq-opt:hover{border-color:#1a56b0}
+.mq-opt.correct{border-color:#00643c;background:#ecfdf5;color:#00643c;font-weight:700}
+.mq-opt.wrong{border-color:#c0392b;background:#fef2f2;color:#c0392b}
+.mq-fb{font-size:0.82rem;margin-top:6px;text-align:right;display:none}
+.mq-fb.show{display:block}
+
+.mistakes-box{background:#fef3c7;border-right:4px solid #e8a000;border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:20px}
+.mistakes-box .title{font-weight:800;color:#1a1a1a;margin-bottom:10px;text-align:right}
+.mistake-line{display:flex;flex-direction:column;gap:4px;margin-bottom:10px;direction:ltr;font-family:Lora,serif;font-size:0.9rem}
+
+.example-row{background:#f8faff;border-radius:10px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px;margin-bottom:10px}
+
+.listen-card{display:flex;align-items:center;gap:14px;background:#f0f7ff;border:1px solid #bfdbfe;border-radius:12px;padding:14px 18px;margin-bottom:10px;flex-direction:row-reverse}
+.listen-link{background:#1a1a1a;color:white;border:none;border-radius:8px;padding:8px 16px;font-family:'Tajawal',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.2s;flex-shrink:0}
+.listen-link:hover{background:#c0392b}
+
+.writing-line{display:flex;align-items:center;gap:10px;margin-bottom:14px;direction:ltr;flex-wrap:wrap}
+.writing-line label{font-family:'Tajawal',sans-serif;font-size:0.88rem;color:#6b7280;direction:rtl;min-width:110px;text-align:right}
+.w-input{border:none;border-bottom:2px solid #e8a000;background:transparent;font-family:Lora,serif;font-size:1rem;color:#1a1a1a;outline:none;padding:3px 6px;min-width:100px;transition:border-color 0.2s}
+.w-input:focus{border-color:#1a1a1a}
+.w-fixed{font-family:Lora,serif;font-size:1rem;color:#1a1a1a;font-weight:600}
+
+.speaking-block{margin-bottom:18px}
+.sq-question{background:#f8faff;border-right:4px solid #1a56b0;border-radius:10px 10px 0 0;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px}
+.sq-ar{font-size:0.78rem;color:#9ca3af;margin-bottom:4px}
+.sq-de{font-family:Lora,serif;direction:ltr;font-weight:600;font-size:1rem}
+.sq-model-box{background:#ecfdf5;border-right:4px solid #00643c;border-radius:0 0 10px 10px;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px}
+.sq-model-label{font-size:0.76rem;color:#00643c;font-weight:800;margin-bottom:3px}
+.sq-model-de{font-family:Lora,serif;direction:ltr;font-size:0.95rem;color:#1a1a1a}
+.sq-model-ar{font-size:0.78rem;color:#9ca3af;text-align:right;margin-top:4px}
+
+.wf-model-btn{background:#dbeafe;color:#1e40af;border:none;border-radius:20px;padding:7px 18px;font-family:'Tajawal',sans-serif;font-size:0.82rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin:8px 0 4px}
+.wf-model-btn:hover{background:#bfdbfe}
+.wf-model-box{display:none;background:#f8faff;border-radius:10px;padding:10px 14px;margin-bottom:10px}
+.wf-model-de{font-family:Lora,serif;font-size:0.9rem;color:#1a1a1a;direction:ltr;margin-bottom:4px}
+.wf-model-ar{font-size:0.82rem;color:#6b7280;text-align:right}
+
+.rd-card{background:#fafafa;border:1px solid #e5eaf5;border-radius:12px;padding:16px 18px;margin-bottom:12px}
+.rd-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-direction:row-reverse}
+.rd-expr-wrap{display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+.rd-expr{font-family:Lora,serif;font-size:1.05rem;font-weight:700;color:#c0392b;direction:ltr}
+.rd-pron{color:#e8a000;font-weight:700;font-size:0.82rem}
+.rd-meaning{font-size:0.9rem;color:#374151;text-align:right;margin-bottom:12px;line-height:1.7}
+.rd-ex-row{display:flex;align-items:center;gap:6px;direction:ltr;background:white;border-radius:8px;padding:8px 12px}
+.rd-ex-de{font-family:Lora,serif;font-size:0.92rem;color:#1a1a1a;font-style:italic;flex:1}
+.rd-ex-ar{display:none;font-size:0.85rem;color:#9ca3af;text-align:right;margin-top:6px;padding:6px 12px;background:white;border-radius:8px}
+.rd-note{font-size:0.82rem;color:#c0392b;text-align:right;margin-top:8px}
+
+.quiz-q{margin-bottom:20px}
+.quiz-q p{font-size:0.97rem;font-weight:700;color:#1a1a1a;margin-bottom:10px;direction:ltr;font-family:Lora,serif}
+.quiz-opts{display:flex;flex-direction:column;gap:8px}
+.quiz-opt{display:flex;align-items:center;gap:10px;padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;cursor:pointer;transition:all 0.18s;flex-direction:row-reverse;text-align:right;background:white}
+.quiz-opt:hover{border-color:#1a56b0;background:#f0f7ff}
+.quiz-opt.correct{border-color:#00643c;background:#ecfdf5;color:#00643c}
+.quiz-opt.wrong{border-color:#c0392b;background:#fef2f2;color:#c0392b}
+.btn{border:none;border-radius:30px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:all 0.2s;padding:11px 28px;font-size:0.95rem}
+.btn:hover{opacity:0.88;transform:scale(0.98)}
+.btn-dark{background:#1a1a1a;color:white}
+.btn-gray{background:#e5e7eb;color:#374151}
+.btn-gold{background:#e8a000;color:#1a1a1a}
+.flag-strip{height:5px;background:linear-gradient(90deg,#1a1a1a 33%,#c0392b 33% 66%,#e8a000 66%)}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(90px);background:#1a1a1a;color:white;padding:12px 28px;border-radius:30px;font-size:0.95rem;font-weight:700;transition:transform 0.4s ease;z-index:999;pointer-events:none;white-space:nowrap}
+@media(max-width:580px){
+  .vocab-row{grid-template-columns:1fr 1fr 38px}
+  .v-pron{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="flag-strip"></div>
+
+<div style="background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 60%,#1a1a1a 100%);color:white;position:relative;overflow:hidden">
+  <div style="position:absolute;top:-60px;left:-60px;width:280px;height:280px;border-radius:50%;background:rgba(232,160,0,0.07);pointer-events:none"></div>
+  <div style="position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(192,57,43,0.07);pointer-events:none"></div>
+  <div style="max-width:880px;margin:0 auto;padding:14px 20px 0;display:flex;justify-content:space-between;align-items:center">
+    <a href="index_de.html" style="color:rgba(255,255,255,0.55);font-size:0.82rem;text-decoration:none;font-family:'Tajawal',sans-serif">← Deutsch A1</a>
+    <div style="font-family:Lora,serif;font-size:0.9rem;color:#e8a000;direction:ltr">LinguaPath 🇩🇪</div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:5px;padding:10px 16px 0;flex-wrap:wrap">
+    <button class="nav-btn active" onclick="show('vocab',this)">📚 المفردات</button>
+    <button class="nav-btn" onclick="show('story',this)">📖 الحوار</button>
+    <button class="nav-btn" onclick="show('grammar',this)">✏️ القاعدة</button>
+    <button class="nav-btn" onclick="show('listen',this)">🎧 الاستماع</button>
+    <button class="nav-btn" onclick="show('writing',this)">✍️ الكتابة</button>
+    <button class="nav-btn" onclick="show('speaking',this)">💬 المحادثة</button>
+    <button class="nav-btn" onclick="show('realde',this)">🗣️ Real Deutsch</button>
+    <button class="nav-btn" onclick="show('quiz',this)">✅ الاختبار</button>
+  </div>
+  <div style="max-width:880px;margin:0 auto;padding:32px 24px 44px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px">
+    <div>
+      <div style="font-size:0.78rem;letter-spacing:3px;color:#e8a000;font-weight:700;margin-bottom:8px">EINHEIT 29 — A2 🇩🇪</div>
+      <h1 style="font-family:Lora,serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;line-height:1.2;margin-bottom:8px;direction:ltr">Reiseplanung</h1>
+      <p style="font-size:1.1rem;color:rgba(255,255,255,0.75);margin-bottom:6px">التخطيط للسفر</p>
+      <p style="font-size:0.88rem;color:rgba(255,255,255,0.5)">القاعدة: المستقبل — Futur I (werden + Infinitiv)</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;text-align:center">
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:10px 18px">
+        <div style="font-family:Lora,serif;font-size:1.4rem;font-weight:700;color:#e8a000">20</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.5)">كلمة جديدة</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:10px 18px">
+        <div style="font-family:Lora,serif;font-size:1.4rem;font-weight:700;color:#e8a000">8</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.5)">أقسام</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flag-strip"></div>
+
+<div id="sec-vocab" class="section-content active fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">✈️</span>
+      <div><h3>التخطيط للسفر — Reiseplanung</h3><div class="sub">اضغط 🔊 للنطق</div></div>
+    </div>
+    <div class="card-body">
+      <div class="vocab-row vocab-header" style="margin-bottom:8px">
+        <span class="v-de" style="font-family:'Tajawal',sans-serif;color:white">الكلمة الألمانية</span>
+        <span class="v-pron" style="font-family:'Tajawal',sans-serif;color:white">النطق</span>
+        <span class="v-ar">المعنى</span>
+        <span></span>
+      </div>
+      <div id="vocabGrid"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center">
+    <button class="btn btn-dark" onclick="show('story',null)">انتقل للحوار ←</button>
+  </div>
+</div>
+
+<div id="sec-story" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">📖</span>
+      <div><h3>الحوار — Dialog</h3><div class="sub">Felix und Lena planen eine Reise — يخططان لرحلة قادمة</div></div>
+    </div>
+    <div class="card-body">
+      <div style="display:flex;gap:12px;margin-bottom:16px;flex-direction:row-reverse;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:6px;flex-direction:row-reverse">
+          <span style="background:#1a1a1a;color:#e8a000;font-size:0.72rem;font-weight:800;padding:2px 10px;border-radius:20px;font-family:'Tajawal',sans-serif">Felix</span>
+          <span style="font-size:0.82rem;color:#6b7280">ذكر — Mann 🇩🇪</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;flex-direction:row-reverse">
+          <span style="background:#c0392b;color:white;font-size:0.72rem;font-weight:800;padding:2px 10px;border-radius:20px;font-family:'Tajawal',sans-serif">Lena</span>
+          <span style="font-size:0.82rem;color:#6b7280">أنثى — Frau 🌍</span>
+        </div>
+      </div>
+      <div class="story-controls">
+        <button class="story-main-btn" id="storyBtn" onclick="toggleStory()" style="background:#1a56b0;color:white">
+          <span id="sBtnIcon">▶</span><span id="sBtnTxt">استمع للحوار كاملاً</span>
+        </button>
+        <div class="speed-wrap">
+          <label>السرعة:</label>
+          <button class="spd" onclick="setSpd(0.65,this)">🐢</button>
+          <button class="spd active" onclick="setSpd(0.9,this)">🚶</button>
+          <button class="spd" onclick="setSpd(1.2,this)">🏃</button>
+        </div>
+        <button id="trAllBtn" onclick="toggleAllTr()" style="background:#fef9e7;border:1.5px solid #fde68a;border-radius:25px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:0.82rem;font-weight:700;color:#b45309;cursor:pointer">🌐 الترجمة</button>
+      </div>
+      <div class="story-box" id="storyBox"></div>
+      <p style="margin-top:14px;font-size:0.85rem;color:#9ca3af;text-align:right">📌 اضغط 🌐 لترجمة الجملة · 🔊 للاستماع</p>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('vocab',null)">→ المفردات</button>
+    <button class="btn btn-dark" onclick="show('grammar',null)">القاعدة ←</button>
+  </div>
+</div>
+
+<div id="sec-grammar" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">✏️</span>
+      <div><h3>القاعدة — Grammatik</h3><div class="sub">Futur I — werden + Infinitiv</div></div>
+    </div>
+    <div class="card-body">
+      <div class="gram-intro">
+        <p>بالعربية نستخدم "س" أو "سوف" قبل الفعل للمستقبل. بالألمانية، نستخدم فعل <strong style="color:#c0392b;font-family:Lora,serif">werden</strong> مصرّفاً + الفعل الأصلي في صيغة <strong>Infinitiv</strong> في آخر الجملة. الألمان غالباً يستخدمون الحاضر مع كلمة زمنية (مثل morgen) للمستقبل القريب، لكن Futur I يُستخدم للتأكيد أو التنبؤ أو الوعد.</p>
+        <div class="ar-vs-de">
+          <div class="lang-line"><span class="lang-tag ar">عربي</span><span class="txt">سأسافر إلى برلين ← "س" قبل الفعل مباشرة</span></div>
+          <div class="lang-line"><span class="lang-tag de">ألماني</span><span class="txt">Ich <strong>werde</strong> nach Berlin <strong>fahren</strong>. ← werde + الفعل في النهاية</span></div>
+        </div>
+      </div>
+
+      <h4 style="font-weight:800;color:#1a1a1a;margin-bottom:14px;text-align:right">🔨 نبني الجملة معاً خطوة بخطوة</h4>
+      <div class="step-builder">
+        <div class="step-row"><span class="step-num">1</span><span class="step-piece pronoun">Ich</span><span class="step-label">← الضمير</span></div>
+        <div class="step-row"><span class="step-num">2</span><span class="step-piece verb">werde</span><span class="step-label">← werden مصرّفاً (werde مع ich)</span></div>
+        <div class="step-row"><span class="step-num">3</span><span class="step-piece adj">nach Berlin</span><span class="step-label">← باقي الجملة</span></div>
+        <div class="step-row"><span class="step-num">4</span><span class="step-piece reflexive">fahren</span><span class="step-label">← الفعل الأصلي Infinitiv، دائماً في النهاية!</span></div>
+        <div class="step-result"><span>Ich werde nach Berlin fahren. = سأسافر إلى برلين.</span><button class="mini-btn" style="background:white" onclick="speak('Ich werde nach Berlin fahren.',spdRate,'de-DE')">🔊</button></div>
+      </div>
+
+      <h4 style="font-weight:800;color:#1a1a1a;margin-bottom:12px;text-align:right">📋 تصريف werden</h4>
+      <div style="overflow-x:auto;margin-bottom:10px">
+        <table class="konj-table">
+          <thead><tr><th>الضمير</th><th>werden مصرّفاً</th><th>مثال</th></tr></thead>
+          <tbody id="futurTable"></tbody>
+        </table>
+      </div>
+      <p style="font-size:0.82rem;color:#6b7280;text-align:right;margin-bottom:22px">💡 في الحديث اليومي، الألمان يفضّلون غالباً الحاضر + كلمة زمنية ("Morgen fahre ich" بدل "Ich werde morgen fahren") — لكن Futur I أوضح للوعود والتنبؤات.</p>
+
+      <h4 style="font-weight:800;color:#1a1a1a;margin-bottom:14px;text-align:right">📈 أمثلة تتصاعد في التعقيد</h4>
+      <div id="futurExamples"></div>
+
+      <div class="mistakes-box">
+        <div class="title">⚠️ أخطاء شائعة جداً</div>
+        <div class="mistake-line">
+          <span>❌ Ich werde fahren nach Berlin. <span style="color:#9ca3af;font-size:0.8rem">(الفعل ليس في النهاية — خطأ!)</span></span>
+          <span>✅ Ich werde nach Berlin <strong>fahren</strong>. <span style="color:#9ca3af;font-size:0.8rem">(الفعل دائماً في آخر الجملة)</span></span>
+        </div>
+        <div class="mistake-line">
+          <span>❌ Ich werde gehen morgen. <span style="color:#9ca3af;font-size:0.8rem">(الفعل سبق الظرف الزمني خطأً)</span></span>
+          <span>✅ Ich werde morgen <strong>gehen</strong>. <span style="color:#9ca3af;font-size:0.8rem">(الفعل الأصلي يبقى في النهاية دائماً)</span></span>
+        </div>
+      </div>
+
+      <div class="mini-quiz">
+        <div class="mini-quiz-title">✏️ تأكدي من فهمك — صرّفي werden بشكل صحيح</div>
+        <div id="miniQuiz"></div>
+      </div>
+
+      <h4 style="font-weight:800;color:#1a1a1a;margin:24px 0 14px;text-align:right">❓ أسئلة عن خطط السفر</h4>
+      <div id="reiseFragen" style="display:flex;flex-direction:column;gap:8px"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('story',null)">→ الحوار</button>
+    <button class="btn btn-dark" onclick="show('listen',null)">الاستماع ←</button>
+  </div>
+</div>
+
+<div id="sec-listen" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">🎧</span>
+      <div><h3>الاستماع — Hören</h3><div class="sub">حلقتا DW + فيديوهات شرح Futur I (لم نجد أغنية موثوقة)</div></div>
+    </div>
+    <div class="card-body">
+      <div style="background:linear-gradient(135deg,#fef9f0,#fef3c7);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:16px 20px;margin-bottom:20px;display:flex;gap:12px;flex-direction:row-reverse;align-items:flex-start">
+        <span style="font-size:1.5rem">🎯</span>
+        <div style="text-align:right">
+          <p style="font-weight:700;color:#1a1a1a;margin-bottom:4px">نصيحة للاستماع</p>
+          <p style="font-size:0.9rem;color:#6b7280;line-height:1.8">حلقتا DW متتاليتان عن الفندق والقطار — سياق سفر حقيقي ومتكامل.</p>
+        </div>
+      </div>
+      <div id="listenCards"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('grammar',null)">→ القاعدة</button>
+    <button class="btn btn-dark" onclick="show('writing',null)">الكتابة ←</button>
+  </div>
+</div>
+
+<div id="sec-writing" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">✍️</span>
+      <div><h3>الكتابة — Schreiben</h3><div class="sub">اكتب عن خطط سفرك بالألمانية</div></div>
+    </div>
+    <div class="card-body">
+      <p style="text-align:right;font-size:0.97rem;line-height:1.9;color:#374151;margin-bottom:20px">أكمل الجمل — اضغط "📝 نموذج للإجابة" تحت كل سؤال إذا احتجتِ مساعدة.</p>
+      <div style="background:#fffdf7;border:2px dashed #e8a000;border-radius:14px;padding:22px;margin-bottom:16px">
+        <div id="writingForm"></div>
+        <div style="margin-top:20px;padding:16px 20px;background:white;border-radius:12px;border:1px solid #e5e7eb;min-height:90px;border-right:4px solid #e8a000" id="writingPreview">
+          <p style="color:#9ca3af;font-size:0.88rem;text-align:center;margin-top:10px">✨ سيظهر نصك هنا...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('listen',null)">→ الاستماع</button>
+    <button class="btn btn-dark" onclick="show('speaking',null)">المحادثة ←</button>
+  </div>
+</div>
+
+<div id="sec-speaking" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">💬</span>
+      <div><h3>المحادثة — Sprechen</h3><div class="sub">السؤال أولاً، وتحته نموذج الإجابة في صندوق منفصل</div></div>
+    </div>
+    <div class="card-body">
+      <div id="speakingQs"></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('writing',null)">→ الكتابة</button>
+    <button class="btn btn-gold" onclick="show('realde',null)">Real Deutsch ←</button>
+  </div>
+</div>
+
+<div id="sec-realde" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header" style="background:linear-gradient(135deg,#c0392b,#a93226)">
+      <span style="font-size:1.4rem">🗣️</span>
+      <div><h3>Real Deutsch</h3><div class="sub">تعابير حقيقية عن السفر والتخطيط</div></div>
+    </div>
+    <div class="card-body">
+      <div id="realDeContainer"></div>
+      <div style="margin-top:20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-direction:row-reverse">
+          <span style="font-size:1.2rem">💡</span>
+          <h4 style="font-weight:800;font-size:1rem;color:#e8a000">هل تعلم؟</h4>
+        </div>
+        <div id="didYouKnow"></div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px">
+    <button class="btn btn-gray" onclick="show('speaking',null)">→ المحادثة</button>
+    <button class="btn btn-gold" onclick="show('quiz',null)">الاختبار ←</button>
+  </div>
+</div>
+
+<div id="sec-quiz" class="section-content fade-up">
+  <div class="card">
+    <div class="card-header">
+      <span style="font-size:1.4rem">✅</span>
+      <div><h3>الاختبار — Quiz</h3><div class="sub">١٠ أسئلة عن السفر وFutur I</div></div>
+    </div>
+    <div class="card-body">
+      <div id="quizContainer"></div>
+      <div style="display:flex;justify-content:center;gap:12px;margin-top:20px">
+        <button class="btn btn-dark" onclick="checkQuiz()">✔ تحقق من إجاباتي</button>
+        <button class="btn btn-gray" onclick="resetQuiz()">↺ إعادة</button>
+      </div>
+      <div id="quizResult" style="display:none;text-align:center;padding:20px;margin-top:16px;border-radius:14px">
+        <div style="font-size:2.5rem;margin-bottom:8px" id="quizEmoji">🎉</div>
+        <div style="font-weight:800;font-size:1.1rem;color:#1a1a1a;margin-bottom:4px" id="quizScore"></div>
+        <div style="font-size:0.9rem;color:#6b7280" id="quizMsg"></div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:28px;background:white;border-radius:18px;box-shadow:0 4px 24px rgba(0,0,0,0.07)">
+    <div class="flag-strip" style="height:4px;margin:-28px -28px 20px;border-radius:18px 18px 0 0"></div>
+    <div style="font-size:2.5rem;margin-bottom:10px">🎊</div>
+    <div style="font-weight:900;font-size:1.15rem;color:#1a1a1a;margin-bottom:6px">Ausgezeichnet! أكملت الوحدة التاسعة والعشرين!</div>
+    <p style="font-size:0.9rem;color:#6b7280;margin-bottom:16px">الوحدة الثلاثون: النفي — Verneinung (kein/nicht)</p>
+    <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+      <a href="de_unit28_beziehungen.html" class="btn btn-gray" style="text-decoration:none;display:inline-block">← الوحدة الثامنة والعشرون</a>
+      <a href="de_unit30_verneinung.html" class="btn btn-dark" style="text-decoration:none;display:inline-block">الوحدة الثلاثون ←</a>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var vocab = [
+  {de:"planen",         pron:"پلانِن",          ar:"يخطّط", exShow:"Wir planen eine Reise nach Italien.", exAr:"نخطّط لرحلة إلى إيطاليا."},
+  {de:"das Reiseziel",  pron:"داس رايزه-تسيل",  ar:"وجهة السفر", exShow:"Unser Reiseziel ist Rom.", exAr:"وجهة سفرنا روما."},
+  {de:"buchen",         pron:"بوخِن",           ar:"يحجز", exShow:"Ich werde einen Flug buchen.", exAr:"سأحجز رحلة طيران."},
+  {de:"die Buchung",    pron:"دى بوخونغ",       ar:"الحجز", exShow:"Die Buchung war ganz einfach.", exAr:"كان الحجز سهلاً جداً."},
+  {de:"das Visum",      pron:"داس فيزوم",       ar:"التأشيرة", exShow:"Ich brauche ein Visum für dieses Land.", exAr:"أحتاج تأشيرة لهذا البلد."},
+  {de:"der Reisepass",  pron:"در رايزه-پاس",    ar:"جواز السفر", exShow:"Vergiss deinen Reisepass nicht!", exAr:"لا تنسَ جواز سفرك!"},
+  {de:"die Unterkunft", pron:"دى أونتِركونفت",  ar:"السكن/الإقامة", exShow:"Wir haben eine schöne Unterkunft gefunden.", exAr:"وجدنا إقامة جميلة."},
+  {de:"uebernachten",   pron:"أوبِرناختِن",     ar:"يقيم ليلاً", display:"übernachten", exShow:"Wir werden im Hotel übernachten.", exAr:"سنقيم في الفندق."},
+  {de:"das Gepaeck",    pron:"داس غِپِك",       ar:"الحقائب", display:"das Gepäck", exShow:"Mein Gepäck ist noch nicht da.", exAr:"حقائبي لم تأتِ بعد."},
+  {de:"packen",         pron:"پاكِن",           ar:"يحزم/يعبّئ", exShow:"Ich werde meinen Koffer heute packen.", exAr:"سأحزم حقيبتي اليوم."},
+  {de:"die Vorbereitung",pron:"دى فور-بِرايتونغ", ar:"التحضير", exShow:"Die Vorbereitung dauert lange.", exAr:"التحضير يستغرق وقتاً طويلاً."},
+  {de:"die Versicherung",pron:"دى فِرزيشِرونغ",  ar:"التأمين", exShow:"Ich brauche eine Reiseversicherung.", exAr:"أحتاج تأميناً للسفر."},
+  {de:"der Reisefuehrer",pron:"در رايزه-فورِر",  ar:"دليل السفر", display:"der Reiseführer", exShow:"Dieser Reiseführer ist sehr hilfreich.", exAr:"دليل السفر هذا مفيد جداً."},
+  {de:"die Sehenswuerdigkeit",pron:"دى زيهِنسفوردیغكايت", ar:"المعلم السياحي", display:"die Sehenswürdigkeit", exShow:"Wir werden viele Sehenswürdigkeiten besichtigen.", exAr:"سنزور معالم سياحية كثيرة."},
+  {de:"besichtigen",    pron:"بِزيشتيغِن",      ar:"يزور/يتفقّد", exShow:"Wir werden das Museum besichtigen.", exAr:"سنزور المتحف."},
+  {de:"der Ausflug",    pron:"در آوسفلوغ",      ar:"النزهة/الجولة", exShow:"Der Ausflug war wunderschön.", exAr:"كانت الجولة جميلة جداً."},
+  {de:"die Ankunft",    pron:"دى آنكونفت",      ar:"الوصول", exShow:"Unsere Ankunft ist um zehn Uhr.", exAr:"وصولنا في الساعة العاشرة."},
+  {de:"die Abreise",    pron:"دى آبرايزه",      ar:"المغادرة", exShow:"Die Abreise ist am Montag.", exAr:"المغادرة يوم الإثنين."},
+  {de:"werden",         pron:"فِردِن",          ar:"سـ / سوف (للمستقبل)", exShow:"Ich werde nach Spanien fahren.", exAr:"سأسافر إلى إسبانيا."},
+  {de:"vorhaben",       pron:"فور-هابِن",       ar:"ينوي/يخطّط لـ", exShow:"Was hast du für morgen vor?", exAr:"ماذا تنوي فعله غداً؟"}
+];
+
+var futurData = [
+  {pr:"ich",       werden:"werde"},
+  {pr:"du",        werden:"wirst"},
+  {pr:"er/sie/es", werden:"wird"},
+  {pr:"wir",       werden:"werden"},
+  {pr:"ihr",       werden:"werdet"},
+  {pr:"sie/Sie",   werden:"werden"}
+];
+
+var futurExamples = [
+  {num:"1️⃣", de:"Ich werde meinen Koffer packen.", note:"جملة بسيطة — خطة فردية"},
+  {num:"2️⃣", de:"Wir werden ein Hotel in Rom buchen.", note:"خطة جماعية بفعل buchen"},
+  {num:"3️⃣", de:"Wenn wir ankommen, werden wir sofort die Sehenswürdigkeiten besichtigen.", note:"جملة كاملة بشرط ونتيجة في المستقبل"}
+];
+
+var reiseFragen = [
+  {q:"Wohin wirst du im Urlaub fahren?", model:"Ich werde nach Italien fahren.", pron:"فوهين فيرست دو إم أورلاوب فارِن", ar:"إلى أين ستسافر في العطلة؟"},
+  {q:"Was wirst du zuerst packen?", model:"Ich werde zuerst meine Kleidung packen.", pron:"فاس فيرست دو تسوإيرست پاكِن", ar:"ماذا ستحزم أولاً؟"},
+  {q:"Wirst du eine Reiseversicherung buchen?", model:"Ja, ich werde eine Versicherung buchen.", pron:"فيرست دو آينه رايزه-فِرزيشِرونغ بوخِن", ar:"هل ستحجز تأمين سفر؟"}
+];
+
+var storyData = [
+  {spk:"F", de:"Lena, wir werden bald unsere große Reise planen müssen!", display:"Lena, wir werden bald unsere große Reise planen müssen!", ar:"لينا، سنحتاج للتخطيط لرحلتنا الكبيرة قريباً!"},
+  {spk:"L", de:"Stimmt! Wohin wirst du am liebsten fahren?", display:"Stimmt! Wohin wirst du am liebsten fahren?", ar:"صحيح! إلى أين تحب السفر أكثر؟"},
+  {spk:"F", de:"Ich werde gern nach Italien fahren. Wie findest du das?", display:"Ich werde gern nach Italien fahren. Wie findest du das?", ar:"سأحب السفر إلى إيطاليا. كيف تجدين هذا؟"},
+  {spk:"L", de:"Das wird bestimmt toll! Wir werden ein Hotel buchen müssen.", display:"Das wird bestimmt toll! Wir werden ein Hotel buchen müssen.", ar:"سيكون رائعاً بالتأكيد! سنحتاج لحجز فندق."},
+  {spk:"F", de:"Ja, und wir werden auch unsere Reisepässe prüfen müssen.", display:"Ja, und wir werden auch unsere Reisepässe prüfen müssen.", ar:"نعم، وسنحتاج أيضاً لفحص جوازات سفرنا."},
+  {spk:"L", de:"Wann werden wir die Flüge buchen?", display:"Wann werden wir die Flüge buchen?", ar:"متى سنحجز رحلات الطيران؟"},
+  {spk:"F", de:"Ich werde sie nächste Woche buchen.", display:"Ich werde sie nächste Woche buchen.", ar:"سأحجزها الأسبوع القادم."},
+  {spk:"L", de:"Perfekt! Was werden wir dort besichtigen?", display:"Perfekt! Was werden wir dort besichtigen?", ar:"ممتاز! ماذا سنزور هناك؟"},
+  {spk:"F", de:"Wir werden das Kolosseum und viele Museen besichtigen.", display:"Wir werden das Kolosseum und viele Museen besichtigen.", ar:"سنزور الكولوسيوم ومتاحف كثيرة."},
+  {spk:"L", de:"Wie lange werden wir dort bleiben?", display:"Wie lange werden wir dort bleiben?", ar:"كم سنبقى هناك؟"},
+  {spk:"F", de:"Wir werden ungefähr zehn Tage bleiben.", display:"Wir werden ungefähr zehn Tage bleiben.", ar:"سنبقى حوالي عشرة أيام."},
+  {spk:"L", de:"Das wird eine unvergessliche Reise werden!", display:"Das wird eine unvergessliche Reise werden!", ar:"ستكون رحلة لا تُنسى!"}
+];
+
+var listenData = [
+  {icon:"🏨", name:"Nicos Weg A2 Folge 18 — Im Hotel", channel:"Deutsche Welle (DW) — رسمي", desc:"حلقة DW رسمية عن حجز فندق والإقامة فيه", url:"https://www.youtube.com/watch?v=0ijgOLUE3NQ", tag:"DW الفندق"},
+  {icon:"🚆", name:"Nicos Weg A2 Folge 19 — Bahnreisen", channel:"Deutsche Welle (DW)", desc:"حلقة DW عن السفر بالقطار وتخطيط الرحلة", url:"https://www.youtube.com/watch?v=iU7swr8-hk0", tag:"DW القطار"},
+  {icon:"📖", name:"Zeitform Futur 1 (Zukunft)", channel:"شرح القاعدة — Ivi-Lernvideo", desc:"شرح واضح لكيفية تكوين واستخدام صيغة Futur I", url:"https://www.youtube.com/watch?v=OVLXT5Sj4fQ", tag:"شرح القاعدة"},
+  {icon:"🔍", name:"Zeitformen bilden: FUTUR I und FUTUR II", channel:"شرح مقارن بين الزمنين", desc:"شرح يوضح الفرق بين Futur I و Futur II بأمثلة عملية", url:"https://www.youtube.com/watch?v=uq1AfGkz0dc", tag:"شرح مقارن"}
+];
+
+var writingFields = [
+  {id:"wgo",    prefix:"Ich werde nach",        suffix:"fahren.", label:"وجهة سفري", modelDe:"Ich werde nach Spanien fahren.", modelAr:"سأسافر إلى إسبانيا."},
+  {id:"wbook",  prefix:"Ich werde",              suffix:"buchen.", label:"ماذا سأحجز", modelDe:"Ich werde ein Hotel buchen.", modelAr:"سأحجز فندقاً."},
+  {id:"wvisit", prefix:"Ich werde",              suffix:"besichtigen.", label:"ماذا سأزور", modelDe:"Ich werde viele Museen besichtigen.", modelAr:"سأزور متاحف كثيرة."},
+  {id:"wpack",  prefix:"In meinen Koffer werde ich", suffix:"packen.", label:"ماذا سأحزم", modelDe:"In meinen Koffer werde ich warme Kleidung packen.", modelAr:"في حقيبتي سأحزم ملابس دافئة."}
+];
+
+var speakingQs = [
+  {q:"Wohin wirst du nächstes Jahr reisen?", model:"Ich werde nach Frankreich reisen.", modelAr:"سأسافر إلى فرنسا.", ar:"إلى أين ستسافر السنة القادمة؟"},
+  {q:"Was wirst du als Erstes packen?", model:"Ich werde zuerst meinen Reisepass packen.", modelAr:"سأحزم أولاً جواز سفري.", ar:"ماذا ستحزم أولاً؟"},
+  {q:"Wirst du ein Hotel oder eine Wohnung buchen?", model:"Ich werde ein Hotel buchen.", modelAr:"سأحجز فندقاً.", ar:"هل ستحجز فندقاً أم شقة؟"},
+  {q:"Wie lange wirst du im Urlaub bleiben?", model:"Ich werde eine Woche bleiben.", modelAr:"سأبقى أسبوعاً.", ar:"كم ستبقى في العطلة؟"},
+  {q:"Was wirst du dort besichtigen?", model:"Ich werde die berühmten Sehenswürdigkeiten besichtigen.", modelAr:"سأزور المعالم السياحية المشهورة.", ar:"ماذا ستزور هناك؟"}
+];
+
+var realDE = [
+  {expr:"Gute Reise!", pron:"غوته رايزه", meaning:"رحلة سعيدة!", formal:"Ich wünsche dir eine angenehme Reise.", example:"Du fliegst morgen? Gute Reise!", exampleAr:"تطير غداً؟ رحلة سعيدة!", note:"العبارة الأساسية لتوديع شخص مسافر — مذكورة سابقاً، تستحق التذكير دائماً"},
+  {expr:"Ich habe Fernweh.", pron:"إخ هابه فيرنفيه", meaning:"أشتاق للسفر! (حرفياً: حنين للبعيد)", formal:"Ich sehne mich danach zu reisen.", example:"Nach so langer Zeit zu Hause habe ich richtig Fernweh.", exampleAr:"بعد وقت طويل في البيت أشتاق للسفر فعلاً.", note:"كلمة ألمانية مميزة لا يوجد لها مقابل دقيق بالعربية — عكس الحنين للوطن"},
+  {expr:"Alles im Griff!", pron:"آلِس إم غريف", meaning:"كل شيء تحت السيطرة!", formal:"Ich habe alles unter Kontrolle.", example:"Die Reisevorbereitungen? Alles im Griff!", exampleAr:"تحضيرات السفر؟ كل شيء تحت السيطرة!", note:"تعبير ثقة شائع جداً عند التخطيط لشيء منظّم"}
+];
+
+var didYouKnow = [
+  {flag:"🇩🇪", fact:"الألمان من أكثر شعوب العالم سفراً — لديهم أكثر من <strong>٣٠ يوم عطلة سنوية</strong> مدفوعة الأجر في المتوسط، مما يجعل السفر جزءاً أساسياً من الثقافة."},
+  {flag:"🎫", fact:"تذكرة <strong>Deutschlandticket</strong> تسمح بالسفر بكل وسائل النقل العام المحلي في ألمانيا بسعر شهري ثابت — مفيدة جداً لمن يخطط لاستكشاف عدة مدن."},
+  {flag:"🧳", fact:"كلمة <strong>Fernweh</strong> (الحنين للسفر/البعيد) عكس Heimweh (الحنين للوطن) — تعبّر عن ثقافة ألمانية عميقة في حب السفر والاستكشاف."}
+];
+
+var quizData = [
+  {q:"كيف تقول 'سأسافر' بالألمانية (Futur I)؟", opts:["Ich fahre","Ich werde fahren","Ich bin gefahren","Ich fuhr"], ans:1},
+  {q:"'Ich werde nach Berlin ___.' (الفعل أين؟)", opts:["fahren nach Berlin","fahren","nach fahren Berlin","Berlin fahren nach"], ans:1},
+  {q:"كيف تصرّف 'werden' مع 'du'؟", opts:["werde","wirst","wird","werdet"], ans:1},
+  {q:"ما معنى 'buchen'؟", opts:["يزور","يحجز","يحزم","يخطّط"], ans:1},
+  {q:"كيف تقول 'جواز السفر' بالألمانية؟", opts:["das Visum","der Reisepass","das Gepäck","die Buchung"], ans:1},
+  {q:"'Ich habe Fernweh.' معناها ___", opts:["أشتاق للوطن","أشتاق للسفر!","أنا متعب","لا أحب السفر"], ans:1},
+  {q:"كيف تقول 'يزور/يتفقّد' بالألمانية؟", opts:["packen","buchen","besichtigen","planen"], ans:2},
+  {q:"'Alles im Griff!' تعني ___", opts:["كل شيء فوضى","كل شيء تحت السيطرة!","لا أعرف شيئاً","أحتاج مساعدة"], ans:1},
+  {q:"كيف تصرّف 'werden' مع 'wir'؟", opts:["werde","wirst","wird","werden"], ans:3},
+  {q:"الألمان في الحديث اليومي يفضّلون غالباً ___ للمستقبل القريب", opts:["Futur I دائماً","الحاضر + كلمة زمنية","الماضي","لا يتحدثون عن المستقبل"], ans:1}
+];
+
+var spdRate = 0.9;
+var storyRef = {on:false, spd:0.9};
+function speak(text, rate, lang) {
+  if (!window.speechSynthesis) return null;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = lang || "de-DE"; u.rate = rate || spdRate;
+  window.speechSynthesis.speak(u); return u;
+}
+function setSpd(r, btn) {
+  spdRate = r; storyRef.spd = r;
+  var spds = document.querySelectorAll(".spd");
+  for (var i=0;i<spds.length;i++) spds[i].classList.remove("active");
+  btn.classList.add("active");
+  if (storyRef.on) { stopStory(); setTimeout(startStory, 80); }
+}
+
+function buildVocab() {
+  var h = [];
+  for (var i=0;i<vocab.length;i++) {
+    var v = vocab[i];
+    var shown = v.display || v.de;
+    h.push('<div class="vocab-block">' +
+      '<div class="vocab-row ' + (i%2===0?"even":"odd") + '">' +
+        '<span class="v-de">' + shown + "</span>" +
+        '<span class="v-pron">' + v.pron + "</span>" +
+        '<span class="v-ar">' + v.ar + "</span>" +
+        '<button class="play-btn idle" id="vb' + i + '" onclick="playVocab(' + i + ')">🔊</button>' +
+      "</div>" +
+      '<div class="ex-row">' +
+        '<span class="ex-icon">💬</span>' +
+        '<div class="ex-text-wrap">' +
+          '<div class="ex-de">' + v.exShow + "</div>" +
+          '<div class="ex-ar">' + v.exAr + "</div>" +
+        "</div>" +
+        '<button class="mini-btn" onclick="playExample(' + i + ')">🔊</button>' +
+      "</div>" +
+    "</div>");
+  }
+  document.getElementById("vocabGrid").innerHTML = h.join("");
+}
+function playVocab(idx) {
+  document.querySelectorAll(".play-btn").forEach(function(b){ b.className="play-btn idle"; b.textContent="🔊"; });
+  var btn = document.getElementById("vb" + idx);
+  if (btn) { btn.className = "play-btn playing"; btn.textContent = "⏸"; }
+  var v = vocab[idx];
+  var u = speak(v.display || v.de, spdRate, "de-DE");
+  if (u) u.onend = function(){ if (btn){ btn.className="play-btn idle"; btn.textContent="🔊"; } };
+}
+function playExample(idx) { speak(vocab[idx].exShow, spdRate, "de-DE"); }
+
+function buildFuturTable() {
+  var h = [];
+  for (var i=0;i<futurData.length;i++) {
+    var f = futurData[i];
+    h.push("<tr><td><span class=\"konj-pronoun\">" + f.pr + "</span></td><td>" + f.werden + "</td><td style=\"direction:ltr;font-family:Lora,serif;font-size:0.88rem\">" + f.pr + " " + f.werden + " ... fahren.</td></tr>");
+  }
+  document.getElementById("futurTable").innerHTML = h.join("");
+}
+
+function buildFuturExamples() {
+  var h = [];
+  for (var i=0;i<futurExamples.length;i++) {
+    var ex = futurExamples[i];
+    h.push('<div class="example-row">' +
+      '<div style="flex:1">' +
+        '<div style="font-family:Lora,serif;direction:ltr;font-size:0.92rem;color:#1a1a1a;margin-bottom:4px">' + ex.num + " " + ex.de + "</div>" +
+        '<div style="font-size:0.82rem;color:#6b7280;text-align:right">' + ex.note + "</div>" +
+      "</div>" +
+      '<button class="mini-btn" onclick="speak(\'' + ex.de.replace(/'/g,"\\'") + '\',spdRate,\'de-DE\')">🔊</button>' +
+    "</div>");
+  }
+  document.getElementById("futurExamples").innerHTML = h.join("");
+}
+
+function buildMiniQuiz() {
+  var h = [];
+  for (var i=0;i<miniQuizData.length;i++) {
+    var m = miniQuizData[i];
+    var opts = "";
+    for (var j=0;j<m.opts.length;j++) {
+      opts += '<button class="mq-opt" id="mqo' + i + "-" + j + '" onclick="checkMiniQuiz(' + i + "," + j + ')">' + m.opts[j] + "</button>";
+    }
+    h.push('<div class="mq-item">' +
+      '<div class="mq-q">' + (i+1) + ". " + m.sentence + "</div>" +
+      '<div class="mq-opts">' + opts + "</div>" +
+      '<div class="mq-fb" id="mqfb' + i + '"></div>' +
+    "</div>");
+  }
+  document.getElementById("miniQuiz").innerHTML = h.join("");
+}
+function checkMiniQuiz(qIdx, optIdx) {
+  var m = miniQuizData[qIdx];
+  var chosen = m.opts[optIdx];
+  for (var j=0;j<m.opts.length;j++) {
+    document.getElementById("mqo" + qIdx + "-" + j).classList.remove("correct","wrong");
+  }
+  var fb = document.getElementById("mqfb" + qIdx);
+  if (chosen === m.correct) {
+    document.getElementById("mqo" + qIdx + "-" + optIdx).classList.add("correct");
+    fb.textContent = "✅ صحيح! " + m.sentence.replace("___", m.correct);
+    fb.style.color = "#00643c";
+  } else {
+    document.getElementById("mqo" + qIdx + "-" + optIdx).classList.add("wrong");
+    var correctIdx = m.opts.indexOf(m.correct);
+    document.getElementById("mqo" + qIdx + "-" + correctIdx).classList.add("correct");
+    fb.textContent = "❌ خطأ — الصحيح: " + m.sentence.replace("___", m.correct);
+    fb.style.color = "#c0392b";
+  }
+  fb.classList.add("show");
+}
+
+function buildReiseFragen() {
+  var h = [];
+  for (var i=0;i<reiseFragen.length;i++) {
+    var w = reiseFragen[i];
+    h.push('<div style="background:#f8faff;border-radius:10px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;gap:10px">' +
+      '<div style="text-align:right;flex:1">' +
+        '<div style="font-family:Lora,serif;font-weight:700;color:#1a1a1a;direction:ltr;margin-bottom:3px">' + w.q + "</div>" +
+        '<div style="font-size:0.78rem;color:#e8a000;font-weight:700;margin-bottom:2px">' + w.pron + "</div>" +
+        '<div style="font-size:0.82rem;color:#6b7280">' + w.ar + ' ← <span style="font-family:Lora,serif;color:#00643c">' + w.model + "</span></div>" +
+      "</div>" +
+      '<button class="play-btn idle" onclick="playReiseFrage(' + i + ')">🔊</button>' +
+    "</div>");
+  }
+  document.getElementById("reiseFragen").innerHTML = h.join("");
+}
+function playReiseFrage(idx) { speak(reiseFragen[idx].q, spdRate, "de-DE"); }
+
+function buildStory() {
+  var h = [];
+  for (var i=0;i<storyData.length;i++) {
+    var line = storyData[i];
+    var name = line.spk === "F" ? "Felix" : "Lena";
+    h.push('<div class="dialog-line speaker-' + line.spk + '" id="sl' + i + '">' +
+      '<div class="dl-main">' +
+        '<span class="speaker-badge">' + name + "</span>" +
+        '<span class="dialog-text">' + line.display + "</span>" +
+        '<div class="dl-btns">' +
+          '<button class="dl-btn" onclick="playLine(' + i + ')" title="استمع">🔊</button>' +
+          '<button class="dl-btn dl-tr-btn" onclick="toggleTr(' + i + ')" title="الترجمة">🌐</button>' +
+        "</div>" +
+      "</div>" +
+      '<div id="tr' + i + '" class="dl-ar">' + line.ar + "</div>" +
+    "</div>");
+  }
+  document.getElementById("storyBox").innerHTML = h.join("");
+}
+function playLine(i) {
+  stopStory(); hlLine(i);
+  var u = speak(storyData[i].display, spdRate, "de-DE");
+  if (u) u.onend = function(){ hlLine(-1); };
+}
+function hlLine(i) {
+  document.querySelectorAll(".dialog-line").forEach(function(l){ l.classList.remove("hl"); });
+  if (i>=0) { var el=document.getElementById("sl"+i); if(el) el.classList.add("hl"); }
+}
+function toggleTr(i) {
+  var el = document.getElementById("tr"+i);
+  if (el) el.style.display = el.style.display==="block"?"none":"block";
+}
+var _trAll = false;
+function toggleAllTr() {
+  _trAll = !_trAll;
+  for (var i=0;i<storyData.length;i++) {
+    var el=document.getElementById("tr"+i);
+    if(el) el.style.display=_trAll?"block":"none";
+  }
+  var btn=document.getElementById("trAllBtn");
+  if(btn) btn.textContent=_trAll?"🙈 أخفِ الكل":"🌐 الترجمة";
+}
+function startStory() {
+  storyRef.on=true;
+  document.getElementById("storyBtn").style.background="#059669";
+  document.getElementById("sBtnIcon").textContent="⏹";
+  document.getElementById("sBtnTxt").textContent="إيقاف الحوار";
+  playSeq(0);
+}
+function stopStory() {
+  storyRef.on=false;
+  if(window.speechSynthesis) window.speechSynthesis.cancel();
+  hlLine(-1);
+  var btn=document.getElementById("storyBtn");
+  if(btn){ btn.style.background="#1a56b0";
+    document.getElementById("sBtnIcon").textContent="▶";
+    document.getElementById("sBtnTxt").textContent="استمع للحوار كاملاً"; }
+}
+function playSeq(i) {
+  if(!storyRef.on||i>=storyData.length){ stopStory(); return; }
+  hlLine(i);
+  var u=new SpeechSynthesisUtterance(storyData[i].display);
+  u.lang="de-DE"; u.rate=storyRef.spd;
+  u.onend=function(){ if(storyRef.on) setTimeout(function(){ playSeq(i+1); },380); };
+  if(window.speechSynthesis){ window.speechSynthesis.cancel(); window.speechSynthesis.speak(u); }
+}
+function toggleStory(){ storyRef.on?stopStory():startStory(); }
+
+function buildListening() {
+  var h = [];
+  for (var i=0;i<listenData.length;i++) {
+    var r = listenData[i];
+    h.push('<div class="listen-card"><span style="font-size:1.8rem;flex-shrink:0">' + r.icon + '</span><div style="flex:1;text-align:right"><div style="font-weight:700;font-size:0.95rem;color:#1a1a1a">' + r.name + '</div><div style="font-size:0.75rem;color:#e8a000;font-weight:700">' + r.channel + '</div><div style="font-size:0.82rem;color:#6b7280">' + r.desc + '</div></div><span style="background:#fef3c7;color:#92400e;font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap">' + r.tag + '</span><a class="listen-link" href="' + r.url + '" target="_blank" rel="noopener noreferrer">▶ افتح</a></div>');
+  }
+  document.getElementById("listenCards").innerHTML = h.join("");
+}
+
+function buildWriting() {
+  var h = [];
+  for (var i=0;i<writingFields.length;i++) {
+    var f = writingFields[i];
+    h.push('<div class="writing-line"><label>' + f.label + ':</label><span class="w-fixed" style="font-size:0.95rem;color:#6b7280">' + f.prefix + '</span><input class="w-input" id="' + f.id + '" placeholder="اكتب هنا..." oninput="updatePreview()"><span class="w-fixed" style="color:#6b7280">' + f.suffix + "</span></div>");
+    h.push('<button class="wf-model-btn" onclick="toggleWModel(' + i + ')">📝 <span id="wfLabel' + i + '">نموذج للإجابة</span></button>');
+    h.push('<div class="wf-model-box" id="wfModel' + i + '"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-direction:row-reverse"><div class="wf-model-de" style="margin-bottom:0">' + f.modelDe + '</div><button class="mini-btn" onclick="playWModel(' + i + ')">🔊</button></div><div class="wf-model-ar">' + f.modelAr + "</div></div>");
+  }
+  document.getElementById("writingForm").innerHTML = h.join("");
+}
+function playWModel(idx) { speak(writingFields[idx].modelDe, spdRate, "de-DE"); }
+function toggleWModel(idx) {
+  var box = document.getElementById("wfModel" + idx);
+  var label = document.getElementById("wfLabel" + idx);
+  if (!box) return;
+  var isOpen = box.style.display === "block";
+  box.style.display = isOpen ? "none" : "block";
+  if (label) label.textContent = isOpen ? "نموذج للإجابة" : "أخفِ النموذج";
+}
+function updatePreview() {
+  var lines = [];
+  for (var i=0;i<writingFields.length;i++) {
+    var f = writingFields[i];
+    var inp = document.getElementById(f.id);
+    var val = inp ? inp.value.trim() : "";
+    if (val) lines.push(f.prefix + " <strong>" + val + "</strong> " + f.suffix);
+  }
+  document.getElementById("writingPreview").innerHTML = lines.length
+    ? '<div style="font-family:Lora,serif;font-size:1rem;line-height:2.4;direction:ltr;color:#1a1a1a">' + lines.join("<br>") + "</div>"
+    : '<p style="color:#9ca3af;font-size:0.88rem;text-align:center;margin-top:10px">✨ سيظهر نصك هنا...</p>';
+}
+
+function buildSpeaking() {
+  var h = [];
+  for (var i=0;i<speakingQs.length;i++) {
+    var q = speakingQs[i];
+    h.push('<div class="speaking-block">' +
+      '<div class="sq-question">' +
+        '<div>' +
+          '<div class="sq-ar">' + (i+1) + ". " + q.ar + '</div>' +
+          '<div class="sq-de">' + q.q + '</div>' +
+        '</div>' +
+        '<button class="play-btn idle" style="flex-shrink:0" onclick="playSpeakingQ(' + i + ')">🔊</button>' +
+      '</div>' +
+      '<div class="sq-model-box">' +
+        '<div>' +
+          '<div class="sq-model-label">✅ نموذج الإجابة</div>' +
+          '<div class="sq-model-de">' + q.model + '</div>' +
+          '<div class="sq-model-ar">' + q.modelAr + '</div>' +
+        '</div>' +
+        '<button class="mini-btn" onclick="playSpeakingModel(' + i + ')">🔊</button>' +
+      '</div>' +
+    '</div>');
+  }
+  document.getElementById("speakingQs").innerHTML = h.join("");
+}
+function playSpeakingQ(idx) { speak(speakingQs[idx].q, spdRate, "de-DE"); }
+function playSpeakingModel(idx) { speak(speakingQs[idx].model, spdRate, "de-DE"); }
+
+function buildRealDE() {
+  var h = [];
+  for (var i=0;i<realDE.length;i++) {
+    var e = realDE[i];
+    h.push('<div class="rd-card">' +
+      '<div class="rd-head">' +
+        '<div class="rd-expr-wrap">' +
+          '<span class="rd-expr">' + e.expr + "</span>" +
+          '<span class="rd-pron">' + e.pron + "</span>" +
+        "</div>" +
+        '<button class="play-btn idle" style="width:32px;height:32px;font-size:0.85rem;flex-shrink:0" onclick="playRealDE(' + i + ')">🔊</button>' +
+      "</div>" +
+      '<div class="rd-meaning">' + e.meaning + "</div>" +
+      '<div class="rd-ex-row">' +
+        '<span class="rd-ex-de">' + e.example + "</span>" +
+        '<button class="mini-btn" onclick="playRealDE(' + i + ')">🔊</button>' +
+        '<button class="mini-btn" onclick="toggleRdEx(' + i + ')">🌐</button>' +
+      "</div>" +
+      '<div class="rd-ex-ar" id="rdExBox' + i + '">' + e.exampleAr + "</div>" +
+      '<div class="rd-note">💡 ' + e.note + "</div>" +
+    "</div>");
+  }
+  document.getElementById("realDeContainer").innerHTML = h.join("");
+  var dy = [];
+  for (var k=0;k<didYouKnow.length;k++) {
+    var f = didYouKnow[k];
+    dy.push('<div style="display:flex;align-items:flex-start;gap:12px;background:linear-gradient(135deg,#fffdf0,#fef3c7);border:1px solid rgba(232,160,0,0.3);border-radius:12px;padding:14px 18px;margin-bottom:10px;flex-direction:row-reverse">' +
+      '<span style="font-size:1.4rem;flex-shrink:0">' + f.flag + "</span>" +
+      '<p style="font-size:0.92rem;line-height:1.8;color:#374151;text-align:right">' + f.fact + "</p>" +
+    "</div>");
+  }
+  document.getElementById("didYouKnow").innerHTML = dy.join("");
+}
+function playRealDE(idx) { speak(realDE[idx].expr, spdRate, "de-DE"); }
+function toggleRdEx(idx) {
+  var box = document.getElementById("rdExBox" + idx);
+  if (!box) return;
+  box.style.display = box.style.display === "block" ? "none" : "block";
+}
+
+var quizAnswers = new Array(quizData.length).fill(null);
+function buildQuiz() {
+  var h = [];
+  for (var qi=0;qi<quizData.length;qi++) {
+    var q = quizData[qi];
+    var opts = "";
+    for (var oi=0;oi<q.opts.length;oi++) {
+      var opt = q.opts[oi];
+      var dir = /[\u0600-\u06FF]/.test(opt) ? "rtl" : "ltr";
+      opts += '<div class="quiz-opt" id="qo' + qi + "-" + oi + '" onclick="selectOpt(' + qi + "," + oi + ')"><span style="font-family:Lora,serif;font-size:0.95rem;direction:' + dir + '">' + opt + "</span></div>";
+    }
+    var qDir = /[\u0600-\u06FF]/.test(q.q) ? "rtl" : "ltr";
+    h.push('<div class="quiz-q"><p style="direction:' + qDir + '">' + (qi+1) + ". " + q.q + '</p><div class="quiz-opts">' + opts + "</div></div>");
+  }
+  document.getElementById("quizContainer").innerHTML = h.join("");
+}
+function selectOpt(qi, oi) {
+  quizAnswers[qi] = oi;
+  for (var i=0;i<quizData[qi].opts.length;i++) {
+    var el = document.getElementById("qo" + qi + "-" + i);
+    if (el) { el.classList.remove("correct","wrong"); el.style.borderColor = ""; }
+  }
+  var sel = document.getElementById("qo" + qi + "-" + oi);
+  if (sel) sel.style.borderColor = "#1a1a1a";
+}
+function checkQuiz() {
+  var score = 0;
+  for (var qi=0;qi<quizData.length;qi++) {
+    var q = quizData[qi];
+    for (var i=0;i<q.opts.length;i++) {
+      var el = document.getElementById("qo" + qi + "-" + i);
+      if (!el) continue;
+      el.classList.remove("correct","wrong");
+      if (i === q.ans) el.classList.add("correct");
+      else if (quizAnswers[qi] === i) el.classList.add("wrong");
+    }
+    if (quizAnswers[qi] === q.ans) score++;
+  }
+  var res = document.getElementById("quizResult");
+  var pct = Math.round(score / quizData.length * 100);
+  res.style.display = "block";
+  document.getElementById("quizEmoji").textContent = pct===100?"🏆":pct>=75?"🎉":pct>=50?"💪":"📚";
+  document.getElementById("quizScore").textContent = score + " من " + quizData.length + " (" + pct + "%)";
+  document.getElementById("quizMsg").textContent = pct===100 ? "Ausgezeichnet! جاهز/ة للوحدة الثلاثين والأخيرة!" : pct>=75 ? "Sehr gut! راجع الخاطئة." : pct>=50 ? "Gut! راجع تصريف werden." : "Noch einmal! راجع الوحدة كاملة.";
+  res.style.background = pct >= 75 ? "#f0fdf4" : "#fef9f0";
+  res.scrollIntoView({behavior:"smooth", block:"center"});
+}
+function resetQuiz() {
+  quizAnswers = new Array(quizData.length).fill(null);
+  document.querySelectorAll(".quiz-opt").forEach(function(el){ el.classList.remove("correct","wrong"); el.style.borderColor=""; });
+  document.getElementById("quizResult").style.display = "none";
+}
+
+function show(id, clickedBtn) {
+  document.querySelectorAll(".section-content").forEach(function(s){ s.classList.remove("active","fade-up"); });
+  var target = document.getElementById("sec-" + id);
+  target.classList.add("active");
+  setTimeout(function(){ target.classList.add("fade-up"); }, 10);
+  window.scrollTo({top:0, behavior:"smooth"});
+  document.querySelectorAll(".nav-btn").forEach(function(b){ b.classList.remove("active"); });
+  if (clickedBtn) { clickedBtn.classList.add("active"); return; }
+  var map = {vocab:0, story:1, grammar:2, listen:3, writing:4, speaking:5, realde:6, quiz:7};
+  var btns = document.querySelectorAll(".nav-btn");
+  if (btns[map[id]] !== undefined) btns[map[id]].classList.add("active");
+}
+
+var miniQuizData = [
+  {sentence:"Ich ___ nach Italien fahren.", correct:"werde", opts:["werde","wirst","wird","werdet"]},
+  {sentence:"Du ___ deinen Koffer packen.", correct:"wirst", opts:["werde","wirst","wird","werden"]},
+  {sentence:"Wir ___ ein Hotel buchen.", correct:"werden", opts:["werde","wirst","wird","werden"]}
+];
+
+buildVocab();
+buildFuturTable();
+buildFuturExamples();
+buildMiniQuiz();
+buildReiseFragen();
+buildStory();
+buildListening();
+buildWriting();
+buildSpeaking();
+buildRealDE();
+buildQuiz();
+</script>
+</body>
+</html>
